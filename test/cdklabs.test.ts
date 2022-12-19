@@ -1,6 +1,6 @@
 import { Testing } from 'projen';
 import * as YAML from 'yaml';
-import { CdklabsConstructLibrary, CdklabsConstructLibraryOptions, CdklabsTypeScriptProject, CdklabsTypeScriptProjectOptions } from '../../src/cdklabs';
+import { CdklabsConstructLibrary, CdklabsConstructLibraryOptions, CdklabsTypeScriptProject, CdklabsTypeScriptProjectOptions } from '../src/cdklabs';
 
 describe('CdklabsConstructLibrary', () => {
   test('synthesizes with default settings', () => {

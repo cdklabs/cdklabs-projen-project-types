@@ -1,8 +1,13 @@
 import { UpdateSnapshot } from 'projen/lib/javascript';
-import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions } from './cdk';
+import {
+  CdkConstructLibrary,
+  CdkConstructLibraryOptions,
+  CdkTypeScriptProject,
+  CdkTypeScriptProjectOptions,
+} from './cdk';
 
 // override these properties no matter what values are given client-side
-export const cdklabsForcedProps = {
+const cdklabsForcedProps = {
   author: 'Amazon Web Services',
   authorName: 'Amazon Web Services',
   authorAddress: 'aws-cdk-dev@amazon.com',
@@ -10,8 +15,7 @@ export const cdklabsForcedProps = {
   authorOrganization: true,
 };
 
-
-export const cdklabsDefaultProps = {
+const cdklabsDefaultProps = {
   autoApproveUpgrades: true,
   autoApproveOptions: {
     allowedUsernames: ['cdklabs-automation'],
