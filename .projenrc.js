@@ -5,7 +5,8 @@ const project = new cdk.JsiiProject({
   defaultReleaseBranch: 'main',
   name: 'cdklabs-projen-project-types',
   repositoryUrl: 'https://github.com/cdklabs/cdklabs-projen-project-types.git',
-  deps: ['projen', 'yaml'],
+  deps: ['projen'],
+  bundledDeps: ['yaml'],
   peerDeps: ['projen'],
 });
 project.synth();

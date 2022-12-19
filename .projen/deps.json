@@ -91,6 +91,10 @@
       "type": "build"
     },
     {
+      "name": "yaml",
+      "type": "bundled"
+    },
+    {
       "name": "@types/babel__traverse",
       "version": "7.18.2",
       "type": "override"
@@ -106,10 +110,6 @@
     },
     {
       "name": "projen",
-      "type": "runtime"
-    },
-    {
-      "name": "yaml",
       "type": "runtime"
     }
   ],
