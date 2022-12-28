@@ -1,5 +1,6 @@
 import { UpdateSnapshot } from 'projen/lib/javascript';
 import { deepMerge } from 'projen/lib/util';
+
 import {
   CdkConstructLibrary,
   CdkConstructLibraryOptions,
