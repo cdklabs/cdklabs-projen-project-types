@@ -1,4 +1,6 @@
 import { UpdateSnapshot } from 'projen/lib/javascript';
+import { deepMerge } from 'projen/lib/util';
+
 import {
   CdkConstructLibrary,
   CdkConstructLibraryOptions,
@@ -28,7 +30,51 @@ const cdklabsDefaultProps = {
   defaultReleaseBranch: 'main',
 };
 
+function createCdklabsPublishingDefaults(npmPackageName: string) {
+  return {
+    publishToPypi: {
+      distName: npmPackageName,
+      module: changeDelimiter(npmPackageName, '_'),
+    },
+    publishToMaven: {
+      javaPackage: `io.github.cdklabs.${changeDelimiter(npmPackageName, '.')}`,
+      mavenGroupId: 'io.github.cdklabs',
+      mavenArtifactId: npmPackageName,
+      mavenEndpoint: 'https://s01.oss.sonatype.org',
+    },
+    publishToNuget: {
+      dotNetNamespace: `Cdklabs${upperCaseName(npmPackageName)}`,
+      packageId: `Cdklabs${upperCaseName(npmPackageName)}`,
+    },
+    publishToGo: {
+      moduleName: `${npmPackageName}-go`,
+    },
+  };
+
+  function upperCaseName(str: string) {
+    let words = str.split('-');
+    words = words.map((w) => w[0].toUpperCase() + w.substring(1));
+    return words.join('');
+  }
+
+  function changeDelimiter(str: string, delim: string) {
+    return str.split('-').join(delim);
+  }
+};
+
 export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptions {
+  /**
+   * Set default publishing properties. Setting this property guarantees
+   * that your project will have reasonable publishing names. You can choose
+   * to modify them however you wish with the traditional `publishToPypi`,
+   * `publishToMaven`, `publishToNuget`, and `publishToGo` properties, and
+   * your configuration will be respected.
+   *
+   * This should be set to false only if you do not plan on releasing the package.
+   *
+   * @default true
+   */
+  readonly cdklabsPublishingDefaults?: boolean;
 }
 
 /**
@@ -38,15 +84,33 @@ export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptio
  */
 export class CdklabsConstructLibrary extends CdkConstructLibrary {
   constructor(options: CdklabsConstructLibraryOptions) {
-    super({
-      ...cdklabsDefaultProps,
-      ...options,
-      ...cdklabsForcedProps,
-    });
+    const cdklabsPublishingDefaultProps = (options.cdklabsPublishingDefaults ?? true) ?
+      createCdklabsPublishingDefaults(options.name) : {};
+
+    const mergedOptions = deepMerge([
+      cdklabsDefaultProps,
+      cdklabsPublishingDefaultProps,
+      options,
+      cdklabsForcedProps,
+    ]) as CdkConstructLibraryOptions;
+
+    super(mergedOptions);
   }
 }
 
 export interface CdklabsTypeScriptProjectOptions extends CdkTypeScriptProjectOptions {
+  /**
+   * Set default publishing properties. Setting this property guarantees
+   * that your project will have reasonable publishing names. You can choose
+   * to modify them however you wish with the traditional `publishToPypi`,
+   * `publishToMaven`, `publishToNuget`, and `publishToGo` properties, and
+   * your configuration will be respected.
+   *
+   * This should be set to false only if you do not plan on releasing the package.
+   *
+   * @default true
+   */
+  readonly cdklabsPublishingDefaults?: boolean;
 }
 
 /**
@@ -56,10 +120,16 @@ export interface CdklabsTypeScriptProjectOptions extends CdkTypeScriptProjectOpt
  */
 export class CdklabsTypeScriptProject extends CdkTypeScriptProject {
   constructor(options: CdklabsTypeScriptProjectOptions) {
-    super({
-      ...cdklabsDefaultProps,
-      ...options,
-      ...cdklabsForcedProps,
-    });
+    const cdklabsPublishingDefaultProps = (options.cdklabsPublishingDefaults ?? true) ?
+      createCdklabsPublishingDefaults(options.name) : {};
+
+    const mergedOptions = deepMerge([
+      cdklabsDefaultProps,
+      cdklabsPublishingDefaultProps,
+      options,
+      cdklabsForcedProps,
+    ]) as CdkConstructLibraryOptions;
+
+    super(mergedOptions);
   }
 }

@@ -2664,6 +2664,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 
 ---
 
@@ -4973,6 +4974,27 @@ for private repositories.
 
 ---
 
+##### `cdklabsPublishingDefaults`<sup>Optional</sup> <a name="cdklabsPublishingDefaults" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults"></a>
+
+```typescript
+public readonly cdklabsPublishingDefaults: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Set default publishing properties.
+
+Setting this property guarantees
+that your project will have reasonable publishing names. You can choose
+to modify them however you wish with the traditional `publishToPypi`,
+`publishToMaven`, `publishToNuget`, and `publishToGo` properties, and
+your configuration will be respected.
+
+This should be set to false only if you do not plan on releasing the package.
+
+---
+
 ### CdklabsTypeScriptProjectOptions <a name="CdklabsTypeScriptProjectOptions" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.Initializer"></a>
@@ -5120,6 +5142,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this module is private. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 
 ---
 
@@ -7014,6 +7037,27 @@ Whether or not this module is private.
 Setting this variable
 to true means that your project is created with sane defaults
 for private repositories.
+
+---
+
+##### `cdklabsPublishingDefaults`<sup>Optional</sup> <a name="cdklabsPublishingDefaults" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.cdklabsPublishingDefaults"></a>
+
+```typescript
+public readonly cdklabsPublishingDefaults: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Set default publishing properties.
+
+Setting this property guarantees
+that your project will have reasonable publishing names. You can choose
+to modify them however you wish with the traditional `publishToPypi`,
+`publishToMaven`, `publishToNuget`, and `publishToGo` properties, and
+your configuration will be respected.
+
+This should be set to false only if you do not plan on releasing the package.
 
 ---
 
