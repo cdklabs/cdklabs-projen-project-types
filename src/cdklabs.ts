@@ -23,7 +23,7 @@ const cdklabsDefaultProps = {
     allowedUsernames: ['cdklabs-automation'],
     secret: 'GITHUB_TOKEN',
   },
-  minNodeVersion: '14.17.0',
+  minNodeVersion: '14.18.0',
   jestOptions: {
     updateSnapshot: UpdateSnapshot.NEVER,
   },
