@@ -47,7 +47,7 @@ function createCdklabsPublishingDefaults(npmPackageName: string) {
       packageId: `Cdklabs${upperCaseName(npmPackageName)}`,
     },
     publishToGo: {
-      moduleName: `${npmPackageName}-go`,
+      moduleName: `github.com/cdklabs/${npmPackageName}-go`,
     },
   };
 

@@ -1713,7 +1713,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
           "packageId": "CdklabsTestConstructLibrary",
         },
         "go": Object {
-          "moduleName": "test-construct-library-go",
+          "moduleName": "github.com/cdklabs/test-construct-library-go",
         },
         "java": Object {
           "maven": Object {
