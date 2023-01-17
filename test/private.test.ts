@@ -1,6 +1,6 @@
 import { Testing } from 'projen';
-import { CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src/cdk';
 import { expectPrivate } from './private-helpers';
+import { CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src/cdk';
 
 describe('Private Component', () => {
   test('configures correct restrictions', () => {
