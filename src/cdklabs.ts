@@ -1,6 +1,14 @@
 import { UpdateSnapshot } from 'projen/lib/javascript';
 import { deepMerge } from 'projen/lib/util';
 
+export enum JsiiLanguage {
+  PYTHON,
+  JAVA,
+  DOTNET,
+  GO,
+};
+
+
 import {
   CdkConstructLibrary,
   CdkConstructLibraryOptions,
@@ -30,26 +38,45 @@ const cdklabsDefaultProps = {
   defaultReleaseBranch: 'main',
 };
 
-function createCdklabsPublishingDefaults(npmPackageName: string) {
+function createCdklabsPublishingDefaults(npmPackageName: string, langs?: JsiiLanguage[]) {
   return {
-    publishToPypi: {
-      distName: npmPackageName,
-      module: changeDelimiter(npmPackageName, '_'),
-    },
-    publishToMaven: {
-      javaPackage: `io.github.cdklabs.${changeDelimiter(npmPackageName, '.')}`,
-      mavenGroupId: 'io.github.cdklabs',
-      mavenArtifactId: npmPackageName,
-      mavenEndpoint: 'https://s01.oss.sonatype.org',
-    },
-    publishToNuget: {
-      dotNetNamespace: `Cdklabs${upperCaseName(npmPackageName)}`,
-      packageId: `Cdklabs${upperCaseName(npmPackageName)}`,
-    },
-    publishToGo: {
-      moduleName: `github.com/cdklabs/${npmPackageName}-go`,
-    },
+    ...publishLanguageWrapper(JsiiLanguage.PYTHON, {
+      publishToPypi: {
+        distName: npmPackageName,
+        module: changeDelimiter(npmPackageName, '_'),
+      },
+    }),
+    ...publishLanguageWrapper(JsiiLanguage.JAVA, {
+      publishToMaven: {
+        javaPackage: `io.github.cdklabs.${changeDelimiter(npmPackageName, '.')}`,
+        mavenGroupId: 'io.github.cdklabs',
+        mavenArtifactId: npmPackageName,
+        mavenEndpoint: 'https://s01.oss.sonatype.org',
+      },
+    }),
+    ...publishLanguageWrapper(JsiiLanguage.DOTNET, {
+      publishToNuget: {
+        dotNetNamespace: `Cdklabs${upperCaseName(npmPackageName)}`,
+        packageId: `Cdklabs${upperCaseName(npmPackageName)}`,
+      },
+    }),
+    ...publishLanguageWrapper(JsiiLanguage.GO, {
+      publishToGo: {
+        moduleName: `github.com/cdklabs/${npmPackageName}-go`,
+      },
+    }),
   };
+
+  function publishLanguageWrapper(lang: JsiiLanguage, obj: Record<string, any>) {
+    return publishLanguage(lang) ? obj : {};
+  }
+
+  function publishLanguage(lang: JsiiLanguage): boolean {
+    // langs not specified === all languages published
+    if (!langs) { return true; }
+    if (langs.includes(lang)) { return true; }
+    return false;
+  }
 
   function upperCaseName(str: string) {
     let words = str.split('-');
@@ -75,6 +102,16 @@ export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptio
    * @default true
    */
   readonly cdklabsPublishingDefaults?: boolean;
+
+  /**
+   * Specify specific languages to publish to. This can be used when the library
+   * is experimental only, because stable libraries must publish to all jsii languages.
+   * This should be used in conjunction with `cdklabsPublishingDefaults: true`; otherwise
+   * it is a no-op.
+   *
+   * @default - all jsii target languages
+   */
+  readonly jsiiTargetLanguages?: JsiiLanguage[];
 }
 
 /**
@@ -85,7 +122,7 @@ export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptio
 export class CdklabsConstructLibrary extends CdkConstructLibrary {
   constructor(options: CdklabsConstructLibraryOptions) {
     const cdklabsPublishingDefaultProps = (options.cdklabsPublishingDefaults ?? true) ?
-      createCdklabsPublishingDefaults(options.name) : {};
+      createCdklabsPublishingDefaults(options.name, options.jsiiTargetLanguages) : {};
 
     const mergedOptions = deepMerge([
       cdklabsDefaultProps,
@@ -98,20 +135,7 @@ export class CdklabsConstructLibrary extends CdkConstructLibrary {
   }
 }
 
-export interface CdklabsTypeScriptProjectOptions extends CdkTypeScriptProjectOptions {
-  /**
-   * Set default publishing properties. Setting this property guarantees
-   * that your project will have reasonable publishing names. You can choose
-   * to modify them however you wish with the traditional `publishToPypi`,
-   * `publishToMaven`, `publishToNuget`, and `publishToGo` properties, and
-   * your configuration will be respected.
-   *
-   * This should be set to false only if you do not plan on releasing the package.
-   *
-   * @default true
-   */
-  readonly cdklabsPublishingDefaults?: boolean;
-}
+export interface CdklabsTypeScriptProjectOptions extends CdkTypeScriptProjectOptions { }
 
 /**
  * Create a Cdklabs TypeScript Project
@@ -120,12 +144,8 @@ export interface CdklabsTypeScriptProjectOptions extends CdkTypeScriptProjectOpt
  */
 export class CdklabsTypeScriptProject extends CdkTypeScriptProject {
   constructor(options: CdklabsTypeScriptProjectOptions) {
-    const cdklabsPublishingDefaultProps = (options.cdklabsPublishingDefaults ?? true) ?
-      createCdklabsPublishingDefaults(options.name) : {};
-
     const mergedOptions = deepMerge([
       cdklabsDefaultProps,
-      cdklabsPublishingDefaultProps,
       options,
       cdklabsForcedProps,
     ]) as CdkConstructLibraryOptions;
