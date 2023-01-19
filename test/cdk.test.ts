@@ -39,8 +39,28 @@ describe('CdkConstructLibrary', () => {
       ].join('\n'));
     });
 
-    test('thorws when a publishing to a subset of languages', () => {
-
+    test('throws when a publishing to a subset of languages', () => {
+      expect(() => {
+        new TestCdkConstructLibrary({
+          stability: Stability.STABLE,
+          publishToPypi: {
+            distName: 'distName',
+            module: 'module',
+          },
+          publishToMaven: {
+            javaPackage: 'javaPackage',
+            mavenArtifactId: 'mavenArtifactId',
+            mavenGroupId: 'mavenGroupId',
+          },
+          publishToNuget: {
+            dotNetNamespace: 'dotNetNamespace',
+            packageId: 'packageId',
+          },
+        });
+      }).toThrowError([
+        'The project does not pass stability requirements due to the following errors:',
+        '  Publishing Error: project not configured to publish to Go',
+      ].join('\n'));
     });
   });
 });
