@@ -2665,6 +2665,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
 
 ---
 
@@ -4995,6 +4996,24 @@ This should be set to false only if you do not plan on releasing the package.
 
 ---
 
+##### `jsiiTargetLanguages`<sup>Optional</sup> <a name="jsiiTargetLanguages" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiTargetLanguages"></a>
+
+```typescript
+public readonly jsiiTargetLanguages: JsiiLanguage[];
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]
+- *Default:* all jsii target languages
+
+Specify specific languages to publish to.
+
+This can be used when the library
+is experimental only, because stable libraries must publish to all jsii languages.
+This should be used in conjunction with `cdklabsPublishingDefaults: true`; otherwise
+it is a no-op.
+
+---
+
 ### CdklabsTypeScriptProjectOptions <a name="CdklabsTypeScriptProjectOptions" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.Initializer"></a>
@@ -5142,7 +5161,6 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this module is private. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 
 ---
 
@@ -7037,27 +7055,6 @@ Whether or not this module is private.
 Setting this variable
 to true means that your project is created with sane defaults
 for private repositories.
-
----
-
-##### `cdklabsPublishingDefaults`<sup>Optional</sup> <a name="cdklabsPublishingDefaults" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.cdklabsPublishingDefaults"></a>
-
-```typescript
-public readonly cdklabsPublishingDefaults: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Set default publishing properties.
-
-Setting this property guarantees
-that your project will have reasonable publishing names. You can choose
-to modify them however you wish with the traditional `publishToPypi`,
-`publishToMaven`, `publishToNuget`, and `publishToGo` properties, and
-your configuration will be respected.
-
-This should be set to false only if you do not plan on releasing the package.
 
 ---
 
@@ -14709,4 +14706,38 @@ this task should synthesize the project files.
 
 ---
 
+
+## Enums <a name="Enums" id="Enums"></a>
+
+### JsiiLanguage <a name="JsiiLanguage" id="cdklabs-projen-project-types.JsiiLanguage"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.JsiiLanguage.PYTHON">PYTHON</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.JsiiLanguage.JAVA">JAVA</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.JsiiLanguage.DOTNET">DOTNET</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.JsiiLanguage.GO">GO</a></code> | *No description.* |
+
+---
+
+##### `PYTHON` <a name="PYTHON" id="cdklabs-projen-project-types.JsiiLanguage.PYTHON"></a>
+
+---
+
+
+##### `JAVA` <a name="JAVA" id="cdklabs-projen-project-types.JsiiLanguage.JAVA"></a>
+
+---
+
+
+##### `DOTNET` <a name="DOTNET" id="cdklabs-projen-project-types.JsiiLanguage.DOTNET"></a>
+
+---
+
+
+##### `GO` <a name="GO" id="cdklabs-projen-project-types.JsiiLanguage.GO"></a>
+
+---
 
