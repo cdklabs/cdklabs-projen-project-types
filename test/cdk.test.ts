@@ -1,12 +1,11 @@
 import { Stability } from 'projen/lib/cdk';
 import { Testing } from 'projen/lib/testing';
-import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src/cdk';
 import { expectPrivate, expectNotPrivate } from './private-helpers';
+import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src/cdk';
 
 describe('CdkConstructLibrary', () => {
   test('synthesizes with default settings', () => {
     const project = new TestCdkConstructLibrary();
-
     const outdir = Testing.synth(project);
 
     // defaults to private

@@ -8,7 +8,6 @@ export enum JsiiLanguage {
   GO,
 };
 
-
 import {
   CdkConstructLibrary,
   CdkConstructLibraryOptions,
@@ -121,10 +120,12 @@ export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptio
  */
 export class CdklabsConstructLibrary extends CdkConstructLibrary {
   constructor(options: CdklabsConstructLibraryOptions) {
-    const cdklabsPublishingDefaultProps = (options.cdklabsPublishingDefaults ?? true) ?
+    const cdklabsPublishingDefaultProps: Record<string, any> = (options.cdklabsPublishingDefaults ?? true) ?
       createCdklabsPublishingDefaults(options.name, options.jsiiTargetLanguages) : {};
 
+    // the leftmost object is mutated and returned by deepMerge
     const mergedOptions = deepMerge([
+      {},
       cdklabsDefaultProps,
       cdklabsPublishingDefaultProps,
       options,
@@ -144,7 +145,9 @@ export interface CdklabsTypeScriptProjectOptions extends CdkTypeScriptProjectOpt
  */
 export class CdklabsTypeScriptProject extends CdkTypeScriptProject {
   constructor(options: CdklabsTypeScriptProjectOptions) {
+    // the leftmost object is mutated and returned by deepMerge
     const mergedOptions = deepMerge([
+      {},
       cdklabsDefaultProps,
       options,
       cdklabsForcedProps,
