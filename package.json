@@ -44,22 +44,21 @@
     "eslint-plugin-import": "^2.27.5",
     "jest": "^27",
     "jest-junit": "^13",
-    "jsii": "^1.73.0",
-    "jsii-diff": "^1.73.0",
-    "jsii-docgen": "^7.0.214",
-    "jsii-pacmak": "^1.73.0",
-    "json-schema": "^0.4.0",
+    "jsii": "^1.74.0",
+    "jsii-diff": "^1.74.0",
+    "jsii-docgen": "^7.0.220",
+    "jsii-pacmak": "^1.74.0",
     "npm-check-updates": "^16",
-    "projen": "^0.67.13",
+    "projen": "^0.67.28",
     "standard-version": "^9",
     "ts-jest": "^27",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "projen": "^0.67.13"
+    "projen": "^0.67.28"
   },
   "dependencies": {
-    "projen": "^0.67.13",
+    "projen": "^0.67.28",
     "yaml": "^2.2.1"
   },
   "bundledDependencies": [
