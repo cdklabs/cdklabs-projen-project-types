@@ -1008,10 +1008,6 @@ tsconfig.json
         "type": "build",
       },
       Object {
-        "name": "json-schema",
-        "type": "build",
-      },
-      Object {
         "name": "npm-check-updates",
         "type": "build",
         "version": "^16",
@@ -1655,7 +1651,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "jsii-diff": "*",
       "jsii-docgen": "*",
       "jsii-pacmak": "*",
-      "json-schema": "*",
       "npm-check-updates": "^16",
       "projen": "*",
       "standard-version": "^9",
@@ -2483,10 +2478,6 @@ junit.xml
         "version": "^13",
       },
       Object {
-        "name": "json-schema",
-        "type": "build",
-      },
-      Object {
         "name": "npm-check-updates",
         "type": "build",
         "version": "^16",
@@ -3016,7 +3007,6 @@ junit.xml
       "eslint-plugin-import": "*",
       "jest": "*",
       "jest-junit": "^13",
-      "json-schema": "*",
       "npm-check-updates": "^16",
       "projen": "*",
       "standard-version": "^9",
