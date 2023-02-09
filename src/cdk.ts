@@ -2,7 +2,9 @@ import { awscdk, typescript } from 'projen';
 import { Stability } from 'projen/lib/cdk';
 import { AutoMergeOptions } from './auto-merge';
 import { MergeQueue } from './merge-queue';
+import { IntegRunner } from './integ-runner';
 import { Private } from './private';
+import { Rosetta } from './rosetta';
 
 export interface CdkCommonOptions {
   /**
@@ -76,6 +78,9 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
     const autoMerge = options.private ?
       options.enablePRAutoMerge ?? true
       : options.enablePRAutoMerge ?? false;
+    new Rosetta(this);
+    new IntegRunner(this);
+
 
     if (this.private) {
       new Private(this);
