@@ -1,8 +1,10 @@
 import { awscdk, typescript } from 'projen';
 import { Stability } from 'projen/lib/cdk';
+import { AutoMergeOptions } from './auto-merge';
+import { MergeQueue } from './merge-queue';
 import { Private } from './private';
 
-export interface CdkConstructLibraryOptions extends awscdk.AwsCdkConstructLibraryOptions {
+export interface CdkCommonOptions {
   /**
    * Whether or not this package is private. Setting this variable
    * to true means that your project is created with sane defaults
@@ -11,7 +13,26 @@ export interface CdkConstructLibraryOptions extends awscdk.AwsCdkConstructLibrar
    * @default true
    */
   readonly private?: boolean;
+
+  /**
+   * Whether to enable the auto merge workflow for PRs
+   * This will enable the auto merge workflow as well as the
+   * merge queue
+   *
+   * @default - true for private projects, false otherwise
+   */
+  readonly enablePRAutoMerge?: boolean;
+
+  /**
+   * Options for the GitHub auto merge workflow (the workflow
+   * that turns on auto merge on all PRs)
+   *
+   * @default default options
+   */
+  readonly ghAutoMergeOptions?: AutoMergeOptions;
 }
+
+export interface CdkConstructLibraryOptions extends awscdk.AwsCdkConstructLibraryOptions, CdkCommonOptions { }
 
 /**
  * Create a Cdk Construct Library Project
@@ -52,23 +73,25 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
     });
 
     this.private = options.private ?? true;
+    const autoMerge = options.private ?
+      options.enablePRAutoMerge ?? true
+      : options.enablePRAutoMerge ?? false;
 
     if (this.private) {
       new Private(this);
+
+    }
+    if (autoMerge) {
+      new MergeQueue(this, {
+        autoMergeOptions: {
+          secret: 'PROJEN_GITHUB_TOKEN',
+        },
+      });
     }
   }
 }
 
-export interface CdkTypeScriptProjectOptions extends typescript.TypeScriptProjectOptions {
-  /**
-   * Whether or not this module is private. Setting this variable
-   * to true means that your project is created with sane defaults
-   * for private repositories.
-   *
-   * @default true
-   */
-  readonly private?: boolean;
-}
+export interface CdkTypeScriptProjectOptions extends typescript.TypeScriptProjectOptions, CdkCommonOptions { }
 
 /**
  * Create a Cdk TypeScript Project
@@ -81,8 +104,21 @@ export class CdkTypeScriptProject extends typescript.TypeScriptProject {
   constructor(options: CdkTypeScriptProjectOptions) {
     super(options);
     this.private = options.private ?? true;
+
+    const autoMerge = options.private ?
+      options.enablePRAutoMerge ?? true
+      : options.enablePRAutoMerge ?? false;
+
     if (this.private) {
       new Private(this);
+    }
+
+    if (autoMerge) {
+      new MergeQueue(this, {
+        autoMergeOptions: {
+          secret: 'PROJEN_GITHUB_TOKEN',
+        },
+      });
     }
   }
 }

@@ -1,6 +1,5 @@
 import { Testing } from 'projen';
-import { expectPrivate } from './private-helpers';
-import { CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src/cdk';
+import { expectPrivate, TestPrivateProject } from './private-helpers';
 
 describe('Private Component', () => {
   test('configures correct restrictions', () => {
@@ -28,13 +27,3 @@ describe('Private Component', () => {
   });
 });
 
-class TestPrivateProject extends CdkTypeScriptProject {
-  constructor(options: Partial<CdkTypeScriptProjectOptions> = {}) {
-    super({
-      name: 'test/test-node-project',
-      defaultReleaseBranch: 'main',
-      private: true,
-      ...options,
-    });
-  }
-}
