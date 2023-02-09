@@ -96,6 +96,69 @@ This token is used to enable auto-merge on pull requests.
 
 ---
 
+### CdkCommonOptions <a name="CdkCommonOptions" id="cdklabs-projen-project-types.CdkCommonOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdkCommonOptions.Initializer"></a>
+
+```typescript
+import { CdkCommonOptions } from 'cdklabs-projen-project-types'
+
+const cdkCommonOptions: CdkCommonOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+
+---
+
+##### `enablePRAutoMerge`<sup>Optional</sup> <a name="enablePRAutoMerge" id="cdklabs-projen-project-types.CdkCommonOptions.property.enablePRAutoMerge"></a>
+
+```typescript
+public readonly enablePRAutoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true for private projects, false otherwise
+
+Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue.
+
+---
+
+##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions"></a>
+
+```typescript
+public readonly ghAutoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Default:* default options
+
+Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs).
+
+---
+
+##### `private`<sup>Optional</sup> <a name="private" id="cdklabs-projen-project-types.CdkCommonOptions.property.private"></a>
+
+```typescript
+public readonly private: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether or not this package is private.
+
+Setting this variable
+to true means that your project is created with sane defaults
+for private repositories.
+
+---
+
 ### CdkConstructLibraryOptions <a name="CdkConstructLibraryOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.Initializer"></a>
@@ -271,6 +334,8 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `aws_lambda.Function` for each `.lambda.ts` handler in your source tree. If this is disabled, you either need to explicitly call `aws_lambda.Function.autoDiscover()` or define a `new aws_lambda.Function()` for each handler. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 
 ---
@@ -2564,6 +2629,32 @@ Common options for all AWS Lambda functions.
 
 ---
 
+##### `enablePRAutoMerge`<sup>Optional</sup> <a name="enablePRAutoMerge" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.enablePRAutoMerge"></a>
+
+```typescript
+public readonly enablePRAutoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true for private projects, false otherwise
+
+Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue.
+
+---
+
+##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.ghAutoMergeOptions"></a>
+
+```typescript
+public readonly ghAutoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Default:* default options
+
+Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs).
+
+---
+
 ##### `private`<sup>Optional</sup> <a name="private" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.private"></a>
 
 ```typescript
@@ -2756,6 +2847,8 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `aws_lambda.Function` for each `.lambda.ts` handler in your source tree. If this is disabled, you either need to explicitly call `aws_lambda.Function.autoDiscover()` or define a `new aws_lambda.Function()` for each handler. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
@@ -5051,6 +5144,32 @@ Common options for all AWS Lambda functions.
 
 ---
 
+##### `enablePRAutoMerge`<sup>Optional</sup> <a name="enablePRAutoMerge" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.enablePRAutoMerge"></a>
+
+```typescript
+public readonly enablePRAutoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true for private projects, false otherwise
+
+Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue.
+
+---
+
+##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.ghAutoMergeOptions"></a>
+
+```typescript
+public readonly ghAutoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Default:* default options
+
+Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs).
+
+---
+
 ##### `private`<sup>Optional</sup> <a name="private" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.private"></a>
 
 ```typescript
@@ -5253,7 +5372,9 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this module is private. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 
 ---
 
@@ -7134,6 +7255,32 @@ same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
 
 ---
 
+##### `enablePRAutoMerge`<sup>Optional</sup> <a name="enablePRAutoMerge" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.enablePRAutoMerge"></a>
+
+```typescript
+public readonly enablePRAutoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true for private projects, false otherwise
+
+Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue.
+
+---
+
+##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions"></a>
+
+```typescript
+public readonly ghAutoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Default:* default options
+
+Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs).
+
+---
+
 ##### `private`<sup>Optional</sup> <a name="private" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private"></a>
 
 ```typescript
@@ -7143,7 +7290,7 @@ public readonly private: boolean;
 - *Type:* boolean
 - *Default:* true
 
-Whether or not this module is private.
+Whether or not this package is private.
 
 Setting this variable
 to true means that your project is created with sane defaults
@@ -7297,7 +7444,9 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this module is private. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 
 ---
 
@@ -9178,6 +9327,32 @@ same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
 
 ---
 
+##### `enablePRAutoMerge`<sup>Optional</sup> <a name="enablePRAutoMerge" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.enablePRAutoMerge"></a>
+
+```typescript
+public readonly enablePRAutoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true for private projects, false otherwise
+
+Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue.
+
+---
+
+##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions"></a>
+
+```typescript
+public readonly ghAutoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Default:* default options
+
+Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs).
+
+---
+
 ##### `private`<sup>Optional</sup> <a name="private" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.private"></a>
 
 ```typescript
@@ -9187,7 +9362,7 @@ public readonly private: boolean;
 - *Type:* boolean
 - *Default:* true
 
-Whether or not this module is private.
+Whether or not this package is private.
 
 Setting this variable
 to true means that your project is created with sane defaults

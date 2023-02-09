@@ -1,8 +1,8 @@
 import { awscdk, typescript } from 'projen';
 import { Stability } from 'projen/lib/cdk';
 import { AutoMergeOptions } from './auto-merge';
-import { MergeQueue } from './merge-queue';
 import { IntegRunner } from './integ-runner';
+import { MergeQueue } from './merge-queue';
 import { Private } from './private';
 import { Rosetta } from './rosetta';
 
