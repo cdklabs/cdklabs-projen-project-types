@@ -1,6 +1,8 @@
 import { awscdk, typescript } from 'projen';
 import { Stability } from 'projen/lib/cdk';
+import { IntegRunner } from './integ-runner';
 import { Private } from './private';
+import { Rosetta } from './rosetta';
 
 export interface CdkConstructLibraryOptions extends awscdk.AwsCdkConstructLibraryOptions {
   /**
@@ -52,6 +54,9 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
     });
 
     this.private = options.private ?? true;
+    new Rosetta(this);
+    new IntegRunner(this);
+
 
     if (this.private) {
       new Private(this);
