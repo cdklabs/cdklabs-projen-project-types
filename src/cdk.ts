@@ -75,9 +75,7 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
     });
 
     this.private = options.private ?? true;
-    const autoMerge = options.private ?
-      options.enablePRAutoMerge ?? true
-      : options.enablePRAutoMerge ?? false;
+    const autoMerge = options.enablePRAutoMerge ?? this.private;
     new Rosetta(this);
     new IntegRunner(this);
 
@@ -110,9 +108,7 @@ export class CdkTypeScriptProject extends typescript.TypeScriptProject {
     super(options);
     this.private = options.private ?? true;
 
-    const autoMerge = options.private ?
-      options.enablePRAutoMerge ?? true
-      : options.enablePRAutoMerge ?? false;
+    const autoMerge = options.enablePRAutoMerge ?? this.private;
 
     if (this.private) {
       new Private(this);
