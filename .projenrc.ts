@@ -11,6 +11,9 @@ const project = new cdk.JsiiProject({
   deps: ['projen'],
   bundledDeps: ['yaml'],
   peerDeps: ['projen'],
+  githubOptions: {
+    mergify: false,
+  },
   autoApproveUpgrades: true,
   autoApproveOptions: { allowedUsernames: ['cdklabs-automation'], secret: 'GITHUB_TOKEN' },
 });
