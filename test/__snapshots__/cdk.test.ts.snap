@@ -774,12 +774,12 @@ tsconfig.json
       Object {
         "name": "@aws-cdk/integ-runner",
         "type": "devenv",
-        "version": "^2.45.0",
+        "version": "^2.1.0",
       },
       Object {
         "name": "@aws-cdk/integ-tests-alpha",
         "type": "devenv",
-        "version": "^2.45.0-alpha.0",
+        "version": "^2.1.0-alpha.0",
       },
       Object {
         "name": "@types/babel__traverse",
@@ -1363,8 +1363,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "organization": false,
     },
     "devDependencies": Object {
-      "@aws-cdk/integ-runner": "^2.45.0",
-      "@aws-cdk/integ-tests-alpha": "^2.45.0-alpha.0",
+      "@aws-cdk/integ-runner": "^2.1.0",
+      "@aws-cdk/integ-tests-alpha": "^2.1.0-alpha.0",
       "@types/jest": "^27",
       "@types/node": "^14",
       "@typescript-eslint/eslint-plugin": "^5",

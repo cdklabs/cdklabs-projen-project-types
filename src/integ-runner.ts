@@ -1,16 +1,23 @@
-import { Component, DependencyType } from 'projen';
-import { TypeScriptProject } from 'projen/lib/typescript';
+import { awscdk, Component, DependencyType } from 'projen';
 
 /**
  * This component adds support for using `integ-runner` and `integ-tests`
  * in a construct library.
  */
 export class IntegRunner extends Component {
-  constructor(project: TypeScriptProject) {
+  constructor(
+    project: awscdk.AwsCdkConstructLibrary | awscdk.AwsCdkTypeScriptApp,
+  ) {
     super(project);
 
-    project.deps.addDependency('@aws-cdk/integ-runner@^2.45.0', DependencyType.DEVENV);
-    project.deps.addDependency('@aws-cdk/integ-tests-alpha@^2.45.0-alpha.0', DependencyType.DEVENV);
+    project.deps.addDependency(
+      `@aws-cdk/integ-runner@${project.cdkVersion}`,
+      DependencyType.DEVENV,
+    );
+    project.deps.addDependency(
+      `@aws-cdk/integ-tests-alpha@${project.cdkVersion}-alpha.0`,
+      DependencyType.DEVENV,
+    );
 
     const integSnapshotTask = project.addTask('integ', {
       description: 'Run integration snapshot tests',
