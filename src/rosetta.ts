@@ -1,4 +1,4 @@
-import { Component, TextFile } from 'projen';
+import { Component, SampleFile } from 'projen';
 import { TypeScriptProject } from 'projen/lib/typescript';
 
 /**
@@ -17,10 +17,8 @@ export class Rosetta extends Component {
     });
     project.postCompileTask.spawn(rosettaTask);
     project.addGitIgnore('.jsii.tabl.json');
-
-    new TextFile(project, 'rosetta/default.ts-fixture', {
-      readonly: false,
-      lines: [
+    new SampleFile(project, 'rosetta/default.ts-fixture', {
+      contents: [
         '// Fixture with packages imported, but nothing else',
         "import { Construct } from 'constructs';",
         'import {',
@@ -34,8 +32,8 @@ export class Rosetta extends Component {
         '    /// here',
         '  }',
         '}',
-      ],
-      marker: false,
+      ].join('\n'),
     });
+    project.addGitIgnore('!/rosetta/default.ts-fixture');
   }
 }
