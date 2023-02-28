@@ -2,6 +2,7 @@ import { Stability } from 'projen/lib/cdk';
 import { Testing } from 'projen/lib/testing';
 import { expectPrivate, expectNotPrivate } from './private-helpers';
 import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src/cdk';
+import { CdkJsiiProject, CdkJsiiProjectOptions } from '../src/jsii';
 
 describe('CdkConstructLibrary', () => {
   test('synthesizes with default settings', () => {
@@ -84,6 +85,26 @@ describe('CdkTypeScriptProject', () => {
   });
 });
 
+describe('CdkJsiiProject', () => {
+  test('synthesizes with default settings', () => {
+    const project = new TestCdkJsiiProject();
+
+    expect(Testing.synth(project)).toMatchSnapshot();
+  });
+
+  test('defaults to private', () => {
+    const project = new TestCdkJsiiProject();
+
+    expectPrivate(Testing.synth(project));
+  });
+
+  test('can be set to public', () => {
+    const project = new TestCdkJsiiProject({ private: false });
+
+    expectNotPrivate(Testing.synth(project));
+  });
+});
+
 class TestCdkConstructLibrary extends CdkConstructLibrary {
   constructor(options: Partial<CdkConstructLibraryOptions> = {}) {
     super({
@@ -103,6 +124,19 @@ class TestCdkTypeScriptProject extends CdkTypeScriptProject {
     super({
       name: 'test-node-project',
       defaultReleaseBranch: 'main',
+      ...options,
+    });
+  }
+}
+
+class TestCdkJsiiProject extends CdkJsiiProject {
+  constructor(options: Partial<CdkJsiiProjectOptions> = {}) {
+    super({
+      name: 'test-jsii-library',
+      defaultReleaseBranch: 'main',
+      repositoryUrl: 'url',
+      author: 'AWS',
+      authorAddress: 'aws-cdk-dev@amazon.com',
       ...options,
     });
   }
