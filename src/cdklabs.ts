@@ -14,6 +14,7 @@ import {
   CdkTypeScriptProject,
   CdkTypeScriptProjectOptions,
 } from './cdk';
+import { CdkJsiiProject, CdkJsiiProjectOptions } from './jsii';
 
 // override these properties no matter what values are given client-side
 const cdklabsForcedProps = {
@@ -88,7 +89,7 @@ function createCdklabsPublishingDefaults(npmPackageName: string, langs?: JsiiLan
   }
 };
 
-export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptions {
+export interface CdklabsPublishingProjectOptions {
   /**
    * Set default publishing properties. Setting this property guarantees
    * that your project will have reasonable publishing names. You can choose
@@ -112,6 +113,8 @@ export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptio
    */
   readonly jsiiTargetLanguages?: JsiiLanguage[];
 }
+
+export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptions, CdklabsPublishingProjectOptions {}
 
 /**
  * Create a Cdklabs Construct Library Project
@@ -152,6 +155,30 @@ export class CdklabsTypeScriptProject extends CdkTypeScriptProject {
       options,
       cdklabsForcedProps,
     ]) as CdkConstructLibraryOptions;
+
+    super(mergedOptions);
+  }
+}
+
+export interface CdklabsJsiiProjectOptions extends CdkJsiiProjectOptions, CdklabsPublishingProjectOptions {}
+
+/**
+ * Create a Cdklabs Jsii Project
+ *
+ * @pjid cdklabs-jsii-proj
+ */
+export class CdklabsJsiiProject extends CdkJsiiProject {
+  constructor(options: CdklabsJsiiProjectOptions) {
+    const cdklabsPublishingDefaultProps: Record<string, any> = (options.cdklabsPublishingDefaults ?? true) ?
+      createCdklabsPublishingDefaults(options.name, options.jsiiTargetLanguages) : {};
+    // the leftmost object is mutated and returned by deepMerge
+    const mergedOptions = deepMerge([
+      {},
+      cdklabsDefaultProps,
+      cdklabsPublishingDefaultProps,
+      options,
+      cdklabsForcedProps,
+    ]) as CdklabsJsiiProjectOptions;
 
     super(mergedOptions);
   }
