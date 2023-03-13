@@ -9,8 +9,8 @@ export class IntegRunner extends Component {
   constructor(project: TypeScriptProject) {
     super(project);
 
-    project.deps.addDependency('@aws-cdk/integ-runner@^2.45.0', DependencyType.DEVENV);
-    project.deps.addDependency('@aws-cdk/integ-tests-alpha@^2.45.0-alpha.0', DependencyType.DEVENV);
+    project.deps.addDependency('@aws-cdk/integ-runner@^2', DependencyType.DEVENV);
+    project.deps.addDependency('@aws-cdk/integ-tests-alpha@latest', DependencyType.DEVENV);
 
     const integSnapshotTask = project.addTask('integ', {
       description: 'Run integration snapshot tests',
