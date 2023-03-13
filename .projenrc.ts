@@ -1,5 +1,6 @@
 import { cdk } from 'projen';
-import { MergeQueue } from './src';
+import { generateYarnMonorepoOptions } from './projenrc/yarn-monorepo-options';
+import { MergeQueue } from './src/merge-queue';
 
 const project = new cdk.JsiiProject({
   projenrcTs: true,
@@ -8,6 +9,7 @@ const project = new cdk.JsiiProject({
   defaultReleaseBranch: 'main',
   name: 'cdklabs-projen-project-types',
   repositoryUrl: 'https://github.com/cdklabs/cdklabs-projen-project-types.git',
+  devDeps: ['@jsii/spec', 'jsii-reflect'],
   deps: ['projen'],
   bundledDeps: ['yaml'],
   peerDeps: ['projen'],
@@ -15,7 +17,10 @@ const project = new cdk.JsiiProject({
     mergify: false,
   },
   autoApproveUpgrades: true,
-  autoApproveOptions: { allowedUsernames: ['cdklabs-automation'], secret: 'GITHUB_TOKEN' },
+  autoApproveOptions: {
+    allowedUsernames: ['cdklabs-automation'],
+    secret: 'GITHUB_TOKEN',
+  },
 });
 
 new MergeQueue(project, {
@@ -23,4 +28,7 @@ new MergeQueue(project, {
     secret: 'PROJEN_GITHUB_TOKEN',
   },
 });
+
+generateYarnMonorepoOptions(project);
+
 project.synth();

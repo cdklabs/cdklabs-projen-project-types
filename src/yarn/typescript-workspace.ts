@@ -1,43 +1,12 @@
 
 import { relative } from 'path';
 import { Component, javascript, typescript, TaskStep, SourceCode } from 'projen';
-import { Monorepo } from './monorepo';
+import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
 
-export interface TypeScriptWorkspaceOptions
-  extends Omit<
-  typescript.TypeScriptProjectOptions,
-  | 'parent'
-  | 'defaultReleaseBranch'
-  | 'release'
-  | 'repositoryDirectory'
-  | 'autoDetectBin'
-  | 'outdir'
-  | 'deps'
-  | 'devDeps'
-  | 'peerDeps'
-  | 'depsUpgradeOptions'
-  > {
-  readonly parent: Monorepo;
-
-  /**
-   * The workspace scope the package is located in
-   *
-   * @default "packages"
-   */
-  readonly wsScope?: string;
-
-  readonly private?: boolean;
-
-  readonly deps?: Array<string | TypeScriptWorkspace>;
-  readonly devDeps?: Array<string | TypeScriptWorkspace>;
-  readonly peerDeps?: Array<string | TypeScriptWorkspace>;
-  readonly excludeDepsFromUpgrade?: Array<string>;
-}
-
-
+/**
+ * A TypeScript workspace in a `yarn.Monorepo`
+ */
 export class TypeScriptWorkspace extends typescript.TypeScriptProject {
-  public readonly parent: Monorepo;
-
   constructor(props: TypeScriptWorkspaceOptions) {
     const remainder = without(
       props,
@@ -53,7 +22,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     const useEslint = remainder.eslint ?? true;
     const usePrettier = remainder.prettier ?? true;
 
-    const wsScope = remainder.wsScope ?? 'packages';
+    const wsScope = remainder.workspaceScope ?? 'packages';
 
     super({
       parent: props.parent,
@@ -98,7 +67,6 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
 
       ...remainder,
     });
-    this.parent = props.parent;
 
     // jest config
     if (this.jest?.config && this.jest.config.preset === 'ts-jest') {
@@ -114,7 +82,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     }
 
     // Tasks
-    this.tasks.tryFind('default')?.reset(`cd ${relative(this.outdir, this.parent.outdir)} && npx projen default`);
+    this.tasks.tryFind('default')?.reset(`cd ${relative(this.outdir, props.parent.outdir)} && npx projen default`);
     this.tasks.removeTask('clobber');
     this.tasks.removeTask('eject');
 
@@ -148,7 +116,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
 
     // Install dependencies via the parent project
     (this.package as any).installDependencies = () => {
-      this.parent.requestInstallDependencies({ resolveDepsAndWritePackageJson: () => (this.package as any).resolveDepsAndWritePackageJson() });
+      props.parent.requestInstallDependencies({ resolveDepsAndWritePackageJson: () => (this.package as any).resolveDepsAndWritePackageJson() });
     };
 
     // Private package

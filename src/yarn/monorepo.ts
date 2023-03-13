@@ -1,17 +1,12 @@
 import { JsonFile, Project, typescript } from 'projen';
+import { NodePackageManager } from 'projen/lib/javascript';
+import { MonorepoOptions } from './monorepo-options';
 import { TypeScriptWorkspace } from './typescript-workspace';
 import { MergeQueue } from '../merge-queue';
 
-export interface MonorepoOptions
-  extends Omit<typescript.TypeScriptProjectOptions, 'sampleCode' | 'jest' | 'jestOptions' | 'eslint' | 'release'> {
-  /**
-   * Create a VSCode multi-root workspace file for all monorepo workspaces
-   *
-   * @default false
-   */
-  readonly vscodeWorkspace?: boolean;
-}
-
+/**
+ * A monorepo using yarn workspaces.
+ */
 export class Monorepo extends typescript.TypeScriptProject {
   private projects = new Array<TypeScriptWorkspace>();
   private postInstallDependencies = new Array<() => boolean>();
@@ -19,6 +14,7 @@ export class Monorepo extends typescript.TypeScriptProject {
   constructor(options: MonorepoOptions) {
     super({
       ...options,
+      packageManager: NodePackageManager.YARN,
       sampleCode: false,
       jest: false,
       eslint: false,
@@ -185,7 +181,7 @@ export interface IDependencyResolver {
 }
 
 function getObjFromFile(project: Project, file: string): object {
-  return (project.tryFindObjectFile(file) as any).obj;
+  return (project.tryFindObjectFile(file) as any)?.obj;
 }
 
 /**

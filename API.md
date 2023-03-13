@@ -9947,6 +9947,1968 @@ it is a no-op.
 
 ---
 
+### CdkLabsMonorepoOptions <a name="CdkLabsMonorepoOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions"></a>
+
+Options for CdkLabsMonorepo.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.authorName">authorName</a></code> | <code>string</code> | Author's name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.authorOrganization">authorOrganization</a></code> | <code>boolean</code> | Is the author an organization. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.authorUrl">authorUrl</a></code> | <code>string</code> | Author's URL / Website. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoDetectBin">autoDetectBin</a></code> | <code>boolean</code> | Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with @codeCovTokenSecret. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use github workflows to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.peerDeps">peerDeps</a></code> | <code>string[]</code> | Peer dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcOptions</code> | Options for .projenrc.json. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.vscodeWorkspace">vscodeWorkspace</a></code> | <code>boolean</code> | Create a VSCode multi-root workspace file for all monorepo workspaces. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+
+---
+
+##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.defaultReleaseBranch"></a>
+
+```typescript
+public readonly defaultReleaseBranch: string;
+```
+
+- *Type:* string
+- *Default:* "main"
+
+The name of the main release branch.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+- *Default:* $BASEDIR
+
+This is the name of your project.
+
+---
+
+##### `allowLibraryDependencies`<sup>Optional</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.allowLibraryDependencies"></a>
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Allow the project to include `peerDependencies` and `bundledDependencies`.
+
+This is normally only allowed for libraries. For apps, there's no meaning
+for specifying these.
+
+---
+
+##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "dist"
+
+A directory which will contain build artifacts.
+
+---
+
+##### `authorEmail`<sup>Optional</sup> <a name="authorEmail" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.authorEmail"></a>
+
+```typescript
+public readonly authorEmail: string;
+```
+
+- *Type:* string
+
+Author's e-mail.
+
+---
+
+##### `authorName`<sup>Optional</sup> <a name="authorName" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.authorName"></a>
+
+```typescript
+public readonly authorName: string;
+```
+
+- *Type:* string
+
+Author's name.
+
+---
+
+##### `authorOrganization`<sup>Optional</sup> <a name="authorOrganization" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.authorOrganization"></a>
+
+```typescript
+public readonly authorOrganization: boolean;
+```
+
+- *Type:* boolean
+
+Is the author an organization.
+
+---
+
+##### `authorUrl`<sup>Optional</sup> <a name="authorUrl" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.authorUrl"></a>
+
+```typescript
+public readonly authorUrl: string;
+```
+
+- *Type:* string
+
+Author's URL / Website.
+
+---
+
+##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoApproveOptions"></a>
+
+```typescript
+public readonly autoApproveOptions: AutoApproveOptions;
+```
+
+- *Type:* projen.github.AutoApproveOptions
+- *Default:* auto approve is disabled
+
+Enable and configure the 'auto approve' workflow.
+
+---
+
+##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoApproveUpgrades"></a>
+
+```typescript
+public readonly autoApproveUpgrades: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued).
+
+Throw if set to true but `autoApproveOptions` are not defined.
+
+---
+
+##### `autoDetectBin`<sup>Optional</sup> <a name="autoDetectBin" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoDetectBin"></a>
+
+```typescript
+public readonly autoDetectBin: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section.
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable automatic merging on GitHub.
+
+Has no effect if `github.mergify`
+is set to false.
+
+---
+
+##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.autoMergeOptions"></a>
+
+```typescript
+public readonly autoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* projen.github.AutoMergeOptions
+- *Default:* see defaults in `AutoMergeOptions`
+
+Configure options for automatic merging on GitHub.
+
+Has no effect if
+`github.mergify` or `autoMerge` is set to false.
+
+---
+
+##### `bin`<sup>Optional</sup> <a name="bin" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bin"></a>
+
+```typescript
+public readonly bin: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Binary programs vended with your module.
+
+You can use this option to add/customize how binaries are represented in
+your `package.json`, but unless `autoDetectBin` is `false`, every
+executable file under `bin` will automatically be added to this section.
+
+---
+
+##### `bugsEmail`<sup>Optional</sup> <a name="bugsEmail" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bugsEmail"></a>
+
+```typescript
+public readonly bugsEmail: string;
+```
+
+- *Type:* string
+
+The email address to which issues should be reported.
+
+---
+
+##### `bugsUrl`<sup>Optional</sup> <a name="bugsUrl" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bugsUrl"></a>
+
+```typescript
+public readonly bugsUrl: string;
+```
+
+- *Type:* string
+
+The url to your project's issue tracker.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+Define a GitHub workflow for building PRs.
+
+---
+
+##### `buildWorkflowTriggers`<sup>Optional</sup> <a name="buildWorkflowTriggers" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWorkflowTriggers"></a>
+
+```typescript
+public readonly buildWorkflowTriggers: Triggers;
+```
+
+- *Type:* projen.github.workflows.Triggers
+- *Default:* "{ pullRequest: {}, workflowDispatch: {} }"
+
+Build workflow triggers.
+
+---
+
+##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bundledDeps"></a>
+
+```typescript
+public readonly bundledDeps: string[];
+```
+
+- *Type:* string[]
+
+List of dependencies to bundle into this module.
+
+These modules will be
+added both to the `dependencies` section and `bundledDependencies` section of
+your `package.json`.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `bundlerOptions`<sup>Optional</sup> <a name="bundlerOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bundlerOptions"></a>
+
+```typescript
+public readonly bundlerOptions: BundlerOptions;
+```
+
+- *Type:* projen.javascript.BundlerOptions
+
+Options for `Bundler`.
+
+---
+
+##### `clobber`<sup>Optional</sup> <a name="clobber" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.clobber"></a>
+
+```typescript
+public readonly clobber: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Add a `clobber` task which resets the repo to origin.
+
+---
+
+##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeArtifactOptions"></a>
+
+```typescript
+public readonly codeArtifactOptions: CodeArtifactOptions;
+```
+
+- *Type:* projen.javascript.CodeArtifactOptions
+- *Default:* undefined
+
+Options for npm packages using AWS CodeArtifact.
+
+This is required if publishing packages to, or installing scoped packages from AWS CodeArtifact
+
+---
+
+##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeCov"></a>
+
+```typescript
+public readonly codeCov: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with @codeCovTokenSecret.
+
+---
+
+##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeCovTokenSecret"></a>
+
+```typescript
+public readonly codeCovTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* if this option is not specified, only public repositories are supported
+
+Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
+
+---
+
+##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to commit the managed files by default.
+
+---
+
+##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.copyrightOwner"></a>
+
+```typescript
+public readonly copyrightOwner: string;
+```
+
+- *Type:* string
+- *Default:* defaults to the value of authorName or "" if `authorName` is undefined.
+
+License copyright owner.
+
+---
+
+##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.copyrightPeriod"></a>
+
+```typescript
+public readonly copyrightPeriod: string;
+```
+
+- *Type:* string
+- *Default:* current year
+
+The copyright years to put in the LICENSE file.
+
+---
+
+##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.dependabot"></a>
+
+```typescript
+public readonly dependabot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use dependabot to handle dependency upgrades.
+
+Cannot be used in conjunction with `depsUpgrade`.
+
+---
+
+##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.dependabotOptions"></a>
+
+```typescript
+public readonly dependabotOptions: DependabotOptions;
+```
+
+- *Type:* projen.github.DependabotOptions
+- *Default:* default options
+
+Options for dependabot.
+
+---
+
+##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.deps"></a>
+
+```typescript
+public readonly deps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Runtime dependencies of this module.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.depsUpgrade"></a>
+
+```typescript
+public readonly depsUpgrade: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Use github workflows to handle dependency upgrades.
+
+Cannot be used in conjunction with `dependabot`.
+
+---
+
+##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.depsUpgradeOptions"></a>
+
+```typescript
+public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
+```
+
+- *Type:* projen.javascript.UpgradeDependenciesOptions
+- *Default:* default options
+
+Options for `UpgradeDependencies`.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description is just a string that helps people understand the purpose of the package.
+
+It can be used when searching for packages in a package manager as well.
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a VSCode development environment (used for GitHub Codespaces).
+
+---
+
+##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.devDeps"></a>
+
+```typescript
+public readonly devDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Build dependencies for this module.
+
+These dependencies will only be
+available in your build environment but will not be fetched when this
+module is consumed.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.disableTsconfig"></a>
+
+```typescript
+public readonly disableTsconfig: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler).
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Docgen by Typedoc.
+
+---
+
+##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "docs"
+
+Docs directory.
+
+---
+
+##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.entrypoint"></a>
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+- *Default:* "lib/index.js"
+
+Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json.
+
+---
+
+##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.entrypointTypes"></a>
+
+```typescript
+public readonly entrypointTypes: string;
+```
+
+- *Type:* string
+- *Default:* .d.ts file derived from the project's entrypoint (usually lib/index.d.ts)
+
+The .d.ts file that includes the type declarations for this module.
+
+---
+
+##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.eslintOptions"></a>
+
+```typescript
+public readonly eslintOptions: EslintOptions;
+```
+
+- *Type:* projen.javascript.EslintOptions
+- *Default:* opinionated default options
+
+Eslint options.
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.github"></a>
+
+```typescript
+public readonly github: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.githubOptions"></a>
+
+```typescript
+public readonly githubOptions: GitHubOptions;
+```
+
+- *Type:* projen.github.GitHubOptions
+- *Default:* see GitHubOptions
+
+Options for GitHub integration.
+
+---
+
+##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .gitignore.
+
+---
+
+##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.gitOptions"></a>
+
+```typescript
+public readonly gitOptions: GitOptions;
+```
+
+- *Type:* projen.GitOptions
+
+Configuration options for git.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a Gitpod development environment.
+
+---
+
+##### `homepage`<sup>Optional</sup> <a name="homepage" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.homepage"></a>
+
+```typescript
+public readonly homepage: string;
+```
+
+- *Type:* string
+
+Package's Homepage / Website.
+
+---
+
+##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.jsiiReleaseVersion"></a>
+
+```typescript
+public readonly jsiiReleaseVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+Version requirement of `publib` which is used to publish modules to npm.
+
+---
+
+##### `keywords`<sup>Optional</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.keywords"></a>
+
+```typescript
+public readonly keywords: string[];
+```
+
+- *Type:* string[]
+
+Keywords to include in `package.json`.
+
+---
+
+##### `libdir`<sup>Optional</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+- *Default:* "lib"
+
+Typescript  artifacts output directory.
+
+---
+
+##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.license"></a>
+
+```typescript
+public readonly license: string;
+```
+
+- *Type:* string
+- *Default:* "Apache-2.0"
+
+License's SPDX identifier.
+
+See https://github.com/projen/projen/tree/main/license-text for a list of supported licenses.
+Use the `licensed` option if you want to no license to be specified.
+
+---
+
+##### `licensed`<sup>Optional</sup> <a name="licensed" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.licensed"></a>
+
+```typescript
+public readonly licensed: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates if a license should be added.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.logging"></a>
+
+```typescript
+public readonly logging: LoggerOptions;
+```
+
+- *Type:* projen.LoggerOptions
+- *Default:* {}
+
+Configure logging options such as verbosity.
+
+---
+
+##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.majorVersion"></a>
+
+```typescript
+public readonly majorVersion: number;
+```
+
+- *Type:* number
+- *Default:* Major version is not enforced.
+
+Major version to release from the default branch.
+
+If this is specified, we bump the latest version of this major version line.
+If not specified, we bump the global latest version.
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no max
+
+Minimum node.js version to require via `engines` (inclusive).
+
+---
+
+##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.mergify"></a>
+
+- *Deprecated:* use `githubOptions.mergify` instead
+
+```typescript
+public readonly mergify: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether mergify should be enabled on this repository or not.
+
+---
+
+##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.mergifyOptions"></a>
+
+- *Deprecated:* use `githubOptions.mergifyOptions` instead
+
+```typescript
+public readonly mergifyOptions: MergifyOptions;
+```
+
+- *Type:* projen.github.MergifyOptions
+- *Default:* default options
+
+Options for mergify.
+
+---
+
+##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.minMajorVersion"></a>
+
+```typescript
+public readonly minMajorVersion: number;
+```
+
+- *Type:* number
+- *Default:* No minimum version is being enforced
+
+Minimal Major version to release.
+
+This can be useful to set to 1, as breaking changes before the 1.x major
+release are not incrementing the major version number.
+
+Can not be set together with `majorVersion`.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no "engines" specified
+
+Minimum Node.js version to require via package.json `engines` (inclusive).
+
+---
+
+##### `mutableBuild`<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.mutableBuild"></a>
+
+```typescript
+public readonly mutableBuild: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically update files modified during builds to pull-request branches.
+
+This means
+that any files synthesized by projen or e.g. test snapshots will always be up-to-date
+before a PR is merged.
+
+Implies that PR builds do not have anti-tamper checks.
+
+---
+
+##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmAccess"></a>
+
+```typescript
+public readonly npmAccess: NpmAccess;
+```
+
+- *Type:* projen.javascript.NpmAccess
+- *Default:* for scoped packages (e.g. `foo@bar`), the default is `NpmAccess.RESTRICTED`, for non-scoped packages, the default is `NpmAccess.PUBLIC`.
+
+Access level of the npm package.
+
+---
+
+##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmDistTag"></a>
+
+```typescript
+public readonly npmDistTag: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The npmDistTag to use when publishing from the default branch.
+
+To set the npm dist-tag for release branches, set the `npmDistTag` property
+for each branch.
+
+---
+
+##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmignore"></a>
+
+- *Deprecated:* - use `project.addPackageIgnore`
+
+```typescript
+public readonly npmignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .npmignore.
+
+---
+
+##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmignoreEnabled"></a>
+
+```typescript
+public readonly npmignoreEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs.
+
+---
+
+##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmRegistry"></a>
+
+- *Deprecated:* use `npmRegistryUrl` instead
+
+```typescript
+public readonly npmRegistry: string;
+```
+
+- *Type:* string
+
+The host name of the npm registry to publish to.
+
+Cannot be set together with `npmRegistryUrl`.
+
+---
+
+##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmRegistryUrl"></a>
+
+```typescript
+public readonly npmRegistryUrl: string;
+```
+
+- *Type:* string
+- *Default:* "https://registry.npmjs.org"
+
+The base URL of the npm package registry.
+
+Must be a URL (e.g. start with "https://" or "http://")
+
+---
+
+##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmTokenSecret"></a>
+
+```typescript
+public readonly npmTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "NPM_TOKEN"
+
+GitHub secret which contains the NPM token to use when publishing packages.
+
+---
+
+##### `outdir`<sup>Optional</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+The root directory of the project. Relative to this directory, all files are synthesized.
+
+If this project has a parent, this directory is relative to the parent
+directory and it cannot be the same as the parent or any of it's other
+sub-projects.
+
+---
+
+##### `package`<sup>Optional</sup> <a name="package" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.package"></a>
+
+```typescript
+public readonly package: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`).
+
+---
+
+##### `packageName`<sup>Optional</sup> <a name="packageName" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.packageName"></a>
+
+```typescript
+public readonly packageName: string;
+```
+
+- *Type:* string
+- *Default:* defaults to project name
+
+The "name" in package.json.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+The parent project, if this project is part of a bigger project.
+
+---
+
+##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.peerDependencyOptions"></a>
+
+```typescript
+public readonly peerDependencyOptions: PeerDependencyOptions;
+```
+
+- *Type:* projen.javascript.PeerDependencyOptions
+
+Options for `peerDeps`.
+
+---
+
+##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.peerDeps"></a>
+
+```typescript
+public readonly peerDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Peer dependencies for this module.
+
+Dependencies listed here are required to
+be installed (and satisfied) by the _consumer_ of this library. Using peer
+dependencies allows you to ensure that only a single module of a certain
+library exists in the `node_modules` tree of your consumers.
+
+Note that prior to npm@7, peer dependencies are _not_ automatically
+installed, which means that adding peer dependencies to a library will be a
+breaking change for your customers.
+
+Unless `peerDependencyOptions.pinnedDevDependency` is disabled (it is
+enabled by default), projen will automatically add a dev dependency with a
+pinned version for each peer dependency. This will ensure that you build &
+test your module against the lowest peer version required.
+
+---
+
+##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.pnpmVersion"></a>
+
+```typescript
+public readonly pnpmVersion: string;
+```
+
+- *Type:* string
+- *Default:* "7"
+
+The version of PNPM to use if using PNPM as a package manager.
+
+---
+
+##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.postBuildSteps"></a>
+
+```typescript
+public readonly postBuildSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* []
+
+Steps to execute after build as part of the release workflow.
+
+---
+
+##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.prerelease"></a>
+
+```typescript
+public readonly prerelease: string;
+```
+
+- *Type:* string
+- *Default:* normal semantic versions
+
+Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre").
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.prettier"></a>
+
+```typescript
+public readonly prettier: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Setup prettier.
+
+---
+
+##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.prettierOptions"></a>
+
+```typescript
+public readonly prettierOptions: PrettierOptions;
+```
+
+- *Type:* projen.javascript.PrettierOptions
+- *Default:* default options
+
+Prettier options.
+
+---
+
+##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projectType"></a>
+
+- *Deprecated:* no longer supported at the base project level
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+- *Default:* ProjectType.UNKNOWN
+
+Which type of project this is (library/app).
+
+---
+
+##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+- *Default:* "npx projen"
+
+The shell command to use in order to run the projen CLI.
+
+Can be used to customize in special environments.
+
+---
+
+##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenCredentials"></a>
+
+```typescript
+public readonly projenCredentials: GithubCredentials;
+```
+
+- *Type:* projen.github.GithubCredentials
+- *Default:* use a personal access token named PROJEN_GITHUB_TOKEN
+
+Choose a method of providing GitHub API access for projen workflows.
+
+---
+
+##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenDevDependency"></a>
+
+```typescript
+public readonly projenDevDependency: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates of "projen" should be installed as a devDependency.
+
+---
+
+##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcJs"></a>
+
+```typescript
+public readonly projenrcJs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if projenrcJson is false
+
+Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation.
+
+---
+
+##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcJson"></a>
+
+```typescript
+public readonly projenrcJson: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
+
+---
+
+##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcJsonOptions"></a>
+
+```typescript
+public readonly projenrcJsonOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.ProjenrcOptions
+- *Default:* default options
+
+Options for .projenrc.json.
+
+---
+
+##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcJsOptions"></a>
+
+```typescript
+public readonly projenrcJsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.javascript.ProjenrcOptions
+- *Default:* default options
+
+Options for .projenrc.js.
+
+---
+
+##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcTs"></a>
+
+```typescript
+public readonly projenrcTs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use TypeScript for your projenrc file (`.projenrc.ts`).
+
+---
+
+##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenrcTsOptions"></a>
+
+```typescript
+public readonly projenrcTsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.typescript.ProjenrcOptions
+
+Options for .projenrc.ts.
+
+---
+
+##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenTokenSecret"></a>
+
+- *Deprecated:* use `projenCredentials`
+
+```typescript
+public readonly projenTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "PROJEN_GITHUB_TOKEN"
+
+The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows.
+
+This token needs to have the `repo`, `workflows`
+and `packages` scope.
+
+---
+
+##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.projenVersion"></a>
+
+```typescript
+public readonly projenVersion: string;
+```
+
+- *Type:* string
+- *Default:* Defaults to the latest version.
+
+Version of projen to install.
+
+---
+
+##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.publishDryRun"></a>
+
+```typescript
+public readonly publishDryRun: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Instead of actually publishing to package managers, just print the publishing command.
+
+---
+
+##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.publishTasks"></a>
+
+```typescript
+public readonly publishTasks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define publishing tasks that can be executed manually as well as workflows.
+
+Normally, publishing only happens within automated workflows. Enable this
+in order to create a publishing task for each publishing activity.
+
+---
+
+##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.pullRequestTemplate"></a>
+
+```typescript
+public readonly pullRequestTemplate: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Include a GitHub pull request template.
+
+---
+
+##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.pullRequestTemplateContents"></a>
+
+```typescript
+public readonly pullRequestTemplateContents: string[];
+```
+
+- *Type:* string[]
+- *Default:* default content
+
+The contents of the pull request template.
+
+---
+
+##### `readme`<sup>Optional</sup> <a name="readme" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.readme"></a>
+
+```typescript
+public readonly readme: SampleReadmeProps;
+```
+
+- *Type:* projen.SampleReadmeProps
+- *Default:* { filename: 'README.md', contents: '# replace this' }
+
+The README setup.
+
+---
+
+##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseBranches"></a>
+
+```typescript
+public readonly releaseBranches: {[ key: string ]: BranchOptions};
+```
+
+- *Type:* {[ key: string ]: projen.release.BranchOptions}
+- *Default:* no additional branches are used for release. you can use `addBranch()` to add additional branches.
+
+Defines additional release branches.
+
+A workflow will be created for each
+release branch which will publish releases from commits in this branch.
+Each release branch _must_ be assigned a major version number which is used
+to enforce that versions published from that branch always use that major
+version. If multiple branches are used, the `majorVersion` field must also
+be provided for the default branch.
+
+---
+
+##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseEveryCommit"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.continuous()` instead
+
+```typescript
+public readonly releaseEveryCommit: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically release new versions every commit to one of branches in `releaseBranches`.
+
+---
+
+##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseFailureIssue"></a>
+
+```typescript
+public readonly releaseFailureIssue: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Create a github issue on every failed publishing task.
+
+---
+
+##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseFailureIssueLabel"></a>
+
+```typescript
+public readonly releaseFailureIssueLabel: string;
+```
+
+- *Type:* string
+- *Default:* "failed-release"
+
+The label to apply to issues indicating publish failures.
+
+Only applies if `releaseFailureIssue` is true.
+
+---
+
+##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseSchedule"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.scheduled()` instead
+
+```typescript
+public readonly releaseSchedule: string;
+```
+
+- *Type:* string
+- *Default:* no scheduled releases
+
+CRON schedule to trigger new releases.
+
+---
+
+##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseTagPrefix"></a>
+
+```typescript
+public readonly releaseTagPrefix: string;
+```
+
+- *Type:* string
+- *Default:* "v"
+
+Automatically add the given prefix to release tags.
+
+Useful if you are releasing on multiple branches with overlapping version numbers.
+Note: this prefix is used to detect the latest tagged version
+when bumping, so if you change this on a project with an existing version
+history, you may need to manually tag your latest release
+with the new prefix.
+
+---
+
+##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseToNpm"></a>
+
+```typescript
+public readonly releaseToNpm: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically release to npm when new versions are introduced.
+
+---
+
+##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseTrigger"></a>
+
+```typescript
+public readonly releaseTrigger: ReleaseTrigger;
+```
+
+- *Type:* projen.release.ReleaseTrigger
+- *Default:* Continuous releases (`ReleaseTrigger.continuous()`)
+
+The release trigger to use.
+
+---
+
+##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseWorkflow"></a>
+
+- *Deprecated:* see `release`.
+
+```typescript
+public readonly releaseWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+DEPRECATED: renamed to `release`.
+
+---
+
+##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseWorkflowName"></a>
+
+```typescript
+public readonly releaseWorkflowName: string;
+```
+
+- *Type:* string
+- *Default:* "Release"
+
+The name of the default release workflow.
+
+---
+
+##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseWorkflowSetupSteps"></a>
+
+```typescript
+public readonly releaseWorkflowSetupSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+
+A set of workflow steps to execute in order to setup the workflow container.
+
+---
+
+##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.renovatebot"></a>
+
+```typescript
+public readonly renovatebot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use renovatebot to handle dependency upgrades.
+
+---
+
+##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.renovatebotOptions"></a>
+
+```typescript
+public readonly renovatebotOptions: RenovatebotOptions;
+```
+
+- *Type:* projen.RenovatebotOptions
+- *Default:* default options
+
+Options for renovatebot.
+
+---
+
+##### `repository`<sup>Optional</sup> <a name="repository" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.repository"></a>
+
+```typescript
+public readonly repository: string;
+```
+
+- *Type:* string
+
+The repository is the location where the actual code for your package lives.
+
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+
+---
+
+##### `repositoryDirectory`<sup>Optional</sup> <a name="repositoryDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.repositoryDirectory"></a>
+
+```typescript
+public readonly repositoryDirectory: string;
+```
+
+- *Type:* string
+
+If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives.
+
+---
+
+##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.scopedPackagesOptions"></a>
+
+```typescript
+public readonly scopedPackagesOptions: ScopedPackagesOptions[];
+```
+
+- *Type:* projen.javascript.ScopedPackagesOptions[]
+- *Default:* fetch all scoped packages from the public npm registry
+
+Options for privately hosted scoped packages.
+
+---
+
+##### `scripts`<sup>Optional</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.scripts"></a>
+
+```typescript
+public readonly scripts: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* {}
+
+npm scripts to include.
+
+If a script has the same name as a standard script,
+the standard script will be overwritten.
+
+---
+
+##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+- *Default:* "src"
+
+Typescript sources directory.
+
+---
+
+##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.stability"></a>
+
+```typescript
+public readonly stability: string;
+```
+
+- *Type:* string
+
+Package's Stability.
+
+---
+
+##### `stale`<sup>Optional</sup> <a name="stale" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.stale"></a>
+
+```typescript
+public readonly stale: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Auto-close of stale issues and pull request.
+
+See `staleOptions` for options.
+
+---
+
+##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.staleOptions"></a>
+
+```typescript
+public readonly staleOptions: StaleOptions;
+```
+
+- *Type:* projen.github.StaleOptions
+- *Default:* see defaults in `StaleOptions`
+
+Auto-close stale issues and pull requests.
+
+To disable set `stale` to `false`.
+
+---
+
+##### `testdir`<sup>Optional</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+- *Default:* "test"
+
+Jest tests directory.
+
+Tests files should be named `xxx.test.ts`.
+If this directory is under `srcdir` (e.g. `src/test`, `src/__tests__`),
+then tests are going to be compiled into `lib/` and executed as javascript.
+If the test directory is outside of `src`, then we configure jest to
+compile the code in-memory.
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* default options
+
+Custom TSConfig.
+
+---
+
+##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* use the production tsconfig options
+
+Custom tsconfig options for the development tsconfig.json file (used for testing).
+
+---
+
+##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.tsconfigDevFile"></a>
+
+```typescript
+public readonly tsconfigDevFile: string;
+```
+
+- *Type:* string
+- *Default:* "tsconfig.dev.json"
+
+The name of the development tsconfig.json file.
+
+---
+
+##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.typescriptVersion"></a>
+
+```typescript
+public readonly typescriptVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+TypeScript version to use.
+
+NOTE: Typescript is not semantically versioned and should remain on the
+same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
+
+---
+
+##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.versionrcOptions"></a>
+
+```typescript
+public readonly versionrcOptions: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* standard configuration applicable for GitHub repositories
+
+Custom configuration used when creating changelog with standard-version package.
+
+Given values either append to default configuration or overwrite values in it.
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.vscode"></a>
+
+```typescript
+public readonly vscode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable VSCode integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `vscodeWorkspace`<sup>Optional</sup> <a name="vscodeWorkspace" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.vscodeWorkspace"></a>
+
+```typescript
+public readonly vscodeWorkspace: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Create a VSCode multi-root workspace file for all monorepo workspaces.
+
+---
+
+##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowBootstrapSteps"></a>
+
+```typescript
+public readonly workflowBootstrapSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* "yarn install --frozen-lockfile && yarn projen"
+
+Workflow steps to use in order to bootstrap this repo.
+
+---
+
+##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowContainerImage"></a>
+
+```typescript
+public readonly workflowContainerImage: string;
+```
+
+- *Type:* string
+- *Default:* default image
+
+Container image to use for GitHub workflows.
+
+---
+
+##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowGitIdentity"></a>
+
+```typescript
+public readonly workflowGitIdentity: GitIdentity;
+```
+
+- *Type:* projen.github.GitIdentity
+- *Default:* GitHub Actions
+
+The git identity to use in workflows.
+
+---
+
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowNodeVersion"></a>
+
+```typescript
+public readonly workflowNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* same as `minNodeVersion`
+
+The node version to use in GitHub workflows.
+
+---
+
+##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOn"></a>
+
+```typescript
+public readonly workflowRunsOn: string[];
+```
+
+- *Type:* string[]
+- *Default:* ["ubuntu-latest"]
+
+Github Runner selection labels.
+
+---
+
 ### CdklabsPublishingProjectOptions <a name="CdklabsPublishingProjectOptions" id="cdklabs-projen-project-types.CdklabsPublishingProjectOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdklabsPublishingProjectOptions.Initializer"></a>
@@ -14261,6 +16223,3955 @@ public readonly mergeBranch: string;
 - *Default:* main
 
 The branch to merge to.
+
+---
+
+### MonorepoOptions <a name="MonorepoOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions"></a>
+
+MonorepoOptions.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.MonorepoOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const monorepoOptions: yarn.MonorepoOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.authorName">authorName</a></code> | <code>string</code> | Author's name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.authorOrganization">authorOrganization</a></code> | <code>boolean</code> | Is the author an organization. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.authorUrl">authorUrl</a></code> | <code>string</code> | Author's URL / Website. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoDetectBin">autoDetectBin</a></code> | <code>boolean</code> | Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with @codeCovTokenSecret. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use github workflows to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.peerDeps">peerDeps</a></code> | <code>string[]</code> | Peer dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcOptions</code> | Options for .projenrc.json. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.vscodeWorkspace">vscodeWorkspace</a></code> | <code>boolean</code> | Create a VSCode multi-root workspace file for all monorepo workspaces. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+
+---
+
+##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.defaultReleaseBranch"></a>
+
+```typescript
+public readonly defaultReleaseBranch: string;
+```
+
+- *Type:* string
+- *Default:* "main"
+
+The name of the main release branch.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+- *Default:* $BASEDIR
+
+This is the name of your project.
+
+---
+
+##### `allowLibraryDependencies`<sup>Optional</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.allowLibraryDependencies"></a>
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Allow the project to include `peerDependencies` and `bundledDependencies`.
+
+This is normally only allowed for libraries. For apps, there's no meaning
+for specifying these.
+
+---
+
+##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "dist"
+
+A directory which will contain build artifacts.
+
+---
+
+##### `authorEmail`<sup>Optional</sup> <a name="authorEmail" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.authorEmail"></a>
+
+```typescript
+public readonly authorEmail: string;
+```
+
+- *Type:* string
+
+Author's e-mail.
+
+---
+
+##### `authorName`<sup>Optional</sup> <a name="authorName" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.authorName"></a>
+
+```typescript
+public readonly authorName: string;
+```
+
+- *Type:* string
+
+Author's name.
+
+---
+
+##### `authorOrganization`<sup>Optional</sup> <a name="authorOrganization" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.authorOrganization"></a>
+
+```typescript
+public readonly authorOrganization: boolean;
+```
+
+- *Type:* boolean
+
+Is the author an organization.
+
+---
+
+##### `authorUrl`<sup>Optional</sup> <a name="authorUrl" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.authorUrl"></a>
+
+```typescript
+public readonly authorUrl: string;
+```
+
+- *Type:* string
+
+Author's URL / Website.
+
+---
+
+##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoApproveOptions"></a>
+
+```typescript
+public readonly autoApproveOptions: AutoApproveOptions;
+```
+
+- *Type:* projen.github.AutoApproveOptions
+- *Default:* auto approve is disabled
+
+Enable and configure the 'auto approve' workflow.
+
+---
+
+##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoApproveUpgrades"></a>
+
+```typescript
+public readonly autoApproveUpgrades: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued).
+
+Throw if set to true but `autoApproveOptions` are not defined.
+
+---
+
+##### `autoDetectBin`<sup>Optional</sup> <a name="autoDetectBin" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoDetectBin"></a>
+
+```typescript
+public readonly autoDetectBin: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section.
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable automatic merging on GitHub.
+
+Has no effect if `github.mergify`
+is set to false.
+
+---
+
+##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.autoMergeOptions"></a>
+
+```typescript
+public readonly autoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* projen.github.AutoMergeOptions
+- *Default:* see defaults in `AutoMergeOptions`
+
+Configure options for automatic merging on GitHub.
+
+Has no effect if
+`github.mergify` or `autoMerge` is set to false.
+
+---
+
+##### `bin`<sup>Optional</sup> <a name="bin" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.bin"></a>
+
+```typescript
+public readonly bin: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Binary programs vended with your module.
+
+You can use this option to add/customize how binaries are represented in
+your `package.json`, but unless `autoDetectBin` is `false`, every
+executable file under `bin` will automatically be added to this section.
+
+---
+
+##### `bugsEmail`<sup>Optional</sup> <a name="bugsEmail" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.bugsEmail"></a>
+
+```typescript
+public readonly bugsEmail: string;
+```
+
+- *Type:* string
+
+The email address to which issues should be reported.
+
+---
+
+##### `bugsUrl`<sup>Optional</sup> <a name="bugsUrl" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.bugsUrl"></a>
+
+```typescript
+public readonly bugsUrl: string;
+```
+
+- *Type:* string
+
+The url to your project's issue tracker.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+Define a GitHub workflow for building PRs.
+
+---
+
+##### `buildWorkflowTriggers`<sup>Optional</sup> <a name="buildWorkflowTriggers" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWorkflowTriggers"></a>
+
+```typescript
+public readonly buildWorkflowTriggers: Triggers;
+```
+
+- *Type:* projen.github.workflows.Triggers
+- *Default:* "{ pullRequest: {}, workflowDispatch: {} }"
+
+Build workflow triggers.
+
+---
+
+##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.bundledDeps"></a>
+
+```typescript
+public readonly bundledDeps: string[];
+```
+
+- *Type:* string[]
+
+List of dependencies to bundle into this module.
+
+These modules will be
+added both to the `dependencies` section and `bundledDependencies` section of
+your `package.json`.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `bundlerOptions`<sup>Optional</sup> <a name="bundlerOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.bundlerOptions"></a>
+
+```typescript
+public readonly bundlerOptions: BundlerOptions;
+```
+
+- *Type:* projen.javascript.BundlerOptions
+
+Options for `Bundler`.
+
+---
+
+##### `clobber`<sup>Optional</sup> <a name="clobber" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.clobber"></a>
+
+```typescript
+public readonly clobber: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Add a `clobber` task which resets the repo to origin.
+
+---
+
+##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeArtifactOptions"></a>
+
+```typescript
+public readonly codeArtifactOptions: CodeArtifactOptions;
+```
+
+- *Type:* projen.javascript.CodeArtifactOptions
+- *Default:* undefined
+
+Options for npm packages using AWS CodeArtifact.
+
+This is required if publishing packages to, or installing scoped packages from AWS CodeArtifact
+
+---
+
+##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeCov"></a>
+
+```typescript
+public readonly codeCov: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with @codeCovTokenSecret.
+
+---
+
+##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeCovTokenSecret"></a>
+
+```typescript
+public readonly codeCovTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* if this option is not specified, only public repositories are supported
+
+Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
+
+---
+
+##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to commit the managed files by default.
+
+---
+
+##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.copyrightOwner"></a>
+
+```typescript
+public readonly copyrightOwner: string;
+```
+
+- *Type:* string
+- *Default:* defaults to the value of authorName or "" if `authorName` is undefined.
+
+License copyright owner.
+
+---
+
+##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.copyrightPeriod"></a>
+
+```typescript
+public readonly copyrightPeriod: string;
+```
+
+- *Type:* string
+- *Default:* current year
+
+The copyright years to put in the LICENSE file.
+
+---
+
+##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.dependabot"></a>
+
+```typescript
+public readonly dependabot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use dependabot to handle dependency upgrades.
+
+Cannot be used in conjunction with `depsUpgrade`.
+
+---
+
+##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.dependabotOptions"></a>
+
+```typescript
+public readonly dependabotOptions: DependabotOptions;
+```
+
+- *Type:* projen.github.DependabotOptions
+- *Default:* default options
+
+Options for dependabot.
+
+---
+
+##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.deps"></a>
+
+```typescript
+public readonly deps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Runtime dependencies of this module.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.depsUpgrade"></a>
+
+```typescript
+public readonly depsUpgrade: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Use github workflows to handle dependency upgrades.
+
+Cannot be used in conjunction with `dependabot`.
+
+---
+
+##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.depsUpgradeOptions"></a>
+
+```typescript
+public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
+```
+
+- *Type:* projen.javascript.UpgradeDependenciesOptions
+- *Default:* default options
+
+Options for `UpgradeDependencies`.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description is just a string that helps people understand the purpose of the package.
+
+It can be used when searching for packages in a package manager as well.
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a VSCode development environment (used for GitHub Codespaces).
+
+---
+
+##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.devDeps"></a>
+
+```typescript
+public readonly devDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Build dependencies for this module.
+
+These dependencies will only be
+available in your build environment but will not be fetched when this
+module is consumed.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.disableTsconfig"></a>
+
+```typescript
+public readonly disableTsconfig: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler).
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Docgen by Typedoc.
+
+---
+
+##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "docs"
+
+Docs directory.
+
+---
+
+##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.entrypoint"></a>
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+- *Default:* "lib/index.js"
+
+Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json.
+
+---
+
+##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.entrypointTypes"></a>
+
+```typescript
+public readonly entrypointTypes: string;
+```
+
+- *Type:* string
+- *Default:* .d.ts file derived from the project's entrypoint (usually lib/index.d.ts)
+
+The .d.ts file that includes the type declarations for this module.
+
+---
+
+##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.eslintOptions"></a>
+
+```typescript
+public readonly eslintOptions: EslintOptions;
+```
+
+- *Type:* projen.javascript.EslintOptions
+- *Default:* opinionated default options
+
+Eslint options.
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.github"></a>
+
+```typescript
+public readonly github: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.githubOptions"></a>
+
+```typescript
+public readonly githubOptions: GitHubOptions;
+```
+
+- *Type:* projen.github.GitHubOptions
+- *Default:* see GitHubOptions
+
+Options for GitHub integration.
+
+---
+
+##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .gitignore.
+
+---
+
+##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.gitOptions"></a>
+
+```typescript
+public readonly gitOptions: GitOptions;
+```
+
+- *Type:* projen.GitOptions
+
+Configuration options for git.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a Gitpod development environment.
+
+---
+
+##### `homepage`<sup>Optional</sup> <a name="homepage" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.homepage"></a>
+
+```typescript
+public readonly homepage: string;
+```
+
+- *Type:* string
+
+Package's Homepage / Website.
+
+---
+
+##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.jsiiReleaseVersion"></a>
+
+```typescript
+public readonly jsiiReleaseVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+Version requirement of `publib` which is used to publish modules to npm.
+
+---
+
+##### `keywords`<sup>Optional</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.keywords"></a>
+
+```typescript
+public readonly keywords: string[];
+```
+
+- *Type:* string[]
+
+Keywords to include in `package.json`.
+
+---
+
+##### `libdir`<sup>Optional</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+- *Default:* "lib"
+
+Typescript  artifacts output directory.
+
+---
+
+##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.license"></a>
+
+```typescript
+public readonly license: string;
+```
+
+- *Type:* string
+- *Default:* "Apache-2.0"
+
+License's SPDX identifier.
+
+See https://github.com/projen/projen/tree/main/license-text for a list of supported licenses.
+Use the `licensed` option if you want to no license to be specified.
+
+---
+
+##### `licensed`<sup>Optional</sup> <a name="licensed" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.licensed"></a>
+
+```typescript
+public readonly licensed: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates if a license should be added.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.logging"></a>
+
+```typescript
+public readonly logging: LoggerOptions;
+```
+
+- *Type:* projen.LoggerOptions
+- *Default:* {}
+
+Configure logging options such as verbosity.
+
+---
+
+##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.majorVersion"></a>
+
+```typescript
+public readonly majorVersion: number;
+```
+
+- *Type:* number
+- *Default:* Major version is not enforced.
+
+Major version to release from the default branch.
+
+If this is specified, we bump the latest version of this major version line.
+If not specified, we bump the global latest version.
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no max
+
+Minimum node.js version to require via `engines` (inclusive).
+
+---
+
+##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.mergify"></a>
+
+- *Deprecated:* use `githubOptions.mergify` instead
+
+```typescript
+public readonly mergify: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether mergify should be enabled on this repository or not.
+
+---
+
+##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.mergifyOptions"></a>
+
+- *Deprecated:* use `githubOptions.mergifyOptions` instead
+
+```typescript
+public readonly mergifyOptions: MergifyOptions;
+```
+
+- *Type:* projen.github.MergifyOptions
+- *Default:* default options
+
+Options for mergify.
+
+---
+
+##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.minMajorVersion"></a>
+
+```typescript
+public readonly minMajorVersion: number;
+```
+
+- *Type:* number
+- *Default:* No minimum version is being enforced
+
+Minimal Major version to release.
+
+This can be useful to set to 1, as breaking changes before the 1.x major
+release are not incrementing the major version number.
+
+Can not be set together with `majorVersion`.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no "engines" specified
+
+Minimum Node.js version to require via package.json `engines` (inclusive).
+
+---
+
+##### `mutableBuild`<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.mutableBuild"></a>
+
+```typescript
+public readonly mutableBuild: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically update files modified during builds to pull-request branches.
+
+This means
+that any files synthesized by projen or e.g. test snapshots will always be up-to-date
+before a PR is merged.
+
+Implies that PR builds do not have anti-tamper checks.
+
+---
+
+##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmAccess"></a>
+
+```typescript
+public readonly npmAccess: NpmAccess;
+```
+
+- *Type:* projen.javascript.NpmAccess
+- *Default:* for scoped packages (e.g. `foo@bar`), the default is `NpmAccess.RESTRICTED`, for non-scoped packages, the default is `NpmAccess.PUBLIC`.
+
+Access level of the npm package.
+
+---
+
+##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmDistTag"></a>
+
+```typescript
+public readonly npmDistTag: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The npmDistTag to use when publishing from the default branch.
+
+To set the npm dist-tag for release branches, set the `npmDistTag` property
+for each branch.
+
+---
+
+##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmignore"></a>
+
+- *Deprecated:* - use `project.addPackageIgnore`
+
+```typescript
+public readonly npmignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .npmignore.
+
+---
+
+##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmignoreEnabled"></a>
+
+```typescript
+public readonly npmignoreEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs.
+
+---
+
+##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmRegistry"></a>
+
+- *Deprecated:* use `npmRegistryUrl` instead
+
+```typescript
+public readonly npmRegistry: string;
+```
+
+- *Type:* string
+
+The host name of the npm registry to publish to.
+
+Cannot be set together with `npmRegistryUrl`.
+
+---
+
+##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmRegistryUrl"></a>
+
+```typescript
+public readonly npmRegistryUrl: string;
+```
+
+- *Type:* string
+- *Default:* "https://registry.npmjs.org"
+
+The base URL of the npm package registry.
+
+Must be a URL (e.g. start with "https://" or "http://")
+
+---
+
+##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmTokenSecret"></a>
+
+```typescript
+public readonly npmTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "NPM_TOKEN"
+
+GitHub secret which contains the NPM token to use when publishing packages.
+
+---
+
+##### `outdir`<sup>Optional</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+The root directory of the project. Relative to this directory, all files are synthesized.
+
+If this project has a parent, this directory is relative to the parent
+directory and it cannot be the same as the parent or any of it's other
+sub-projects.
+
+---
+
+##### `package`<sup>Optional</sup> <a name="package" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.package"></a>
+
+```typescript
+public readonly package: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`).
+
+---
+
+##### `packageName`<sup>Optional</sup> <a name="packageName" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.packageName"></a>
+
+```typescript
+public readonly packageName: string;
+```
+
+- *Type:* string
+- *Default:* defaults to project name
+
+The "name" in package.json.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+The parent project, if this project is part of a bigger project.
+
+---
+
+##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.peerDependencyOptions"></a>
+
+```typescript
+public readonly peerDependencyOptions: PeerDependencyOptions;
+```
+
+- *Type:* projen.javascript.PeerDependencyOptions
+
+Options for `peerDeps`.
+
+---
+
+##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.peerDeps"></a>
+
+```typescript
+public readonly peerDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Peer dependencies for this module.
+
+Dependencies listed here are required to
+be installed (and satisfied) by the _consumer_ of this library. Using peer
+dependencies allows you to ensure that only a single module of a certain
+library exists in the `node_modules` tree of your consumers.
+
+Note that prior to npm@7, peer dependencies are _not_ automatically
+installed, which means that adding peer dependencies to a library will be a
+breaking change for your customers.
+
+Unless `peerDependencyOptions.pinnedDevDependency` is disabled (it is
+enabled by default), projen will automatically add a dev dependency with a
+pinned version for each peer dependency. This will ensure that you build &
+test your module against the lowest peer version required.
+
+---
+
+##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.pnpmVersion"></a>
+
+```typescript
+public readonly pnpmVersion: string;
+```
+
+- *Type:* string
+- *Default:* "7"
+
+The version of PNPM to use if using PNPM as a package manager.
+
+---
+
+##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.postBuildSteps"></a>
+
+```typescript
+public readonly postBuildSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* []
+
+Steps to execute after build as part of the release workflow.
+
+---
+
+##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.prerelease"></a>
+
+```typescript
+public readonly prerelease: string;
+```
+
+- *Type:* string
+- *Default:* normal semantic versions
+
+Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre").
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.prettier"></a>
+
+```typescript
+public readonly prettier: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Setup prettier.
+
+---
+
+##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.prettierOptions"></a>
+
+```typescript
+public readonly prettierOptions: PrettierOptions;
+```
+
+- *Type:* projen.javascript.PrettierOptions
+- *Default:* default options
+
+Prettier options.
+
+---
+
+##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projectType"></a>
+
+- *Deprecated:* no longer supported at the base project level
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+- *Default:* ProjectType.UNKNOWN
+
+Which type of project this is (library/app).
+
+---
+
+##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+- *Default:* "npx projen"
+
+The shell command to use in order to run the projen CLI.
+
+Can be used to customize in special environments.
+
+---
+
+##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenCredentials"></a>
+
+```typescript
+public readonly projenCredentials: GithubCredentials;
+```
+
+- *Type:* projen.github.GithubCredentials
+- *Default:* use a personal access token named PROJEN_GITHUB_TOKEN
+
+Choose a method of providing GitHub API access for projen workflows.
+
+---
+
+##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenDevDependency"></a>
+
+```typescript
+public readonly projenDevDependency: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates of "projen" should be installed as a devDependency.
+
+---
+
+##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcJs"></a>
+
+```typescript
+public readonly projenrcJs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if projenrcJson is false
+
+Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation.
+
+---
+
+##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcJson"></a>
+
+```typescript
+public readonly projenrcJson: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
+
+---
+
+##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcJsonOptions"></a>
+
+```typescript
+public readonly projenrcJsonOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.ProjenrcOptions
+- *Default:* default options
+
+Options for .projenrc.json.
+
+---
+
+##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcJsOptions"></a>
+
+```typescript
+public readonly projenrcJsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.javascript.ProjenrcOptions
+- *Default:* default options
+
+Options for .projenrc.js.
+
+---
+
+##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcTs"></a>
+
+```typescript
+public readonly projenrcTs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use TypeScript for your projenrc file (`.projenrc.ts`).
+
+---
+
+##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenrcTsOptions"></a>
+
+```typescript
+public readonly projenrcTsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.typescript.ProjenrcOptions
+
+Options for .projenrc.ts.
+
+---
+
+##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenTokenSecret"></a>
+
+- *Deprecated:* use `projenCredentials`
+
+```typescript
+public readonly projenTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "PROJEN_GITHUB_TOKEN"
+
+The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows.
+
+This token needs to have the `repo`, `workflows`
+and `packages` scope.
+
+---
+
+##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.projenVersion"></a>
+
+```typescript
+public readonly projenVersion: string;
+```
+
+- *Type:* string
+- *Default:* Defaults to the latest version.
+
+Version of projen to install.
+
+---
+
+##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.publishDryRun"></a>
+
+```typescript
+public readonly publishDryRun: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Instead of actually publishing to package managers, just print the publishing command.
+
+---
+
+##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.publishTasks"></a>
+
+```typescript
+public readonly publishTasks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define publishing tasks that can be executed manually as well as workflows.
+
+Normally, publishing only happens within automated workflows. Enable this
+in order to create a publishing task for each publishing activity.
+
+---
+
+##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.pullRequestTemplate"></a>
+
+```typescript
+public readonly pullRequestTemplate: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Include a GitHub pull request template.
+
+---
+
+##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.pullRequestTemplateContents"></a>
+
+```typescript
+public readonly pullRequestTemplateContents: string[];
+```
+
+- *Type:* string[]
+- *Default:* default content
+
+The contents of the pull request template.
+
+---
+
+##### `readme`<sup>Optional</sup> <a name="readme" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.readme"></a>
+
+```typescript
+public readonly readme: SampleReadmeProps;
+```
+
+- *Type:* projen.SampleReadmeProps
+- *Default:* { filename: 'README.md', contents: '# replace this' }
+
+The README setup.
+
+---
+
+##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseBranches"></a>
+
+```typescript
+public readonly releaseBranches: {[ key: string ]: BranchOptions};
+```
+
+- *Type:* {[ key: string ]: projen.release.BranchOptions}
+- *Default:* no additional branches are used for release. you can use `addBranch()` to add additional branches.
+
+Defines additional release branches.
+
+A workflow will be created for each
+release branch which will publish releases from commits in this branch.
+Each release branch _must_ be assigned a major version number which is used
+to enforce that versions published from that branch always use that major
+version. If multiple branches are used, the `majorVersion` field must also
+be provided for the default branch.
+
+---
+
+##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseEveryCommit"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.continuous()` instead
+
+```typescript
+public readonly releaseEveryCommit: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically release new versions every commit to one of branches in `releaseBranches`.
+
+---
+
+##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseFailureIssue"></a>
+
+```typescript
+public readonly releaseFailureIssue: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Create a github issue on every failed publishing task.
+
+---
+
+##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseFailureIssueLabel"></a>
+
+```typescript
+public readonly releaseFailureIssueLabel: string;
+```
+
+- *Type:* string
+- *Default:* "failed-release"
+
+The label to apply to issues indicating publish failures.
+
+Only applies if `releaseFailureIssue` is true.
+
+---
+
+##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseSchedule"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.scheduled()` instead
+
+```typescript
+public readonly releaseSchedule: string;
+```
+
+- *Type:* string
+- *Default:* no scheduled releases
+
+CRON schedule to trigger new releases.
+
+---
+
+##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseTagPrefix"></a>
+
+```typescript
+public readonly releaseTagPrefix: string;
+```
+
+- *Type:* string
+- *Default:* "v"
+
+Automatically add the given prefix to release tags.
+
+Useful if you are releasing on multiple branches with overlapping version numbers.
+Note: this prefix is used to detect the latest tagged version
+when bumping, so if you change this on a project with an existing version
+history, you may need to manually tag your latest release
+with the new prefix.
+
+---
+
+##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseToNpm"></a>
+
+```typescript
+public readonly releaseToNpm: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically release to npm when new versions are introduced.
+
+---
+
+##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseTrigger"></a>
+
+```typescript
+public readonly releaseTrigger: ReleaseTrigger;
+```
+
+- *Type:* projen.release.ReleaseTrigger
+- *Default:* Continuous releases (`ReleaseTrigger.continuous()`)
+
+The release trigger to use.
+
+---
+
+##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseWorkflow"></a>
+
+- *Deprecated:* see `release`.
+
+```typescript
+public readonly releaseWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+DEPRECATED: renamed to `release`.
+
+---
+
+##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseWorkflowName"></a>
+
+```typescript
+public readonly releaseWorkflowName: string;
+```
+
+- *Type:* string
+- *Default:* "Release"
+
+The name of the default release workflow.
+
+---
+
+##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseWorkflowSetupSteps"></a>
+
+```typescript
+public readonly releaseWorkflowSetupSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+
+A set of workflow steps to execute in order to setup the workflow container.
+
+---
+
+##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.renovatebot"></a>
+
+```typescript
+public readonly renovatebot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use renovatebot to handle dependency upgrades.
+
+---
+
+##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.renovatebotOptions"></a>
+
+```typescript
+public readonly renovatebotOptions: RenovatebotOptions;
+```
+
+- *Type:* projen.RenovatebotOptions
+- *Default:* default options
+
+Options for renovatebot.
+
+---
+
+##### `repository`<sup>Optional</sup> <a name="repository" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.repository"></a>
+
+```typescript
+public readonly repository: string;
+```
+
+- *Type:* string
+
+The repository is the location where the actual code for your package lives.
+
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+
+---
+
+##### `repositoryDirectory`<sup>Optional</sup> <a name="repositoryDirectory" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.repositoryDirectory"></a>
+
+```typescript
+public readonly repositoryDirectory: string;
+```
+
+- *Type:* string
+
+If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives.
+
+---
+
+##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.scopedPackagesOptions"></a>
+
+```typescript
+public readonly scopedPackagesOptions: ScopedPackagesOptions[];
+```
+
+- *Type:* projen.javascript.ScopedPackagesOptions[]
+- *Default:* fetch all scoped packages from the public npm registry
+
+Options for privately hosted scoped packages.
+
+---
+
+##### `scripts`<sup>Optional</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.scripts"></a>
+
+```typescript
+public readonly scripts: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* {}
+
+npm scripts to include.
+
+If a script has the same name as a standard script,
+the standard script will be overwritten.
+
+---
+
+##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+- *Default:* "src"
+
+Typescript sources directory.
+
+---
+
+##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.stability"></a>
+
+```typescript
+public readonly stability: string;
+```
+
+- *Type:* string
+
+Package's Stability.
+
+---
+
+##### `stale`<sup>Optional</sup> <a name="stale" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.stale"></a>
+
+```typescript
+public readonly stale: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Auto-close of stale issues and pull request.
+
+See `staleOptions` for options.
+
+---
+
+##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.staleOptions"></a>
+
+```typescript
+public readonly staleOptions: StaleOptions;
+```
+
+- *Type:* projen.github.StaleOptions
+- *Default:* see defaults in `StaleOptions`
+
+Auto-close stale issues and pull requests.
+
+To disable set `stale` to `false`.
+
+---
+
+##### `testdir`<sup>Optional</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+- *Default:* "test"
+
+Jest tests directory.
+
+Tests files should be named `xxx.test.ts`.
+If this directory is under `srcdir` (e.g. `src/test`, `src/__tests__`),
+then tests are going to be compiled into `lib/` and executed as javascript.
+If the test directory is outside of `src`, then we configure jest to
+compile the code in-memory.
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* default options
+
+Custom TSConfig.
+
+---
+
+##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* use the production tsconfig options
+
+Custom tsconfig options for the development tsconfig.json file (used for testing).
+
+---
+
+##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.tsconfigDevFile"></a>
+
+```typescript
+public readonly tsconfigDevFile: string;
+```
+
+- *Type:* string
+- *Default:* "tsconfig.dev.json"
+
+The name of the development tsconfig.json file.
+
+---
+
+##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.typescriptVersion"></a>
+
+```typescript
+public readonly typescriptVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+TypeScript version to use.
+
+NOTE: Typescript is not semantically versioned and should remain on the
+same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
+
+---
+
+##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.versionrcOptions"></a>
+
+```typescript
+public readonly versionrcOptions: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* standard configuration applicable for GitHub repositories
+
+Custom configuration used when creating changelog with standard-version package.
+
+Given values either append to default configuration or overwrite values in it.
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.vscode"></a>
+
+```typescript
+public readonly vscode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable VSCode integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `vscodeWorkspace`<sup>Optional</sup> <a name="vscodeWorkspace" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.vscodeWorkspace"></a>
+
+```typescript
+public readonly vscodeWorkspace: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Create a VSCode multi-root workspace file for all monorepo workspaces.
+
+---
+
+##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowBootstrapSteps"></a>
+
+```typescript
+public readonly workflowBootstrapSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* "yarn install --frozen-lockfile && yarn projen"
+
+Workflow steps to use in order to bootstrap this repo.
+
+---
+
+##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowContainerImage"></a>
+
+```typescript
+public readonly workflowContainerImage: string;
+```
+
+- *Type:* string
+- *Default:* default image
+
+Container image to use for GitHub workflows.
+
+---
+
+##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowGitIdentity"></a>
+
+```typescript
+public readonly workflowGitIdentity: GitIdentity;
+```
+
+- *Type:* projen.github.GitIdentity
+- *Default:* GitHub Actions
+
+The git identity to use in workflows.
+
+---
+
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowNodeVersion"></a>
+
+```typescript
+public readonly workflowNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* same as `minNodeVersion`
+
+The node version to use in GitHub workflows.
+
+---
+
+##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOn"></a>
+
+```typescript
+public readonly workflowRunsOn: string[];
+```
+
+- *Type:* string[]
+- *Default:* ["ubuntu-latest"]
+
+Github Runner selection labels.
+
+---
+
+### TypeScriptWorkspaceOptions <a name="TypeScriptWorkspaceOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions"></a>
+
+TypeScriptWorkspaceOptions.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.parent">parent</a></code> | <code>cdklabs-projen-project-types.yarn.Monorepo</code> | The parent `yarn.Monorepo` project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorName">authorName</a></code> | <code>string</code> | Author's name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorOrganization">authorOrganization</a></code> | <code>boolean</code> | Is the author an organization. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorUrl">authorUrl</a></code> | <code>string</code> | Author's URL / Website. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with @codeCovTokenSecret. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.deps">deps</a></code> | <code>string \| cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]</code> | Runtime dependencies of this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use github workflows to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.devDeps">devDeps</a></code> | <code>string \| cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]</code> | Build dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.excludeDepsFromUpgrade">excludeDepsFromUpgrade</a></code> | <code>string[]</code> | Dependencies that should be excluded from upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.jestOptions">jestOptions</a></code> | <code>projen.javascript.JestOptions</code> | Jest options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.peerDeps">peerDeps</a></code> | <code>string \| cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]</code> | Peer dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.private">private</a></code> | <code>boolean</code> | Make this a private package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcOptions</code> | Options for .projenrc.json. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workspaceScope">workspaceScope</a></code> | <code>string</code> | The workspace scope the package is located in. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+- *Default:* $BASEDIR
+
+This is the name of your project.
+
+---
+
+##### `parent`<sup>Required</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.parent"></a>
+
+```typescript
+public readonly parent: Monorepo;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.Monorepo
+
+The parent `yarn.Monorepo` project.
+
+---
+
+##### `allowLibraryDependencies`<sup>Optional</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.allowLibraryDependencies"></a>
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Allow the project to include `peerDependencies` and `bundledDependencies`.
+
+This is normally only allowed for libraries. For apps, there's no meaning
+for specifying these.
+
+---
+
+##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "dist"
+
+A directory which will contain build artifacts.
+
+---
+
+##### `authorEmail`<sup>Optional</sup> <a name="authorEmail" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorEmail"></a>
+
+```typescript
+public readonly authorEmail: string;
+```
+
+- *Type:* string
+
+Author's e-mail.
+
+---
+
+##### `authorName`<sup>Optional</sup> <a name="authorName" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorName"></a>
+
+```typescript
+public readonly authorName: string;
+```
+
+- *Type:* string
+
+Author's name.
+
+---
+
+##### `authorOrganization`<sup>Optional</sup> <a name="authorOrganization" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorOrganization"></a>
+
+```typescript
+public readonly authorOrganization: boolean;
+```
+
+- *Type:* boolean
+
+Is the author an organization.
+
+---
+
+##### `authorUrl`<sup>Optional</sup> <a name="authorUrl" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorUrl"></a>
+
+```typescript
+public readonly authorUrl: string;
+```
+
+- *Type:* string
+
+Author's URL / Website.
+
+---
+
+##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.autoApproveOptions"></a>
+
+```typescript
+public readonly autoApproveOptions: AutoApproveOptions;
+```
+
+- *Type:* projen.github.AutoApproveOptions
+- *Default:* auto approve is disabled
+
+Enable and configure the 'auto approve' workflow.
+
+---
+
+##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.autoApproveUpgrades"></a>
+
+```typescript
+public readonly autoApproveUpgrades: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued).
+
+Throw if set to true but `autoApproveOptions` are not defined.
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable automatic merging on GitHub.
+
+Has no effect if `github.mergify`
+is set to false.
+
+---
+
+##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.autoMergeOptions"></a>
+
+```typescript
+public readonly autoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* projen.github.AutoMergeOptions
+- *Default:* see defaults in `AutoMergeOptions`
+
+Configure options for automatic merging on GitHub.
+
+Has no effect if
+`github.mergify` or `autoMerge` is set to false.
+
+---
+
+##### `bin`<sup>Optional</sup> <a name="bin" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bin"></a>
+
+```typescript
+public readonly bin: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Binary programs vended with your module.
+
+You can use this option to add/customize how binaries are represented in
+your `package.json`, but unless `autoDetectBin` is `false`, every
+executable file under `bin` will automatically be added to this section.
+
+---
+
+##### `bugsEmail`<sup>Optional</sup> <a name="bugsEmail" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bugsEmail"></a>
+
+```typescript
+public readonly bugsEmail: string;
+```
+
+- *Type:* string
+
+The email address to which issues should be reported.
+
+---
+
+##### `bugsUrl`<sup>Optional</sup> <a name="bugsUrl" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bugsUrl"></a>
+
+```typescript
+public readonly bugsUrl: string;
+```
+
+- *Type:* string
+
+The url to your project's issue tracker.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+Define a GitHub workflow for building PRs.
+
+---
+
+##### `buildWorkflowTriggers`<sup>Optional</sup> <a name="buildWorkflowTriggers" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.buildWorkflowTriggers"></a>
+
+```typescript
+public readonly buildWorkflowTriggers: Triggers;
+```
+
+- *Type:* projen.github.workflows.Triggers
+- *Default:* "{ pullRequest: {}, workflowDispatch: {} }"
+
+Build workflow triggers.
+
+---
+
+##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bundledDeps"></a>
+
+```typescript
+public readonly bundledDeps: string[];
+```
+
+- *Type:* string[]
+
+List of dependencies to bundle into this module.
+
+These modules will be
+added both to the `dependencies` section and `bundledDependencies` section of
+your `package.json`.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `bundlerOptions`<sup>Optional</sup> <a name="bundlerOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bundlerOptions"></a>
+
+```typescript
+public readonly bundlerOptions: BundlerOptions;
+```
+
+- *Type:* projen.javascript.BundlerOptions
+
+Options for `Bundler`.
+
+---
+
+##### `clobber`<sup>Optional</sup> <a name="clobber" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.clobber"></a>
+
+```typescript
+public readonly clobber: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Add a `clobber` task which resets the repo to origin.
+
+---
+
+##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.codeArtifactOptions"></a>
+
+```typescript
+public readonly codeArtifactOptions: CodeArtifactOptions;
+```
+
+- *Type:* projen.javascript.CodeArtifactOptions
+- *Default:* undefined
+
+Options for npm packages using AWS CodeArtifact.
+
+This is required if publishing packages to, or installing scoped packages from AWS CodeArtifact
+
+---
+
+##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.codeCov"></a>
+
+```typescript
+public readonly codeCov: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with @codeCovTokenSecret.
+
+---
+
+##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.codeCovTokenSecret"></a>
+
+```typescript
+public readonly codeCovTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* if this option is not specified, only public repositories are supported
+
+Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
+
+---
+
+##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to commit the managed files by default.
+
+---
+
+##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.copyrightOwner"></a>
+
+```typescript
+public readonly copyrightOwner: string;
+```
+
+- *Type:* string
+- *Default:* defaults to the value of authorName or "" if `authorName` is undefined.
+
+License copyright owner.
+
+---
+
+##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.copyrightPeriod"></a>
+
+```typescript
+public readonly copyrightPeriod: string;
+```
+
+- *Type:* string
+- *Default:* current year
+
+The copyright years to put in the LICENSE file.
+
+---
+
+##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.dependabot"></a>
+
+```typescript
+public readonly dependabot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use dependabot to handle dependency upgrades.
+
+Cannot be used in conjunction with `depsUpgrade`.
+
+---
+
+##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.dependabotOptions"></a>
+
+```typescript
+public readonly dependabotOptions: DependabotOptions;
+```
+
+- *Type:* projen.github.DependabotOptions
+- *Default:* default options
+
+Options for dependabot.
+
+---
+
+##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.deps"></a>
+
+```typescript
+public readonly deps: string | TypeScriptWorkspace[];
+```
+
+- *Type:* string | cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]
+- *Default:* []
+
+Runtime dependencies of this module.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.depsUpgrade"></a>
+
+```typescript
+public readonly depsUpgrade: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Use github workflows to handle dependency upgrades.
+
+Cannot be used in conjunction with `dependabot`.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description is just a string that helps people understand the purpose of the package.
+
+It can be used when searching for packages in a package manager as well.
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a VSCode development environment (used for GitHub Codespaces).
+
+---
+
+##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.devDeps"></a>
+
+```typescript
+public readonly devDeps: string | TypeScriptWorkspace[];
+```
+
+- *Type:* string | cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]
+- *Default:* []
+
+Build dependencies for this module.
+
+These dependencies will only be
+available in your build environment but will not be fetched when this
+module is consumed.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.disableTsconfig"></a>
+
+```typescript
+public readonly disableTsconfig: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler).
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Docgen by Typedoc.
+
+---
+
+##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "docs"
+
+Docs directory.
+
+---
+
+##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.entrypoint"></a>
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+- *Default:* "lib/index.js"
+
+Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json.
+
+---
+
+##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.entrypointTypes"></a>
+
+```typescript
+public readonly entrypointTypes: string;
+```
+
+- *Type:* string
+- *Default:* .d.ts file derived from the project's entrypoint (usually lib/index.d.ts)
+
+The .d.ts file that includes the type declarations for this module.
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.eslint"></a>
+
+```typescript
+public readonly eslint: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Setup eslint.
+
+---
+
+##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.eslintOptions"></a>
+
+```typescript
+public readonly eslintOptions: EslintOptions;
+```
+
+- *Type:* projen.javascript.EslintOptions
+- *Default:* opinionated default options
+
+Eslint options.
+
+---
+
+##### `excludeDepsFromUpgrade`<sup>Optional</sup> <a name="excludeDepsFromUpgrade" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.excludeDepsFromUpgrade"></a>
+
+```typescript
+public readonly excludeDepsFromUpgrade: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Dependencies that should be excluded from upgrades.
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.github"></a>
+
+```typescript
+public readonly github: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.githubOptions"></a>
+
+```typescript
+public readonly githubOptions: GitHubOptions;
+```
+
+- *Type:* projen.github.GitHubOptions
+- *Default:* see GitHubOptions
+
+Options for GitHub integration.
+
+---
+
+##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .gitignore.
+
+---
+
+##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.gitOptions"></a>
+
+```typescript
+public readonly gitOptions: GitOptions;
+```
+
+- *Type:* projen.GitOptions
+
+Configuration options for git.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a Gitpod development environment.
+
+---
+
+##### `homepage`<sup>Optional</sup> <a name="homepage" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.homepage"></a>
+
+```typescript
+public readonly homepage: string;
+```
+
+- *Type:* string
+
+Package's Homepage / Website.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.jest"></a>
+
+```typescript
+public readonly jest: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Setup jest unit tests.
+
+---
+
+##### `jestOptions`<sup>Optional</sup> <a name="jestOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.jestOptions"></a>
+
+```typescript
+public readonly jestOptions: JestOptions;
+```
+
+- *Type:* projen.javascript.JestOptions
+- *Default:* default options
+
+Jest options.
+
+---
+
+##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.jsiiReleaseVersion"></a>
+
+```typescript
+public readonly jsiiReleaseVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+Version requirement of `publib` which is used to publish modules to npm.
+
+---
+
+##### `keywords`<sup>Optional</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.keywords"></a>
+
+```typescript
+public readonly keywords: string[];
+```
+
+- *Type:* string[]
+
+Keywords to include in `package.json`.
+
+---
+
+##### `libdir`<sup>Optional</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+- *Default:* "lib"
+
+Typescript  artifacts output directory.
+
+---
+
+##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.license"></a>
+
+```typescript
+public readonly license: string;
+```
+
+- *Type:* string
+- *Default:* "Apache-2.0"
+
+License's SPDX identifier.
+
+See https://github.com/projen/projen/tree/main/license-text for a list of supported licenses.
+Use the `licensed` option if you want to no license to be specified.
+
+---
+
+##### `licensed`<sup>Optional</sup> <a name="licensed" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.licensed"></a>
+
+```typescript
+public readonly licensed: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates if a license should be added.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.logging"></a>
+
+```typescript
+public readonly logging: LoggerOptions;
+```
+
+- *Type:* projen.LoggerOptions
+- *Default:* {}
+
+Configure logging options such as verbosity.
+
+---
+
+##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.majorVersion"></a>
+
+```typescript
+public readonly majorVersion: number;
+```
+
+- *Type:* number
+- *Default:* Major version is not enforced.
+
+Major version to release from the default branch.
+
+If this is specified, we bump the latest version of this major version line.
+If not specified, we bump the global latest version.
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no max
+
+Minimum node.js version to require via `engines` (inclusive).
+
+---
+
+##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.mergify"></a>
+
+- *Deprecated:* use `githubOptions.mergify` instead
+
+```typescript
+public readonly mergify: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether mergify should be enabled on this repository or not.
+
+---
+
+##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.mergifyOptions"></a>
+
+- *Deprecated:* use `githubOptions.mergifyOptions` instead
+
+```typescript
+public readonly mergifyOptions: MergifyOptions;
+```
+
+- *Type:* projen.github.MergifyOptions
+- *Default:* default options
+
+Options for mergify.
+
+---
+
+##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.minMajorVersion"></a>
+
+```typescript
+public readonly minMajorVersion: number;
+```
+
+- *Type:* number
+- *Default:* No minimum version is being enforced
+
+Minimal Major version to release.
+
+This can be useful to set to 1, as breaking changes before the 1.x major
+release are not incrementing the major version number.
+
+Can not be set together with `majorVersion`.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no "engines" specified
+
+Minimum Node.js version to require via package.json `engines` (inclusive).
+
+---
+
+##### `mutableBuild`<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.mutableBuild"></a>
+
+```typescript
+public readonly mutableBuild: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically update files modified during builds to pull-request branches.
+
+This means
+that any files synthesized by projen or e.g. test snapshots will always be up-to-date
+before a PR is merged.
+
+Implies that PR builds do not have anti-tamper checks.
+
+---
+
+##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmAccess"></a>
+
+```typescript
+public readonly npmAccess: NpmAccess;
+```
+
+- *Type:* projen.javascript.NpmAccess
+- *Default:* for scoped packages (e.g. `foo@bar`), the default is `NpmAccess.RESTRICTED`, for non-scoped packages, the default is `NpmAccess.PUBLIC`.
+
+Access level of the npm package.
+
+---
+
+##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmDistTag"></a>
+
+```typescript
+public readonly npmDistTag: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The npmDistTag to use when publishing from the default branch.
+
+To set the npm dist-tag for release branches, set the `npmDistTag` property
+for each branch.
+
+---
+
+##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmignore"></a>
+
+- *Deprecated:* - use `project.addPackageIgnore`
+
+```typescript
+public readonly npmignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .npmignore.
+
+---
+
+##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmignoreEnabled"></a>
+
+```typescript
+public readonly npmignoreEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs.
+
+---
+
+##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmRegistry"></a>
+
+- *Deprecated:* use `npmRegistryUrl` instead
+
+```typescript
+public readonly npmRegistry: string;
+```
+
+- *Type:* string
+
+The host name of the npm registry to publish to.
+
+Cannot be set together with `npmRegistryUrl`.
+
+---
+
+##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmRegistryUrl"></a>
+
+```typescript
+public readonly npmRegistryUrl: string;
+```
+
+- *Type:* string
+- *Default:* "https://registry.npmjs.org"
+
+The base URL of the npm package registry.
+
+Must be a URL (e.g. start with "https://" or "http://")
+
+---
+
+##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmTokenSecret"></a>
+
+```typescript
+public readonly npmTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "NPM_TOKEN"
+
+GitHub secret which contains the NPM token to use when publishing packages.
+
+---
+
+##### `package`<sup>Optional</sup> <a name="package" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.package"></a>
+
+```typescript
+public readonly package: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`).
+
+---
+
+##### `packageManager`<sup>Optional</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.packageManager"></a>
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+- *Default:* NodePackageManager.YARN
+
+The Node Package Manager used to execute scripts.
+
+---
+
+##### `packageName`<sup>Optional</sup> <a name="packageName" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.packageName"></a>
+
+```typescript
+public readonly packageName: string;
+```
+
+- *Type:* string
+- *Default:* defaults to project name
+
+The "name" in package.json.
+
+---
+
+##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.peerDependencyOptions"></a>
+
+```typescript
+public readonly peerDependencyOptions: PeerDependencyOptions;
+```
+
+- *Type:* projen.javascript.PeerDependencyOptions
+
+Options for `peerDeps`.
+
+---
+
+##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.peerDeps"></a>
+
+```typescript
+public readonly peerDeps: string | TypeScriptWorkspace[];
+```
+
+- *Type:* string | cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]
+- *Default:* []
+
+Peer dependencies for this module.
+
+Dependencies listed here are required to
+be installed (and satisfied) by the _consumer_ of this library. Using peer
+dependencies allows you to ensure that only a single module of a certain
+library exists in the `node_modules` tree of your consumers.
+
+Note that prior to npm@7, peer dependencies are _not_ automatically
+installed, which means that adding peer dependencies to a library will be a
+breaking change for your customers.
+
+Unless `peerDependencyOptions.pinnedDevDependency` is disabled (it is
+enabled by default), projen will automatically add a dev dependency with a
+pinned version for each peer dependency. This will ensure that you build &
+test your module against the lowest peer version required.
+
+---
+
+##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.pnpmVersion"></a>
+
+```typescript
+public readonly pnpmVersion: string;
+```
+
+- *Type:* string
+- *Default:* "7"
+
+The version of PNPM to use if using PNPM as a package manager.
+
+---
+
+##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.postBuildSteps"></a>
+
+```typescript
+public readonly postBuildSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* []
+
+Steps to execute after build as part of the release workflow.
+
+---
+
+##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.prerelease"></a>
+
+```typescript
+public readonly prerelease: string;
+```
+
+- *Type:* string
+- *Default:* normal semantic versions
+
+Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre").
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.prettier"></a>
+
+```typescript
+public readonly prettier: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Setup prettier.
+
+---
+
+##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.prettierOptions"></a>
+
+```typescript
+public readonly prettierOptions: PrettierOptions;
+```
+
+- *Type:* projen.javascript.PrettierOptions
+- *Default:* default options
+
+Prettier options.
+
+---
+
+##### `private`<sup>Optional</sup> <a name="private" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.private"></a>
+
+```typescript
+public readonly private: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Make this a private package.
+
+---
+
+##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projectType"></a>
+
+- *Deprecated:* no longer supported at the base project level
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+- *Default:* ProjectType.UNKNOWN
+
+Which type of project this is (library/app).
+
+---
+
+##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+- *Default:* "npx projen"
+
+The shell command to use in order to run the projen CLI.
+
+Can be used to customize in special environments.
+
+---
+
+##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenCredentials"></a>
+
+```typescript
+public readonly projenCredentials: GithubCredentials;
+```
+
+- *Type:* projen.github.GithubCredentials
+- *Default:* use a personal access token named PROJEN_GITHUB_TOKEN
+
+Choose a method of providing GitHub API access for projen workflows.
+
+---
+
+##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenDevDependency"></a>
+
+```typescript
+public readonly projenDevDependency: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates of "projen" should be installed as a devDependency.
+
+---
+
+##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcJs"></a>
+
+```typescript
+public readonly projenrcJs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if projenrcJson is false
+
+Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation.
+
+---
+
+##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcJson"></a>
+
+```typescript
+public readonly projenrcJson: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
+
+---
+
+##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcJsonOptions"></a>
+
+```typescript
+public readonly projenrcJsonOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.ProjenrcOptions
+- *Default:* default options
+
+Options for .projenrc.json.
+
+---
+
+##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcJsOptions"></a>
+
+```typescript
+public readonly projenrcJsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.javascript.ProjenrcOptions
+- *Default:* default options
+
+Options for .projenrc.js.
+
+---
+
+##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcTs"></a>
+
+```typescript
+public readonly projenrcTs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use TypeScript for your projenrc file (`.projenrc.ts`).
+
+---
+
+##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenrcTsOptions"></a>
+
+```typescript
+public readonly projenrcTsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.typescript.ProjenrcOptions
+
+Options for .projenrc.ts.
+
+---
+
+##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenTokenSecret"></a>
+
+- *Deprecated:* use `projenCredentials`
+
+```typescript
+public readonly projenTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "PROJEN_GITHUB_TOKEN"
+
+The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows.
+
+This token needs to have the `repo`, `workflows`
+and `packages` scope.
+
+---
+
+##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.projenVersion"></a>
+
+```typescript
+public readonly projenVersion: string;
+```
+
+- *Type:* string
+- *Default:* Defaults to the latest version.
+
+Version of projen to install.
+
+---
+
+##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.publishDryRun"></a>
+
+```typescript
+public readonly publishDryRun: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Instead of actually publishing to package managers, just print the publishing command.
+
+---
+
+##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.publishTasks"></a>
+
+```typescript
+public readonly publishTasks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define publishing tasks that can be executed manually as well as workflows.
+
+Normally, publishing only happens within automated workflows. Enable this
+in order to create a publishing task for each publishing activity.
+
+---
+
+##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.pullRequestTemplate"></a>
+
+```typescript
+public readonly pullRequestTemplate: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Include a GitHub pull request template.
+
+---
+
+##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.pullRequestTemplateContents"></a>
+
+```typescript
+public readonly pullRequestTemplateContents: string[];
+```
+
+- *Type:* string[]
+- *Default:* default content
+
+The contents of the pull request template.
+
+---
+
+##### `readme`<sup>Optional</sup> <a name="readme" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.readme"></a>
+
+```typescript
+public readonly readme: SampleReadmeProps;
+```
+
+- *Type:* projen.SampleReadmeProps
+- *Default:* { filename: 'README.md', contents: '# replace this' }
+
+The README setup.
+
+---
+
+##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseBranches"></a>
+
+```typescript
+public readonly releaseBranches: {[ key: string ]: BranchOptions};
+```
+
+- *Type:* {[ key: string ]: projen.release.BranchOptions}
+- *Default:* no additional branches are used for release. you can use `addBranch()` to add additional branches.
+
+Defines additional release branches.
+
+A workflow will be created for each
+release branch which will publish releases from commits in this branch.
+Each release branch _must_ be assigned a major version number which is used
+to enforce that versions published from that branch always use that major
+version. If multiple branches are used, the `majorVersion` field must also
+be provided for the default branch.
+
+---
+
+##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseEveryCommit"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.continuous()` instead
+
+```typescript
+public readonly releaseEveryCommit: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically release new versions every commit to one of branches in `releaseBranches`.
+
+---
+
+##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseFailureIssue"></a>
+
+```typescript
+public readonly releaseFailureIssue: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Create a github issue on every failed publishing task.
+
+---
+
+##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseFailureIssueLabel"></a>
+
+```typescript
+public readonly releaseFailureIssueLabel: string;
+```
+
+- *Type:* string
+- *Default:* "failed-release"
+
+The label to apply to issues indicating publish failures.
+
+Only applies if `releaseFailureIssue` is true.
+
+---
+
+##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseSchedule"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.scheduled()` instead
+
+```typescript
+public readonly releaseSchedule: string;
+```
+
+- *Type:* string
+- *Default:* no scheduled releases
+
+CRON schedule to trigger new releases.
+
+---
+
+##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseTagPrefix"></a>
+
+```typescript
+public readonly releaseTagPrefix: string;
+```
+
+- *Type:* string
+- *Default:* "v"
+
+Automatically add the given prefix to release tags.
+
+Useful if you are releasing on multiple branches with overlapping version numbers.
+Note: this prefix is used to detect the latest tagged version
+when bumping, so if you change this on a project with an existing version
+history, you may need to manually tag your latest release
+with the new prefix.
+
+---
+
+##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseToNpm"></a>
+
+```typescript
+public readonly releaseToNpm: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically release to npm when new versions are introduced.
+
+---
+
+##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseTrigger"></a>
+
+```typescript
+public readonly releaseTrigger: ReleaseTrigger;
+```
+
+- *Type:* projen.release.ReleaseTrigger
+- *Default:* Continuous releases (`ReleaseTrigger.continuous()`)
+
+The release trigger to use.
+
+---
+
+##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseWorkflow"></a>
+
+- *Deprecated:* see `release`.
+
+```typescript
+public readonly releaseWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+DEPRECATED: renamed to `release`.
+
+---
+
+##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseWorkflowName"></a>
+
+```typescript
+public readonly releaseWorkflowName: string;
+```
+
+- *Type:* string
+- *Default:* "Release"
+
+The name of the default release workflow.
+
+---
+
+##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.releaseWorkflowSetupSteps"></a>
+
+```typescript
+public readonly releaseWorkflowSetupSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+
+A set of workflow steps to execute in order to setup the workflow container.
+
+---
+
+##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.renovatebot"></a>
+
+```typescript
+public readonly renovatebot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use renovatebot to handle dependency upgrades.
+
+---
+
+##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.renovatebotOptions"></a>
+
+```typescript
+public readonly renovatebotOptions: RenovatebotOptions;
+```
+
+- *Type:* projen.RenovatebotOptions
+- *Default:* default options
+
+Options for renovatebot.
+
+---
+
+##### `repository`<sup>Optional</sup> <a name="repository" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.repository"></a>
+
+```typescript
+public readonly repository: string;
+```
+
+- *Type:* string
+
+The repository is the location where the actual code for your package lives.
+
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+
+---
+
+##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.sampleCode"></a>
+
+```typescript
+public readonly sampleCode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Generate one-time sample in `src/` and `test/` if there are no files there.
+
+---
+
+##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.scopedPackagesOptions"></a>
+
+```typescript
+public readonly scopedPackagesOptions: ScopedPackagesOptions[];
+```
+
+- *Type:* projen.javascript.ScopedPackagesOptions[]
+- *Default:* fetch all scoped packages from the public npm registry
+
+Options for privately hosted scoped packages.
+
+---
+
+##### `scripts`<sup>Optional</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.scripts"></a>
+
+```typescript
+public readonly scripts: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* {}
+
+npm scripts to include.
+
+If a script has the same name as a standard script,
+the standard script will be overwritten.
+
+---
+
+##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+- *Default:* "src"
+
+Typescript sources directory.
+
+---
+
+##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.stability"></a>
+
+```typescript
+public readonly stability: string;
+```
+
+- *Type:* string
+
+Package's Stability.
+
+---
+
+##### `stale`<sup>Optional</sup> <a name="stale" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.stale"></a>
+
+```typescript
+public readonly stale: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Auto-close of stale issues and pull request.
+
+See `staleOptions` for options.
+
+---
+
+##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.staleOptions"></a>
+
+```typescript
+public readonly staleOptions: StaleOptions;
+```
+
+- *Type:* projen.github.StaleOptions
+- *Default:* see defaults in `StaleOptions`
+
+Auto-close stale issues and pull requests.
+
+To disable set `stale` to `false`.
+
+---
+
+##### `testdir`<sup>Optional</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+- *Default:* "test"
+
+Jest tests directory.
+
+Tests files should be named `xxx.test.ts`.
+If this directory is under `srcdir` (e.g. `src/test`, `src/__tests__`),
+then tests are going to be compiled into `lib/` and executed as javascript.
+If the test directory is outside of `src`, then we configure jest to
+compile the code in-memory.
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* default options
+
+Custom TSConfig.
+
+---
+
+##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* use the production tsconfig options
+
+Custom tsconfig options for the development tsconfig.json file (used for testing).
+
+---
+
+##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.tsconfigDevFile"></a>
+
+```typescript
+public readonly tsconfigDevFile: string;
+```
+
+- *Type:* string
+- *Default:* "tsconfig.dev.json"
+
+The name of the development tsconfig.json file.
+
+---
+
+##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.typescriptVersion"></a>
+
+```typescript
+public readonly typescriptVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+TypeScript version to use.
+
+NOTE: Typescript is not semantically versioned and should remain on the
+same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
+
+---
+
+##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.versionrcOptions"></a>
+
+```typescript
+public readonly versionrcOptions: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* standard configuration applicable for GitHub repositories
+
+Custom configuration used when creating changelog with standard-version package.
+
+Given values either append to default configuration or overwrite values in it.
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.vscode"></a>
+
+```typescript
+public readonly vscode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable VSCode integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowBootstrapSteps"></a>
+
+```typescript
+public readonly workflowBootstrapSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* "yarn install --frozen-lockfile && yarn projen"
+
+Workflow steps to use in order to bootstrap this repo.
+
+---
+
+##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowContainerImage"></a>
+
+```typescript
+public readonly workflowContainerImage: string;
+```
+
+- *Type:* string
+- *Default:* default image
+
+Container image to use for GitHub workflows.
+
+---
+
+##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowGitIdentity"></a>
+
+```typescript
+public readonly workflowGitIdentity: GitIdentity;
+```
+
+- *Type:* projen.github.GitIdentity
+- *Default:* GitHub Actions
+
+The git identity to use in workflows.
+
+---
+
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowNodeVersion"></a>
+
+```typescript
+public readonly workflowNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* same as `minNodeVersion`
+
+The node version to use in GitHub workflows.
+
+---
+
+##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowRunsOn"></a>
+
+```typescript
+public readonly workflowRunsOn: string[];
+```
+
+- *Type:* string[]
+- *Default:* ["ubuntu-latest"]
+
+Github Runner selection labels.
+
+---
+
+##### `workspaceScope`<sup>Optional</sup> <a name="workspaceScope" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workspaceScope"></a>
+
+```typescript
+public readonly workspaceScope: string;
+```
+
+- *Type:* string
+- *Default:* "packages"
+
+The workspace scope the package is located in.
 
 ---
 
@@ -19955,6 +25866,1387 @@ this task should synthesize the project files.
 
 ---
 
+### CdkLabsMonorepo <a name="CdkLabsMonorepo" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo"></a>
+
+Opinionated implementation of yarn.Monorepo.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.CdkLabsMonorepo(options: CdkLabsMonorepoOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions</code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.Initializer.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.postSynthesize">postSynthesize</a></code> | Hooks into the install dependencies cycle. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register">register</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies">requestInstallDependencies</a></code> | Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run. |
+
+---
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hooks into the install dependencies cycle.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all sub-projects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `hasScript` <a name="hasScript" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+##### `register` <a name="register" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register"></a>
+
+```typescript
+public register(project: TypeScriptWorkspace): void
+```
+
+###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register.parameter.project"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
+
+---
+
+##### `requestInstallDependencies` <a name="requestInstallDependencies" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies"></a>
+
+```typescript
+public requestInstallDependencies(resolver: IDependencyResolver): void
+```
+
+Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run.
+
+This is used to resolve dependency versions from `*` to a concrete version constraint.
+
+###### `resolver`<sup>Required</sup> <a name="resolver" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies.parameter.resolver"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.IDependencyResolver
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
 ### CdklabsTypeScriptProject <a name="CdklabsTypeScriptProject" id="cdklabs-projen-project-types.CdklabsTypeScriptProject"></a>
 
 Create a Cdklabs TypeScript Project.
@@ -22769,6 +30061,2760 @@ public readonly project: Project;
 
 ---
 
+
+### Monorepo <a name="Monorepo" id="cdklabs-projen-project-types.yarn.Monorepo"></a>
+
+A monorepo using yarn workspaces.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.Monorepo.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.Monorepo(options: MonorepoOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoOptions</code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.Monorepo.Initializer.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.MonorepoOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.postSynthesize">postSynthesize</a></code> | Hooks into the install dependencies cycle. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.register">register</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies">requestInstallDependencies</a></code> | Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run. |
+
+---
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.yarn.Monorepo.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.yarn.Monorepo.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.yarn.Monorepo.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.yarn.Monorepo.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.yarn.Monorepo.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.yarn.Monorepo.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.Monorepo.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hooks into the install dependencies cycle.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.Monorepo.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.yarn.Monorepo.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.yarn.Monorepo.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all sub-projects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.yarn.Monorepo.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.yarn.Monorepo.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.yarn.Monorepo.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.Monorepo.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.yarn.Monorepo.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.yarn.Monorepo.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.yarn.Monorepo.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.Monorepo.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.yarn.Monorepo.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.Monorepo.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `hasScript` <a name="hasScript" id="cdklabs-projen-project-types.yarn.Monorepo.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.yarn.Monorepo.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.yarn.Monorepo.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.yarn.Monorepo.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+##### `register` <a name="register" id="cdklabs-projen-project-types.yarn.Monorepo.register"></a>
+
+```typescript
+public register(project: TypeScriptWorkspace): void
+```
+
+###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.Monorepo.register.parameter.project"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
+
+---
+
+##### `requestInstallDependencies` <a name="requestInstallDependencies" id="cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies"></a>
+
+```typescript
+public requestInstallDependencies(resolver: IDependencyResolver): void
+```
+
+Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run.
+
+This is used to resolve dependency versions from `*` to a concrete version constraint.
+
+###### `resolver`<sup>Required</sup> <a name="resolver" id="cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies.parameter.resolver"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.IDependencyResolver
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.Monorepo.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.yarn.Monorepo.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.yarn.Monorepo.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.yarn.Monorepo.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.yarn.Monorepo.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.Monorepo.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.yarn.Monorepo.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.yarn.Monorepo.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.Monorepo.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.yarn.Monorepo.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.yarn.Monorepo.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.yarn.Monorepo.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.Monorepo.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.Monorepo.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.yarn.Monorepo.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.Monorepo.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.Monorepo.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.Monorepo.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.Monorepo.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.Monorepo.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.Monorepo.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.yarn.Monorepo.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.yarn.Monorepo.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.Monorepo.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.yarn.Monorepo.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.yarn.Monorepo.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.Monorepo.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.yarn.Monorepo.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.Monorepo.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.Monorepo.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.Monorepo.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.Monorepo.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.Monorepo.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.Monorepo.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.Monorepo.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.Monorepo.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.yarn.Monorepo.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.Monorepo.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.Monorepo.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.Monorepo.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.yarn.Monorepo.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### TypeScriptWorkspace <a name="TypeScriptWorkspace" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace"></a>
+
+A TypeScript workspace in a `yarn.Monorepo`.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.TypeScriptWorkspace(props: TypeScriptWorkspaceOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.props">props</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions</code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.props"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+
+---
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all sub-projects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `hasScript` <a name="hasScript" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+## Protocols <a name="Protocols" id="Protocols"></a>
+
+### IDependencyResolver <a name="IDependencyResolver" id="cdklabs-projen-project-types.yarn.IDependencyResolver"></a>
+
+- *Implemented By:* cdklabs-projen-project-types.yarn.IDependencyResolver
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.IDependencyResolver.resolveDepsAndWritePackageJson">resolveDepsAndWritePackageJson</a></code> | *No description.* |
+
+---
+
+##### `resolveDepsAndWritePackageJson` <a name="resolveDepsAndWritePackageJson" id="cdklabs-projen-project-types.yarn.IDependencyResolver.resolveDepsAndWritePackageJson"></a>
+
+```typescript
+public resolveDepsAndWritePackageJson(): boolean
+```
 
 
 ## Enums <a name="Enums" id="Enums"></a>
