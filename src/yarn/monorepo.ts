@@ -40,7 +40,7 @@ export class Monorepo extends typescript.TypeScriptProject {
           extends: ['plugin:prettier/recommended'],
         },
       });
-      this.tasks.addTask('fmt', { exec: 'eslint --ext .ts --fix projenrc .projenrc.ts' });
+      this.tasks.addTask('fmt', { exec: 'eslint --ext .ts --fix --no-error-on-unmatched-pattern projenrc .projenrc.ts' });
 
       this.vscode?.extensions.addRecommendations('esbenp.prettier-vscode', 'dbaeumer.vscode-eslint');
       this.vscode?.settings.addSetting('editor.defaultFormatter', 'esbenp.prettier-vscode');
