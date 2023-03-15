@@ -104,7 +104,7 @@ export interface TypeScriptWorkspaceOptions {
   readonly bundlerOptions?: javascript.BundlerOptions;
   /**
    * Add a `clobber` task which resets the repo to origin.
-   * @default true
+   * @default - true, but false for subprojects
    */
   readonly clobber?: boolean;
   /**
