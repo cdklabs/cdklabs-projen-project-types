@@ -19,5 +19,7 @@
 /API.md linguist-generated
 /LICENSE linguist-generated
 /package.json linguist-generated
+/src/yarn/monorepo-options.ts linguist-generated
+/src/yarn/typescript-workspace-options.ts linguist-generated
 /tsconfig.dev.json linguist-generated
 /yarn.lock linguist-generated

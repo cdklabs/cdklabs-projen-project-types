@@ -46,5 +46,20 @@ export class MergeQueue extends Component {
     if (autoMerge && project.github) {
       new AutoMerge(project.github, options.autoMergeOptions);
     }
+
+    // Do not require PR validation on merge queue
+    // Need if the pull-request-lint workflow is a required build check
+    const prLintWorkflow = project.github?.tryFindWorkflow('pull-request-lint');
+    prLintWorkflow?.on({
+      mergeGroup: {
+        branches: [
+          `${mergeBranch}`,
+        ],
+      },
+    });
+    prLintWorkflow?.file?.addOverride(
+      'jobs.validate.if',
+      "github.event_name == 'pull_request' || github.event_name == 'pull_request_target'",
+    );
   }
 }
