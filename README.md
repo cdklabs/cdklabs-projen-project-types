@@ -100,3 +100,61 @@ By default, a project is created as `private`. Turning this off simply means set
 A project being `private` means it gets certain properties set as default that are true for private
 projects. Today, that means setting `private: true` in `package.json`, removing `.mergify.yml` from
 the project, and removing `.npmignore`.
+
+## CdklabsMonorepo
+
+A TypeScript monorepo using Yarn Workspaces.
+Individual workspaces can be added with `yarn.TypeScriptWorkspace` which extends projen's `typescript.TypeScriptProject`.
+
+### Usage
+
+```bash
+npx projen new --from cdklabs-projen-project-types cdklabs-yarn-monorepo
+```
+
+### Features
+
+```ts
+const project = new yarn.CdkLabsMonorepo({
+  defaultReleaseBranch: "main",
+  devDeps: ["cdklabs-projen-project-types"],
+  name: "monorepo",
+});
+```
+
+- Workspace commands: `projen build|compile|package|test|upgrade`\
+Will run the specific command in all workspaces and the root if applicable.
+
+- Workspace run: `projen run <command>`\
+Executes the given command in all workspaces
+
+- Automatic dependency installation\
+The monorepo will know if a dependency has been added for a workspace and run `yarn install` as part of `projen`
+
+- `projen` at any level\
+The default `projen` command can be run in any workspace and will execute the monorepo synth command.
+
+- Release\
+This feature is not supported at this time.
+Any release functionality must be implemented.
+
+- `vscodeWorkspace: boolean`\
+You can specifify if a VSCode Workspace file should be created for the monorepo.
+
+#### Workspaces
+
+```ts
+new yarn.TypeScriptWorkspace({
+  parent: project,
+  name: 'workspace'
+})
+```
+
+- `parent: yarn.Monorepo`\
+Workspaces (aka subprojects) must be added using the `parent` option.
+
+- `workspaceScope: string`\
+The location the workspace is placed at. Defaults to `./packages`
+
+- `excludeDepsFromUpgrade: Array<string>`\
+List any dependencies that should not be updated in the workspace.

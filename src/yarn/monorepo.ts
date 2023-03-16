@@ -61,7 +61,7 @@ export class Monorepo extends typescript.TypeScriptProject {
         obj: () => ({
           folders: this.projects
             .sort((p1, p2) => p1.name.localeCompare(p2.name))
-            .map((p) => ({ path: `packages/${p.name}` })),
+            .map((p) => ({ path: p.workspaceDirectory })),
           settings: () => getObjFromFile(this, '.vscode/settings.json'),
           extensions: () => getObjFromFile(this, '.vscode/extensions.json'),
         }),
@@ -141,7 +141,7 @@ export class Monorepo extends typescript.TypeScriptProject {
     // Get the ObjectFile
     this.package.addField('private', true);
     this.package.addField('workspaces', {
-      packages: this.projects.map((p) => `packages/${p.name}`),
+      packages: this.projects.map((p) => p.workspaceDirectory),
     });
 
     this.tsconfig?.file.addOverride('include', []);
@@ -149,12 +149,12 @@ export class Monorepo extends typescript.TypeScriptProject {
     for (const tsconfig of [this.tsconfig, this.tsconfigDev]) {
       tsconfig?.file.addOverride(
         'references',
-        this.projects.map((p) => ({ path: `packages/${p.name}` })),
+        this.projects.map((p) => ({ path: p.workspaceDirectory })),
       );
     }
 
     this.package.addField('jest', {
-      projects: this.projects.map((p) => `<rootDir>/packages/${p.name}`),
+      projects: this.projects.map((p) => `<rootDir>/${p.workspaceDirectory}`),
     });
   }
 
@@ -191,6 +191,7 @@ export interface CdkLabsMonorepoOptions extends MonorepoOptions {}
 
 /**
  * Opinionated implementation of yarn.Monorepo
+ * @pjid cdklabs-yarn-monorepo
  */
 export class CdkLabsMonorepo extends Monorepo {
   constructor(options: CdkLabsMonorepoOptions) {

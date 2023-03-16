@@ -31686,16 +31686,16 @@ A TypeScript workspace in a `yarn.Monorepo`.
 ```typescript
 import { yarn } from 'cdklabs-projen-project-types'
 
-new yarn.TypeScriptWorkspace(props: TypeScriptWorkspaceOptions)
+new yarn.TypeScriptWorkspace(options: TypeScriptWorkspaceOptions)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.props">props</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions</code> | *No description.* |
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.props"></a>
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.options"></a>
 
 - *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions
 
@@ -32294,6 +32294,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.workspaceDirectory">workspaceDirectory</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -33004,6 +33005,16 @@ public readonly tsconfigEslint: TypescriptConfig;
 ```
 
 - *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `workspaceDirectory`<sup>Required</sup> <a name="workspaceDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.workspaceDirectory"></a>
+
+```typescript
+public readonly workspaceDirectory: string;
+```
+
+- *Type:* string
 
 ---
 
