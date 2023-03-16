@@ -7,9 +7,11 @@ import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
  * A TypeScript workspace in a `yarn.Monorepo`
  */
 export class TypeScriptWorkspace extends typescript.TypeScriptProject {
-  constructor(props: TypeScriptWorkspaceOptions) {
+  public readonly workspaceDirectory: string;
+
+  constructor(options: TypeScriptWorkspaceOptions) {
     const remainder = without(
-      props,
+      options,
       'parent',
       'name',
       'description',
@@ -23,22 +25,23 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     const usePrettier = remainder.prettier ?? true;
 
     const wsScope = remainder.workspaceScope ?? 'packages';
+    const workspaceDirectory =`${wsScope}/${options.name}`;
 
     super({
-      parent: props.parent,
-      name: props.name,
-      description: props.description,
-      repositoryDirectory: `${wsScope}/${props.name}`,
-      outdir: `${wsScope}/${props.name}`,
+      parent: options.parent,
+      name: options.name,
+      description: options.description,
+      repositoryDirectory: workspaceDirectory,
+      outdir: workspaceDirectory,
       defaultReleaseBranch: 'REQUIRED-BUT-SHOULD-NOT-BE',
       release: false,
-      package: !props.private,
+      package: !options.private,
       eslint: useEslint,
       prettier: usePrettier,
       prettierOptions: usePrettier
         ? {
-          overrides: props.parent.prettier?.overrides,
-          settings: props.parent.prettier?.settings,
+          overrides: options.parent.prettier?.overrides,
+          settings: options.parent.prettier?.settings,
           ...remainder.prettierOptions,
         }
         : undefined,
@@ -52,21 +55,22 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
         : undefined,
       sampleCode: false,
 
-      deps: packageNames(props.deps),
-      peerDeps: packageNames(props.peerDeps),
-      devDeps: packageNames(props.devDeps),
+      deps: packageNames(options.deps),
+      peerDeps: packageNames(options.peerDeps),
+      devDeps: packageNames(options.devDeps),
 
       depsUpgradeOptions: {
         exclude: [
-          ...(props.excludeDepsFromUpgrade ?? []),
-          ...(packageNames(props.deps?.filter(isTypeScriptWorkspace)) ?? []),
-          ...(packageNames(props.peerDeps?.filter(isTypeScriptWorkspace)) ?? []),
-          ...(packageNames(props.devDeps?.filter(isTypeScriptWorkspace)) ?? []),
+          ...(options.excludeDepsFromUpgrade ?? []),
+          ...(packageNames(options.deps?.filter(isTypeScriptWorkspace)) ?? []),
+          ...(packageNames(options.peerDeps?.filter(isTypeScriptWorkspace)) ?? []),
+          ...(packageNames(options.devDeps?.filter(isTypeScriptWorkspace)) ?? []),
         ],
       },
 
       ...remainder,
     });
+    this.workspaceDirectory = workspaceDirectory;
 
     // jest config
     if (this.jest?.config && this.jest.config.preset === 'ts-jest') {
@@ -82,7 +86,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     }
 
     // Tasks
-    this.tasks.tryFind('default')?.reset(`cd ${relative(this.outdir, props.parent.outdir)} && npx projen default`);
+    this.tasks.tryFind('default')?.reset(`cd ${relative(this.outdir, options.parent.outdir)} && npx projen default`);
     this.tasks.removeTask('clobber');
     this.tasks.removeTask('eject');
 
@@ -104,7 +108,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     });
 
     // Composite project and references
-    const allDeps = [...(props.deps ?? []), ...(props.peerDeps ?? []), ...(props.devDeps ?? [])];
+    const allDeps = [...(options.deps ?? []), ...(options.peerDeps ?? []), ...(options.devDeps ?? [])];
 
     for (const tsconfig of [this.tsconfig, this.tsconfigDev]) {
       tsconfig?.file.addOverride('compilerOptions.composite', true);
@@ -116,11 +120,11 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
 
     // Install dependencies via the parent project
     (this.package as any).installDependencies = () => {
-      props.parent.requestInstallDependencies({ resolveDepsAndWritePackageJson: () => (this.package as any).resolveDepsAndWritePackageJson() });
+      options.parent.requestInstallDependencies({ resolveDepsAndWritePackageJson: () => (this.package as any).resolveDepsAndWritePackageJson() });
     };
 
     // Private package
-    if (props.private) {
+    if (options.private) {
       this.package.addField('private', true);
     }
 
@@ -128,7 +132,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     this.addTsconfigDevFix();
     this.addEslintRcFix();
 
-    props.parent.register(this);
+    options.parent.register(this);
   }
 
   /**
