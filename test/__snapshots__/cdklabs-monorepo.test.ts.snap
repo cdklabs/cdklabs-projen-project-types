@@ -788,23 +788,12 @@ module.exports = json;",
     ],
     "ignorePatterns": Array [
       "*.js",
-      "!.projenrc.js",
       "*.d.ts",
       "node_modules/",
       "*.generated.ts",
       "coverage",
     ],
-    "overrides": Array [
-      Object {
-        "files": Array [
-          ".projenrc.js",
-        ],
-        "rules": Object {
-          "@typescript-eslint/no-require-imports": "off",
-          "import/no-extraneous-dependencies": "off",
-        },
-      },
-    ],
+    "overrides": Array [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": Object {
       "ecmaVersion": 2018,
@@ -1164,7 +1153,7 @@ tsconfig.tsbuildinfo
         "name": "eslint",
         "steps": Array [
           Object {
-            "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools .projenrc.js",
+            "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools",
           },
         ],
       },
@@ -1622,23 +1611,12 @@ module.exports = json;",
     ],
     "ignorePatterns": Array [
       "*.js",
-      "!.projenrc.js",
       "*.d.ts",
       "node_modules/",
       "*.generated.ts",
       "coverage",
     ],
-    "overrides": Array [
-      Object {
-        "files": Array [
-          ".projenrc.js",
-        ],
-        "rules": Object {
-          "@typescript-eslint/no-require-imports": "off",
-          "import/no-extraneous-dependencies": "off",
-        },
-      },
-    ],
+    "overrides": Array [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": Object {
       "ecmaVersion": 2018,
@@ -1998,7 +1976,7 @@ tsconfig.tsbuildinfo
         "name": "eslint",
         "steps": Array [
           Object {
-            "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools .projenrc.js",
+            "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools",
           },
         ],
       },
