@@ -304,6 +304,10 @@ jobs:
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
       - name: Install dependencies
         run: yarn install --check-files
       - name: build
@@ -333,8 +337,6 @@ jobs:
         with:
           name: build-artifact
           path: dist
-    container:
-      image: jsii/superchain:1-buster-slim-node14
   self-mutation:
     needs: build
     runs-on: ubuntu-latest
@@ -372,7 +374,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -449,6 +451,10 @@ jobs:
         run: |-
           git config user.name \\"github-actions\\"
           git config user.email \\"github-actions@github.com\\"
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
@@ -466,8 +472,6 @@ jobs:
         with:
           name: build-artifact
           path: dist
-    container:
-      image: jsii/superchain:1-buster-slim-node14
   release_github:
     name: Publish to GitHub Releases
     needs: release
@@ -478,7 +482,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -507,7 +511,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -551,6 +555,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: main
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -566,8 +574,6 @@ jobs:
         with:
           name: .repo.patch
           path: .repo.patch
-    container:
-      image: jsii/superchain:1-buster-slim-node14
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -687,7 +693,7 @@ tsconfig.json
       Object {
         "name": "@types/node",
         "type": "build",
-        "version": "^14",
+        "version": "^16",
       },
       Object {
         "name": "@typescript-eslint/eslint-plugin",
@@ -729,16 +735,12 @@ tsconfig.json
       Object {
         "name": "jest-junit",
         "type": "build",
-        "version": "^13",
+        "version": "^15",
       },
       Object {
         "name": "jest",
         "type": "build",
         "version": "^27",
-      },
-      Object {
-        "name": "jsii",
-        "type": "build",
       },
       Object {
         "name": "jsii-diff",
@@ -751,6 +753,11 @@ tsconfig.json
       Object {
         "name": "jsii-pacmak",
         "type": "build",
+      },
+      Object {
+        "name": "jsii",
+        "type": "build",
+        "version": "1.x",
       },
       Object {
         "name": "npm-check-updates",
@@ -1134,19 +1141,19 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='aws-cdk-lib,constructs,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='aws-cdk-lib,constructs,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='aws-cdk-lib,constructs,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='aws-cdk-lib,constructs,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='aws-cdk-lib,constructs,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -1388,7 +1395,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "@aws-cdk/integ-runner": "^2",
       "@aws-cdk/integ-tests-alpha": "latest",
       "@types/jest": "^27",
-      "@types/node": "^14",
+      "@types/node": "^16",
       "@typescript-eslint/eslint-plugin": "^5",
       "@typescript-eslint/parser": "^5",
       "aws-cdk-lib": "2.1.0",
@@ -1398,8 +1405,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
       "jest": "^27",
-      "jest-junit": "^13",
-      "jsii": "*",
+      "jest-junit": "^15",
+      "jsii": "1.x",
       "jsii-diff": "*",
       "jsii-docgen": "*",
       "jsii-pacmak": "*",
@@ -1938,7 +1945,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -2042,7 +2049,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -2071,7 +2078,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -2247,7 +2254,7 @@ tsconfig.json
       Object {
         "name": "@types/node",
         "type": "build",
-        "version": "^14",
+        "version": "^16",
       },
       Object {
         "name": "@typescript-eslint/eslint-plugin",
@@ -2279,16 +2286,12 @@ tsconfig.json
       Object {
         "name": "jest-junit",
         "type": "build",
-        "version": "^13",
+        "version": "^15",
       },
       Object {
         "name": "jest",
         "type": "build",
         "version": "^27",
-      },
-      Object {
-        "name": "jsii",
-        "type": "build",
       },
       Object {
         "name": "jsii-diff",
@@ -2301,6 +2304,11 @@ tsconfig.json
       Object {
         "name": "jsii-pacmak",
         "type": "build",
+      },
+      Object {
+        "name": "jsii",
+        "type": "build",
+        "version": "1.x",
       },
       Object {
         "name": "npm-check-updates",
@@ -2629,19 +2637,19 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --dep dev --upgrade --target=minor",
+            "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='jsii'",
           },
           Object {
-            "exec": "npm-check-updates --dep optional --upgrade --target=minor",
+            "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='jsii'",
           },
           Object {
-            "exec": "npm-check-updates --dep peer --upgrade --target=minor",
+            "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='jsii'",
           },
           Object {
-            "exec": "npm-check-updates --dep prod --upgrade --target=minor",
+            "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='jsii'",
           },
           Object {
-            "exec": "npm-check-updates --dep bundle --upgrade --target=minor",
+            "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='jsii'",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -2881,7 +2889,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     },
     "devDependencies": Object {
       "@types/jest": "^27",
-      "@types/node": "^14",
+      "@types/node": "^16",
       "@typescript-eslint/eslint-plugin": "^5",
       "@typescript-eslint/parser": "^5",
       "eslint": "^8",
@@ -2889,8 +2897,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
       "jest": "^27",
-      "jest-junit": "^13",
-      "jsii": "*",
+      "jest-junit": "^15",
+      "jsii": "1.x",
       "jsii-diff": "*",
       "jsii-docgen": "*",
       "jsii-pacmak": "*",
@@ -3477,7 +3485,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -3642,7 +3650,7 @@ junit.xml
       Object {
         "name": "@types/node",
         "type": "build",
-        "version": "^14",
+        "version": "^16",
       },
       Object {
         "name": "@typescript-eslint/eslint-plugin",
@@ -3678,7 +3686,7 @@ junit.xml
       Object {
         "name": "jest-junit",
         "type": "build",
-        "version": "^13",
+        "version": "^15",
       },
       Object {
         "name": "npm-check-updates",
@@ -4204,7 +4212,7 @@ junit.xml
     "//": "~~ Generated by projen. To modify, edit .projenrc.js and run \\"npx projen\\".",
     "devDependencies": Object {
       "@types/jest": "*",
-      "@types/node": "^14",
+      "@types/node": "^16",
       "@typescript-eslint/eslint-plugin": "^5",
       "@typescript-eslint/parser": "^5",
       "eslint": "^8",
@@ -4212,7 +4220,7 @@ junit.xml
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
       "jest": "*",
-      "jest-junit": "^13",
+      "jest-junit": "^15",
       "npm-check-updates": "^16",
       "projen": "*",
       "standard-version": "^9",
