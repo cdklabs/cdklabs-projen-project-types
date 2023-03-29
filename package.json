@@ -47,21 +47,21 @@
     "jest-junit": "^15",
     "jsii": "1.x",
     "jsii-diff": "^1.79.0",
-    "jsii-docgen": "^7.1.38",
+    "jsii-docgen": "^7.1.39",
     "jsii-pacmak": "^1.79.0",
     "jsii-reflect": "^1.79.0",
     "npm-check-updates": "^16",
-    "projen": "^0.69.11",
+    "projen": "^0.69.15",
     "standard-version": "^9",
     "ts-jest": "^27",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "projen": "^0.69.11"
+    "projen": "^0.69.15"
   },
   "dependencies": {
-    "projen": "^0.69.11",
+    "projen": "^0.69.15",
     "yaml": "^2.2.1"
   },
   "bundledDependencies": [
