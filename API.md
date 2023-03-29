@@ -20633,6 +20633,7 @@ new CdkConstructLibrary(options: CdkConstructLibraryOptions)
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -21048,6 +21049,22 @@ be installed in the next `npx projen` run and the version will be recorded
 in your `package.json` file. You can upgrade manually or using `yarn
 add/upgrade`. If you wish to specify a version range use this syntax:
 `module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdkConstructLibrary.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkConstructLibrary.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
 
 ---
 
@@ -22070,6 +22087,7 @@ new CdkJsiiProject(options: CdkJsiiProjectOptions)
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -22483,6 +22501,22 @@ be installed in the next `npx projen` run and the version will be recorded
 in your `package.json` file. You can upgrade manually or using `yarn
 add/upgrade`. If you wish to specify a version range use this syntax:
 `module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdkJsiiProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkJsiiProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
 
 ---
 
@@ -23434,6 +23468,7 @@ new CdklabsConstructLibrary(options: CdklabsConstructLibraryOptions)
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -23849,6 +23884,22 @@ be installed in the next `npx projen` run and the version will be recorded
 in your `package.json` file. You can upgrade manually or using `yarn
 add/upgrade`. If you wish to specify a version range use this syntax:
 `module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
 
 ---
 
@@ -24871,6 +24922,7 @@ new CdklabsJsiiProject(options: CdklabsJsiiProjectOptions)
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -25284,6 +25336,22 @@ be installed in the next `npx projen` run and the version will be recorded
 in your `package.json` file. You can upgrade manually or using `yarn
 add/upgrade`. If you wish to specify a version range use this syntax:
 `module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdklabsJsiiProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsJsiiProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
 
 ---
 
@@ -26235,6 +26303,7 @@ new yarn.CdkLabsMonorepo(options: CdkLabsMonorepoOptions)
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -26648,6 +26717,22 @@ be installed in the next `npx projen` run and the version will be recorded
 in your `package.json` file. You can upgrade manually or using `yarn
 add/upgrade`. If you wish to specify a version range use this syntax:
 `module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
 
 ---
 
@@ -27616,6 +27701,7 @@ new CdklabsTypeScriptProject(options: CdklabsTypeScriptProjectOptions)
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -28029,6 +28115,22 @@ be installed in the next `npx projen` run and the version will be recorded
 in your `package.json` file. You can upgrade manually or using `yarn
 add/upgrade`. If you wish to specify a version range use this syntax:
 `module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
 
 ---
 
@@ -28980,6 +29082,7 @@ new CdkTypeScriptProject(options: CdkTypeScriptProjectOptions)
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -29393,6 +29496,22 @@ be installed in the next `npx projen` run and the version will be recorded
 in your `package.json` file. You can upgrade manually or using `yarn
 add/upgrade`. If you wish to specify a version range use this syntax:
 `module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdkTypeScriptProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkTypeScriptProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
 
 ---
 
@@ -30431,6 +30550,7 @@ new yarn.Monorepo(options: MonorepoOptions)
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -30844,6 +30964,22 @@ be installed in the next `npx projen` run and the version will be recorded
 in your `package.json` file. You can upgrade manually or using `yarn
 add/upgrade`. If you wish to specify a version range use this syntax:
 `module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.yarn.Monorepo.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.Monorepo.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
 
 ---
 
@@ -31812,6 +31948,7 @@ new yarn.TypeScriptWorkspace(options: TypeScriptWorkspaceOptions)
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -32225,6 +32362,22 @@ be installed in the next `npx projen` run and the version will be recorded
 in your `package.json` file. You can upgrade manually or using `yarn
 add/upgrade`. If you wish to specify a version range use this syntax:
 `module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
 
 ---
 
