@@ -212,6 +212,11 @@ export interface MonorepoOptions {
    */
   readonly disableTsconfig?: boolean;
   /**
+   * Do not generate a `tsconfig.dev.json` file.
+   * @default false
+   */
+  readonly disableTsconfigDev?: boolean;
+  /**
    * Docgen by Typedoc.
    * @default false
    */
