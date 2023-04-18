@@ -662,7 +662,9 @@ export interface MonorepoOptions {
    * npm scripts to include.
    * If a script has the same name as a standard script,
    * the standard script will be overwritten.
+   * Also adds the script as a task.
    * @default {}
+   * @deprecated use `project.addTask()` or `package.setScript()`
    */
   readonly scripts?: Record<string, string>;
   /**
