@@ -14,6 +14,7 @@ Object {
 /.github/workflows/upgrade.yml linguist-generated
 /.gitignore linguist-generated
 /.npmignore linguist-generated
+/.npmrc linguist-generated
 /.projen/** linguist-generated
 /.projen/deps.json linguist-generated
 /.projen/files.json linguist-generated
@@ -299,6 +300,7 @@ jspm_packages/
 !/.github/workflows/build.yml
 !/.github/workflows/upgrade.yml
 !/.github/pull_request_template.md
+!/.npmrc
 !/test/
 !/tsconfig.json
 !/tsconfig.dev.json
@@ -363,6 +365,7 @@ tsconfig.tsbuildinfo
       ".github/workflows/upgrade.yml",
       ".gitignore",
       ".npmignore",
+      ".npmrc",
       ".projen/deps.json",
       ".projen/files.json",
       ".projen/tasks.json",
@@ -909,6 +912,7 @@ module.exports = json;",
 /.gitattributes linguist-generated
 /.gitignore linguist-generated
 /.npmignore linguist-generated
+/.npmrc linguist-generated
 /.prettierignore linguist-generated
 /.prettierrc.json linguist-generated
 /.projen/** linguist-generated
@@ -957,6 +961,7 @@ junit.xml
 /coverage/
 !/.prettierignore
 !/.prettierrc.json
+!/.npmrc
 !/test/
 !/tsconfig.json
 !/tsconfig.dev.json
@@ -1079,6 +1084,7 @@ tsconfig.tsbuildinfo
       ".gitattributes",
       ".gitignore",
       ".npmignore",
+      ".npmrc",
       ".prettierignore",
       ".prettierrc.json",
       ".projen/deps.json",
@@ -1745,6 +1751,7 @@ module.exports = json;",
 /.gitattributes linguist-generated
 /.gitignore linguist-generated
 /.npmignore linguist-generated
+/.npmrc linguist-generated
 /.prettierignore linguist-generated
 /.prettierrc.json linguist-generated
 /.projen/** linguist-generated
@@ -1793,6 +1800,7 @@ junit.xml
 /coverage/
 !/.prettierignore
 !/.prettierrc.json
+!/.npmrc
 !/test/
 !/tsconfig.json
 !/tsconfig.dev.json
@@ -1915,6 +1923,7 @@ tsconfig.tsbuildinfo
       ".gitattributes",
       ".gitignore",
       ".npmignore",
+      ".npmrc",
       ".prettierignore",
       ".prettierrc.json",
       ".projen/deps.json",

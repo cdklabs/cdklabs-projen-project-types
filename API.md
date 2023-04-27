@@ -21542,6 +21542,7 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -21995,6 +21996,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdkConstructLibrary.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
@@ -22960,6 +22973,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -23410,6 +23424,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdkJsiiProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
@@ -24377,6 +24403,7 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -24830,6 +24857,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
@@ -25795,6 +25834,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -26245,6 +26285,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
@@ -27204,6 +27256,7 @@ This is used to resolve dependency versions from `*` to a concrete version const
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -27653,6 +27706,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
@@ -28574,6 +28639,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -29024,6 +29090,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
@@ -29955,6 +30033,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -30405,6 +30484,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
@@ -31451,6 +31542,7 @@ This is used to resolve dependency versions from `*` to a concrete version const
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -31900,6 +31992,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.yarn.Monorepo.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
@@ -32821,6 +32925,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -33271,6 +33376,18 @@ public readonly manifest: any;
 ```
 
 - *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
 
 ---
 
