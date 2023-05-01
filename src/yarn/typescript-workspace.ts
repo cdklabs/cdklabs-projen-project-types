@@ -119,9 +119,14 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     }
 
     // Install dependencies via the parent project
-    (this.package as any).installDependencies = () => {
-      options.parent.requestInstallDependencies({ resolveDepsAndWritePackageJson: () => (this.package as any).resolveDepsAndWritePackageJson() });
+    /* @ts-ignore access private method */
+    const originalResolve = this.package.resolveDepsAndWritePackageJson;
+    /* @ts-ignore access private method */
+    this.package.installDependencies = () => {
+      options.parent.requestInstallDependencies({ resolveDepsAndWritePackageJson: () => originalResolve.apply(this.package) });
     };
+    /* @ts-ignore access private method */
+    this.package.resolveDepsAndWritePackageJson = () => {};
 
     // Private package
     if (options.private) {
