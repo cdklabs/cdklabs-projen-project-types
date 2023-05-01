@@ -1151,6 +1151,7 @@ tsconfig.tsbuildinfo
         "steps": Array [
           Object {
             "exec": "tsc --build",
+            "receiveArgs": true,
           },
         ],
       },
@@ -1990,6 +1991,7 @@ tsconfig.tsbuildinfo
         "steps": Array [
           Object {
             "exec": "tsc --build",
+            "receiveArgs": true,
           },
         ],
       },
