@@ -118,6 +118,12 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       );
     }
 
+    // Allow passing additional args like `--force` to the compile task
+    // Needed because we use composite projects that often need a tsc --build --force
+    this.tasks.tryFind('compile')?.reset('tsc --build', {
+      receiveArgs: true,
+    });
+
     // Install dependencies via the parent project
     /* @ts-ignore access private method */
     const originalResolve = this.package.resolveDepsAndWritePackageJson;
