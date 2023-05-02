@@ -1,38 +1,10 @@
-import { awscdk, typescript } from 'projen';
-import { Stability } from 'projen/lib/cdk';
-import { AutoMergeOptions } from './auto-merge';
+import { awscdk, cdk, typescript } from 'projen';
+import { CdkCommonOptions, withCommonOptionsDefaults } from './common-options';
 import { IntegRunner } from './integ-runner';
 import { MergeQueue } from './merge-queue';
 import { Private } from './private';
 import { Rosetta } from './rosetta';
 
-export interface CdkCommonOptions {
-  /**
-   * Whether or not this package is private. Setting this variable
-   * to true means that your project is created with sane defaults
-   * for private repositories.
-   *
-   * @default true
-   */
-  readonly private?: boolean;
-
-  /**
-   * Whether to enable the auto merge workflow for PRs
-   * This will enable the auto merge workflow as well as the
-   * merge queue
-   *
-   * @default - true for private projects, false otherwise
-   */
-  readonly enablePRAutoMerge?: boolean;
-
-  /**
-   * Options for the GitHub auto merge workflow (the workflow
-   * that turns on auto merge on all PRs)
-   *
-   * @default default options
-   */
-  readonly ghAutoMergeOptions?: AutoMergeOptions;
-}
 
 export interface CdkConstructLibraryOptions extends awscdk.AwsCdkConstructLibraryOptions, CdkCommonOptions { }
 
@@ -62,33 +34,30 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
   public readonly private: boolean;
 
   constructor(options: CdkConstructLibraryOptions) {
-    if (options.stability === Stability.STABLE) {
+    if (options.stability === cdk.Stability.STABLE) {
       const errors = CdkConstructLibrary.stabilityRequirements(options);
       if (errors.length > 0) {
         throw new Error(`The project does not pass stability requirements due to the following errors:\n  ${errors.join('\n  ')}`);
       }
     }
 
+    const opts = withCommonOptionsDefaults(options);
     super({
-      stability: Stability.EXPERIMENTAL,
-      ...options,
+      stability: cdk.Stability.EXPERIMENTAL,
+      ...opts,
     });
+    this.private = opts.private;
 
-    this.private = options.private ?? true;
-    const autoMerge = options.enablePRAutoMerge ?? this.private;
     new Rosetta(this);
     new IntegRunner(this);
 
-
     if (this.private) {
       new Private(this);
-
     }
-    if (autoMerge) {
+
+    if (opts.enablePRAutoMerge) {
       new MergeQueue(this, {
-        autoMergeOptions: {
-          secret: 'PROJEN_GITHUB_TOKEN',
-        },
+        autoMergeOptions: opts.ghAutoMergeOptions,
       });
     }
   }
@@ -105,20 +74,17 @@ export class CdkTypeScriptProject extends typescript.TypeScriptProject {
   public readonly private: boolean;
 
   constructor(options: CdkTypeScriptProjectOptions) {
+    const opts = withCommonOptionsDefaults(options);
     super(options);
-    this.private = options.private ?? true;
-
-    const autoMerge = options.enablePRAutoMerge ?? this.private;
+    this.private = opts.private;
 
     if (this.private) {
       new Private(this);
     }
 
-    if (autoMerge) {
+    if (opts.enablePRAutoMerge) {
       new MergeQueue(this, {
-        autoMergeOptions: {
-          secret: 'PROJEN_GITHUB_TOKEN',
-        },
+        autoMergeOptions: opts.ghAutoMergeOptions,
       });
     }
   }

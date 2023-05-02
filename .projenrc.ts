@@ -1,8 +1,8 @@
-import { cdk } from 'projen';
 import { generateYarnMonorepoOptions } from './projenrc/yarn-monorepo-options';
-import { MergeQueue } from './src/merge-queue';
+import { CdkJsiiProject } from './src';
 
-const project = new cdk.JsiiProject({
+const project = new CdkJsiiProject({
+  private: false,
   projenrcTs: true,
   author: 'AWS',
   authorAddress: 'aws-cdk-dev@amazon.com',
@@ -13,19 +13,11 @@ const project = new cdk.JsiiProject({
   deps: ['projen'],
   bundledDeps: ['yaml'],
   peerDeps: ['projen'],
-  githubOptions: {
-    mergify: false,
-  },
+  enablePRAutoMerge: true,
   autoApproveUpgrades: true,
   autoApproveOptions: {
     allowedUsernames: ['cdklabs-automation'],
     secret: 'GITHUB_TOKEN',
-  },
-});
-
-new MergeQueue(project, {
-  autoMergeOptions: {
-    secret: 'PROJEN_GITHUB_TOKEN',
   },
 });
 
