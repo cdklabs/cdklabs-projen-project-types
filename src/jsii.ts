@@ -1,32 +1,30 @@
-import { JsiiProject, JsiiProjectOptions } from 'projen/lib/cdk';
-import { CdkCommonOptions } from './cdk';
+import { cdk } from 'projen';
+import { CdkCommonOptions, withCommonOptionsDefaults } from './common-options';
 import { MergeQueue } from './merge-queue';
 import { Private } from './private';
 
-export interface CdkJsiiProjectOptions extends JsiiProjectOptions, CdkCommonOptions {}
+export interface CdkJsiiProjectOptions extends cdk.JsiiProjectOptions, CdkCommonOptions {}
 
 /**
  * Create a Cdk Jsii Jsii project
  *
  * @pjid cdk-jsii-proj
  */
-export class CdkJsiiProject extends JsiiProject {
+export class CdkJsiiProject extends cdk.JsiiProject {
   public readonly private: boolean;
 
   constructor(options: CdkJsiiProjectOptions) {
-    super(options);
-    this.private = options.private ?? true;
-    const autoMerge = options.enablePRAutoMerge ?? this.private;
+    const opts = withCommonOptionsDefaults(options);
+    super(opts);
 
+    this.private = opts.private;
     if (this.private) {
       new Private(this);
     }
 
-    if (autoMerge) {
+    if (opts.enablePRAutoMerge) {
       new MergeQueue(this, {
-        autoMergeOptions: {
-          secret: 'PROJEN_GITHUB_TOKEN',
-        },
+        autoMergeOptions: opts.ghAutoMergeOptions,
       });
     }
   }
