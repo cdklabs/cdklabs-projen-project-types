@@ -1,6 +1,8 @@
-import { github } from 'projen';
+import { github, typescript } from 'projen';
 import { deepMerge } from 'projen/lib/util';
 import { AutoMergeOptions } from './auto-merge';
+import { MergeQueue } from './merge-queue';
+import { Private } from './private';
 
 export interface CdkCommonOptions {
   /**
@@ -59,4 +61,20 @@ export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.Gi
       setNodeEngineVersion: options.setNodeEngineVersion ?? true,
     },
   ]) as T & Required<CdkCommonOptions>;
+}
+
+export function configureCommonFeatures(project: typescript.TypeScriptProject, opts: CdkCommonOptions) {
+  if (opts.private) {
+    new Private(project);
+  }
+
+  if (opts.enablePRAutoMerge) {
+    new MergeQueue(project, {
+      autoMergeOptions: opts.ghAutoMergeOptions,
+    });
+  }
+
+  if (opts.setNodeEngineVersion === false) {
+    project.package.file.addOverride('engines.node', undefined);
+  }
 }
