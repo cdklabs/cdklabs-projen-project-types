@@ -60,6 +60,10 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
         autoMergeOptions: opts.ghAutoMergeOptions,
       });
     }
+
+    if (opts.setNodeEngineVersion === false) {
+      this.package.file.addOverride('engines.node', undefined);
+    }
   }
 }
 

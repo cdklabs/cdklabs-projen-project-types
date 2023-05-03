@@ -27,5 +27,9 @@ export class CdkJsiiProject extends cdk.JsiiProject {
         autoMergeOptions: opts.ghAutoMergeOptions,
       });
     }
+
+    if (opts.setNodeEngineVersion === false) {
+      this.package.file.addOverride('engines.node', undefined);
+    }
   }
 }

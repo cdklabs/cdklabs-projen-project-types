@@ -22,6 +22,7 @@
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
     "test": "npx projen test",
+    "test:update": "npx projen test:update",
     "test:watch": "npx projen test:watch",
     "unbump": "npx projen unbump",
     "upgrade": "npx projen upgrade",
@@ -29,14 +30,14 @@
     "projen": "npx projen"
   },
   "author": {
-    "name": "AWS",
+    "name": "Amazon Web Services",
     "email": "aws-cdk-dev@amazon.com",
-    "organization": false
+    "organization": true
   },
   "devDependencies": {
     "@jsii/spec": "^1.80.0",
     "@types/jest": "^27",
-    "@types/node": "^16",
+    "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "eslint": "^8",
