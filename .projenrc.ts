@@ -1,7 +1,7 @@
 import { generateYarnMonorepoOptions } from './projenrc/yarn-monorepo-options';
-import { CdkJsiiProject } from './src';
+import { CdklabsJsiiProject } from './src';
 
-const project = new CdkJsiiProject({
+const project = new CdklabsJsiiProject({
   private: false,
   projenrcTs: true,
   author: 'AWS',
@@ -14,6 +14,8 @@ const project = new CdkJsiiProject({
   bundledDeps: ['yaml'],
   peerDeps: ['projen'],
   enablePRAutoMerge: true,
+  cdklabsPublishingDefaults: false,
+  setNodeEngineVersion: false,
   autoApproveUpgrades: true,
   autoApproveOptions: {
     allowedUsernames: ['cdklabs-automation'],
