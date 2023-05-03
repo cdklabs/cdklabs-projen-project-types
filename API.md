@@ -274,6 +274,7 @@ const cdkCommonOptions: CdkCommonOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 
 ---
 
@@ -317,6 +318,19 @@ Whether or not this package is private.
 Setting this variable
 to true means that your project is created with sane defaults
 for private repositories.
+
+---
+
+##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdkCommonOptions.property.setNodeEngineVersion"></a>
+
+```typescript
+public readonly setNodeEngineVersion: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
@@ -504,6 +518,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 
 ---
 
@@ -2924,6 +2939,19 @@ for private repositories.
 
 ---
 
+##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion"></a>
+
+```typescript
+public readonly setNodeEngineVersion: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+
+---
+
 ### CdkJsiiProjectOptions <a name="CdkJsiiProjectOptions" id="cdklabs-projen-project-types.CdkJsiiProjectOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.Initializer"></a>
@@ -3094,6 +3122,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 
 ---
 
@@ -5301,6 +5330,19 @@ for private repositories.
 
 ---
 
+##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion"></a>
+
+```typescript
+public readonly setNodeEngineVersion: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+
+---
+
 ### CdklabsConstructLibraryOptions <a name="CdklabsConstructLibraryOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.Initializer"></a>
@@ -5485,6 +5527,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
 
@@ -7907,6 +7950,19 @@ for private repositories.
 
 ---
 
+##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion"></a>
+
+```typescript
+public readonly setNodeEngineVersion: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+
+---
+
 ##### `cdklabsPublishingDefaults`<sup>Optional</sup> <a name="cdklabsPublishingDefaults" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults"></a>
 
 ```typescript
@@ -8116,6 +8172,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
 
@@ -10322,6 +10379,19 @@ Whether or not this package is private.
 Setting this variable
 to true means that your project is created with sane defaults
 for private repositories.
+
+---
+
+##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion"></a>
+
+```typescript
+public readonly setNodeEngineVersion: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
@@ -12581,6 +12651,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 
 ---
 
@@ -14569,6 +14640,19 @@ for private repositories.
 
 ---
 
+##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.setNodeEngineVersion"></a>
+
+```typescript
+public readonly setNodeEngineVersion: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+
+---
+
 ### CdkTypeScriptProjectOptions <a name="CdkTypeScriptProjectOptions" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.Initializer"></a>
@@ -14723,6 +14807,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 
 ---
 
@@ -16708,6 +16793,19 @@ Whether or not this package is private.
 Setting this variable
 to true means that your project is created with sane defaults
 for private repositories.
+
+---
+
+##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.setNodeEngineVersion"></a>
+
+```typescript
+public readonly setNodeEngineVersion: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
