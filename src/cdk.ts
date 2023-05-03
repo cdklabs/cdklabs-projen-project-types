@@ -1,8 +1,6 @@
 import { awscdk, cdk, typescript } from 'projen';
-import { CdkCommonOptions, withCommonOptionsDefaults } from './common-options';
+import { CdkCommonOptions, configureCommonFeatures, withCommonOptionsDefaults } from './common-options';
 import { IntegRunner } from './integ-runner';
-import { MergeQueue } from './merge-queue';
-import { Private } from './private';
 import { Rosetta } from './rosetta';
 
 
@@ -51,19 +49,7 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
     new Rosetta(this);
     new IntegRunner(this);
 
-    if (this.private) {
-      new Private(this);
-    }
-
-    if (opts.enablePRAutoMerge) {
-      new MergeQueue(this, {
-        autoMergeOptions: opts.ghAutoMergeOptions,
-      });
-    }
-
-    if (opts.setNodeEngineVersion === false) {
-      this.package.file.addOverride('engines.node', undefined);
-    }
+    configureCommonFeatures(this, opts);
   }
 }
 
@@ -79,17 +65,9 @@ export class CdkTypeScriptProject extends typescript.TypeScriptProject {
 
   constructor(options: CdkTypeScriptProjectOptions) {
     const opts = withCommonOptionsDefaults(options);
-    super(options);
+    super(opts);
     this.private = opts.private;
 
-    if (this.private) {
-      new Private(this);
-    }
-
-    if (opts.enablePRAutoMerge) {
-      new MergeQueue(this, {
-        autoMergeOptions: opts.ghAutoMergeOptions,
-      });
-    }
+    configureCommonFeatures(this, opts);
   }
 }

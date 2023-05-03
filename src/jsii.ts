@@ -1,7 +1,5 @@
 import { cdk } from 'projen';
-import { CdkCommonOptions, withCommonOptionsDefaults } from './common-options';
-import { MergeQueue } from './merge-queue';
-import { Private } from './private';
+import { CdkCommonOptions, configureCommonFeatures, withCommonOptionsDefaults } from './common-options';
 
 export interface CdkJsiiProjectOptions extends cdk.JsiiProjectOptions, CdkCommonOptions {}
 
@@ -16,20 +14,8 @@ export class CdkJsiiProject extends cdk.JsiiProject {
   constructor(options: CdkJsiiProjectOptions) {
     const opts = withCommonOptionsDefaults(options);
     super(opts);
-
     this.private = opts.private;
-    if (this.private) {
-      new Private(this);
-    }
 
-    if (opts.enablePRAutoMerge) {
-      new MergeQueue(this, {
-        autoMergeOptions: opts.ghAutoMergeOptions,
-      });
-    }
-
-    if (opts.setNodeEngineVersion === false) {
-      this.package.file.addOverride('engines.node', undefined);
-    }
+    configureCommonFeatures(this, opts);
   }
 }

@@ -13,6 +13,9 @@ export class Private extends Component {
   constructor(project: TypeScriptProject) {
     super(project);
 
+    // make sure this is always set
+    (project as any).private = true;
+
     // mark private: true in package.json
     project.addFields({ private: true });
 
