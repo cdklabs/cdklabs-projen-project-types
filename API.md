@@ -21623,6 +21623,7 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -21875,6 +21876,18 @@ public readonly root: Project;
 - *Type:* projen.Project
 
 The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdkConstructLibrary.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
 
 ---
 
@@ -23054,6 +23067,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -23303,6 +23317,18 @@ public readonly root: Project;
 - *Type:* projen.Project
 
 The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdkJsiiProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
 
 ---
 
@@ -24484,6 +24510,7 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -24736,6 +24763,18 @@ public readonly root: Project;
 - *Type:* projen.Project
 
 The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
 
 ---
 
@@ -25915,6 +25954,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -26164,6 +26204,18 @@ public readonly root: Project;
 - *Type:* projen.Project
 
 The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
 
 ---
 
@@ -27337,6 +27389,7 @@ This is used to resolve dependency versions from `*` to a concrete version const
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -27585,6 +27638,18 @@ public readonly root: Project;
 - *Type:* projen.Project
 
 The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
 
 ---
 
@@ -28720,6 +28785,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -28969,6 +29035,18 @@ public readonly root: Project;
 - *Type:* projen.Project
 
 The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
 
 ---
 
@@ -30114,6 +30192,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -30363,6 +30442,18 @@ public readonly root: Project;
 - *Type:* projen.Project
 
 The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
 
 ---
 
@@ -31623,6 +31714,7 @@ This is used to resolve dependency versions from `*` to a concrete version const
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -31871,6 +31963,18 @@ public readonly root: Project;
 - *Type:* projen.Project
 
 The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.Monorepo.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
 
 ---
 
@@ -33006,6 +33110,7 @@ The command to execute.
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -33255,6 +33360,18 @@ public readonly root: Project;
 - *Type:* projen.Project
 
 The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
 
 ---
 
