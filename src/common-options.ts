@@ -3,6 +3,7 @@ import { deepMerge } from 'projen/lib/util';
 import { AutoMergeOptions } from './auto-merge';
 import { MergeQueue } from './merge-queue';
 import { Private } from './private';
+import { UpgradeProjenProject } from './upgrade-projen';
 
 export interface CdkCommonOptions {
   /**
@@ -38,6 +39,13 @@ export interface CdkCommonOptions {
    * @default true
    */
   readonly setNodeEngineVersion?: boolean;
+
+  /**
+   * Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep
+   *
+   * @default true
+   */
+  readonly upgradeProjenProjectTypes?: boolean;
 }
 
 export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.GitHubProjectOptions>(options: T): T & Required<CdkCommonOptions> {
@@ -72,6 +80,10 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
     new MergeQueue(project, {
       autoMergeOptions: opts.ghAutoMergeOptions,
     });
+  }
+
+  if ((opts.upgradeProjenProjectTypes ?? true)) {
+    new UpgradeProjenProject(project);
   }
 
   if (opts.setNodeEngineVersion === false) {
