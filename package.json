@@ -52,17 +52,17 @@
     "jsii-pacmak": "^1.81.0",
     "jsii-reflect": "^1.81.0",
     "npm-check-updates": "^16",
-    "projen": "^0.71.57",
+    "projen": "^0.71.60",
     "standard-version": "^9",
     "ts-jest": "^27",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "projen": "^0.71.57"
+    "projen": "^0.71.60"
   },
   "dependencies": {
-    "projen": "^0.71.57",
+    "projen": "^0.71.60",
     "yaml": "^2.2.2"
   },
   "bundledDependencies": [
