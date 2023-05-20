@@ -49,7 +49,7 @@ describe('CdklabsConstructLibrary', () => {
 
     // upgrade projen
     expect(
-      YAML.parse(outdir['.github/workflows/upgrade-projen-main.yml']).jobs.upgrade.steps,
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
     ).toEqual(expect.arrayContaining([
       expect.objectContaining({
         name: 'Install dependencies',
@@ -58,7 +58,7 @@ describe('CdklabsConstructLibrary', () => {
     ]));
 
     expect(
-      YAML.parse(outdir['.github/workflows/upgrade-projen-main.yml']).jobs.pr.name,
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.pr.name,
     ).toEqual('Create Pull Request');
 
     // min node version
@@ -165,7 +165,7 @@ describe('CdklabsTypeScriptProject', () => {
 
     // upgrade projen
     expect(
-      YAML.parse(outdir['.github/workflows/upgrade-projen-main.yml']).jobs.upgrade.steps,
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
     ).toEqual(expect.arrayContaining([
       expect.objectContaining({
         name: 'Install dependencies',
@@ -174,7 +174,7 @@ describe('CdklabsTypeScriptProject', () => {
     ]));
 
     expect(
-      YAML.parse(outdir['.github/workflows/upgrade-projen-main.yml']).jobs.pr.name,
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.pr.name,
     ).toEqual('Create Pull Request');
 
     // default main release branch
@@ -214,7 +214,7 @@ describe('CdklabsJsiiProject', () => {
 
     // upgrade projen
     expect(
-      YAML.parse(outdir['.github/workflows/upgrade-projen-main.yml']).jobs.upgrade.steps,
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
     ).toEqual(expect.arrayContaining([
       expect.objectContaining({
         name: 'Install dependencies',
@@ -223,7 +223,7 @@ describe('CdklabsJsiiProject', () => {
     ]));
 
     expect(
-      YAML.parse(outdir['.github/workflows/upgrade-projen-main.yml']).jobs.pr.name,
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.pr.name,
     ).toEqual('Create Pull Request');
 
     // default main release branch

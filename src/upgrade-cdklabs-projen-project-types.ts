@@ -28,11 +28,11 @@ interface Upgrade {
  *
  * @see https://github.com/projen/projen/blob/main/src/javascript/upgrade-dependencies.ts
  */
-export class UpgradeProjenProject extends Component {
+export class UpgradeCdklabsProjenProjectTypes extends Component {
   constructor(public readonly project: typescript.TypeScriptProject) {
     super(project);
 
-    const upgradeTask = project.addTask('upgrade-projen', {
+    const upgradeTask = project.addTask('upgrade-cdklabs-projen-project-types', {
       env: { CI: '0' },
       description: 'upgrade cdklabs-projen-project-types',
       steps: [

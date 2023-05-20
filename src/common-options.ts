@@ -3,7 +3,7 @@ import { deepMerge } from 'projen/lib/util';
 import { AutoMergeOptions } from './auto-merge';
 import { MergeQueue } from './merge-queue';
 import { Private } from './private';
-import { UpgradeProjenProject } from './upgrade-projen';
+import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
 
 export interface CdkCommonOptions {
   /**
@@ -83,7 +83,7 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
   }
 
   if ((opts.upgradeProjenProjectTypes ?? true)) {
-    new UpgradeProjenProject(project);
+    new UpgradeCdklabsProjenProjectTypes(project);
   }
 
   if (opts.setNodeEngineVersion === false) {
