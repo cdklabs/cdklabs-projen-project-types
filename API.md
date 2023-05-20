@@ -275,7 +275,7 @@ const cdkCommonOptions: CdkCommonOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
-| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeProjenProjectTypes">upgradeProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
 
@@ -335,10 +335,10 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
-##### `upgradeProjenProjectTypes`<sup>Optional</sup> <a name="upgradeProjenProjectTypes" id="cdklabs-projen-project-types.CdkCommonOptions.property.upgradeProjenProjectTypes"></a>
+##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdkCommonOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
-public readonly upgradeProjenProjectTypes: boolean;
+public readonly upgradeCdklabsProjenProjectTypes: boolean;
 ```
 
 - *Type:* boolean
@@ -533,7 +533,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeProjenProjectTypes">upgradeProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
 
@@ -2967,10 +2967,10 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
-##### `upgradeProjenProjectTypes`<sup>Optional</sup> <a name="upgradeProjenProjectTypes" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeProjenProjectTypes"></a>
+##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
-public readonly upgradeProjenProjectTypes: boolean;
+public readonly upgradeCdklabsProjenProjectTypes: boolean;
 ```
 
 - *Type:* boolean
@@ -3151,7 +3151,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.upgradeProjenProjectTypes">upgradeProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
 
@@ -5372,10 +5372,10 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
-##### `upgradeProjenProjectTypes`<sup>Optional</sup> <a name="upgradeProjenProjectTypes" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.upgradeProjenProjectTypes"></a>
+##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
-public readonly upgradeProjenProjectTypes: boolean;
+public readonly upgradeCdklabsProjenProjectTypes: boolean;
 ```
 
 - *Type:* boolean
@@ -5570,7 +5570,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeProjenProjectTypes">upgradeProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
 
@@ -8006,10 +8006,10 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
-##### `upgradeProjenProjectTypes`<sup>Optional</sup> <a name="upgradeProjenProjectTypes" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeProjenProjectTypes"></a>
+##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
-public readonly upgradeProjenProjectTypes: boolean;
+public readonly upgradeCdklabsProjenProjectTypes: boolean;
 ```
 
 - *Type:* boolean
@@ -8229,7 +8229,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.upgradeProjenProjectTypes">upgradeProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
 
@@ -10452,10 +10452,10 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
-##### `upgradeProjenProjectTypes`<sup>Optional</sup> <a name="upgradeProjenProjectTypes" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.upgradeProjenProjectTypes"></a>
+##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
-public readonly upgradeProjenProjectTypes: boolean;
+public readonly upgradeCdklabsProjenProjectTypes: boolean;
 ```
 
 - *Type:* boolean
@@ -12722,7 +12722,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeProjenProjectTypes">upgradeProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
 
@@ -14724,10 +14724,10 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
-##### `upgradeProjenProjectTypes`<sup>Optional</sup> <a name="upgradeProjenProjectTypes" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeProjenProjectTypes"></a>
+##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
-public readonly upgradeProjenProjectTypes: boolean;
+public readonly upgradeCdklabsProjenProjectTypes: boolean;
 ```
 
 - *Type:* boolean
@@ -14892,7 +14892,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeProjenProjectTypes">upgradeProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
 
@@ -16894,10 +16894,10 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
-##### `upgradeProjenProjectTypes`<sup>Optional</sup> <a name="upgradeProjenProjectTypes" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeProjenProjectTypes"></a>
+##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
-public readonly upgradeProjenProjectTypes: boolean;
+public readonly upgradeCdklabsProjenProjectTypes: boolean;
 ```
 
 - *Type:* boolean

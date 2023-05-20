@@ -45,7 +45,7 @@ export interface CdkCommonOptions {
    *
    * @default true
    */
-  readonly upgradeProjenProjectTypes?: boolean;
+  readonly upgradeCdklabsProjenProjectTypes?: boolean;
 }
 
 export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.GitHubProjectOptions>(options: T): T & Required<CdkCommonOptions> {
@@ -82,7 +82,7 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
     });
   }
 
-  if ((opts.upgradeProjenProjectTypes ?? true)) {
+  if ((opts.upgradeCdklabsProjenProjectTypes ?? true)) {
     new UpgradeCdklabsProjenProjectTypes(project);
   }
 
