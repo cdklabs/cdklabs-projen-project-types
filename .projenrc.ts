@@ -15,6 +15,7 @@ const project = new CdklabsJsiiProject({
   peerDeps: ['projen'],
   enablePRAutoMerge: true,
   cdklabsPublishingDefaults: false,
+  upgradeCdklabsProjenProjectTypes: false, // that is this project!
   setNodeEngineVersion: false,
   autoApproveUpgrades: true,
   autoApproveOptions: {

@@ -47,6 +47,20 @@ describe('CdklabsConstructLibrary', () => {
       YAML.parse(outdir['.github/workflows/release.yml']).on.push.branches[0],
     ).toEqual('main');
 
+    // upgrade projen
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
+    ).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        name: 'Install dependencies',
+        run: 'npm install -g yarn && yarn install --check-files --frozen-lockfile',
+      }),
+    ]));
+
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.pr.name,
+    ).toEqual('Create Pull Request');
+
     // min node version
     expect(packageJson.engines).toEqual({
       node: '>= 14.18.0',
@@ -149,6 +163,20 @@ describe('CdklabsTypeScriptProject', () => {
       YAML.parse(outdir['.github/workflows/auto-approve.yml']).jobs.approve.if.includes('cdklabs-automation'),
     ).toBeTruthy();
 
+    // upgrade projen
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
+    ).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        name: 'Install dependencies',
+        run: 'npm install -g yarn && yarn install --check-files --frozen-lockfile',
+      }),
+    ]));
+
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.pr.name,
+    ).toEqual('Create Pull Request');
+
     // default main release branch
     expect(
       YAML.parse(outdir['.github/workflows/release.yml']).on.push.branches[0],
@@ -183,6 +211,20 @@ describe('CdklabsJsiiProject', () => {
     expect(
       YAML.parse(outdir['.github/workflows/auto-approve.yml']).jobs.approve.if.includes('cdklabs-automation'),
     ).toBeTruthy();
+
+    // upgrade projen
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
+    ).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        name: 'Install dependencies',
+        run: 'npm install -g yarn && yarn install --check-files --frozen-lockfile',
+      }),
+    ]));
+
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.pr.name,
+    ).toEqual('Create Pull Request');
 
     // default main release branch
     expect(
