@@ -19,7 +19,7 @@ const project = new CdklabsJsiiProject({
   setNodeEngineVersion: false,
   autoApproveUpgrades: true,
   autoApproveOptions: {
-    allowedUsernames: ['cdklabs-automation'],
+    allowedUsernames: ['cdklabs-automation', 'dependabot[bot]'],
     secret: 'GITHUB_TOKEN',
   },
 });

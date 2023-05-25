@@ -41,6 +41,9 @@ describe('CdklabsConstructLibrary', () => {
     expect(
       YAML.parse(outdir['.github/workflows/auto-approve.yml']).jobs.approve.if.includes('cdklabs-automation'),
     ).toBeTruthy();
+    expect(
+      YAML.parse(outdir['.github/workflows/auto-approve.yml']).jobs.approve.if.includes('dependabot[bot]'),
+    ).toBeTruthy();
 
     // default main release branch
     expect(
@@ -162,6 +165,9 @@ describe('CdklabsTypeScriptProject', () => {
     expect(
       YAML.parse(outdir['.github/workflows/auto-approve.yml']).jobs.approve.if.includes('cdklabs-automation'),
     ).toBeTruthy();
+    expect(
+      YAML.parse(outdir['.github/workflows/auto-approve.yml']).jobs.approve.if.includes('dependabot[bot]'),
+    ).toBeTruthy();
 
     // upgrade projen
     expect(
@@ -206,10 +212,13 @@ describe('CdklabsJsiiProject', () => {
       email: 'aws-cdk-dev@amazon.com',
       organization: true,
     });
-    //
+
     // auto approve
     expect(
       YAML.parse(outdir['.github/workflows/auto-approve.yml']).jobs.approve.if.includes('cdklabs-automation'),
+    ).toBeTruthy();
+    expect(
+      YAML.parse(outdir['.github/workflows/auto-approve.yml']).jobs.approve.if.includes('dependabot[bot]'),
     ).toBeTruthy();
 
     // upgrade projen
