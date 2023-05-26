@@ -200,7 +200,7 @@ export class CdkLabsMonorepo extends Monorepo {
 
       autoApproveUpgrades: true,
       autoApproveOptions: {
-        allowedUsernames: ['github-bot', 'cdklabs-automation'],
+        allowedUsernames: ['github-bot', 'cdklabs-automation', 'dependabot[bot]'],
         secret: 'GITHUB_TOKEN',
       },
       ...options,
