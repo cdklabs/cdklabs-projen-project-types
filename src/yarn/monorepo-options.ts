@@ -757,6 +757,11 @@ export interface MonorepoOptions {
    */
   readonly workflowNodeVersion?: string;
   /**
+   * Enable Node.js package cache in GitHub workflows.
+   * @default false
+   */
+  readonly workflowPackageCache?: boolean;
+  /**
    * Github Runner selection labels.
    * @default ["ubuntu-latest"]
    */
