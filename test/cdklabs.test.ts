@@ -76,7 +76,7 @@ describe('CdklabsConstructLibrary', () => {
     // jest options
     expect(
       outdir['.projen/tasks.json'].tasks.test.steps[0].exec.includes('--updateSnapshot'),
-    ).toBeFalsy();
+    ).toBeTruthy();
 
     expect(outdir).toMatchSnapshot();
   });
@@ -204,7 +204,7 @@ describe('CdklabsTypeScriptProject', () => {
     // jest options
     expect(
       outdir['.projen/tasks.json'].tasks.test.steps[0].exec.includes('--updateSnapshot'),
-    ).toBeFalsy();
+    ).toBeTruthy();
 
     expect(outdir).toMatchSnapshot();
   });
@@ -260,7 +260,7 @@ describe('CdklabsJsiiProject', () => {
     // jest options
     expect(
       outdir['.projen/tasks.json'].tasks.test.steps[0].exec.includes('--updateSnapshot'),
-    ).toBeFalsy();
+    ).toBeTruthy();
 
     expect(outdir).toMatchSnapshot();
 
