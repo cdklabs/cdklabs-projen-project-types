@@ -107,10 +107,6 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
       {
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v3',
-        with: {
-          // @ts-ignore
-          'node-version': this.project.nodeVersion,
-        },
       },
       {
         name: 'Install dependencies',
