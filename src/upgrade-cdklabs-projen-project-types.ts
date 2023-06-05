@@ -105,8 +105,16 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
         with: Object.keys(with_).length > 0 ? with_ : undefined,
       },
       {
+        name: 'Setup Node.js',
+        uses: 'actions/setup-node@v3',
+        with: {
+          // @ts-ignore
+          'node-version': this.project.nodeVersion,
+        },
+      },
+      {
         name: 'Install dependencies',
-        run: 'npm install -g yarn && yarn install --check-files --frozen-lockfile',
+        run: this.project.package.installCommand,
       },
       {
         name: 'Upgrade dependencies',

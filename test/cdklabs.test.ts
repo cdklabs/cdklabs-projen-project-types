@@ -55,8 +55,15 @@ describe('CdklabsConstructLibrary', () => {
       YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
     ).toEqual(expect.arrayContaining([
       expect.objectContaining({
+        name: 'Setup Node.js',
+        uses: 'actions/setup-node@v3',
+        with: {
+          'node-version': '14.18.0',
+        },
+      }),
+      expect.objectContaining({
         name: 'Install dependencies',
-        run: 'npm install -g yarn && yarn install --check-files --frozen-lockfile',
+        run: 'yarn install --check-files --frozen-lockfile',
       }),
     ]));
 
@@ -174,8 +181,15 @@ describe('CdklabsTypeScriptProject', () => {
       YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
     ).toEqual(expect.arrayContaining([
       expect.objectContaining({
+        name: 'Setup Node.js',
+        uses: 'actions/setup-node@v3',
+        with: {
+          'node-version': '14.18.0',
+        },
+      }),
+      expect.objectContaining({
         name: 'Install dependencies',
-        run: 'npm install -g yarn && yarn install --check-files --frozen-lockfile',
+        run: 'yarn install --check-files --frozen-lockfile',
       }),
     ]));
 
@@ -226,8 +240,15 @@ describe('CdklabsJsiiProject', () => {
       YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
     ).toEqual(expect.arrayContaining([
       expect.objectContaining({
+        name: 'Setup Node.js',
+        uses: 'actions/setup-node@v3',
+        with: {
+          'node-version': '14.18.0',
+        },
+      }),
+      expect.objectContaining({
         name: 'Install dependencies',
-        run: 'npm install -g yarn && yarn install --check-files --frozen-lockfile',
+        run: 'yarn install --check-files --frozen-lockfile',
       }),
     ]));
 
