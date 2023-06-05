@@ -841,8 +841,6 @@ jobs:
           ref: main
       - name: Setup Node.js
         uses: actions/setup-node@v3
-        with:
-          node-version: 14.18.0
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -2908,8 +2906,6 @@ jobs:
           ref: main
       - name: Setup Node.js
         uses: actions/setup-node@v3
-        with:
-          node-version: 14.18.0
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -4553,8 +4549,6 @@ jobs:
           ref: main
       - name: Setup Node.js
         uses: actions/setup-node@v3
-        with:
-          node-version: 14.18.0
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies

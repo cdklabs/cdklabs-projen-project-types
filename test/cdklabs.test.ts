@@ -57,9 +57,6 @@ describe('CdklabsConstructLibrary', () => {
       expect.objectContaining({
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v3',
-        with: {
-          'node-version': '14.18.0',
-        },
       }),
       expect.objectContaining({
         name: 'Install dependencies',
@@ -183,9 +180,6 @@ describe('CdklabsTypeScriptProject', () => {
       expect.objectContaining({
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v3',
-        with: {
-          'node-version': '14.18.0',
-        },
       }),
       expect.objectContaining({
         name: 'Install dependencies',
@@ -242,9 +236,6 @@ describe('CdklabsJsiiProject', () => {
       expect.objectContaining({
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v3',
-        with: {
-          'node-version': '14.18.0',
-        },
       }),
       expect.objectContaining({
         name: 'Install dependencies',
