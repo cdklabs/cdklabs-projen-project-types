@@ -33,7 +33,7 @@ const cdklabsDefaultProps = {
   },
   minNodeVersion: '14.18.0',
   jestOptions: {
-    updateSnapshot: UpdateSnapshot.NEVER,
+    updateSnapshot: UpdateSnapshot.ALWAYS,
   },
   defaultReleaseBranch: 'main',
 };

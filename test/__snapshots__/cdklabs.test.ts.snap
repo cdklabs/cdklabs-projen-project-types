@@ -1522,7 +1522,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "test",
         "steps": Array [
           Object {
-            "exec": "jest --passWithNoTests --coverageProvider=v8 --ci",
+            "exec": "jest --passWithNoTests --coverageProvider=v8 --updateSnapshot",
             "receiveArgs": true,
           },
           Object {
@@ -1530,16 +1530,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
           },
           Object {
             "spawn": "integ",
-          },
-        ],
-      },
-      "test:update": Object {
-        "description": "Update jest snapshots",
-        "name": "test:update",
-        "steps": Array [
-          Object {
-            "exec": "jest --updateSnapshot --passWithNoTests --coverageProvider=v8 --ci",
-            "receiveArgs": true,
           },
         ],
       },
@@ -1993,7 +1983,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "release": "npx projen release",
       "rosetta:extract": "npx projen rosetta:extract",
       "test": "npx projen test",
-      "test:update": "npx projen test:update",
       "test:watch": "npx projen test:watch",
       "unbump": "npx projen unbump",
       "upgrade": "npx projen upgrade",
@@ -3523,21 +3512,11 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "test",
         "steps": Array [
           Object {
-            "exec": "jest --passWithNoTests --coverageProvider=v8 --ci",
+            "exec": "jest --passWithNoTests --coverageProvider=v8 --updateSnapshot",
             "receiveArgs": true,
           },
           Object {
             "spawn": "eslint",
-          },
-        ],
-      },
-      "test:update": Object {
-        "description": "Update jest snapshots",
-        "name": "test:update",
-        "steps": Array [
-          Object {
-            "exec": "jest --updateSnapshot --passWithNoTests --coverageProvider=v8 --ci",
-            "receiveArgs": true,
           },
         ],
       },
@@ -3977,7 +3956,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "projen": "npx projen",
       "release": "npx projen release",
       "test": "npx projen test",
-      "test:update": "npx projen test:update",
       "test:watch": "npx projen test:watch",
       "unbump": "npx projen unbump",
       "upgrade": "npx projen upgrade",
@@ -5047,21 +5025,11 @@ junit.xml
         "name": "test",
         "steps": Array [
           Object {
-            "exec": "jest --passWithNoTests --coverageProvider=v8 --ci",
+            "exec": "jest --passWithNoTests --coverageProvider=v8 --updateSnapshot",
             "receiveArgs": true,
           },
           Object {
             "spawn": "eslint",
-          },
-        ],
-      },
-      "test:update": Object {
-        "description": "Update jest snapshots",
-        "name": "test:update",
-        "steps": Array [
-          Object {
-            "exec": "jest --updateSnapshot --passWithNoTests --coverageProvider=v8 --ci",
-            "receiveArgs": true,
           },
         ],
       },
@@ -5454,7 +5422,6 @@ junit.xml
       "projen": "npx projen",
       "release": "npx projen release",
       "test": "npx projen test",
-      "test:update": "npx projen test:update",
       "test:watch": "npx projen test:watch",
       "unbump": "npx projen unbump",
       "upgrade": "npx projen upgrade",
