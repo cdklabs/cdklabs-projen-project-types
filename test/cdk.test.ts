@@ -19,9 +19,18 @@ describe('CdkConstructLibrary', () => {
   });
 
   test('can be set to public', () => {
-    const project = new TestCdkConstructLibrary({ private: false });
+    const project = new TestCdkConstructLibrary({
+      // use scoped package name here to test public publish config
+      name: '@aws-cdk/test-construct-library',
+      private: false,
+    });
 
-    expectNotPrivate(Testing.synth(project));
+    const snapshot = Testing.synth(project);
+
+    expectNotPrivate(snapshot);
+    expect(snapshot['package.json'].publishConfig).toMatchObject({
+      access: 'public',
+    });
   });
 
   describe('when stable,', () => {
@@ -79,9 +88,18 @@ describe('CdkTypeScriptProject', () => {
   });
 
   test('can be set to public', () => {
-    const project = new TestCdkTypeScriptProject({ private: false });
+    const project = new TestCdkTypeScriptProject({
+      // use scoped package name here to test public publish config
+      name: '@aws-cdk/test-construct-library',
+      private: false,
+    });
 
-    expectNotPrivate(Testing.synth(project));
+    const snapshot = Testing.synth(project);
+
+    expectNotPrivate(snapshot);
+    expect(snapshot['package.json'].publishConfig).toMatchObject({
+      access: 'public',
+    });
   });
 });
 
@@ -99,9 +117,18 @@ describe('CdkJsiiProject', () => {
   });
 
   test('can be set to public', () => {
-    const project = new TestCdkJsiiProject({ private: false });
+    const project = new TestCdkJsiiProject({
+      // use scoped package name here to test public publish config
+      name: '@aws-cdk/test-construct-library',
+      private: false,
+    });
 
-    expectNotPrivate(Testing.synth(project));
+    const snapshot = Testing.synth(project);
+
+    expectNotPrivate(snapshot);
+    expect(snapshot['package.json'].publishConfig).toMatchObject({
+      access: 'public',
+    });
   });
 });
 

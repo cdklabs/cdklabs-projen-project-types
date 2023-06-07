@@ -27,10 +27,6 @@ const cdklabsForcedProps = {
 
 const cdklabsDefaultProps = {
   autoApproveUpgrades: true,
-  autoApproveOptions: {
-    allowedUsernames: ['cdklabs-automation', 'dependabot[bot]'],
-    secret: 'GITHUB_TOKEN',
-  },
   minNodeVersion: '14.18.0',
   jestOptions: {
     updateSnapshot: UpdateSnapshot.ALWAYS,
