@@ -118,7 +118,7 @@ export interface MonorepoOptions {
    */
   readonly codeArtifactOptions?: javascript.CodeArtifactOptions;
   /**
-   * Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with @codeCovTokenSecret.
+   * Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v3 A secret is required for private repos. Configured with `@codeCovTokenSecret`.
    * @default false
    */
   readonly codeCov?: boolean;
