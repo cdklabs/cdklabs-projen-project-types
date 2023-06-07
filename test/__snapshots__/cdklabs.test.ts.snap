@@ -1162,7 +1162,7 @@ tsconfig.json
       Object {
         "name": "@aws-cdk/integ-runner",
         "type": "devenv",
-        "version": "^2",
+        "version": "latest",
       },
       Object {
         "name": "@aws-cdk/integ-tests-alpha",
@@ -1569,19 +1569,19 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -1844,7 +1844,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "organization": true,
     },
     "devDependencies": Object {
-      "@aws-cdk/integ-runner": "^2",
+      "@aws-cdk/integ-runner": "latest",
       "@aws-cdk/integ-tests-alpha": "latest",
       "@types/jest": "^27",
       "@types/node": "^14",
