@@ -9,7 +9,7 @@ export class IntegRunner extends Component {
   constructor(project: TypeScriptProject) {
     super(project);
 
-    project.deps.addDependency('@aws-cdk/integ-runner@^2', DependencyType.DEVENV);
+    project.deps.addDependency('@aws-cdk/integ-runner@latest', DependencyType.DEVENV);
     project.deps.addDependency('@aws-cdk/integ-tests-alpha@latest', DependencyType.DEVENV);
 
     const integSnapshotTask = project.addTask('integ', {
