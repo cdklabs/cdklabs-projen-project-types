@@ -275,6 +275,7 @@ const cdkCommonOptions: CdkCommonOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
@@ -332,6 +333,19 @@ public readonly setNodeEngineVersion: boolean;
 - *Default:* true
 
 Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+
+---
+
+##### `tenancy`<sup>Optional</sup> <a name="tenancy" id="cdklabs-projen-project-types.CdkCommonOptions.property.tenancy"></a>
+
+```typescript
+public readonly tenancy: OrgTenancy;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a>
+- *Default:* Auto detected from package name
+
+The org this project is part of.
 
 ---
 
@@ -534,6 +548,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
@@ -2981,6 +2996,19 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
+##### `tenancy`<sup>Optional</sup> <a name="tenancy" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tenancy"></a>
+
+```typescript
+public readonly tenancy: OrgTenancy;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a>
+- *Default:* Auto detected from package name
+
+The org this project is part of.
+
+---
+
 ##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
@@ -3166,6 +3194,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
@@ -5400,6 +5429,19 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
+##### `tenancy`<sup>Optional</sup> <a name="tenancy" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.tenancy"></a>
+
+```typescript
+public readonly tenancy: OrgTenancy;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a>
+- *Default:* Auto detected from package name
+
+The org this project is part of.
+
+---
+
 ##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
@@ -5599,6 +5641,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
@@ -8048,6 +8091,19 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
+##### `tenancy`<sup>Optional</sup> <a name="tenancy" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tenancy"></a>
+
+```typescript
+public readonly tenancy: OrgTenancy;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a>
+- *Default:* Auto detected from package name
+
+The org this project is part of.
+
+---
+
 ##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
@@ -8272,6 +8328,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
@@ -10505,6 +10562,19 @@ public readonly setNodeEngineVersion: boolean;
 - *Default:* true
 
 Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+
+---
+
+##### `tenancy`<sup>Optional</sup> <a name="tenancy" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.tenancy"></a>
+
+```typescript
+public readonly tenancy: OrgTenancy;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a>
+- *Default:* Auto detected from package name
+
+The org this project is part of.
 
 ---
 
@@ -12793,6 +12863,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
@@ -14808,6 +14879,19 @@ Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
 
 ---
 
+##### `tenancy`<sup>Optional</sup> <a name="tenancy" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tenancy"></a>
+
+```typescript
+public readonly tenancy: OrgTenancy;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a>
+- *Default:* Auto detected from package name
+
+The org this project is part of.
+
+---
+
 ##### `upgradeCdklabsProjenProjectTypes`<sup>Optional</sup> <a name="upgradeCdklabsProjenProjectTypes" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes"></a>
 
 ```typescript
@@ -14977,6 +15061,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 
 ---
@@ -16989,6 +17074,19 @@ public readonly setNodeEngineVersion: boolean;
 - *Default:* true
 
 Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+
+---
+
+##### `tenancy`<sup>Optional</sup> <a name="tenancy" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tenancy"></a>
+
+```typescript
+public readonly tenancy: OrgTenancy;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a>
+- *Default:* Auto detected from package name
+
+The org this project is part of.
 
 ---
 
@@ -34227,6 +34325,27 @@ public resolveDepsAndWritePackageJson(): boolean
 
 
 ##### `REBASE` <a name="REBASE" id="cdklabs-projen-project-types.MergeMethod.REBASE"></a>
+
+---
+
+
+### OrgTenancy <a name="OrgTenancy" id="cdklabs-projen-project-types.OrgTenancy"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.OrgTenancy.CDKLABS">CDKLABS</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.OrgTenancy.AWS">AWS</a></code> | *No description.* |
+
+---
+
+##### `CDKLABS` <a name="CDKLABS" id="cdklabs-projen-project-types.OrgTenancy.CDKLABS"></a>
+
+---
+
+
+##### `AWS` <a name="AWS" id="cdklabs-projen-project-types.OrgTenancy.AWS"></a>
 
 ---
 

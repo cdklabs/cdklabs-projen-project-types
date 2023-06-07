@@ -1,9 +1,14 @@
-import { github, typescript } from 'projen';
+import { github, javascript, typescript } from 'projen';
 import { deepMerge } from 'projen/lib/util';
 import { AutoMergeOptions } from './auto-merge';
 import { MergeQueue } from './merge-queue';
 import { Private } from './private';
 import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
+
+export enum OrgTenancy {
+  CDKLABS = 'cdklabs',
+  AWS = 'aws',
+}
 
 export interface CdkCommonOptions {
   /**
@@ -46,6 +51,13 @@ export interface CdkCommonOptions {
    * @default true
    */
   readonly upgradeCdklabsProjenProjectTypes?: boolean;
+
+  /**
+   * The org this project is part of.
+   *
+   * @default - Auto detected from package name
+   */
+  readonly tenancy?: OrgTenancy;
 }
 
 export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.GitHubProjectOptions>(options: T): T & Required<CdkCommonOptions> {
@@ -57,6 +69,12 @@ export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.Gi
   const githubOptions: github.GitHubOptions = {
     mergify: !enablePRAutoMerge,
   };
+  const npmAccess = isPrivate ? undefined : javascript.NpmAccess.PUBLIC;
+  const tenancy = options.tenancy ?? options.name.startsWith('@aws-cdk/') ? OrgTenancy.AWS : OrgTenancy.CDKLABS;
+  const autoApproveOptions = {
+    allowedUsernames: [automationUserForOrg(tenancy), 'dependabot[bot]'],
+    secret: 'GITHUB_TOKEN',
+  };
 
   return deepMerge([
     {},
@@ -67,6 +85,9 @@ export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.Gi
       ghAutoMergeOptions,
       githubOptions,
       setNodeEngineVersion: options.setNodeEngineVersion ?? true,
+      npmAccess,
+      tenancy,
+      autoApproveOptions,
     },
   ]) as T & Required<CdkCommonOptions>;
 }
@@ -88,5 +109,15 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
 
   if (opts.setNodeEngineVersion === false) {
     project.package.file.addOverride('engines.node', undefined);
+  }
+}
+
+function automationUserForOrg(tenancy: OrgTenancy) {
+  switch (tenancy) {
+    case OrgTenancy.AWS:
+      return 'aws-cdk-automation';
+    case OrgTenancy.CDKLABS:
+    default:
+      return 'cdklabs-automation';
   }
 }

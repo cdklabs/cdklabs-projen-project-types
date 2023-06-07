@@ -2,6 +2,7 @@ import { Testing } from 'projen';
 import { Stability } from 'projen/lib/cdk';
 import * as YAML from 'yaml';
 import { CdklabsConstructLibrary, CdklabsConstructLibraryOptions, CdklabsJsiiProject, CdklabsJsiiProjectOptions, CdklabsTypeScriptProject, CdklabsTypeScriptProjectOptions, JsiiLanguage } from '../src/cdklabs';
+import { OrgTenancy } from '../src/common-options';
 
 const publishingTargets = {
   java: {
@@ -148,6 +149,17 @@ describe('CdklabsConstructLibrary', () => {
         expect(packageJson.jsii?.targets).toEqual({});
       });
     });
+  });
+
+  test('can set tenancy to aws', () => {
+    const project = new TestCdkLabsConstructLibrary({
+      tenancy: OrgTenancy.AWS,
+    });
+    const outdir = Testing.synth(project);
+    const autoApprove = outdir['.github/workflows/auto-approve.yml'];
+
+    expect(autoApprove).toContain('aws-cdk-automation');
+    expect(autoApprove).not.toContain('cdklabs-automation');
   });
 });
 
