@@ -2,7 +2,6 @@ import { Component, Task, typescript } from 'projen';
 import { GitHub, GithubWorkflow, WorkflowActions, WorkflowJobs, workflows } from 'projen/lib/github';
 import { DEFAULT_GITHUB_ACTIONS_USER } from 'projen/lib/github/constants';
 import { JobPermission } from 'projen/lib/github/workflows-model';
-import { UpgradeDependenciesSchedule } from 'projen/lib/javascript';
 import { Release } from 'projen/lib/release';
 
 const CREATE_PATCH_STEP_ID = 'create_patch';
@@ -45,11 +44,11 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
           ),
         },
         // only update this project
-        { exec: 'npm-check-updates --filter=cdklabs-projen-project-types --upgrade' },
+        { exec: 'npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade' },
         // run "yarn/npm install" to update the lockfile and install any deps (such as projen)
         { exec: this.project.package.installAndUpdateLockfileCommand },
         // run upgrade command to upgrade transitive deps as well
-        { exec: this.project.package.renderUpgradePackagesCommand([], ['cdklabs-projen-project-types']) },
+        { exec: this.project.package.renderUpgradePackagesCommand([], ['cdklabs-projen-project-types', 'projen']) },
         // run "projen" to give projen a chance to update dependencies (it will also run "yarn install")
         { exec: this.project.projenCommand },
       ],
@@ -62,22 +61,18 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
 
     }
   }
+
   private createWorkflow(
     task: Task,
     github: GitHub,
     branch?: string,
   ): GithubWorkflow {
-    const schedule = UpgradeDependenciesSchedule.DAILY;
     const workflowName = `${task.name}${
       branch ? `-${branch.replace(/\//g, '-')}` : ''
     }`;
     const workflow = github.addWorkflow(workflowName);
     const triggers: workflows.Triggers = {
       workflowDispatch: {},
-      schedule:
-        schedule.cron.length > 0
-          ? schedule.cron.map((e) => ({ cron: e }))
-          : undefined,
     };
     workflow.on(triggers);
 

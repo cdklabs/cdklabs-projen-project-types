@@ -824,8 +824,6 @@ jobs:
 name: upgrade-cdklabs-projen-project-types-main
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: 0 0 * * *
 jobs:
   upgrade:
     name: Upgrade
@@ -1608,13 +1606,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --filter=cdklabs-projen-project-types --upgrade",
+            "exec": "npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade",
           },
           Object {
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade ",
+            "exec": "yarn upgrade projen",
           },
           Object {
             "exec": "npx projen",
@@ -2878,8 +2876,6 @@ jobs:
 name: upgrade-cdklabs-projen-project-types-main
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: 0 0 * * *
 jobs:
   upgrade:
     name: Upgrade
@@ -3595,13 +3591,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --filter=cdklabs-projen-project-types --upgrade",
+            "exec": "npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade",
           },
           Object {
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade ",
+            "exec": "yarn upgrade projen",
           },
           Object {
             "exec": "npx projen",
@@ -4510,8 +4506,6 @@ jobs:
 name: upgrade-cdklabs-projen-project-types-main
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: 0 0 * * *
 jobs:
   upgrade:
     name: Upgrade
@@ -5108,13 +5102,13 @@ junit.xml
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --filter=cdklabs-projen-project-types --upgrade",
+            "exec": "npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade",
           },
           Object {
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade ",
+            "exec": "yarn upgrade projen",
           },
           Object {
             "exec": "npx projen",
