@@ -1,3 +1,4 @@
+import { javascript } from 'projen';
 import { generateYarnMonorepoOptions } from './projenrc/yarn-monorepo-options';
 import { CdklabsJsiiProject } from './src';
 
@@ -16,6 +17,11 @@ const project = new CdklabsJsiiProject({
   enablePRAutoMerge: true,
   cdklabsPublishingDefaults: false,
   upgradeCdklabsProjenProjectTypes: false, // that is this project!
+  depsUpgradeOptions: {
+    workflowOptions: {
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * *']),
+    },
+  },
   setNodeEngineVersion: false,
   autoApproveUpgrades: true,
   autoApproveOptions: {
