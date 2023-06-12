@@ -110,6 +110,11 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
   if (opts.setNodeEngineVersion === false) {
     project.package.file.addOverride('engines.node', undefined);
   }
+
+  // If cdklabs-projen-project-types is not added explicitly, add it now
+  if (!project.deps.all.some(dep => dep.name === 'cdklabs-projen-project-types')) {
+    project.addDevDeps('cdklabs-projen-project-types');
+  }
 }
 
 function automationUserForOrg(tenancy: OrgTenancy) {
