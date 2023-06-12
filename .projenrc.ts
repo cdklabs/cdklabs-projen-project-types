@@ -26,4 +26,7 @@ const project = new CdklabsJsiiProject({
 
 generateYarnMonorepoOptions(project);
 
+// that is this package!
+project.deps.removeDependency(project.name);
+
 project.synth();

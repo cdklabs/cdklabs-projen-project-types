@@ -827,6 +827,10 @@ tsconfig.json
         "version": "2.1.0",
       },
       Object {
+        "name": "cdklabs-projen-project-types",
+        "type": "build",
+      },
+      Object {
         "name": "constructs",
         "type": "build",
         "version": "10.0.5",
@@ -1305,7 +1309,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade projen",
+            "exec": "yarn upgrade cdklabs-projen-project-types projen",
           },
           Object {
             "exec": "npx projen",
@@ -1542,6 +1546,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "@typescript-eslint/eslint-plugin": "^5",
       "@typescript-eslint/parser": "^5",
       "aws-cdk-lib": "2.1.0",
+      "cdklabs-projen-project-types": "*",
       "constructs": "10.0.5",
       "eslint": "^8",
       "eslint-import-resolver-node": "*",
@@ -2527,6 +2532,10 @@ tsconfig.json
         "version": "^5",
       },
       Object {
+        "name": "cdklabs-projen-project-types",
+        "type": "build",
+      },
+      Object {
         "name": "eslint-import-resolver-node",
         "type": "build",
       },
@@ -2945,7 +2954,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade projen",
+            "exec": "yarn upgrade cdklabs-projen-project-types projen",
           },
           Object {
             "exec": "npx projen",
@@ -3179,6 +3188,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "@types/node": "^16",
       "@typescript-eslint/eslint-plugin": "^5",
       "@typescript-eslint/parser": "^5",
+      "cdklabs-projen-project-types": "*",
       "eslint": "^8",
       "eslint-import-resolver-node": "*",
       "eslint-import-resolver-typescript": "*",
@@ -4067,6 +4077,10 @@ junit.xml
         "version": "^5",
       },
       Object {
+        "name": "cdklabs-projen-project-types",
+        "type": "build",
+      },
+      Object {
         "name": "eslint-import-resolver-node",
         "type": "build",
       },
@@ -4417,7 +4431,7 @@ junit.xml
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade projen",
+            "exec": "yarn upgrade cdklabs-projen-project-types projen",
           },
           Object {
             "exec": "npx projen",
@@ -4646,6 +4660,7 @@ junit.xml
       "@types/node": "^16",
       "@typescript-eslint/eslint-plugin": "^5",
       "@typescript-eslint/parser": "^5",
+      "cdklabs-projen-project-types": "*",
       "eslint": "^8",
       "eslint-import-resolver-node": "*",
       "eslint-import-resolver-typescript": "*",
