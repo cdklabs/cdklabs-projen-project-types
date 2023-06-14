@@ -71,7 +71,7 @@ describe('CdklabsConstructLibrary', () => {
 
     // min node version
     expect(packageJson.engines).toEqual({
-      node: '>= 14.18.0',
+      node: '>= 16.13.0',
     });
 
     // jest options
@@ -210,7 +210,7 @@ describe('CdklabsTypeScriptProject', () => {
 
     // min node version
     expect(packageJson.engines).toEqual({
-      node: '>= 14.18.0',
+      node: '>= 16.13.0',
     });
 
     // jest options
@@ -266,7 +266,7 @@ describe('CdklabsJsiiProject', () => {
 
     // min node version
     expect(packageJson.engines).toEqual({
-      node: '>= 14.18.0',
+      node: '>= 16.13.0',
     });
 
     // jest options

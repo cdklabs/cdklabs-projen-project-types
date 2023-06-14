@@ -27,7 +27,8 @@ const cdklabsForcedProps = {
 
 const cdklabsDefaultProps = {
   autoApproveUpgrades: true,
-  minNodeVersion: '14.18.0',
+  minNodeVersion: '16.13.0',
+  workflowNodeVersion: '16.x',
   jestOptions: {
     updateSnapshot: UpdateSnapshot.ALWAYS,
   },
