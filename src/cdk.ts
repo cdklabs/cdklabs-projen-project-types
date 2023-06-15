@@ -1,10 +1,15 @@
 import { awscdk, cdk, typescript } from 'projen';
 import { CdkCommonOptions, configureCommonFeatures, withCommonOptionsDefaults } from './common-options';
 import { IntegRunner } from './integ-runner';
-import { Rosetta } from './rosetta';
+import { Rosetta, RosettaOptions } from './rosetta';
 
 
-export interface CdkConstructLibraryOptions extends awscdk.AwsCdkConstructLibraryOptions, CdkCommonOptions { }
+export interface CdkConstructLibraryOptions extends awscdk.AwsCdkConstructLibraryOptions, CdkCommonOptions {
+  /**
+   * Options for rosetta:extract task
+   */
+  readonly rosettaOptions?: RosettaOptions;
+}
 
 /**
  * Create a Cdk Construct Library Project
@@ -46,7 +51,7 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
     });
     this.private = opts.private;
 
-    new Rosetta(this);
+    new Rosetta(this, options.rosettaOptions);
     new IntegRunner(this);
 
     configureCommonFeatures(this, opts);

@@ -1134,6 +1134,10 @@ tsconfig.json
         "type": "build",
       },
       Object {
+        "name": "jsii-rosetta",
+        "type": "build",
+      },
+      Object {
         "name": "jsii",
         "type": "build",
         "version": "1.x",
@@ -1865,6 +1869,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "jsii-diff": "*",
       "jsii-docgen": "*",
       "jsii-pacmak": "*",
+      "jsii-rosetta": "*",
       "npm-check-updates": "^16",
       "projen": "*",
       "standard-version": "^9",
