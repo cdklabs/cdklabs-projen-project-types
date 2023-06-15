@@ -161,6 +161,16 @@ describe('CdklabsConstructLibrary', () => {
     expect(autoApprove).toContain('aws-cdk-automation');
     expect(autoApprove).not.toContain('cdklabs-automation');
   });
+
+  describe('with release=false', () => {
+    test('has upgrade-cdklabs-projen-project-types workflow', () => {
+      const project = new TestCdkLabsConstructLibrary({
+        release: false,
+      });
+      const outdir = Testing.synth(project);
+      expect(outdir['.github/workflows/upgrade-cdklabs-projen-project-types.yml']).not.toBeUndefined();
+    });
+  });
 });
 
 describe('CdklabsTypeScriptProject', () => {
