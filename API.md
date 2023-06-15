@@ -19224,7 +19224,7 @@ const rosettaOptions: RosettaOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.RosettaOptions.property.strict">strict</a></code> | <code>boolean</code> | Enable or disable strict mode. |
-| <code><a href="#cdklabs-projen-project-types.RosettaOptions.property.version">version</a></code> | <code>boolean</code> | Set an explicit version of rosetta. |
+| <code><a href="#cdklabs-projen-project-types.RosettaOptions.property.version">version</a></code> | <code>string</code> | Set an explicit version of rosetta. |
 
 ---
 
@@ -19246,10 +19246,10 @@ Enable or disable strict mode.
 ##### `version`<sup>Optional</sup> <a name="version" id="cdklabs-projen-project-types.RosettaOptions.property.version"></a>
 
 ```typescript
-public readonly version: boolean;
+public readonly version: string;
 ```
 
-- *Type:* boolean
+- *Type:* string
 - *Default:* no version is set, use automatic detection
 
 Set an explicit version of rosetta.
