@@ -550,6 +550,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
 
 ---
 
@@ -3019,6 +3020,18 @@ public readonly upgradeCdklabsProjenProjectTypes: boolean;
 - *Default:* true
 
 Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep.
+
+---
+
+##### `rosettaOptions`<sup>Optional</sup> <a name="rosettaOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rosettaOptions"></a>
+
+```typescript
+public readonly rosettaOptions: RosettaOptions;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a>
+
+Options for rosetta:extract task.
 
 ---
 
@@ -5643,6 +5656,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
 
@@ -8114,6 +8128,18 @@ public readonly upgradeCdklabsProjenProjectTypes: boolean;
 - *Default:* true
 
 Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep.
+
+---
+
+##### `rosettaOptions`<sup>Optional</sup> <a name="rosettaOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rosettaOptions"></a>
+
+```typescript
+public readonly rosettaOptions: RosettaOptions;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a>
+
+Options for rosetta:extract task.
 
 ---
 
@@ -19180,6 +19206,53 @@ public readonly workflowRunsOn: string[];
 - *Default:* ["ubuntu-latest"]
 
 Github Runner selection labels.
+
+---
+
+### RosettaOptions <a name="RosettaOptions" id="cdklabs-projen-project-types.RosettaOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.RosettaOptions.Initializer"></a>
+
+```typescript
+import { RosettaOptions } from 'cdklabs-projen-project-types'
+
+const rosettaOptions: RosettaOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.RosettaOptions.property.strict">strict</a></code> | <code>boolean</code> | Enable or disable strict mode. |
+| <code><a href="#cdklabs-projen-project-types.RosettaOptions.property.version">version</a></code> | <code>boolean</code> | Set an explicit version of rosetta. |
+
+---
+
+##### ~~`strict`~~<sup>Optional</sup> <a name="strict" id="cdklabs-projen-project-types.RosettaOptions.property.strict"></a>
+
+- *Deprecated:* Do not use this. Fix your examples!
+
+```typescript
+public readonly strict: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable or disable strict mode.
+
+---
+
+##### `version`<sup>Optional</sup> <a name="version" id="cdklabs-projen-project-types.RosettaOptions.property.version"></a>
+
+```typescript
+public readonly version: boolean;
+```
+
+- *Type:* boolean
+- *Default:* no version is set, use automatic detection
+
+Set an explicit version of rosetta.
 
 ---
 
@@ -32838,6 +32911,97 @@ Normally
 this task should synthesize the project files.
 
 ---
+
+### Rosetta <a name="Rosetta" id="cdklabs-projen-project-types.Rosetta"></a>
+
+The Rosetta component adds builtin rosetta support for a construct library.
+
+Since ConstructHub will run
+rosetta for real, this just adds a check to the build to
+ensure that rosetta will run successfully
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.Rosetta.Initializer"></a>
+
+```typescript
+import { Rosetta } from 'cdklabs-projen-project-types'
+
+new Rosetta(project: JsiiProject, options?: RosettaOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.Initializer.parameter.project">project</a></code> | <code>projen.cdk.JsiiProject</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.Rosetta.Initializer.parameter.project"></a>
+
+- *Type:* projen.cdk.JsiiProject
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.Rosetta.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.Rosetta.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.Rosetta.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.Rosetta.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.Rosetta.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
 
 ### TypeScriptWorkspace <a name="TypeScriptWorkspace" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace"></a>
 
