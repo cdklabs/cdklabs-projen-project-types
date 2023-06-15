@@ -53,12 +53,17 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
         { exec: this.project.projenCommand },
       ],
     });
+
+    // Separate workflow for every release branch
     if (Release.of(project)) {
       const release = Release.of(project)!;
       release._forEachBranch(branch => {
         this.createWorkflow(upgradeTask, project.github!, branch);
       });
 
+    // A single workflow
+    } else {
+      this.createWorkflow(upgradeTask, project.github!);
     }
   }
 
