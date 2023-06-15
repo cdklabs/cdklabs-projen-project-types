@@ -19228,9 +19228,7 @@ const rosettaOptions: RosettaOptions = { ... }
 
 ---
 
-##### ~~`strict`~~<sup>Optional</sup> <a name="strict" id="cdklabs-projen-project-types.RosettaOptions.property.strict"></a>
-
-- *Deprecated:* Do not use this. Fix your examples!
+##### `strict`<sup>Optional</sup> <a name="strict" id="cdklabs-projen-project-types.RosettaOptions.property.strict"></a>
 
 ```typescript
 public readonly strict: boolean;

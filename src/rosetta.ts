@@ -5,7 +5,6 @@ export interface RosettaOptions {
    * Enable or disable strict mode.
    *
    * @default true
-   * @deprecated Do not use this. Fix your examples!
    */
   readonly strict?: boolean;
 
