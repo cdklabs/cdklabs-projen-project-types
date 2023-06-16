@@ -25,6 +25,27 @@ const publishingTargets = {
   },
 };
 
+const namespacedPublishingTargets = {
+  java: {
+    package: 'io.github.cdklabs.test.construct.library',
+    maven: {
+      groupId: 'io.github.cdklabs',
+      artifactId: 'test-construct-library',
+    },
+  },
+  python: {
+    distName: 'cdklabs.test-construct-library',
+    module: 'cdklabs.test_construct_library',
+  },
+  dotnet: {
+    namespace: 'Cdklabs.TestConstructLibrary',
+    packageId: 'Cdklabs.TestConstructLibrary',
+  },
+  go: {
+    moduleName: 'github.com/cdklabs/test-construct-library-go',
+  },
+};
+
 describe('CdklabsConstructLibrary', () => {
   test('synthesizes with default settings', () => {
     const project = new TestCdkLabsConstructLibrary();
@@ -91,6 +112,18 @@ describe('CdklabsConstructLibrary', () => {
       // jsii publishing
       expect(packageJson.jsii?.targets).toEqual(publishingTargets);
     });
+
+    test('works with namespaced package', () => {
+      const project = new TestCdkLabsConstructLibrary({
+        name: '@cdklabs/test-construct-library',
+      });
+      const outdir = Testing.synth(project);
+      const packageJson = outdir['package.json'];
+
+      // jsii publishing
+      expect(packageJson.jsii?.targets).toEqual(namespacedPublishingTargets);
+    });
+
 
     describe('limiting publishing to a subset of languages', () => {
       test('can be done in experimental modules', () => {
