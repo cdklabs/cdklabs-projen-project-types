@@ -1,3 +1,4 @@
+import { basename } from 'path';
 import { UpdateSnapshot } from 'projen/lib/javascript';
 import { deepMerge } from 'projen/lib/util';
 
@@ -36,30 +37,39 @@ const cdklabsDefaultProps = {
 };
 
 function createCdklabsPublishingDefaults(npmPackageName: string, langs?: JsiiLanguage[]) {
+  const packageBasename = basename(npmPackageName);
+
+  return createPublishingDefaults('cdklabs', packageBasename, Boolean(packageBasename !== npmPackageName), langs);
+};
+
+function createPublishingDefaults(namespace: string, packageBasename: string, alwaysUseNamespace = true, langs?: JsiiLanguage[]) {
+  const piPyPrefix = alwaysUseNamespace ? `${namespace}.` : '';
+  const nugetPrefix = alwaysUseNamespace ? `${upperCaseName(namespace)}.` : `${upperCaseName(namespace)}`;
+
   return {
     ...publishLanguageWrapper(JsiiLanguage.PYTHON, {
       publishToPypi: {
-        distName: npmPackageName,
-        module: changeDelimiter(npmPackageName, '_'),
+        distName: `${piPyPrefix}${packageBasename}`,
+        module: `${piPyPrefix}${changeDelimiter(packageBasename, '_')}`,
       },
     }),
     ...publishLanguageWrapper(JsiiLanguage.JAVA, {
       publishToMaven: {
-        javaPackage: `io.github.cdklabs.${changeDelimiter(npmPackageName, '.')}`,
-        mavenGroupId: 'io.github.cdklabs',
-        mavenArtifactId: npmPackageName,
+        javaPackage: `io.github.${namespace}.${changeDelimiter(packageBasename, '.')}`,
+        mavenGroupId: `io.github.${namespace}`,
+        mavenArtifactId: packageBasename,
         mavenEndpoint: 'https://s01.oss.sonatype.org',
       },
     }),
     ...publishLanguageWrapper(JsiiLanguage.DOTNET, {
       publishToNuget: {
-        dotNetNamespace: `Cdklabs${upperCaseName(npmPackageName)}`,
-        packageId: `Cdklabs${upperCaseName(npmPackageName)}`,
+        dotNetNamespace: `${nugetPrefix}${upperCaseName(packageBasename)}`,
+        packageId: `${nugetPrefix}${upperCaseName(packageBasename)}`,
       },
     }),
     ...publishLanguageWrapper(JsiiLanguage.GO, {
       publishToGo: {
-        moduleName: `github.com/cdklabs/${npmPackageName}-go`,
+        moduleName: `github.com/${namespace}/${packageBasename}-go`,
       },
     }),
   };
