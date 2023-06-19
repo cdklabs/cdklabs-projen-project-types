@@ -195,6 +195,17 @@ describe('CdklabsConstructLibrary', () => {
     expect(autoApprove).not.toContain('cdklabs-automation');
   });
 
+  test('can set tenancy to cdklabs', () => {
+    const project = new TestCdkLabsConstructLibrary({
+      tenancy: OrgTenancy.CDKLABS,
+    });
+    const outdir = Testing.synth(project);
+    const autoApprove = outdir['.github/workflows/auto-approve.yml'];
+
+    expect(autoApprove).toContain('cdklabs-automation');
+    expect(autoApprove).not.toContain('aws-cdk-automation');
+  });
+
   describe('with release=false', () => {
     test('has upgrade-cdklabs-projen-project-types workflow', () => {
       const project = new TestCdkLabsConstructLibrary({
