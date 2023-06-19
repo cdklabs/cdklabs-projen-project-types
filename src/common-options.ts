@@ -70,7 +70,7 @@ export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.Gi
     mergify: !enablePRAutoMerge,
   };
   const npmAccess = isPrivate ? undefined : javascript.NpmAccess.PUBLIC;
-  const tenancy = options.tenancy ?? options.name.startsWith('@aws-cdk/') ? OrgTenancy.AWS : OrgTenancy.CDKLABS;
+  const tenancy = options.tenancy ?? (options.name.startsWith('@aws-cdk/') ? OrgTenancy.AWS : OrgTenancy.CDKLABS);
   const autoApproveOptions = {
     allowedUsernames: [automationUserForOrg(tenancy), 'dependabot[bot]'],
     secret: 'GITHUB_TOKEN',
