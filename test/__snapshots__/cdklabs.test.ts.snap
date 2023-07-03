@@ -887,7 +887,7 @@ jobs:
 
             Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -898,7 +898,7 @@ jobs:
           body: |-
             Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -979,7 +979,7 @@ jobs:
 
             Upgrades project dependencies. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -990,7 +990,7 @@ jobs:
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -2949,7 +2949,7 @@ jobs:
 
             Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -2960,7 +2960,7 @@ jobs:
           body: |-
             Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -3041,7 +3041,7 @@ jobs:
 
             Upgrades project dependencies. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -3052,7 +3052,7 @@ jobs:
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -4584,7 +4584,7 @@ jobs:
 
             Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -4595,7 +4595,7 @@ jobs:
           body: |-
             Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -4676,7 +4676,7 @@ jobs:
 
             Upgrades project dependencies. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
@@ -4687,7 +4687,7 @@ jobs:
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 
-            [Workflow Run]: https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
+            [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
             ------
 
