@@ -16,6 +16,8 @@ import {
   CdkTypeScriptProjectOptions,
 } from './cdk';
 import { CdkJsiiProject, CdkJsiiProjectOptions } from './jsii';
+// eslint-disable-next-line import/order
+import { ReleasableCommits } from 'projen';
 
 // override these properties no matter what values are given client-side
 const cdklabsForcedProps = {
@@ -26,7 +28,7 @@ const cdklabsForcedProps = {
   authorOrganization: true,
 };
 
-const cdklabsDefaultProps = {
+const cdklabsDefaultProps: Partial<CdklabsConstructLibraryOptions> = {
   autoApproveUpgrades: true,
   minNodeVersion: '16.13.0',
   workflowNodeVersion: '16.x',
@@ -34,6 +36,10 @@ const cdklabsDefaultProps = {
     updateSnapshot: UpdateSnapshot.ALWAYS,
   },
   defaultReleaseBranch: 'main',
+  // Default is to release only features and fixes. If we don't do this, every projen
+  // project will basically release every day, because it will see devDependencies updates
+  // every day, even though those are not interesting.
+  releasableCommits: ReleasableCommits.featuresAndFixes(),
 };
 
 function createCdklabsPublishingDefaults(npmPackageName: string, langs?: JsiiLanguage[]) {

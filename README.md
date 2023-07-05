@@ -69,6 +69,12 @@ A project being `private` means it gets certain properties set as default that a
 projects. Today, that means setting `private: true` in `package.json`, removing `.mergify.yml` from
 the project, and removing `.npmignore`.
 
+- `releasableCommits`
+
+By default this project type releases `ReleasableCommits.featuresAndFixes`, to not release a new
+version every day on a package that only sees devDependency updates. You may want to override this
+if you need something more specific.
+
 ## CdklabsTypeScriptProject
 
 This type extends projen's `typescript.TypeScriptProject` project type and should be used in place
