@@ -1272,7 +1272,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
           },
           Object {
             "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
@@ -1281,7 +1281,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
           },
           Object {
-            "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
+            "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='aws-cdk-lib,constructs,jsii,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha'",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -2924,7 +2924,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='jsii-rosetta,jsii'",
           },
           Object {
-            "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='jsii-rosetta,jsii'",
+            "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='jsii-rosetta,jsii'",
           },
           Object {
             "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='jsii-rosetta,jsii'",
@@ -2933,7 +2933,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='jsii-rosetta,jsii'",
           },
           Object {
-            "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='jsii-rosetta,jsii'",
+            "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='jsii-rosetta,jsii'",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -4403,7 +4403,7 @@ junit.xml
             "exec": "npm-check-updates --dep dev --upgrade --target=minor",
           },
           Object {
-            "exec": "npm-check-updates --dep optional --upgrade --target=minor",
+            "exec": "npm-check-updates --dep bundle --upgrade --target=minor",
           },
           Object {
             "exec": "npm-check-updates --dep peer --upgrade --target=minor",
@@ -4412,7 +4412,7 @@ junit.xml
             "exec": "npm-check-updates --dep prod --upgrade --target=minor",
           },
           Object {
-            "exec": "npm-check-updates --dep bundle --upgrade --target=minor",
+            "exec": "npm-check-updates --dep optional --upgrade --target=minor",
           },
           Object {
             "exec": "yarn install --check-files",
