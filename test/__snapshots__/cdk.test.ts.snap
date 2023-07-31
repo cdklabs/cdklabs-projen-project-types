@@ -1287,7 +1287,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk-lib cdklabs-projen-project-types constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii npm-check-updates projen standard-version ts-jest typescript @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha aws-cdk-lib constructs",
           },
           Object {
             "exec": "npx projen",
@@ -1305,7 +1305,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-cdklabs-projen-project-types",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
+            "exec": "yarn upgrade ",
           },
           Object {
             "exec": "npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade",
@@ -1314,7 +1314,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade cdklabs-projen-project-types projen",
+            "exec": "yarn upgrade ",
           },
           Object {
             "exec": "npx projen",
@@ -2939,7 +2939,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii npm-check-updates projen standard-version ts-jest typescript",
           },
           Object {
             "exec": "npx projen",
@@ -2957,7 +2957,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-cdklabs-projen-project-types",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
+            "exec": "yarn upgrade ",
           },
           Object {
             "exec": "npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade",
@@ -2966,7 +2966,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade cdklabs-projen-project-types projen",
+            "exec": "yarn upgrade ",
           },
           Object {
             "exec": "npx projen",
@@ -4418,7 +4418,7 @@ junit.xml
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit npm-check-updates projen standard-version ts-jest typescript",
           },
           Object {
             "exec": "npx projen",
@@ -4436,7 +4436,7 @@ junit.xml
         "name": "upgrade-cdklabs-projen-project-types",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
+            "exec": "yarn upgrade ",
           },
           Object {
             "exec": "npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade",
@@ -4445,7 +4445,7 @@ junit.xml
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade cdklabs-projen-project-types projen",
+            "exec": "yarn upgrade ",
           },
           Object {
             "exec": "npx projen",
