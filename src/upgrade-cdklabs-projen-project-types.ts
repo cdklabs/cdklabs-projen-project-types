@@ -172,15 +172,9 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
    * Render a package manager specific command to upgrade all requested dependencies.
    */
   private renderUpgradePackagesCommand(include: string[]): string {
-    const upgradePackages = (command: string) => {
+    function upgradePackages(command: string) {
       return () => {
-        return `${command} ${this.project.deps.all
-          .filter((d) => d.type !== DependencyType.OVERRIDE)
-          .filter((d) => types.includes(d.type))
-          .map((d) => d.name)
-          .filter((d) => (include ? include.includes(d) : true))
-          .filter((d) => !exclude.includes(d))
-          .join(" ")}`;
+        return `${command} ${include.join(' ')}`;
       };
     }
 
