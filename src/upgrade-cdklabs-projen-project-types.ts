@@ -2,6 +2,7 @@ import { Component, Task, typescript } from 'projen';
 import { GitHub, GithubWorkflow, WorkflowActions, WorkflowJobs, workflows } from 'projen/lib/github';
 import { DEFAULT_GITHUB_ACTIONS_USER } from 'projen/lib/github/constants';
 import { JobPermission } from 'projen/lib/github/workflows-model';
+import { NodePackageManager } from 'projen/lib/javascript';
 import { Release } from 'projen/lib/release';
 
 const CREATE_PATCH_STEP_ID = 'create_patch';
@@ -38,8 +39,7 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
         // update npm-check-updates before everything else, in case there is a bug
         // in it or one of its dependencies
         {
-          exec: this.project.package.renderUpgradePackagesCommand(
-            [],
+          exec: this.renderUpgradePackagesCommand(
             ['npm-check-updates'],
           ),
         },
@@ -48,7 +48,7 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
         // run "yarn/npm install" to update the lockfile and install any deps (such as projen)
         { exec: this.project.package.installAndUpdateLockfileCommand },
         // run upgrade command to upgrade transitive deps as well
-        { exec: this.project.package.renderUpgradePackagesCommand([], ['cdklabs-projen-project-types', 'projen']) },
+        { exec: this.renderUpgradePackagesCommand(['cdklabs-projen-project-types', 'projen']) },
         // run "projen" to give projen a chance to update dependencies (it will also run "yarn install")
         { exec: this.project.projenCommand },
       ],
@@ -166,5 +166,38 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
       }),
       jobId: 'pr',
     };
+  }
+
+  /**
+   * Render a package manager specific command to upgrade all requested dependencies.
+   */
+  private renderUpgradePackagesCommand(include: string[]): string {
+    function upgradePackages(command: string) {
+      return () => {
+        return `${command} ${include.join(' ')}`;
+      };
+    }
+
+    const packageManager = this.project.package.packageManager;
+
+    let lazy = undefined;
+    switch (packageManager) {
+      case NodePackageManager.YARN:
+      case NodePackageManager.YARN2:
+        lazy = upgradePackages('yarn upgrade');
+        break;
+      case NodePackageManager.NPM:
+        lazy = upgradePackages('npm update');
+        break;
+      case NodePackageManager.PNPM:
+        lazy = upgradePackages('pnpm update');
+        break;
+      default:
+        throw new Error(`unexpected package manager ${packageManager}`);
+    }
+
+    // return a lazy function so that dependencies include ones that were
+    // added post project instantiation (i.e using project.addDeps)
+    return lazy as unknown as string;
   }
 }
