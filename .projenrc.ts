@@ -1,4 +1,4 @@
-import { ReleasableCommits, javascript } from 'projen';
+import { javascript } from 'projen';
 import { generateYarnMonorepoOptions } from './projenrc/yarn-monorepo-options';
 import { CdklabsJsiiProject } from './src';
 
@@ -28,9 +28,6 @@ const project = new CdklabsJsiiProject({
     allowedUsernames: ['cdklabs-automation', 'dependabot[bot]'],
     secret: 'GITHUB_TOKEN',
   },
-  // Default is to release only features and fixes. If we don't do this, we'll
-  // release every day because of devDependency updates.
-  releasableCommits: ReleasableCommits.featuresAndFixes(),
 });
 
 generateYarnMonorepoOptions(project);
