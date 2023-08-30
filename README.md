@@ -3,7 +3,7 @@
 This repository stores custom project types extended from `projen` with cdklabs defaults
 baked in. This is meant to serve as a hook for continuous management of all repos we own.
 With cdklabs projen types, we can add new configuration as they come up and have it
-propogate to all repositories using the type.
+propagate to all repositories using the type.
 
 ## CdklabsConstructLibrary
 
