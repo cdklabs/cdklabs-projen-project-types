@@ -170,7 +170,7 @@ export interface MonorepoOptions {
    */
   readonly deps?: Array<string>;
   /**
-   * Use github workflows to handle dependency upgrades.
+   * Use tasks and github workflows to handle dependency upgrades.
    * Cannot be used in conjunction with `dependabot`.
    * @default true
    */
