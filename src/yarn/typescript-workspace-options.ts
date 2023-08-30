@@ -161,7 +161,7 @@ export interface TypeScriptWorkspaceOptions {
    */
   readonly deps?: Array<string | yarn.TypeScriptWorkspace>;
   /**
-   * Use github workflows to handle dependency upgrades.
+   * Use tasks and github workflows to handle dependency upgrades.
    * Cannot be used in conjunction with `dependabot`.
    * @default true
    */
