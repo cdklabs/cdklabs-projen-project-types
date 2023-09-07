@@ -467,6 +467,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
@@ -1805,6 +1806,18 @@ public readonly workflowRunsOn: string[];
 - *Default:* ["ubuntu-latest"]
 
 Github Runner selection labels.
+
+---
+
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
 
 ---
 
@@ -3154,6 +3167,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
@@ -4480,6 +4494,18 @@ Github Runner selection labels.
 
 ---
 
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
 ##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.defaultReleaseBranch"></a>
 
 ```typescript
@@ -5601,6 +5627,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
@@ -6941,6 +6968,18 @@ public readonly workflowRunsOn: string[];
 - *Default:* ["ubuntu-latest"]
 
 Github Runner selection labels.
+
+---
+
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
 
 ---
 
@@ -8329,6 +8368,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
@@ -9657,6 +9697,18 @@ Github Runner selection labels.
 
 ---
 
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
 ##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.defaultReleaseBranch"></a>
 
 ```typescript
@@ -10868,6 +10920,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 
 ---
 
@@ -12751,6 +12804,18 @@ Github Runner selection labels.
 
 ---
 
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
 ### CdklabsPublishingProjectOptions <a name="CdklabsPublishingProjectOptions" id="cdklabs-projen-project-types.CdklabsPublishingProjectOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdklabsPublishingProjectOptions.Initializer"></a>
@@ -12908,6 +12973,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
@@ -14218,6 +14284,18 @@ Github Runner selection labels.
 
 ---
 
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
 ##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.defaultReleaseBranch"></a>
 
 ```typescript
@@ -15120,6 +15198,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with standard-version package. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
@@ -16430,6 +16509,18 @@ Github Runner selection labels.
 
 ---
 
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
 ##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.defaultReleaseBranch"></a>
 
 ```typescript
@@ -17444,6 +17535,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 
 ---
 
@@ -19327,6 +19419,18 @@ Github Runner selection labels.
 
 ---
 
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
 ### RosettaOptions <a name="RosettaOptions" id="cdklabs-projen-project-types.RosettaOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.RosettaOptions.Initializer"></a>
@@ -19523,6 +19627,7 @@ const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workspaceScope">workspaceScope</a></code> | <code>string</code> | The workspace scope the package is located in. |
 
 ---
@@ -21414,6 +21519,18 @@ public readonly workflowRunsOn: string[];
 - *Default:* ["ubuntu-latest"]
 
 Github Runner selection labels.
+
+---
+
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
 
 ---
 
