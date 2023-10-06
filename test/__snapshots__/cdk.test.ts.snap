@@ -823,18 +823,8 @@ tsconfig.json
         "version": "^6",
       },
       Object {
-        "name": "aws-cdk-lib",
-        "type": "build",
-        "version": "2.1.0",
-      },
-      Object {
         "name": "cdklabs-projen-project-types",
         "type": "build",
-      },
-      Object {
-        "name": "constructs",
-        "type": "build",
-        "version": "10.0.5",
       },
       Object {
         "name": "eslint-import-resolver-node",
