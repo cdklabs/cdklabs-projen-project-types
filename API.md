@@ -14499,6 +14499,7 @@ const cdkCommonOptions: CdkCommonOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
 
 ---
 
@@ -14581,6 +14582,19 @@ public readonly upgradeCdklabsProjenProjectTypes: boolean;
 - *Default:* true
 
 Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep.
+
+---
+
+##### `upgradeRuntimeDepsAsFix`<sup>Optional</sup> <a name="upgradeRuntimeDepsAsFix" id="cdklabs-projen-project-types.CdkCommonOptions.property.upgradeRuntimeDepsAsFix"></a>
+
+```typescript
+public readonly upgradeRuntimeDepsAsFix: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix.
 
 ---
 
@@ -14775,6 +14789,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
 
 ---
@@ -17286,6 +17301,19 @@ Whether to enable the separate workflow to upgrade the cdklabs-projen-project-ty
 
 ---
 
+##### `upgradeRuntimeDepsAsFix`<sup>Optional</sup> <a name="upgradeRuntimeDepsAsFix" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeRuntimeDepsAsFix"></a>
+
+```typescript
+public readonly upgradeRuntimeDepsAsFix: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix.
+
+---
+
 ##### `rosettaOptions`<sup>Optional</sup> <a name="rosettaOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rosettaOptions"></a>
 
 ```typescript
@@ -17474,6 +17502,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
 
 ---
 
@@ -19758,6 +19787,19 @@ Whether to enable the separate workflow to upgrade the cdklabs-projen-project-ty
 
 ---
 
+##### `upgradeRuntimeDepsAsFix`<sup>Optional</sup> <a name="upgradeRuntimeDepsAsFix" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.upgradeRuntimeDepsAsFix"></a>
+
+```typescript
+public readonly upgradeRuntimeDepsAsFix: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix.
+
+---
+
 ### CdklabsConstructLibraryOptions <a name="CdklabsConstructLibraryOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.Initializer"></a>
@@ -19949,6 +19991,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
@@ -22462,6 +22505,19 @@ Whether to enable the separate workflow to upgrade the cdklabs-projen-project-ty
 
 ---
 
+##### `upgradeRuntimeDepsAsFix`<sup>Optional</sup> <a name="upgradeRuntimeDepsAsFix" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.upgradeRuntimeDepsAsFix"></a>
+
+```typescript
+public readonly upgradeRuntimeDepsAsFix: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix.
+
+---
+
 ##### `rosettaOptions`<sup>Optional</sup> <a name="rosettaOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rosettaOptions"></a>
 
 ```typescript
@@ -22689,6 +22745,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
 
@@ -24972,6 +25029,19 @@ public readonly upgradeCdklabsProjenProjectTypes: boolean;
 - *Default:* true
 
 Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep.
+
+---
+
+##### `upgradeRuntimeDepsAsFix`<sup>Optional</sup> <a name="upgradeRuntimeDepsAsFix" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.upgradeRuntimeDepsAsFix"></a>
+
+```typescript
+public readonly upgradeRuntimeDepsAsFix: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix.
 
 ---
 
@@ -27278,6 +27348,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
 
 ---
 
@@ -29343,6 +29414,19 @@ Whether to enable the separate workflow to upgrade the cdklabs-projen-project-ty
 
 ---
 
+##### `upgradeRuntimeDepsAsFix`<sup>Optional</sup> <a name="upgradeRuntimeDepsAsFix" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeRuntimeDepsAsFix"></a>
+
+```typescript
+public readonly upgradeRuntimeDepsAsFix: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix.
+
+---
+
 ### CdkTypeScriptProjectOptions <a name="CdkTypeScriptProjectOptions" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.Initializer"></a>
@@ -29503,6 +29587,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Whether to enforce the minNodeVersion via the `engines` field in `package.json`. Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The org this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
 
 ---
 
@@ -31565,6 +31650,19 @@ public readonly upgradeCdklabsProjenProjectTypes: boolean;
 - *Default:* true
 
 Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep.
+
+---
+
+##### `upgradeRuntimeDepsAsFix`<sup>Optional</sup> <a name="upgradeRuntimeDepsAsFix" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeRuntimeDepsAsFix"></a>
+
+```typescript
+public readonly upgradeRuntimeDepsAsFix: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix.
 
 ---
 

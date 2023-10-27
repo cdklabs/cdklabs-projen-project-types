@@ -212,7 +212,9 @@ describe('CdklabsConstructLibrary', () => {
         release: false,
       });
       const outdir = Testing.synth(project);
-      expect(outdir['.github/workflows/upgrade-cdklabs-projen-project-types.yml']).not.toBeUndefined();
+      const workflow = outdir['.github/workflows/upgrade-cdklabs-projen-project-types.yml'];
+      expect(workflow).not.toBeUndefined();
+      expect(workflow).toMatchSnapshot();
     });
   });
 });
