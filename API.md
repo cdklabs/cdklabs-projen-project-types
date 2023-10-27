@@ -167,6 +167,14222 @@ List any dependencies that should not be updated in the workspace.
 
 # API Reference <a name="API Reference" id="api-reference"></a>
 
+## Constructs <a name="Constructs" id="Constructs"></a>
+
+### AutoMerge <a name="AutoMerge" id="cdklabs-projen-project-types.AutoMerge"></a>
+
+Merge pull requests using a merge queue.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.AutoMerge.Initializer"></a>
+
+```typescript
+import { AutoMerge } from 'cdklabs-projen-project-types'
+
+new AutoMerge(github: GitHub, options?: AutoMergeOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.Initializer.parameter.github">github</a></code> | <code>projen.github.GitHub</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | *No description.* |
+
+---
+
+##### `github`<sup>Required</sup> <a name="github" id="cdklabs-projen-project-types.AutoMerge.Initializer.parameter.github"></a>
+
+- *Type:* projen.github.GitHub
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.AutoMerge.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.AutoMerge.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.AutoMerge.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.AutoMerge.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.AutoMerge.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.AutoMerge.isConstruct"></a>
+
+```typescript
+import { AutoMerge } from 'cdklabs-projen-project-types'
+
+AutoMerge.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.AutoMerge.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.AutoMerge.isComponent"></a>
+
+```typescript
+import { AutoMerge } from 'cdklabs-projen-project-types'
+
+AutoMerge.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.AutoMerge.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.AutoMerge.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.AutoMerge.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.AutoMerge.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
+### CdkConstructLibrary <a name="CdkConstructLibrary" id="cdklabs-projen-project-types.CdkConstructLibrary"></a>
+
+Create a Cdk Construct Library Project.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdkConstructLibrary.Initializer"></a>
+
+```typescript
+import { CdkConstructLibrary } from 'cdklabs-projen-project-types'
+
+new CdkConstructLibrary(options: CdkConstructLibraryOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions">CdkConstructLibraryOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdkConstructLibrary.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions">CdkConstructLibraryOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addCdkDependencies">addCdkDependencies</a></code> | Adds dependencies to AWS CDK modules. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addCdkTestDependencies">addCdkTestDependencies</a></code> | Adds AWS CDK modules as dev dependencies. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.CdkConstructLibrary.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdkConstructLibrary.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdkConstructLibrary.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdkConstructLibrary.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkConstructLibrary.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdkConstructLibrary.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkConstructLibrary.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdkConstructLibrary.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdkConstructLibrary.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdkConstructLibrary.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdkConstructLibrary.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdkConstructLibrary.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdkConstructLibrary.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdkConstructLibrary.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdkConstructLibrary.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdkConstructLibrary.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdkConstructLibrary.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdkConstructLibrary.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdkConstructLibrary.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkConstructLibrary.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdkConstructLibrary.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdkConstructLibrary.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkConstructLibrary.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdkConstructLibrary.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdkConstructLibrary.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdkConstructLibrary.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdkConstructLibrary.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdkConstructLibrary.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkConstructLibrary.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkConstructLibrary.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdkConstructLibrary.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdkConstructLibrary.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdkConstructLibrary.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdkConstructLibrary.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdkConstructLibrary.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdkConstructLibrary.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+##### ~~`addCdkDependencies`~~ <a name="addCdkDependencies" id="cdklabs-projen-project-types.CdkConstructLibrary.addCdkDependencies"></a>
+
+```typescript
+public addCdkDependencies(deps: string): void
+```
+
+Adds dependencies to AWS CDK modules.
+
+Since this is a library project, dependencies will be added as peer dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addCdkDependencies.parameter.deps"></a>
+
+- *Type:* string
+
+names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
+
+---
+
+##### ~~`addCdkTestDependencies`~~ <a name="addCdkTestDependencies" id="cdklabs-projen-project-types.CdkConstructLibrary.addCdkTestDependencies"></a>
+
+```typescript
+public addCdkTestDependencies(deps: string): void
+```
+
+Adds AWS CDK modules as dev dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addCdkTestDependencies.parameter.deps"></a>
+
+- *Type:* string
+
+names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.CdkConstructLibrary.isConstruct"></a>
+
+```typescript
+import { CdkConstructLibrary } from 'cdklabs-projen-project-types'
+
+CdkConstructLibrary.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdkConstructLibrary.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="cdklabs-projen-project-types.CdkConstructLibrary.isProject"></a>
+
+```typescript
+import { CdkConstructLibrary } from 'cdklabs-projen-project-types'
+
+CdkConstructLibrary.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdkConstructLibrary.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.CdkConstructLibrary.of"></a>
+
+```typescript
+import { CdkConstructLibrary } from 'cdklabs-projen-project-types'
+
+CdkConstructLibrary.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.CdkConstructLibrary.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.cdkDeps">cdkDeps</a></code> | <code>projen.awscdk.AwsCdkDeps</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | The target CDK version for this library. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.version">version</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.private">private</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.CdkConstructLibrary.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdkConstructLibrary.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdkConstructLibrary.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdkConstructLibrary.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdkConstructLibrary.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdkConstructLibrary.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdkConstructLibrary.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdkConstructLibrary.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdkConstructLibrary.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdkConstructLibrary.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdkConstructLibrary.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdkConstructLibrary.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdkConstructLibrary.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdkConstructLibrary.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdkConstructLibrary.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdkConstructLibrary.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdkConstructLibrary.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdkConstructLibrary.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdkConstructLibrary.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdkConstructLibrary.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdkConstructLibrary.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdkConstructLibrary.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdkConstructLibrary.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdkConstructLibrary.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdkConstructLibrary.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdkConstructLibrary.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdkConstructLibrary.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdkConstructLibrary.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdkConstructLibrary.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdkConstructLibrary.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdkConstructLibrary.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdkConstructLibrary.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdkConstructLibrary.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdkConstructLibrary.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibrary.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibrary.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdkConstructLibrary.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdkConstructLibrary.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdkConstructLibrary.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdkConstructLibrary.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdkConstructLibrary.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdkConstructLibrary.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdkConstructLibrary.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdkConstructLibrary.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdkConstructLibrary.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdkConstructLibrary.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdkConstructLibrary.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `cdkDeps`<sup>Required</sup> <a name="cdkDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.property.cdkDeps"></a>
+
+```typescript
+public readonly cdkDeps: AwsCdkDeps;
+```
+
+- *Type:* projen.awscdk.AwsCdkDeps
+
+---
+
+##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="cdklabs-projen-project-types.CdkConstructLibrary.property.cdkVersion"></a>
+
+```typescript
+public readonly cdkVersion: string;
+```
+
+- *Type:* string
+
+The target CDK version for this library.
+
+---
+
+##### ~~`version`~~<sup>Required</sup> <a name="version" id="cdklabs-projen-project-types.CdkConstructLibrary.property.version"></a>
+
+- *Deprecated:* use `cdkVersion`
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
+
+---
+
+##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdkConstructLibrary.property.private"></a>
+
+```typescript
+public readonly private: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdkConstructLibrary.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### CdkJsiiProject <a name="CdkJsiiProject" id="cdklabs-projen-project-types.CdkJsiiProject"></a>
+
+Create a Cdk Jsii Jsii project.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdkJsiiProject.Initializer"></a>
+
+```typescript
+import { CdkJsiiProject } from 'cdklabs-projen-project-types'
+
+new CdkJsiiProject(options: CdkJsiiProjectOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions">CdkJsiiProjectOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdkJsiiProject.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions">CdkJsiiProjectOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.CdkJsiiProject.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdkJsiiProject.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdkJsiiProject.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdkJsiiProject.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkJsiiProject.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdkJsiiProject.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkJsiiProject.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdkJsiiProject.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdkJsiiProject.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdkJsiiProject.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdkJsiiProject.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdkJsiiProject.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdkJsiiProject.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdkJsiiProject.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdkJsiiProject.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdkJsiiProject.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdkJsiiProject.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdkJsiiProject.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdkJsiiProject.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdkJsiiProject.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkJsiiProject.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdkJsiiProject.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdkJsiiProject.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdkJsiiProject.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdkJsiiProject.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkJsiiProject.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdkJsiiProject.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdkJsiiProject.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdkJsiiProject.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdkJsiiProject.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdkJsiiProject.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdkJsiiProject.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdkJsiiProject.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdkJsiiProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkJsiiProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdkJsiiProject.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkJsiiProject.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdkJsiiProject.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdkJsiiProject.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdkJsiiProject.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdkJsiiProject.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdkJsiiProject.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdkJsiiProject.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.CdkJsiiProject.isConstruct"></a>
+
+```typescript
+import { CdkJsiiProject } from 'cdklabs-projen-project-types'
+
+CdkJsiiProject.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdkJsiiProject.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="cdklabs-projen-project-types.CdkJsiiProject.isProject"></a>
+
+```typescript
+import { CdkJsiiProject } from 'cdklabs-projen-project-types'
+
+CdkJsiiProject.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdkJsiiProject.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.CdkJsiiProject.of"></a>
+
+```typescript
+import { CdkJsiiProject } from 'cdklabs-projen-project-types'
+
+CdkJsiiProject.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.CdkJsiiProject.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.private">private</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.CdkJsiiProject.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdkJsiiProject.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdkJsiiProject.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdkJsiiProject.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdkJsiiProject.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdkJsiiProject.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdkJsiiProject.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdkJsiiProject.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdkJsiiProject.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdkJsiiProject.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdkJsiiProject.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdkJsiiProject.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdkJsiiProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdkJsiiProject.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdkJsiiProject.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdkJsiiProject.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdkJsiiProject.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdkJsiiProject.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdkJsiiProject.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdkJsiiProject.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdkJsiiProject.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdkJsiiProject.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdkJsiiProject.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdkJsiiProject.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdkJsiiProject.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdkJsiiProject.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdkJsiiProject.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdkJsiiProject.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdkJsiiProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdkJsiiProject.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdkJsiiProject.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdkJsiiProject.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdkJsiiProject.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdkJsiiProject.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdkJsiiProject.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdkJsiiProject.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdkJsiiProject.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdkJsiiProject.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdkJsiiProject.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdkJsiiProject.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdkJsiiProject.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdkJsiiProject.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdkJsiiProject.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdkJsiiProject.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdkJsiiProject.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdkJsiiProject.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdkJsiiProject.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdkJsiiProject.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdkJsiiProject.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdkJsiiProject.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdkJsiiProject.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdkJsiiProject.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdkJsiiProject.property.private"></a>
+
+```typescript
+public readonly private: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdkJsiiProject.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### CdklabsConstructLibrary <a name="CdklabsConstructLibrary" id="cdklabs-projen-project-types.CdklabsConstructLibrary"></a>
+
+Create a Cdklabs Construct Library Project.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdklabsConstructLibrary.Initializer"></a>
+
+```typescript
+import { CdklabsConstructLibrary } from 'cdklabs-projen-project-types'
+
+new CdklabsConstructLibrary(options: CdklabsConstructLibraryOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions">CdklabsConstructLibraryOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsConstructLibrary.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions">CdklabsConstructLibraryOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkDependencies">addCdkDependencies</a></code> | Adds dependencies to AWS CDK modules. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkTestDependencies">addCdkTestDependencies</a></code> | Adds AWS CDK modules as dev dependencies. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.CdklabsConstructLibrary.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdklabsConstructLibrary.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdklabsConstructLibrary.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdklabsConstructLibrary.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdklabsConstructLibrary.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdklabsConstructLibrary.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdklabsConstructLibrary.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdklabsConstructLibrary.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdklabsConstructLibrary.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdklabsConstructLibrary.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsConstructLibrary.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdklabsConstructLibrary.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdklabsConstructLibrary.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+##### ~~`addCdkDependencies`~~ <a name="addCdkDependencies" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkDependencies"></a>
+
+```typescript
+public addCdkDependencies(deps: string): void
+```
+
+Adds dependencies to AWS CDK modules.
+
+Since this is a library project, dependencies will be added as peer dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkDependencies.parameter.deps"></a>
+
+- *Type:* string
+
+names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
+
+---
+
+##### ~~`addCdkTestDependencies`~~ <a name="addCdkTestDependencies" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkTestDependencies"></a>
+
+```typescript
+public addCdkTestDependencies(deps: string): void
+```
+
+Adds AWS CDK modules as dev dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkTestDependencies.parameter.deps"></a>
+
+- *Type:* string
+
+names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.CdklabsConstructLibrary.isConstruct"></a>
+
+```typescript
+import { CdklabsConstructLibrary } from 'cdklabs-projen-project-types'
+
+CdklabsConstructLibrary.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdklabsConstructLibrary.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="cdklabs-projen-project-types.CdklabsConstructLibrary.isProject"></a>
+
+```typescript
+import { CdklabsConstructLibrary } from 'cdklabs-projen-project-types'
+
+CdklabsConstructLibrary.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdklabsConstructLibrary.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.CdklabsConstructLibrary.of"></a>
+
+```typescript
+import { CdklabsConstructLibrary } from 'cdklabs-projen-project-types'
+
+CdklabsConstructLibrary.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.CdklabsConstructLibrary.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.cdkDeps">cdkDeps</a></code> | <code>projen.awscdk.AwsCdkDeps</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | The target CDK version for this library. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.version">version</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.private">private</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `cdkDeps`<sup>Required</sup> <a name="cdkDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.cdkDeps"></a>
+
+```typescript
+public readonly cdkDeps: AwsCdkDeps;
+```
+
+- *Type:* projen.awscdk.AwsCdkDeps
+
+---
+
+##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.cdkVersion"></a>
+
+```typescript
+public readonly cdkVersion: string;
+```
+
+- *Type:* string
+
+The target CDK version for this library.
+
+---
+
+##### ~~`version`~~<sup>Required</sup> <a name="version" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.version"></a>
+
+- *Deprecated:* use `cdkVersion`
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
+
+---
+
+##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.private"></a>
+
+```typescript
+public readonly private: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### CdklabsJsiiProject <a name="CdklabsJsiiProject" id="cdklabs-projen-project-types.CdklabsJsiiProject"></a>
+
+Create a Cdklabs Jsii Project.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdklabsJsiiProject.Initializer"></a>
+
+```typescript
+import { CdklabsJsiiProject } from 'cdklabs-projen-project-types'
+
+new CdklabsJsiiProject(options: CdklabsJsiiProjectOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions">CdklabsJsiiProjectOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsJsiiProject.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions">CdklabsJsiiProjectOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.CdklabsJsiiProject.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdklabsJsiiProject.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdklabsJsiiProject.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdklabsJsiiProject.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsJsiiProject.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdklabsJsiiProject.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsJsiiProject.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdklabsJsiiProject.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdklabsJsiiProject.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdklabsJsiiProject.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdklabsJsiiProject.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdklabsJsiiProject.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdklabsJsiiProject.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdklabsJsiiProject.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdklabsJsiiProject.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsJsiiProject.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdklabsJsiiProject.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdklabsJsiiProject.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdklabsJsiiProject.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdklabsJsiiProject.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdklabsJsiiProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsJsiiProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdklabsJsiiProject.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdklabsJsiiProject.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdklabsJsiiProject.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsJsiiProject.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdklabsJsiiProject.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdklabsJsiiProject.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.CdklabsJsiiProject.isConstruct"></a>
+
+```typescript
+import { CdklabsJsiiProject } from 'cdklabs-projen-project-types'
+
+CdklabsJsiiProject.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdklabsJsiiProject.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="cdklabs-projen-project-types.CdklabsJsiiProject.isProject"></a>
+
+```typescript
+import { CdklabsJsiiProject } from 'cdklabs-projen-project-types'
+
+CdklabsJsiiProject.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdklabsJsiiProject.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.CdklabsJsiiProject.of"></a>
+
+```typescript
+import { CdklabsJsiiProject } from 'cdklabs-projen-project-types'
+
+CdklabsJsiiProject.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.CdklabsJsiiProject.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.private">private</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.private"></a>
+
+```typescript
+public readonly private: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### CdkLabsMonorepo <a name="CdkLabsMonorepo" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo"></a>
+
+Opinionated implementation of yarn.Monorepo.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.CdkLabsMonorepo(options: CdkLabsMonorepoOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions</code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.Initializer.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.postSynthesize">postSynthesize</a></code> | Hooks into the install dependencies cycle. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register">register</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies">requestInstallDependencies</a></code> | Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hooks into the install dependencies cycle.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+##### `register` <a name="register" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register"></a>
+
+```typescript
+public register(project: TypeScriptWorkspace): void
+```
+
+###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register.parameter.project"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
+
+---
+
+##### `requestInstallDependencies` <a name="requestInstallDependencies" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies"></a>
+
+```typescript
+public requestInstallDependencies(resolver: IDependencyResolver): void
+```
+
+Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run.
+
+This is used to resolve dependency versions from `*` to a concrete version constraint.
+
+###### `resolver`<sup>Required</sup> <a name="resolver" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies.parameter.resolver"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.IDependencyResolver
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isConstruct"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.CdkLabsMonorepo.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isProject"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.CdkLabsMonorepo.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.of"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.CdkLabsMonorepo.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### CdklabsTypeScriptProject <a name="CdklabsTypeScriptProject" id="cdklabs-projen-project-types.CdklabsTypeScriptProject"></a>
+
+Create a Cdklabs TypeScript Project.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.Initializer"></a>
+
+```typescript
+import { CdklabsTypeScriptProject } from 'cdklabs-projen-project-types'
+
+new CdklabsTypeScriptProject(options: CdklabsTypeScriptProjectOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions">CdklabsTypeScriptProjectOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions">CdklabsTypeScriptProjectOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.isConstruct"></a>
+
+```typescript
+import { CdklabsTypeScriptProject } from 'cdklabs-projen-project-types'
+
+CdklabsTypeScriptProject.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.isProject"></a>
+
+```typescript
+import { CdklabsTypeScriptProject } from 'cdklabs-projen-project-types'
+
+CdklabsTypeScriptProject.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.of"></a>
+
+```typescript
+import { CdklabsTypeScriptProject } from 'cdklabs-projen-project-types'
+
+CdklabsTypeScriptProject.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.private">private</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.private"></a>
+
+```typescript
+public readonly private: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### CdkTypeScriptProject <a name="CdkTypeScriptProject" id="cdklabs-projen-project-types.CdkTypeScriptProject"></a>
+
+Create a Cdk TypeScript Project.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdkTypeScriptProject.Initializer"></a>
+
+```typescript
+import { CdkTypeScriptProject } from 'cdklabs-projen-project-types'
+
+new CdkTypeScriptProject(options: CdkTypeScriptProjectOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions">CdkTypeScriptProjectOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdkTypeScriptProject.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions">CdkTypeScriptProjectOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.CdkTypeScriptProject.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdkTypeScriptProject.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdkTypeScriptProject.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdkTypeScriptProject.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkTypeScriptProject.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdkTypeScriptProject.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkTypeScriptProject.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdkTypeScriptProject.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdkTypeScriptProject.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdkTypeScriptProject.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdkTypeScriptProject.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdkTypeScriptProject.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdkTypeScriptProject.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdkTypeScriptProject.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdkTypeScriptProject.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkTypeScriptProject.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdkTypeScriptProject.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdkTypeScriptProject.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdkTypeScriptProject.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdkTypeScriptProject.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdkTypeScriptProject.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkTypeScriptProject.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdkTypeScriptProject.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdkTypeScriptProject.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdkTypeScriptProject.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdkTypeScriptProject.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdkTypeScriptProject.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdkTypeScriptProject.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.CdkTypeScriptProject.isConstruct"></a>
+
+```typescript
+import { CdkTypeScriptProject } from 'cdklabs-projen-project-types'
+
+CdkTypeScriptProject.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdkTypeScriptProject.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="cdklabs-projen-project-types.CdkTypeScriptProject.isProject"></a>
+
+```typescript
+import { CdkTypeScriptProject } from 'cdklabs-projen-project-types'
+
+CdkTypeScriptProject.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdkTypeScriptProject.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.CdkTypeScriptProject.of"></a>
+
+```typescript
+import { CdkTypeScriptProject } from 'cdklabs-projen-project-types'
+
+CdkTypeScriptProject.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.CdkTypeScriptProject.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.private">private</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.private"></a>
+
+```typescript
+public readonly private: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### MergeQueue <a name="MergeQueue" id="cdklabs-projen-project-types.MergeQueue"></a>
+
+Merge pull requests using a merge queue.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.MergeQueue.Initializer"></a>
+
+```typescript
+import { MergeQueue } from 'cdklabs-projen-project-types'
+
+new MergeQueue(project: NodeProject, options?: MergeQueueOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.Initializer.parameter.project">project</a></code> | <code>projen.javascript.NodeProject</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.MergeQueueOptions">MergeQueueOptions</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.MergeQueue.Initializer.parameter.project"></a>
+
+- *Type:* projen.javascript.NodeProject
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.MergeQueue.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.MergeQueueOptions">MergeQueueOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.MergeQueue.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.MergeQueue.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.MergeQueue.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.MergeQueue.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.MergeQueue.isConstruct"></a>
+
+```typescript
+import { MergeQueue } from 'cdklabs-projen-project-types'
+
+MergeQueue.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.MergeQueue.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.MergeQueue.isComponent"></a>
+
+```typescript
+import { MergeQueue } from 'cdklabs-projen-project-types'
+
+MergeQueue.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.MergeQueue.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.MergeQueue.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.MergeQueue.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.MergeQueue.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
+### Monorepo <a name="Monorepo" id="cdklabs-projen-project-types.yarn.Monorepo"></a>
+
+A monorepo using yarn workspaces.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.Monorepo.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.Monorepo(options: MonorepoOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoOptions</code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.Monorepo.Initializer.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.MonorepoOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.postSynthesize">postSynthesize</a></code> | Hooks into the install dependencies cycle. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.register">register</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies">requestInstallDependencies</a></code> | Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.yarn.Monorepo.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.yarn.Monorepo.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.yarn.Monorepo.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.yarn.Monorepo.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.yarn.Monorepo.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.yarn.Monorepo.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.yarn.Monorepo.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.Monorepo.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Hooks into the install dependencies cycle.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.Monorepo.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.yarn.Monorepo.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.yarn.Monorepo.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.yarn.Monorepo.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.yarn.Monorepo.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.yarn.Monorepo.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.Monorepo.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.yarn.Monorepo.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.yarn.Monorepo.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.yarn.Monorepo.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.Monorepo.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.yarn.Monorepo.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.Monorepo.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.yarn.Monorepo.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.Monorepo.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.yarn.Monorepo.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.yarn.Monorepo.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.yarn.Monorepo.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.yarn.Monorepo.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+##### `register` <a name="register" id="cdklabs-projen-project-types.yarn.Monorepo.register"></a>
+
+```typescript
+public register(project: TypeScriptWorkspace): void
+```
+
+###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.Monorepo.register.parameter.project"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
+
+---
+
+##### `requestInstallDependencies` <a name="requestInstallDependencies" id="cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies"></a>
+
+```typescript
+public requestInstallDependencies(resolver: IDependencyResolver): void
+```
+
+Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run.
+
+This is used to resolve dependency versions from `*` to a concrete version constraint.
+
+###### `resolver`<sup>Required</sup> <a name="resolver" id="cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies.parameter.resolver"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.IDependencyResolver
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.yarn.Monorepo.isConstruct"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.Monorepo.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.Monorepo.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="cdklabs-projen-project-types.yarn.Monorepo.isProject"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.Monorepo.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.Monorepo.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.yarn.Monorepo.of"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.Monorepo.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.yarn.Monorepo.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.yarn.Monorepo.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.Monorepo.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.yarn.Monorepo.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.yarn.Monorepo.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.yarn.Monorepo.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.yarn.Monorepo.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.Monorepo.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.yarn.Monorepo.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.yarn.Monorepo.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.Monorepo.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.yarn.Monorepo.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.Monorepo.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.yarn.Monorepo.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.yarn.Monorepo.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.Monorepo.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.Monorepo.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.yarn.Monorepo.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.Monorepo.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.Monorepo.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.Monorepo.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.Monorepo.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.Monorepo.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.Monorepo.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.yarn.Monorepo.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.yarn.Monorepo.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.Monorepo.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.yarn.Monorepo.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.yarn.Monorepo.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.yarn.Monorepo.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.Monorepo.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.yarn.Monorepo.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.Monorepo.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.Monorepo.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.Monorepo.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.Monorepo.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.Monorepo.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.Monorepo.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.Monorepo.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.Monorepo.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.yarn.Monorepo.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.Monorepo.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.Monorepo.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.Monorepo.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.yarn.Monorepo.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### Rosetta <a name="Rosetta" id="cdklabs-projen-project-types.Rosetta"></a>
+
+The Rosetta component adds builtin rosetta support for a construct library.
+
+Since ConstructHub will run
+rosetta for real, this just adds a check to the build to
+ensure that rosetta will run successfully
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.Rosetta.Initializer"></a>
+
+```typescript
+import { Rosetta } from 'cdklabs-projen-project-types'
+
+new Rosetta(project: JsiiProject, options?: RosettaOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.Initializer.parameter.project">project</a></code> | <code>projen.cdk.JsiiProject</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.Rosetta.Initializer.parameter.project"></a>
+
+- *Type:* projen.cdk.JsiiProject
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.Rosetta.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.Rosetta.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.Rosetta.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.Rosetta.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.Rosetta.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.Rosetta.isConstruct"></a>
+
+```typescript
+import { Rosetta } from 'cdklabs-projen-project-types'
+
+Rosetta.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.Rosetta.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.Rosetta.isComponent"></a>
+
+```typescript
+import { Rosetta } from 'cdklabs-projen-project-types'
+
+Rosetta.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.Rosetta.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.Rosetta.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.Rosetta.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
+### TypeScriptWorkspace <a name="TypeScriptWorkspace" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace"></a>
+
+A TypeScript workspace in a `yarn.Monorepo`.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.TypeScriptWorkspace(options: TypeScriptWorkspaceOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions</code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: string): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* string
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+---
+
+##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: string): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBundledDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addCompileCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDeps"></a>
+
+```typescript
+public addDeps(deps: string): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: string): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDevDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: string): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords.parameter.keywords"></a>
+
+- *Type:* string
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: string): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps.parameter.deps"></a>
+
+- *Type:* string
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: string): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand.parameter.commands"></a>
+
+- *Type:* string
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.isConstruct"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.TypeScriptWorkspace.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.isProject"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.TypeScriptWorkspace.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.of"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.TypeScriptWorkspace.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.workspaceDirectory">workspaceDirectory</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version required by this package.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+Minimum node.js version required by this package.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `workspaceDirectory`<sup>Required</sup> <a name="workspaceDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.workspaceDirectory"></a>
+
+```typescript
+public readonly workspaceDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
 
 ## Structs <a name="Structs" id="Structs"></a>
 
@@ -641,7 +14857,7 @@ Relative to this directory, all files are synthesized.
 
 If this project has a parent, this directory is relative to the parent
 directory and it cannot be the same as the parent or any of it's other
-sub-projects.
+subprojects.
 
 ---
 
@@ -1363,7 +15579,7 @@ public readonly packageManager: NodePackageManager;
 ```
 
 - *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN
+- *Default:* NodePackageManager.YARN_CLASSIC
 
 The Node Package Manager used to execute scripts.
 
@@ -3339,7 +17555,7 @@ Relative to this directory, all files are synthesized.
 
 If this project has a parent, this directory is relative to the parent
 directory and it cannot be the same as the parent or any of it's other
-sub-projects.
+subprojects.
 
 ---
 
@@ -4061,7 +18277,7 @@ public readonly packageManager: NodePackageManager;
 ```
 
 - *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN
+- *Default:* NodePackageManager.YARN_CLASSIC
 
 The Node Package Manager used to execute scripts.
 
@@ -5817,7 +20033,7 @@ Relative to this directory, all files are synthesized.
 
 If this project has a parent, this directory is relative to the parent
 directory and it cannot be the same as the parent or any of it's other
-sub-projects.
+subprojects.
 
 ---
 
@@ -6539,7 +20755,7 @@ public readonly packageManager: NodePackageManager;
 ```
 
 - *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN
+- *Default:* NodePackageManager.YARN_CLASSIC
 
 The Node Package Manager used to execute scripts.
 
@@ -8556,7 +22772,7 @@ Relative to this directory, all files are synthesized.
 
 If this project has a parent, this directory is relative to the parent
 directory and it cannot be the same as the parent or any of it's other
-sub-projects.
+subprojects.
 
 ---
 
@@ -9278,7 +23494,7 @@ public readonly packageManager: NodePackageManager;
 ```
 
 - *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN
+- *Default:* NodePackageManager.YARN_CLASSIC
 
 The Node Package Manager used to execute scripts.
 
@@ -11944,7 +26160,7 @@ The root directory of the project. Relative to this directory, all files are syn
 
 If this project has a parent, this directory is relative to the parent
 directory and it cannot be the same as the parent or any of it's other
-sub-projects.
+subprojects.
 
 ---
 
@@ -13143,7 +27359,7 @@ Relative to this directory, all files are synthesized.
 
 If this project has a parent, this directory is relative to the parent
 directory and it cannot be the same as the parent or any of it's other
-sub-projects.
+subprojects.
 
 ---
 
@@ -13865,7 +28081,7 @@ public readonly packageManager: NodePackageManager;
 ```
 
 - *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN
+- *Default:* NodePackageManager.YARN_CLASSIC
 
 The Node Package Manager used to execute scripts.
 
@@ -15368,7 +29584,7 @@ Relative to this directory, all files are synthesized.
 
 If this project has a parent, this directory is relative to the parent
 directory and it cannot be the same as the parent or any of it's other
-sub-projects.
+subprojects.
 
 ---
 
@@ -16090,7 +30306,7 @@ public readonly packageManager: NodePackageManager;
 ```
 
 - *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN
+- *Default:* NodePackageManager.YARN_CLASSIC
 
 The Node Package Manager used to execute scripts.
 
@@ -18559,7 +32775,7 @@ The root directory of the project. Relative to this directory, all files are syn
 
 If this project has a parent, this directory is relative to the parent
 directory and it cannot be the same as the parent or any of it's other
-sub-projects.
+subprojects.
 
 ---
 
@@ -20684,7 +34900,7 @@ public readonly packageManager: NodePackageManager;
 ```
 
 - *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN
+- *Default:* NodePackageManager.YARN_CLASSIC
 
 The Node Package Manager used to execute scripts.
 
@@ -21575,13115 +35791,6 @@ The workspace scope the package is located in.
 
 ---
 
-## Classes <a name="Classes" id="Classes"></a>
-
-### AutoMerge <a name="AutoMerge" id="cdklabs-projen-project-types.AutoMerge"></a>
-
-Merge pull requests using a merge queue.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.AutoMerge.Initializer"></a>
-
-```typescript
-import { AutoMerge } from 'cdklabs-projen-project-types'
-
-new AutoMerge(github: GitHub, options?: AutoMergeOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.Initializer.parameter.github">github</a></code> | <code>projen.github.GitHub</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | *No description.* |
-
----
-
-##### `github`<sup>Required</sup> <a name="github" id="cdklabs-projen-project-types.AutoMerge.Initializer.parameter.github"></a>
-
-- *Type:* projen.github.GitHub
-
----
-
-##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.AutoMerge.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.AutoMerge.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after synthesis.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.AutoMerge.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before synthesis.
-
-##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.AutoMerge.synthesize"></a>
-
-```typescript
-public synthesize(): void
-```
-
-Synthesizes files to the project output directory.
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.AutoMerge.property.project"></a>
-
-```typescript
-public readonly project: Project;
-```
-
-- *Type:* projen.Project
-
----
-
-
-### CdkConstructLibrary <a name="CdkConstructLibrary" id="cdklabs-projen-project-types.CdkConstructLibrary"></a>
-
-Create a Cdk Construct Library Project.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdkConstructLibrary.Initializer"></a>
-
-```typescript
-import { CdkConstructLibrary } from 'cdklabs-projen-project-types'
-
-new CdkConstructLibrary(options: CdkConstructLibraryOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions">CdkConstructLibraryOptions</a></code> | *No description.* |
-
----
-
-##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdkConstructLibrary.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions">CdkConstructLibraryOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addCdkDependencies">addCdkDependencies</a></code> | Adds dependencies to AWS CDK modules. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addCdkTestDependencies">addCdkTestDependencies</a></code> | Adds AWS CDK modules as dev dependencies. |
-
----
-
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdkConstructLibrary.addExcludeFromCleanup"></a>
-
-```typescript
-public addExcludeFromCleanup(globs: string): void
-```
-
-Exclude the matching files from pre-synth cleanup.
-
-Can be used when, for example, some
-source files include the projen marker and we don't want them to be erased during synth.
-
-###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdkConstructLibrary.addExcludeFromCleanup.parameter.globs"></a>
-
-- *Type:* string
-
-The glob patterns to match.
-
----
-
-##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdkConstructLibrary.addGitIgnore"></a>
-
-```typescript
-public addGitIgnore(pattern: string): void
-```
-
-Adds a .gitignore pattern.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkConstructLibrary.addGitIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
-The glob pattern to ignore.
-
----
-
-##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdkConstructLibrary.addPackageIgnore"></a>
-
-```typescript
-public addPackageIgnore(pattern: string): void
-```
-
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkConstructLibrary.addPackageIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
----
-
-##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdkConstructLibrary.addTask"></a>
-
-```typescript
-public addTask(name: string, props?: TaskOptions): Task
-```
-
-Adds a new task to this project.
-
-This will fail if the project already has
-a task with this name.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.addTask.parameter.name"></a>
-
-- *Type:* string
-
-The task name to add.
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdkConstructLibrary.addTask.parameter.props"></a>
-
-- *Type:* projen.TaskOptions
-
-Task properties.
-
----
-
-##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdkConstructLibrary.addTip"></a>
-
-```typescript
-public addTip(message: string): void
-```
-
-Prints a "tip" message during synthesis.
-
-###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdkConstructLibrary.addTip.parameter.message"></a>
-
-- *Type:* string
-
-The message.
-
----
-
-##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdkConstructLibrary.annotateGenerated"></a>
-
-```typescript
-public annotateGenerated(glob: string): void
-```
-
-Marks the provided file(s) as being generated.
-
-This is achieved using the
-github-linguist attributes. Generated files do not count against the
-repository statistics and language breakdown.
-
-> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
-
-###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdkConstructLibrary.annotateGenerated.parameter.glob"></a>
-
-- *Type:* string
-
-the glob pattern to match (could be a file path).
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdkConstructLibrary.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after all components are synthesized.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdkConstructLibrary.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before all components are synthesized.
-
-##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdkConstructLibrary.removeTask"></a>
-
-```typescript
-public removeTask(name: string): Task
-```
-
-Removes a task from a project.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.removeTask.parameter.name"></a>
-
-- *Type:* string
-
-The name of the task to remove.
-
----
-
-##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.runTaskCommand"></a>
-
-```typescript
-public runTaskCommand(task: Task): string
-```
-
-Returns the shell command to execute in order to run a task.
-
-This will
-typically be `npx projen TASK`.
-
-###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdkConstructLibrary.runTaskCommand.parameter.task"></a>
-
-- *Type:* projen.Task
-
-The task for which the command is required.
-
----
-
-##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdkConstructLibrary.synth"></a>
-
-```typescript
-public synth(): void
-```
-
-Synthesize all project files into `outdir`.
-
-1. Call "this.preSynthesize()"
-2. Delete all generated files
-3. Synthesize all sub-projects
-4. Synthesize all components of this project
-5. Call "postSynthesize()" for all components of this project
-6. Call "this.postSynthesize()"
-
-##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindFile"></a>
-
-```typescript
-public tryFindFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and all its subprojects.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be resolved
-from the root of _this_ project.
-
----
-
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindJsonFile"></a>
-
-```typescript
-public tryFindJsonFile(filePath: string): JsonFile
-```
-
-Finds a json file by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindJsonFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindObjectFile"></a>
-
-```typescript
-public tryFindObjectFile(filePath: string): ObjectFile
-```
-
-Finds an object file (like JsonFile, YamlFile, etc.) by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkConstructLibrary.tryFindObjectFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdkConstructLibrary.tryRemoveFile"></a>
-
-```typescript
-public tryRemoveFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and removes it.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkConstructLibrary.tryRemoveFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be
-resolved from the root of _this_ project.
-
----
-
-##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdkConstructLibrary.addBins"></a>
-
-```typescript
-public addBins(bins: {[ key: string ]: string}): void
-```
-
-###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdkConstructLibrary.addBins.parameter.bins"></a>
-
-- *Type:* {[ key: string ]: string}
-
----
-
-##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.addBundledDeps"></a>
-
-```typescript
-public addBundledDeps(deps: string): void
-```
-
-Defines bundled dependencies.
-
-Bundled dependencies will be added as normal dependencies as well as to the
-`bundledDependencies` section of your `package.json`.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addBundledDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.addCompileCommand"></a>
-
-```typescript
-public addCompileCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkConstructLibrary.addCompileCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.addDeps"></a>
-
-```typescript
-public addDeps(deps: string): void
-```
-
-Defines normal dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.addDevDeps"></a>
-
-```typescript
-public addDevDeps(deps: string): void
-```
-
-Defines development/test dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addDevDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdkConstructLibrary.addFields"></a>
-
-```typescript
-public addFields(fields: {[ key: string ]: any}): void
-```
-
-Directly set fields in `package.json`.
-
-###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdkConstructLibrary.addFields.parameter.fields"></a>
-
-- *Type:* {[ key: string ]: any}
-
-The fields to set.
-
----
-
-##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdkConstructLibrary.addKeywords"></a>
-
-```typescript
-public addKeywords(keywords: string): void
-```
-
-Adds keywords to package.json (deduplicated).
-
-###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdkConstructLibrary.addKeywords.parameter.keywords"></a>
-
-- *Type:* string
-
-The keywords to add.
-
----
-
-##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.addPeerDeps"></a>
-
-```typescript
-public addPeerDeps(deps: string): void
-```
-
-Defines peer dependencies.
-
-When adding peer dependencies, a devDependency will also be added on the
-pinned version of the declared peer. This will ensure that you are testing
-your code against the minimum version required from your consumers.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addPeerDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdkConstructLibrary.addScripts"></a>
-
-```typescript
-public addScripts(scripts: {[ key: string ]: string}): void
-```
-
-Replaces the contents of multiple npm package.json scripts.
-
-###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkConstructLibrary.addScripts.parameter.scripts"></a>
-
-- *Type:* {[ key: string ]: string}
-
-The scripts to set.
-
----
-
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.addTestCommand"></a>
-
-```typescript
-public addTestCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkConstructLibrary.addTestCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdkConstructLibrary.hasScript"></a>
-
-```typescript
-public hasScript(name: string): boolean
-```
-
-Indicates if a script by the name name is defined.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.hasScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdkConstructLibrary.removeScript"></a>
-
-```typescript
-public removeScript(name: string): void
-```
-
-Removes the npm script (always successful).
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.removeScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdkConstructLibrary.renderWorkflowSetup"></a>
-
-```typescript
-public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
-```
-
-Returns the set of workflow steps which should be executed to bootstrap a workflow.
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdkConstructLibrary.renderWorkflowSetup.parameter.options"></a>
-
-- *Type:* projen.javascript.RenderWorkflowSetupOptions
-
-Options.
-
----
-
-##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdkConstructLibrary.setScript"></a>
-
-```typescript
-public setScript(name: string, command: string): void
-```
-
-Replaces the contents of an npm package.json script.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.setScript.parameter.name"></a>
-
-- *Type:* string
-
-The script name.
-
----
-
-###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdkConstructLibrary.setScript.parameter.command"></a>
-
-- *Type:* string
-
-The command to execute.
-
----
-
-##### ~~`addCdkDependencies`~~ <a name="addCdkDependencies" id="cdklabs-projen-project-types.CdkConstructLibrary.addCdkDependencies"></a>
-
-```typescript
-public addCdkDependencies(deps: string): void
-```
-
-Adds dependencies to AWS CDK modules.
-
-Since this is a library project, dependencies will be added as peer dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addCdkDependencies.parameter.deps"></a>
-
-- *Type:* string
-
-names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
-
----
-
-##### ~~`addCdkTestDependencies`~~ <a name="addCdkTestDependencies" id="cdklabs-projen-project-types.CdkConstructLibrary.addCdkTestDependencies"></a>
-
-```typescript
-public addCdkTestDependencies(deps: string): void
-```
-
-Adds AWS CDK modules as dev dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.addCdkTestDependencies.parameter.deps"></a>
-
-- *Type:* string
-
-names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.cdkDeps">cdkDeps</a></code> | <code>projen.awscdk.AwsCdkDeps</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | The target CDK version for this library. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.version">version</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.private">private</a></code> | <code>boolean</code> | *No description.* |
-
----
-
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.buildTask"></a>
-
-```typescript
-public readonly buildTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdkConstructLibrary.property.commitGenerated"></a>
-
-```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-
-Whether to commit the managed files by default.
-
----
-
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.compileTask"></a>
-
-```typescript
-public readonly compileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdkConstructLibrary.property.components"></a>
-
-```typescript
-public readonly components: Component[];
-```
-
-- *Type:* projen.Component[]
-
-Returns all the components within this project.
-
----
-
-##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibrary.property.deps"></a>
-
-```typescript
-public readonly deps: Dependencies;
-```
-
-- *Type:* projen.Dependencies
-
-Project dependencies.
-
----
-
-##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdkConstructLibrary.property.ejected"></a>
-
-```typescript
-public readonly ejected: boolean;
-```
-
-- *Type:* boolean
-
-Whether or not the project is being ejected.
-
----
-
-##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdkConstructLibrary.property.files"></a>
-
-```typescript
-public readonly files: FileBase[];
-```
-
-- *Type:* projen.FileBase[]
-
-All files in this project.
-
----
-
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdkConstructLibrary.property.gitattributes"></a>
-
-```typescript
-public readonly gitattributes: GitAttributesFile;
-```
-
-- *Type:* projen.GitAttributesFile
-
-The .gitattributes file for this repository.
-
----
-
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdkConstructLibrary.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-.gitignore.
-
----
-
-##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdkConstructLibrary.property.logger"></a>
-
-```typescript
-public readonly logger: Logger;
-```
-
-- *Type:* projen.Logger
-
-Logging utilities.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkConstructLibrary.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-Project name.
-
----
-
-##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdkConstructLibrary.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
-```
-
-- *Type:* string
-
-Absolute output directory of this project.
-
----
-
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.packageTask"></a>
-
-```typescript
-public readonly packageTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.postCompileTask"></a>
-
-```typescript
-public readonly postCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.preCompileTask"></a>
-
-```typescript
-public readonly preCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdkConstructLibrary.property.projectBuild"></a>
-
-```typescript
-public readonly projectBuild: ProjectBuild;
-```
-
-- *Type:* projen.ProjectBuild
-
-Manages the build process of the project.
-
----
-
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-
-The command to use in order to run the projen CLI.
-
----
-
-##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdkConstructLibrary.property.root"></a>
-
-```typescript
-public readonly root: Project;
-```
-
-- *Type:* projen.Project
-
-The root project.
-
----
-
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdkConstructLibrary.property.subprojects"></a>
-
-```typescript
-public readonly subprojects: Project[];
-```
-
-- *Type:* projen.Project[]
-
-Returns all the subprojects within this project.
-
----
-
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdkConstructLibrary.property.tasks"></a>
-
-```typescript
-public readonly tasks: Tasks;
-```
-
-- *Type:* projen.Tasks
-
-Project tasks.
-
----
-
-##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.testTask"></a>
-
-```typescript
-public readonly testTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
-Undefined if
-the project is being ejected.
-
----
-
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdkConstructLibrary.property.initProject"></a>
-
-```typescript
-public readonly initProject: InitProject;
-```
-
-- *Type:* projen.InitProject
-
-The options used when this project is bootstrapped via `projen new`.
-
-It
-includes the original set of options passed to the CLI and also the JSII
-FQN of the project type.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdkConstructLibrary.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-A parent project.
-
-If undefined, this is the root project.
-
----
-
-##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdkConstructLibrary.property.projectType"></a>
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-
----
-
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdkConstructLibrary.property.autoApprove"></a>
-
-```typescript
-public readonly autoApprove: AutoApprove;
-```
-
-- *Type:* projen.github.AutoApprove
-
-Auto approve set up for this project.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdkConstructLibrary.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: DevContainer;
-```
-
-- *Type:* projen.vscode.DevContainer
-
-Access for .devcontainer.json (used for GitHub Codespaces).
-
-This will be `undefined` if devContainer boolean is false
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdkConstructLibrary.property.github"></a>
-
-```typescript
-public readonly github: GitHub;
-```
-
-- *Type:* projen.github.GitHub
-
-Access all github components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdkConstructLibrary.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: Gitpod;
-```
-
-- *Type:* projen.Gitpod
-
-Access for Gitpod.
-
-This will be `undefined` if gitpod boolean is false
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdkConstructLibrary.property.vscode"></a>
-
-```typescript
-public readonly vscode: VsCode;
-```
-
-- *Type:* projen.vscode.VsCode
-
-Access all VSCode components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdkConstructLibrary.property.allowLibraryDependencies"></a>
-
-- *Deprecated:* use `package.allowLibraryDependencies`
-
-```typescript
-public readonly allowLibraryDependencies: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdkConstructLibrary.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-
-The build output directory.
-
-An npm tarball will be created under the `js`
-subdirectory. For example, if this is set to `dist` (the default), the npm
-tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
-
----
-
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdkConstructLibrary.property.artifactsJavascriptDirectory"></a>
-
-```typescript
-public readonly artifactsJavascriptDirectory: string;
-```
-
-- *Type:* string
-
-The location of the npm tarball after build (`${artifactsDirectory}/js`).
-
----
-
-##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdkConstructLibrary.property.bundler"></a>
-
-```typescript
-public readonly bundler: Bundler;
-```
-
-- *Type:* projen.javascript.Bundler
-
----
-
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdkConstructLibrary.property.entrypoint"></a>
-
-- *Deprecated:* use `package.entrypoint`
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-
----
-
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdkConstructLibrary.property.manifest"></a>
-
-- *Deprecated:* use `package.addField(x, y)`
-
-```typescript
-public readonly manifest: any;
-```
-
-- *Type:* any
-
----
-
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdkConstructLibrary.property.npmrc"></a>
-
-```typescript
-public readonly npmrc: NpmConfig;
-```
-
-- *Type:* projen.javascript.NpmConfig
-
-The .npmrc file.
-
----
-
-##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdkConstructLibrary.property.package"></a>
-
-```typescript
-public readonly package: NodePackage;
-```
-
-- *Type:* projen.javascript.NodePackage
-
-API for managing the node package.
-
----
-
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdkConstructLibrary.property.packageManager"></a>
-
-- *Deprecated:* use `package.packageManager`
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-
-The package manager to use.
-
----
-
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdkConstructLibrary.property.runScriptCommand"></a>
-
-```typescript
-public readonly runScriptCommand: string;
-```
-
-- *Type:* string
-
-The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdkConstructLibrary.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: AutoMerge;
-```
-
-- *Type:* projen.github.AutoMerge
-
-Component that sets up mergify for merging approved pull requests.
-
----
-
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdkConstructLibrary.property.buildWorkflow"></a>
-
-```typescript
-public readonly buildWorkflow: BuildWorkflow;
-```
-
-- *Type:* projen.build.BuildWorkflow
-
-The PR build GitHub workflow.
-
-`undefined` if `buildWorkflow` is disabled.
-
----
-
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdkConstructLibrary.property.buildWorkflowJobId"></a>
-
-```typescript
-public readonly buildWorkflowJobId: string;
-```
-
-- *Type:* string
-
-The job ID of the build workflow.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdkConstructLibrary.property.jest"></a>
-
-```typescript
-public readonly jest: Jest;
-```
-
-- *Type:* projen.javascript.Jest
-
-The Jest configuration (if enabled).
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibrary.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-
-Maximum node version required by this package.
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibrary.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-
-Minimum node.js version required by this package.
-
----
-
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdkConstructLibrary.property.npmignore"></a>
-
-```typescript
-public readonly npmignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-The .npmignore file.
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdkConstructLibrary.property.prettier"></a>
-
-```typescript
-public readonly prettier: Prettier;
-```
-
-- *Type:* projen.javascript.Prettier
-
----
-
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdkConstructLibrary.property.publisher"></a>
-
-- *Deprecated:* use `release.publisher`.
-
-```typescript
-public readonly publisher: Publisher;
-```
-
-- *Type:* projen.release.Publisher
-
-Package publisher.
-
-This will be `undefined` if the project does not have a
-release workflow.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdkConstructLibrary.property.release"></a>
-
-```typescript
-public readonly release: Release;
-```
-
-- *Type:* projen.release.Release
-
-Release management.
-
----
-
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdkConstructLibrary.property.upgradeWorkflow"></a>
-
-```typescript
-public readonly upgradeWorkflow: UpgradeDependencies;
-```
-
-- *Type:* projen.javascript.UpgradeDependencies
-
-The upgrade workflow.
-
----
-
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdkConstructLibrary.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-
----
-
-##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdkConstructLibrary.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-
-The directory in which compiled .js files reside.
-
----
-
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdkConstructLibrary.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-
-The directory in which the .ts sources reside.
-
----
-
-##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdkConstructLibrary.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-
-The directory in which tests reside.
-
----
-
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
-A typescript configuration file which covers all files (sources, tests, projen).
-
----
-
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdkConstructLibrary.property.watchTask"></a>
-
-```typescript
-public readonly watchTask: Task;
-```
-
-- *Type:* projen.Task
-
-The "watch" task.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdkConstructLibrary.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdkConstructLibrary.property.eslint"></a>
-
-```typescript
-public readonly eslint: Eslint;
-```
-
-- *Type:* projen.javascript.Eslint
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfigEslint"></a>
-
-```typescript
-public readonly tsconfigEslint: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `cdkDeps`<sup>Required</sup> <a name="cdkDeps" id="cdklabs-projen-project-types.CdkConstructLibrary.property.cdkDeps"></a>
-
-```typescript
-public readonly cdkDeps: AwsCdkDeps;
-```
-
-- *Type:* projen.awscdk.AwsCdkDeps
-
----
-
-##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="cdklabs-projen-project-types.CdkConstructLibrary.property.cdkVersion"></a>
-
-```typescript
-public readonly cdkVersion: string;
-```
-
-- *Type:* string
-
-The target CDK version for this library.
-
----
-
-##### ~~`version`~~<sup>Required</sup> <a name="version" id="cdklabs-projen-project-types.CdkConstructLibrary.property.version"></a>
-
-- *Deprecated:* use `cdkVersion`
-
-```typescript
-public readonly version: string;
-```
-
-- *Type:* string
-
----
-
-##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdkConstructLibrary.property.private"></a>
-
-```typescript
-public readonly private: boolean;
-```
-
-- *Type:* boolean
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
-
----
-
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdkConstructLibrary.property.DEFAULT_TASK"></a>
-
-```typescript
-public readonly DEFAULT_TASK: string;
-```
-
-- *Type:* string
-
-The name of the default task (the task executed when `projen` is run without arguments).
-
-Normally
-this task should synthesize the project files.
-
----
-
-### CdkJsiiProject <a name="CdkJsiiProject" id="cdklabs-projen-project-types.CdkJsiiProject"></a>
-
-Create a Cdk Jsii Jsii project.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdkJsiiProject.Initializer"></a>
-
-```typescript
-import { CdkJsiiProject } from 'cdklabs-projen-project-types'
-
-new CdkJsiiProject(options: CdkJsiiProjectOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions">CdkJsiiProjectOptions</a></code> | *No description.* |
-
----
-
-##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdkJsiiProject.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions">CdkJsiiProjectOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-
----
-
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdkJsiiProject.addExcludeFromCleanup"></a>
-
-```typescript
-public addExcludeFromCleanup(globs: string): void
-```
-
-Exclude the matching files from pre-synth cleanup.
-
-Can be used when, for example, some
-source files include the projen marker and we don't want them to be erased during synth.
-
-###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdkJsiiProject.addExcludeFromCleanup.parameter.globs"></a>
-
-- *Type:* string
-
-The glob patterns to match.
-
----
-
-##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdkJsiiProject.addGitIgnore"></a>
-
-```typescript
-public addGitIgnore(pattern: string): void
-```
-
-Adds a .gitignore pattern.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkJsiiProject.addGitIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
-The glob pattern to ignore.
-
----
-
-##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdkJsiiProject.addPackageIgnore"></a>
-
-```typescript
-public addPackageIgnore(pattern: string): void
-```
-
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkJsiiProject.addPackageIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
----
-
-##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdkJsiiProject.addTask"></a>
-
-```typescript
-public addTask(name: string, props?: TaskOptions): Task
-```
-
-Adds a new task to this project.
-
-This will fail if the project already has
-a task with this name.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.addTask.parameter.name"></a>
-
-- *Type:* string
-
-The task name to add.
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdkJsiiProject.addTask.parameter.props"></a>
-
-- *Type:* projen.TaskOptions
-
-Task properties.
-
----
-
-##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdkJsiiProject.addTip"></a>
-
-```typescript
-public addTip(message: string): void
-```
-
-Prints a "tip" message during synthesis.
-
-###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdkJsiiProject.addTip.parameter.message"></a>
-
-- *Type:* string
-
-The message.
-
----
-
-##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdkJsiiProject.annotateGenerated"></a>
-
-```typescript
-public annotateGenerated(glob: string): void
-```
-
-Marks the provided file(s) as being generated.
-
-This is achieved using the
-github-linguist attributes. Generated files do not count against the
-repository statistics and language breakdown.
-
-> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
-
-###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdkJsiiProject.annotateGenerated.parameter.glob"></a>
-
-- *Type:* string
-
-the glob pattern to match (could be a file path).
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdkJsiiProject.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after all components are synthesized.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdkJsiiProject.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before all components are synthesized.
-
-##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdkJsiiProject.removeTask"></a>
-
-```typescript
-public removeTask(name: string): Task
-```
-
-Removes a task from a project.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.removeTask.parameter.name"></a>
-
-- *Type:* string
-
-The name of the task to remove.
-
----
-
-##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdkJsiiProject.runTaskCommand"></a>
-
-```typescript
-public runTaskCommand(task: Task): string
-```
-
-Returns the shell command to execute in order to run a task.
-
-This will
-typically be `npx projen TASK`.
-
-###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdkJsiiProject.runTaskCommand.parameter.task"></a>
-
-- *Type:* projen.Task
-
-The task for which the command is required.
-
----
-
-##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdkJsiiProject.synth"></a>
-
-```typescript
-public synth(): void
-```
-
-Synthesize all project files into `outdir`.
-
-1. Call "this.preSynthesize()"
-2. Delete all generated files
-3. Synthesize all sub-projects
-4. Synthesize all components of this project
-5. Call "postSynthesize()" for all components of this project
-6. Call "this.postSynthesize()"
-
-##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindFile"></a>
-
-```typescript
-public tryFindFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and all its subprojects.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be resolved
-from the root of _this_ project.
-
----
-
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindJsonFile"></a>
-
-```typescript
-public tryFindJsonFile(filePath: string): JsonFile
-```
-
-Finds a json file by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindJsonFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindObjectFile"></a>
-
-```typescript
-public tryFindObjectFile(filePath: string): ObjectFile
-```
-
-Finds an object file (like JsonFile, YamlFile, etc.) by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkJsiiProject.tryFindObjectFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdkJsiiProject.tryRemoveFile"></a>
-
-```typescript
-public tryRemoveFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and removes it.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkJsiiProject.tryRemoveFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be
-resolved from the root of _this_ project.
-
----
-
-##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdkJsiiProject.addBins"></a>
-
-```typescript
-public addBins(bins: {[ key: string ]: string}): void
-```
-
-###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdkJsiiProject.addBins.parameter.bins"></a>
-
-- *Type:* {[ key: string ]: string}
-
----
-
-##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdkJsiiProject.addBundledDeps"></a>
-
-```typescript
-public addBundledDeps(deps: string): void
-```
-
-Defines bundled dependencies.
-
-Bundled dependencies will be added as normal dependencies as well as to the
-`bundledDependencies` section of your `package.json`.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.addBundledDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdkJsiiProject.addCompileCommand"></a>
-
-```typescript
-public addCompileCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkJsiiProject.addCompileCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdkJsiiProject.addDeps"></a>
-
-```typescript
-public addDeps(deps: string): void
-```
-
-Defines normal dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.addDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdkJsiiProject.addDevDeps"></a>
-
-```typescript
-public addDevDeps(deps: string): void
-```
-
-Defines development/test dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.addDevDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdkJsiiProject.addFields"></a>
-
-```typescript
-public addFields(fields: {[ key: string ]: any}): void
-```
-
-Directly set fields in `package.json`.
-
-###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdkJsiiProject.addFields.parameter.fields"></a>
-
-- *Type:* {[ key: string ]: any}
-
-The fields to set.
-
----
-
-##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdkJsiiProject.addKeywords"></a>
-
-```typescript
-public addKeywords(keywords: string): void
-```
-
-Adds keywords to package.json (deduplicated).
-
-###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdkJsiiProject.addKeywords.parameter.keywords"></a>
-
-- *Type:* string
-
-The keywords to add.
-
----
-
-##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdkJsiiProject.addPeerDeps"></a>
-
-```typescript
-public addPeerDeps(deps: string): void
-```
-
-Defines peer dependencies.
-
-When adding peer dependencies, a devDependency will also be added on the
-pinned version of the declared peer. This will ensure that you are testing
-your code against the minimum version required from your consumers.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.addPeerDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdkJsiiProject.addScripts"></a>
-
-```typescript
-public addScripts(scripts: {[ key: string ]: string}): void
-```
-
-Replaces the contents of multiple npm package.json scripts.
-
-###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkJsiiProject.addScripts.parameter.scripts"></a>
-
-- *Type:* {[ key: string ]: string}
-
-The scripts to set.
-
----
-
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdkJsiiProject.addTestCommand"></a>
-
-```typescript
-public addTestCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkJsiiProject.addTestCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdkJsiiProject.hasScript"></a>
-
-```typescript
-public hasScript(name: string): boolean
-```
-
-Indicates if a script by the name name is defined.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.hasScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdkJsiiProject.removeScript"></a>
-
-```typescript
-public removeScript(name: string): void
-```
-
-Removes the npm script (always successful).
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.removeScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdkJsiiProject.renderWorkflowSetup"></a>
-
-```typescript
-public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
-```
-
-Returns the set of workflow steps which should be executed to bootstrap a workflow.
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdkJsiiProject.renderWorkflowSetup.parameter.options"></a>
-
-- *Type:* projen.javascript.RenderWorkflowSetupOptions
-
-Options.
-
----
-
-##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdkJsiiProject.setScript"></a>
-
-```typescript
-public setScript(name: string, command: string): void
-```
-
-Replaces the contents of an npm package.json script.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.setScript.parameter.name"></a>
-
-- *Type:* string
-
-The script name.
-
----
-
-###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdkJsiiProject.setScript.parameter.command"></a>
-
-- *Type:* string
-
-The command to execute.
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.private">private</a></code> | <code>boolean</code> | *No description.* |
-
----
-
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.buildTask"></a>
-
-```typescript
-public readonly buildTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdkJsiiProject.property.commitGenerated"></a>
-
-```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-
-Whether to commit the managed files by default.
-
----
-
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.compileTask"></a>
-
-```typescript
-public readonly compileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdkJsiiProject.property.components"></a>
-
-```typescript
-public readonly components: Component[];
-```
-
-- *Type:* projen.Component[]
-
-Returns all the components within this project.
-
----
-
-##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkJsiiProject.property.deps"></a>
-
-```typescript
-public readonly deps: Dependencies;
-```
-
-- *Type:* projen.Dependencies
-
-Project dependencies.
-
----
-
-##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdkJsiiProject.property.ejected"></a>
-
-```typescript
-public readonly ejected: boolean;
-```
-
-- *Type:* boolean
-
-Whether or not the project is being ejected.
-
----
-
-##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdkJsiiProject.property.files"></a>
-
-```typescript
-public readonly files: FileBase[];
-```
-
-- *Type:* projen.FileBase[]
-
-All files in this project.
-
----
-
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdkJsiiProject.property.gitattributes"></a>
-
-```typescript
-public readonly gitattributes: GitAttributesFile;
-```
-
-- *Type:* projen.GitAttributesFile
-
-The .gitattributes file for this repository.
-
----
-
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdkJsiiProject.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-.gitignore.
-
----
-
-##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdkJsiiProject.property.logger"></a>
-
-```typescript
-public readonly logger: Logger;
-```
-
-- *Type:* projen.Logger
-
-Logging utilities.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkJsiiProject.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-Project name.
-
----
-
-##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdkJsiiProject.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
-```
-
-- *Type:* string
-
-Absolute output directory of this project.
-
----
-
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.packageTask"></a>
-
-```typescript
-public readonly packageTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.postCompileTask"></a>
-
-```typescript
-public readonly postCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.preCompileTask"></a>
-
-```typescript
-public readonly preCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdkJsiiProject.property.projectBuild"></a>
-
-```typescript
-public readonly projectBuild: ProjectBuild;
-```
-
-- *Type:* projen.ProjectBuild
-
-Manages the build process of the project.
-
----
-
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdkJsiiProject.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-
-The command to use in order to run the projen CLI.
-
----
-
-##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdkJsiiProject.property.root"></a>
-
-```typescript
-public readonly root: Project;
-```
-
-- *Type:* projen.Project
-
-The root project.
-
----
-
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdkJsiiProject.property.subprojects"></a>
-
-```typescript
-public readonly subprojects: Project[];
-```
-
-- *Type:* projen.Project[]
-
-Returns all the subprojects within this project.
-
----
-
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdkJsiiProject.property.tasks"></a>
-
-```typescript
-public readonly tasks: Tasks;
-```
-
-- *Type:* projen.Tasks
-
-Project tasks.
-
----
-
-##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.testTask"></a>
-
-```typescript
-public readonly testTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
-Undefined if
-the project is being ejected.
-
----
-
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdkJsiiProject.property.initProject"></a>
-
-```typescript
-public readonly initProject: InitProject;
-```
-
-- *Type:* projen.InitProject
-
-The options used when this project is bootstrapped via `projen new`.
-
-It
-includes the original set of options passed to the CLI and also the JSII
-FQN of the project type.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdkJsiiProject.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-A parent project.
-
-If undefined, this is the root project.
-
----
-
-##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdkJsiiProject.property.projectType"></a>
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-
----
-
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdkJsiiProject.property.autoApprove"></a>
-
-```typescript
-public readonly autoApprove: AutoApprove;
-```
-
-- *Type:* projen.github.AutoApprove
-
-Auto approve set up for this project.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdkJsiiProject.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: DevContainer;
-```
-
-- *Type:* projen.vscode.DevContainer
-
-Access for .devcontainer.json (used for GitHub Codespaces).
-
-This will be `undefined` if devContainer boolean is false
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdkJsiiProject.property.github"></a>
-
-```typescript
-public readonly github: GitHub;
-```
-
-- *Type:* projen.github.GitHub
-
-Access all github components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdkJsiiProject.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: Gitpod;
-```
-
-- *Type:* projen.Gitpod
-
-Access for Gitpod.
-
-This will be `undefined` if gitpod boolean is false
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdkJsiiProject.property.vscode"></a>
-
-```typescript
-public readonly vscode: VsCode;
-```
-
-- *Type:* projen.vscode.VsCode
-
-Access all VSCode components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdkJsiiProject.property.allowLibraryDependencies"></a>
-
-- *Deprecated:* use `package.allowLibraryDependencies`
-
-```typescript
-public readonly allowLibraryDependencies: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdkJsiiProject.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-
-The build output directory.
-
-An npm tarball will be created under the `js`
-subdirectory. For example, if this is set to `dist` (the default), the npm
-tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
-
----
-
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdkJsiiProject.property.artifactsJavascriptDirectory"></a>
-
-```typescript
-public readonly artifactsJavascriptDirectory: string;
-```
-
-- *Type:* string
-
-The location of the npm tarball after build (`${artifactsDirectory}/js`).
-
----
-
-##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdkJsiiProject.property.bundler"></a>
-
-```typescript
-public readonly bundler: Bundler;
-```
-
-- *Type:* projen.javascript.Bundler
-
----
-
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdkJsiiProject.property.entrypoint"></a>
-
-- *Deprecated:* use `package.entrypoint`
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-
----
-
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdkJsiiProject.property.manifest"></a>
-
-- *Deprecated:* use `package.addField(x, y)`
-
-```typescript
-public readonly manifest: any;
-```
-
-- *Type:* any
-
----
-
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdkJsiiProject.property.npmrc"></a>
-
-```typescript
-public readonly npmrc: NpmConfig;
-```
-
-- *Type:* projen.javascript.NpmConfig
-
-The .npmrc file.
-
----
-
-##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdkJsiiProject.property.package"></a>
-
-```typescript
-public readonly package: NodePackage;
-```
-
-- *Type:* projen.javascript.NodePackage
-
-API for managing the node package.
-
----
-
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdkJsiiProject.property.packageManager"></a>
-
-- *Deprecated:* use `package.packageManager`
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-
-The package manager to use.
-
----
-
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdkJsiiProject.property.runScriptCommand"></a>
-
-```typescript
-public readonly runScriptCommand: string;
-```
-
-- *Type:* string
-
-The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdkJsiiProject.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: AutoMerge;
-```
-
-- *Type:* projen.github.AutoMerge
-
-Component that sets up mergify for merging approved pull requests.
-
----
-
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdkJsiiProject.property.buildWorkflow"></a>
-
-```typescript
-public readonly buildWorkflow: BuildWorkflow;
-```
-
-- *Type:* projen.build.BuildWorkflow
-
-The PR build GitHub workflow.
-
-`undefined` if `buildWorkflow` is disabled.
-
----
-
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdkJsiiProject.property.buildWorkflowJobId"></a>
-
-```typescript
-public readonly buildWorkflowJobId: string;
-```
-
-- *Type:* string
-
-The job ID of the build workflow.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdkJsiiProject.property.jest"></a>
-
-```typescript
-public readonly jest: Jest;
-```
-
-- *Type:* projen.javascript.Jest
-
-The Jest configuration (if enabled).
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdkJsiiProject.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-
-Maximum node version required by this package.
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdkJsiiProject.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-
-Minimum node.js version required by this package.
-
----
-
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdkJsiiProject.property.npmignore"></a>
-
-```typescript
-public readonly npmignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-The .npmignore file.
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdkJsiiProject.property.prettier"></a>
-
-```typescript
-public readonly prettier: Prettier;
-```
-
-- *Type:* projen.javascript.Prettier
-
----
-
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdkJsiiProject.property.publisher"></a>
-
-- *Deprecated:* use `release.publisher`.
-
-```typescript
-public readonly publisher: Publisher;
-```
-
-- *Type:* projen.release.Publisher
-
-Package publisher.
-
-This will be `undefined` if the project does not have a
-release workflow.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdkJsiiProject.property.release"></a>
-
-```typescript
-public readonly release: Release;
-```
-
-- *Type:* projen.release.Release
-
-Release management.
-
----
-
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdkJsiiProject.property.upgradeWorkflow"></a>
-
-```typescript
-public readonly upgradeWorkflow: UpgradeDependencies;
-```
-
-- *Type:* projen.javascript.UpgradeDependencies
-
-The upgrade workflow.
-
----
-
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdkJsiiProject.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-
----
-
-##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdkJsiiProject.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-
-The directory in which compiled .js files reside.
-
----
-
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdkJsiiProject.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-
-The directory in which the .ts sources reside.
-
----
-
-##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdkJsiiProject.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-
-The directory in which tests reside.
-
----
-
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdkJsiiProject.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
-A typescript configuration file which covers all files (sources, tests, projen).
-
----
-
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdkJsiiProject.property.watchTask"></a>
-
-```typescript
-public readonly watchTask: Task;
-```
-
-- *Type:* projen.Task
-
-The "watch" task.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdkJsiiProject.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdkJsiiProject.property.eslint"></a>
-
-```typescript
-public readonly eslint: Eslint;
-```
-
-- *Type:* projen.javascript.Eslint
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdkJsiiProject.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdkJsiiProject.property.tsconfigEslint"></a>
-
-```typescript
-public readonly tsconfigEslint: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdkJsiiProject.property.private"></a>
-
-```typescript
-public readonly private: boolean;
-```
-
-- *Type:* boolean
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
-
----
-
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdkJsiiProject.property.DEFAULT_TASK"></a>
-
-```typescript
-public readonly DEFAULT_TASK: string;
-```
-
-- *Type:* string
-
-The name of the default task (the task executed when `projen` is run without arguments).
-
-Normally
-this task should synthesize the project files.
-
----
-
-### CdklabsConstructLibrary <a name="CdklabsConstructLibrary" id="cdklabs-projen-project-types.CdklabsConstructLibrary"></a>
-
-Create a Cdklabs Construct Library Project.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdklabsConstructLibrary.Initializer"></a>
-
-```typescript
-import { CdklabsConstructLibrary } from 'cdklabs-projen-project-types'
-
-new CdklabsConstructLibrary(options: CdklabsConstructLibraryOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions">CdklabsConstructLibraryOptions</a></code> | *No description.* |
-
----
-
-##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsConstructLibrary.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions">CdklabsConstructLibraryOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkDependencies">addCdkDependencies</a></code> | Adds dependencies to AWS CDK modules. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkTestDependencies">addCdkTestDependencies</a></code> | Adds AWS CDK modules as dev dependencies. |
-
----
-
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addExcludeFromCleanup"></a>
-
-```typescript
-public addExcludeFromCleanup(globs: string): void
-```
-
-Exclude the matching files from pre-synth cleanup.
-
-Can be used when, for example, some
-source files include the projen marker and we don't want them to be erased during synth.
-
-###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addExcludeFromCleanup.parameter.globs"></a>
-
-- *Type:* string
-
-The glob patterns to match.
-
----
-
-##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addGitIgnore"></a>
-
-```typescript
-public addGitIgnore(pattern: string): void
-```
-
-Adds a .gitignore pattern.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addGitIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
-The glob pattern to ignore.
-
----
-
-##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addPackageIgnore"></a>
-
-```typescript
-public addPackageIgnore(pattern: string): void
-```
-
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addPackageIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
----
-
-##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTask"></a>
-
-```typescript
-public addTask(name: string, props?: TaskOptions): Task
-```
-
-Adds a new task to this project.
-
-This will fail if the project already has
-a task with this name.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTask.parameter.name"></a>
-
-- *Type:* string
-
-The task name to add.
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTask.parameter.props"></a>
-
-- *Type:* projen.TaskOptions
-
-Task properties.
-
----
-
-##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTip"></a>
-
-```typescript
-public addTip(message: string): void
-```
-
-Prints a "tip" message during synthesis.
-
-###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTip.parameter.message"></a>
-
-- *Type:* string
-
-The message.
-
----
-
-##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdklabsConstructLibrary.annotateGenerated"></a>
-
-```typescript
-public annotateGenerated(glob: string): void
-```
-
-Marks the provided file(s) as being generated.
-
-This is achieved using the
-github-linguist attributes. Generated files do not count against the
-repository statistics and language breakdown.
-
-> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
-
-###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdklabsConstructLibrary.annotateGenerated.parameter.glob"></a>
-
-- *Type:* string
-
-the glob pattern to match (could be a file path).
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdklabsConstructLibrary.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after all components are synthesized.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdklabsConstructLibrary.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before all components are synthesized.
-
-##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.removeTask"></a>
-
-```typescript
-public removeTask(name: string): Task
-```
-
-Removes a task from a project.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.removeTask.parameter.name"></a>
-
-- *Type:* string
-
-The name of the task to remove.
-
----
-
-##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.runTaskCommand"></a>
-
-```typescript
-public runTaskCommand(task: Task): string
-```
-
-Returns the shell command to execute in order to run a task.
-
-This will
-typically be `npx projen TASK`.
-
-###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdklabsConstructLibrary.runTaskCommand.parameter.task"></a>
-
-- *Type:* projen.Task
-
-The task for which the command is required.
-
----
-
-##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdklabsConstructLibrary.synth"></a>
-
-```typescript
-public synth(): void
-```
-
-Synthesize all project files into `outdir`.
-
-1. Call "this.preSynthesize()"
-2. Delete all generated files
-3. Synthesize all sub-projects
-4. Synthesize all components of this project
-5. Call "postSynthesize()" for all components of this project
-6. Call "this.postSynthesize()"
-
-##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindFile"></a>
-
-```typescript
-public tryFindFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and all its subprojects.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be resolved
-from the root of _this_ project.
-
----
-
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindJsonFile"></a>
-
-```typescript
-public tryFindJsonFile(filePath: string): JsonFile
-```
-
-Finds a json file by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindJsonFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindObjectFile"></a>
-
-```typescript
-public tryFindObjectFile(filePath: string): ObjectFile
-```
-
-Finds an object file (like JsonFile, YamlFile, etc.) by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryFindObjectFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryRemoveFile"></a>
-
-```typescript
-public tryRemoveFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and removes it.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsConstructLibrary.tryRemoveFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be
-resolved from the root of _this_ project.
-
----
-
-##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addBins"></a>
-
-```typescript
-public addBins(bins: {[ key: string ]: string}): void
-```
-
-###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addBins.parameter.bins"></a>
-
-- *Type:* {[ key: string ]: string}
-
----
-
-##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addBundledDeps"></a>
-
-```typescript
-public addBundledDeps(deps: string): void
-```
-
-Defines bundled dependencies.
-
-Bundled dependencies will be added as normal dependencies as well as to the
-`bundledDependencies` section of your `package.json`.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addBundledDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCompileCommand"></a>
-
-```typescript
-public addCompileCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCompileCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addDeps"></a>
-
-```typescript
-public addDeps(deps: string): void
-```
-
-Defines normal dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addDevDeps"></a>
-
-```typescript
-public addDevDeps(deps: string): void
-```
-
-Defines development/test dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addDevDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addFields"></a>
-
-```typescript
-public addFields(fields: {[ key: string ]: any}): void
-```
-
-Directly set fields in `package.json`.
-
-###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addFields.parameter.fields"></a>
-
-- *Type:* {[ key: string ]: any}
-
-The fields to set.
-
----
-
-##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addKeywords"></a>
-
-```typescript
-public addKeywords(keywords: string): void
-```
-
-Adds keywords to package.json (deduplicated).
-
-###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addKeywords.parameter.keywords"></a>
-
-- *Type:* string
-
-The keywords to add.
-
----
-
-##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addPeerDeps"></a>
-
-```typescript
-public addPeerDeps(deps: string): void
-```
-
-Defines peer dependencies.
-
-When adding peer dependencies, a devDependency will also be added on the
-pinned version of the declared peer. This will ensure that you are testing
-your code against the minimum version required from your consumers.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addPeerDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addScripts"></a>
-
-```typescript
-public addScripts(scripts: {[ key: string ]: string}): void
-```
-
-Replaces the contents of multiple npm package.json scripts.
-
-###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addScripts.parameter.scripts"></a>
-
-- *Type:* {[ key: string ]: string}
-
-The scripts to set.
-
----
-
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTestCommand"></a>
-
-```typescript
-public addTestCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addTestCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdklabsConstructLibrary.hasScript"></a>
-
-```typescript
-public hasScript(name: string): boolean
-```
-
-Indicates if a script by the name name is defined.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.hasScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdklabsConstructLibrary.removeScript"></a>
-
-```typescript
-public removeScript(name: string): void
-```
-
-Removes the npm script (always successful).
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.removeScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdklabsConstructLibrary.renderWorkflowSetup"></a>
-
-```typescript
-public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
-```
-
-Returns the set of workflow steps which should be executed to bootstrap a workflow.
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsConstructLibrary.renderWorkflowSetup.parameter.options"></a>
-
-- *Type:* projen.javascript.RenderWorkflowSetupOptions
-
-Options.
-
----
-
-##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdklabsConstructLibrary.setScript"></a>
-
-```typescript
-public setScript(name: string, command: string): void
-```
-
-Replaces the contents of an npm package.json script.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.setScript.parameter.name"></a>
-
-- *Type:* string
-
-The script name.
-
----
-
-###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdklabsConstructLibrary.setScript.parameter.command"></a>
-
-- *Type:* string
-
-The command to execute.
-
----
-
-##### ~~`addCdkDependencies`~~ <a name="addCdkDependencies" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkDependencies"></a>
-
-```typescript
-public addCdkDependencies(deps: string): void
-```
-
-Adds dependencies to AWS CDK modules.
-
-Since this is a library project, dependencies will be added as peer dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkDependencies.parameter.deps"></a>
-
-- *Type:* string
-
-names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
-
----
-
-##### ~~`addCdkTestDependencies`~~ <a name="addCdkTestDependencies" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkTestDependencies"></a>
-
-```typescript
-public addCdkTestDependencies(deps: string): void
-```
-
-Adds AWS CDK modules as dev dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addCdkTestDependencies.parameter.deps"></a>
-
-- *Type:* string
-
-names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.cdkDeps">cdkDeps</a></code> | <code>projen.awscdk.AwsCdkDeps</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | The target CDK version for this library. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.version">version</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.private">private</a></code> | <code>boolean</code> | *No description.* |
-
----
-
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildTask"></a>
-
-```typescript
-public readonly buildTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.commitGenerated"></a>
-
-```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-
-Whether to commit the managed files by default.
-
----
-
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.compileTask"></a>
-
-```typescript
-public readonly compileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.components"></a>
-
-```typescript
-public readonly components: Component[];
-```
-
-- *Type:* projen.Component[]
-
-Returns all the components within this project.
-
----
-
-##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.deps"></a>
-
-```typescript
-public readonly deps: Dependencies;
-```
-
-- *Type:* projen.Dependencies
-
-Project dependencies.
-
----
-
-##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.ejected"></a>
-
-```typescript
-public readonly ejected: boolean;
-```
-
-- *Type:* boolean
-
-Whether or not the project is being ejected.
-
----
-
-##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.files"></a>
-
-```typescript
-public readonly files: FileBase[];
-```
-
-- *Type:* projen.FileBase[]
-
-All files in this project.
-
----
-
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitattributes"></a>
-
-```typescript
-public readonly gitattributes: GitAttributesFile;
-```
-
-- *Type:* projen.GitAttributesFile
-
-The .gitattributes file for this repository.
-
----
-
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-.gitignore.
-
----
-
-##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.logger"></a>
-
-```typescript
-public readonly logger: Logger;
-```
-
-- *Type:* projen.Logger
-
-Logging utilities.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-Project name.
-
----
-
-##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
-```
-
-- *Type:* string
-
-Absolute output directory of this project.
-
----
-
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.packageTask"></a>
-
-```typescript
-public readonly packageTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.postCompileTask"></a>
-
-```typescript
-public readonly postCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.preCompileTask"></a>
-
-```typescript
-public readonly preCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.projectBuild"></a>
-
-```typescript
-public readonly projectBuild: ProjectBuild;
-```
-
-- *Type:* projen.ProjectBuild
-
-Manages the build process of the project.
-
----
-
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-
-The command to use in order to run the projen CLI.
-
----
-
-##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.root"></a>
-
-```typescript
-public readonly root: Project;
-```
-
-- *Type:* projen.Project
-
-The root project.
-
----
-
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.subprojects"></a>
-
-```typescript
-public readonly subprojects: Project[];
-```
-
-- *Type:* projen.Project[]
-
-Returns all the subprojects within this project.
-
----
-
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.tasks"></a>
-
-```typescript
-public readonly tasks: Tasks;
-```
-
-- *Type:* projen.Tasks
-
-Project tasks.
-
----
-
-##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.testTask"></a>
-
-```typescript
-public readonly testTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
-Undefined if
-the project is being ejected.
-
----
-
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.initProject"></a>
-
-```typescript
-public readonly initProject: InitProject;
-```
-
-- *Type:* projen.InitProject
-
-The options used when this project is bootstrapped via `projen new`.
-
-It
-includes the original set of options passed to the CLI and also the JSII
-FQN of the project type.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-A parent project.
-
-If undefined, this is the root project.
-
----
-
-##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.projectType"></a>
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-
----
-
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.autoApprove"></a>
-
-```typescript
-public readonly autoApprove: AutoApprove;
-```
-
-- *Type:* projen.github.AutoApprove
-
-Auto approve set up for this project.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: DevContainer;
-```
-
-- *Type:* projen.vscode.DevContainer
-
-Access for .devcontainer.json (used for GitHub Codespaces).
-
-This will be `undefined` if devContainer boolean is false
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.github"></a>
-
-```typescript
-public readonly github: GitHub;
-```
-
-- *Type:* projen.github.GitHub
-
-Access all github components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: Gitpod;
-```
-
-- *Type:* projen.Gitpod
-
-Access for Gitpod.
-
-This will be `undefined` if gitpod boolean is false
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.vscode"></a>
-
-```typescript
-public readonly vscode: VsCode;
-```
-
-- *Type:* projen.vscode.VsCode
-
-Access all VSCode components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.allowLibraryDependencies"></a>
-
-- *Deprecated:* use `package.allowLibraryDependencies`
-
-```typescript
-public readonly allowLibraryDependencies: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-
-The build output directory.
-
-An npm tarball will be created under the `js`
-subdirectory. For example, if this is set to `dist` (the default), the npm
-tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
-
----
-
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.artifactsJavascriptDirectory"></a>
-
-```typescript
-public readonly artifactsJavascriptDirectory: string;
-```
-
-- *Type:* string
-
-The location of the npm tarball after build (`${artifactsDirectory}/js`).
-
----
-
-##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.bundler"></a>
-
-```typescript
-public readonly bundler: Bundler;
-```
-
-- *Type:* projen.javascript.Bundler
-
----
-
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.entrypoint"></a>
-
-- *Deprecated:* use `package.entrypoint`
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-
----
-
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.manifest"></a>
-
-- *Deprecated:* use `package.addField(x, y)`
-
-```typescript
-public readonly manifest: any;
-```
-
-- *Type:* any
-
----
-
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmrc"></a>
-
-```typescript
-public readonly npmrc: NpmConfig;
-```
-
-- *Type:* projen.javascript.NpmConfig
-
-The .npmrc file.
-
----
-
-##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.package"></a>
-
-```typescript
-public readonly package: NodePackage;
-```
-
-- *Type:* projen.javascript.NodePackage
-
-API for managing the node package.
-
----
-
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.packageManager"></a>
-
-- *Deprecated:* use `package.packageManager`
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-
-The package manager to use.
-
----
-
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.runScriptCommand"></a>
-
-```typescript
-public readonly runScriptCommand: string;
-```
-
-- *Type:* string
-
-The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: AutoMerge;
-```
-
-- *Type:* projen.github.AutoMerge
-
-Component that sets up mergify for merging approved pull requests.
-
----
-
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildWorkflow"></a>
-
-```typescript
-public readonly buildWorkflow: BuildWorkflow;
-```
-
-- *Type:* projen.build.BuildWorkflow
-
-The PR build GitHub workflow.
-
-`undefined` if `buildWorkflow` is disabled.
-
----
-
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.buildWorkflowJobId"></a>
-
-```typescript
-public readonly buildWorkflowJobId: string;
-```
-
-- *Type:* string
-
-The job ID of the build workflow.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.jest"></a>
-
-```typescript
-public readonly jest: Jest;
-```
-
-- *Type:* projen.javascript.Jest
-
-The Jest configuration (if enabled).
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-
-Maximum node version required by this package.
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-
-Minimum node.js version required by this package.
-
----
-
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.npmignore"></a>
-
-```typescript
-public readonly npmignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-The .npmignore file.
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.prettier"></a>
-
-```typescript
-public readonly prettier: Prettier;
-```
-
-- *Type:* projen.javascript.Prettier
-
----
-
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.publisher"></a>
-
-- *Deprecated:* use `release.publisher`.
-
-```typescript
-public readonly publisher: Publisher;
-```
-
-- *Type:* projen.release.Publisher
-
-Package publisher.
-
-This will be `undefined` if the project does not have a
-release workflow.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.release"></a>
-
-```typescript
-public readonly release: Release;
-```
-
-- *Type:* projen.release.Release
-
-Release management.
-
----
-
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.upgradeWorkflow"></a>
-
-```typescript
-public readonly upgradeWorkflow: UpgradeDependencies;
-```
-
-- *Type:* projen.javascript.UpgradeDependencies
-
-The upgrade workflow.
-
----
-
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-
----
-
-##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-
-The directory in which compiled .js files reside.
-
----
-
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-
-The directory in which the .ts sources reside.
-
----
-
-##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-
-The directory in which tests reside.
-
----
-
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
-A typescript configuration file which covers all files (sources, tests, projen).
-
----
-
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.watchTask"></a>
-
-```typescript
-public readonly watchTask: Task;
-```
-
-- *Type:* projen.Task
-
-The "watch" task.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.eslint"></a>
-
-```typescript
-public readonly eslint: Eslint;
-```
-
-- *Type:* projen.javascript.Eslint
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfigEslint"></a>
-
-```typescript
-public readonly tsconfigEslint: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `cdkDeps`<sup>Required</sup> <a name="cdkDeps" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.cdkDeps"></a>
-
-```typescript
-public readonly cdkDeps: AwsCdkDeps;
-```
-
-- *Type:* projen.awscdk.AwsCdkDeps
-
----
-
-##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.cdkVersion"></a>
-
-```typescript
-public readonly cdkVersion: string;
-```
-
-- *Type:* string
-
-The target CDK version for this library.
-
----
-
-##### ~~`version`~~<sup>Required</sup> <a name="version" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.version"></a>
-
-- *Deprecated:* use `cdkVersion`
-
-```typescript
-public readonly version: string;
-```
-
-- *Type:* string
-
----
-
-##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.private"></a>
-
-```typescript
-public readonly private: boolean;
-```
-
-- *Type:* boolean
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
-
----
-
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.DEFAULT_TASK"></a>
-
-```typescript
-public readonly DEFAULT_TASK: string;
-```
-
-- *Type:* string
-
-The name of the default task (the task executed when `projen` is run without arguments).
-
-Normally
-this task should synthesize the project files.
-
----
-
-### CdklabsJsiiProject <a name="CdklabsJsiiProject" id="cdklabs-projen-project-types.CdklabsJsiiProject"></a>
-
-Create a Cdklabs Jsii Project.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdklabsJsiiProject.Initializer"></a>
-
-```typescript
-import { CdklabsJsiiProject } from 'cdklabs-projen-project-types'
-
-new CdklabsJsiiProject(options: CdklabsJsiiProjectOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions">CdklabsJsiiProjectOptions</a></code> | *No description.* |
-
----
-
-##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsJsiiProject.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions">CdklabsJsiiProjectOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-
----
-
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdklabsJsiiProject.addExcludeFromCleanup"></a>
-
-```typescript
-public addExcludeFromCleanup(globs: string): void
-```
-
-Exclude the matching files from pre-synth cleanup.
-
-Can be used when, for example, some
-source files include the projen marker and we don't want them to be erased during synth.
-
-###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdklabsJsiiProject.addExcludeFromCleanup.parameter.globs"></a>
-
-- *Type:* string
-
-The glob patterns to match.
-
----
-
-##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdklabsJsiiProject.addGitIgnore"></a>
-
-```typescript
-public addGitIgnore(pattern: string): void
-```
-
-Adds a .gitignore pattern.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsJsiiProject.addGitIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
-The glob pattern to ignore.
-
----
-
-##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdklabsJsiiProject.addPackageIgnore"></a>
-
-```typescript
-public addPackageIgnore(pattern: string): void
-```
-
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsJsiiProject.addPackageIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
----
-
-##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTask"></a>
-
-```typescript
-public addTask(name: string, props?: TaskOptions): Task
-```
-
-Adds a new task to this project.
-
-This will fail if the project already has
-a task with this name.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTask.parameter.name"></a>
-
-- *Type:* string
-
-The task name to add.
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTask.parameter.props"></a>
-
-- *Type:* projen.TaskOptions
-
-Task properties.
-
----
-
-##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTip"></a>
-
-```typescript
-public addTip(message: string): void
-```
-
-Prints a "tip" message during synthesis.
-
-###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTip.parameter.message"></a>
-
-- *Type:* string
-
-The message.
-
----
-
-##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdklabsJsiiProject.annotateGenerated"></a>
-
-```typescript
-public annotateGenerated(glob: string): void
-```
-
-Marks the provided file(s) as being generated.
-
-This is achieved using the
-github-linguist attributes. Generated files do not count against the
-repository statistics and language breakdown.
-
-> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
-
-###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdklabsJsiiProject.annotateGenerated.parameter.glob"></a>
-
-- *Type:* string
-
-the glob pattern to match (could be a file path).
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdklabsJsiiProject.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after all components are synthesized.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdklabsJsiiProject.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before all components are synthesized.
-
-##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.removeTask"></a>
-
-```typescript
-public removeTask(name: string): Task
-```
-
-Removes a task from a project.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.removeTask.parameter.name"></a>
-
-- *Type:* string
-
-The name of the task to remove.
-
----
-
-##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.runTaskCommand"></a>
-
-```typescript
-public runTaskCommand(task: Task): string
-```
-
-Returns the shell command to execute in order to run a task.
-
-This will
-typically be `npx projen TASK`.
-
-###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdklabsJsiiProject.runTaskCommand.parameter.task"></a>
-
-- *Type:* projen.Task
-
-The task for which the command is required.
-
----
-
-##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdklabsJsiiProject.synth"></a>
-
-```typescript
-public synth(): void
-```
-
-Synthesize all project files into `outdir`.
-
-1. Call "this.preSynthesize()"
-2. Delete all generated files
-3. Synthesize all sub-projects
-4. Synthesize all components of this project
-5. Call "postSynthesize()" for all components of this project
-6. Call "this.postSynthesize()"
-
-##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindFile"></a>
-
-```typescript
-public tryFindFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and all its subprojects.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be resolved
-from the root of _this_ project.
-
----
-
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindJsonFile"></a>
-
-```typescript
-public tryFindJsonFile(filePath: string): JsonFile
-```
-
-Finds a json file by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindJsonFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindObjectFile"></a>
-
-```typescript
-public tryFindObjectFile(filePath: string): ObjectFile
-```
-
-Finds an object file (like JsonFile, YamlFile, etc.) by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryFindObjectFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryRemoveFile"></a>
-
-```typescript
-public tryRemoveFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and removes it.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsJsiiProject.tryRemoveFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be
-resolved from the root of _this_ project.
-
----
-
-##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdklabsJsiiProject.addBins"></a>
-
-```typescript
-public addBins(bins: {[ key: string ]: string}): void
-```
-
-###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdklabsJsiiProject.addBins.parameter.bins"></a>
-
-- *Type:* {[ key: string ]: string}
-
----
-
-##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addBundledDeps"></a>
-
-```typescript
-public addBundledDeps(deps: string): void
-```
-
-Defines bundled dependencies.
-
-Bundled dependencies will be added as normal dependencies as well as to the
-`bundledDependencies` section of your `package.json`.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addBundledDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.addCompileCommand"></a>
-
-```typescript
-public addCompileCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsJsiiProject.addCompileCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addDeps"></a>
-
-```typescript
-public addDeps(deps: string): void
-```
-
-Defines normal dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addDevDeps"></a>
-
-```typescript
-public addDevDeps(deps: string): void
-```
-
-Defines development/test dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addDevDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdklabsJsiiProject.addFields"></a>
-
-```typescript
-public addFields(fields: {[ key: string ]: any}): void
-```
-
-Directly set fields in `package.json`.
-
-###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdklabsJsiiProject.addFields.parameter.fields"></a>
-
-- *Type:* {[ key: string ]: any}
-
-The fields to set.
-
----
-
-##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdklabsJsiiProject.addKeywords"></a>
-
-```typescript
-public addKeywords(keywords: string): void
-```
-
-Adds keywords to package.json (deduplicated).
-
-###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdklabsJsiiProject.addKeywords.parameter.keywords"></a>
-
-- *Type:* string
-
-The keywords to add.
-
----
-
-##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addPeerDeps"></a>
-
-```typescript
-public addPeerDeps(deps: string): void
-```
-
-Defines peer dependencies.
-
-When adding peer dependencies, a devDependency will also be added on the
-pinned version of the declared peer. This will ensure that you are testing
-your code against the minimum version required from your consumers.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.addPeerDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdklabsJsiiProject.addScripts"></a>
-
-```typescript
-public addScripts(scripts: {[ key: string ]: string}): void
-```
-
-Replaces the contents of multiple npm package.json scripts.
-
-###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsJsiiProject.addScripts.parameter.scripts"></a>
-
-- *Type:* {[ key: string ]: string}
-
-The scripts to set.
-
----
-
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTestCommand"></a>
-
-```typescript
-public addTestCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsJsiiProject.addTestCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdklabsJsiiProject.hasScript"></a>
-
-```typescript
-public hasScript(name: string): boolean
-```
-
-Indicates if a script by the name name is defined.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.hasScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdklabsJsiiProject.removeScript"></a>
-
-```typescript
-public removeScript(name: string): void
-```
-
-Removes the npm script (always successful).
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.removeScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdklabsJsiiProject.renderWorkflowSetup"></a>
-
-```typescript
-public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
-```
-
-Returns the set of workflow steps which should be executed to bootstrap a workflow.
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsJsiiProject.renderWorkflowSetup.parameter.options"></a>
-
-- *Type:* projen.javascript.RenderWorkflowSetupOptions
-
-Options.
-
----
-
-##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdklabsJsiiProject.setScript"></a>
-
-```typescript
-public setScript(name: string, command: string): void
-```
-
-Replaces the contents of an npm package.json script.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.setScript.parameter.name"></a>
-
-- *Type:* string
-
-The script name.
-
----
-
-###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdklabsJsiiProject.setScript.parameter.command"></a>
-
-- *Type:* string
-
-The command to execute.
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.private">private</a></code> | <code>boolean</code> | *No description.* |
-
----
-
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.buildTask"></a>
-
-```typescript
-public readonly buildTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.commitGenerated"></a>
-
-```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-
-Whether to commit the managed files by default.
-
----
-
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.compileTask"></a>
-
-```typescript
-public readonly compileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.components"></a>
-
-```typescript
-public readonly components: Component[];
-```
-
-- *Type:* projen.Component[]
-
-Returns all the components within this project.
-
----
-
-##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.deps"></a>
-
-```typescript
-public readonly deps: Dependencies;
-```
-
-- *Type:* projen.Dependencies
-
-Project dependencies.
-
----
-
-##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.ejected"></a>
-
-```typescript
-public readonly ejected: boolean;
-```
-
-- *Type:* boolean
-
-Whether or not the project is being ejected.
-
----
-
-##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.files"></a>
-
-```typescript
-public readonly files: FileBase[];
-```
-
-- *Type:* projen.FileBase[]
-
-All files in this project.
-
----
-
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.gitattributes"></a>
-
-```typescript
-public readonly gitattributes: GitAttributesFile;
-```
-
-- *Type:* projen.GitAttributesFile
-
-The .gitattributes file for this repository.
-
----
-
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-.gitignore.
-
----
-
-##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.logger"></a>
-
-```typescript
-public readonly logger: Logger;
-```
-
-- *Type:* projen.Logger
-
-Logging utilities.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-Project name.
-
----
-
-##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
-```
-
-- *Type:* string
-
-Absolute output directory of this project.
-
----
-
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.packageTask"></a>
-
-```typescript
-public readonly packageTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.postCompileTask"></a>
-
-```typescript
-public readonly postCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.preCompileTask"></a>
-
-```typescript
-public readonly preCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.projectBuild"></a>
-
-```typescript
-public readonly projectBuild: ProjectBuild;
-```
-
-- *Type:* projen.ProjectBuild
-
-Manages the build process of the project.
-
----
-
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-
-The command to use in order to run the projen CLI.
-
----
-
-##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.root"></a>
-
-```typescript
-public readonly root: Project;
-```
-
-- *Type:* projen.Project
-
-The root project.
-
----
-
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.subprojects"></a>
-
-```typescript
-public readonly subprojects: Project[];
-```
-
-- *Type:* projen.Project[]
-
-Returns all the subprojects within this project.
-
----
-
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.tasks"></a>
-
-```typescript
-public readonly tasks: Tasks;
-```
-
-- *Type:* projen.Tasks
-
-Project tasks.
-
----
-
-##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.testTask"></a>
-
-```typescript
-public readonly testTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
-Undefined if
-the project is being ejected.
-
----
-
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.initProject"></a>
-
-```typescript
-public readonly initProject: InitProject;
-```
-
-- *Type:* projen.InitProject
-
-The options used when this project is bootstrapped via `projen new`.
-
-It
-includes the original set of options passed to the CLI and also the JSII
-FQN of the project type.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-A parent project.
-
-If undefined, this is the root project.
-
----
-
-##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.projectType"></a>
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-
----
-
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.autoApprove"></a>
-
-```typescript
-public readonly autoApprove: AutoApprove;
-```
-
-- *Type:* projen.github.AutoApprove
-
-Auto approve set up for this project.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: DevContainer;
-```
-
-- *Type:* projen.vscode.DevContainer
-
-Access for .devcontainer.json (used for GitHub Codespaces).
-
-This will be `undefined` if devContainer boolean is false
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.github"></a>
-
-```typescript
-public readonly github: GitHub;
-```
-
-- *Type:* projen.github.GitHub
-
-Access all github components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: Gitpod;
-```
-
-- *Type:* projen.Gitpod
-
-Access for Gitpod.
-
-This will be `undefined` if gitpod boolean is false
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.vscode"></a>
-
-```typescript
-public readonly vscode: VsCode;
-```
-
-- *Type:* projen.vscode.VsCode
-
-Access all VSCode components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.allowLibraryDependencies"></a>
-
-- *Deprecated:* use `package.allowLibraryDependencies`
-
-```typescript
-public readonly allowLibraryDependencies: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-
-The build output directory.
-
-An npm tarball will be created under the `js`
-subdirectory. For example, if this is set to `dist` (the default), the npm
-tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
-
----
-
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.artifactsJavascriptDirectory"></a>
-
-```typescript
-public readonly artifactsJavascriptDirectory: string;
-```
-
-- *Type:* string
-
-The location of the npm tarball after build (`${artifactsDirectory}/js`).
-
----
-
-##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.bundler"></a>
-
-```typescript
-public readonly bundler: Bundler;
-```
-
-- *Type:* projen.javascript.Bundler
-
----
-
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.entrypoint"></a>
-
-- *Deprecated:* use `package.entrypoint`
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-
----
-
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.manifest"></a>
-
-- *Deprecated:* use `package.addField(x, y)`
-
-```typescript
-public readonly manifest: any;
-```
-
-- *Type:* any
-
----
-
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.npmrc"></a>
-
-```typescript
-public readonly npmrc: NpmConfig;
-```
-
-- *Type:* projen.javascript.NpmConfig
-
-The .npmrc file.
-
----
-
-##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.package"></a>
-
-```typescript
-public readonly package: NodePackage;
-```
-
-- *Type:* projen.javascript.NodePackage
-
-API for managing the node package.
-
----
-
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.packageManager"></a>
-
-- *Deprecated:* use `package.packageManager`
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-
-The package manager to use.
-
----
-
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.runScriptCommand"></a>
-
-```typescript
-public readonly runScriptCommand: string;
-```
-
-- *Type:* string
-
-The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: AutoMerge;
-```
-
-- *Type:* projen.github.AutoMerge
-
-Component that sets up mergify for merging approved pull requests.
-
----
-
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.buildWorkflow"></a>
-
-```typescript
-public readonly buildWorkflow: BuildWorkflow;
-```
-
-- *Type:* projen.build.BuildWorkflow
-
-The PR build GitHub workflow.
-
-`undefined` if `buildWorkflow` is disabled.
-
----
-
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.buildWorkflowJobId"></a>
-
-```typescript
-public readonly buildWorkflowJobId: string;
-```
-
-- *Type:* string
-
-The job ID of the build workflow.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.jest"></a>
-
-```typescript
-public readonly jest: Jest;
-```
-
-- *Type:* projen.javascript.Jest
-
-The Jest configuration (if enabled).
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-
-Maximum node version required by this package.
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-
-Minimum node.js version required by this package.
-
----
-
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.npmignore"></a>
-
-```typescript
-public readonly npmignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-The .npmignore file.
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.prettier"></a>
-
-```typescript
-public readonly prettier: Prettier;
-```
-
-- *Type:* projen.javascript.Prettier
-
----
-
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.publisher"></a>
-
-- *Deprecated:* use `release.publisher`.
-
-```typescript
-public readonly publisher: Publisher;
-```
-
-- *Type:* projen.release.Publisher
-
-Package publisher.
-
-This will be `undefined` if the project does not have a
-release workflow.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.release"></a>
-
-```typescript
-public readonly release: Release;
-```
-
-- *Type:* projen.release.Release
-
-Release management.
-
----
-
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.upgradeWorkflow"></a>
-
-```typescript
-public readonly upgradeWorkflow: UpgradeDependencies;
-```
-
-- *Type:* projen.javascript.UpgradeDependencies
-
-The upgrade workflow.
-
----
-
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-
----
-
-##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-
-The directory in which compiled .js files reside.
-
----
-
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-
-The directory in which the .ts sources reside.
-
----
-
-##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-
-The directory in which tests reside.
-
----
-
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
-A typescript configuration file which covers all files (sources, tests, projen).
-
----
-
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.watchTask"></a>
-
-```typescript
-public readonly watchTask: Task;
-```
-
-- *Type:* projen.Task
-
-The "watch" task.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.eslint"></a>
-
-```typescript
-public readonly eslint: Eslint;
-```
-
-- *Type:* projen.javascript.Eslint
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfigEslint"></a>
-
-```typescript
-public readonly tsconfigEslint: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.private"></a>
-
-```typescript
-public readonly private: boolean;
-```
-
-- *Type:* boolean
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
-
----
-
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.DEFAULT_TASK"></a>
-
-```typescript
-public readonly DEFAULT_TASK: string;
-```
-
-- *Type:* string
-
-The name of the default task (the task executed when `projen` is run without arguments).
-
-Normally
-this task should synthesize the project files.
-
----
-
-### CdkLabsMonorepo <a name="CdkLabsMonorepo" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo"></a>
-
-Opinionated implementation of yarn.Monorepo.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.Initializer"></a>
-
-```typescript
-import { yarn } from 'cdklabs-projen-project-types'
-
-new yarn.CdkLabsMonorepo(options: CdkLabsMonorepoOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions</code> | *No description.* |
-
----
-
-##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.Initializer.parameter.options"></a>
-
-- *Type:* cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.postSynthesize">postSynthesize</a></code> | Hooks into the install dependencies cycle. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register">register</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies">requestInstallDependencies</a></code> | Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run. |
-
----
-
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup"></a>
-
-```typescript
-public addExcludeFromCleanup(globs: string): void
-```
-
-Exclude the matching files from pre-synth cleanup.
-
-Can be used when, for example, some
-source files include the projen marker and we don't want them to be erased during synth.
-
-###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup.parameter.globs"></a>
-
-- *Type:* string
-
-The glob patterns to match.
-
----
-
-##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore"></a>
-
-```typescript
-public addGitIgnore(pattern: string): void
-```
-
-Adds a .gitignore pattern.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
-The glob pattern to ignore.
-
----
-
-##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore"></a>
-
-```typescript
-public addPackageIgnore(pattern: string): void
-```
-
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
----
-
-##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask"></a>
-
-```typescript
-public addTask(name: string, props?: TaskOptions): Task
-```
-
-Adds a new task to this project.
-
-This will fail if the project already has
-a task with this name.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask.parameter.name"></a>
-
-- *Type:* string
-
-The task name to add.
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTask.parameter.props"></a>
-
-- *Type:* projen.TaskOptions
-
-Task properties.
-
----
-
-##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTip"></a>
-
-```typescript
-public addTip(message: string): void
-```
-
-Prints a "tip" message during synthesis.
-
-###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTip.parameter.message"></a>
-
-- *Type:* string
-
-The message.
-
----
-
-##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.annotateGenerated"></a>
-
-```typescript
-public annotateGenerated(glob: string): void
-```
-
-Marks the provided file(s) as being generated.
-
-This is achieved using the
-github-linguist attributes. Generated files do not count against the
-repository statistics and language breakdown.
-
-> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
-
-###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.annotateGenerated.parameter.glob"></a>
-
-- *Type:* string
-
-the glob pattern to match (could be a file path).
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Hooks into the install dependencies cycle.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before all components are synthesized.
-
-##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeTask"></a>
-
-```typescript
-public removeTask(name: string): Task
-```
-
-Removes a task from a project.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeTask.parameter.name"></a>
-
-- *Type:* string
-
-The name of the task to remove.
-
----
-
-##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand"></a>
-
-```typescript
-public runTaskCommand(task: Task): string
-```
-
-Returns the shell command to execute in order to run a task.
-
-This will
-typically be `npx projen TASK`.
-
-###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand.parameter.task"></a>
-
-- *Type:* projen.Task
-
-The task for which the command is required.
-
----
-
-##### `synth` <a name="synth" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.synth"></a>
-
-```typescript
-public synth(): void
-```
-
-Synthesize all project files into `outdir`.
-
-1. Call "this.preSynthesize()"
-2. Delete all generated files
-3. Synthesize all sub-projects
-4. Synthesize all components of this project
-5. Call "postSynthesize()" for all components of this project
-6. Call "this.postSynthesize()"
-
-##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindFile"></a>
-
-```typescript
-public tryFindFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and all its subprojects.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be resolved
-from the root of _this_ project.
-
----
-
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindJsonFile"></a>
-
-```typescript
-public tryFindJsonFile(filePath: string): JsonFile
-```
-
-Finds a json file by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindJsonFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindObjectFile"></a>
-
-```typescript
-public tryFindObjectFile(filePath: string): ObjectFile
-```
-
-Finds an object file (like JsonFile, YamlFile, etc.) by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryFindObjectFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryRemoveFile"></a>
-
-```typescript
-public tryRemoveFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and removes it.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.tryRemoveFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be
-resolved from the root of _this_ project.
-
----
-
-##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBins"></a>
-
-```typescript
-public addBins(bins: {[ key: string ]: string}): void
-```
-
-###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBins.parameter.bins"></a>
-
-- *Type:* {[ key: string ]: string}
-
----
-
-##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBundledDeps"></a>
-
-```typescript
-public addBundledDeps(deps: string): void
-```
-
-Defines bundled dependencies.
-
-Bundled dependencies will be added as normal dependencies as well as to the
-`bundledDependencies` section of your `package.json`.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addBundledDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addCompileCommand"></a>
-
-```typescript
-public addCompileCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addCompileCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDeps"></a>
-
-```typescript
-public addDeps(deps: string): void
-```
-
-Defines normal dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDevDeps"></a>
-
-```typescript
-public addDevDeps(deps: string): void
-```
-
-Defines development/test dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addDevDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields"></a>
-
-```typescript
-public addFields(fields: {[ key: string ]: any}): void
-```
-
-Directly set fields in `package.json`.
-
-###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addFields.parameter.fields"></a>
-
-- *Type:* {[ key: string ]: any}
-
-The fields to set.
-
----
-
-##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords"></a>
-
-```typescript
-public addKeywords(keywords: string): void
-```
-
-Adds keywords to package.json (deduplicated).
-
-###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addKeywords.parameter.keywords"></a>
-
-- *Type:* string
-
-The keywords to add.
-
----
-
-##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps"></a>
-
-```typescript
-public addPeerDeps(deps: string): void
-```
-
-Defines peer dependencies.
-
-When adding peer dependencies, a devDependency will also be added on the
-pinned version of the declared peer. This will ensure that you are testing
-your code against the minimum version required from your consumers.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPeerDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addScripts"></a>
-
-```typescript
-public addScripts(scripts: {[ key: string ]: string}): void
-```
-
-Replaces the contents of multiple npm package.json scripts.
-
-###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addScripts.parameter.scripts"></a>
-
-- *Type:* {[ key: string ]: string}
-
-The scripts to set.
-
----
-
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand"></a>
-
-```typescript
-public addTestCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addTestCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript"></a>
-
-```typescript
-public hasScript(name: string): boolean
-```
-
-Indicates if a script by the name name is defined.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.hasScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript"></a>
-
-```typescript
-public removeScript(name: string): void
-```
-
-Removes the npm script (always successful).
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup"></a>
-
-```typescript
-public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
-```
-
-Returns the set of workflow steps which should be executed to bootstrap a workflow.
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup.parameter.options"></a>
-
-- *Type:* projen.javascript.RenderWorkflowSetupOptions
-
-Options.
-
----
-
-##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript"></a>
-
-```typescript
-public setScript(name: string, command: string): void
-```
-
-Replaces the contents of an npm package.json script.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript.parameter.name"></a>
-
-- *Type:* string
-
-The script name.
-
----
-
-###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript.parameter.command"></a>
-
-- *Type:* string
-
-The command to execute.
-
----
-
-##### `register` <a name="register" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register"></a>
-
-```typescript
-public register(project: TypeScriptWorkspace): void
-```
-
-###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register.parameter.project"></a>
-
-- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
-
----
-
-##### `requestInstallDependencies` <a name="requestInstallDependencies" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies"></a>
-
-```typescript
-public requestInstallDependencies(resolver: IDependencyResolver): void
-```
-
-Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run.
-
-This is used to resolve dependency versions from `*` to a concrete version constraint.
-
-###### `resolver`<sup>Required</sup> <a name="resolver" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies.parameter.resolver"></a>
-
-- *Type:* cdklabs-projen-project-types.yarn.IDependencyResolver
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-
----
-
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildTask"></a>
-
-```typescript
-public readonly buildTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.commitGenerated"></a>
-
-```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-
-Whether to commit the managed files by default.
-
----
-
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.compileTask"></a>
-
-```typescript
-public readonly compileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.components"></a>
-
-```typescript
-public readonly components: Component[];
-```
-
-- *Type:* projen.Component[]
-
-Returns all the components within this project.
-
----
-
-##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.deps"></a>
-
-```typescript
-public readonly deps: Dependencies;
-```
-
-- *Type:* projen.Dependencies
-
-Project dependencies.
-
----
-
-##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.ejected"></a>
-
-```typescript
-public readonly ejected: boolean;
-```
-
-- *Type:* boolean
-
-Whether or not the project is being ejected.
-
----
-
-##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.files"></a>
-
-```typescript
-public readonly files: FileBase[];
-```
-
-- *Type:* projen.FileBase[]
-
-All files in this project.
-
----
-
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitattributes"></a>
-
-```typescript
-public readonly gitattributes: GitAttributesFile;
-```
-
-- *Type:* projen.GitAttributesFile
-
-The .gitattributes file for this repository.
-
----
-
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-.gitignore.
-
----
-
-##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.logger"></a>
-
-```typescript
-public readonly logger: Logger;
-```
-
-- *Type:* projen.Logger
-
-Logging utilities.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-Project name.
-
----
-
-##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
-```
-
-- *Type:* string
-
-Absolute output directory of this project.
-
----
-
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageTask"></a>
-
-```typescript
-public readonly packageTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.postCompileTask"></a>
-
-```typescript
-public readonly postCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.preCompileTask"></a>
-
-```typescript
-public readonly preCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectBuild"></a>
-
-```typescript
-public readonly projectBuild: ProjectBuild;
-```
-
-- *Type:* projen.ProjectBuild
-
-Manages the build process of the project.
-
----
-
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-
-The command to use in order to run the projen CLI.
-
----
-
-##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.root"></a>
-
-```typescript
-public readonly root: Project;
-```
-
-- *Type:* projen.Project
-
-The root project.
-
----
-
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.subprojects"></a>
-
-```typescript
-public readonly subprojects: Project[];
-```
-
-- *Type:* projen.Project[]
-
-Returns all the subprojects within this project.
-
----
-
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tasks"></a>
-
-```typescript
-public readonly tasks: Tasks;
-```
-
-- *Type:* projen.Tasks
-
-Project tasks.
-
----
-
-##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testTask"></a>
-
-```typescript
-public readonly testTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
-Undefined if
-the project is being ejected.
-
----
-
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.initProject"></a>
-
-```typescript
-public readonly initProject: InitProject;
-```
-
-- *Type:* projen.InitProject
-
-The options used when this project is bootstrapped via `projen new`.
-
-It
-includes the original set of options passed to the CLI and also the JSII
-FQN of the project type.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-A parent project.
-
-If undefined, this is the root project.
-
----
-
-##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectType"></a>
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-
----
-
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoApprove"></a>
-
-```typescript
-public readonly autoApprove: AutoApprove;
-```
-
-- *Type:* projen.github.AutoApprove
-
-Auto approve set up for this project.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: DevContainer;
-```
-
-- *Type:* projen.vscode.DevContainer
-
-Access for .devcontainer.json (used for GitHub Codespaces).
-
-This will be `undefined` if devContainer boolean is false
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.github"></a>
-
-```typescript
-public readonly github: GitHub;
-```
-
-- *Type:* projen.github.GitHub
-
-Access all github components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: Gitpod;
-```
-
-- *Type:* projen.Gitpod
-
-Access for Gitpod.
-
-This will be `undefined` if gitpod boolean is false
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.vscode"></a>
-
-```typescript
-public readonly vscode: VsCode;
-```
-
-- *Type:* projen.vscode.VsCode
-
-Access all VSCode components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.allowLibraryDependencies"></a>
-
-- *Deprecated:* use `package.allowLibraryDependencies`
-
-```typescript
-public readonly allowLibraryDependencies: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-
-The build output directory.
-
-An npm tarball will be created under the `js`
-subdirectory. For example, if this is set to `dist` (the default), the npm
-tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
-
----
-
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.artifactsJavascriptDirectory"></a>
-
-```typescript
-public readonly artifactsJavascriptDirectory: string;
-```
-
-- *Type:* string
-
-The location of the npm tarball after build (`${artifactsDirectory}/js`).
-
----
-
-##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.bundler"></a>
-
-```typescript
-public readonly bundler: Bundler;
-```
-
-- *Type:* projen.javascript.Bundler
-
----
-
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.entrypoint"></a>
-
-- *Deprecated:* use `package.entrypoint`
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-
----
-
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.manifest"></a>
-
-- *Deprecated:* use `package.addField(x, y)`
-
-```typescript
-public readonly manifest: any;
-```
-
-- *Type:* any
-
----
-
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmrc"></a>
-
-```typescript
-public readonly npmrc: NpmConfig;
-```
-
-- *Type:* projen.javascript.NpmConfig
-
-The .npmrc file.
-
----
-
-##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.package"></a>
-
-```typescript
-public readonly package: NodePackage;
-```
-
-- *Type:* projen.javascript.NodePackage
-
-API for managing the node package.
-
----
-
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.packageManager"></a>
-
-- *Deprecated:* use `package.packageManager`
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-
-The package manager to use.
-
----
-
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.runScriptCommand"></a>
-
-```typescript
-public readonly runScriptCommand: string;
-```
-
-- *Type:* string
-
-The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: AutoMerge;
-```
-
-- *Type:* projen.github.AutoMerge
-
-Component that sets up mergify for merging approved pull requests.
-
----
-
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflow"></a>
-
-```typescript
-public readonly buildWorkflow: BuildWorkflow;
-```
-
-- *Type:* projen.build.BuildWorkflow
-
-The PR build GitHub workflow.
-
-`undefined` if `buildWorkflow` is disabled.
-
----
-
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.buildWorkflowJobId"></a>
-
-```typescript
-public readonly buildWorkflowJobId: string;
-```
-
-- *Type:* string
-
-The job ID of the build workflow.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.jest"></a>
-
-```typescript
-public readonly jest: Jest;
-```
-
-- *Type:* projen.javascript.Jest
-
-The Jest configuration (if enabled).
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-
-Maximum node version required by this package.
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-
-Minimum node.js version required by this package.
-
----
-
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.npmignore"></a>
-
-```typescript
-public readonly npmignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-The .npmignore file.
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.prettier"></a>
-
-```typescript
-public readonly prettier: Prettier;
-```
-
-- *Type:* projen.javascript.Prettier
-
----
-
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.publisher"></a>
-
-- *Deprecated:* use `release.publisher`.
-
-```typescript
-public readonly publisher: Publisher;
-```
-
-- *Type:* projen.release.Publisher
-
-Package publisher.
-
-This will be `undefined` if the project does not have a
-release workflow.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.release"></a>
-
-```typescript
-public readonly release: Release;
-```
-
-- *Type:* projen.release.Release
-
-Release management.
-
----
-
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.upgradeWorkflow"></a>
-
-```typescript
-public readonly upgradeWorkflow: UpgradeDependencies;
-```
-
-- *Type:* projen.javascript.UpgradeDependencies
-
-The upgrade workflow.
-
----
-
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-
----
-
-##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-
-The directory in which compiled .js files reside.
-
----
-
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-
-The directory in which the .ts sources reside.
-
----
-
-##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-
-The directory in which tests reside.
-
----
-
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
-A typescript configuration file which covers all files (sources, tests, projen).
-
----
-
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.watchTask"></a>
-
-```typescript
-public readonly watchTask: Task;
-```
-
-- *Type:* projen.Task
-
-The "watch" task.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint"></a>
-
-```typescript
-public readonly eslint: Eslint;
-```
-
-- *Type:* projen.javascript.Eslint
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint"></a>
-
-```typescript
-public readonly tsconfigEslint: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
-
----
-
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.DEFAULT_TASK"></a>
-
-```typescript
-public readonly DEFAULT_TASK: string;
-```
-
-- *Type:* string
-
-The name of the default task (the task executed when `projen` is run without arguments).
-
-Normally
-this task should synthesize the project files.
-
----
-
-### CdklabsTypeScriptProject <a name="CdklabsTypeScriptProject" id="cdklabs-projen-project-types.CdklabsTypeScriptProject"></a>
-
-Create a Cdklabs TypeScript Project.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.Initializer"></a>
-
-```typescript
-import { CdklabsTypeScriptProject } from 'cdklabs-projen-project-types'
-
-new CdklabsTypeScriptProject(options: CdklabsTypeScriptProjectOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions">CdklabsTypeScriptProjectOptions</a></code> | *No description.* |
-
----
-
-##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions">CdklabsTypeScriptProjectOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-
----
-
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addExcludeFromCleanup"></a>
-
-```typescript
-public addExcludeFromCleanup(globs: string): void
-```
-
-Exclude the matching files from pre-synth cleanup.
-
-Can be used when, for example, some
-source files include the projen marker and we don't want them to be erased during synth.
-
-###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addExcludeFromCleanup.parameter.globs"></a>
-
-- *Type:* string
-
-The glob patterns to match.
-
----
-
-##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addGitIgnore"></a>
-
-```typescript
-public addGitIgnore(pattern: string): void
-```
-
-Adds a .gitignore pattern.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addGitIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
-The glob pattern to ignore.
-
----
-
-##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addPackageIgnore"></a>
-
-```typescript
-public addPackageIgnore(pattern: string): void
-```
-
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addPackageIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
----
-
-##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTask"></a>
-
-```typescript
-public addTask(name: string, props?: TaskOptions): Task
-```
-
-Adds a new task to this project.
-
-This will fail if the project already has
-a task with this name.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTask.parameter.name"></a>
-
-- *Type:* string
-
-The task name to add.
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTask.parameter.props"></a>
-
-- *Type:* projen.TaskOptions
-
-Task properties.
-
----
-
-##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTip"></a>
-
-```typescript
-public addTip(message: string): void
-```
-
-Prints a "tip" message during synthesis.
-
-###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTip.parameter.message"></a>
-
-- *Type:* string
-
-The message.
-
----
-
-##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.annotateGenerated"></a>
-
-```typescript
-public annotateGenerated(glob: string): void
-```
-
-Marks the provided file(s) as being generated.
-
-This is achieved using the
-github-linguist attributes. Generated files do not count against the
-repository statistics and language breakdown.
-
-> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
-
-###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.annotateGenerated.parameter.glob"></a>
-
-- *Type:* string
-
-the glob pattern to match (could be a file path).
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after all components are synthesized.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before all components are synthesized.
-
-##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.removeTask"></a>
-
-```typescript
-public removeTask(name: string): Task
-```
-
-Removes a task from a project.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.removeTask.parameter.name"></a>
-
-- *Type:* string
-
-The name of the task to remove.
-
----
-
-##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.runTaskCommand"></a>
-
-```typescript
-public runTaskCommand(task: Task): string
-```
-
-Returns the shell command to execute in order to run a task.
-
-This will
-typically be `npx projen TASK`.
-
-###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.runTaskCommand.parameter.task"></a>
-
-- *Type:* projen.Task
-
-The task for which the command is required.
-
----
-
-##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.synth"></a>
-
-```typescript
-public synth(): void
-```
-
-Synthesize all project files into `outdir`.
-
-1. Call "this.preSynthesize()"
-2. Delete all generated files
-3. Synthesize all sub-projects
-4. Synthesize all components of this project
-5. Call "postSynthesize()" for all components of this project
-6. Call "this.postSynthesize()"
-
-##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindFile"></a>
-
-```typescript
-public tryFindFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and all its subprojects.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be resolved
-from the root of _this_ project.
-
----
-
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindJsonFile"></a>
-
-```typescript
-public tryFindJsonFile(filePath: string): JsonFile
-```
-
-Finds a json file by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindJsonFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindObjectFile"></a>
-
-```typescript
-public tryFindObjectFile(filePath: string): ObjectFile
-```
-
-Finds an object file (like JsonFile, YamlFile, etc.) by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryFindObjectFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryRemoveFile"></a>
-
-```typescript
-public tryRemoveFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and removes it.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.tryRemoveFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be
-resolved from the root of _this_ project.
-
----
-
-##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addBins"></a>
-
-```typescript
-public addBins(bins: {[ key: string ]: string}): void
-```
-
-###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addBins.parameter.bins"></a>
-
-- *Type:* {[ key: string ]: string}
-
----
-
-##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addBundledDeps"></a>
-
-```typescript
-public addBundledDeps(deps: string): void
-```
-
-Defines bundled dependencies.
-
-Bundled dependencies will be added as normal dependencies as well as to the
-`bundledDependencies` section of your `package.json`.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addBundledDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addCompileCommand"></a>
-
-```typescript
-public addCompileCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addCompileCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addDeps"></a>
-
-```typescript
-public addDeps(deps: string): void
-```
-
-Defines normal dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addDevDeps"></a>
-
-```typescript
-public addDevDeps(deps: string): void
-```
-
-Defines development/test dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addDevDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addFields"></a>
-
-```typescript
-public addFields(fields: {[ key: string ]: any}): void
-```
-
-Directly set fields in `package.json`.
-
-###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addFields.parameter.fields"></a>
-
-- *Type:* {[ key: string ]: any}
-
-The fields to set.
-
----
-
-##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addKeywords"></a>
-
-```typescript
-public addKeywords(keywords: string): void
-```
-
-Adds keywords to package.json (deduplicated).
-
-###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addKeywords.parameter.keywords"></a>
-
-- *Type:* string
-
-The keywords to add.
-
----
-
-##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addPeerDeps"></a>
-
-```typescript
-public addPeerDeps(deps: string): void
-```
-
-Defines peer dependencies.
-
-When adding peer dependencies, a devDependency will also be added on the
-pinned version of the declared peer. This will ensure that you are testing
-your code against the minimum version required from your consumers.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addPeerDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addScripts"></a>
-
-```typescript
-public addScripts(scripts: {[ key: string ]: string}): void
-```
-
-Replaces the contents of multiple npm package.json scripts.
-
-###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addScripts.parameter.scripts"></a>
-
-- *Type:* {[ key: string ]: string}
-
-The scripts to set.
-
----
-
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTestCommand"></a>
-
-```typescript
-public addTestCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addTestCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.hasScript"></a>
-
-```typescript
-public hasScript(name: string): boolean
-```
-
-Indicates if a script by the name name is defined.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.hasScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.removeScript"></a>
-
-```typescript
-public removeScript(name: string): void
-```
-
-Removes the npm script (always successful).
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.removeScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.renderWorkflowSetup"></a>
-
-```typescript
-public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
-```
-
-Returns the set of workflow steps which should be executed to bootstrap a workflow.
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.renderWorkflowSetup.parameter.options"></a>
-
-- *Type:* projen.javascript.RenderWorkflowSetupOptions
-
-Options.
-
----
-
-##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.setScript"></a>
-
-```typescript
-public setScript(name: string, command: string): void
-```
-
-Replaces the contents of an npm package.json script.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.setScript.parameter.name"></a>
-
-- *Type:* string
-
-The script name.
-
----
-
-###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.setScript.parameter.command"></a>
-
-- *Type:* string
-
-The command to execute.
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.private">private</a></code> | <code>boolean</code> | *No description.* |
-
----
-
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildTask"></a>
-
-```typescript
-public readonly buildTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.commitGenerated"></a>
-
-```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-
-Whether to commit the managed files by default.
-
----
-
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.compileTask"></a>
-
-```typescript
-public readonly compileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.components"></a>
-
-```typescript
-public readonly components: Component[];
-```
-
-- *Type:* projen.Component[]
-
-Returns all the components within this project.
-
----
-
-##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.deps"></a>
-
-```typescript
-public readonly deps: Dependencies;
-```
-
-- *Type:* projen.Dependencies
-
-Project dependencies.
-
----
-
-##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.ejected"></a>
-
-```typescript
-public readonly ejected: boolean;
-```
-
-- *Type:* boolean
-
-Whether or not the project is being ejected.
-
----
-
-##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.files"></a>
-
-```typescript
-public readonly files: FileBase[];
-```
-
-- *Type:* projen.FileBase[]
-
-All files in this project.
-
----
-
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitattributes"></a>
-
-```typescript
-public readonly gitattributes: GitAttributesFile;
-```
-
-- *Type:* projen.GitAttributesFile
-
-The .gitattributes file for this repository.
-
----
-
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-.gitignore.
-
----
-
-##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.logger"></a>
-
-```typescript
-public readonly logger: Logger;
-```
-
-- *Type:* projen.Logger
-
-Logging utilities.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-Project name.
-
----
-
-##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
-```
-
-- *Type:* string
-
-Absolute output directory of this project.
-
----
-
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.packageTask"></a>
-
-```typescript
-public readonly packageTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.postCompileTask"></a>
-
-```typescript
-public readonly postCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.preCompileTask"></a>
-
-```typescript
-public readonly preCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projectBuild"></a>
-
-```typescript
-public readonly projectBuild: ProjectBuild;
-```
-
-- *Type:* projen.ProjectBuild
-
-Manages the build process of the project.
-
----
-
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-
-The command to use in order to run the projen CLI.
-
----
-
-##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.root"></a>
-
-```typescript
-public readonly root: Project;
-```
-
-- *Type:* projen.Project
-
-The root project.
-
----
-
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.subprojects"></a>
-
-```typescript
-public readonly subprojects: Project[];
-```
-
-- *Type:* projen.Project[]
-
-Returns all the subprojects within this project.
-
----
-
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tasks"></a>
-
-```typescript
-public readonly tasks: Tasks;
-```
-
-- *Type:* projen.Tasks
-
-Project tasks.
-
----
-
-##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testTask"></a>
-
-```typescript
-public readonly testTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
-Undefined if
-the project is being ejected.
-
----
-
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.initProject"></a>
-
-```typescript
-public readonly initProject: InitProject;
-```
-
-- *Type:* projen.InitProject
-
-The options used when this project is bootstrapped via `projen new`.
-
-It
-includes the original set of options passed to the CLI and also the JSII
-FQN of the project type.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-A parent project.
-
-If undefined, this is the root project.
-
----
-
-##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.projectType"></a>
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-
----
-
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.autoApprove"></a>
-
-```typescript
-public readonly autoApprove: AutoApprove;
-```
-
-- *Type:* projen.github.AutoApprove
-
-Auto approve set up for this project.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: DevContainer;
-```
-
-- *Type:* projen.vscode.DevContainer
-
-Access for .devcontainer.json (used for GitHub Codespaces).
-
-This will be `undefined` if devContainer boolean is false
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.github"></a>
-
-```typescript
-public readonly github: GitHub;
-```
-
-- *Type:* projen.github.GitHub
-
-Access all github components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: Gitpod;
-```
-
-- *Type:* projen.Gitpod
-
-Access for Gitpod.
-
-This will be `undefined` if gitpod boolean is false
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.vscode"></a>
-
-```typescript
-public readonly vscode: VsCode;
-```
-
-- *Type:* projen.vscode.VsCode
-
-Access all VSCode components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.allowLibraryDependencies"></a>
-
-- *Deprecated:* use `package.allowLibraryDependencies`
-
-```typescript
-public readonly allowLibraryDependencies: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-
-The build output directory.
-
-An npm tarball will be created under the `js`
-subdirectory. For example, if this is set to `dist` (the default), the npm
-tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
-
----
-
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.artifactsJavascriptDirectory"></a>
-
-```typescript
-public readonly artifactsJavascriptDirectory: string;
-```
-
-- *Type:* string
-
-The location of the npm tarball after build (`${artifactsDirectory}/js`).
-
----
-
-##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.bundler"></a>
-
-```typescript
-public readonly bundler: Bundler;
-```
-
-- *Type:* projen.javascript.Bundler
-
----
-
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.entrypoint"></a>
-
-- *Deprecated:* use `package.entrypoint`
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-
----
-
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.manifest"></a>
-
-- *Deprecated:* use `package.addField(x, y)`
-
-```typescript
-public readonly manifest: any;
-```
-
-- *Type:* any
-
----
-
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmrc"></a>
-
-```typescript
-public readonly npmrc: NpmConfig;
-```
-
-- *Type:* projen.javascript.NpmConfig
-
-The .npmrc file.
-
----
-
-##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.package"></a>
-
-```typescript
-public readonly package: NodePackage;
-```
-
-- *Type:* projen.javascript.NodePackage
-
-API for managing the node package.
-
----
-
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.packageManager"></a>
-
-- *Deprecated:* use `package.packageManager`
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-
-The package manager to use.
-
----
-
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.runScriptCommand"></a>
-
-```typescript
-public readonly runScriptCommand: string;
-```
-
-- *Type:* string
-
-The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: AutoMerge;
-```
-
-- *Type:* projen.github.AutoMerge
-
-Component that sets up mergify for merging approved pull requests.
-
----
-
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildWorkflow"></a>
-
-```typescript
-public readonly buildWorkflow: BuildWorkflow;
-```
-
-- *Type:* projen.build.BuildWorkflow
-
-The PR build GitHub workflow.
-
-`undefined` if `buildWorkflow` is disabled.
-
----
-
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.buildWorkflowJobId"></a>
-
-```typescript
-public readonly buildWorkflowJobId: string;
-```
-
-- *Type:* string
-
-The job ID of the build workflow.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.jest"></a>
-
-```typescript
-public readonly jest: Jest;
-```
-
-- *Type:* projen.javascript.Jest
-
-The Jest configuration (if enabled).
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-
-Maximum node version required by this package.
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-
-Minimum node.js version required by this package.
-
----
-
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.npmignore"></a>
-
-```typescript
-public readonly npmignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-The .npmignore file.
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.prettier"></a>
-
-```typescript
-public readonly prettier: Prettier;
-```
-
-- *Type:* projen.javascript.Prettier
-
----
-
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.publisher"></a>
-
-- *Deprecated:* use `release.publisher`.
-
-```typescript
-public readonly publisher: Publisher;
-```
-
-- *Type:* projen.release.Publisher
-
-Package publisher.
-
-This will be `undefined` if the project does not have a
-release workflow.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.release"></a>
-
-```typescript
-public readonly release: Release;
-```
-
-- *Type:* projen.release.Release
-
-Release management.
-
----
-
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.upgradeWorkflow"></a>
-
-```typescript
-public readonly upgradeWorkflow: UpgradeDependencies;
-```
-
-- *Type:* projen.javascript.UpgradeDependencies
-
-The upgrade workflow.
-
----
-
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-
----
-
-##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-
-The directory in which compiled .js files reside.
-
----
-
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-
-The directory in which the .ts sources reside.
-
----
-
-##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-
-The directory in which tests reside.
-
----
-
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
-A typescript configuration file which covers all files (sources, tests, projen).
-
----
-
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.watchTask"></a>
-
-```typescript
-public readonly watchTask: Task;
-```
-
-- *Type:* projen.Task
-
-The "watch" task.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.eslint"></a>
-
-```typescript
-public readonly eslint: Eslint;
-```
-
-- *Type:* projen.javascript.Eslint
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfigEslint"></a>
-
-```typescript
-public readonly tsconfigEslint: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.private"></a>
-
-```typescript
-public readonly private: boolean;
-```
-
-- *Type:* boolean
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
-
----
-
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.DEFAULT_TASK"></a>
-
-```typescript
-public readonly DEFAULT_TASK: string;
-```
-
-- *Type:* string
-
-The name of the default task (the task executed when `projen` is run without arguments).
-
-Normally
-this task should synthesize the project files.
-
----
-
-### CdkTypeScriptProject <a name="CdkTypeScriptProject" id="cdklabs-projen-project-types.CdkTypeScriptProject"></a>
-
-Create a Cdk TypeScript Project.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdkTypeScriptProject.Initializer"></a>
-
-```typescript
-import { CdkTypeScriptProject } from 'cdklabs-projen-project-types'
-
-new CdkTypeScriptProject(options: CdkTypeScriptProjectOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions">CdkTypeScriptProjectOptions</a></code> | *No description.* |
-
----
-
-##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.CdkTypeScriptProject.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions">CdkTypeScriptProjectOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-
----
-
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdkTypeScriptProject.addExcludeFromCleanup"></a>
-
-```typescript
-public addExcludeFromCleanup(globs: string): void
-```
-
-Exclude the matching files from pre-synth cleanup.
-
-Can be used when, for example, some
-source files include the projen marker and we don't want them to be erased during synth.
-
-###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.CdkTypeScriptProject.addExcludeFromCleanup.parameter.globs"></a>
-
-- *Type:* string
-
-The glob patterns to match.
-
----
-
-##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.CdkTypeScriptProject.addGitIgnore"></a>
-
-```typescript
-public addGitIgnore(pattern: string): void
-```
-
-Adds a .gitignore pattern.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkTypeScriptProject.addGitIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
-The glob pattern to ignore.
-
----
-
-##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.CdkTypeScriptProject.addPackageIgnore"></a>
-
-```typescript
-public addPackageIgnore(pattern: string): void
-```
-
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.CdkTypeScriptProject.addPackageIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
----
-
-##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTask"></a>
-
-```typescript
-public addTask(name: string, props?: TaskOptions): Task
-```
-
-Adds a new task to this project.
-
-This will fail if the project already has
-a task with this name.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTask.parameter.name"></a>
-
-- *Type:* string
-
-The task name to add.
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTask.parameter.props"></a>
-
-- *Type:* projen.TaskOptions
-
-Task properties.
-
----
-
-##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTip"></a>
-
-```typescript
-public addTip(message: string): void
-```
-
-Prints a "tip" message during synthesis.
-
-###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTip.parameter.message"></a>
-
-- *Type:* string
-
-The message.
-
----
-
-##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.CdkTypeScriptProject.annotateGenerated"></a>
-
-```typescript
-public annotateGenerated(glob: string): void
-```
-
-Marks the provided file(s) as being generated.
-
-This is achieved using the
-github-linguist attributes. Generated files do not count against the
-repository statistics and language breakdown.
-
-> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
-
-###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.CdkTypeScriptProject.annotateGenerated.parameter.glob"></a>
-
-- *Type:* string
-
-the glob pattern to match (could be a file path).
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdkTypeScriptProject.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after all components are synthesized.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdkTypeScriptProject.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before all components are synthesized.
-
-##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.removeTask"></a>
-
-```typescript
-public removeTask(name: string): Task
-```
-
-Removes a task from a project.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.removeTask.parameter.name"></a>
-
-- *Type:* string
-
-The name of the task to remove.
-
----
-
-##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.runTaskCommand"></a>
-
-```typescript
-public runTaskCommand(task: Task): string
-```
-
-Returns the shell command to execute in order to run a task.
-
-This will
-typically be `npx projen TASK`.
-
-###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdkTypeScriptProject.runTaskCommand.parameter.task"></a>
-
-- *Type:* projen.Task
-
-The task for which the command is required.
-
----
-
-##### `synth` <a name="synth" id="cdklabs-projen-project-types.CdkTypeScriptProject.synth"></a>
-
-```typescript
-public synth(): void
-```
-
-Synthesize all project files into `outdir`.
-
-1. Call "this.preSynthesize()"
-2. Delete all generated files
-3. Synthesize all sub-projects
-4. Synthesize all components of this project
-5. Call "postSynthesize()" for all components of this project
-6. Call "this.postSynthesize()"
-
-##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindFile"></a>
-
-```typescript
-public tryFindFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and all its subprojects.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be resolved
-from the root of _this_ project.
-
----
-
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindJsonFile"></a>
-
-```typescript
-public tryFindJsonFile(filePath: string): JsonFile
-```
-
-Finds a json file by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindJsonFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindObjectFile"></a>
-
-```typescript
-public tryFindObjectFile(filePath: string): ObjectFile
-```
-
-Finds an object file (like JsonFile, YamlFile, etc.) by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryFindObjectFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryRemoveFile"></a>
-
-```typescript
-public tryRemoveFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and removes it.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.CdkTypeScriptProject.tryRemoveFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be
-resolved from the root of _this_ project.
-
----
-
-##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.CdkTypeScriptProject.addBins"></a>
-
-```typescript
-public addBins(bins: {[ key: string ]: string}): void
-```
-
-###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.CdkTypeScriptProject.addBins.parameter.bins"></a>
-
-- *Type:* {[ key: string ]: string}
-
----
-
-##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addBundledDeps"></a>
-
-```typescript
-public addBundledDeps(deps: string): void
-```
-
-Defines bundled dependencies.
-
-Bundled dependencies will be added as normal dependencies as well as to the
-`bundledDependencies` section of your `package.json`.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addBundledDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.addCompileCommand"></a>
-
-```typescript
-public addCompileCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkTypeScriptProject.addCompileCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addDeps"></a>
-
-```typescript
-public addDeps(deps: string): void
-```
-
-Defines normal dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addDevDeps"></a>
-
-```typescript
-public addDevDeps(deps: string): void
-```
-
-Defines development/test dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addDevDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.CdkTypeScriptProject.addFields"></a>
-
-```typescript
-public addFields(fields: {[ key: string ]: any}): void
-```
-
-Directly set fields in `package.json`.
-
-###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.CdkTypeScriptProject.addFields.parameter.fields"></a>
-
-- *Type:* {[ key: string ]: any}
-
-The fields to set.
-
----
-
-##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.CdkTypeScriptProject.addKeywords"></a>
-
-```typescript
-public addKeywords(keywords: string): void
-```
-
-Adds keywords to package.json (deduplicated).
-
-###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.CdkTypeScriptProject.addKeywords.parameter.keywords"></a>
-
-- *Type:* string
-
-The keywords to add.
-
----
-
-##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addPeerDeps"></a>
-
-```typescript
-public addPeerDeps(deps: string): void
-```
-
-Defines peer dependencies.
-
-When adding peer dependencies, a devDependency will also be added on the
-pinned version of the declared peer. This will ensure that you are testing
-your code against the minimum version required from your consumers.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.addPeerDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.CdkTypeScriptProject.addScripts"></a>
-
-```typescript
-public addScripts(scripts: {[ key: string ]: string}): void
-```
-
-Replaces the contents of multiple npm package.json scripts.
-
-###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkTypeScriptProject.addScripts.parameter.scripts"></a>
-
-- *Type:* {[ key: string ]: string}
-
-The scripts to set.
-
----
-
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTestCommand"></a>
-
-```typescript
-public addTestCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.CdkTypeScriptProject.addTestCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.CdkTypeScriptProject.hasScript"></a>
-
-```typescript
-public hasScript(name: string): boolean
-```
-
-Indicates if a script by the name name is defined.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.hasScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.CdkTypeScriptProject.removeScript"></a>
-
-```typescript
-public removeScript(name: string): void
-```
-
-Removes the npm script (always successful).
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.removeScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.CdkTypeScriptProject.renderWorkflowSetup"></a>
-
-```typescript
-public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
-```
-
-Returns the set of workflow steps which should be executed to bootstrap a workflow.
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.CdkTypeScriptProject.renderWorkflowSetup.parameter.options"></a>
-
-- *Type:* projen.javascript.RenderWorkflowSetupOptions
-
-Options.
-
----
-
-##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.CdkTypeScriptProject.setScript"></a>
-
-```typescript
-public setScript(name: string, command: string): void
-```
-
-Replaces the contents of an npm package.json script.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.setScript.parameter.name"></a>
-
-- *Type:* string
-
-The script name.
-
----
-
-###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.CdkTypeScriptProject.setScript.parameter.command"></a>
-
-- *Type:* string
-
-The command to execute.
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.private">private</a></code> | <code>boolean</code> | *No description.* |
-
----
-
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.buildTask"></a>
-
-```typescript
-public readonly buildTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.commitGenerated"></a>
-
-```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-
-Whether to commit the managed files by default.
-
----
-
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.compileTask"></a>
-
-```typescript
-public readonly compileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.components"></a>
-
-```typescript
-public readonly components: Component[];
-```
-
-- *Type:* projen.Component[]
-
-Returns all the components within this project.
-
----
-
-##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.deps"></a>
-
-```typescript
-public readonly deps: Dependencies;
-```
-
-- *Type:* projen.Dependencies
-
-Project dependencies.
-
----
-
-##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.ejected"></a>
-
-```typescript
-public readonly ejected: boolean;
-```
-
-- *Type:* boolean
-
-Whether or not the project is being ejected.
-
----
-
-##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.files"></a>
-
-```typescript
-public readonly files: FileBase[];
-```
-
-- *Type:* projen.FileBase[]
-
-All files in this project.
-
----
-
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.gitattributes"></a>
-
-```typescript
-public readonly gitattributes: GitAttributesFile;
-```
-
-- *Type:* projen.GitAttributesFile
-
-The .gitattributes file for this repository.
-
----
-
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-.gitignore.
-
----
-
-##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.logger"></a>
-
-```typescript
-public readonly logger: Logger;
-```
-
-- *Type:* projen.Logger
-
-Logging utilities.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-Project name.
-
----
-
-##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
-```
-
-- *Type:* string
-
-Absolute output directory of this project.
-
----
-
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.packageTask"></a>
-
-```typescript
-public readonly packageTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.postCompileTask"></a>
-
-```typescript
-public readonly postCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.preCompileTask"></a>
-
-```typescript
-public readonly preCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.projectBuild"></a>
-
-```typescript
-public readonly projectBuild: ProjectBuild;
-```
-
-- *Type:* projen.ProjectBuild
-
-Manages the build process of the project.
-
----
-
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-
-The command to use in order to run the projen CLI.
-
----
-
-##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.root"></a>
-
-```typescript
-public readonly root: Project;
-```
-
-- *Type:* projen.Project
-
-The root project.
-
----
-
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.subprojects"></a>
-
-```typescript
-public readonly subprojects: Project[];
-```
-
-- *Type:* projen.Project[]
-
-Returns all the subprojects within this project.
-
----
-
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.tasks"></a>
-
-```typescript
-public readonly tasks: Tasks;
-```
-
-- *Type:* projen.Tasks
-
-Project tasks.
-
----
-
-##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.testTask"></a>
-
-```typescript
-public readonly testTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
-Undefined if
-the project is being ejected.
-
----
-
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.initProject"></a>
-
-```typescript
-public readonly initProject: InitProject;
-```
-
-- *Type:* projen.InitProject
-
-The options used when this project is bootstrapped via `projen new`.
-
-It
-includes the original set of options passed to the CLI and also the JSII
-FQN of the project type.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-A parent project.
-
-If undefined, this is the root project.
-
----
-
-##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.projectType"></a>
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-
----
-
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.autoApprove"></a>
-
-```typescript
-public readonly autoApprove: AutoApprove;
-```
-
-- *Type:* projen.github.AutoApprove
-
-Auto approve set up for this project.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: DevContainer;
-```
-
-- *Type:* projen.vscode.DevContainer
-
-Access for .devcontainer.json (used for GitHub Codespaces).
-
-This will be `undefined` if devContainer boolean is false
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.github"></a>
-
-```typescript
-public readonly github: GitHub;
-```
-
-- *Type:* projen.github.GitHub
-
-Access all github components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: Gitpod;
-```
-
-- *Type:* projen.Gitpod
-
-Access for Gitpod.
-
-This will be `undefined` if gitpod boolean is false
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.vscode"></a>
-
-```typescript
-public readonly vscode: VsCode;
-```
-
-- *Type:* projen.vscode.VsCode
-
-Access all VSCode components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.allowLibraryDependencies"></a>
-
-- *Deprecated:* use `package.allowLibraryDependencies`
-
-```typescript
-public readonly allowLibraryDependencies: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-
-The build output directory.
-
-An npm tarball will be created under the `js`
-subdirectory. For example, if this is set to `dist` (the default), the npm
-tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
-
----
-
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.artifactsJavascriptDirectory"></a>
-
-```typescript
-public readonly artifactsJavascriptDirectory: string;
-```
-
-- *Type:* string
-
-The location of the npm tarball after build (`${artifactsDirectory}/js`).
-
----
-
-##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.bundler"></a>
-
-```typescript
-public readonly bundler: Bundler;
-```
-
-- *Type:* projen.javascript.Bundler
-
----
-
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.entrypoint"></a>
-
-- *Deprecated:* use `package.entrypoint`
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-
----
-
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.manifest"></a>
-
-- *Deprecated:* use `package.addField(x, y)`
-
-```typescript
-public readonly manifest: any;
-```
-
-- *Type:* any
-
----
-
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.npmrc"></a>
-
-```typescript
-public readonly npmrc: NpmConfig;
-```
-
-- *Type:* projen.javascript.NpmConfig
-
-The .npmrc file.
-
----
-
-##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.package"></a>
-
-```typescript
-public readonly package: NodePackage;
-```
-
-- *Type:* projen.javascript.NodePackage
-
-API for managing the node package.
-
----
-
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.packageManager"></a>
-
-- *Deprecated:* use `package.packageManager`
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-
-The package manager to use.
-
----
-
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.runScriptCommand"></a>
-
-```typescript
-public readonly runScriptCommand: string;
-```
-
-- *Type:* string
-
-The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: AutoMerge;
-```
-
-- *Type:* projen.github.AutoMerge
-
-Component that sets up mergify for merging approved pull requests.
-
----
-
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.buildWorkflow"></a>
-
-```typescript
-public readonly buildWorkflow: BuildWorkflow;
-```
-
-- *Type:* projen.build.BuildWorkflow
-
-The PR build GitHub workflow.
-
-`undefined` if `buildWorkflow` is disabled.
-
----
-
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.buildWorkflowJobId"></a>
-
-```typescript
-public readonly buildWorkflowJobId: string;
-```
-
-- *Type:* string
-
-The job ID of the build workflow.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.jest"></a>
-
-```typescript
-public readonly jest: Jest;
-```
-
-- *Type:* projen.javascript.Jest
-
-The Jest configuration (if enabled).
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-
-Maximum node version required by this package.
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-
-Minimum node.js version required by this package.
-
----
-
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.npmignore"></a>
-
-```typescript
-public readonly npmignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-The .npmignore file.
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.prettier"></a>
-
-```typescript
-public readonly prettier: Prettier;
-```
-
-- *Type:* projen.javascript.Prettier
-
----
-
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.publisher"></a>
-
-- *Deprecated:* use `release.publisher`.
-
-```typescript
-public readonly publisher: Publisher;
-```
-
-- *Type:* projen.release.Publisher
-
-Package publisher.
-
-This will be `undefined` if the project does not have a
-release workflow.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.release"></a>
-
-```typescript
-public readonly release: Release;
-```
-
-- *Type:* projen.release.Release
-
-Release management.
-
----
-
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.upgradeWorkflow"></a>
-
-```typescript
-public readonly upgradeWorkflow: UpgradeDependencies;
-```
-
-- *Type:* projen.javascript.UpgradeDependencies
-
-The upgrade workflow.
-
----
-
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-
----
-
-##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-
-The directory in which compiled .js files reside.
-
----
-
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-
-The directory in which the .ts sources reside.
-
----
-
-##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-
-The directory in which tests reside.
-
----
-
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
-A typescript configuration file which covers all files (sources, tests, projen).
-
----
-
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.watchTask"></a>
-
-```typescript
-public readonly watchTask: Task;
-```
-
-- *Type:* projen.Task
-
-The "watch" task.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.eslint"></a>
-
-```typescript
-public readonly eslint: Eslint;
-```
-
-- *Type:* projen.javascript.Eslint
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfigEslint"></a>
-
-```typescript
-public readonly tsconfigEslint: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.private"></a>
-
-```typescript
-public readonly private: boolean;
-```
-
-- *Type:* boolean
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
-
----
-
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.DEFAULT_TASK"></a>
-
-```typescript
-public readonly DEFAULT_TASK: string;
-```
-
-- *Type:* string
-
-The name of the default task (the task executed when `projen` is run without arguments).
-
-Normally
-this task should synthesize the project files.
-
----
-
-### MergeQueue <a name="MergeQueue" id="cdklabs-projen-project-types.MergeQueue"></a>
-
-Merge pull requests using a merge queue.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.MergeQueue.Initializer"></a>
-
-```typescript
-import { MergeQueue } from 'cdklabs-projen-project-types'
-
-new MergeQueue(project: NodeProject, options?: MergeQueueOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.Initializer.parameter.project">project</a></code> | <code>projen.javascript.NodeProject</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.MergeQueueOptions">MergeQueueOptions</a></code> | *No description.* |
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.MergeQueue.Initializer.parameter.project"></a>
-
-- *Type:* projen.javascript.NodeProject
-
----
-
-##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.MergeQueue.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.MergeQueueOptions">MergeQueueOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.MergeQueue.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after synthesis.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.MergeQueue.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before synthesis.
-
-##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.MergeQueue.synthesize"></a>
-
-```typescript
-public synthesize(): void
-```
-
-Synthesizes files to the project output directory.
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.MergeQueue.property.project"></a>
-
-```typescript
-public readonly project: Project;
-```
-
-- *Type:* projen.Project
-
----
-
-
-### Monorepo <a name="Monorepo" id="cdklabs-projen-project-types.yarn.Monorepo"></a>
-
-A monorepo using yarn workspaces.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.Monorepo.Initializer"></a>
-
-```typescript
-import { yarn } from 'cdklabs-projen-project-types'
-
-new yarn.Monorepo(options: MonorepoOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoOptions</code> | *No description.* |
-
----
-
-##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.Monorepo.Initializer.parameter.options"></a>
-
-- *Type:* cdklabs-projen-project-types.yarn.MonorepoOptions
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.postSynthesize">postSynthesize</a></code> | Hooks into the install dependencies cycle. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.register">register</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies">requestInstallDependencies</a></code> | Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run. |
-
----
-
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup"></a>
-
-```typescript
-public addExcludeFromCleanup(globs: string): void
-```
-
-Exclude the matching files from pre-synth cleanup.
-
-Can be used when, for example, some
-source files include the projen marker and we don't want them to be erased during synth.
-
-###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup.parameter.globs"></a>
-
-- *Type:* string
-
-The glob patterns to match.
-
----
-
-##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore"></a>
-
-```typescript
-public addGitIgnore(pattern: string): void
-```
-
-Adds a .gitignore pattern.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
-The glob pattern to ignore.
-
----
-
-##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore"></a>
-
-```typescript
-public addPackageIgnore(pattern: string): void
-```
-
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
----
-
-##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.yarn.Monorepo.addTask"></a>
-
-```typescript
-public addTask(name: string, props?: TaskOptions): Task
-```
-
-Adds a new task to this project.
-
-This will fail if the project already has
-a task with this name.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.addTask.parameter.name"></a>
-
-- *Type:* string
-
-The task name to add.
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.yarn.Monorepo.addTask.parameter.props"></a>
-
-- *Type:* projen.TaskOptions
-
-Task properties.
-
----
-
-##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.yarn.Monorepo.addTip"></a>
-
-```typescript
-public addTip(message: string): void
-```
-
-Prints a "tip" message during synthesis.
-
-###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.yarn.Monorepo.addTip.parameter.message"></a>
-
-- *Type:* string
-
-The message.
-
----
-
-##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.yarn.Monorepo.annotateGenerated"></a>
-
-```typescript
-public annotateGenerated(glob: string): void
-```
-
-Marks the provided file(s) as being generated.
-
-This is achieved using the
-github-linguist attributes. Generated files do not count against the
-repository statistics and language breakdown.
-
-> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
-
-###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.yarn.Monorepo.annotateGenerated.parameter.glob"></a>
-
-- *Type:* string
-
-the glob pattern to match (could be a file path).
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.Monorepo.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Hooks into the install dependencies cycle.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.Monorepo.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before all components are synthesized.
-
-##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.yarn.Monorepo.removeTask"></a>
-
-```typescript
-public removeTask(name: string): Task
-```
-
-Removes a task from a project.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.removeTask.parameter.name"></a>
-
-- *Type:* string
-
-The name of the task to remove.
-
----
-
-##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand"></a>
-
-```typescript
-public runTaskCommand(task: Task): string
-```
-
-Returns the shell command to execute in order to run a task.
-
-This will
-typically be `npx projen TASK`.
-
-###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand.parameter.task"></a>
-
-- *Type:* projen.Task
-
-The task for which the command is required.
-
----
-
-##### `synth` <a name="synth" id="cdklabs-projen-project-types.yarn.Monorepo.synth"></a>
-
-```typescript
-public synth(): void
-```
-
-Synthesize all project files into `outdir`.
-
-1. Call "this.preSynthesize()"
-2. Delete all generated files
-3. Synthesize all sub-projects
-4. Synthesize all components of this project
-5. Call "postSynthesize()" for all components of this project
-6. Call "this.postSynthesize()"
-
-##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindFile"></a>
-
-```typescript
-public tryFindFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and all its subprojects.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be resolved
-from the root of _this_ project.
-
----
-
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindJsonFile"></a>
-
-```typescript
-public tryFindJsonFile(filePath: string): JsonFile
-```
-
-Finds a json file by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindJsonFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindObjectFile"></a>
-
-```typescript
-public tryFindObjectFile(filePath: string): ObjectFile
-```
-
-Finds an object file (like JsonFile, YamlFile, etc.) by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryFindObjectFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.yarn.Monorepo.tryRemoveFile"></a>
-
-```typescript
-public tryRemoveFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and removes it.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.Monorepo.tryRemoveFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be
-resolved from the root of _this_ project.
-
----
-
-##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.yarn.Monorepo.addBins"></a>
-
-```typescript
-public addBins(bins: {[ key: string ]: string}): void
-```
-
-###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.yarn.Monorepo.addBins.parameter.bins"></a>
-
-- *Type:* {[ key: string ]: string}
-
----
-
-##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addBundledDeps"></a>
-
-```typescript
-public addBundledDeps(deps: string): void
-```
-
-Defines bundled dependencies.
-
-Bundled dependencies will be added as normal dependencies as well as to the
-`bundledDependencies` section of your `package.json`.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addBundledDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.yarn.Monorepo.addCompileCommand"></a>
-
-```typescript
-public addCompileCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.Monorepo.addCompileCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addDeps"></a>
-
-```typescript
-public addDeps(deps: string): void
-```
-
-Defines normal dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addDevDeps"></a>
-
-```typescript
-public addDevDeps(deps: string): void
-```
-
-Defines development/test dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addDevDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.yarn.Monorepo.addFields"></a>
-
-```typescript
-public addFields(fields: {[ key: string ]: any}): void
-```
-
-Directly set fields in `package.json`.
-
-###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.yarn.Monorepo.addFields.parameter.fields"></a>
-
-- *Type:* {[ key: string ]: any}
-
-The fields to set.
-
----
-
-##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.yarn.Monorepo.addKeywords"></a>
-
-```typescript
-public addKeywords(keywords: string): void
-```
-
-Adds keywords to package.json (deduplicated).
-
-###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.Monorepo.addKeywords.parameter.keywords"></a>
-
-- *Type:* string
-
-The keywords to add.
-
----
-
-##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps"></a>
-
-```typescript
-public addPeerDeps(deps: string): void
-```
-
-Defines peer dependencies.
-
-When adding peer dependencies, a devDependency will also be added on the
-pinned version of the declared peer. This will ensure that you are testing
-your code against the minimum version required from your consumers.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.addPeerDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.yarn.Monorepo.addScripts"></a>
-
-```typescript
-public addScripts(scripts: {[ key: string ]: string}): void
-```
-
-Replaces the contents of multiple npm package.json scripts.
-
-###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.Monorepo.addScripts.parameter.scripts"></a>
-
-- *Type:* {[ key: string ]: string}
-
-The scripts to set.
-
----
-
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.yarn.Monorepo.addTestCommand"></a>
-
-```typescript
-public addTestCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.Monorepo.addTestCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.yarn.Monorepo.hasScript"></a>
-
-```typescript
-public hasScript(name: string): boolean
-```
-
-Indicates if a script by the name name is defined.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.hasScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.yarn.Monorepo.removeScript"></a>
-
-```typescript
-public removeScript(name: string): void
-```
-
-Removes the npm script (always successful).
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.removeScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup"></a>
-
-```typescript
-public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
-```
-
-Returns the set of workflow steps which should be executed to bootstrap a workflow.
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup.parameter.options"></a>
-
-- *Type:* projen.javascript.RenderWorkflowSetupOptions
-
-Options.
-
----
-
-##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.yarn.Monorepo.setScript"></a>
-
-```typescript
-public setScript(name: string, command: string): void
-```
-
-Replaces the contents of an npm package.json script.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.setScript.parameter.name"></a>
-
-- *Type:* string
-
-The script name.
-
----
-
-###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.yarn.Monorepo.setScript.parameter.command"></a>
-
-- *Type:* string
-
-The command to execute.
-
----
-
-##### `register` <a name="register" id="cdklabs-projen-project-types.yarn.Monorepo.register"></a>
-
-```typescript
-public register(project: TypeScriptWorkspace): void
-```
-
-###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.Monorepo.register.parameter.project"></a>
-
-- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
-
----
-
-##### `requestInstallDependencies` <a name="requestInstallDependencies" id="cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies"></a>
-
-```typescript
-public requestInstallDependencies(resolver: IDependencyResolver): void
-```
-
-Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run.
-
-This is used to resolve dependency versions from `*` to a concrete version constraint.
-
-###### `resolver`<sup>Required</sup> <a name="resolver" id="cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies.parameter.resolver"></a>
-
-- *Type:* cdklabs-projen-project-types.yarn.IDependencyResolver
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-
----
-
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.buildTask"></a>
-
-```typescript
-public readonly buildTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.Monorepo.property.commitGenerated"></a>
-
-```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-
-Whether to commit the managed files by default.
-
----
-
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.compileTask"></a>
-
-```typescript
-public readonly compileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.yarn.Monorepo.property.components"></a>
-
-```typescript
-public readonly components: Component[];
-```
-
-- *Type:* projen.Component[]
-
-Returns all the components within this project.
-
----
-
-##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.Monorepo.property.deps"></a>
-
-```typescript
-public readonly deps: Dependencies;
-```
-
-- *Type:* projen.Dependencies
-
-Project dependencies.
-
----
-
-##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.yarn.Monorepo.property.ejected"></a>
-
-```typescript
-public readonly ejected: boolean;
-```
-
-- *Type:* boolean
-
-Whether or not the project is being ejected.
-
----
-
-##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.yarn.Monorepo.property.files"></a>
-
-```typescript
-public readonly files: FileBase[];
-```
-
-- *Type:* projen.FileBase[]
-
-All files in this project.
-
----
-
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.yarn.Monorepo.property.gitattributes"></a>
-
-```typescript
-public readonly gitattributes: GitAttributesFile;
-```
-
-- *Type:* projen.GitAttributesFile
-
-The .gitattributes file for this repository.
-
----
-
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.Monorepo.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-.gitignore.
-
----
-
-##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.yarn.Monorepo.property.logger"></a>
-
-```typescript
-public readonly logger: Logger;
-```
-
-- *Type:* projen.Logger
-
-Logging utilities.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.Monorepo.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-Project name.
-
----
-
-##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
-```
-
-- *Type:* string
-
-Absolute output directory of this project.
-
----
-
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.packageTask"></a>
-
-```typescript
-public readonly packageTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.postCompileTask"></a>
-
-```typescript
-public readonly postCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.preCompileTask"></a>
-
-```typescript
-public readonly preCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.yarn.Monorepo.property.projectBuild"></a>
-
-```typescript
-public readonly projectBuild: ProjectBuild;
-```
-
-- *Type:* projen.ProjectBuild
-
-Manages the build process of the project.
-
----
-
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.Monorepo.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-
-The command to use in order to run the projen CLI.
-
----
-
-##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.yarn.Monorepo.property.root"></a>
-
-```typescript
-public readonly root: Project;
-```
-
-- *Type:* projen.Project
-
-The root project.
-
----
-
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.Monorepo.property.subprojects"></a>
-
-```typescript
-public readonly subprojects: Project[];
-```
-
-- *Type:* projen.Project[]
-
-Returns all the subprojects within this project.
-
----
-
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.yarn.Monorepo.property.tasks"></a>
-
-```typescript
-public readonly tasks: Tasks;
-```
-
-- *Type:* projen.Tasks
-
-Project tasks.
-
----
-
-##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.testTask"></a>
-
-```typescript
-public readonly testTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
-Undefined if
-the project is being ejected.
-
----
-
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.yarn.Monorepo.property.initProject"></a>
-
-```typescript
-public readonly initProject: InitProject;
-```
-
-- *Type:* projen.InitProject
-
-The options used when this project is bootstrapped via `projen new`.
-
-It
-includes the original set of options passed to the CLI and also the JSII
-FQN of the project type.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.Monorepo.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-A parent project.
-
-If undefined, this is the root project.
-
----
-
-##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.Monorepo.property.projectType"></a>
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-
----
-
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.yarn.Monorepo.property.autoApprove"></a>
-
-```typescript
-public readonly autoApprove: AutoApprove;
-```
-
-- *Type:* projen.github.AutoApprove
-
-Auto approve set up for this project.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.Monorepo.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: DevContainer;
-```
-
-- *Type:* projen.vscode.DevContainer
-
-Access for .devcontainer.json (used for GitHub Codespaces).
-
-This will be `undefined` if devContainer boolean is false
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.Monorepo.property.github"></a>
-
-```typescript
-public readonly github: GitHub;
-```
-
-- *Type:* projen.github.GitHub
-
-Access all github components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.Monorepo.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: Gitpod;
-```
-
-- *Type:* projen.Gitpod
-
-Access for Gitpod.
-
-This will be `undefined` if gitpod boolean is false
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.Monorepo.property.vscode"></a>
-
-```typescript
-public readonly vscode: VsCode;
-```
-
-- *Type:* projen.vscode.VsCode
-
-Access all VSCode components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.Monorepo.property.allowLibraryDependencies"></a>
-
-- *Deprecated:* use `package.allowLibraryDependencies`
-
-```typescript
-public readonly allowLibraryDependencies: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.Monorepo.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-
-The build output directory.
-
-An npm tarball will be created under the `js`
-subdirectory. For example, if this is set to `dist` (the default), the npm
-tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
-
----
-
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.yarn.Monorepo.property.artifactsJavascriptDirectory"></a>
-
-```typescript
-public readonly artifactsJavascriptDirectory: string;
-```
-
-- *Type:* string
-
-The location of the npm tarball after build (`${artifactsDirectory}/js`).
-
----
-
-##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.yarn.Monorepo.property.bundler"></a>
-
-```typescript
-public readonly bundler: Bundler;
-```
-
-- *Type:* projen.javascript.Bundler
-
----
-
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.Monorepo.property.entrypoint"></a>
-
-- *Deprecated:* use `package.entrypoint`
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-
----
-
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.yarn.Monorepo.property.manifest"></a>
-
-- *Deprecated:* use `package.addField(x, y)`
-
-```typescript
-public readonly manifest: any;
-```
-
-- *Type:* any
-
----
-
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.yarn.Monorepo.property.npmrc"></a>
-
-```typescript
-public readonly npmrc: NpmConfig;
-```
-
-- *Type:* projen.javascript.NpmConfig
-
-The .npmrc file.
-
----
-
-##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.yarn.Monorepo.property.package"></a>
-
-```typescript
-public readonly package: NodePackage;
-```
-
-- *Type:* projen.javascript.NodePackage
-
-API for managing the node package.
-
----
-
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.Monorepo.property.packageManager"></a>
-
-- *Deprecated:* use `package.packageManager`
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-
-The package manager to use.
-
----
-
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.yarn.Monorepo.property.runScriptCommand"></a>
-
-```typescript
-public readonly runScriptCommand: string;
-```
-
-- *Type:* string
-
-The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.Monorepo.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: AutoMerge;
-```
-
-- *Type:* projen.github.AutoMerge
-
-Component that sets up mergify for merging approved pull requests.
-
----
-
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflow"></a>
-
-```typescript
-public readonly buildWorkflow: BuildWorkflow;
-```
-
-- *Type:* projen.build.BuildWorkflow
-
-The PR build GitHub workflow.
-
-`undefined` if `buildWorkflow` is disabled.
-
----
-
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.yarn.Monorepo.property.buildWorkflowJobId"></a>
-
-```typescript
-public readonly buildWorkflowJobId: string;
-```
-
-- *Type:* string
-
-The job ID of the build workflow.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.Monorepo.property.jest"></a>
-
-```typescript
-public readonly jest: Jest;
-```
-
-- *Type:* projen.javascript.Jest
-
-The Jest configuration (if enabled).
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.Monorepo.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-
-Maximum node version required by this package.
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.Monorepo.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-
-Minimum node.js version required by this package.
-
----
-
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.Monorepo.property.npmignore"></a>
-
-```typescript
-public readonly npmignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-The .npmignore file.
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.Monorepo.property.prettier"></a>
-
-```typescript
-public readonly prettier: Prettier;
-```
-
-- *Type:* projen.javascript.Prettier
-
----
-
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.Monorepo.property.publisher"></a>
-
-- *Deprecated:* use `release.publisher`.
-
-```typescript
-public readonly publisher: Publisher;
-```
-
-- *Type:* projen.release.Publisher
-
-Package publisher.
-
-This will be `undefined` if the project does not have a
-release workflow.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.Monorepo.property.release"></a>
-
-```typescript
-public readonly release: Release;
-```
-
-- *Type:* projen.release.Release
-
-Release management.
-
----
-
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.yarn.Monorepo.property.upgradeWorkflow"></a>
-
-```typescript
-public readonly upgradeWorkflow: UpgradeDependencies;
-```
-
-- *Type:* projen.javascript.UpgradeDependencies
-
-The upgrade workflow.
-
----
-
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.Monorepo.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-
----
-
-##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-
-The directory in which compiled .js files reside.
-
----
-
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-
-The directory in which the .ts sources reside.
-
----
-
-##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.Monorepo.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-
-The directory in which tests reside.
-
----
-
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
-A typescript configuration file which covers all files (sources, tests, projen).
-
----
-
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.yarn.Monorepo.property.watchTask"></a>
-
-```typescript
-public readonly watchTask: Task;
-```
-
-- *Type:* projen.Task
-
-The "watch" task.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.Monorepo.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.Monorepo.property.eslint"></a>
-
-```typescript
-public readonly eslint: Eslint;
-```
-
-- *Type:* projen.javascript.Eslint
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint"></a>
-
-```typescript
-public readonly tsconfigEslint: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
-
----
-
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.yarn.Monorepo.property.DEFAULT_TASK"></a>
-
-```typescript
-public readonly DEFAULT_TASK: string;
-```
-
-- *Type:* string
-
-The name of the default task (the task executed when `projen` is run without arguments).
-
-Normally
-this task should synthesize the project files.
-
----
-
-### Rosetta <a name="Rosetta" id="cdklabs-projen-project-types.Rosetta"></a>
-
-The Rosetta component adds builtin rosetta support for a construct library.
-
-Since ConstructHub will run
-rosetta for real, this just adds a check to the build to
-ensure that rosetta will run successfully
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.Rosetta.Initializer"></a>
-
-```typescript
-import { Rosetta } from 'cdklabs-projen-project-types'
-
-new Rosetta(project: JsiiProject, options?: RosettaOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.Rosetta.Initializer.parameter.project">project</a></code> | <code>projen.cdk.JsiiProject</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.Rosetta.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | *No description.* |
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.Rosetta.Initializer.parameter.project"></a>
-
-- *Type:* projen.cdk.JsiiProject
-
----
-
-##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.Rosetta.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.Rosetta.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
-| <code><a href="#cdklabs-projen-project-types.Rosetta.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
-| <code><a href="#cdklabs-projen-project-types.Rosetta.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.Rosetta.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after synthesis.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.Rosetta.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before synthesis.
-
-##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.Rosetta.synthesize"></a>
-
-```typescript
-public synthesize(): void
-```
-
-Synthesizes files to the project output directory.
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.Rosetta.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.Rosetta.property.project"></a>
-
-```typescript
-public readonly project: Project;
-```
-
-- *Type:* projen.Project
-
----
-
-
-### TypeScriptWorkspace <a name="TypeScriptWorkspace" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace"></a>
-
-A TypeScript workspace in a `yarn.Monorepo`.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer"></a>
-
-```typescript
-import { yarn } from 'cdklabs-projen-project-types'
-
-new yarn.TypeScriptWorkspace(options: TypeScriptWorkspaceOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions</code> | *No description.* |
-
----
-
-##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer.parameter.options"></a>
-
-- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask">addTask</a></code> | Adds a new task to this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeTask">removeTask</a></code> | Removes a task from a project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.synth">synth</a></code> | Synthesize all project files into `outdir`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBins">addBins</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDeps">addDeps</a></code> | Defines normal dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields">addFields</a></code> | Directly set fields in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-
----
-
-##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup"></a>
-
-```typescript
-public addExcludeFromCleanup(globs: string): void
-```
-
-Exclude the matching files from pre-synth cleanup.
-
-Can be used when, for example, some
-source files include the projen marker and we don't want them to be erased during synth.
-
-###### `globs`<sup>Required</sup> <a name="globs" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup.parameter.globs"></a>
-
-- *Type:* string
-
-The glob patterns to match.
-
----
-
-##### `addGitIgnore` <a name="addGitIgnore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore"></a>
-
-```typescript
-public addGitIgnore(pattern: string): void
-```
-
-Adds a .gitignore pattern.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
-The glob pattern to ignore.
-
----
-
-##### `addPackageIgnore` <a name="addPackageIgnore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore"></a>
-
-```typescript
-public addPackageIgnore(pattern: string): void
-```
-
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
-
-###### `pattern`<sup>Required</sup> <a name="pattern" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore.parameter.pattern"></a>
-
-- *Type:* string
-
----
-
-##### `addTask` <a name="addTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask"></a>
-
-```typescript
-public addTask(name: string, props?: TaskOptions): Task
-```
-
-Adds a new task to this project.
-
-This will fail if the project already has
-a task with this name.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask.parameter.name"></a>
-
-- *Type:* string
-
-The task name to add.
-
----
-
-###### `props`<sup>Optional</sup> <a name="props" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTask.parameter.props"></a>
-
-- *Type:* projen.TaskOptions
-
-Task properties.
-
----
-
-##### ~~`addTip`~~ <a name="addTip" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTip"></a>
-
-```typescript
-public addTip(message: string): void
-```
-
-Prints a "tip" message during synthesis.
-
-###### `message`<sup>Required</sup> <a name="message" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTip.parameter.message"></a>
-
-- *Type:* string
-
-The message.
-
----
-
-##### `annotateGenerated` <a name="annotateGenerated" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.annotateGenerated"></a>
-
-```typescript
-public annotateGenerated(glob: string): void
-```
-
-Marks the provided file(s) as being generated.
-
-This is achieved using the
-github-linguist attributes. Generated files do not count against the
-repository statistics and language breakdown.
-
-> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
-
-###### `glob`<sup>Required</sup> <a name="glob" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.annotateGenerated.parameter.glob"></a>
-
-- *Type:* string
-
-the glob pattern to match (could be a file path).
-
----
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after all components are synthesized.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before all components are synthesized.
-
-##### `removeTask` <a name="removeTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeTask"></a>
-
-```typescript
-public removeTask(name: string): Task
-```
-
-Removes a task from a project.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeTask.parameter.name"></a>
-
-- *Type:* string
-
-The name of the task to remove.
-
----
-
-##### `runTaskCommand` <a name="runTaskCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand"></a>
-
-```typescript
-public runTaskCommand(task: Task): string
-```
-
-Returns the shell command to execute in order to run a task.
-
-This will
-typically be `npx projen TASK`.
-
-###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand.parameter.task"></a>
-
-- *Type:* projen.Task
-
-The task for which the command is required.
-
----
-
-##### `synth` <a name="synth" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.synth"></a>
-
-```typescript
-public synth(): void
-```
-
-Synthesize all project files into `outdir`.
-
-1. Call "this.preSynthesize()"
-2. Delete all generated files
-3. Synthesize all sub-projects
-4. Synthesize all components of this project
-5. Call "postSynthesize()" for all components of this project
-6. Call "this.postSynthesize()"
-
-##### `tryFindFile` <a name="tryFindFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindFile"></a>
-
-```typescript
-public tryFindFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and all its subprojects.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be resolved
-from the root of _this_ project.
-
----
-
-##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindJsonFile"></a>
-
-```typescript
-public tryFindJsonFile(filePath: string): JsonFile
-```
-
-Finds a json file by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindJsonFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryFindObjectFile` <a name="tryFindObjectFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindObjectFile"></a>
-
-```typescript
-public tryFindObjectFile(filePath: string): ObjectFile
-```
-
-Finds an object file (like JsonFile, YamlFile, etc.) by name.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryFindObjectFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
----
-
-##### `tryRemoveFile` <a name="tryRemoveFile" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryRemoveFile"></a>
-
-```typescript
-public tryRemoveFile(filePath: string): FileBase
-```
-
-Finds a file at the specified relative path within this project and removes it.
-
-###### `filePath`<sup>Required</sup> <a name="filePath" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.tryRemoveFile.parameter.filePath"></a>
-
-- *Type:* string
-
-The file path.
-
-If this path is relative, it will be
-resolved from the root of _this_ project.
-
----
-
-##### `addBins` <a name="addBins" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBins"></a>
-
-```typescript
-public addBins(bins: {[ key: string ]: string}): void
-```
-
-###### `bins`<sup>Required</sup> <a name="bins" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBins.parameter.bins"></a>
-
-- *Type:* {[ key: string ]: string}
-
----
-
-##### `addBundledDeps` <a name="addBundledDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBundledDeps"></a>
-
-```typescript
-public addBundledDeps(deps: string): void
-```
-
-Defines bundled dependencies.
-
-Bundled dependencies will be added as normal dependencies as well as to the
-`bundledDependencies` section of your `package.json`.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addBundledDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addCompileCommand"></a>
-
-```typescript
-public addCompileCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addCompileCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### `addDeps` <a name="addDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDeps"></a>
-
-```typescript
-public addDeps(deps: string): void
-```
-
-Defines normal dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addDevDeps` <a name="addDevDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDevDeps"></a>
-
-```typescript
-public addDevDeps(deps: string): void
-```
-
-Defines development/test dependencies.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addDevDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addFields` <a name="addFields" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields"></a>
-
-```typescript
-public addFields(fields: {[ key: string ]: any}): void
-```
-
-Directly set fields in `package.json`.
-
-###### `fields`<sup>Required</sup> <a name="fields" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addFields.parameter.fields"></a>
-
-- *Type:* {[ key: string ]: any}
-
-The fields to set.
-
----
-
-##### `addKeywords` <a name="addKeywords" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords"></a>
-
-```typescript
-public addKeywords(keywords: string): void
-```
-
-Adds keywords to package.json (deduplicated).
-
-###### `keywords`<sup>Required</sup> <a name="keywords" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addKeywords.parameter.keywords"></a>
-
-- *Type:* string
-
-The keywords to add.
-
----
-
-##### `addPeerDeps` <a name="addPeerDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps"></a>
-
-```typescript
-public addPeerDeps(deps: string): void
-```
-
-Defines peer dependencies.
-
-When adding peer dependencies, a devDependency will also be added on the
-pinned version of the declared peer. This will ensure that you are testing
-your code against the minimum version required from your consumers.
-
-###### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPeerDeps.parameter.deps"></a>
-
-- *Type:* string
-
-Names modules to install.
-
-By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
-`module@^7`.
-
----
-
-##### `addScripts` <a name="addScripts" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addScripts"></a>
-
-```typescript
-public addScripts(scripts: {[ key: string ]: string}): void
-```
-
-Replaces the contents of multiple npm package.json scripts.
-
-###### `scripts`<sup>Required</sup> <a name="scripts" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addScripts.parameter.scripts"></a>
-
-- *Type:* {[ key: string ]: string}
-
-The scripts to set.
-
----
-
-##### ~~`addTestCommand`~~ <a name="addTestCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand"></a>
-
-```typescript
-public addTestCommand(commands: string): void
-```
-
-DEPRECATED.
-
-###### `commands`<sup>Required</sup> <a name="commands" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addTestCommand.parameter.commands"></a>
-
-- *Type:* string
-
----
-
-##### ~~`hasScript`~~ <a name="hasScript" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript"></a>
-
-```typescript
-public hasScript(name: string): boolean
-```
-
-Indicates if a script by the name name is defined.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.hasScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `removeScript` <a name="removeScript" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript"></a>
-
-```typescript
-public removeScript(name: string): void
-```
-
-Removes the npm script (always successful).
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript.parameter.name"></a>
-
-- *Type:* string
-
-The name of the script.
-
----
-
-##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup"></a>
-
-```typescript
-public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
-```
-
-Returns the set of workflow steps which should be executed to bootstrap a workflow.
-
-###### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup.parameter.options"></a>
-
-- *Type:* projen.javascript.RenderWorkflowSetupOptions
-
-Options.
-
----
-
-##### `setScript` <a name="setScript" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript"></a>
-
-```typescript
-public setScript(name: string, command: string): void
-```
-
-Replaces the contents of an npm package.json script.
-
-###### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript.parameter.name"></a>
-
-- *Type:* string
-
-The script name.
-
----
-
-###### `command`<sup>Required</sup> <a name="command" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript.parameter.command"></a>
-
-- *Type:* string
-
-The command to execute.
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.name">name</a></code> | <code>string</code> | Project name. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.workspaceDirectory">workspaceDirectory</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `buildTask`<sup>Required</sup> <a name="buildTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildTask"></a>
-
-```typescript
-public readonly buildTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.commitGenerated"></a>
-
-```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-
-Whether to commit the managed files by default.
-
----
-
-##### `compileTask`<sup>Required</sup> <a name="compileTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.compileTask"></a>
-
-```typescript
-public readonly compileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `components`<sup>Required</sup> <a name="components" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.components"></a>
-
-```typescript
-public readonly components: Component[];
-```
-
-- *Type:* projen.Component[]
-
-Returns all the components within this project.
-
----
-
-##### `deps`<sup>Required</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.deps"></a>
-
-```typescript
-public readonly deps: Dependencies;
-```
-
-- *Type:* projen.Dependencies
-
-Project dependencies.
-
----
-
-##### `ejected`<sup>Required</sup> <a name="ejected" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.ejected"></a>
-
-```typescript
-public readonly ejected: boolean;
-```
-
-- *Type:* boolean
-
-Whether or not the project is being ejected.
-
----
-
-##### `files`<sup>Required</sup> <a name="files" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.files"></a>
-
-```typescript
-public readonly files: FileBase[];
-```
-
-- *Type:* projen.FileBase[]
-
-All files in this project.
-
----
-
-##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitattributes"></a>
-
-```typescript
-public readonly gitattributes: GitAttributesFile;
-```
-
-- *Type:* projen.GitAttributesFile
-
-The .gitattributes file for this repository.
-
----
-
-##### `gitignore`<sup>Required</sup> <a name="gitignore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-.gitignore.
-
----
-
-##### `logger`<sup>Required</sup> <a name="logger" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.logger"></a>
-
-```typescript
-public readonly logger: Logger;
-```
-
-- *Type:* projen.Logger
-
-Logging utilities.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-Project name.
-
----
-
-##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
-```
-
-- *Type:* string
-
-Absolute output directory of this project.
-
----
-
-##### `packageTask`<sup>Required</sup> <a name="packageTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageTask"></a>
-
-```typescript
-public readonly packageTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.postCompileTask"></a>
-
-```typescript
-public readonly postCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.preCompileTask"></a>
-
-```typescript
-public readonly preCompileTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectBuild"></a>
-
-```typescript
-public readonly projectBuild: ProjectBuild;
-```
-
-- *Type:* projen.ProjectBuild
-
-Manages the build process of the project.
-
----
-
-##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-
-The command to use in order to run the projen CLI.
-
----
-
-##### `root`<sup>Required</sup> <a name="root" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.root"></a>
-
-```typescript
-public readonly root: Project;
-```
-
-- *Type:* projen.Project
-
-The root project.
-
----
-
-##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.subprojects"></a>
-
-```typescript
-public readonly subprojects: Project[];
-```
-
-- *Type:* projen.Project[]
-
-Returns all the subprojects within this project.
-
----
-
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tasks"></a>
-
-```typescript
-public readonly tasks: Tasks;
-```
-
-- *Type:* projen.Tasks
-
-Project tasks.
-
----
-
-##### `testTask`<sup>Required</sup> <a name="testTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testTask"></a>
-
-```typescript
-public readonly testTask: Task;
-```
-
-- *Type:* projen.Task
-
----
-
-##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
-Undefined if
-the project is being ejected.
-
----
-
-##### `initProject`<sup>Optional</sup> <a name="initProject" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.initProject"></a>
-
-```typescript
-public readonly initProject: InitProject;
-```
-
-- *Type:* projen.InitProject
-
-The options used when this project is bootstrapped via `projen new`.
-
-It
-includes the original set of options passed to the CLI and also the JSII
-FQN of the project type.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-A parent project.
-
-If undefined, this is the root project.
-
----
-
-##### `projectType`<sup>Required</sup> <a name="projectType" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectType"></a>
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-
----
-
-##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoApprove"></a>
-
-```typescript
-public readonly autoApprove: AutoApprove;
-```
-
-- *Type:* projen.github.AutoApprove
-
-Auto approve set up for this project.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: DevContainer;
-```
-
-- *Type:* projen.vscode.DevContainer
-
-Access for .devcontainer.json (used for GitHub Codespaces).
-
-This will be `undefined` if devContainer boolean is false
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.github"></a>
-
-```typescript
-public readonly github: GitHub;
-```
-
-- *Type:* projen.github.GitHub
-
-Access all github components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: Gitpod;
-```
-
-- *Type:* projen.Gitpod
-
-Access for Gitpod.
-
-This will be `undefined` if gitpod boolean is false
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.vscode"></a>
-
-```typescript
-public readonly vscode: VsCode;
-```
-
-- *Type:* projen.vscode.VsCode
-
-Access all VSCode components.
-
-This will be `undefined` for subprojects.
-
----
-
-##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.allowLibraryDependencies"></a>
-
-- *Deprecated:* use `package.allowLibraryDependencies`
-
-```typescript
-public readonly allowLibraryDependencies: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-
-The build output directory.
-
-An npm tarball will be created under the `js`
-subdirectory. For example, if this is set to `dist` (the default), the npm
-tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
-
----
-
-##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.artifactsJavascriptDirectory"></a>
-
-```typescript
-public readonly artifactsJavascriptDirectory: string;
-```
-
-- *Type:* string
-
-The location of the npm tarball after build (`${artifactsDirectory}/js`).
-
----
-
-##### `bundler`<sup>Required</sup> <a name="bundler" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundler"></a>
-
-```typescript
-public readonly bundler: Bundler;
-```
-
-- *Type:* projen.javascript.Bundler
-
----
-
-##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.entrypoint"></a>
-
-- *Deprecated:* use `package.entrypoint`
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-
----
-
-##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.manifest"></a>
-
-- *Deprecated:* use `package.addField(x, y)`
-
-```typescript
-public readonly manifest: any;
-```
-
-- *Type:* any
-
----
-
-##### `npmrc`<sup>Required</sup> <a name="npmrc" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmrc"></a>
-
-```typescript
-public readonly npmrc: NpmConfig;
-```
-
-- *Type:* projen.javascript.NpmConfig
-
-The .npmrc file.
-
----
-
-##### `package`<sup>Required</sup> <a name="package" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.package"></a>
-
-```typescript
-public readonly package: NodePackage;
-```
-
-- *Type:* projen.javascript.NodePackage
-
-API for managing the node package.
-
----
-
-##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.packageManager"></a>
-
-- *Deprecated:* use `package.packageManager`
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-
-The package manager to use.
-
----
-
-##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.runScriptCommand"></a>
-
-```typescript
-public readonly runScriptCommand: string;
-```
-
-- *Type:* string
-
-The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: AutoMerge;
-```
-
-- *Type:* projen.github.AutoMerge
-
-Component that sets up mergify for merging approved pull requests.
-
----
-
-##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflow"></a>
-
-```typescript
-public readonly buildWorkflow: BuildWorkflow;
-```
-
-- *Type:* projen.build.BuildWorkflow
-
-The PR build GitHub workflow.
-
-`undefined` if `buildWorkflow` is disabled.
-
----
-
-##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.buildWorkflowJobId"></a>
-
-```typescript
-public readonly buildWorkflowJobId: string;
-```
-
-- *Type:* string
-
-The job ID of the build workflow.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.jest"></a>
-
-```typescript
-public readonly jest: Jest;
-```
-
-- *Type:* projen.javascript.Jest
-
-The Jest configuration (if enabled).
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-
-Maximum node version required by this package.
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-
-Minimum node.js version required by this package.
-
----
-
-##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.npmignore"></a>
-
-```typescript
-public readonly npmignore: IgnoreFile;
-```
-
-- *Type:* projen.IgnoreFile
-
-The .npmignore file.
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.prettier"></a>
-
-```typescript
-public readonly prettier: Prettier;
-```
-
-- *Type:* projen.javascript.Prettier
-
----
-
-##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.publisher"></a>
-
-- *Deprecated:* use `release.publisher`.
-
-```typescript
-public readonly publisher: Publisher;
-```
-
-- *Type:* projen.release.Publisher
-
-Package publisher.
-
-This will be `undefined` if the project does not have a
-release workflow.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.release"></a>
-
-```typescript
-public readonly release: Release;
-```
-
-- *Type:* projen.release.Release
-
-Release management.
-
----
-
-##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.upgradeWorkflow"></a>
-
-```typescript
-public readonly upgradeWorkflow: UpgradeDependencies;
-```
-
-- *Type:* projen.javascript.UpgradeDependencies
-
-The upgrade workflow.
-
----
-
-##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-
----
-
-##### `libdir`<sup>Required</sup> <a name="libdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-
-The directory in which compiled .js files reside.
-
----
-
-##### `srcdir`<sup>Required</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-
-The directory in which the .ts sources reside.
-
----
-
-##### `testdir`<sup>Required</sup> <a name="testdir" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-
-The directory in which tests reside.
-
----
-
-##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
-A typescript configuration file which covers all files (sources, tests, projen).
-
----
-
-##### `watchTask`<sup>Required</sup> <a name="watchTask" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.watchTask"></a>
-
-```typescript
-public readonly watchTask: Task;
-```
-
-- *Type:* projen.Task
-
-The "watch" task.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.eslint"></a>
-
-```typescript
-public readonly eslint: Eslint;
-```
-
-- *Type:* projen.javascript.Eslint
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint"></a>
-
-```typescript
-public readonly tsconfigEslint: TypescriptConfig;
-```
-
-- *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `workspaceDirectory`<sup>Required</sup> <a name="workspaceDirectory" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.workspaceDirectory"></a>
-
-```typescript
-public readonly workspaceDirectory: string;
-```
-
-- *Type:* string
-
----
-
-#### Constants <a name="Constants" id="Constants"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
-
----
-
-##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.DEFAULT_TASK"></a>
-
-```typescript
-public readonly DEFAULT_TASK: string;
-```
-
-- *Type:* string
-
-The name of the default task (the task executed when `projen` is run without arguments).
-
-Normally
-this task should synthesize the project files.
-
----
 
 ## Protocols <a name="Protocols" id="Protocols"></a>
 

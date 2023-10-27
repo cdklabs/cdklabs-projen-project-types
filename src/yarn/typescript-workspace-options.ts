@@ -416,7 +416,7 @@ export interface TypeScriptWorkspaceOptions {
   readonly package?: boolean;
   /**
    * The Node Package Manager used to execute scripts.
-   * @default NodePackageManager.YARN
+   * @default NodePackageManager.YARN_CLASSIC
    */
   readonly packageManager?: javascript.NodePackageManager;
   /**
