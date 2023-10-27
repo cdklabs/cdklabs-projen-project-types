@@ -886,7 +886,7 @@ jobs:
           commit-message: |-
             chore(deps): upgrade cdklabs-projen-project-types
 
-            Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
+            Upgrades project dependencies. See details in [workflow run].
 
             [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
@@ -897,7 +897,7 @@ jobs:
           title: \\"chore(deps): upgrade cdklabs-projen-project-types\\"
           labels: auto-approve
           body: |-
-            Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
+            Upgrades project dependencies. See details in [workflow run].
 
             [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
@@ -1687,7 +1687,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade",
+            "exec": "npm-check-updates --upgrade --target=latest --peer --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -1697,6 +1697,9 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
           },
           Object {
             "exec": "npx projen",
+          },
+          Object {
+            "spawn": "post-upgrade",
           },
         ],
       },
@@ -2227,7 +2230,7 @@ jobs:
           commit-message: |-
             chore(deps): upgrade cdklabs-projen-project-types
 
-            Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
+            Upgrades project dependencies. See details in [workflow run].
 
             [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
@@ -2238,7 +2241,7 @@ jobs:
           title: \\"chore(deps): upgrade cdklabs-projen-project-types\\"
           labels: auto-approve
           body: |-
-            Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
+            Upgrades project dependencies. See details in [workflow run].
 
             [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
@@ -3137,7 +3140,7 @@ jobs:
           commit-message: |-
             chore(deps): upgrade cdklabs-projen-project-types
 
-            Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
+            Upgrades project dependencies. See details in [workflow run].
 
             [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
@@ -3148,7 +3151,7 @@ jobs:
           title: \\"chore(deps): upgrade cdklabs-projen-project-types\\"
           labels: auto-approve
           body: |-
-            Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
+            Upgrades project dependencies. See details in [workflow run].
 
             [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
@@ -3872,7 +3875,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade",
+            "exec": "npm-check-updates --upgrade --target=latest --peer --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -3882,6 +3885,9 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
           },
           Object {
             "exec": "npx projen",
+          },
+          Object {
+            "spawn": "post-upgrade",
           },
         ],
       },
@@ -4880,7 +4886,7 @@ jobs:
           commit-message: |-
             chore(deps): upgrade cdklabs-projen-project-types
 
-            Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
+            Upgrades project dependencies. See details in [workflow run].
 
             [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
@@ -4891,7 +4897,7 @@ jobs:
           title: \\"chore(deps): upgrade cdklabs-projen-project-types\\"
           labels: auto-approve
           body: |-
-            Upgrades cdklabs-projen-project-types dependency. See details in [workflow run].
+            Upgrades project dependencies. See details in [workflow run].
 
             [Workflow Run]: \${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}
 
@@ -5491,7 +5497,7 @@ junit.xml
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --filter=cdklabs-projen-project-types,projen --upgrade",
+            "exec": "npm-check-updates --upgrade --target=latest --peer --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -5501,6 +5507,9 @@ junit.xml
           },
           Object {
             "exec": "npx projen",
+          },
+          Object {
+            "spawn": "post-upgrade",
           },
         ],
       },
