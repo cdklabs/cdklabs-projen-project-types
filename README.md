@@ -145,7 +145,7 @@ This feature is not supported at this time.
 Any release functionality must be implemented.
 
 - `vscodeWorkspace: boolean`\
-You can specifify if a VSCode Workspace file should be created for the monorepo.
+You can specify if a VSCode Workspace file should be created for the monorepo.
 
 #### Workspaces
 
