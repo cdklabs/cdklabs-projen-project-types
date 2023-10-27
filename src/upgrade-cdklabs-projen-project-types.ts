@@ -29,6 +29,11 @@ interface Upgrade {
  * @see https://github.com/projen/projen/blob/main/src/javascript/upgrade-dependencies.ts
  */
 export class UpgradeCdklabsProjenProjectTypes extends Component {
+  public static deps: string[] = [
+    'cdklabs-projen-project-types',
+    'projen',
+  ];
+
   constructor(public readonly project: typescript.TypeScriptProject) {
     super(project);
 
