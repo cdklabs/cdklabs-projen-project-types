@@ -1,4 +1,4 @@
-import { ReleasableCommits, javascript } from 'projen';
+import { DependencyType, javascript } from 'projen';
 import { generateYarnMonorepoOptions } from './projenrc/yarn-monorepo-options';
 import { CdklabsJsiiProject } from './src';
 
@@ -17,20 +17,33 @@ const project = new CdklabsJsiiProject({
   enablePRAutoMerge: true,
   cdklabsPublishingDefaults: false,
   upgradeCdklabsProjenProjectTypes: false, // that is this project!
-  depsUpgradeOptions: {
-    workflowOptions: {
-      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * *']),
-    },
-  },
+  depsUpgrade: false,
   setNodeEngineVersion: false,
   autoApproveUpgrades: true,
   autoApproveOptions: {
     allowedUsernames: ['cdklabs-automation', 'dependabot[bot]'],
     secret: 'GITHUB_TOKEN',
   },
-  // Default is to release only features and fixes. If we don't do this, we'll
-  // release every day because of devDependency updates.
-  releasableCommits: ReleasableCommits.featuresAndFixes(),
+});
+
+new javascript.UpgradeDependencies(project, {
+  taskName: 'upgrade',
+  types: [DependencyType.RUNTIME, DependencyType.BUNDLED, DependencyType.PEER],
+  semanticCommit: 'fix',
+  workflowOptions: {
+    labels: ['auto-approve'],
+    schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * *']),
+  },
+});
+
+new javascript.UpgradeDependencies(project, {
+  taskName: 'upgrade-dev-deps',
+  types: [DependencyType.BUILD, DependencyType.DEVENV, DependencyType.TEST],
+  semanticCommit: 'chore',
+  pullRequestTitle: 'upgrade dev dependencies',
+  workflowOptions: {
+    labels: ['auto-approve'],
+  },
 });
 
 generateYarnMonorepoOptions(project);
