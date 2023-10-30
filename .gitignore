@@ -39,7 +39,6 @@ junit.xml
 /dist/changelog.md
 /dist/version.txt
 !/.github/workflows/release.yml
-!/.github/workflows/upgrade-main.yml
 !/.github/pull_request_template.md
 !/test/
 !/tsconfig.dev.json
@@ -51,5 +50,7 @@ junit.xml
 tsconfig.json
 !/API.md
 !/.github/workflows/auto-merge.yml
+!/.github/workflows/upgrade-main.yml
+!/.github/workflows/upgrade-dev-deps-main.yml
 !/src/yarn/monorepo-options.ts
 !/src/yarn/typescript-workspace-options.ts

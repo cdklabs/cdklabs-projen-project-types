@@ -1,4 +1,4 @@
-import { github, javascript, typescript } from 'projen';
+import { DependencyType, github, javascript, typescript } from 'projen';
 import { deepMerge } from 'projen/lib/util';
 import { AutoMergeOptions } from './auto-merge';
 import { MergeQueue } from './merge-queue';
@@ -53,6 +53,13 @@ export interface CdkCommonOptions {
   readonly upgradeCdklabsProjenProjectTypes?: boolean;
 
   /**
+   * Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix
+   *
+   * @default true
+   */
+  readonly upgradeRuntimeDepsAsFix?: boolean;
+
+  /**
    * The org this project is part of.
    *
    * @default - Auto detected from package name
@@ -75,6 +82,7 @@ export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.Gi
     allowedUsernames: [automationUserForOrg(tenancy), 'dependabot[bot]'],
     secret: 'GITHUB_TOKEN',
   };
+  const upgradeRuntimeDepsAsFix = options.upgradeRuntimeDepsAsFix ?? true;
 
   return deepMerge([
     {},
@@ -88,11 +96,13 @@ export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.Gi
       npmAccess,
       tenancy,
       autoApproveOptions,
+      depsUpgrade: !upgradeRuntimeDepsAsFix,
+      upgradeRuntimeDepsAsFix,
     },
   ]) as T & Required<CdkCommonOptions>;
 }
 
-export function configureCommonFeatures(project: typescript.TypeScriptProject, opts: CdkCommonOptions) {
+export function configureCommonFeatures(project: typescript.TypeScriptProject, opts: CdkCommonOptions & Pick<javascript.NodeProjectOptions, 'autoApproveUpgrades' | 'autoApproveOptions'>) {
   if (opts.private) {
     new Private(project);
   }
@@ -105,6 +115,33 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
 
   if ((opts.upgradeCdklabsProjenProjectTypes ?? true)) {
     new UpgradeCdklabsProjenProjectTypes(project);
+  }
+
+  if ((opts.upgradeRuntimeDepsAsFix)) {
+    const exclude = opts.upgradeCdklabsProjenProjectTypes ? UpgradeCdklabsProjenProjectTypes.deps : [];
+    const labels = opts.autoApproveUpgrades ? [opts.autoApproveOptions?.label ?? 'auto-approve'] : [];
+
+    new javascript.UpgradeDependencies(project, {
+      taskName: 'upgrade',
+      types: [DependencyType.RUNTIME, DependencyType.BUNDLED, DependencyType.PEER],
+      exclude,
+      semanticCommit: 'fix',
+      workflowOptions: {
+        labels,
+        schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * *']),
+      },
+    });
+
+    new javascript.UpgradeDependencies(project, {
+      taskName: 'upgrade-dev-deps',
+      types: [DependencyType.BUILD, DependencyType.DEVENV, DependencyType.TEST],
+      exclude,
+      semanticCommit: 'chore',
+      pullRequestTitle: 'upgrade dev dependencies',
+      workflowOptions: {
+        labels,
+      },
+    });
   }
 
   if (opts.setNodeEngineVersion === false) {

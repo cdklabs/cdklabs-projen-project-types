@@ -76,7 +76,7 @@ describe('CdklabsConstructLibrary', () => {
     expect(
       YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
     ).toEqual(expect.arrayContaining([
-      expect.objectContaining({
+      expect.not.objectContaining({
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v3',
       }),
@@ -212,7 +212,9 @@ describe('CdklabsConstructLibrary', () => {
         release: false,
       });
       const outdir = Testing.synth(project);
-      expect(outdir['.github/workflows/upgrade-cdklabs-projen-project-types.yml']).not.toBeUndefined();
+      const workflow = outdir['.github/workflows/upgrade-cdklabs-projen-project-types.yml'];
+      expect(workflow).not.toBeUndefined();
+      expect(workflow).toMatchSnapshot();
     });
   });
 });
@@ -243,7 +245,7 @@ describe('CdklabsTypeScriptProject', () => {
     expect(
       YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
     ).toEqual(expect.arrayContaining([
-      expect.objectContaining({
+      expect.not.objectContaining({
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v3',
       }),
@@ -299,7 +301,7 @@ describe('CdklabsJsiiProject', () => {
     expect(
       YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-main.yml']).jobs.upgrade.steps,
     ).toEqual(expect.arrayContaining([
-      expect.objectContaining({
+      expect.not.objectContaining({
         name: 'Setup Node.js',
         uses: 'actions/setup-node@v3',
       }),
