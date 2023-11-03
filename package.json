@@ -61,11 +61,11 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "projen": "^0.76.17"
+    "projen": "^0.76.18"
   },
   "dependencies": {
-    "projen": "^0.76.17",
-    "yaml": "^2.3.3"
+    "projen": "^0.76.18",
+    "yaml": "^2.3.4"
   },
   "bundledDependencies": [
     "yaml"
