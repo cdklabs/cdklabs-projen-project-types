@@ -782,4 +782,9 @@ export interface TypeScriptWorkspaceOptions {
    * @default "packages"
    */
   readonly workspaceScope?: string;
+  /**
+   * Options for Yarn Berry.
+   * @default - Yarn Berry v4 with all default options
+   */
+  readonly yarnBerryOptions?: javascript.YarnBerryOptions;
 }

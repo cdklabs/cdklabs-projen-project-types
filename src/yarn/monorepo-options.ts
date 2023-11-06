@@ -775,4 +775,9 @@ export interface MonorepoOptions {
    * Github Runner Group selection options.
    */
   readonly workflowRunsOnGroup?: GroupRunnerOptions;
+  /**
+   * Options for Yarn Berry.
+   * @default - Yarn Berry v4 with all default options
+   */
+  readonly yarnBerryOptions?: javascript.YarnBerryOptions;
 }
