@@ -938,9 +938,9 @@
     "@types/node" "*"
 
 "@types/http-cache-semantics@^4.0.2":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.3.tgz#a3ff232bf7d5c55f38e4e45693eda2ebb545794d"
-  integrity sha512-V46MYLFp08Wf2mmaBhvgjStM3tPa+2GAdy/iqoX+noX1//zje2x4XmrIU0cAwyClATsTmahbtoQ2EwP7I5WSiA==
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.4.tgz#b979ebad3919799c979b17c72621c0bc0a31c6c4"
+  integrity sha512-1m0bIFVc7eJWyve9S0RnuRgcQqF/Xd5QsUZAZeQFr1Q3/p9JWoQQEqmVy+DPTNpGXwhgIetAoYF8JSc33q29QA==
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.5"
@@ -5287,10 +5287,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.76.23:
-  version "0.76.23"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.76.23.tgz#8aaafe8017dc060958c9f8628983ce51ca2dbb73"
-  integrity sha512-Svtho6I8YBR5P03VFnkNUGPk9SA8A9mKI3osInzav6SfeeKh7kcI/9XNyUda3DTmxUfsLMZrVwLszJd0EvWJZQ==
+projen@^0.76.25:
+  version "0.76.25"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.76.25.tgz#9b9495b9d91f7154fe7855d4a8db6a97257c87bb"
+  integrity sha512-Mhq0DOVFl09SH2VaunpDsHQA3t3UpZjqYRbnHY0LMc56DlCYfhnoHf5/BhtI+D4t0JNA2xN24wSiVMgcvrGD7A==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
