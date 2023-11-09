@@ -918,10 +918,6 @@ tsconfig.json
         "type": "build",
       },
       Object {
-        "name": "eslint-import-resolver-node",
-        "type": "build",
-      },
-      Object {
         "name": "eslint-import-resolver-typescript",
         "type": "build",
       },
@@ -1404,13 +1400,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,npm-check-updates,projen,standard-version,ts-jest,typescript",
+            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,npm-check-updates,projen,standard-version,ts-jest,typescript",
           },
           Object {
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta npm-check-updates projen standard-version ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta npm-check-updates projen standard-version ts-jest typescript",
           },
           Object {
             "exec": "npx projen",
@@ -1653,7 +1649,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "cdklabs-projen-project-types": "*",
       "constructs": "10.0.5",
       "eslint": "^8",
-      "eslint-import-resolver-node": "*",
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
       "jest": "^27",
@@ -2733,10 +2728,6 @@ tsconfig.json
         "version": "^10.0.0",
       },
       Object {
-        "name": "eslint-import-resolver-node",
-        "type": "build",
-      },
-      Object {
         "name": "eslint-import-resolver-typescript",
         "type": "build",
       },
@@ -3150,13 +3141,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,npm-check-updates,projen,standard-version,ts-jest,typescript",
+            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,npm-check-updates,projen,standard-version,ts-jest,typescript",
           },
           Object {
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak npm-check-updates projen standard-version ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak npm-check-updates projen standard-version ts-jest typescript",
           },
           Object {
             "exec": "npx projen",
@@ -3396,7 +3387,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "cdklabs-projen-project-types": "*",
       "constructs": "^10.0.0",
       "eslint": "^8",
-      "eslint-import-resolver-node": "*",
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
       "jest": "^27",
@@ -4380,10 +4370,6 @@ junit.xml
         "version": "^10.0.0",
       },
       Object {
-        "name": "eslint-import-resolver-node",
-        "type": "build",
-      },
-      Object {
         "name": "eslint-import-resolver-typescript",
         "type": "build",
       },
@@ -4724,13 +4710,13 @@ junit.xml
             "exec": "yarn upgrade npm-check-updates",
           },
           Object {
-            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,npm-check-updates,projen,standard-version,ts-jest,typescript",
+            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,npm-check-updates,projen,standard-version,ts-jest,typescript",
           },
           Object {
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit npm-check-updates projen standard-version ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit npm-check-updates projen standard-version ts-jest typescript",
           },
           Object {
             "exec": "npx projen",
@@ -4965,7 +4951,6 @@ junit.xml
       "cdklabs-projen-project-types": "*",
       "constructs": "^10.0.0",
       "eslint": "^8",
-      "eslint-import-resolver-node": "*",
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
       "jest": "*",
