@@ -60,10 +60,10 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "projen": "^0.76.26"
+    "projen": "^0.76.27"
   },
   "dependencies": {
-    "projen": "^0.76.26",
+    "projen": "^0.76.27",
     "yaml": "^2.3.4"
   },
   "bundledDependencies": [
