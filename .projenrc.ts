@@ -17,8 +17,11 @@ const project = new CdklabsJsiiProject({
   cdklabsPublishingDefaults: false,
   upgradeCdklabsProjenProjectTypes: false, // that is this project!
   setNodeEngineVersion: false,
+  peerDependencyOptions: {
+    pinnedDevDependency: false,
+  },
 });
-
+project.addPeerDeps('constructs@^10.0.0');
 generateYarnMonorepoOptions(project);
 
 // that is this package!
