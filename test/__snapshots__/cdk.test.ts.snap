@@ -962,11 +962,6 @@ tsconfig.json
         "version": "1.x",
       },
       Object {
-        "name": "npm-check-updates",
-        "type": "build",
-        "version": "^16",
-      },
-      Object {
         "name": "projen",
         "type": "build",
       },
@@ -1343,10 +1338,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
-          },
-          Object {
-            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=prod,peer --filter=aws-cdk-lib,constructs",
+            "exec": "npx npm-check-updates@latest --upgrade --target=minor --peer --dep=prod,peer --filter=aws-cdk-lib,constructs",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -1370,10 +1362,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-cdklabs-projen-project-types",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
-          },
-          Object {
-            "exec": "npm-check-updates --upgrade --target=latest --peer --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
+            "exec": "npx npm-check-updates@latest --upgrade --target=latest --peer --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -1397,10 +1386,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
-          },
-          Object {
-            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,npm-check-updates,projen,standard-version,ts-jest,typescript",
+            "exec": "npx npm-check-updates@latest --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,npm-check-updates,projen,standard-version,ts-jest,typescript",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -1658,7 +1644,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "jsii-docgen": "*",
       "jsii-pacmak": "*",
       "jsii-rosetta": "*",
-      "npm-check-updates": "^16",
       "projen": "*",
       "standard-version": "^9",
       "ts-jest": "^27",
@@ -2773,11 +2758,6 @@ tsconfig.json
         "version": "1.x",
       },
       Object {
-        "name": "npm-check-updates",
-        "type": "build",
-        "version": "^16",
-      },
-      Object {
         "name": "projen",
         "type": "build",
       },
@@ -3097,11 +3077,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
           "CI": "0",
         },
         "name": "upgrade",
-        "steps": Array [
-          Object {
-            "exec": "echo No dependencies to upgrade.",
-          },
-        ],
+        "steps": Array [],
       },
       "upgrade-cdklabs-projen-project-types": Object {
         "description": "upgrade cdklabs-projen-project-types",
@@ -3111,10 +3087,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-cdklabs-projen-project-types",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
-          },
-          Object {
-            "exec": "npm-check-updates --upgrade --target=latest --peer --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
+            "exec": "npx npm-check-updates@latest --upgrade --target=latest --peer --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -3138,10 +3111,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
-          },
-          Object {
-            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,npm-check-updates,projen,standard-version,ts-jest,typescript",
+            "exec": "npx npm-check-updates@latest --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,npm-check-updates,projen,standard-version,ts-jest,typescript",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -3396,7 +3366,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "jsii-docgen": "*",
       "jsii-pacmak": "*",
       "jsii-rosetta": "1.x",
-      "npm-check-updates": "^16",
       "projen": "*",
       "standard-version": "^9",
       "ts-jest": "^27",
@@ -4392,11 +4361,6 @@ junit.xml
         "version": "^15",
       },
       Object {
-        "name": "npm-check-updates",
-        "type": "build",
-        "version": "^16",
-      },
-      Object {
         "name": "projen",
         "type": "build",
       },
@@ -4666,11 +4630,7 @@ junit.xml
           "CI": "0",
         },
         "name": "upgrade",
-        "steps": Array [
-          Object {
-            "exec": "echo No dependencies to upgrade.",
-          },
-        ],
+        "steps": Array [],
       },
       "upgrade-cdklabs-projen-project-types": Object {
         "description": "upgrade cdklabs-projen-project-types",
@@ -4680,10 +4640,7 @@ junit.xml
         "name": "upgrade-cdklabs-projen-project-types",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
-          },
-          Object {
-            "exec": "npm-check-updates --upgrade --target=latest --peer --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
+            "exec": "npx npm-check-updates@latest --upgrade --target=latest --peer --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -4707,10 +4664,7 @@ junit.xml
         "name": "upgrade-dev-deps",
         "steps": Array [
           Object {
-            "exec": "yarn upgrade npm-check-updates",
-          },
-          Object {
-            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,npm-check-updates,projen,standard-version,ts-jest,typescript",
+            "exec": "npx npm-check-updates@latest --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,npm-check-updates,projen,standard-version,ts-jest,typescript",
           },
           Object {
             "exec": "yarn install --check-files",
@@ -4955,7 +4909,6 @@ junit.xml
       "eslint-plugin-import": "*",
       "jest": "*",
       "jest-junit": "^15",
-      "npm-check-updates": "^16",
       "projen": "*",
       "standard-version": "^9",
       "ts-jest": "*",

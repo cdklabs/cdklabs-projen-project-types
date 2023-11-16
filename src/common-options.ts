@@ -3,6 +3,7 @@ import { deepMerge } from 'projen/lib/util';
 import { AutoMergeOptions } from './auto-merge';
 import { MergeQueue } from './merge-queue';
 import { Private } from './private';
+import { SaferUpgrades } from './safer-upgrades';
 import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
 
 export enum OrgTenancy {
@@ -152,6 +153,10 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
   if (!project.deps.all.some(dep => dep.name === 'cdklabs-projen-project-types')) {
     project.addDevDeps('cdklabs-projen-project-types');
   }
+
+  // Use a different (safer) approach to running upgrades
+  // If this proves to be stable we should backport it to projen
+  new SaferUpgrades(project);
 }
 
 function automationUserForOrg(tenancy: OrgTenancy) {
