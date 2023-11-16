@@ -60,10 +60,10 @@
   },
   "peerDependencies": {
     "constructs": "^10.0.0",
-    "projen": "^0.76.27"
+    "projen": "^0.76.28"
   },
   "dependencies": {
-    "projen": "^0.76.27",
+    "projen": "^0.76.28",
     "yaml": "^2.3.4"
   },
   "bundledDependencies": [
