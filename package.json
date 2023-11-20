@@ -63,7 +63,6 @@
     "projen": "^0.77.1"
   },
   "dependencies": {
-    "projen": "^0.77.1",
     "yaml": "^2.3.4"
   },
   "bundledDependencies": [
