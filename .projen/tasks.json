@@ -264,13 +264,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@latest --upgrade --target=minor --peer --dep=prod,peer --filter=projen,yaml,constructs"
+          "exec": "npx npm-check-updates@latest --upgrade --target=minor --peer --dep=prod,peer --filter=yaml,constructs,projen"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade projen yaml constructs"
+          "exec": "yarn upgrade yaml constructs projen"
         },
         {
           "exec": "npx projen"
