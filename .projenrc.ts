@@ -10,7 +10,7 @@ const project = new CdklabsJsiiProject({
   defaultReleaseBranch: 'main',
   name: 'cdklabs-projen-project-types',
   repositoryUrl: 'https://github.com/cdklabs/cdklabs-projen-project-types.git',
-  devDeps: ['@jsii/spec', 'jsii-reflect', 'projen@0.77.1'],
+  devDeps: ['@jsii/spec', 'jsii-reflect', 'projen'],
   bundledDeps: ['yaml'],
   peerDeps: ['projen'],
   enablePRAutoMerge: true,
