@@ -341,11 +341,6 @@ tsconfig.tsbuildinfo
         "version": "^10.0.0",
       },
       Object {
-        "name": "npm-check-updates",
-        "type": "build",
-        "version": "^16",
-      },
-      Object {
         "name": "projen",
         "type": "build",
       },
@@ -736,7 +731,6 @@ tsconfig.tsbuildinfo
     "devDependencies": Object {
       "@types/node": "^18",
       "constructs": "^10.0.0",
-      "npm-check-updates": "^16",
       "projen": "*",
       "ts-node": "*",
       "typescript": "*",
@@ -1059,11 +1053,6 @@ tsconfig.tsbuildinfo
         "version": "^15",
       },
       Object {
-        "name": "npm-check-updates",
-        "type": "build",
-        "version": "^16",
-      },
-      Object {
         "name": "prettier",
         "type": "build",
       },
@@ -1131,11 +1120,6 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
-        "steps": Array [
-          Object {
-            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,constructs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,jest,jest-junit,npm-check-updates,prettier,projen,ts-jest,typescript",
-          },
-        ],
       },
       "compile": Object {
         "description": "Only compile",
@@ -1455,7 +1439,6 @@ tsconfig.tsbuildinfo
       "eslint-plugin-prettier": "*",
       "jest": "*",
       "jest-junit": "^15",
-      "npm-check-updates": "^16",
       "prettier": "*",
       "projen": "*",
       "ts-jest": "*",
@@ -1885,11 +1868,6 @@ tsconfig.tsbuildinfo
         "version": "^15",
       },
       Object {
-        "name": "npm-check-updates",
-        "type": "build",
-        "version": "^16",
-      },
-      Object {
         "name": "prettier",
         "type": "build",
       },
@@ -1957,11 +1935,6 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
-        "steps": Array [
-          Object {
-            "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,constructs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,jest,jest-junit,npm-check-updates,prettier,projen,ts-jest,typescript",
-          },
-        ],
       },
       "compile": Object {
         "description": "Only compile",
@@ -2281,7 +2254,6 @@ tsconfig.tsbuildinfo
       "eslint-plugin-prettier": "*",
       "jest": "*",
       "jest-junit": "^15",
-      "npm-check-updates": "^16",
       "prettier": "*",
       "projen": "*",
       "ts-jest": "*",
