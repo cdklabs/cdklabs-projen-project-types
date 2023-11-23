@@ -124,7 +124,11 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
 
     new javascript.UpgradeDependencies(project, {
       taskName: 'upgrade',
-      types: [DependencyType.RUNTIME, DependencyType.BUNDLED, DependencyType.PEER],
+      // NOTE: we explicitly do NOT upgrade PEER dependencies. We want the widest range of compatibility possible,
+      // and by bumping peer dependencies we force the customer to also unnecessarily upgrade, which they may not want
+      // to do. Never mind that peerDependencies are usually also devDependencies, so it doesn't make sense to upgrade
+      // them without also upgrading devDependencies.
+      types: [DependencyType.RUNTIME, DependencyType.BUNDLED],
       exclude,
       semanticCommit: 'fix',
       workflowOptions: {
