@@ -1646,20 +1646,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
           "CI": "0",
         },
         "name": "upgrade",
-        "steps": Array [
-          Object {
-            "exec": "yarn install --check-files",
-          },
-          Object {
-            "exec": "yarn upgrade aws-cdk-lib constructs",
-          },
-          Object {
-            "exec": "npx projen",
-          },
-          Object {
-            "spawn": "post-upgrade",
-          },
-        ],
+        "steps": Array [],
       },
       "upgrade-cdklabs-projen-project-types": Object {
         "description": "upgrade cdklabs-projen-project-types",
