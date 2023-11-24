@@ -264,6 +264,9 @@
       },
       "steps": [
         {
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=prod,peer --filter=yaml,constructs,projen"
+        },
+        {
           "exec": "yarn install --check-files"
         },
         {
@@ -284,6 +287,9 @@
         "CI": "0"
       },
       "steps": [
+        {
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@jsii/spec,@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-reflect,projen,standard-version,ts-jest,ts-node,typescript"
+        },
         {
           "exec": "yarn install --check-files"
         },
