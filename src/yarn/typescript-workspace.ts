@@ -101,7 +101,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
         toJSON: () => {
           const steps = upgrades.renderTaskSteps() as TaskStep[];
           return steps.filter(
-            (step) => step.exec && typeof step.exec === 'string' && step.exec?.startsWith('npm-check-updates'),
+            (step) => step.exec && typeof step.exec === 'string' && step.exec?.startsWith('npx npm-check-updates'),
           );
         },
       } as any,
