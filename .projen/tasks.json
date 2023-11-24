@@ -264,7 +264,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=prod,peer --filter=yaml,constructs,projen"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=prod --filter=yaml"
         },
         {
           "exec": "yarn install --check-files"
