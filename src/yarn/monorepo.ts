@@ -98,8 +98,9 @@ export class Monorepo extends typescript.TypeScriptProject {
       env: { CI: '0' },
       description: 'Upgrade dependencies in all workspaces',
       steps: [
-        { exec: 'yarn upgrade npm-check-updates' },
-        { exec: 'npm-check-updates --dep=dev,optional,peer,prod,bundle --upgrade --target=minor' },
+        // It is not safe anymore to have 'npm-check-updates' in a Yarn 1 dependency tree, so run it in a separate
+        // tree by using npx.
+        { exec: 'npx npm-check-updates@16 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor' },
         { exec: 'yarn workspaces run check-for-updates' },
         { exec: 'yarn install --check-files' },
         { exec: 'yarn upgrade' },
