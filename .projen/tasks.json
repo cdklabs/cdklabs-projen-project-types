@@ -270,7 +270,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade yaml constructs projen"
+          "exec": "yarn upgrade yaml"
         },
         {
           "exec": "npx projen"
