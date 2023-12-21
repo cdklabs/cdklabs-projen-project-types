@@ -25,6 +25,7 @@ const project = new CdklabsJsiiProject({
   peerDependencyOptions: {
     pinnedDevDependency: false,
   },
+  jsiiVersion: '~5.2',
 });
 project.addPeerDeps('constructs@^10.0.0');
 generateYarnMonorepoOptions(project);

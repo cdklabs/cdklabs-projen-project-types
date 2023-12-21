@@ -331,7 +331,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files
       - name: build
@@ -400,7 +400,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -429,7 +429,7 @@ jobs:
           java-version: 11.x
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -454,7 +454,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
@@ -482,7 +482,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 3.x
@@ -510,7 +510,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16.0
@@ -594,7 +594,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
@@ -622,7 +622,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -651,7 +651,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -688,7 +688,7 @@ jobs:
           java-version: 11.x
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -724,7 +724,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
@@ -759,7 +759,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 3.x
@@ -793,7 +793,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16.0
@@ -931,7 +931,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -1023,7 +1023,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -1156,12 +1156,11 @@ tsconfig.json
       Object {
         "name": "@types/jest",
         "type": "build",
-        "version": "^27",
       },
       Object {
         "name": "@types/node",
         "type": "build",
-        "version": "^16",
+        "version": "^18",
       },
       Object {
         "name": "@typescript-eslint/eslint-plugin",
@@ -1191,14 +1190,13 @@ tsconfig.json
         "version": "^8",
       },
       Object {
+        "name": "jest",
+        "type": "build",
+      },
+      Object {
         "name": "jest-junit",
         "type": "build",
         "version": "^15",
-      },
-      Object {
-        "name": "jest",
-        "type": "build",
-        "version": "^27",
       },
       Object {
         "name": "jsii-diff",
@@ -1219,7 +1217,7 @@ tsconfig.json
       Object {
         "name": "jsii",
         "type": "build",
-        "version": "1.x",
+        "version": "~5.2",
       },
       Object {
         "name": "projen",
@@ -1233,7 +1231,6 @@ tsconfig.json
       Object {
         "name": "ts-jest",
         "type": "build",
-        "version": "^27",
       },
       Object {
         "name": "typescript",
@@ -1248,16 +1245,6 @@ tsconfig.json
         "name": "@aws-cdk/integ-tests-alpha",
         "type": "devenv",
         "version": "latest",
-      },
-      Object {
-        "name": "@types/babel__traverse",
-        "type": "override",
-        "version": "7.18.2",
-      },
-      Object {
-        "name": "@types/prettier",
-        "type": "override",
-        "version": "2.6.0",
       },
       Object {
         "name": "aws-cdk-lib",
@@ -1684,13 +1671,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": Array [
           Object {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,projen,standard-version,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,projen,standard-version,ts-jest,typescript",
           },
           Object {
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta projen standard-version ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta projen standard-version ts-jest typescript",
           },
           Object {
             "exec": "npx projen",
@@ -1925,8 +1912,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "devDependencies": Object {
       "@aws-cdk/integ-runner": "latest",
       "@aws-cdk/integ-tests-alpha": "latest",
-      "@types/jest": "^27",
-      "@types/node": "^16",
+      "@types/jest": "*",
+      "@types/node": "^18",
       "@typescript-eslint/eslint-plugin": "^6",
       "@typescript-eslint/parser": "^6",
       "aws-cdk-lib": "2.1.0",
@@ -1935,20 +1922,20 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "eslint": "^8",
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
-      "jest": "^27",
+      "jest": "*",
       "jest-junit": "^15",
-      "jsii": "1.x",
+      "jsii": "~5.2",
       "jsii-diff": "*",
       "jsii-docgen": "*",
       "jsii-pacmak": "*",
       "jsii-rosetta": "*",
       "projen": "*",
       "standard-version": "^9",
-      "ts-jest": "^27",
+      "ts-jest": "*",
       "typescript": "*",
     },
     "engines": Object {
-      "node": ">= 16.13.0",
+      "node": ">= 18.12.0",
     },
     "jest": Object {
       "clearMocks": true,
@@ -2031,10 +2018,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "repository": Object {
       "type": "git",
       "url": "url",
-    },
-    "resolutions": Object {
-      "@types/babel__traverse": "7.18.2",
-      "@types/prettier": "2.6.0",
     },
     "scripts": Object {
       "build": "npx projen build",
@@ -2553,7 +2536,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files
       - name: build
@@ -2622,7 +2605,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -2651,7 +2634,7 @@ jobs:
           java-version: 11.x
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -2676,7 +2659,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
@@ -2704,7 +2687,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 3.x
@@ -2732,7 +2715,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16.0
@@ -2816,7 +2799,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
@@ -2844,7 +2827,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -2873,7 +2856,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -2910,7 +2893,7 @@ jobs:
           java-version: 11.x
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -2946,7 +2929,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
@@ -2981,7 +2964,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 3.x
@@ -3015,7 +2998,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16.0
@@ -3153,7 +3136,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -3245,7 +3228,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -3376,12 +3359,11 @@ tsconfig.json
       Object {
         "name": "@types/jest",
         "type": "build",
-        "version": "^27",
       },
       Object {
         "name": "@types/node",
         "type": "build",
-        "version": "^16",
+        "version": "^18",
       },
       Object {
         "name": "@typescript-eslint/eslint-plugin",
@@ -3416,14 +3398,13 @@ tsconfig.json
         "version": "^8",
       },
       Object {
+        "name": "jest",
+        "type": "build",
+      },
+      Object {
         "name": "jest-junit",
         "type": "build",
         "version": "^15",
-      },
-      Object {
-        "name": "jest",
-        "type": "build",
-        "version": "^27",
       },
       Object {
         "name": "jsii-diff",
@@ -3440,12 +3421,12 @@ tsconfig.json
       Object {
         "name": "jsii-rosetta",
         "type": "build",
-        "version": "1.x",
+        "version": "~5.2",
       },
       Object {
         "name": "jsii",
         "type": "build",
-        "version": "1.x",
+        "version": "~5.2",
       },
       Object {
         "name": "projen",
@@ -3459,21 +3440,10 @@ tsconfig.json
       Object {
         "name": "ts-jest",
         "type": "build",
-        "version": "^27",
       },
       Object {
         "name": "typescript",
         "type": "build",
-      },
-      Object {
-        "name": "@types/babel__traverse",
-        "type": "override",
-        "version": "7.18.2",
-      },
-      Object {
-        "name": "@types/prettier",
-        "type": "override",
-        "version": "2.6.0",
       },
     ],
   },
@@ -3855,13 +3825,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": Array [
           Object {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,projen,standard-version,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,jsii-diff,jsii-docgen,jsii-pacmak,projen,standard-version,ts-jest,typescript",
           },
           Object {
             "exec": "yarn install --check-files",
           },
           Object {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak projen standard-version ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak projen standard-version ts-jest typescript",
           },
           Object {
             "exec": "npx projen",
@@ -4094,8 +4064,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "organization": true,
     },
     "devDependencies": Object {
-      "@types/jest": "^27",
-      "@types/node": "^16",
+      "@types/jest": "*",
+      "@types/node": "^18",
       "@typescript-eslint/eslint-plugin": "^6",
       "@typescript-eslint/parser": "^6",
       "cdklabs-projen-project-types": "*",
@@ -4103,20 +4073,20 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "eslint": "^8",
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
-      "jest": "^27",
+      "jest": "*",
       "jest-junit": "^15",
-      "jsii": "1.x",
+      "jsii": "~5.2",
       "jsii-diff": "*",
       "jsii-docgen": "*",
       "jsii-pacmak": "*",
-      "jsii-rosetta": "1.x",
+      "jsii-rosetta": "~5.2",
       "projen": "*",
       "standard-version": "^9",
-      "ts-jest": "^27",
+      "ts-jest": "*",
       "typescript": "*",
     },
     "engines": Object {
-      "node": ">= 16.13.0",
+      "node": ">= 18.12.0",
     },
     "jest": Object {
       "clearMocks": true,
@@ -4192,10 +4162,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "repository": Object {
       "type": "git",
       "url": "url",
-    },
-    "resolutions": Object {
-      "@types/babel__traverse": "7.18.2",
-      "@types/prettier": "2.6.0",
     },
     "scripts": Object {
       "build": "npx projen build",
@@ -4610,7 +4576,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files
       - name: build
@@ -4727,7 +4693,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
@@ -4755,7 +4721,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
@@ -4882,7 +4848,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -4974,7 +4940,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -5107,7 +5073,7 @@ junit.xml
       Object {
         "name": "@types/node",
         "type": "build",
-        "version": "^16",
+        "version": "^18",
       },
       Object {
         "name": "@typescript-eslint/eslint-plugin",
@@ -5700,7 +5666,7 @@ junit.xml
     },
     "devDependencies": Object {
       "@types/jest": "*",
-      "@types/node": "^16",
+      "@types/node": "^18",
       "@typescript-eslint/eslint-plugin": "^6",
       "@typescript-eslint/parser": "^6",
       "cdklabs-projen-project-types": "*",
@@ -5716,7 +5682,7 @@ junit.xml
       "typescript": "*",
     },
     "engines": Object {
-      "node": ">= 16.13.0",
+      "node": ">= 18.12.0",
     },
     "jest": Object {
       "clearMocks": true,

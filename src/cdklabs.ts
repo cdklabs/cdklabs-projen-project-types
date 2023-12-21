@@ -30,8 +30,8 @@ const cdklabsForcedProps = {
 
 const cdklabsDefaultProps: Partial<CdklabsConstructLibraryOptions> = {
   autoApproveUpgrades: true,
-  minNodeVersion: '16.13.0',
-  workflowNodeVersion: '16.x',
+  minNodeVersion: '18.12.0',
+  workflowNodeVersion: '18.x',
   jestOptions: {
     updateSnapshot: UpdateSnapshot.ALWAYS,
   },
@@ -40,6 +40,7 @@ const cdklabsDefaultProps: Partial<CdklabsConstructLibraryOptions> = {
   // project will basically release every day, because it will see devDependencies updates
   // every day, even though those are not interesting.
   releasableCommits: ReleasableCommits.featuresAndFixes(),
+  jsiiVersion: '~5.2',
 };
 
 function createCdklabsPublishingDefaults(npmPackageName: string, langs?: JsiiLanguage[]) {
