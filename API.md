@@ -7245,6 +7245,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | The URL where the actual code for the package lives. |
 
 ---
 
@@ -7991,6 +7992,18 @@ public readonly tsconfigEslint: TypescriptConfig;
 ```
 
 - *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `repositoryUrl`<sup>Optional</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.repositoryUrl"></a>
+
+```typescript
+public readonly repositoryUrl: string;
+```
+
+- *Type:* string
+
+The URL where the actual code for the package lives.
 
 ---
 
@@ -11939,6 +11952,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | The URL where the actual code for the package lives. |
 
 ---
 
@@ -12685,6 +12699,18 @@ public readonly tsconfigEslint: TypescriptConfig;
 ```
 
 - *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `repositoryUrl`<sup>Optional</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.yarn.Monorepo.property.repositoryUrl"></a>
+
+```typescript
+public readonly repositoryUrl: string;
+```
+
+- *Type:* string
+
+The URL where the actual code for the package lives.
 
 ---
 

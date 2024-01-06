@@ -19,6 +19,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       'peerDeps',
       'devDeps',
       'excludeDepsFromUpgrade',
+      'repository',
     );
 
     const useEslint = remainder.eslint ?? true;
@@ -31,6 +32,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       parent: options.parent,
       name: options.name,
       description: options.description,
+      repository: options.repository ?? options.parent.repositoryUrl,
       repositoryDirectory: workspaceDirectory,
       outdir: workspaceDirectory,
       defaultReleaseBranch: 'REQUIRED-BUT-SHOULD-NOT-BE',
