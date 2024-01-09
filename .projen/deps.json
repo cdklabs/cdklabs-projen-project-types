@@ -95,6 +95,7 @@
     },
     {
       "name": "typescript",
+      "version": "~5.2",
       "type": "build"
     },
     {
