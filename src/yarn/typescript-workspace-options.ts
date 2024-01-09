@@ -103,6 +103,12 @@ export interface TypeScriptWorkspaceOptions {
    */
   readonly bundlerOptions?: javascript.BundlerOptions;
   /**
+   * Configure which licenses should be deemed acceptable for use by dependencies.
+   * This setting will cause the build to fail, if any prohibited or not allowed licenses ares encountered.
+   * @default - no license checks are run during the build and all licenses will be accepted
+   */
+  readonly checkLicenses?: javascript.LicenseCheckerOptions;
+  /**
    * Add a `clobber` task which resets the repo to origin.
    * @default - true, but false for subprojects
    */
@@ -638,7 +644,7 @@ export interface TypeScriptWorkspaceOptions {
   readonly releaseWorkflow?: boolean;
   /**
    * The name of the default release workflow.
-   * @default "Release"
+   * @default "release"
    */
   readonly releaseWorkflowName?: string;
   /**
@@ -724,6 +730,10 @@ export interface TypeScriptWorkspaceOptions {
    * @default "tsconfig.dev.json"
    */
   readonly tsconfigDevFile?: string;
+  /**
+   * Options for ts-jest.
+   */
+  readonly tsJestOptions?: typescript.TsJestOptions;
   /**
    * TypeScript version to use.
    * NOTE: Typescript is not semantically versioned and should remain on the
