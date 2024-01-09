@@ -31,7 +31,6 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
-!/.projenrc.js
 /test-reports/
 junit.xml
 /coverage/
@@ -54,3 +53,4 @@ tsconfig.json
 !/.github/workflows/upgrade-dev-deps-main.yml
 !/src/yarn/monorepo-options.ts
 !/src/yarn/typescript-workspace-options.ts
+!/.projenrc.ts
