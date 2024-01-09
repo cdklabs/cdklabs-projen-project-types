@@ -22,4 +22,26 @@ describe('CdkLabsMonorepo', () => {
 
     expect(outdir).toMatchSnapshot();
   });
+
+  test('workspaces get monorepo repository configuration', () => {
+    const testRepository = 'https://github.com/cdklabs/cdklabs-projen-project-types';
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+      repository: testRepository,
+    });
+
+    const workspace = new yarn.TypeScriptWorkspace({
+      parent,
+      name: 'monorepo/one',
+      workspaceScope: 'packages',
+    });
+
+    const repository = workspace.package.manifest.repository;
+    expect(repository.url).toBe(testRepository);
+    expect(repository.directory).toBe('packages/monorepo/one');
+
+    const outdir = Testing.synth(parent);
+    expect(outdir).toMatchSnapshot();
+  });
 });

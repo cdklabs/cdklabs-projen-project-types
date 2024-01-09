@@ -8,6 +8,12 @@ import { MergeQueue } from '../merge-queue';
  * A monorepo using yarn workspaces.
  */
 export class Monorepo extends typescript.TypeScriptProject {
+
+  /**
+   * The URL where the actual code for the package lives.
+   */
+  public readonly repositoryUrl?: string;
+
   private projects = new Array<TypeScriptWorkspace>();
   private postInstallDependencies = new Array<() => boolean>();
 
@@ -20,6 +26,8 @@ export class Monorepo extends typescript.TypeScriptProject {
       eslint: false,
       release: false,
     });
+
+    this.repositoryUrl = options.repository;
 
     /**
      * Prettier formatting
