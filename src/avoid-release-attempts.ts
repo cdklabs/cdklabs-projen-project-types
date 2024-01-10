@@ -33,7 +33,6 @@ export class AvoidReleaseAttempts extends Component {
           id: 'check_tag_exists',
           run: '(git ls-remote -q --exit-code --tags origin $(cat ./dist/releasetag.txt) && (OUTPUT_VALUE=true && echo "Setting Output Key \'exists\' to \'$OUTPUT_VALUE\'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)) || (OUTPUT_VALUE=false && echo "Setting Output Key \'exists\' to \'$OUTPUT_VALUE\'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)',
         }),
-        JsonPatch.add('/jobs/release/steps/6/run', 'OUTPUT_VALUE=$(git ls-remote origin -h ${{ github.ref }} | cut -f1) && echo "Setting Output Key \'latest_commit\' to \'$OUTPUT_VALUE\'" && echo "latest_commit=$OUTPUT_VALUE" >> $GITHUB_OUTPUT'),
       );
     });
   }
