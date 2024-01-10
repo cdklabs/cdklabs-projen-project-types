@@ -467,6 +467,7 @@ jobs:
       contents: write
     outputs:
       latest_commit: \${{ steps.git_remote.outputs.latest_commit }}
+      tag_exists: \${{ steps.check_tag_exists.outputs.exists }}
     env:
       CI: "true"
     steps:
@@ -486,6 +487,9 @@ jobs:
         run: yarn install --check-files --frozen-lockfile
       - name: release
         run: npx projen release
+      - name: Check if releasetag already exists
+        id: check_tag_exists
+        run: (git ls-remote -q --exit-code --tags origin $(cat ./dist/releasetag.txt) && (OUTPUT_VALUE=true && echo "Setting Output Key 'exists' to '$OUTPUT_VALUE'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)) || (OUTPUT_VALUE=false && echo "Setting Output Key 'exists' to '$OUTPUT_VALUE'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)
       - name: Check for new commits
         id: git_remote
         run: echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
@@ -505,7 +509,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    if: needs.release.outputs.latest_commit == github.sha
+    if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
       - uses: actions/setup-node@v3
         with:
@@ -534,7 +538,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    if: needs.release.outputs.latest_commit == github.sha
+    if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
       - uses: actions/setup-node@v3
         with:
@@ -2262,6 +2266,7 @@ jobs:
       contents: write
     outputs:
       latest_commit: \${{ steps.git_remote.outputs.latest_commit }}
+      tag_exists: \${{ steps.check_tag_exists.outputs.exists }}
     env:
       CI: "true"
     steps:
@@ -2280,6 +2285,9 @@ jobs:
       - name: Check for new commits
         id: git_remote
         run: echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+      - name: Check if releasetag already exists
+        id: check_tag_exists
+        run: (git ls-remote -q --exit-code --tags origin $(cat ./dist/releasetag.txt) && (OUTPUT_VALUE=true && echo "Setting Output Key 'exists' to '$OUTPUT_VALUE'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)) || (OUTPUT_VALUE=false && echo "Setting Output Key 'exists' to '$OUTPUT_VALUE'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)
       - name: Backup artifact permissions
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
@@ -2296,7 +2304,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    if: needs.release.outputs.latest_commit == github.sha
+    if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
       - uses: actions/setup-node@v3
         with:
@@ -2325,7 +2333,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    if: needs.release.outputs.latest_commit == github.sha
+    if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
       - uses: actions/setup-node@v3
         with:
@@ -3933,6 +3941,7 @@ jobs:
       contents: write
     outputs:
       latest_commit: \${{ steps.git_remote.outputs.latest_commit }}
+      tag_exists: \${{ steps.check_tag_exists.outputs.exists }}
     env:
       CI: "true"
     steps:
@@ -3951,6 +3960,9 @@ jobs:
       - name: Check for new commits
         id: git_remote
         run: echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+      - name: Check if releasetag already exists
+        id: check_tag_exists
+        run: (git ls-remote -q --exit-code --tags origin $(cat ./dist/releasetag.txt) && (OUTPUT_VALUE=true && echo "Setting Output Key 'exists' to '$OUTPUT_VALUE'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)) || (OUTPUT_VALUE=false && echo "Setting Output Key 'exists' to '$OUTPUT_VALUE'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)
       - name: Backup artifact permissions
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
@@ -3967,7 +3979,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    if: needs.release.outputs.latest_commit == github.sha
+    if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
       - uses: actions/setup-node@v3
         with:
