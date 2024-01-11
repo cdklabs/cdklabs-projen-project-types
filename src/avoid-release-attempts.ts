@@ -31,7 +31,11 @@ export class AvoidReleaseAttempts extends Component {
         JsonPatch.add('/jobs/release/steps/5', {
           name: 'Check if releasetag already exists',
           id: 'check_tag_exists',
-          run: '(git ls-remote -q --exit-code --tags origin $(cat ./dist/releasetag.txt) && (OUTPUT_VALUE=true && echo "Setting Output Key \'exists\' to \'$OUTPUT_VALUE\'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)) || (OUTPUT_VALUE=false && echo "Setting Output Key \'exists\' to \'$OUTPUT_VALUE\'" && echo "exists=$OUTPUT_VALUE" >> $GITHUB_OUTPUT)',
+          run: [
+            'TAG=$(cat dist/dist/releasetag.txt)',
+            '([ ! -z "$TAG" ] && git ls-remote -q --exit-code --tags origin $TAG && (echo "exists=true" >> $GITHUB_OUTPUT)) || echo "exists=false" >> $GITHUB_OUTPUT',
+            'cat $GITHUB_OUTPUT',
+          ].join('\n'),
         }),
       );
     });
