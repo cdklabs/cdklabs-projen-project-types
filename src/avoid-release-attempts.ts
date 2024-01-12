@@ -4,7 +4,7 @@ import { Component, JsonPatch, github, release } from 'projen';
 
 export interface AvoidReleaseAttemptsOptions {
   /**
-   * Path the the file containing the release tag.
+   * Path to the file containing the release tag.
    *
    * @default `${project.artifactsDirectory}/releasetag.txt`
    */
