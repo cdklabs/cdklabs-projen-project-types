@@ -1,7 +1,6 @@
 import { DependencyType, github, javascript, typescript } from 'projen';
 import { deepMerge } from 'projen/lib/util';
 import { AutoMergeOptions } from './auto-merge';
-import { AvoidReleaseAttempts } from './avoid-release-attempts';
 import { MergeQueue } from './merge-queue';
 import { Private } from './private';
 import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
@@ -157,8 +156,6 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
   if (!project.deps.all.some(dep => dep.name === 'cdklabs-projen-project-types')) {
     project.addDevDeps('cdklabs-projen-project-types');
   }
-
-  new AvoidReleaseAttempts(project);
 }
 
 function automationUserForOrg(tenancy: OrgTenancy) {
