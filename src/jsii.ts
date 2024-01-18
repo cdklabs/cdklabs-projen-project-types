@@ -1,6 +1,4 @@
-import * as path from 'node:path/posix';
 import { cdk } from 'projen';
-import { AvoidReleaseAttempts } from './avoid-release-attempts';
 import { CdkCommonOptions, configureCommonFeatures, withCommonOptionsDefaults } from './common-options';
 
 export interface CdkJsiiProjectOptions extends cdk.JsiiProjectOptions, CdkCommonOptions {}
@@ -19,9 +17,5 @@ export class CdkJsiiProject extends cdk.JsiiProject {
     this.private = opts.private;
 
     configureCommonFeatures(this, opts);
-    new AvoidReleaseAttempts(this, {
-      // need to double up the artifactsDirectory because the jsii package task is doing this as well in CI
-      releaseTagPath: path.normalize(path.join(this.artifactsDirectory, this.artifactsDirectory, 'releasetag.txt')),
-    });
   }
 }
