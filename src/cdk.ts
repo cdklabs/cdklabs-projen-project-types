@@ -1,6 +1,4 @@
-import * as path from 'node:path/posix';
 import { awscdk, cdk, typescript } from 'projen';
-import { AvoidReleaseAttempts } from './avoid-release-attempts';
 import { CdkCommonOptions, configureCommonFeatures, withCommonOptionsDefaults } from './common-options';
 import { IntegRunner } from './integ-runner';
 import { Rosetta, RosettaOptions } from './rosetta';
@@ -57,10 +55,6 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
     new IntegRunner(this);
 
     configureCommonFeatures(this, opts);
-    new AvoidReleaseAttempts(this, {
-      // need to double up the artifactsDirectory because the jsii package task is doing this as well in CI
-      releaseTagPath: path.normalize(path.join(this.artifactsDirectory, this.artifactsDirectory, 'releasetag.txt')),
-    });
   }
 }
 
@@ -80,6 +74,5 @@ export class CdkTypeScriptProject extends typescript.TypeScriptProject {
     this.private = opts.private;
 
     configureCommonFeatures(this, opts);
-    new AvoidReleaseAttempts(this);
   }
 }
