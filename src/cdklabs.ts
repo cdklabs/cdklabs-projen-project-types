@@ -31,7 +31,7 @@ const cdklabsForcedProps = {
 const cdklabsDefaultProps: Partial<CdklabsConstructLibraryOptions> = {
   autoApproveUpgrades: true,
   minNodeVersion: '18.12.0',
-  workflowNodeVersion: '18.x',
+  workflowNodeVersion: 'lts/*',
   jestOptions: {
     updateSnapshot: UpdateSnapshot.ALWAYS,
   },
