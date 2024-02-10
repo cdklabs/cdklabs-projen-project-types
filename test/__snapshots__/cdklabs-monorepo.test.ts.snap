@@ -89,7 +89,7 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
@@ -104,10 +104,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.self_mutation.outputs.self_mutation_happened
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
       - name: Fail build on mutation
         if: steps.self_mutation.outputs.self_mutation_happened
         run: |-
@@ -122,13 +123,13 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -197,7 +198,7 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -209,10 +210,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -222,9 +224,9 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -1117,7 +1119,7 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,constructs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,jest,jest-junit,prettier,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,ts-jest,typescript",
           },
         ],
       },
@@ -1932,7 +1934,7 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,constructs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,jest,jest-junit,prettier,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,ts-jest,typescript",
           },
         ],
       },
@@ -2567,7 +2569,7 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
@@ -2582,10 +2584,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.self_mutation.outputs.self_mutation_happened
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
       - name: Fail build on mutation
         if: steps.self_mutation.outputs.self_mutation_happened
         run: |-
@@ -2600,13 +2603,13 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -2675,7 +2678,7 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -2687,10 +2690,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -2700,9 +2704,9 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -3597,7 +3601,7 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,constructs,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,eslint,jest,jest-junit,prettier,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,ts-jest,typescript",
           },
         ],
       },

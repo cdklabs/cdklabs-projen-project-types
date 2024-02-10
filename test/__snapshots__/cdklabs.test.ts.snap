@@ -324,12 +324,12 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -343,10 +343,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.self_mutation.outputs.self_mutation_happened
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
       - name: Fail build on mutation
         if: steps.self_mutation.outputs.self_mutation_happened
         run: |-
@@ -357,10 +358,11 @@ jobs:
         run: cd dist && getfacl -R . > permissions-backup.acl
         continue-on-error: true
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifact
           path: dist
+          overwrite: true
   self-mutation:
     needs: build
     runs-on: ubuntu-latest
@@ -369,13 +371,13 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -398,11 +400,11 @@ jobs:
     permissions: {}
     if: "! needs.build.outputs.self_mutation_happened"
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -427,11 +429,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 11.x
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -452,14 +454,14 @@ jobs:
     permissions: {}
     if: "! needs.build.outputs.self_mutation_happened"
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -480,14 +482,14 @@ jobs:
     permissions: {}
     if: "! needs.build.outputs.self_mutation_happened"
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -508,14 +510,14 @@ jobs:
     permissions: {}
     if: "! needs.build.outputs.self_mutation_happened"
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16.0
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -585,7 +587,7 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Set git identity
@@ -593,7 +595,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -617,10 +619,11 @@ jobs:
         continue-on-error: true
       - name: Upload artifact
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifact
           path: dist
+          overwrite: true
   release_github:
     name: Publish to GitHub Releases
     needs: release
@@ -629,11 +632,11 @@ jobs:
       contents: write
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -658,11 +661,11 @@ jobs:
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -695,11 +698,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 11.x
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -731,14 +734,14 @@ jobs:
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -766,14 +769,14 @@ jobs:
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -800,14 +803,14 @@ jobs:
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16.0
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -844,11 +847,11 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -860,10 +863,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -873,11 +877,11 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -934,11 +938,11 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -952,10 +956,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -965,11 +970,11 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -1026,11 +1031,11 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -1044,10 +1049,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -1057,11 +1063,11 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -1681,13 +1687,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,projen,standard-version,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,jsii,projen,ts-jest,typescript,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha",
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta projen standard-version ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen standard-version ts-jest typescript @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha",
           },
           {
             "exec": "npx projen",
@@ -2145,9 +2151,9 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -2159,10 +2165,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -2172,9 +2179,9 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -2540,12 +2547,12 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -2559,10 +2566,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.self_mutation.outputs.self_mutation_happened
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
       - name: Fail build on mutation
         if: steps.self_mutation.outputs.self_mutation_happened
         run: |-
@@ -2573,10 +2581,11 @@ jobs:
         run: cd dist && getfacl -R . > permissions-backup.acl
         continue-on-error: true
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifact
           path: dist
+          overwrite: true
   self-mutation:
     needs: build
     runs-on: ubuntu-latest
@@ -2585,13 +2594,13 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -2614,11 +2623,11 @@ jobs:
     permissions: {}
     if: "! needs.build.outputs.self_mutation_happened"
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -2643,11 +2652,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 11.x
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -2668,14 +2677,14 @@ jobs:
     permissions: {}
     if: "! needs.build.outputs.self_mutation_happened"
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -2696,14 +2705,14 @@ jobs:
     permissions: {}
     if: "! needs.build.outputs.self_mutation_happened"
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -2724,14 +2733,14 @@ jobs:
     permissions: {}
     if: "! needs.build.outputs.self_mutation_happened"
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16.0
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -2801,7 +2810,7 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Set git identity
@@ -2809,7 +2818,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -2833,10 +2842,11 @@ jobs:
         continue-on-error: true
       - name: Upload artifact
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifact
           path: dist
+          overwrite: true
   release_github:
     name: Publish to GitHub Releases
     needs: release
@@ -2845,11 +2855,11 @@ jobs:
       contents: write
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -2874,11 +2884,11 @@ jobs:
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -2911,11 +2921,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 11.x
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -2947,14 +2957,14 @@ jobs:
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -2982,14 +2992,14 @@ jobs:
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -3016,14 +3026,14 @@ jobs:
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16.0
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -3060,11 +3070,11 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -3076,10 +3086,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -3089,11 +3100,11 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -3150,11 +3161,11 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -3168,10 +3179,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -3181,11 +3193,11 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -3242,11 +3254,11 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -3260,10 +3272,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -3273,11 +3286,11 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -3846,13 +3859,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,jsii-diff,jsii-docgen,jsii-pacmak,projen,standard-version,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,jsii,projen,ts-jest,typescript",
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak projen standard-version ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen standard-version ts-jest typescript",
           },
           {
             "exec": "npx projen",
@@ -4592,12 +4605,12 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -4611,10 +4624,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "self_mutation_happened=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.self_mutation.outputs.self_mutation_happened
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
       - name: Fail build on mutation
         if: steps.self_mutation.outputs.self_mutation_happened
         run: |-
@@ -4629,13 +4643,13 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -4707,7 +4721,7 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Set git identity
@@ -4715,7 +4729,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -4739,10 +4753,11 @@ jobs:
         continue-on-error: true
       - name: Upload artifact
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifact
           path: dist
+          overwrite: true
   release_github:
     name: Publish to GitHub Releases
     needs: release
@@ -4751,11 +4766,11 @@ jobs:
       contents: write
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: dist
@@ -4784,11 +4799,11 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -4800,10 +4815,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -4813,11 +4829,11 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -4874,11 +4890,11 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -4892,10 +4908,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -4905,11 +4922,11 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -4966,11 +4983,11 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
       - name: Install dependencies
@@ -4984,10 +5001,11 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "patch_created=true" >> $GITHUB_OUTPUT
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: .repo.patch
           path: .repo.patch
+          overwrite: true
   pr:
     name: Create Pull Request
     needs: upgrade
@@ -4997,11 +5015,11 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: .repo.patch
           path: \${{ runner.temp }}
@@ -5459,7 +5477,7 @@ junit.xml
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,@types/node,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,cdklabs-projen-project-types,constructs,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest,jest-junit,projen,standard-version,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,ts-jest,typescript",
           },
           {
             "exec": "yarn install --check-files",
