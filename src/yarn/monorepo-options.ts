@@ -84,8 +84,13 @@ export interface MonorepoOptions {
    */
   readonly buildWorkflow?: boolean;
   /**
+   * Options for PR build workflow.
+   */
+  readonly buildWorkflowOptions?: javascript.BuildWorkflowOptions;
+  /**
    * Build workflow triggers.
    * @default "{ pullRequest: {}, workflowDispatch: {} }"
+   * @deprecated - Use `buildWorkflowOptions.workflowTriggers`
    */
   readonly buildWorkflowTriggers?: github.workflows.Triggers;
   /**
@@ -357,6 +362,7 @@ export interface MonorepoOptions {
    *
    * Implies that PR builds do not have anti-tamper checks.
    * @default true
+   * @deprecated - Use `buildWorkflowOptions.mutableBuild`
    */
   readonly mutableBuild?: boolean;
   /**
