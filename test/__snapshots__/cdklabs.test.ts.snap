@@ -1692,7 +1692,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,jsii,projen,ts-jest,typescript,@aws-cdk/integ-runner,@aws-cdk/integ-tests-alpha",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,projen,ts-jest,typescript",
           },
           {
             "exec": "yarn install --check-files",
@@ -3870,7 +3870,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,jsii,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-docgen,jsii-pacmak,projen,ts-jest,typescript",
           },
           {
             "exec": "yarn install --check-files",
