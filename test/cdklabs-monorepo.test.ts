@@ -64,6 +64,8 @@ describe('CdkLabsMonorepo', () => {
 
     const outdir = Testing.synth(parent);
     expect(outdir['nx.json']).toMatchSnapshot();
+    expect(outdir['.gitignore']).toContain('/.nx');
+    expect(outdir['.npmignore']).toContain('/.nx');
   });
 
   test('monorepo release', () => {
