@@ -16,6 +16,7 @@
     ".projen/tasks.json",
     "LICENSE",
     "src/yarn/monorepo-options.ts",
+    "src/yarn/monorepo-release-options.ts",
     "src/yarn/typescript-workspace-options.ts",
     "tsconfig.dev.json"
   ],

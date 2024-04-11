@@ -1,6 +1,7 @@
 
 import { relative } from 'path';
-import { Component, javascript, typescript, TaskStep, SourceCode } from 'projen';
+import { Component, javascript, typescript, TaskStep, SourceCode, DependencyType, Project } from 'projen';
+import { Monorepo } from './monorepo';
 import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
 
 /**
@@ -8,6 +9,9 @@ import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
  */
 export class TypeScriptWorkspace extends typescript.TypeScriptProject {
   public readonly workspaceDirectory: string;
+
+  private readonly monorepo: Monorepo;
+  private readonly isPrivatePackage: boolean;
 
   constructor(options: TypeScriptWorkspaceOptions) {
     const remainder = without(
@@ -27,6 +31,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
 
     const wsScope = remainder.workspaceScope ?? 'packages';
     const workspaceDirectory =`${wsScope}/${options.name}`;
+
+    const npmAccess = options.parent.monorepoRelease && !options.private ? javascript.NpmAccess.PUBLIC : undefined;
 
     super({
       parent: options.parent,
@@ -60,6 +66,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       deps: packageNames(options.deps),
       peerDeps: packageNames(options.peerDeps),
       devDeps: packageNames(options.devDeps),
+      projenDevDependency: true,
 
       depsUpgradeOptions: {
         exclude: [
@@ -70,9 +77,35 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
         ],
       },
 
+      npmAccess,
+
       ...remainder,
     });
+
+    this.monorepo = options.parent;
+    this.isPrivatePackage = options.private ?? false;
     this.workspaceDirectory = workspaceDirectory;
+
+    // If the package is public, all local deps and peer deps must also be public and other TypeScriptWorkspaces
+    if (!this.isPrivatePackage) {
+      const illegalDeps = this.workspaceDependencies([DependencyType.RUNTIME, DependencyType.PEER])?.filter(
+        (dep) => 'isPrivatePackage' in dep && dep.isPrivatePackage,
+      );
+      if (illegalDeps.length) {
+        this.logger.error(`${this.name} is public and cannot depend on any private packages or packages that are not a ${this.constructor.name}.`);
+        this.logger.error(
+          `Please fix these dependencies:\n    - ${illegalDeps.map((p) => p.name).join('\n    - ')}`,
+        );
+        throw new Error();
+      }
+    }
+
+    // Register with release workflow
+    this.monorepo.monorepoRelease?.addWorkspace(this, {
+      private: this.isPrivatePackage,
+      workflowNodeVersion: this.nodeVersion,
+      releasableCommits: options.releasableCommits,
+    });
 
     // jest config
     if (this.jest?.config && this.jest.config.preset === 'ts-jest') {
@@ -174,6 +207,16 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     eslintRc.line('// Patch the .json config with something that can only be represented in JS');
     eslintRc.line('json.parserOptions.tsconfigRootDir = __dirname;');
     eslintRc.line('module.exports = json;');
+  }
+
+  /**
+   * Return all dependencies that are also workspaces int the monorepo
+   * Optionally filter by dependency type.
+   */
+  public workspaceDependencies(types?: DependencyType[]): Project[] {
+    return this.monorepo.subprojects.filter((sibling) =>
+      this.deps.all.some((d) => d.name === sibling.name && (!types || types.includes(d.type))),
+    );
   }
 }
 
