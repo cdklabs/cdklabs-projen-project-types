@@ -26,6 +26,15 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
           default: 'false',
         },
       },
+      {
+        name: 'nx',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'Enable the integration with Nx in the monorepo',
+          default: 'false',
+        },
+      },
     ],
   });
 

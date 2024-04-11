@@ -1,6 +1,7 @@
 import { JsonFile, Project, typescript } from 'projen';
 import { NodePackageManager } from 'projen/lib/javascript';
 import { MonorepoOptions } from './monorepo-options';
+import { Nx } from './nx';
 import { TypeScriptWorkspace } from './typescript-workspace';
 import { MergeQueue } from '../merge-queue';
 
@@ -122,6 +123,13 @@ export class Monorepo extends typescript.TypeScriptProject {
     this.tasks.removeTask('watch');
     this.tasks.removeTask('pre-compile');
     this.tasks.removeTask('post-compile');
+
+    // Nx
+    if (options.nx) {
+      new Nx(this, {
+        defaultBase: options.defaultReleaseBranch,
+      });
+    }
   }
 
   public register(project: TypeScriptWorkspace) {
