@@ -25450,6 +25450,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.nx">nx</a></code> | <code>boolean</code> | Enable the integration with Nx in the monorepo. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
@@ -26546,6 +26547,19 @@ public readonly npmTokenSecret: string;
 - *Default:* "NPM_TOKEN"
 
 GitHub secret which contains the NPM token to use when publishing packages.
+
+---
+
+##### `nx`<sup>Optional</sup> <a name="nx" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.nx"></a>
+
+```typescript
+public readonly nx: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable the integration with Nx in the monorepo.
 
 ---
 
@@ -32337,6 +32351,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.nx">nx</a></code> | <code>boolean</code> | Enable the integration with Nx in the monorepo. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
@@ -33433,6 +33448,19 @@ public readonly npmTokenSecret: string;
 - *Default:* "NPM_TOKEN"
 
 GitHub secret which contains the NPM token to use when publishing packages.
+
+---
+
+##### `nx`<sup>Optional</sup> <a name="nx" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.nx"></a>
+
+```typescript
+public readonly nx: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable the integration with Nx in the monorepo.
 
 ---
 
