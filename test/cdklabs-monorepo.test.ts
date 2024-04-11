@@ -44,4 +44,25 @@ describe('CdkLabsMonorepo', () => {
     const outdir = Testing.synth(parent);
     expect(outdir).toMatchSnapshot();
   });
+
+  test('nx integration', () => {
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+      nx: true,
+    });
+
+    new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/one',
+    });
+
+    new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/two',
+    });
+
+    const outdir = Testing.synth(parent);
+    expect(outdir['nx.json']).toMatchSnapshot();
+  });
 });

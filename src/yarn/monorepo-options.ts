@@ -426,6 +426,11 @@ export interface MonorepoOptions {
    */
   readonly npmTokenSecret?: string;
   /**
+   * Enable the integration with Nx in the monorepo
+   * @default false
+   */
+  readonly nx?: boolean;
+  /**
    * The root directory of the project.
    * Relative to this directory, all files are synthesized.
    *
