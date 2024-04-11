@@ -1,6 +1,7 @@
 import { JsonFile, Project, typescript } from 'projen';
 import { NodePackageManager } from 'projen/lib/javascript';
 import { MonorepoOptions } from './monorepo-options';
+import { MonorepoRelease } from './monorepo-release';
 import { Nx } from './nx';
 import { TypeScriptWorkspace } from './typescript-workspace';
 import { MergeQueue } from '../merge-queue';
@@ -9,6 +10,7 @@ import { MergeQueue } from '../merge-queue';
  * A monorepo using yarn workspaces.
  */
 export class Monorepo extends typescript.TypeScriptProject {
+  public readonly monorepoRelease?: MonorepoRelease;
 
   /**
    * The URL where the actual code for the package lives.
@@ -128,6 +130,14 @@ export class Monorepo extends typescript.TypeScriptProject {
     if (options.nx) {
       new Nx(this, {
         defaultBase: options.defaultReleaseBranch,
+      });
+    }
+
+    // Release Workflow
+    if (options.release) {
+      this.monorepoRelease = new MonorepoRelease(this, {
+        workflowRunsOn: options.workflowRunsOn,
+        ...options.releaseOptions,
       });
     }
   }

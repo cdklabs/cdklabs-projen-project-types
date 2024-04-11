@@ -52,5 +52,6 @@ tsconfig.json
 !/.github/workflows/upgrade-main.yml
 !/.github/workflows/upgrade-dev-deps-main.yml
 !/src/yarn/monorepo-options.ts
+!/src/yarn/monorepo-release-options.ts
 !/src/yarn/typescript-workspace-options.ts
 !/.projenrc.ts

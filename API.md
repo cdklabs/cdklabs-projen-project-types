@@ -7117,6 +7117,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.monorepoRelease">monorepoRelease</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoRelease</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | The URL where the actual code for the package lives. |
 
 ---
@@ -7864,6 +7865,16 @@ public readonly tsconfigEslint: TypescriptConfig;
 ```
 
 - *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `monorepoRelease`<sup>Optional</sup> <a name="monorepoRelease" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.monorepoRelease"></a>
+
+```typescript
+public readonly monorepoRelease: MonorepoRelease;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.MonorepoRelease
 
 ---
 
@@ -11854,6 +11865,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.monorepoRelease">monorepoRelease</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoRelease</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | The URL where the actual code for the package lives. |
 
 ---
@@ -12604,6 +12616,16 @@ public readonly tsconfigEslint: TypescriptConfig;
 
 ---
 
+##### `monorepoRelease`<sup>Optional</sup> <a name="monorepoRelease" id="cdklabs-projen-project-types.yarn.Monorepo.property.monorepoRelease"></a>
+
+```typescript
+public readonly monorepoRelease: MonorepoRelease;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.MonorepoRelease
+
+---
+
 ##### `repositoryUrl`<sup>Optional</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.yarn.Monorepo.property.repositoryUrl"></a>
 
 ```typescript
@@ -12649,6 +12671,205 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 - *Type:* string
 
 ---
+
+### MonorepoRelease <a name="MonorepoRelease" id="cdklabs-projen-project-types.yarn.MonorepoRelease"></a>
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.MonorepoRelease.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.MonorepoRelease(project: Project, options?: MonorepoReleaseOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoReleaseOptions</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.MonorepoRelease.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.MonorepoRelease.Initializer.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.MonorepoReleaseOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.addWorkspace">addWorkspace</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.yarn.MonorepoRelease.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.MonorepoRelease.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.MonorepoRelease.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.yarn.MonorepoRelease.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+##### `addWorkspace` <a name="addWorkspace" id="cdklabs-projen-project-types.yarn.MonorepoRelease.addWorkspace"></a>
+
+```typescript
+public addWorkspace(project: TypeScriptWorkspace, options: WorkspaceReleaseOptions): void
+```
+
+###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.MonorepoRelease.addWorkspace.parameter.project"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
+
+---
+
+###### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.MonorepoRelease.addWorkspace.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.of">of</a></code> | Returns the `MonorepoReleaseWorkflow` component of a project or `undefined` if the project does not have a MonorepoReleaseWorkflow component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.yarn.MonorepoRelease.isConstruct"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.MonorepoRelease.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.MonorepoRelease.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.yarn.MonorepoRelease.isComponent"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.MonorepoRelease.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.MonorepoRelease.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="cdklabs-projen-project-types.yarn.MonorepoRelease.of"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.MonorepoRelease.of(project: Project)
+```
+
+Returns the `MonorepoReleaseWorkflow` component of a project or `undefined` if the project does not have a MonorepoReleaseWorkflow component.
+
+###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.MonorepoRelease.of.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.yarn.MonorepoRelease.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.MonorepoRelease.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
 
 ### Rosetta <a name="Rosetta" id="cdklabs-projen-project-types.Rosetta"></a>
 
@@ -12877,6 +13098,7 @@ new yarn.TypeScriptWorkspace(options: TypeScriptWorkspaceOptions)
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.workspaceDependencies">workspaceDependencies</a></code> | Return all dependencies that are also workspaces int the monorepo Optionally filter by dependency type. |
 
 ---
 
@@ -13394,6 +13616,20 @@ The script name.
 - *Type:* string
 
 The command to execute.
+
+---
+
+##### `workspaceDependencies` <a name="workspaceDependencies" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.workspaceDependencies"></a>
+
+```typescript
+public workspaceDependencies(types?: DependencyType[]): Project[]
+```
+
+Return all dependencies that are also workspaces int the monorepo Optionally filter by dependency type.
+
+###### `types`<sup>Optional</sup> <a name="types" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.workspaceDependencies.parameter.types"></a>
+
+- *Type:* projen.DependencyType[]
 
 ---
 
@@ -14332,6 +14568,202 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 - *Type:* string
 
 ---
+
+### WorkspaceRelease <a name="WorkspaceRelease" id="cdklabs-projen-project-types.yarn.WorkspaceRelease"></a>
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.WorkspaceRelease(project: TypeScriptWorkspace, options: WorkspaceReleaseOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.Initializer.parameter.project">project</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspace</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.Initializer.parameter.project"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.Initializer.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.isConstruct"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.WorkspaceRelease.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.isComponent"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.WorkspaceRelease.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.workspace">workspace</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspace</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.version">version</a></code> | <code>projen.Version</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+##### `workspace`<sup>Required</sup> <a name="workspace" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.property.workspace"></a>
+
+```typescript
+public readonly workspace: TypeScriptWorkspace;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
+
+---
+
+##### `publisher`<sup>Optional</sup> <a name="publisher" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.property.publisher"></a>
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+---
+
+##### `version`<sup>Optional</sup> <a name="version" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.property.version"></a>
+
+```typescript
+public readonly version: Version;
+```
+
+- *Type:* projen.Version
+
+---
+
 
 ## Structs <a name="Structs" id="Structs"></a>
 
@@ -25480,10 +25912,12 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.release">release</a></code> | <code>boolean</code> | Whether or not to add release workflows for this repository. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseOptions">releaseOptions</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoReleaseOptions</code> | Options for the release workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
@@ -26967,6 +27401,19 @@ Find commits that should be considered releasable Used to decide if a release is
 
 ---
 
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.release"></a>
+
+```typescript
+public readonly release: boolean;
+```
+
+- *Type:* boolean
+- *Default:* No release
+
+Whether or not to add release workflows for this repository.
+
+---
+
 ##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseBranches"></a>
 
 ```typescript
@@ -27027,6 +27474,18 @@ public readonly releaseFailureIssueLabel: string;
 The label to apply to issues indicating publish failures.
 
 Only applies if `releaseFailureIssue` is true.
+
+---
+
+##### `releaseOptions`<sup>Optional</sup> <a name="releaseOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.releaseOptions"></a>
+
+```typescript
+public readonly releaseOptions: MonorepoReleaseOptions;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.MonorepoReleaseOptions
+
+Options for the release workflows.
 
 ---
 
@@ -32381,10 +32840,12 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.release">release</a></code> | <code>boolean</code> | Whether or not to add release workflows for this repository. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseOptions">releaseOptions</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoReleaseOptions</code> | Options for the release workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
@@ -33868,6 +34329,19 @@ Find commits that should be considered releasable Used to decide if a release is
 
 ---
 
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.release"></a>
+
+```typescript
+public readonly release: boolean;
+```
+
+- *Type:* boolean
+- *Default:* No release
+
+Whether or not to add release workflows for this repository.
+
+---
+
 ##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseBranches"></a>
 
 ```typescript
@@ -33928,6 +34402,18 @@ public readonly releaseFailureIssueLabel: string;
 The label to apply to issues indicating publish failures.
 
 Only applies if `releaseFailureIssue` is true.
+
+---
+
+##### `releaseOptions`<sup>Optional</sup> <a name="releaseOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.releaseOptions"></a>
+
+```typescript
+public readonly releaseOptions: MonorepoReleaseOptions;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.MonorepoReleaseOptions
+
+Options for the release workflows.
 
 ---
 
@@ -34399,6 +34885,272 @@ public readonly yarnBerryOptions: YarnBerryOptions;
 - *Default:* Yarn Berry v4 with all default options
 
 Options for Yarn Berry.
+
+---
+
+### MonorepoReleaseOptions <a name="MonorepoReleaseOptions" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions"></a>
+
+MonorepoReleaseOptions.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const monorepoReleaseOptions: yarn.MonorepoReleaseOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.branchName">branchName</a></code> | <code>string</code> | Branch name to release from. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.nodeVersion">nodeVersion</a></code> | <code>string</code> | Node version to use in the release workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.publishToNpm">publishToNpm</a></code> | <code>boolean</code> | Publish packages to npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
+
+---
+
+##### `branchName`<sup>Optional</sup> <a name="branchName" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.branchName"></a>
+
+```typescript
+public readonly branchName: string;
+```
+
+- *Type:* string
+- *Default:* "main"
+
+Branch name to release from.
+
+---
+
+##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.jsiiReleaseVersion"></a>
+
+```typescript
+public readonly jsiiReleaseVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+Version requirement of `publib` which is used to publish modules to npm.
+
+---
+
+##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.majorVersion"></a>
+
+```typescript
+public readonly majorVersion: number;
+```
+
+- *Type:* number
+- *Default:* Major version is not enforced.
+
+Major version to release from the default branch.
+
+If this is specified, we bump the latest version of this major version line.
+If not specified, we bump the global latest version.
+
+---
+
+##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.minMajorVersion"></a>
+
+```typescript
+public readonly minMajorVersion: number;
+```
+
+- *Type:* number
+- *Default:* No minimum version is being enforced
+
+Minimal Major version to release.
+
+This can be useful to set to 1, as breaking changes before the 1.x major
+release are not incrementing the major version number.
+
+Can not be set together with `majorVersion`.
+
+---
+
+##### `nodeVersion`<sup>Optional</sup> <a name="nodeVersion" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.nodeVersion"></a>
+
+```typescript
+public readonly nodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* "lts/*"
+
+Node version to use in the release workflow.
+
+---
+
+##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.npmDistTag"></a>
+
+```typescript
+public readonly npmDistTag: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The npmDistTag to use when publishing from the default branch.
+
+To set the npm dist-tag for release branches, set the `npmDistTag` property
+for each branch.
+
+---
+
+##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.postBuildSteps"></a>
+
+```typescript
+public readonly postBuildSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* []
+
+Steps to execute after build as part of the release workflow.
+
+---
+
+##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.prerelease"></a>
+
+```typescript
+public readonly prerelease: string;
+```
+
+- *Type:* string
+- *Default:* normal semantic versions
+
+Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre").
+
+---
+
+##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.publishDryRun"></a>
+
+```typescript
+public readonly publishDryRun: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Instead of actually publishing to package managers, just print the publishing command.
+
+---
+
+##### `publishToNpm`<sup>Optional</sup> <a name="publishToNpm" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.publishToNpm"></a>
+
+```typescript
+public readonly publishToNpm: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Publish packages to npm.
+
+---
+
+##### `releasableCommits`<sup>Optional</sup> <a name="releasableCommits" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.releasableCommits"></a>
+
+```typescript
+public readonly releasableCommits: ReleasableCommits;
+```
+
+- *Type:* projen.ReleasableCommits
+- *Default:* ReleasableCommits.everyCommit()
+
+Find commits that should be considered releasable Used to decide if a release is required.
+
+---
+
+##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.releaseTrigger"></a>
+
+```typescript
+public readonly releaseTrigger: ReleaseTrigger;
+```
+
+- *Type:* projen.release.ReleaseTrigger
+- *Default:* Continuous releases (`ReleaseTrigger.continuous()`)
+
+The release trigger to use.
+
+---
+
+##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.releaseWorkflowName"></a>
+
+```typescript
+public readonly releaseWorkflowName: string;
+```
+
+- *Type:* string
+- *Default:* "release"
+
+The name of the default release workflow.
+
+---
+
+##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.releaseWorkflowSetupSteps"></a>
+
+```typescript
+public readonly releaseWorkflowSetupSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+
+A set of workflow steps to execute in order to setup the workflow container.
+
+---
+
+##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.workflowContainerImage"></a>
+
+```typescript
+public readonly workflowContainerImage: string;
+```
+
+- *Type:* string
+- *Default:* default image
+
+Container image to use for GitHub workflows.
+
+---
+
+##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.workflowRunsOn"></a>
+
+```typescript
+public readonly workflowRunsOn: string[];
+```
+
+- *Type:* string[]
+- *Default:* ["ubuntu-latest"]
+
+Github Runner selection labels.
+
+---
+
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
 
 ---
 
@@ -36595,6 +37347,67 @@ public readonly yarnBerryOptions: YarnBerryOptions;
 - *Default:* Yarn Berry v4 with all default options
 
 Options for Yarn Berry.
+
+---
+
+### WorkspaceReleaseOptions <a name="WorkspaceReleaseOptions" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const workspaceReleaseOptions: yarn.WorkspaceReleaseOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.private">private</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.publishToNpm">publishToNpm</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `private`<sup>Required</sup> <a name="private" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.private"></a>
+
+```typescript
+public readonly private: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `publishToNpm`<sup>Optional</sup> <a name="publishToNpm" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.publishToNpm"></a>
+
+```typescript
+public readonly publishToNpm: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `releasableCommits`<sup>Optional</sup> <a name="releasableCommits" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.releasableCommits"></a>
+
+```typescript
+public readonly releasableCommits: ReleasableCommits;
+```
+
+- *Type:* projen.ReleasableCommits
+
+---
+
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.workflowNodeVersion"></a>
+
+```typescript
+public readonly workflowNodeVersion: string;
+```
+
+- *Type:* string
 
 ---
 

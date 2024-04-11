@@ -35,6 +35,69 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
           default: 'false',
         },
       },
+      {
+        name: 'release',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'Whether or not to add release workflows for this repository',
+          default: '- No release',
+        },
+      },
+      {
+        name: 'releaseOptions',
+        optional: true,
+        type: { fqn: 'cdklabs-projen-project-types.yarn.MonorepoReleaseOptions' },
+        docs: {
+          summary: 'Options for the release workflows',
+        },
+      },
+    ],
+  });
+
+  new JsiiInterface(project, {
+    name: 'MonorepoReleaseOptions',
+    fqn: 'cdklabs-projen-project-types.yarn.MonorepoReleaseOptions',
+    filePath: 'src/yarn/monorepo-release-options.ts',
+    extends: 'projen.release.ReleaseProjectOptions',
+    omitProps: [
+      'releaseEveryCommit',
+      'releaseSchedule',
+      'releaseBranches',
+      'releaseFailureIssue',
+      'releaseFailureIssueLabel',
+      'releaseTagPrefix',
+      'versionrcOptions',
+      'publishTasks',
+    ],
+    properties: [
+      {
+        name: 'branchName',
+        optional: true,
+        type: { primitive: PrimitiveType.String },
+        docs: {
+          summary: 'Branch name to release from',
+          default: '"main"',
+        },
+      },
+      {
+        name: 'nodeVersion',
+        optional: true,
+        type: { primitive: PrimitiveType.String },
+        docs: {
+          summary: 'Node version to use in the release workflow',
+          default: '"lts/*"',
+        },
+      },
+      {
+        name: 'publishToNpm',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'Publish packages to npm',
+          default: 'true',
+        },
+      },
     ],
   });
 
