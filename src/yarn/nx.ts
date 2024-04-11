@@ -52,6 +52,8 @@ export class Nx extends Component {
 
     // nx
     project.addDevDeps('nx');
+    project.addGitIgnore('/.nx');
+    project.addPackageIgnore('/.nx');
     new JsonFile(project, 'nx.json', {
       obj: {
         tasksRunnerOptions: {
