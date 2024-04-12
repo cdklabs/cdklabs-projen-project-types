@@ -521,7 +521,7 @@ export interface TypeScriptWorkspaceOptions {
   readonly projenCredentials?: github.GithubCredentials;
   /**
    * Indicates of "projen" should be installed as a devDependency.
-   * @default true
+   * @default - true if not a subproject
    */
   readonly projenDevDependency?: boolean;
   /**
