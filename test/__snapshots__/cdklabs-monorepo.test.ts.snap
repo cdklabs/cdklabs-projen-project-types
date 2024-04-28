@@ -253,7 +253,9 @@ jobs:
           overwrite: true
   cdklabs-one_release_github:
     name: "@cdklabs/one: Publish to GitHub Releases"
-    needs: release
+    needs:
+      - release
+      - release_npm
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -303,7 +305,9 @@ jobs:
         run: npx -p publib@latest publib-npm
   cdklabs-two_release_github:
     name: "@cdklabs/two: Publish to GitHub Releases"
-    needs: release
+    needs:
+      - release
+      - release_npm
     runs-on: ubuntu-latest
     permissions:
       contents: write
