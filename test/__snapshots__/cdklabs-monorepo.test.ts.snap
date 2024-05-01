@@ -255,7 +255,7 @@ jobs:
     name: "@cdklabs/one: Publish to GitHub Releases"
     needs:
       - release
-      - release_npm
+      - cdklabs-one_release_npm
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -307,7 +307,7 @@ jobs:
     name: "@cdklabs/two: Publish to GitHub Releases"
     needs:
       - release
-      - release_npm
+      - cdklabs-two_release_npm
     runs-on: ubuntu-latest
     permissions:
       contents: write
