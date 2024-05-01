@@ -1,4 +1,5 @@
 import { Testing } from 'projen/lib/testing';
+import * as YAML from 'yaml';
 import { yarn } from '../src';
 
 describe('CdkLabsMonorepo', () => {
@@ -86,6 +87,9 @@ describe('CdkLabsMonorepo', () => {
     });
 
     const outdir = Testing.synth(parent);
+    const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+    expect(releaseWorkflow.jobs['cdklabs-one_release_github'].needs).toStrictEqual(['release', 'cdklabs-one_release_npm']);
     expect(outdir).toMatchSnapshot();
   });
 });

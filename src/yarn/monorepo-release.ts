@@ -122,16 +122,30 @@ export class MonorepoRelease extends Component {
       // Make the job names unique
       this.workflow?.addJobs(
         Object.fromEntries(
-          Object.entries(packagePublishJobs).map(([key, job]) => [
-            slugify(`${release.workspace.name}_${key}`),
-            {
-              ...job,
-              if: `\${{ needs.release.outputs.latest_commit == github.sha && needs.release.outputs.${publishProjectOutputId(
-                release.workspace,
-              )} == 'true' }}`,
-              name: `${release.workspace.name}: ${job.name}`,
-            },
-          ]),
+          Object.entries(packagePublishJobs).map(([key, job]) => {
+            const prefix = slugify(`${release.workspace.name}`);
+            const needs = (job.needs ?? []).map(dep => {
+              // All publish jobs depend on the main release job
+              if (dep === 'release') {
+                return dep;
+              }
+
+              // ... and possibly on individual publish jobs that are prefixed
+              return `${prefix}_${dep}`;
+            });
+
+            return [
+              `${prefix}_${key}`,
+              {
+                ...job,
+                needs,
+                if: `\${{ needs.release.outputs.latest_commit == github.sha && needs.release.outputs.${publishProjectOutputId(
+                  release.workspace,
+                )} == 'true' }}`,
+                name: `${release.workspace.name}: ${job.name}`,
+              },
+            ];
+          }),
         ),
       );
     }
