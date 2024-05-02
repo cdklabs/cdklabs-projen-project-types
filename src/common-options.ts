@@ -67,7 +67,8 @@ export interface CdkCommonOptions {
   readonly tenancy?: OrgTenancy;
 }
 
-export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.GitHubProjectOptions>(options: T): T & Required<CdkCommonOptions> {
+type CommonOptions = CdkCommonOptions & typescript.TypeScriptProjectOptions;
+export function withCommonOptionsDefaults<T extends CommonOptions>(options: T): T & Required<CdkCommonOptions> {
   const isPrivate = options.private ?? true;
   const enablePRAutoMerge = options.enablePRAutoMerge ?? isPrivate;
   const ghAutoMergeOptions = options.ghAutoMergeOptions ?? {
@@ -78,6 +79,8 @@ export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.Gi
   };
   const npmAccess = isPrivate ? undefined : javascript.NpmAccess.PUBLIC;
   const tenancy = options.tenancy ?? (options.name.startsWith('@aws-cdk/') ? OrgTenancy.AWS : OrgTenancy.CDKLABS);
+  const shortname = (options.name.startsWith('@') && options.name.split('/')[1]) || options.name;
+  const repository = options.repository ?? `https://github.com/${tenancy}/${shortname}.git`;
   const autoApproveOptions = {
     allowedUsernames: [automationUserForOrg(tenancy), 'dependabot[bot]'],
     secret: 'GITHUB_TOKEN',
@@ -98,6 +101,7 @@ export function withCommonOptionsDefaults<T extends CdkCommonOptions & github.Gi
       autoApproveOptions,
       depsUpgrade: !upgradeRuntimeDepsAsFix,
       upgradeRuntimeDepsAsFix,
+      repository,
     },
   ]) as T & Required<CdkCommonOptions>;
 }

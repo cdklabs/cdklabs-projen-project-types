@@ -78,7 +78,9 @@ describe('CdkTypeScriptProject', () => {
   test('synthesizes with default settings', () => {
     const project = new TestCdkTypeScriptProject();
 
-    expect(Testing.synth(project)).toMatchSnapshot();
+    const snapshot = Testing.synth(project);
+    expect(snapshot['package.json'].repository.url).toBe('https://github.com/cdklabs/test-node-project.git');
+    expect(snapshot).toMatchSnapshot();
   });
 
   test('defaults to private', () => {
@@ -97,9 +99,19 @@ describe('CdkTypeScriptProject', () => {
     const snapshot = Testing.synth(project);
 
     expectNotPrivate(snapshot);
+    expect(snapshot['package.json'].repository.url).toBe('https://github.com/aws/test-construct-library.git');
     expect(snapshot['package.json'].publishConfig).toMatchObject({
       access: 'public',
     });
+  });
+
+  test('can set a custom url to private', () => {
+    const project = new TestCdkTypeScriptProject({
+      repository: 'https://github.com/aws-samples/aws-cdk-examples.git',
+    });
+
+    const snapshot = Testing.synth(project);
+    expect(snapshot['package.json'].repository.url).toBe('https://github.com/aws-samples/aws-cdk-examples.git');
   });
 });
 
