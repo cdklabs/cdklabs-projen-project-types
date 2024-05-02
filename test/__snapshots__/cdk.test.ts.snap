@@ -1721,7 +1721,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "private": true,
     "repository": {
       "type": "git",
-      "url": "url",
+      "url": "https://github.com/cdklabs/test-construct-library.git",
     },
     "resolutions": {
       "@types/babel__traverse": "7.18.2",
@@ -3463,7 +3463,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "private": true,
     "repository": {
       "type": "git",
-      "url": "url",
+      "url": "https://github.com/cdklabs/test-jsii-library.git",
     },
     "resolutions": {
       "@types/babel__traverse": "7.18.2",
@@ -5020,6 +5020,10 @@ junit.xml
     "main": "lib/index.js",
     "name": "test-node-project",
     "private": true,
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/cdklabs/test-node-project.git",
+    },
     "scripts": {
       "build": "npx projen build",
       "bump": "npx projen bump",

@@ -193,6 +193,7 @@ describe('CdklabsConstructLibrary', () => {
 
     expect(autoApprove).toContain('aws-cdk-automation');
     expect(autoApprove).not.toContain('cdklabs-automation');
+    expect(outdir['package.json'].repository.url).toBe('https://github.com/aws/test-construct-library.git');
   });
 
   test('can set tenancy to cdklabs', () => {
@@ -204,6 +205,7 @@ describe('CdklabsConstructLibrary', () => {
 
     expect(autoApprove).toContain('cdklabs-automation');
     expect(autoApprove).not.toContain('aws-cdk-automation');
+    expect(outdir['package.json'].repository.url).toBe('https://github.com/cdklabs/test-construct-library.git');
   });
 
   describe('with release=false', () => {
