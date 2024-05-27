@@ -948,6 +948,9 @@ tsconfig.tsbuildinfo
     "main": "lib/index.js",
     "name": "monorepo",
     "private": true,
+    "publishConfig": {
+      "access": "public",
+    },
     "scripts": {
       "build": "npx projen build",
       "clobber": "npx projen clobber",
@@ -1714,6 +1717,7 @@ tsconfig.tsbuildinfo
       "coveragePathIgnorePatterns": [
         "/node_modules/",
       ],
+      "coverageProvider": "v8",
       "coverageReporters": [
         "json",
         "lcov",
@@ -2591,6 +2595,7 @@ tsconfig.tsbuildinfo
       "coveragePathIgnorePatterns": [
         "/node_modules/",
       ],
+      "coverageProvider": "v8",
       "coverageReporters": [
         "json",
         "lcov",
@@ -3614,6 +3619,9 @@ tsconfig.tsbuildinfo
     "main": "lib/index.js",
     "name": "monorepo",
     "private": true,
+    "publishConfig": {
+      "access": "public",
+    },
     "scripts": {
       "build": "npx projen build",
       "clobber": "npx projen clobber",
@@ -4323,6 +4331,7 @@ tsconfig.tsbuildinfo
       "coveragePathIgnorePatterns": [
         "/node_modules/",
       ],
+      "coverageProvider": "v8",
       "coverageReporters": [
         "json",
         "lcov",
@@ -5138,6 +5147,7 @@ tsconfig.tsbuildinfo
       "coveragePathIgnorePatterns": [
         "/node_modules/",
       ],
+      "coverageProvider": "v8",
       "coverageReporters": [
         "json",
         "lcov",
@@ -6095,6 +6105,9 @@ tsconfig.tsbuildinfo
     "main": "lib/index.js",
     "name": "monorepo",
     "private": true,
+    "publishConfig": {
+      "access": "public",
+    },
     "repository": {
       "type": "git",
       "url": "https://github.com/cdklabs/cdklabs-projen-project-types",
@@ -6807,6 +6820,7 @@ tsconfig.tsbuildinfo
       "coveragePathIgnorePatterns": [
         "/node_modules/",
       ],
+      "coverageProvider": "v8",
       "coverageReporters": [
         "json",
         "lcov",
