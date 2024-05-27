@@ -1667,6 +1667,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "coveragePathIgnorePatterns": [
         "/node_modules/",
       ],
+      "coverageProvider": "v8",
       "coverageReporters": [
         "json",
         "lcov",
@@ -1719,6 +1720,9 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "constructs": "^10.0.5",
     },
     "private": true,
+    "publishConfig": {
+      "access": "public",
+    },
     "repository": {
       "type": "git",
       "url": "https://github.com/cdklabs/test-construct-library.git",
@@ -3416,6 +3420,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "coveragePathIgnorePatterns": [
         "/node_modules/",
       ],
+      "coverageProvider": "v8",
       "coverageReporters": [
         "json",
         "lcov",
@@ -3461,6 +3466,9 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "main": "lib/index.js",
     "name": "test-jsii-library",
     "private": true,
+    "publishConfig": {
+      "access": "public",
+    },
     "repository": {
       "type": "git",
       "url": "https://github.com/cdklabs/test-jsii-library.git",
@@ -4981,6 +4989,7 @@ junit.xml
       "coveragePathIgnorePatterns": [
         "/node_modules/",
       ],
+      "coverageProvider": "v8",
       "coverageReporters": [
         "json",
         "lcov",
@@ -5020,6 +5029,9 @@ junit.xml
     "main": "lib/index.js",
     "name": "test-node-project",
     "private": true,
+    "publishConfig": {
+      "access": "public",
+    },
     "repository": {
       "type": "git",
       "url": "https://github.com/cdklabs/test-node-project.git",
