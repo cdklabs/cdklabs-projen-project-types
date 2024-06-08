@@ -110,6 +110,9 @@ exports[`CdklabsConstructLibrary synthesizes with default settings 1`] = `
       "dot-notation": [
         "error",
       ],
+      "import/no-duplicates": [
+        "error",
+      ],
       "import/no-extraneous-dependencies": [
         "error",
         {
@@ -158,9 +161,6 @@ exports[`CdklabsConstructLibrary synthesizes with default settings 1`] = `
         },
       ],
       "no-bitwise": [
-        "error",
-      ],
-      "no-duplicate-imports": [
         "error",
       ],
       "no-multi-spaces": [
@@ -1191,12 +1191,12 @@ tsconfig.json
       {
         "name": "@typescript-eslint/eslint-plugin",
         "type": "build",
-        "version": "^6",
+        "version": "^7",
       },
       {
         "name": "@typescript-eslint/parser",
         "type": "build",
-        "version": "^6",
+        "version": "^7",
       },
       {
         "name": "cdklabs-projen-project-types",
@@ -1941,8 +1941,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "@aws-cdk/integ-tests-alpha": "latest",
       "@types/jest": "*",
       "@types/node": "^18",
-      "@typescript-eslint/eslint-plugin": "^6",
-      "@typescript-eslint/parser": "^6",
+      "@typescript-eslint/eslint-plugin": "^7",
+      "@typescript-eslint/parser": "^7",
       "aws-cdk-lib": "2.1.0",
       "cdklabs-projen-project-types": "*",
       "constructs": "10.0.5",
@@ -2349,6 +2349,9 @@ exports[`CdklabsJsiiProject synthesizes with default settings 1`] = `
       "dot-notation": [
         "error",
       ],
+      "import/no-duplicates": [
+        "error",
+      ],
       "import/no-extraneous-dependencies": [
         "error",
         {
@@ -2397,9 +2400,6 @@ exports[`CdklabsJsiiProject synthesizes with default settings 1`] = `
         },
       ],
       "no-bitwise": [
-        "error",
-      ],
-      "no-duplicate-imports": [
         "error",
       ],
       "no-multi-spaces": [
@@ -3428,12 +3428,12 @@ tsconfig.json
       {
         "name": "@typescript-eslint/eslint-plugin",
         "type": "build",
-        "version": "^6",
+        "version": "^7",
       },
       {
         "name": "@typescript-eslint/parser",
         "type": "build",
-        "version": "^6",
+        "version": "^7",
       },
       {
         "name": "cdklabs-projen-project-types",
@@ -4127,8 +4127,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "devDependencies": {
       "@types/jest": "*",
       "@types/node": "^18",
-      "@typescript-eslint/eslint-plugin": "^6",
-      "@typescript-eslint/parser": "^6",
+      "@typescript-eslint/eslint-plugin": "^7",
+      "@typescript-eslint/parser": "^7",
       "cdklabs-projen-project-types": "*",
       "constructs": "^10.0.0",
       "eslint": "^8",
@@ -4422,6 +4422,9 @@ exports[`CdklabsTypeScriptProject synthesizes with default settings 1`] = `
       "dot-notation": [
         "error",
       ],
+      "import/no-duplicates": [
+        "error",
+      ],
       "import/no-extraneous-dependencies": [
         "error",
         {
@@ -4470,9 +4473,6 @@ exports[`CdklabsTypeScriptProject synthesizes with default settings 1`] = `
         },
       ],
       "no-bitwise": [
-        "error",
-      ],
-      "no-duplicate-imports": [
         "error",
       ],
       "no-multi-spaces": [
@@ -5162,12 +5162,12 @@ junit.xml
       {
         "name": "@typescript-eslint/eslint-plugin",
         "type": "build",
-        "version": "^6",
+        "version": "^7",
       },
       {
         "name": "@typescript-eslint/parser",
         "type": "build",
-        "version": "^6",
+        "version": "^7",
       },
       {
         "name": "cdklabs-projen-project-types",
@@ -5752,8 +5752,8 @@ junit.xml
     "devDependencies": {
       "@types/jest": "*",
       "@types/node": "^18",
-      "@typescript-eslint/eslint-plugin": "^6",
-      "@typescript-eslint/parser": "^6",
+      "@typescript-eslint/eslint-plugin": "^7",
+      "@typescript-eslint/parser": "^7",
       "cdklabs-projen-project-types": "*",
       "constructs": "^10.0.0",
       "eslint": "^8",
