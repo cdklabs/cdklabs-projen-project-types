@@ -428,8 +428,8 @@ jobs:
     steps:
       - uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 20.x
+          distribution: corretto
+          java-version: "11"
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -704,8 +704,8 @@ jobs:
     steps:
       - uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 20.x
+          distribution: corretto
+          java-version: "11"
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -1989,8 +1989,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         ],
       ],
       "testMatch": [
-        "<rootDir>/src/**/__tests__/**/*.ts?(x)",
-        "<rootDir>/@(test|src)/**/*(*.)@(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
         "/node_modules/",
@@ -2667,8 +2667,8 @@ jobs:
     steps:
       - uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 20.x
+          distribution: corretto
+          java-version: "11"
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -2943,8 +2943,8 @@ jobs:
     steps:
       - uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 20.x
+          distribution: corretto
+          java-version: "11"
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -4174,8 +4174,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         ],
       ],
       "testMatch": [
-        "<rootDir>/src/**/__tests__/**/*.ts?(x)",
-        "<rootDir>/@(test|src)/**/*(*.)@(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
         "/node_modules/",
@@ -5794,8 +5794,8 @@ junit.xml
         ],
       ],
       "testMatch": [
-        "<rootDir>/src/**/__tests__/**/*.ts?(x)",
-        "<rootDir>/@(test|src)/**/*(*.)@(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
         "/node_modules/",
