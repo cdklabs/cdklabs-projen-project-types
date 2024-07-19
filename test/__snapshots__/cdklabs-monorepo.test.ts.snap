@@ -1735,7 +1735,7 @@ tsconfig.tsbuildinfo
         ],
       ],
       "testMatch": [
-        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
         "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
@@ -2613,7 +2613,7 @@ tsconfig.tsbuildinfo
         ],
       ],
       "testMatch": [
-        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
         "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
@@ -4349,7 +4349,7 @@ tsconfig.tsbuildinfo
         ],
       ],
       "testMatch": [
-        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
         "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
@@ -5165,7 +5165,7 @@ tsconfig.tsbuildinfo
         ],
       ],
       "testMatch": [
-        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
         "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
@@ -6838,7 +6838,7 @@ tsconfig.tsbuildinfo
         ],
       ],
       "testMatch": [
-        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
         "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
