@@ -1691,7 +1691,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         ],
       ],
       "testMatch": [
-        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
         "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
@@ -3444,7 +3444,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         ],
       ],
       "testMatch": [
-        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
         "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
@@ -5007,7 +5007,7 @@ junit.xml
         ],
       ],
       "testMatch": [
-        "<rootDir>/@(src|test)/**/?(*.)+(spec|test).ts?(x)",
+        "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
         "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
       ],
       "testPathIgnorePatterns": [
