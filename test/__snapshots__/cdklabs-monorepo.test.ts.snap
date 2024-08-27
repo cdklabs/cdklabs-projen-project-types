@@ -1228,6 +1228,11 @@ tsconfig.tsbuildinfo
         "version": "^7",
       },
       {
+        "name": "commit-and-tag-version",
+        "type": "build",
+        "version": "^12",
+      },
+      {
         "name": "constructs",
         "type": "build",
         "version": "^10.0.0",
@@ -1330,6 +1335,7 @@ tsconfig.tsbuildinfo
         "description": "Bumps version based on latest git tag and generates a changelog entry",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
@@ -1460,6 +1466,7 @@ tsconfig.tsbuildinfo
         "description": "Restores version to 0.0.0",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
@@ -1699,6 +1706,7 @@ tsconfig.tsbuildinfo
       "@types/node": "^18",
       "@typescript-eslint/eslint-plugin": "^7",
       "@typescript-eslint/parser": "^7",
+      "commit-and-tag-version": "^12",
       "constructs": "^10.0.0",
       "eslint": "^8",
       "eslint-config-prettier": "*",
@@ -2107,6 +2115,11 @@ tsconfig.tsbuildinfo
         "version": "^7",
       },
       {
+        "name": "commit-and-tag-version",
+        "type": "build",
+        "version": "^12",
+      },
+      {
         "name": "constructs",
         "type": "build",
         "version": "^10.0.0",
@@ -2209,6 +2222,7 @@ tsconfig.tsbuildinfo
         "description": "Bumps version based on latest git tag and generates a changelog entry",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
@@ -2339,6 +2353,7 @@ tsconfig.tsbuildinfo
         "description": "Restores version to 0.0.0",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
@@ -2578,6 +2593,7 @@ tsconfig.tsbuildinfo
       "@types/node": "^18",
       "@typescript-eslint/eslint-plugin": "^7",
       "@typescript-eslint/parser": "^7",
+      "commit-and-tag-version": "^12",
       "constructs": "^10.0.0",
       "eslint": "^8",
       "eslint-config-prettier": "*",

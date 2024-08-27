@@ -941,6 +941,11 @@ tsconfig.json
         "type": "build",
       },
       {
+        "name": "commit-and-tag-version",
+        "type": "build",
+        "version": "^12",
+      },
+      {
         "name": "eslint-import-resolver-typescript",
         "type": "build",
       },
@@ -970,6 +975,7 @@ tsconfig.json
       {
         "name": "jsii-docgen",
         "type": "build",
+        "version": "^10.5.0",
       },
       {
         "name": "jsii-pacmak",
@@ -987,11 +993,6 @@ tsconfig.json
       {
         "name": "projen",
         "type": "build",
-      },
-      {
-        "name": "standard-version",
-        "type": "build",
-        "version": "^9",
       },
       {
         "name": "ts-jest",
@@ -1091,6 +1092,7 @@ tsconfig.json
         "description": "Bumps version based on latest git tag and generates a changelog entry",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASETAG": "dist/releasetag.txt",
@@ -1347,6 +1349,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "description": "Restores version to 0.0.0",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASETAG": "dist/releasetag.txt",
@@ -1403,13 +1406,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,projen,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-pacmak,jsii-rosetta,projen,typescript",
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen standard-version ts-jest typescript @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types commit-and-tag-version eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest typescript @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha",
           },
           {
             "exec": "npx projen",
@@ -1650,6 +1653,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "@typescript-eslint/parser": "^7",
       "aws-cdk-lib": "2.1.0",
       "cdklabs-projen-project-types": "*",
+      "commit-and-tag-version": "^12",
       "constructs": "10.0.5",
       "eslint": "^8",
       "eslint-import-resolver-typescript": "*",
@@ -1658,11 +1662,10 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "jest-junit": "^15",
       "jsii": "1.x",
       "jsii-diff": "*",
-      "jsii-docgen": "*",
+      "jsii-docgen": "^10.5.0",
       "jsii-pacmak": "*",
       "jsii-rosetta": "*",
       "projen": "*",
-      "standard-version": "^9",
       "ts-jest": "^27",
       "typescript": "*",
     },
@@ -2752,6 +2755,11 @@ tsconfig.json
         "type": "build",
       },
       {
+        "name": "commit-and-tag-version",
+        "type": "build",
+        "version": "^12",
+      },
+      {
         "name": "constructs",
         "type": "build",
         "version": "^10.0.0",
@@ -2786,6 +2794,7 @@ tsconfig.json
       {
         "name": "jsii-docgen",
         "type": "build",
+        "version": "^10.5.0",
       },
       {
         "name": "jsii-pacmak",
@@ -2804,11 +2813,6 @@ tsconfig.json
       {
         "name": "projen",
         "type": "build",
-      },
-      {
-        "name": "standard-version",
-        "type": "build",
-        "version": "^9",
       },
       {
         "name": "ts-jest",
@@ -2888,6 +2892,7 @@ tsconfig.json
         "description": "Bumps version based on latest git tag and generates a changelog entry",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASETAG": "dist/releasetag.txt",
@@ -3109,6 +3114,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "description": "Restores version to 0.0.0",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASETAG": "dist/releasetag.txt",
@@ -3165,13 +3171,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-docgen,jsii-pacmak,projen,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-pacmak,projen,typescript",
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen standard-version ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest typescript",
           },
           {
             "exec": "npx projen",
@@ -3409,6 +3415,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "@typescript-eslint/eslint-plugin": "^7",
       "@typescript-eslint/parser": "^7",
       "cdklabs-projen-project-types": "*",
+      "commit-and-tag-version": "^12",
       "constructs": "^10.0.0",
       "eslint": "^8",
       "eslint-import-resolver-typescript": "*",
@@ -3417,11 +3424,10 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "jest-junit": "^15",
       "jsii": "1.x",
       "jsii-diff": "*",
-      "jsii-docgen": "*",
+      "jsii-docgen": "^10.5.0",
       "jsii-pacmak": "*",
       "jsii-rosetta": "1.x",
       "projen": "*",
-      "standard-version": "^9",
       "ts-jest": "^27",
       "typescript": "*",
     },
@@ -4410,6 +4416,11 @@ junit.xml
         "type": "build",
       },
       {
+        "name": "commit-and-tag-version",
+        "type": "build",
+        "version": "^12",
+      },
+      {
         "name": "constructs",
         "type": "build",
         "version": "^10.0.0",
@@ -4439,11 +4450,6 @@ junit.xml
       {
         "name": "projen",
         "type": "build",
-      },
-      {
-        "name": "standard-version",
-        "type": "build",
-        "version": "^9",
       },
       {
         "name": "ts-jest",
@@ -4513,6 +4519,7 @@ junit.xml
         "description": "Bumps version based on latest git tag and generates a changelog entry",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASETAG": "dist/releasetag.txt",
@@ -4689,6 +4696,7 @@ junit.xml
         "description": "Restores version to 0.0.0",
         "env": {
           "BUMPFILE": "dist/version.txt",
+          "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
           "RELEASETAG": "dist/releasetag.txt",
@@ -4751,7 +4759,7 @@ junit.xml
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit projen standard-version ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit projen ts-jest typescript",
           },
           {
             "exec": "npx projen",
@@ -4984,6 +4992,7 @@ junit.xml
       "@typescript-eslint/eslint-plugin": "^7",
       "@typescript-eslint/parser": "^7",
       "cdklabs-projen-project-types": "*",
+      "commit-and-tag-version": "^12",
       "constructs": "^10.0.0",
       "eslint": "^8",
       "eslint-import-resolver-typescript": "*",
@@ -4991,7 +5000,6 @@ junit.xml
       "jest": "*",
       "jest-junit": "^15",
       "projen": "*",
-      "standard-version": "^9",
       "ts-jest": "*",
       "typescript": "*",
     },
