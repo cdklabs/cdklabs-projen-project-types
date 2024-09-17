@@ -472,6 +472,9 @@ on:
     branches:
       - main
   workflow_dispatch: {}
+concurrency:
+  group: \${{ github.workflow }}
+  cancel-in-progress: false
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -2313,6 +2316,9 @@ on:
     branches:
       - main
   workflow_dispatch: {}
+concurrency:
+  group: \${{ github.workflow }}
+  cancel-in-progress: false
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -4020,6 +4026,9 @@ on:
     branches:
       - main
   workflow_dispatch: {}
+concurrency:
+  group: \${{ github.workflow }}
+  cancel-in-progress: false
 jobs:
   release:
     runs-on: ubuntu-latest
