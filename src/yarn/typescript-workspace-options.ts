@@ -790,8 +790,7 @@ export interface TypeScriptWorkspaceOptions {
   readonly workflowGitIdentity?: github.GitIdentity;
   /**
    * The node version to use in GitHub workflows.
-   *
-   * @default - `lts/*`, the current LTS version
+   * @default 'lts/*'
    */
   readonly workflowNodeVersion?: string;
   /**
