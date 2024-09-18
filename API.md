@@ -14981,6 +14981,15 @@ Whether to have a separate workflow to upgrade runtime deps and mark this PR as 
 
 ### CdkConstructLibraryOptions <a name="CdkConstructLibraryOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions"></a>
 
+Options for CdkConstructLibrary.
+
+`ModifiedProjenCdkConstructLibraryOptions` is generated automatically from upstream
+by copying the properties from projen `CdkConstructLibraryOptions`, and modifying some
+of them.
+
+We have to do it this way because jsii doesn't allow overwriting properties
+by redeclaring them here, and we need to change the documentation of some props.
+
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.Initializer"></a>
 
 ```typescript
@@ -14993,182 +15002,182 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.author">author</a></code> | <code>string</code> | The name of the library author. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.authorAddress">authorAddress</a></code> | <code>string</code> | Email or URL of the library author. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | Git repository URL. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.authorName">authorName</a></code> | <code>string</code> | Author's name. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.authorOrganization">authorOrganization</a></code> | <code>boolean</code> | Is the author an organization. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.authorUrl">authorUrl</a></code> | <code>string</code> | Author's URL / Website. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoDetectBin">autoDetectBin</a></code> | <code>boolean</code> | Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmProvenance">npmProvenance</a></code> | <code>boolean</code> | Should provenance statements be generated when the package is published. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.peerDeps">peerDeps</a></code> | <code>string[]</code> | Peer dependencies for this module. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. Useful if you are releasing on multiple branches with overlapping version numbers. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with commit-and-tag-version package. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.buildWorkflowOptions">buildWorkflowOptions</a></code> | <code>projen.javascript.BuildWorkflowOptions</code> | Options for PR build workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use tasks and github workflows to handle dependency upgrades. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jestOptions">jestOptions</a></code> | <code>projen.javascript.JestOptions</code> | Jest options. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmIgnoreOptions">npmIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.release">release</a></code> | <code>boolean</code> | Add release management to this project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a `tsconfig.dev.json` file. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. Tests files should be named `xxx.test.ts`. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.author">author</a></code> | <code>string</code> | The name of the library author. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.authorAddress">authorAddress</a></code> | <code>string</code> | Email or URL of the library author. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | Git repository URL. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compat">compat</a></code> | <code>boolean</code> | Automatically run API compatibility test against the latest version published to npm after compilation. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compatIgnore">compatIgnore</a></code> | <code>string</code> | Name of the ignore file for API compatibility tests. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compressAssembly">compressAssembly</a></code> | <code>boolean</code> | Emit a compressed version of the assembly. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docgenFilePath">docgenFilePath</a></code> | <code>string</code> | File path for generated docs. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dotnet">dotnet</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jsiiVersion">jsiiVersion</a></code> | <code>string</code> | Version of the jsii compiler to use. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToGo">publishToGo</a></code> | <code>projen.cdk.JsiiGoTarget</code> | Publish Go bindings to a git repository. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToMaven">publishToMaven</a></code> | <code>projen.cdk.JsiiJavaTarget</code> | Publish to maven. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToNuget">publishToNuget</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | Publish to NuGet. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToPypi">publishToPypi</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | Publish to pypi. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.python">python</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.catalog">catalog</a></code> | <code>projen.cdk.Catalog</code> | Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkAssert">cdkAssert</a></code> | <code>boolean</code> | Warning: NodeJS only. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkAssertions">cdkAssertions</a></code> | <code>boolean</code> | Install the assertions library? |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkDependencies">cdkDependencies</a></code> | <code>string[]</code> | Which AWS CDKv1 modules this project requires. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkDependenciesAsDeps">cdkDependenciesAsDeps</a></code> | <code>boolean</code> | If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkTestDependencies">cdkTestDependencies</a></code> | <code>string[]</code> | AWS CDK modules required for testing. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkVersionPinning">cdkVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for CDK. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compat">compat</a></code> | <code>boolean</code> | Automatically run API compatibility test against the latest version published to npm after compilation. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compatIgnore">compatIgnore</a></code> | <code>string</code> | Name of the ignore file for API compatibility tests. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compressAssembly">compressAssembly</a></code> | <code>boolean</code> | Emit a compressed version of the assembly. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.constructsVersion">constructsVersion</a></code> | <code>string</code> | Minimum version of the `constructs` library to depend on. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use tasks and github workflows to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a `tsconfig.dev.json` file. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docgenFilePath">docgenFilePath</a></code> | <code>string</code> | File path for generated docs. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dotnet">dotnet</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.edgeLambdaAutoDiscover">edgeLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.experimentalIntegRunner">experimentalIntegRunner</a></code> | <code>boolean</code> | Enable experimental support for the AWS CDK integ-runner. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.integrationTestAutoDiscover">integrationTestAutoDiscover</a></code> | <code>boolean</code> | Automatically discovers and creates integration tests for each `.integ.ts` file under your test directory. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jestOptions">jestOptions</a></code> | <code>projen.javascript.JestOptions</code> | Jest options. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jsiiVersion">jsiiVersion</a></code> | <code>string</code> | Version of the jsii compiler to use. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `aws_lambda.Function` for each `.lambda.ts` handler in your source tree. If this is disabled, you either need to explicitly call `aws_lambda.Function.autoDiscover()` or define a `new aws_lambda.Function()` for each handler. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmIgnoreOptions">npmIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmProvenance">npmProvenance</a></code> | <code>boolean</code> | Should provenance statements be generated when the package is published. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.peerDeps">peerDeps</a></code> | <code>string[]</code> | Peer dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToGo">publishToGo</a></code> | <code>projen.cdk.JsiiGoTarget</code> | Publish Go bindings to a git repository. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToMaven">publishToMaven</a></code> | <code>projen.cdk.JsiiJavaTarget</code> | Publish to maven. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToNuget">publishToNuget</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | Publish to NuGet. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToPypi">publishToPypi</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | Publish to pypi. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.python">python</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.release">release</a></code> | <code>boolean</code> | Add release management to this project. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with commit-and-tag-version package. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
@@ -15177,6 +15186,58 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
+
+---
+
+##### `author`<sup>Required</sup> <a name="author" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.author"></a>
+
+```typescript
+public readonly author: string;
+```
+
+- *Type:* string
+- *Default:* $GIT_USER_NAME
+
+The name of the library author.
+
+---
+
+##### `authorAddress`<sup>Required</sup> <a name="authorAddress" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.authorAddress"></a>
+
+```typescript
+public readonly authorAddress: string;
+```
+
+- *Type:* string
+- *Default:* $GIT_USER_EMAIL
+
+Email or URL of the library author.
+
+---
+
+##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkVersion"></a>
+
+```typescript
+public readonly cdkVersion: string;
+```
+
+- *Type:* string
+- *Default:* "2.1.0"
+
+Minimum version of the AWS CDK to depend on.
+
+---
+
+##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.defaultReleaseBranch"></a>
+
+```typescript
+public readonly defaultReleaseBranch: string;
+```
+
+- *Type:* string
+- *Default:* "main"
+
+The name of the main release branch.
 
 ---
 
@@ -15193,404 +15254,16 @@ This is the name of your project.
 
 ---
 
-##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.commitGenerated"></a>
+##### `repositoryUrl`<sup>Required</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryUrl"></a>
 
 ```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Whether to commit the managed files by default.
-
----
-
-##### `gitIgnoreOptions`<sup>Optional</sup> <a name="gitIgnoreOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitIgnoreOptions"></a>
-
-```typescript
-public readonly gitIgnoreOptions: IgnoreFileOptions;
-```
-
-- *Type:* projen.IgnoreFileOptions
-
-Configuration options for .gitignore file.
-
----
-
-##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitOptions"></a>
-
-```typescript
-public readonly gitOptions: GitOptions;
-```
-
-- *Type:* projen.GitOptions
-
-Configuration options for git.
-
----
-
-##### `logging`<sup>Optional</sup> <a name="logging" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.logging"></a>
-
-```typescript
-public readonly logging: LoggerOptions;
-```
-
-- *Type:* projen.LoggerOptions
-- *Default:* {}
-
-Configure logging options such as verbosity.
-
----
-
-##### `outdir`<sup>Optional</sup> <a name="outdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
+public readonly repositoryUrl: string;
 ```
 
 - *Type:* string
-- *Default:* "."
+- *Default:* $GIT_REMOTE
 
-The root directory of the project.
-
-Relative to this directory, all files are synthesized.
-
-If this project has a parent, this directory is relative to the parent
-directory and it cannot be the same as the parent or any of it's other
-subprojects.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-The parent project, if this project is part of a bigger project.
-
----
-
-##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-- *Default:* "npx projen"
-
-The shell command to use in order to run the projen CLI.
-
-Can be used to customize in special environments.
-
----
-
-##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJson"></a>
-
-```typescript
-public readonly projenrcJson: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
-
----
-
-##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJsonOptions"></a>
-
-```typescript
-public readonly projenrcJsonOptions: ProjenrcJsonOptions;
-```
-
-- *Type:* projen.ProjenrcJsonOptions
-- *Default:* default options
-
-Options for .projenrc.json.
-
----
-
-##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebot"></a>
-
-```typescript
-public readonly renovatebot: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use renovatebot to handle dependency upgrades.
-
----
-
-##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebotOptions"></a>
-
-```typescript
-public readonly renovatebotOptions: RenovatebotOptions;
-```
-
-- *Type:* projen.RenovatebotOptions
-- *Default:* default options
-
-Options for renovatebot.
-
----
-
-##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoApproveOptions"></a>
-
-```typescript
-public readonly autoApproveOptions: AutoApproveOptions;
-```
-
-- *Type:* projen.github.AutoApproveOptions
-- *Default:* auto approve is disabled
-
-Enable and configure the 'auto approve' workflow.
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Enable automatic merging on GitHub.
-
-Has no effect if `github.mergify`
-is set to false.
-
----
-
-##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoMergeOptions"></a>
-
-```typescript
-public readonly autoMergeOptions: AutoMergeOptions;
-```
-
-- *Type:* projen.github.AutoMergeOptions
-- *Default:* see defaults in `AutoMergeOptions`
-
-Configure options for automatic merging on GitHub.
-
-Has no effect if
-`github.mergify` or `autoMerge` is set to false.
-
----
-
-##### `clobber`<sup>Optional</sup> <a name="clobber" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.clobber"></a>
-
-```typescript
-public readonly clobber: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true, but false for subprojects
-
-Add a `clobber` task which resets the repo to origin.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Add a VSCode development environment (used for GitHub Codespaces).
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.github"></a>
-
-```typescript
-public readonly github: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Enable GitHub integration.
-
-Enabled by default for root projects. Disabled for non-root projects.
-
----
-
-##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.githubOptions"></a>
-
-```typescript
-public readonly githubOptions: GitHubOptions;
-```
-
-- *Type:* projen.github.GitHubOptions
-- *Default:* see GitHubOptions
-
-Options for GitHub integration.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Add a Gitpod development environment.
-
----
-
-##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mergify"></a>
-
-- *Deprecated:* use `githubOptions.mergify` instead
-
-```typescript
-public readonly mergify: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Whether mergify should be enabled on this repository or not.
-
----
-
-##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mergifyOptions"></a>
-
-- *Deprecated:* use `githubOptions.mergifyOptions` instead
-
-```typescript
-public readonly mergifyOptions: MergifyOptions;
-```
-
-- *Type:* projen.github.MergifyOptions
-- *Default:* default options
-
-Options for mergify.
-
----
-
-##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projectType"></a>
-
-- *Deprecated:* no longer supported at the base project level
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-- *Default:* ProjectType.UNKNOWN
-
-Which type of project this is (library/app).
-
----
-
-##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenCredentials"></a>
-
-```typescript
-public readonly projenCredentials: GithubCredentials;
-```
-
-- *Type:* projen.github.GithubCredentials
-- *Default:* use a personal access token named PROJEN_GITHUB_TOKEN
-
-Choose a method of providing GitHub API access for projen workflows.
-
----
-
-##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenTokenSecret"></a>
-
-- *Deprecated:* use `projenCredentials`
-
-```typescript
-public readonly projenTokenSecret: string;
-```
-
-- *Type:* string
-- *Default:* "PROJEN_GITHUB_TOKEN"
-
-The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows.
-
-This token needs to have the `repo`, `workflows`
-and `packages` scope.
-
----
-
-##### `readme`<sup>Optional</sup> <a name="readme" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.readme"></a>
-
-```typescript
-public readonly readme: SampleReadmeProps;
-```
-
-- *Type:* projen.SampleReadmeProps
-- *Default:* { filename: 'README.md', contents: '# replace this' }
-
-The README setup.
-
----
-
-*Example*
-
-```typescript
-"{ filename: 'readme.md', contents: '# title' }"
-```
-
-
-##### `stale`<sup>Optional</sup> <a name="stale" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stale"></a>
-
-```typescript
-public readonly stale: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Auto-close of stale issues and pull request.
-
-See `staleOptions` for options.
-
----
-
-##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.staleOptions"></a>
-
-```typescript
-public readonly staleOptions: StaleOptions;
-```
-
-- *Type:* projen.github.StaleOptions
-- *Default:* see defaults in `StaleOptions`
-
-Auto-close stale issues and pull requests.
-
-To disable set `stale` to `false`.
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.vscode"></a>
-
-```typescript
-public readonly vscode: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Enable VSCode integration.
-
-Enabled by default for root projects. Disabled for non-root projects.
+Git repository URL.
 
 ---
 
@@ -15607,6 +15280,19 @@ Allow the project to include `peerDependencies` and `bundledDependencies`.
 
 This is normally only allowed for libraries. For apps, there's no meaning
 for specifying these.
+
+---
+
+##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "dist"
+
+A directory which will contain build artifacts.
 
 ---
 
@@ -15658,6 +15344,34 @@ Author's URL / Website.
 
 ---
 
+##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoApproveOptions"></a>
+
+```typescript
+public readonly autoApproveOptions: AutoApproveOptions;
+```
+
+- *Type:* projen.github.AutoApproveOptions
+- *Default:* auto approve is disabled
+
+Enable and configure the 'auto approve' workflow.
+
+---
+
+##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoApproveUpgrades"></a>
+
+```typescript
+public readonly autoApproveUpgrades: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued).
+
+Throw if set to true but `autoApproveOptions` are not defined.
+
+---
+
 ##### `autoDetectBin`<sup>Optional</sup> <a name="autoDetectBin" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoDetectBin"></a>
 
 ```typescript
@@ -15668,6 +15382,38 @@ public readonly autoDetectBin: boolean;
 - *Default:* true
 
 Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section.
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable automatic merging on GitHub.
+
+Has no effect if `github.mergify`
+is set to false.
+
+---
+
+##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoMergeOptions"></a>
+
+```typescript
+public readonly autoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* projen.github.AutoMergeOptions
+- *Default:* see defaults in `AutoMergeOptions`
+
+Configure options for automatic merging on GitHub.
+
+Has no effect if
+`github.mergify` or `autoMerge` is set to false.
 
 ---
 
@@ -15711,809 +15457,6 @@ The url to your project's issue tracker.
 
 ---
 
-##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bundledDeps"></a>
-
-```typescript
-public readonly bundledDeps: string[];
-```
-
-- *Type:* string[]
-
-List of dependencies to bundle into this module.
-
-These modules will be
-added both to the `dependencies` section and `bundledDependencies` section of
-your `package.json`.
-
-The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
-sense that it will add the module as a dependency to your `package.json`
-file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
-
----
-
-##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeArtifactOptions"></a>
-
-```typescript
-public readonly codeArtifactOptions: CodeArtifactOptions;
-```
-
-- *Type:* projen.javascript.CodeArtifactOptions
-- *Default:* undefined
-
-Options for npm packages using AWS CodeArtifact.
-
-This is required if publishing packages to, or installing scoped packages from AWS CodeArtifact
-
----
-
-##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.deps"></a>
-
-```typescript
-public readonly deps: string[];
-```
-
-- *Type:* string[]
-- *Default:* []
-
-Runtime dependencies of this module.
-
-The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
-sense that it will add the module as a dependency to your `package.json`
-file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
-
----
-
-*Example*
-
-```typescript
-[ 'express', 'lodash', 'foo@^2' ]
-```
-
-
-##### `description`<sup>Optional</sup> <a name="description" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.description"></a>
-
-```typescript
-public readonly description: string;
-```
-
-- *Type:* string
-
-The description is just a string that helps people understand the purpose of the package.
-
-It can be used when searching for packages in a package manager as well.
-See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
-
----
-
-##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devDeps"></a>
-
-```typescript
-public readonly devDeps: string[];
-```
-
-- *Type:* string[]
-- *Default:* []
-
-Build dependencies for this module.
-
-These dependencies will only be
-available in your build environment but will not be fetched when this
-module is consumed.
-
-The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
-sense that it will add the module as a dependency to your `package.json`
-file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
-
----
-
-*Example*
-
-```typescript
-[ 'typescript', '@types/express' ]
-```
-
-
-##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.entrypoint"></a>
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-- *Default:* "lib/index.js"
-
-Module entrypoint (`main` in `package.json`).
-
-Set to an empty string to not include `main` in your package.json
-
----
-
-##### `homepage`<sup>Optional</sup> <a name="homepage" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.homepage"></a>
-
-```typescript
-public readonly homepage: string;
-```
-
-- *Type:* string
-
-Package's Homepage / Website.
-
----
-
-##### `keywords`<sup>Optional</sup> <a name="keywords" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.keywords"></a>
-
-```typescript
-public readonly keywords: string[];
-```
-
-- *Type:* string[]
-
-Keywords to include in `package.json`.
-
----
-
-##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.license"></a>
-
-```typescript
-public readonly license: string;
-```
-
-- *Type:* string
-- *Default:* "Apache-2.0"
-
-License's SPDX identifier.
-
-See https://github.com/projen/projen/tree/main/license-text for a list of supported licenses.
-Use the `licensed` option if you want to no license to be specified.
-
----
-
-##### `licensed`<sup>Optional</sup> <a name="licensed" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.licensed"></a>
-
-```typescript
-public readonly licensed: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Indicates if a license should be added.
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-- *Default:* no max
-
-Minimum node.js version to require via `engines` (inclusive).
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-- *Default:* no "engines" specified
-
-Minimum Node.js version to require via package.json `engines` (inclusive).
-
----
-
-##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmAccess"></a>
-
-```typescript
-public readonly npmAccess: NpmAccess;
-```
-
-- *Type:* projen.javascript.NpmAccess
-- *Default:* for scoped packages (e.g. `foo@bar`), the default is `NpmAccess.RESTRICTED`, for non-scoped packages, the default is `NpmAccess.PUBLIC`.
-
-Access level of the npm package.
-
----
-
-##### `npmProvenance`<sup>Optional</sup> <a name="npmProvenance" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmProvenance"></a>
-
-```typescript
-public readonly npmProvenance: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true for public packages, false otherwise
-
-Should provenance statements be generated when the package is published.
-
-A supported package manager is required to publish a package with npm provenance statements and
-you will need to use a supported CI/CD provider.
-
-Note that the projen `Release` and `Publisher` components are using `publib` to publish packages,
-which is using npm internally and supports provenance statements independently of the package manager used.
-
-> [https://docs.npmjs.com/generating-provenance-statements](https://docs.npmjs.com/generating-provenance-statements)
-
----
-
-##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmRegistry"></a>
-
-- *Deprecated:* use `npmRegistryUrl` instead
-
-```typescript
-public readonly npmRegistry: string;
-```
-
-- *Type:* string
-
-The host name of the npm registry to publish to.
-
-Cannot be set together with `npmRegistryUrl`.
-
----
-
-##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmRegistryUrl"></a>
-
-```typescript
-public readonly npmRegistryUrl: string;
-```
-
-- *Type:* string
-- *Default:* "https://registry.npmjs.org"
-
-The base URL of the npm package registry.
-
-Must be a URL (e.g. start with "https://" or "http://")
-
----
-
-##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmTokenSecret"></a>
-
-```typescript
-public readonly npmTokenSecret: string;
-```
-
-- *Type:* string
-- *Default:* "NPM_TOKEN"
-
-GitHub secret which contains the NPM token to use when publishing packages.
-
----
-
-##### `packageManager`<sup>Optional</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.packageManager"></a>
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN_CLASSIC
-
-The Node Package Manager used to execute scripts.
-
----
-
-##### `packageName`<sup>Optional</sup> <a name="packageName" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.packageName"></a>
-
-```typescript
-public readonly packageName: string;
-```
-
-- *Type:* string
-- *Default:* defaults to project name
-
-The "name" in package.json.
-
----
-
-##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.peerDependencyOptions"></a>
-
-```typescript
-public readonly peerDependencyOptions: PeerDependencyOptions;
-```
-
-- *Type:* projen.javascript.PeerDependencyOptions
-
-Options for `peerDeps`.
-
----
-
-##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.peerDeps"></a>
-
-```typescript
-public readonly peerDeps: string[];
-```
-
-- *Type:* string[]
-- *Default:* []
-
-Peer dependencies for this module.
-
-Dependencies listed here are required to
-be installed (and satisfied) by the _consumer_ of this library. Using peer
-dependencies allows you to ensure that only a single module of a certain
-library exists in the `node_modules` tree of your consumers.
-
-Note that prior to npm@7, peer dependencies are _not_ automatically
-installed, which means that adding peer dependencies to a library will be a
-breaking change for your customers.
-
-Unless `peerDependencyOptions.pinnedDevDependency` is disabled (it is
-enabled by default), projen will automatically add a dev dependency with a
-pinned version for each peer dependency. This will ensure that you build &
-test your module against the lowest peer version required.
-
----
-
-##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pnpmVersion"></a>
-
-```typescript
-public readonly pnpmVersion: string;
-```
-
-- *Type:* string
-- *Default:* "7"
-
-The version of PNPM to use if using PNPM as a package manager.
-
----
-
-##### `repository`<sup>Optional</sup> <a name="repository" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repository"></a>
-
-```typescript
-public readonly repository: string;
-```
-
-- *Type:* string
-
-The repository is the location where the actual code for your package lives.
-
-See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
-
----
-
-##### `repositoryDirectory`<sup>Optional</sup> <a name="repositoryDirectory" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryDirectory"></a>
-
-```typescript
-public readonly repositoryDirectory: string;
-```
-
-- *Type:* string
-
-If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives.
-
----
-
-##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scopedPackagesOptions"></a>
-
-```typescript
-public readonly scopedPackagesOptions: ScopedPackagesOptions[];
-```
-
-- *Type:* projen.javascript.ScopedPackagesOptions[]
-- *Default:* fetch all scoped packages from the public npm registry
-
-Options for privately hosted scoped packages.
-
----
-
-##### ~~`scripts`~~<sup>Optional</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scripts"></a>
-
-- *Deprecated:* use `project.addTask()` or `package.setScript()`
-
-```typescript
-public readonly scripts: {[ key: string ]: string};
-```
-
-- *Type:* {[ key: string ]: string}
-- *Default:* {}
-
-npm scripts to include.
-
-If a script has the same name as a standard script,
-the standard script will be overwritten.
-Also adds the script as a task.
-
----
-
-##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stability"></a>
-
-```typescript
-public readonly stability: string;
-```
-
-- *Type:* string
-
-Package's Stability.
-
----
-
-##### `yarnBerryOptions`<sup>Optional</sup> <a name="yarnBerryOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.yarnBerryOptions"></a>
-
-```typescript
-public readonly yarnBerryOptions: YarnBerryOptions;
-```
-
-- *Type:* projen.javascript.YarnBerryOptions
-- *Default:* Yarn Berry v4 with all default options
-
-Options for Yarn Berry.
-
----
-
-##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jsiiReleaseVersion"></a>
-
-```typescript
-public readonly jsiiReleaseVersion: string;
-```
-
-- *Type:* string
-- *Default:* "latest"
-
-Version requirement of `publib` which is used to publish modules to npm.
-
----
-
-##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.majorVersion"></a>
-
-```typescript
-public readonly majorVersion: number;
-```
-
-- *Type:* number
-- *Default:* Major version is not enforced.
-
-Major version to release from the default branch.
-
-If this is specified, we bump the latest version of this major version line.
-If not specified, we bump the global latest version.
-
----
-
-##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.minMajorVersion"></a>
-
-```typescript
-public readonly minMajorVersion: number;
-```
-
-- *Type:* number
-- *Default:* No minimum version is being enforced
-
-Minimal Major version to release.
-
-This can be useful to set to 1, as breaking changes before the 1.x major
-release are not incrementing the major version number.
-
-Can not be set together with `majorVersion`.
-
----
-
-##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmDistTag"></a>
-
-```typescript
-public readonly npmDistTag: string;
-```
-
-- *Type:* string
-- *Default:* "latest"
-
-The npmDistTag to use when publishing from the default branch.
-
-To set the npm dist-tag for release branches, set the `npmDistTag` property
-for each branch.
-
----
-
-##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.postBuildSteps"></a>
-
-```typescript
-public readonly postBuildSteps: JobStep[];
-```
-
-- *Type:* projen.github.workflows.JobStep[]
-- *Default:* []
-
-Steps to execute after build as part of the release workflow.
-
----
-
-##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prerelease"></a>
-
-```typescript
-public readonly prerelease: string;
-```
-
-- *Type:* string
-- *Default:* normal semantic versions
-
-Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre").
-
----
-
-##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishDryRun"></a>
-
-```typescript
-public readonly publishDryRun: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Instead of actually publishing to package managers, just print the publishing command.
-
----
-
-##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishTasks"></a>
-
-```typescript
-public readonly publishTasks: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Define publishing tasks that can be executed manually as well as workflows.
-
-Normally, publishing only happens within automated workflows. Enable this
-in order to create a publishing task for each publishing activity.
-
----
-
-##### `releasableCommits`<sup>Optional</sup> <a name="releasableCommits" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releasableCommits"></a>
-
-```typescript
-public readonly releasableCommits: ReleasableCommits;
-```
-
-- *Type:* projen.ReleasableCommits
-- *Default:* ReleasableCommits.everyCommit()
-
-Find commits that should be considered releasable Used to decide if a release is required.
-
----
-
-##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseBranches"></a>
-
-```typescript
-public readonly releaseBranches: {[ key: string ]: BranchOptions};
-```
-
-- *Type:* {[ key: string ]: projen.release.BranchOptions}
-- *Default:* no additional branches are used for release. you can use `addBranch()` to add additional branches.
-
-Defines additional release branches.
-
-A workflow will be created for each
-release branch which will publish releases from commits in this branch.
-Each release branch _must_ be assigned a major version number which is used
-to enforce that versions published from that branch always use that major
-version. If multiple branches are used, the `majorVersion` field must also
-be provided for the default branch.
-
----
-
-##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseEveryCommit"></a>
-
-- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.continuous()` instead
-
-```typescript
-public readonly releaseEveryCommit: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Automatically release new versions every commit to one of branches in `releaseBranches`.
-
----
-
-##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseFailureIssue"></a>
-
-```typescript
-public readonly releaseFailureIssue: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Create a github issue on every failed publishing task.
-
----
-
-##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseFailureIssueLabel"></a>
-
-```typescript
-public readonly releaseFailureIssueLabel: string;
-```
-
-- *Type:* string
-- *Default:* "failed-release"
-
-The label to apply to issues indicating publish failures.
-
-Only applies if `releaseFailureIssue` is true.
-
----
-
-##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseSchedule"></a>
-
-- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.scheduled()` instead
-
-```typescript
-public readonly releaseSchedule: string;
-```
-
-- *Type:* string
-- *Default:* no scheduled releases
-
-CRON schedule to trigger new releases.
-
----
-
-##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseTagPrefix"></a>
-
-```typescript
-public readonly releaseTagPrefix: string;
-```
-
-- *Type:* string
-- *Default:* "v"
-
-Automatically add the given prefix to release tags. Useful if you are releasing on multiple branches with overlapping version numbers.
-
-Note: this prefix is used to detect the latest tagged version
-when bumping, so if you change this on a project with an existing version
-history, you may need to manually tag your latest release
-with the new prefix.
-
----
-
-##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseTrigger"></a>
-
-```typescript
-public readonly releaseTrigger: ReleaseTrigger;
-```
-
-- *Type:* projen.release.ReleaseTrigger
-- *Default:* Continuous releases (`ReleaseTrigger.continuous()`)
-
-The release trigger to use.
-
----
-
-##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflowName"></a>
-
-```typescript
-public readonly releaseWorkflowName: string;
-```
-
-- *Type:* string
-- *Default:* "release"
-
-The name of the default release workflow.
-
----
-
-##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflowSetupSteps"></a>
-
-```typescript
-public readonly releaseWorkflowSetupSteps: JobStep[];
-```
-
-- *Type:* projen.github.workflows.JobStep[]
-
-A set of workflow steps to execute in order to setup the workflow container.
-
----
-
-##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.versionrcOptions"></a>
-
-```typescript
-public readonly versionrcOptions: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-- *Default:* standard configuration applicable for GitHub repositories
-
-Custom configuration used when creating changelog with commit-and-tag-version package.
-
-Given values either append to default configuration or overwrite values in it.
-
----
-
-##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowContainerImage"></a>
-
-```typescript
-public readonly workflowContainerImage: string;
-```
-
-- *Type:* string
-- *Default:* default image
-
-Container image to use for GitHub workflows.
-
----
-
-##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOn"></a>
-
-```typescript
-public readonly workflowRunsOn: string[];
-```
-
-- *Type:* string[]
-- *Default:* ["ubuntu-latest"]
-
-Github Runner selection labels.
-
----
-
-##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOnGroup"></a>
-
-```typescript
-public readonly workflowRunsOnGroup: GroupRunnerOptions;
-```
-
-- *Type:* projen.GroupRunnerOptions
-
-Github Runner Group selection options.
-
----
-
-##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.defaultReleaseBranch"></a>
-
-```typescript
-public readonly defaultReleaseBranch: string;
-```
-
-- *Type:* string
-- *Default:* "main"
-
-The name of the main release branch.
-
----
-
-##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-- *Default:* "dist"
-
-A directory which will contain build artifacts.
-
----
-
-##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.autoApproveUpgrades"></a>
-
-```typescript
-public readonly autoApproveUpgrades: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued).
-
-Throw if set to true but `autoApproveOptions` are not defined.
-
----
-
 ##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.buildWorkflow"></a>
 
 ```typescript
@@ -16554,6 +15497,29 @@ Build workflow triggers.
 
 ---
 
+##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bundledDeps"></a>
+
+```typescript
+public readonly bundledDeps: string[];
+```
+
+- *Type:* string[]
+
+List of dependencies to bundle into this module.
+
+These modules will be
+added both to the `dependencies` section and `bundledDependencies` section of
+your `package.json`.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
 ##### `bundlerOptions`<sup>Optional</sup> <a name="bundlerOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bundlerOptions"></a>
 
 ```typescript
@@ -16563,896 +15529,6 @@ public readonly bundlerOptions: BundlerOptions;
 - *Type:* projen.javascript.BundlerOptions
 
 Options for `Bundler`.
-
----
-
-##### `checkLicenses`<sup>Optional</sup> <a name="checkLicenses" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.checkLicenses"></a>
-
-```typescript
-public readonly checkLicenses: LicenseCheckerOptions;
-```
-
-- *Type:* projen.javascript.LicenseCheckerOptions
-- *Default:* no license checks are run during the build and all licenses will be accepted
-
-Configure which licenses should be deemed acceptable for use by dependencies.
-
-This setting will cause the build to fail, if any prohibited or not allowed licenses ares encountered.
-
----
-
-##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeCov"></a>
-
-```typescript
-public readonly codeCov: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`.
-
----
-
-##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeCovTokenSecret"></a>
-
-```typescript
-public readonly codeCovTokenSecret: string;
-```
-
-- *Type:* string
-- *Default:* if this option is not specified, only public repositories are supported
-
-Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
-
----
-
-##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.copyrightOwner"></a>
-
-```typescript
-public readonly copyrightOwner: string;
-```
-
-- *Type:* string
-- *Default:* defaults to the value of authorName or "" if `authorName` is undefined.
-
-License copyright owner.
-
----
-
-##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.copyrightPeriod"></a>
-
-```typescript
-public readonly copyrightPeriod: string;
-```
-
-- *Type:* string
-- *Default:* current year
-
-The copyright years to put in the LICENSE file.
-
----
-
-##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabot"></a>
-
-```typescript
-public readonly dependabot: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use dependabot to handle dependency upgrades.
-
-Cannot be used in conjunction with `depsUpgrade`.
-
----
-
-##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabotOptions"></a>
-
-```typescript
-public readonly dependabotOptions: DependabotOptions;
-```
-
-- *Type:* projen.github.DependabotOptions
-- *Default:* default options
-
-Options for dependabot.
-
----
-
-##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgrade"></a>
-
-```typescript
-public readonly depsUpgrade: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Use tasks and github workflows to handle dependency upgrades.
-
-Cannot be used in conjunction with `dependabot`.
-
----
-
-##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgradeOptions"></a>
-
-```typescript
-public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
-```
-
-- *Type:* projen.javascript.UpgradeDependenciesOptions
-- *Default:* default options
-
-Options for `UpgradeDependencies`.
-
----
-
-##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: string[];
-```
-
-- *Type:* string[]
-
-Additional entries to .gitignore.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jest"></a>
-
-```typescript
-public readonly jest: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Setup jest unit tests.
-
----
-
-##### `jestOptions`<sup>Optional</sup> <a name="jestOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jestOptions"></a>
-
-```typescript
-public readonly jestOptions: JestOptions;
-```
-
-- *Type:* projen.javascript.JestOptions
-- *Default:* default options
-
-Jest options.
-
----
-
-##### ~~`mutableBuild`~~<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mutableBuild"></a>
-
-- *Deprecated:* - Use `buildWorkflowOptions.mutableBuild`
-
-```typescript
-public readonly mutableBuild: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Automatically update files modified during builds to pull-request branches.
-
-This means
-that any files synthesized by projen or e.g. test snapshots will always be up-to-date
-before a PR is merged.
-
-Implies that PR builds do not have anti-tamper checks.
-
----
-
-##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmignore"></a>
-
-- *Deprecated:* - use `project.addPackageIgnore`
-
-```typescript
-public readonly npmignore: string[];
-```
-
-- *Type:* string[]
-
-Additional entries to .npmignore.
-
----
-
-##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmignoreEnabled"></a>
-
-```typescript
-public readonly npmignoreEnabled: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs.
-
----
-
-##### `npmIgnoreOptions`<sup>Optional</sup> <a name="npmIgnoreOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmIgnoreOptions"></a>
-
-```typescript
-public readonly npmIgnoreOptions: IgnoreFileOptions;
-```
-
-- *Type:* projen.IgnoreFileOptions
-
-Configuration options for .npmignore file.
-
----
-
-##### `package`<sup>Optional</sup> <a name="package" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.package"></a>
-
-```typescript
-public readonly package: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`).
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prettier"></a>
-
-```typescript
-public readonly prettier: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Setup prettier.
-
----
-
-##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prettierOptions"></a>
-
-```typescript
-public readonly prettierOptions: PrettierOptions;
-```
-
-- *Type:* projen.javascript.PrettierOptions
-- *Default:* default options
-
-Prettier options.
-
----
-
-##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenDevDependency"></a>
-
-```typescript
-public readonly projenDevDependency: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true if not a subproject
-
-Indicates of "projen" should be installed as a devDependency.
-
----
-
-##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJs"></a>
-
-```typescript
-public readonly projenrcJs: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true if projenrcJson is false
-
-Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation.
-
----
-
-##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJsOptions"></a>
-
-```typescript
-public readonly projenrcJsOptions: ProjenrcOptions;
-```
-
-- *Type:* projen.javascript.ProjenrcOptions
-- *Default:* default options
-
-Options for .projenrc.js.
-
----
-
-##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenVersion"></a>
-
-```typescript
-public readonly projenVersion: string;
-```
-
-- *Type:* string
-- *Default:* Defaults to the latest version.
-
-Version of projen to install.
-
----
-
-##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pullRequestTemplate"></a>
-
-```typescript
-public readonly pullRequestTemplate: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Include a GitHub pull request template.
-
----
-
-##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pullRequestTemplateContents"></a>
-
-```typescript
-public readonly pullRequestTemplateContents: string[];
-```
-
-- *Type:* string[]
-- *Default:* default content
-
-The contents of the pull request template.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.release"></a>
-
-```typescript
-public readonly release: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true (false for subprojects)
-
-Add release management to this project.
-
----
-
-##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseToNpm"></a>
-
-```typescript
-public readonly releaseToNpm: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Automatically release to npm when new versions are introduced.
-
----
-
-##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflow"></a>
-
-- *Deprecated:* see `release`.
-
-```typescript
-public readonly releaseWorkflow: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true if not a subproject
-
-DEPRECATED: renamed to `release`.
-
----
-
-##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowBootstrapSteps"></a>
-
-```typescript
-public readonly workflowBootstrapSteps: JobStep[];
-```
-
-- *Type:* projen.github.workflows.JobStep[]
-- *Default:* "yarn install --frozen-lockfile && yarn projen"
-
-Workflow steps to use in order to bootstrap this repo.
-
----
-
-##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowGitIdentity"></a>
-
-```typescript
-public readonly workflowGitIdentity: GitIdentity;
-```
-
-- *Type:* projen.github.GitIdentity
-- *Default:* GitHub Actions
-
-The git identity to use in workflows.
-
----
-
-##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowNodeVersion"></a>
-
-```typescript
-public readonly workflowNodeVersion: string;
-```
-
-- *Type:* string
-- *Default:* same as `minNodeVersion`
-
-The node version to use in GitHub workflows.
-
----
-
-##### `workflowPackageCache`<sup>Optional</sup> <a name="workflowPackageCache" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowPackageCache"></a>
-
-```typescript
-public readonly workflowPackageCache: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Enable Node.js package cache in GitHub workflows.
-
----
-
-##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.disableTsconfig"></a>
-
-```typescript
-public readonly disableTsconfig: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler).
-
----
-
-##### `disableTsconfigDev`<sup>Optional</sup> <a name="disableTsconfigDev" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.disableTsconfigDev"></a>
-
-```typescript
-public readonly disableTsconfigDev: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Do not generate a `tsconfig.dev.json` file.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Docgen by Typedoc.
-
----
-
-##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-- *Default:* "docs"
-
-Docs directory.
-
----
-
-##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.entrypointTypes"></a>
-
-```typescript
-public readonly entrypointTypes: string;
-```
-
-- *Type:* string
-- *Default:* .d.ts file derived from the project's entrypoint (usually lib/index.d.ts)
-
-The .d.ts file that includes the type declarations for this module.
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.eslint"></a>
-
-```typescript
-public readonly eslint: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Setup eslint.
-
----
-
-##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.eslintOptions"></a>
-
-```typescript
-public readonly eslintOptions: EslintOptions;
-```
-
-- *Type:* projen.javascript.EslintOptions
-- *Default:* opinionated default options
-
-Eslint options.
-
----
-
-##### `libdir`<sup>Optional</sup> <a name="libdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-- *Default:* "lib"
-
-Typescript  artifacts output directory.
-
----
-
-##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcTs"></a>
-
-```typescript
-public readonly projenrcTs: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use TypeScript for your projenrc file (`.projenrc.ts`).
-
----
-
-##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcTsOptions"></a>
-
-```typescript
-public readonly projenrcTsOptions: ProjenrcOptions;
-```
-
-- *Type:* projen.typescript.ProjenrcOptions
-
-Options for .projenrc.ts.
-
----
-
-##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.sampleCode"></a>
-
-```typescript
-public readonly sampleCode: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Generate one-time sample in `src/` and `test/` if there are no files there.
-
----
-
-##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-- *Default:* "src"
-
-Typescript sources directory.
-
----
-
-##### `testdir`<sup>Optional</sup> <a name="testdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-- *Default:* "test"
-
-Jest tests directory. Tests files should be named `xxx.test.ts`.
-
-If this directory is under `srcdir` (e.g. `src/test`, `src/__tests__`),
-then tests are going to be compiled into `lib/` and executed as javascript.
-If the test directory is outside of `src`, then we configure jest to
-compile the code in-memory.
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfigOptions;
-```
-
-- *Type:* projen.javascript.TypescriptConfigOptions
-- *Default:* default options
-
-Custom TSConfig.
-
----
-
-##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfigOptions;
-```
-
-- *Type:* projen.javascript.TypescriptConfigOptions
-- *Default:* use the production tsconfig options
-
-Custom tsconfig options for the development tsconfig.json file (used for testing).
-
----
-
-##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfigDevFile"></a>
-
-```typescript
-public readonly tsconfigDevFile: string;
-```
-
-- *Type:* string
-- *Default:* "tsconfig.dev.json"
-
-The name of the development tsconfig.json file.
-
----
-
-##### `tsJestOptions`<sup>Optional</sup> <a name="tsJestOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsJestOptions"></a>
-
-```typescript
-public readonly tsJestOptions: TsJestOptions;
-```
-
-- *Type:* projen.typescript.TsJestOptions
-
-Options for ts-jest.
-
----
-
-##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.typescriptVersion"></a>
-
-```typescript
-public readonly typescriptVersion: string;
-```
-
-- *Type:* string
-- *Default:* "latest"
-
-TypeScript version to use.
-
-NOTE: Typescript is not semantically versioned and should remain on the
-same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
-
----
-
-##### `author`<sup>Required</sup> <a name="author" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.author"></a>
-
-```typescript
-public readonly author: string;
-```
-
-- *Type:* string
-- *Default:* $GIT_USER_NAME
-
-The name of the library author.
-
----
-
-##### `authorAddress`<sup>Required</sup> <a name="authorAddress" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.authorAddress"></a>
-
-```typescript
-public readonly authorAddress: string;
-```
-
-- *Type:* string
-- *Default:* $GIT_USER_EMAIL
-
-Email or URL of the library author.
-
----
-
-##### `repositoryUrl`<sup>Required</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryUrl"></a>
-
-```typescript
-public readonly repositoryUrl: string;
-```
-
-- *Type:* string
-- *Default:* $GIT_REMOTE
-
-Git repository URL.
-
----
-
-##### `compat`<sup>Optional</sup> <a name="compat" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compat"></a>
-
-```typescript
-public readonly compat: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Automatically run API compatibility test against the latest version published to npm after compilation.
-
-You can manually run compatibility tests using `yarn compat` if this feature is disabled.
-- You can ignore compatibility failures by adding lines to a ".compatignore" file.
-
----
-
-##### `compatIgnore`<sup>Optional</sup> <a name="compatIgnore" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compatIgnore"></a>
-
-```typescript
-public readonly compatIgnore: string;
-```
-
-- *Type:* string
-- *Default:* ".compatignore"
-
-Name of the ignore file for API compatibility tests.
-
----
-
-##### `compressAssembly`<sup>Optional</sup> <a name="compressAssembly" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compressAssembly"></a>
-
-```typescript
-public readonly compressAssembly: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Emit a compressed version of the assembly.
-
----
-
-##### `docgenFilePath`<sup>Optional</sup> <a name="docgenFilePath" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docgenFilePath"></a>
-
-```typescript
-public readonly docgenFilePath: string;
-```
-
-- *Type:* string
-- *Default:* "API.md"
-
-File path for generated docs.
-
----
-
-##### ~~`dotnet`~~<sup>Optional</sup> <a name="dotnet" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dotnet"></a>
-
-- *Deprecated:* use `publishToNuget`
-
-```typescript
-public readonly dotnet: JsiiDotNetTarget;
-```
-
-- *Type:* projen.cdk.JsiiDotNetTarget
-
----
-
-##### `excludeTypescript`<sup>Optional</sup> <a name="excludeTypescript" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.excludeTypescript"></a>
-
-```typescript
-public readonly excludeTypescript: string[];
-```
-
-- *Type:* string[]
-
-Accepts a list of glob patterns.
-
-Files matching any of those patterns will be excluded from the TypeScript compiler input.
-
-By default, jsii will include all *.ts files (except .d.ts files) in the TypeScript compiler input.
-This can be problematic for example when the package's build or test procedure generates .ts files
-that cannot be compiled with jsii's compiler settings.
-
----
-
-##### `jsiiVersion`<sup>Optional</sup> <a name="jsiiVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jsiiVersion"></a>
-
-```typescript
-public readonly jsiiVersion: string;
-```
-
-- *Type:* string
-- *Default:* "1.x"
-
-Version of the jsii compiler to use.
-
-Set to "*" if you want to manually manage the version of jsii in your
-project by managing updates to `package.json` on your own.
-
-NOTE: The jsii compiler releases since 5.0.0 are not semantically versioned
-and should remain on the same minor, so we recommend using a `~` dependency
-(e.g. `~5.0.0`).
-
----
-
-##### `publishToGo`<sup>Optional</sup> <a name="publishToGo" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToGo"></a>
-
-```typescript
-public readonly publishToGo: JsiiGoTarget;
-```
-
-- *Type:* projen.cdk.JsiiGoTarget
-- *Default:* no publishing
-
-Publish Go bindings to a git repository.
-
----
-
-##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToMaven"></a>
-
-```typescript
-public readonly publishToMaven: JsiiJavaTarget;
-```
-
-- *Type:* projen.cdk.JsiiJavaTarget
-- *Default:* no publishing
-
-Publish to maven.
-
----
-
-##### `publishToNuget`<sup>Optional</sup> <a name="publishToNuget" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToNuget"></a>
-
-```typescript
-public readonly publishToNuget: JsiiDotNetTarget;
-```
-
-- *Type:* projen.cdk.JsiiDotNetTarget
-- *Default:* no publishing
-
-Publish to NuGet.
-
----
-
-##### `publishToPypi`<sup>Optional</sup> <a name="publishToPypi" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToPypi"></a>
-
-```typescript
-public readonly publishToPypi: JsiiPythonTarget;
-```
-
-- *Type:* projen.cdk.JsiiPythonTarget
-- *Default:* no publishing
-
-Publish to pypi.
-
----
-
-##### ~~`python`~~<sup>Optional</sup> <a name="python" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.python"></a>
-
-- *Deprecated:* use `publishToPyPi`
-
-```typescript
-public readonly python: JsiiPythonTarget;
-```
-
-- *Type:* projen.cdk.JsiiPythonTarget
-
----
-
-##### `rootdir`<sup>Optional</sup> <a name="rootdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rootdir"></a>
-
-```typescript
-public readonly rootdir: string;
-```
-
-- *Type:* string
-- *Default:* "."
 
 ---
 
@@ -17475,21 +15551,6 @@ through `{ announce: false }`.
 
 You can also add a Twitter handle through `{ twitter: 'xx' }` which will be
 mentioned in the tweet.
-
-> [https://github.com/construct-catalog/catalog](https://github.com/construct-catalog/catalog)
-
----
-
-##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkVersion"></a>
-
-```typescript
-public readonly cdkVersion: string;
-```
-
-- *Type:* string
-- *Default:* "2.1.0"
-
-Minimum version of the AWS CDK to depend on.
 
 ---
 
@@ -17591,6 +15652,130 @@ If you use experimental features this will let you define the moment you include
 
 ---
 
+##### `checkLicenses`<sup>Optional</sup> <a name="checkLicenses" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.checkLicenses"></a>
+
+```typescript
+public readonly checkLicenses: LicenseCheckerOptions;
+```
+
+- *Type:* projen.javascript.LicenseCheckerOptions
+- *Default:* no license checks are run during the build and all licenses will be accepted
+
+Configure which licenses should be deemed acceptable for use by dependencies.
+
+This setting will cause the build to fail, if any prohibited or not allowed licenses ares encountered.
+
+---
+
+##### `clobber`<sup>Optional</sup> <a name="clobber" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.clobber"></a>
+
+```typescript
+public readonly clobber: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true, but false for subprojects
+
+Add a `clobber` task which resets the repo to origin.
+
+---
+
+##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeArtifactOptions"></a>
+
+```typescript
+public readonly codeArtifactOptions: CodeArtifactOptions;
+```
+
+- *Type:* projen.javascript.CodeArtifactOptions
+- *Default:* undefined
+
+Options for npm packages using AWS CodeArtifact.
+
+This is required if publishing packages to, or installing scoped packages from AWS CodeArtifact
+
+---
+
+##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeCov"></a>
+
+```typescript
+public readonly codeCov: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`.
+
+---
+
+##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeCovTokenSecret"></a>
+
+```typescript
+public readonly codeCovTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* if this option is not specified, only public repositories are supported
+
+Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
+
+---
+
+##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compat`<sup>Optional</sup> <a name="compat" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compat"></a>
+
+```typescript
+public readonly compat: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically run API compatibility test against the latest version published to npm after compilation.
+
+You can manually run compatibility tests using `yarn compat` if this feature is disabled.
+- You can ignore compatibility failures by adding lines to a ".compatignore" file.
+
+---
+
+##### `compatIgnore`<sup>Optional</sup> <a name="compatIgnore" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compatIgnore"></a>
+
+```typescript
+public readonly compatIgnore: string;
+```
+
+- *Type:* string
+- *Default:* ".compatignore"
+
+Name of the ignore file for API compatibility tests.
+
+---
+
+##### `compressAssembly`<sup>Optional</sup> <a name="compressAssembly" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.compressAssembly"></a>
+
+```typescript
+public readonly compressAssembly: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Emit a compressed version of the assembly.
+
+---
+
 ##### `constructsVersion`<sup>Optional</sup> <a name="constructsVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.constructsVersion"></a>
 
 ```typescript
@@ -17601,6 +15786,237 @@ public readonly constructsVersion: string;
 - *Default:* for CDK 1.x the default is "3.2.27", for CDK 2.x the default is "10.0.5".
 
 Minimum version of the `constructs` library to depend on.
+
+---
+
+##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.copyrightOwner"></a>
+
+```typescript
+public readonly copyrightOwner: string;
+```
+
+- *Type:* string
+- *Default:* defaults to the value of authorName or "" if `authorName` is undefined.
+
+License copyright owner.
+
+---
+
+##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.copyrightPeriod"></a>
+
+```typescript
+public readonly copyrightPeriod: string;
+```
+
+- *Type:* string
+- *Default:* current year
+
+The copyright years to put in the LICENSE file.
+
+---
+
+##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabot"></a>
+
+```typescript
+public readonly dependabot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use dependabot to handle dependency upgrades.
+
+Cannot be used in conjunction with `depsUpgrade`.
+
+---
+
+##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabotOptions"></a>
+
+```typescript
+public readonly dependabotOptions: DependabotOptions;
+```
+
+- *Type:* projen.github.DependabotOptions
+- *Default:* default options
+
+Options for dependabot.
+
+---
+
+##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.deps"></a>
+
+```typescript
+public readonly deps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Runtime dependencies of this module.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgrade"></a>
+
+```typescript
+public readonly depsUpgrade: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Use tasks and github workflows to handle dependency upgrades.
+
+Cannot be used in conjunction with `dependabot`.
+
+---
+
+##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgradeOptions"></a>
+
+```typescript
+public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
+```
+
+- *Type:* projen.javascript.UpgradeDependenciesOptions
+- *Default:* default options
+
+Options for `UpgradeDependencies`.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description is just a string that helps people understand the purpose of the package.
+
+It can be used when searching for packages in a package manager as well.
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a VSCode development environment (used for GitHub Codespaces).
+
+---
+
+##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devDeps"></a>
+
+```typescript
+public readonly devDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Build dependencies for this module.
+
+These dependencies will only be
+available in your build environment but will not be fetched when this
+module is consumed.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.disableTsconfig"></a>
+
+```typescript
+public readonly disableTsconfig: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler).
+
+---
+
+##### `disableTsconfigDev`<sup>Optional</sup> <a name="disableTsconfigDev" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.disableTsconfigDev"></a>
+
+```typescript
+public readonly disableTsconfigDev: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not generate a `tsconfig.dev.json` file.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Docgen by Typedoc.
+
+---
+
+##### `docgenFilePath`<sup>Optional</sup> <a name="docgenFilePath" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docgenFilePath"></a>
+
+```typescript
+public readonly docgenFilePath: string;
+```
+
+- *Type:* string
+- *Default:* "API.md"
+
+File path for generated docs.
+
+---
+
+##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "docs"
+
+Docs directory.
+
+---
+
+##### ~~`dotnet`~~<sup>Optional</sup> <a name="dotnet" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dotnet"></a>
+
+- *Deprecated:* use `publishToNuget`
+
+```typescript
+public readonly dotnet: JsiiDotNetTarget;
+```
+
+- *Type:* projen.cdk.JsiiDotNetTarget
 
 ---
 
@@ -17617,6 +16033,74 @@ Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lam
 
 ---
 
+##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.entrypoint"></a>
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+- *Default:* "lib/index.js"
+
+Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json.
+
+---
+
+##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.entrypointTypes"></a>
+
+```typescript
+public readonly entrypointTypes: string;
+```
+
+- *Type:* string
+- *Default:* .d.ts file derived from the project's entrypoint (usually lib/index.d.ts)
+
+The .d.ts file that includes the type declarations for this module.
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.eslint"></a>
+
+```typescript
+public readonly eslint: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Setup eslint.
+
+---
+
+##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.eslintOptions"></a>
+
+```typescript
+public readonly eslintOptions: EslintOptions;
+```
+
+- *Type:* projen.javascript.EslintOptions
+- *Default:* opinionated default options
+
+Eslint options.
+
+---
+
+##### `excludeTypescript`<sup>Optional</sup> <a name="excludeTypescript" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.excludeTypescript"></a>
+
+```typescript
+public readonly excludeTypescript: string[];
+```
+
+- *Type:* string[]
+
+Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input.
+
+By default, jsii will include all *.ts files (except .d.ts files) in the TypeScript compiler input.
+This can be problematic for example when the package's build or test procedure generates .ts files
+that cannot be compiled with jsii's compiler settings.
+
+---
+
 ##### `experimentalIntegRunner`<sup>Optional</sup> <a name="experimentalIntegRunner" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.experimentalIntegRunner"></a>
 
 ```typescript
@@ -17630,6 +16114,95 @@ Enable experimental support for the AWS CDK integ-runner.
 
 ---
 
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.github"></a>
+
+```typescript
+public readonly github: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.githubOptions"></a>
+
+```typescript
+public readonly githubOptions: GitHubOptions;
+```
+
+- *Type:* projen.github.GitHubOptions
+- *Default:* see GitHubOptions
+
+Options for GitHub integration.
+
+---
+
+##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .gitignore.
+
+---
+
+##### `gitIgnoreOptions`<sup>Optional</sup> <a name="gitIgnoreOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitIgnoreOptions"></a>
+
+```typescript
+public readonly gitIgnoreOptions: IgnoreFileOptions;
+```
+
+- *Type:* projen.IgnoreFileOptions
+
+Configuration options for .gitignore file.
+
+---
+
+##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitOptions"></a>
+
+```typescript
+public readonly gitOptions: GitOptions;
+```
+
+- *Type:* projen.GitOptions
+
+Configuration options for git.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a Gitpod development environment.
+
+---
+
+##### `homepage`<sup>Optional</sup> <a name="homepage" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.homepage"></a>
+
+```typescript
+public readonly homepage: string;
+```
+
+- *Type:* string
+
+Package's Homepage / Website.
+
+---
+
 ##### `integrationTestAutoDiscover`<sup>Optional</sup> <a name="integrationTestAutoDiscover" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.integrationTestAutoDiscover"></a>
 
 ```typescript
@@ -17640,6 +16213,77 @@ public readonly integrationTestAutoDiscover: boolean;
 - *Default:* true
 
 Automatically discovers and creates integration tests for each `.integ.ts` file under your test directory.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jest"></a>
+
+```typescript
+public readonly jest: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Setup jest unit tests.
+
+---
+
+##### `jestOptions`<sup>Optional</sup> <a name="jestOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jestOptions"></a>
+
+```typescript
+public readonly jestOptions: JestOptions;
+```
+
+- *Type:* projen.javascript.JestOptions
+- *Default:* default options
+
+Jest options.
+
+---
+
+##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jsiiReleaseVersion"></a>
+
+```typescript
+public readonly jsiiReleaseVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+Version requirement of `publib` which is used to publish modules to npm.
+
+---
+
+##### `jsiiVersion`<sup>Optional</sup> <a name="jsiiVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.jsiiVersion"></a>
+
+```typescript
+public readonly jsiiVersion: string;
+```
+
+- *Type:* string
+- *Default:* "1.x"
+
+Version of the jsii compiler to use.
+
+Set to "*" if you want to manually manage the version of jsii in your
+project by managing updates to `package.json` on your own.
+
+NOTE: The jsii compiler releases since 5.0.0 are not semantically versioned
+and should remain on the same minor, so we recommend using a `~` dependency
+(e.g. `~5.0.0`).
+
+---
+
+##### `keywords`<sup>Optional</sup> <a name="keywords" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.keywords"></a>
+
+```typescript
+public readonly keywords: string[];
+```
+
+- *Type:* string[]
+
+Keywords to include in `package.json`.
 
 ---
 
@@ -17679,6 +16323,1345 @@ public readonly lambdaOptions: LambdaFunctionCommonOptions;
 - *Default:* default options
 
 Common options for all AWS Lambda functions.
+
+---
+
+##### `libdir`<sup>Optional</sup> <a name="libdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+- *Default:* "lib"
+
+Typescript  artifacts output directory.
+
+---
+
+##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.license"></a>
+
+```typescript
+public readonly license: string;
+```
+
+- *Type:* string
+- *Default:* "Apache-2.0"
+
+License's SPDX identifier.
+
+See https://github.com/projen/projen/tree/main/license-text for a list of supported licenses.
+Use the `licensed` option if you want to no license to be specified.
+
+---
+
+##### `licensed`<sup>Optional</sup> <a name="licensed" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.licensed"></a>
+
+```typescript
+public readonly licensed: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates if a license should be added.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.logging"></a>
+
+```typescript
+public readonly logging: LoggerOptions;
+```
+
+- *Type:* projen.LoggerOptions
+- *Default:* {}
+
+Configure logging options such as verbosity.
+
+---
+
+##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.majorVersion"></a>
+
+```typescript
+public readonly majorVersion: number;
+```
+
+- *Type:* number
+- *Default:* Major version is not enforced.
+
+Major version to release from the default branch.
+
+If this is specified, we bump the latest version of this major version line.
+If not specified, we bump the global latest version.
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no max
+
+Minimum node.js version to require via `engines` (inclusive).
+
+---
+
+##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mergify"></a>
+
+- *Deprecated:* use `githubOptions.mergify` instead
+
+```typescript
+public readonly mergify: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether mergify should be enabled on this repository or not.
+
+---
+
+##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mergifyOptions"></a>
+
+- *Deprecated:* use `githubOptions.mergifyOptions` instead
+
+```typescript
+public readonly mergifyOptions: MergifyOptions;
+```
+
+- *Type:* projen.github.MergifyOptions
+- *Default:* default options
+
+Options for mergify.
+
+---
+
+##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.minMajorVersion"></a>
+
+```typescript
+public readonly minMajorVersion: number;
+```
+
+- *Type:* number
+- *Default:* No minimum version is being enforced
+
+Minimal Major version to release.
+
+This can be useful to set to 1, as breaking changes before the 1.x major
+release are not incrementing the major version number.
+
+Can not be set together with `majorVersion`.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no "engines" specified
+
+Minimum Node.js version to require via package.json `engines` (inclusive).
+
+Only set this if your package will not work properly on specific (older?)
+Node versions.
+
+---
+
+##### ~~`mutableBuild`~~<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.mutableBuild"></a>
+
+- *Deprecated:* - Use `buildWorkflowOptions.mutableBuild`
+
+```typescript
+public readonly mutableBuild: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically update files modified during builds to pull-request branches.
+
+This means
+that any files synthesized by projen or e.g. test snapshots will always be up-to-date
+before a PR is merged.
+
+Implies that PR builds do not have anti-tamper checks.
+
+---
+
+##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmAccess"></a>
+
+```typescript
+public readonly npmAccess: NpmAccess;
+```
+
+- *Type:* projen.javascript.NpmAccess
+- *Default:* for scoped packages (e.g. `foo@bar`), the default is `NpmAccess.RESTRICTED`, for non-scoped packages, the default is `NpmAccess.PUBLIC`.
+
+Access level of the npm package.
+
+---
+
+##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmDistTag"></a>
+
+```typescript
+public readonly npmDistTag: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The npmDistTag to use when publishing from the default branch.
+
+To set the npm dist-tag for release branches, set the `npmDistTag` property
+for each branch.
+
+---
+
+##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmignore"></a>
+
+- *Deprecated:* - use `project.addPackageIgnore`
+
+```typescript
+public readonly npmignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .npmignore.
+
+---
+
+##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmignoreEnabled"></a>
+
+```typescript
+public readonly npmignoreEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs.
+
+---
+
+##### `npmIgnoreOptions`<sup>Optional</sup> <a name="npmIgnoreOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmIgnoreOptions"></a>
+
+```typescript
+public readonly npmIgnoreOptions: IgnoreFileOptions;
+```
+
+- *Type:* projen.IgnoreFileOptions
+
+Configuration options for .npmignore file.
+
+---
+
+##### `npmProvenance`<sup>Optional</sup> <a name="npmProvenance" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmProvenance"></a>
+
+```typescript
+public readonly npmProvenance: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true for public packages, false otherwise
+
+Should provenance statements be generated when the package is published.
+
+A supported package manager is required to publish a package with npm provenance statements and
+you will need to use a supported CI/CD provider.
+
+Note that the projen `Release` and `Publisher` components are using `publib` to publish packages,
+which is using npm internally and supports provenance statements independently of the package manager used.
+
+---
+
+##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmRegistry"></a>
+
+- *Deprecated:* use `npmRegistryUrl` instead
+
+```typescript
+public readonly npmRegistry: string;
+```
+
+- *Type:* string
+
+The host name of the npm registry to publish to.
+
+Cannot be set together with `npmRegistryUrl`.
+
+---
+
+##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmRegistryUrl"></a>
+
+```typescript
+public readonly npmRegistryUrl: string;
+```
+
+- *Type:* string
+- *Default:* "https://registry.npmjs.org"
+
+The base URL of the npm package registry.
+
+Must be a URL (e.g. start with "https://" or "http://")
+
+---
+
+##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmTokenSecret"></a>
+
+```typescript
+public readonly npmTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "NPM_TOKEN"
+
+GitHub secret which contains the NPM token to use when publishing packages.
+
+---
+
+##### `outdir`<sup>Optional</sup> <a name="outdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+The root directory of the project. Relative to this directory, all files are synthesized.
+
+If this project has a parent, this directory is relative to the parent
+directory and it cannot be the same as the parent or any of it's other
+subprojects.
+
+---
+
+##### `package`<sup>Optional</sup> <a name="package" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.package"></a>
+
+```typescript
+public readonly package: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`).
+
+---
+
+##### `packageManager`<sup>Optional</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.packageManager"></a>
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+- *Default:* NodePackageManager.YARN_CLASSIC
+
+The Node Package Manager used to execute scripts.
+
+---
+
+##### `packageName`<sup>Optional</sup> <a name="packageName" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.packageName"></a>
+
+```typescript
+public readonly packageName: string;
+```
+
+- *Type:* string
+- *Default:* defaults to project name
+
+The "name" in package.json.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+The parent project, if this project is part of a bigger project.
+
+---
+
+##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.peerDependencyOptions"></a>
+
+```typescript
+public readonly peerDependencyOptions: PeerDependencyOptions;
+```
+
+- *Type:* projen.javascript.PeerDependencyOptions
+
+Options for `peerDeps`.
+
+---
+
+##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.peerDeps"></a>
+
+```typescript
+public readonly peerDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Peer dependencies for this module.
+
+Dependencies listed here are required to
+be installed (and satisfied) by the _consumer_ of this library. Using peer
+dependencies allows you to ensure that only a single module of a certain
+library exists in the `node_modules` tree of your consumers.
+
+Note that prior to npm@7, peer dependencies are _not_ automatically
+installed, which means that adding peer dependencies to a library will be a
+breaking change for your customers.
+
+Unless `peerDependencyOptions.pinnedDevDependency` is disabled (it is
+enabled by default), projen will automatically add a dev dependency with a
+pinned version for each peer dependency. This will ensure that you build &
+test your module against the lowest peer version required.
+
+---
+
+##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pnpmVersion"></a>
+
+```typescript
+public readonly pnpmVersion: string;
+```
+
+- *Type:* string
+- *Default:* "7"
+
+The version of PNPM to use if using PNPM as a package manager.
+
+---
+
+##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.postBuildSteps"></a>
+
+```typescript
+public readonly postBuildSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* []
+
+Steps to execute after build as part of the release workflow.
+
+---
+
+##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prerelease"></a>
+
+```typescript
+public readonly prerelease: string;
+```
+
+- *Type:* string
+- *Default:* normal semantic versions
+
+Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre").
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prettier"></a>
+
+```typescript
+public readonly prettier: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Setup prettier.
+
+---
+
+##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.prettierOptions"></a>
+
+```typescript
+public readonly prettierOptions: PrettierOptions;
+```
+
+- *Type:* projen.javascript.PrettierOptions
+- *Default:* default options
+
+Prettier options.
+
+---
+
+##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projectType"></a>
+
+- *Deprecated:* no longer supported at the base project level
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+- *Default:* ProjectType.UNKNOWN
+
+Which type of project this is (library/app).
+
+---
+
+##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+- *Default:* "npx projen"
+
+The shell command to use in order to run the projen CLI.
+
+Can be used to customize in special environments.
+
+---
+
+##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenCredentials"></a>
+
+```typescript
+public readonly projenCredentials: GithubCredentials;
+```
+
+- *Type:* projen.github.GithubCredentials
+- *Default:* use a personal access token named PROJEN_GITHUB_TOKEN
+
+Choose a method of providing GitHub API access for projen workflows.
+
+---
+
+##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenDevDependency"></a>
+
+```typescript
+public readonly projenDevDependency: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+Indicates of "projen" should be installed as a devDependency.
+
+---
+
+##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJs"></a>
+
+```typescript
+public readonly projenrcJs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if projenrcJson is false
+
+Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation.
+
+---
+
+##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJson"></a>
+
+```typescript
+public readonly projenrcJson: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
+
+---
+
+##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJsonOptions"></a>
+
+```typescript
+public readonly projenrcJsonOptions: ProjenrcJsonOptions;
+```
+
+- *Type:* projen.ProjenrcJsonOptions
+- *Default:* default options
+
+Options for .projenrc.json.
+
+---
+
+##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcJsOptions"></a>
+
+```typescript
+public readonly projenrcJsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.javascript.ProjenrcOptions
+- *Default:* default options
+
+Options for .projenrc.js.
+
+---
+
+##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcTs"></a>
+
+```typescript
+public readonly projenrcTs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use TypeScript for your projenrc file (`.projenrc.ts`).
+
+---
+
+##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenrcTsOptions"></a>
+
+```typescript
+public readonly projenrcTsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.typescript.ProjenrcOptions
+
+Options for .projenrc.ts.
+
+---
+
+##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenTokenSecret"></a>
+
+- *Deprecated:* use `projenCredentials`
+
+```typescript
+public readonly projenTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "PROJEN_GITHUB_TOKEN"
+
+The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows.
+
+This token needs to have the `repo`, `workflows`
+and `packages` scope.
+
+---
+
+##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.projenVersion"></a>
+
+```typescript
+public readonly projenVersion: string;
+```
+
+- *Type:* string
+- *Default:* Defaults to the latest version.
+
+Version of projen to install.
+
+---
+
+##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishDryRun"></a>
+
+```typescript
+public readonly publishDryRun: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Instead of actually publishing to package managers, just print the publishing command.
+
+---
+
+##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishTasks"></a>
+
+```typescript
+public readonly publishTasks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define publishing tasks that can be executed manually as well as workflows.
+
+Normally, publishing only happens within automated workflows. Enable this
+in order to create a publishing task for each publishing activity.
+
+---
+
+##### `publishToGo`<sup>Optional</sup> <a name="publishToGo" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToGo"></a>
+
+```typescript
+public readonly publishToGo: JsiiGoTarget;
+```
+
+- *Type:* projen.cdk.JsiiGoTarget
+- *Default:* no publishing
+
+Publish Go bindings to a git repository.
+
+---
+
+##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToMaven"></a>
+
+```typescript
+public readonly publishToMaven: JsiiJavaTarget;
+```
+
+- *Type:* projen.cdk.JsiiJavaTarget
+- *Default:* no publishing
+
+Publish to maven.
+
+---
+
+##### `publishToNuget`<sup>Optional</sup> <a name="publishToNuget" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToNuget"></a>
+
+```typescript
+public readonly publishToNuget: JsiiDotNetTarget;
+```
+
+- *Type:* projen.cdk.JsiiDotNetTarget
+- *Default:* no publishing
+
+Publish to NuGet.
+
+---
+
+##### `publishToPypi`<sup>Optional</sup> <a name="publishToPypi" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToPypi"></a>
+
+```typescript
+public readonly publishToPypi: JsiiPythonTarget;
+```
+
+- *Type:* projen.cdk.JsiiPythonTarget
+- *Default:* no publishing
+
+Publish to pypi.
+
+---
+
+##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pullRequestTemplate"></a>
+
+```typescript
+public readonly pullRequestTemplate: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Include a GitHub pull request template.
+
+---
+
+##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.pullRequestTemplateContents"></a>
+
+```typescript
+public readonly pullRequestTemplateContents: string[];
+```
+
+- *Type:* string[]
+- *Default:* default content
+
+The contents of the pull request template.
+
+---
+
+##### ~~`python`~~<sup>Optional</sup> <a name="python" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.python"></a>
+
+- *Deprecated:* use `publishToPyPi`
+
+```typescript
+public readonly python: JsiiPythonTarget;
+```
+
+- *Type:* projen.cdk.JsiiPythonTarget
+
+---
+
+##### `readme`<sup>Optional</sup> <a name="readme" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.readme"></a>
+
+```typescript
+public readonly readme: SampleReadmeProps;
+```
+
+- *Type:* projen.SampleReadmeProps
+- *Default:* { filename: 'README.md', contents: '# replace this' }
+
+The README setup.
+
+---
+
+##### `releasableCommits`<sup>Optional</sup> <a name="releasableCommits" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releasableCommits"></a>
+
+```typescript
+public readonly releasableCommits: ReleasableCommits;
+```
+
+- *Type:* projen.ReleasableCommits
+- *Default:* ReleasableCommits.everyCommit()
+
+Find commits that should be considered releasable Used to decide if a release is required.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.release"></a>
+
+```typescript
+public readonly release: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true (false for subprojects)
+
+Add release management to this project.
+
+---
+
+##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseBranches"></a>
+
+```typescript
+public readonly releaseBranches: {[ key: string ]: BranchOptions};
+```
+
+- *Type:* {[ key: string ]: projen.release.BranchOptions}
+- *Default:* no additional branches are used for release. you can use `addBranch()` to add additional branches.
+
+Defines additional release branches.
+
+A workflow will be created for each
+release branch which will publish releases from commits in this branch.
+Each release branch _must_ be assigned a major version number which is used
+to enforce that versions published from that branch always use that major
+version. If multiple branches are used, the `majorVersion` field must also
+be provided for the default branch.
+
+---
+
+##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseEveryCommit"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.continuous()` instead
+
+```typescript
+public readonly releaseEveryCommit: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically release new versions every commit to one of branches in `releaseBranches`.
+
+---
+
+##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseFailureIssue"></a>
+
+```typescript
+public readonly releaseFailureIssue: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Create a github issue on every failed publishing task.
+
+---
+
+##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseFailureIssueLabel"></a>
+
+```typescript
+public readonly releaseFailureIssueLabel: string;
+```
+
+- *Type:* string
+- *Default:* "failed-release"
+
+The label to apply to issues indicating publish failures.
+
+Only applies if `releaseFailureIssue` is true.
+
+---
+
+##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseSchedule"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.scheduled()` instead
+
+```typescript
+public readonly releaseSchedule: string;
+```
+
+- *Type:* string
+- *Default:* no scheduled releases
+
+CRON schedule to trigger new releases.
+
+---
+
+##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseTagPrefix"></a>
+
+```typescript
+public readonly releaseTagPrefix: string;
+```
+
+- *Type:* string
+- *Default:* "v"
+
+Automatically add the given prefix to release tags.
+
+Useful if you are releasing on multiple branches with overlapping version numbers.
+Note: this prefix is used to detect the latest tagged version
+when bumping, so if you change this on a project with an existing version
+history, you may need to manually tag your latest release
+with the new prefix.
+
+---
+
+##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseToNpm"></a>
+
+```typescript
+public readonly releaseToNpm: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically release to npm when new versions are introduced.
+
+---
+
+##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseTrigger"></a>
+
+```typescript
+public readonly releaseTrigger: ReleaseTrigger;
+```
+
+- *Type:* projen.release.ReleaseTrigger
+- *Default:* Continuous releases (`ReleaseTrigger.continuous()`)
+
+The release trigger to use.
+
+---
+
+##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflow"></a>
+
+- *Deprecated:* see `release`.
+
+```typescript
+public readonly releaseWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+DEPRECATED: renamed to `release`.
+
+---
+
+##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflowName"></a>
+
+```typescript
+public readonly releaseWorkflowName: string;
+```
+
+- *Type:* string
+- *Default:* "release"
+
+The name of the default release workflow.
+
+---
+
+##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflowSetupSteps"></a>
+
+```typescript
+public readonly releaseWorkflowSetupSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+
+A set of workflow steps to execute in order to setup the workflow container.
+
+---
+
+##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebot"></a>
+
+```typescript
+public readonly renovatebot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use renovatebot to handle dependency upgrades.
+
+---
+
+##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebotOptions"></a>
+
+```typescript
+public readonly renovatebotOptions: RenovatebotOptions;
+```
+
+- *Type:* projen.RenovatebotOptions
+- *Default:* default options
+
+Options for renovatebot.
+
+---
+
+##### `repository`<sup>Optional</sup> <a name="repository" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repository"></a>
+
+```typescript
+public readonly repository: string;
+```
+
+- *Type:* string
+
+The repository is the location where the actual code for your package lives.
+
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+
+---
+
+##### `repositoryDirectory`<sup>Optional</sup> <a name="repositoryDirectory" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryDirectory"></a>
+
+```typescript
+public readonly repositoryDirectory: string;
+```
+
+- *Type:* string
+
+If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives.
+
+---
+
+##### `rootdir`<sup>Optional</sup> <a name="rootdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rootdir"></a>
+
+```typescript
+public readonly rootdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+---
+
+##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.sampleCode"></a>
+
+```typescript
+public readonly sampleCode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Generate one-time sample in `src/` and `test/` if there are no files there.
+
+---
+
+##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scopedPackagesOptions"></a>
+
+```typescript
+public readonly scopedPackagesOptions: ScopedPackagesOptions[];
+```
+
+- *Type:* projen.javascript.ScopedPackagesOptions[]
+- *Default:* fetch all scoped packages from the public npm registry
+
+Options for privately hosted scoped packages.
+
+---
+
+##### ~~`scripts`~~<sup>Optional</sup> <a name="scripts" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scripts"></a>
+
+- *Deprecated:* use `project.addTask()` or `package.setScript()`
+
+```typescript
+public readonly scripts: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* {}
+
+npm scripts to include.
+
+If a script has the same name as a standard script,
+the standard script will be overwritten.
+Also adds the script as a task.
+
+---
+
+##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+- *Default:* "src"
+
+Typescript sources directory.
+
+---
+
+##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stability"></a>
+
+```typescript
+public readonly stability: string;
+```
+
+- *Type:* string
+
+Package's Stability.
+
+---
+
+##### `stale`<sup>Optional</sup> <a name="stale" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stale"></a>
+
+```typescript
+public readonly stale: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Auto-close of stale issues and pull request.
+
+See `staleOptions` for options.
+
+---
+
+##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.staleOptions"></a>
+
+```typescript
+public readonly staleOptions: StaleOptions;
+```
+
+- *Type:* projen.github.StaleOptions
+- *Default:* see defaults in `StaleOptions`
+
+Auto-close stale issues and pull requests.
+
+To disable set `stale` to `false`.
+
+---
+
+##### `testdir`<sup>Optional</sup> <a name="testdir" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+- *Default:* "test"
+
+Jest tests directory.
+
+Tests files should be named `xxx.test.ts`.
+If this directory is under `srcdir` (e.g. `src/test`, `src/__tests__`),
+then tests are going to be compiled into `lib/` and executed as javascript.
+If the test directory is outside of `src`, then we configure jest to
+compile the code in-memory.
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* default options
+
+Custom TSConfig.
+
+---
+
+##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* use the production tsconfig options
+
+Custom tsconfig options for the development tsconfig.json file (used for testing).
+
+---
+
+##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsconfigDevFile"></a>
+
+```typescript
+public readonly tsconfigDevFile: string;
+```
+
+- *Type:* string
+- *Default:* "tsconfig.dev.json"
+
+The name of the development tsconfig.json file.
+
+---
+
+##### `tsJestOptions`<sup>Optional</sup> <a name="tsJestOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.tsJestOptions"></a>
+
+```typescript
+public readonly tsJestOptions: TsJestOptions;
+```
+
+- *Type:* projen.typescript.TsJestOptions
+
+Options for ts-jest.
+
+---
+
+##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.typescriptVersion"></a>
+
+```typescript
+public readonly typescriptVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+TypeScript version to use.
+
+NOTE: Typescript is not semantically versioned and should remain on the
+same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
+
+---
+
+##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.versionrcOptions"></a>
+
+```typescript
+public readonly versionrcOptions: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* standard configuration applicable for GitHub repositories
+
+Custom configuration used when creating changelog with commit-and-tag-version package.
+
+Given values either append to default configuration or overwrite values in it.
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.vscode"></a>
+
+```typescript
+public readonly vscode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable VSCode integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowBootstrapSteps"></a>
+
+```typescript
+public readonly workflowBootstrapSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* "yarn install --frozen-lockfile && yarn projen"
+
+Workflow steps to use in order to bootstrap this repo.
+
+---
+
+##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowContainerImage"></a>
+
+```typescript
+public readonly workflowContainerImage: string;
+```
+
+- *Type:* string
+- *Default:* default image
+
+Container image to use for GitHub workflows.
+
+---
+
+##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowGitIdentity"></a>
+
+```typescript
+public readonly workflowGitIdentity: GitIdentity;
+```
+
+- *Type:* projen.github.GitIdentity
+- *Default:* GitHub Actions
+
+The git identity to use in workflows.
+
+---
+
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowNodeVersion"></a>
+
+```typescript
+public readonly workflowNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* 'lts/*'
+
+The node version to use in GitHub workflows.
+
+---
+
+##### `workflowPackageCache`<sup>Optional</sup> <a name="workflowPackageCache" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowPackageCache"></a>
+
+```typescript
+public readonly workflowPackageCache: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable Node.js package cache in GitHub workflows.
+
+---
+
+##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOn"></a>
+
+```typescript
+public readonly workflowRunsOn: string[];
+```
+
+- *Type:* string[]
+- *Default:* ["ubuntu-latest"]
+
+Github Runner selection labels.
+
+---
+
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
+##### `yarnBerryOptions`<sup>Optional</sup> <a name="yarnBerryOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.yarnBerryOptions"></a>
+
+```typescript
+public readonly yarnBerryOptions: YarnBerryOptions;
+```
+
+- *Type:* projen.javascript.YarnBerryOptions
+- *Default:* Yarn Berry v4 with all default options
+
+Options for Yarn Berry.
 
 ---
 
@@ -20359,182 +20342,182 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.author">author</a></code> | <code>string</code> | The name of the library author. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.authorAddress">authorAddress</a></code> | <code>string</code> | Email or URL of the library author. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | Git repository URL. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.authorName">authorName</a></code> | <code>string</code> | Author's name. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.authorOrganization">authorOrganization</a></code> | <code>boolean</code> | Is the author an organization. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.authorUrl">authorUrl</a></code> | <code>string</code> | Author's URL / Website. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoDetectBin">autoDetectBin</a></code> | <code>boolean</code> | Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmProvenance">npmProvenance</a></code> | <code>boolean</code> | Should provenance statements be generated when the package is published. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.peerDeps">peerDeps</a></code> | <code>string[]</code> | Peer dependencies for this module. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. Useful if you are releasing on multiple branches with overlapping version numbers. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with commit-and-tag-version package. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.buildWorkflowOptions">buildWorkflowOptions</a></code> | <code>projen.javascript.BuildWorkflowOptions</code> | Options for PR build workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use tasks and github workflows to handle dependency upgrades. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jestOptions">jestOptions</a></code> | <code>projen.javascript.JestOptions</code> | Jest options. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmIgnoreOptions">npmIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .npmignore file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.release">release</a></code> | <code>boolean</code> | Add release management to this project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a `tsconfig.dev.json` file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. Tests files should be named `xxx.test.ts`. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.author">author</a></code> | <code>string</code> | The name of the library author. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.authorAddress">authorAddress</a></code> | <code>string</code> | Email or URL of the library author. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | Git repository URL. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compat">compat</a></code> | <code>boolean</code> | Automatically run API compatibility test against the latest version published to npm after compilation. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compatIgnore">compatIgnore</a></code> | <code>string</code> | Name of the ignore file for API compatibility tests. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compressAssembly">compressAssembly</a></code> | <code>boolean</code> | Emit a compressed version of the assembly. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docgenFilePath">docgenFilePath</a></code> | <code>string</code> | File path for generated docs. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dotnet">dotnet</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiVersion">jsiiVersion</a></code> | <code>string</code> | Version of the jsii compiler to use. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToGo">publishToGo</a></code> | <code>projen.cdk.JsiiGoTarget</code> | Publish Go bindings to a git repository. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToMaven">publishToMaven</a></code> | <code>projen.cdk.JsiiJavaTarget</code> | Publish to maven. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToNuget">publishToNuget</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | Publish to NuGet. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToPypi">publishToPypi</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | Publish to pypi. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.python">python</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.catalog">catalog</a></code> | <code>projen.cdk.Catalog</code> | Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkAssert">cdkAssert</a></code> | <code>boolean</code> | Warning: NodeJS only. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkAssertions">cdkAssertions</a></code> | <code>boolean</code> | Install the assertions library? |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkDependencies">cdkDependencies</a></code> | <code>string[]</code> | Which AWS CDKv1 modules this project requires. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkDependenciesAsDeps">cdkDependenciesAsDeps</a></code> | <code>boolean</code> | If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkTestDependencies">cdkTestDependencies</a></code> | <code>string[]</code> | AWS CDK modules required for testing. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkVersionPinning">cdkVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for CDK. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compat">compat</a></code> | <code>boolean</code> | Automatically run API compatibility test against the latest version published to npm after compilation. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compatIgnore">compatIgnore</a></code> | <code>string</code> | Name of the ignore file for API compatibility tests. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compressAssembly">compressAssembly</a></code> | <code>boolean</code> | Emit a compressed version of the assembly. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.constructsVersion">constructsVersion</a></code> | <code>string</code> | Minimum version of the `constructs` library to depend on. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use tasks and github workflows to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a `tsconfig.dev.json` file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docgenFilePath">docgenFilePath</a></code> | <code>string</code> | File path for generated docs. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dotnet">dotnet</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.edgeLambdaAutoDiscover">edgeLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.experimentalIntegRunner">experimentalIntegRunner</a></code> | <code>boolean</code> | Enable experimental support for the AWS CDK integ-runner. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.integrationTestAutoDiscover">integrationTestAutoDiscover</a></code> | <code>boolean</code> | Automatically discovers and creates integration tests for each `.integ.ts` file under your test directory. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jestOptions">jestOptions</a></code> | <code>projen.javascript.JestOptions</code> | Jest options. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiVersion">jsiiVersion</a></code> | <code>string</code> | Version of the jsii compiler to use. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `aws_lambda.Function` for each `.lambda.ts` handler in your source tree. If this is disabled, you either need to explicitly call `aws_lambda.Function.autoDiscover()` or define a `new aws_lambda.Function()` for each handler. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmIgnoreOptions">npmIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmProvenance">npmProvenance</a></code> | <code>boolean</code> | Should provenance statements be generated when the package is published. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.peerDeps">peerDeps</a></code> | <code>string[]</code> | Peer dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToGo">publishToGo</a></code> | <code>projen.cdk.JsiiGoTarget</code> | Publish Go bindings to a git repository. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToMaven">publishToMaven</a></code> | <code>projen.cdk.JsiiJavaTarget</code> | Publish to maven. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToNuget">publishToNuget</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | Publish to NuGet. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToPypi">publishToPypi</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | Publish to pypi. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.python">python</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.release">release</a></code> | <code>boolean</code> | Add release management to this project. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with commit-and-tag-version package. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs This will enable the auto merge workflow as well as the merge queue. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow (the workflow that turns on auto merge on all PRs). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
@@ -20545,6 +20528,58 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdklabsPublishingDefaults">cdklabsPublishingDefaults</a></code> | <code>boolean</code> | Set default publishing properties. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiTargetLanguages">jsiiTargetLanguages</a></code> | <code><a href="#cdklabs-projen-project-types.JsiiLanguage">JsiiLanguage</a>[]</code> | Specify specific languages to publish to. |
+
+---
+
+##### `author`<sup>Required</sup> <a name="author" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.author"></a>
+
+```typescript
+public readonly author: string;
+```
+
+- *Type:* string
+- *Default:* $GIT_USER_NAME
+
+The name of the library author.
+
+---
+
+##### `authorAddress`<sup>Required</sup> <a name="authorAddress" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.authorAddress"></a>
+
+```typescript
+public readonly authorAddress: string;
+```
+
+- *Type:* string
+- *Default:* $GIT_USER_EMAIL
+
+Email or URL of the library author.
+
+---
+
+##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkVersion"></a>
+
+```typescript
+public readonly cdkVersion: string;
+```
+
+- *Type:* string
+- *Default:* "2.1.0"
+
+Minimum version of the AWS CDK to depend on.
+
+---
+
+##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.defaultReleaseBranch"></a>
+
+```typescript
+public readonly defaultReleaseBranch: string;
+```
+
+- *Type:* string
+- *Default:* "main"
+
+The name of the main release branch.
 
 ---
 
@@ -20561,404 +20596,16 @@ This is the name of your project.
 
 ---
 
-##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.commitGenerated"></a>
+##### `repositoryUrl`<sup>Required</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryUrl"></a>
 
 ```typescript
-public readonly commitGenerated: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Whether to commit the managed files by default.
-
----
-
-##### `gitIgnoreOptions`<sup>Optional</sup> <a name="gitIgnoreOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitIgnoreOptions"></a>
-
-```typescript
-public readonly gitIgnoreOptions: IgnoreFileOptions;
-```
-
-- *Type:* projen.IgnoreFileOptions
-
-Configuration options for .gitignore file.
-
----
-
-##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitOptions"></a>
-
-```typescript
-public readonly gitOptions: GitOptions;
-```
-
-- *Type:* projen.GitOptions
-
-Configuration options for git.
-
----
-
-##### `logging`<sup>Optional</sup> <a name="logging" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.logging"></a>
-
-```typescript
-public readonly logging: LoggerOptions;
-```
-
-- *Type:* projen.LoggerOptions
-- *Default:* {}
-
-Configure logging options such as verbosity.
-
----
-
-##### `outdir`<sup>Optional</sup> <a name="outdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.outdir"></a>
-
-```typescript
-public readonly outdir: string;
+public readonly repositoryUrl: string;
 ```
 
 - *Type:* string
-- *Default:* "."
+- *Default:* $GIT_REMOTE
 
-The root directory of the project.
-
-Relative to this directory, all files are synthesized.
-
-If this project has a parent, this directory is relative to the parent
-directory and it cannot be the same as the parent or any of it's other
-subprojects.
-
----
-
-##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.parent"></a>
-
-```typescript
-public readonly parent: Project;
-```
-
-- *Type:* projen.Project
-
-The parent project, if this project is part of a bigger project.
-
----
-
-##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenCommand"></a>
-
-```typescript
-public readonly projenCommand: string;
-```
-
-- *Type:* string
-- *Default:* "npx projen"
-
-The shell command to use in order to run the projen CLI.
-
-Can be used to customize in special environments.
-
----
-
-##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJson"></a>
-
-```typescript
-public readonly projenrcJson: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
-
----
-
-##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJsonOptions"></a>
-
-```typescript
-public readonly projenrcJsonOptions: ProjenrcJsonOptions;
-```
-
-- *Type:* projen.ProjenrcJsonOptions
-- *Default:* default options
-
-Options for .projenrc.json.
-
----
-
-##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebot"></a>
-
-```typescript
-public readonly renovatebot: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use renovatebot to handle dependency upgrades.
-
----
-
-##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebotOptions"></a>
-
-```typescript
-public readonly renovatebotOptions: RenovatebotOptions;
-```
-
-- *Type:* projen.RenovatebotOptions
-- *Default:* default options
-
-Options for renovatebot.
-
----
-
-##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoApproveOptions"></a>
-
-```typescript
-public readonly autoApproveOptions: AutoApproveOptions;
-```
-
-- *Type:* projen.github.AutoApproveOptions
-- *Default:* auto approve is disabled
-
-Enable and configure the 'auto approve' workflow.
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Enable automatic merging on GitHub.
-
-Has no effect if `github.mergify`
-is set to false.
-
----
-
-##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoMergeOptions"></a>
-
-```typescript
-public readonly autoMergeOptions: AutoMergeOptions;
-```
-
-- *Type:* projen.github.AutoMergeOptions
-- *Default:* see defaults in `AutoMergeOptions`
-
-Configure options for automatic merging on GitHub.
-
-Has no effect if
-`github.mergify` or `autoMerge` is set to false.
-
----
-
-##### `clobber`<sup>Optional</sup> <a name="clobber" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.clobber"></a>
-
-```typescript
-public readonly clobber: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true, but false for subprojects
-
-Add a `clobber` task which resets the repo to origin.
-
----
-
-##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devContainer"></a>
-
-```typescript
-public readonly devContainer: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Add a VSCode development environment (used for GitHub Codespaces).
-
----
-
-##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.github"></a>
-
-```typescript
-public readonly github: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Enable GitHub integration.
-
-Enabled by default for root projects. Disabled for non-root projects.
-
----
-
-##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.githubOptions"></a>
-
-```typescript
-public readonly githubOptions: GitHubOptions;
-```
-
-- *Type:* projen.github.GitHubOptions
-- *Default:* see GitHubOptions
-
-Options for GitHub integration.
-
----
-
-##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitpod"></a>
-
-```typescript
-public readonly gitpod: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Add a Gitpod development environment.
-
----
-
-##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mergify"></a>
-
-- *Deprecated:* use `githubOptions.mergify` instead
-
-```typescript
-public readonly mergify: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Whether mergify should be enabled on this repository or not.
-
----
-
-##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mergifyOptions"></a>
-
-- *Deprecated:* use `githubOptions.mergifyOptions` instead
-
-```typescript
-public readonly mergifyOptions: MergifyOptions;
-```
-
-- *Type:* projen.github.MergifyOptions
-- *Default:* default options
-
-Options for mergify.
-
----
-
-##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projectType"></a>
-
-- *Deprecated:* no longer supported at the base project level
-
-```typescript
-public readonly projectType: ProjectType;
-```
-
-- *Type:* projen.ProjectType
-- *Default:* ProjectType.UNKNOWN
-
-Which type of project this is (library/app).
-
----
-
-##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenCredentials"></a>
-
-```typescript
-public readonly projenCredentials: GithubCredentials;
-```
-
-- *Type:* projen.github.GithubCredentials
-- *Default:* use a personal access token named PROJEN_GITHUB_TOKEN
-
-Choose a method of providing GitHub API access for projen workflows.
-
----
-
-##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenTokenSecret"></a>
-
-- *Deprecated:* use `projenCredentials`
-
-```typescript
-public readonly projenTokenSecret: string;
-```
-
-- *Type:* string
-- *Default:* "PROJEN_GITHUB_TOKEN"
-
-The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows.
-
-This token needs to have the `repo`, `workflows`
-and `packages` scope.
-
----
-
-##### `readme`<sup>Optional</sup> <a name="readme" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.readme"></a>
-
-```typescript
-public readonly readme: SampleReadmeProps;
-```
-
-- *Type:* projen.SampleReadmeProps
-- *Default:* { filename: 'README.md', contents: '# replace this' }
-
-The README setup.
-
----
-
-*Example*
-
-```typescript
-"{ filename: 'readme.md', contents: '# title' }"
-```
-
-
-##### `stale`<sup>Optional</sup> <a name="stale" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stale"></a>
-
-```typescript
-public readonly stale: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Auto-close of stale issues and pull request.
-
-See `staleOptions` for options.
-
----
-
-##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.staleOptions"></a>
-
-```typescript
-public readonly staleOptions: StaleOptions;
-```
-
-- *Type:* projen.github.StaleOptions
-- *Default:* see defaults in `StaleOptions`
-
-Auto-close stale issues and pull requests.
-
-To disable set `stale` to `false`.
-
----
-
-##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.vscode"></a>
-
-```typescript
-public readonly vscode: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Enable VSCode integration.
-
-Enabled by default for root projects. Disabled for non-root projects.
+Git repository URL.
 
 ---
 
@@ -20975,6 +20622,19 @@ Allow the project to include `peerDependencies` and `bundledDependencies`.
 
 This is normally only allowed for libraries. For apps, there's no meaning
 for specifying these.
+
+---
+
+##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "dist"
+
+A directory which will contain build artifacts.
 
 ---
 
@@ -21026,6 +20686,34 @@ Author's URL / Website.
 
 ---
 
+##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoApproveOptions"></a>
+
+```typescript
+public readonly autoApproveOptions: AutoApproveOptions;
+```
+
+- *Type:* projen.github.AutoApproveOptions
+- *Default:* auto approve is disabled
+
+Enable and configure the 'auto approve' workflow.
+
+---
+
+##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoApproveUpgrades"></a>
+
+```typescript
+public readonly autoApproveUpgrades: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued).
+
+Throw if set to true but `autoApproveOptions` are not defined.
+
+---
+
 ##### `autoDetectBin`<sup>Optional</sup> <a name="autoDetectBin" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoDetectBin"></a>
 
 ```typescript
@@ -21036,6 +20724,38 @@ public readonly autoDetectBin: boolean;
 - *Default:* true
 
 Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section.
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable automatic merging on GitHub.
+
+Has no effect if `github.mergify`
+is set to false.
+
+---
+
+##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoMergeOptions"></a>
+
+```typescript
+public readonly autoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* projen.github.AutoMergeOptions
+- *Default:* see defaults in `AutoMergeOptions`
+
+Configure options for automatic merging on GitHub.
+
+Has no effect if
+`github.mergify` or `autoMerge` is set to false.
 
 ---
 
@@ -21079,809 +20799,6 @@ The url to your project's issue tracker.
 
 ---
 
-##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bundledDeps"></a>
-
-```typescript
-public readonly bundledDeps: string[];
-```
-
-- *Type:* string[]
-
-List of dependencies to bundle into this module.
-
-These modules will be
-added both to the `dependencies` section and `bundledDependencies` section of
-your `package.json`.
-
-The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
-sense that it will add the module as a dependency to your `package.json`
-file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
-
----
-
-##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeArtifactOptions"></a>
-
-```typescript
-public readonly codeArtifactOptions: CodeArtifactOptions;
-```
-
-- *Type:* projen.javascript.CodeArtifactOptions
-- *Default:* undefined
-
-Options for npm packages using AWS CodeArtifact.
-
-This is required if publishing packages to, or installing scoped packages from AWS CodeArtifact
-
----
-
-##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.deps"></a>
-
-```typescript
-public readonly deps: string[];
-```
-
-- *Type:* string[]
-- *Default:* []
-
-Runtime dependencies of this module.
-
-The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
-sense that it will add the module as a dependency to your `package.json`
-file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
-
----
-
-*Example*
-
-```typescript
-[ 'express', 'lodash', 'foo@^2' ]
-```
-
-
-##### `description`<sup>Optional</sup> <a name="description" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.description"></a>
-
-```typescript
-public readonly description: string;
-```
-
-- *Type:* string
-
-The description is just a string that helps people understand the purpose of the package.
-
-It can be used when searching for packages in a package manager as well.
-See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
-
----
-
-##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devDeps"></a>
-
-```typescript
-public readonly devDeps: string[];
-```
-
-- *Type:* string[]
-- *Default:* []
-
-Build dependencies for this module.
-
-These dependencies will only be
-available in your build environment but will not be fetched when this
-module is consumed.
-
-The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
-sense that it will add the module as a dependency to your `package.json`
-file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
-
----
-
-*Example*
-
-```typescript
-[ 'typescript', '@types/express' ]
-```
-
-
-##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.entrypoint"></a>
-
-```typescript
-public readonly entrypoint: string;
-```
-
-- *Type:* string
-- *Default:* "lib/index.js"
-
-Module entrypoint (`main` in `package.json`).
-
-Set to an empty string to not include `main` in your package.json
-
----
-
-##### `homepage`<sup>Optional</sup> <a name="homepage" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.homepage"></a>
-
-```typescript
-public readonly homepage: string;
-```
-
-- *Type:* string
-
-Package's Homepage / Website.
-
----
-
-##### `keywords`<sup>Optional</sup> <a name="keywords" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.keywords"></a>
-
-```typescript
-public readonly keywords: string[];
-```
-
-- *Type:* string[]
-
-Keywords to include in `package.json`.
-
----
-
-##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.license"></a>
-
-```typescript
-public readonly license: string;
-```
-
-- *Type:* string
-- *Default:* "Apache-2.0"
-
-License's SPDX identifier.
-
-See https://github.com/projen/projen/tree/main/license-text for a list of supported licenses.
-Use the `licensed` option if you want to no license to be specified.
-
----
-
-##### `licensed`<sup>Optional</sup> <a name="licensed" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.licensed"></a>
-
-```typescript
-public readonly licensed: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Indicates if a license should be added.
-
----
-
-##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.maxNodeVersion"></a>
-
-```typescript
-public readonly maxNodeVersion: string;
-```
-
-- *Type:* string
-- *Default:* no max
-
-Minimum node.js version to require via `engines` (inclusive).
-
----
-
-##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.minNodeVersion"></a>
-
-```typescript
-public readonly minNodeVersion: string;
-```
-
-- *Type:* string
-- *Default:* no "engines" specified
-
-Minimum Node.js version to require via package.json `engines` (inclusive).
-
----
-
-##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmAccess"></a>
-
-```typescript
-public readonly npmAccess: NpmAccess;
-```
-
-- *Type:* projen.javascript.NpmAccess
-- *Default:* for scoped packages (e.g. `foo@bar`), the default is `NpmAccess.RESTRICTED`, for non-scoped packages, the default is `NpmAccess.PUBLIC`.
-
-Access level of the npm package.
-
----
-
-##### `npmProvenance`<sup>Optional</sup> <a name="npmProvenance" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmProvenance"></a>
-
-```typescript
-public readonly npmProvenance: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true for public packages, false otherwise
-
-Should provenance statements be generated when the package is published.
-
-A supported package manager is required to publish a package with npm provenance statements and
-you will need to use a supported CI/CD provider.
-
-Note that the projen `Release` and `Publisher` components are using `publib` to publish packages,
-which is using npm internally and supports provenance statements independently of the package manager used.
-
-> [https://docs.npmjs.com/generating-provenance-statements](https://docs.npmjs.com/generating-provenance-statements)
-
----
-
-##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmRegistry"></a>
-
-- *Deprecated:* use `npmRegistryUrl` instead
-
-```typescript
-public readonly npmRegistry: string;
-```
-
-- *Type:* string
-
-The host name of the npm registry to publish to.
-
-Cannot be set together with `npmRegistryUrl`.
-
----
-
-##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmRegistryUrl"></a>
-
-```typescript
-public readonly npmRegistryUrl: string;
-```
-
-- *Type:* string
-- *Default:* "https://registry.npmjs.org"
-
-The base URL of the npm package registry.
-
-Must be a URL (e.g. start with "https://" or "http://")
-
----
-
-##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmTokenSecret"></a>
-
-```typescript
-public readonly npmTokenSecret: string;
-```
-
-- *Type:* string
-- *Default:* "NPM_TOKEN"
-
-GitHub secret which contains the NPM token to use when publishing packages.
-
----
-
-##### `packageManager`<sup>Optional</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.packageManager"></a>
-
-```typescript
-public readonly packageManager: NodePackageManager;
-```
-
-- *Type:* projen.javascript.NodePackageManager
-- *Default:* NodePackageManager.YARN_CLASSIC
-
-The Node Package Manager used to execute scripts.
-
----
-
-##### `packageName`<sup>Optional</sup> <a name="packageName" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.packageName"></a>
-
-```typescript
-public readonly packageName: string;
-```
-
-- *Type:* string
-- *Default:* defaults to project name
-
-The "name" in package.json.
-
----
-
-##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.peerDependencyOptions"></a>
-
-```typescript
-public readonly peerDependencyOptions: PeerDependencyOptions;
-```
-
-- *Type:* projen.javascript.PeerDependencyOptions
-
-Options for `peerDeps`.
-
----
-
-##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.peerDeps"></a>
-
-```typescript
-public readonly peerDeps: string[];
-```
-
-- *Type:* string[]
-- *Default:* []
-
-Peer dependencies for this module.
-
-Dependencies listed here are required to
-be installed (and satisfied) by the _consumer_ of this library. Using peer
-dependencies allows you to ensure that only a single module of a certain
-library exists in the `node_modules` tree of your consumers.
-
-Note that prior to npm@7, peer dependencies are _not_ automatically
-installed, which means that adding peer dependencies to a library will be a
-breaking change for your customers.
-
-Unless `peerDependencyOptions.pinnedDevDependency` is disabled (it is
-enabled by default), projen will automatically add a dev dependency with a
-pinned version for each peer dependency. This will ensure that you build &
-test your module against the lowest peer version required.
-
----
-
-##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pnpmVersion"></a>
-
-```typescript
-public readonly pnpmVersion: string;
-```
-
-- *Type:* string
-- *Default:* "7"
-
-The version of PNPM to use if using PNPM as a package manager.
-
----
-
-##### `repository`<sup>Optional</sup> <a name="repository" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repository"></a>
-
-```typescript
-public readonly repository: string;
-```
-
-- *Type:* string
-
-The repository is the location where the actual code for your package lives.
-
-See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
-
----
-
-##### `repositoryDirectory`<sup>Optional</sup> <a name="repositoryDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryDirectory"></a>
-
-```typescript
-public readonly repositoryDirectory: string;
-```
-
-- *Type:* string
-
-If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives.
-
----
-
-##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scopedPackagesOptions"></a>
-
-```typescript
-public readonly scopedPackagesOptions: ScopedPackagesOptions[];
-```
-
-- *Type:* projen.javascript.ScopedPackagesOptions[]
-- *Default:* fetch all scoped packages from the public npm registry
-
-Options for privately hosted scoped packages.
-
----
-
-##### ~~`scripts`~~<sup>Optional</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scripts"></a>
-
-- *Deprecated:* use `project.addTask()` or `package.setScript()`
-
-```typescript
-public readonly scripts: {[ key: string ]: string};
-```
-
-- *Type:* {[ key: string ]: string}
-- *Default:* {}
-
-npm scripts to include.
-
-If a script has the same name as a standard script,
-the standard script will be overwritten.
-Also adds the script as a task.
-
----
-
-##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stability"></a>
-
-```typescript
-public readonly stability: string;
-```
-
-- *Type:* string
-
-Package's Stability.
-
----
-
-##### `yarnBerryOptions`<sup>Optional</sup> <a name="yarnBerryOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.yarnBerryOptions"></a>
-
-```typescript
-public readonly yarnBerryOptions: YarnBerryOptions;
-```
-
-- *Type:* projen.javascript.YarnBerryOptions
-- *Default:* Yarn Berry v4 with all default options
-
-Options for Yarn Berry.
-
----
-
-##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiReleaseVersion"></a>
-
-```typescript
-public readonly jsiiReleaseVersion: string;
-```
-
-- *Type:* string
-- *Default:* "latest"
-
-Version requirement of `publib` which is used to publish modules to npm.
-
----
-
-##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.majorVersion"></a>
-
-```typescript
-public readonly majorVersion: number;
-```
-
-- *Type:* number
-- *Default:* Major version is not enforced.
-
-Major version to release from the default branch.
-
-If this is specified, we bump the latest version of this major version line.
-If not specified, we bump the global latest version.
-
----
-
-##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.minMajorVersion"></a>
-
-```typescript
-public readonly minMajorVersion: number;
-```
-
-- *Type:* number
-- *Default:* No minimum version is being enforced
-
-Minimal Major version to release.
-
-This can be useful to set to 1, as breaking changes before the 1.x major
-release are not incrementing the major version number.
-
-Can not be set together with `majorVersion`.
-
----
-
-##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmDistTag"></a>
-
-```typescript
-public readonly npmDistTag: string;
-```
-
-- *Type:* string
-- *Default:* "latest"
-
-The npmDistTag to use when publishing from the default branch.
-
-To set the npm dist-tag for release branches, set the `npmDistTag` property
-for each branch.
-
----
-
-##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.postBuildSteps"></a>
-
-```typescript
-public readonly postBuildSteps: JobStep[];
-```
-
-- *Type:* projen.github.workflows.JobStep[]
-- *Default:* []
-
-Steps to execute after build as part of the release workflow.
-
----
-
-##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prerelease"></a>
-
-```typescript
-public readonly prerelease: string;
-```
-
-- *Type:* string
-- *Default:* normal semantic versions
-
-Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre").
-
----
-
-##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishDryRun"></a>
-
-```typescript
-public readonly publishDryRun: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Instead of actually publishing to package managers, just print the publishing command.
-
----
-
-##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishTasks"></a>
-
-```typescript
-public readonly publishTasks: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Define publishing tasks that can be executed manually as well as workflows.
-
-Normally, publishing only happens within automated workflows. Enable this
-in order to create a publishing task for each publishing activity.
-
----
-
-##### `releasableCommits`<sup>Optional</sup> <a name="releasableCommits" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releasableCommits"></a>
-
-```typescript
-public readonly releasableCommits: ReleasableCommits;
-```
-
-- *Type:* projen.ReleasableCommits
-- *Default:* ReleasableCommits.everyCommit()
-
-Find commits that should be considered releasable Used to decide if a release is required.
-
----
-
-##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseBranches"></a>
-
-```typescript
-public readonly releaseBranches: {[ key: string ]: BranchOptions};
-```
-
-- *Type:* {[ key: string ]: projen.release.BranchOptions}
-- *Default:* no additional branches are used for release. you can use `addBranch()` to add additional branches.
-
-Defines additional release branches.
-
-A workflow will be created for each
-release branch which will publish releases from commits in this branch.
-Each release branch _must_ be assigned a major version number which is used
-to enforce that versions published from that branch always use that major
-version. If multiple branches are used, the `majorVersion` field must also
-be provided for the default branch.
-
----
-
-##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseEveryCommit"></a>
-
-- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.continuous()` instead
-
-```typescript
-public readonly releaseEveryCommit: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Automatically release new versions every commit to one of branches in `releaseBranches`.
-
----
-
-##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseFailureIssue"></a>
-
-```typescript
-public readonly releaseFailureIssue: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Create a github issue on every failed publishing task.
-
----
-
-##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseFailureIssueLabel"></a>
-
-```typescript
-public readonly releaseFailureIssueLabel: string;
-```
-
-- *Type:* string
-- *Default:* "failed-release"
-
-The label to apply to issues indicating publish failures.
-
-Only applies if `releaseFailureIssue` is true.
-
----
-
-##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseSchedule"></a>
-
-- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.scheduled()` instead
-
-```typescript
-public readonly releaseSchedule: string;
-```
-
-- *Type:* string
-- *Default:* no scheduled releases
-
-CRON schedule to trigger new releases.
-
----
-
-##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseTagPrefix"></a>
-
-```typescript
-public readonly releaseTagPrefix: string;
-```
-
-- *Type:* string
-- *Default:* "v"
-
-Automatically add the given prefix to release tags. Useful if you are releasing on multiple branches with overlapping version numbers.
-
-Note: this prefix is used to detect the latest tagged version
-when bumping, so if you change this on a project with an existing version
-history, you may need to manually tag your latest release
-with the new prefix.
-
----
-
-##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseTrigger"></a>
-
-```typescript
-public readonly releaseTrigger: ReleaseTrigger;
-```
-
-- *Type:* projen.release.ReleaseTrigger
-- *Default:* Continuous releases (`ReleaseTrigger.continuous()`)
-
-The release trigger to use.
-
----
-
-##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflowName"></a>
-
-```typescript
-public readonly releaseWorkflowName: string;
-```
-
-- *Type:* string
-- *Default:* "release"
-
-The name of the default release workflow.
-
----
-
-##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflowSetupSteps"></a>
-
-```typescript
-public readonly releaseWorkflowSetupSteps: JobStep[];
-```
-
-- *Type:* projen.github.workflows.JobStep[]
-
-A set of workflow steps to execute in order to setup the workflow container.
-
----
-
-##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.versionrcOptions"></a>
-
-```typescript
-public readonly versionrcOptions: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-- *Default:* standard configuration applicable for GitHub repositories
-
-Custom configuration used when creating changelog with commit-and-tag-version package.
-
-Given values either append to default configuration or overwrite values in it.
-
----
-
-##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowContainerImage"></a>
-
-```typescript
-public readonly workflowContainerImage: string;
-```
-
-- *Type:* string
-- *Default:* default image
-
-Container image to use for GitHub workflows.
-
----
-
-##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOn"></a>
-
-```typescript
-public readonly workflowRunsOn: string[];
-```
-
-- *Type:* string[]
-- *Default:* ["ubuntu-latest"]
-
-Github Runner selection labels.
-
----
-
-##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOnGroup"></a>
-
-```typescript
-public readonly workflowRunsOnGroup: GroupRunnerOptions;
-```
-
-- *Type:* projen.GroupRunnerOptions
-
-Github Runner Group selection options.
-
----
-
-##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.defaultReleaseBranch"></a>
-
-```typescript
-public readonly defaultReleaseBranch: string;
-```
-
-- *Type:* string
-- *Default:* "main"
-
-The name of the main release branch.
-
----
-
-##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.artifactsDirectory"></a>
-
-```typescript
-public readonly artifactsDirectory: string;
-```
-
-- *Type:* string
-- *Default:* "dist"
-
-A directory which will contain build artifacts.
-
----
-
-##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.autoApproveUpgrades"></a>
-
-```typescript
-public readonly autoApproveUpgrades: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued).
-
-Throw if set to true but `autoApproveOptions` are not defined.
-
----
-
 ##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.buildWorkflow"></a>
 
 ```typescript
@@ -21922,6 +20839,29 @@ Build workflow triggers.
 
 ---
 
+##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bundledDeps"></a>
+
+```typescript
+public readonly bundledDeps: string[];
+```
+
+- *Type:* string[]
+
+List of dependencies to bundle into this module.
+
+These modules will be
+added both to the `dependencies` section and `bundledDependencies` section of
+your `package.json`.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
 ##### `bundlerOptions`<sup>Optional</sup> <a name="bundlerOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bundlerOptions"></a>
 
 ```typescript
@@ -21931,896 +20871,6 @@ public readonly bundlerOptions: BundlerOptions;
 - *Type:* projen.javascript.BundlerOptions
 
 Options for `Bundler`.
-
----
-
-##### `checkLicenses`<sup>Optional</sup> <a name="checkLicenses" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.checkLicenses"></a>
-
-```typescript
-public readonly checkLicenses: LicenseCheckerOptions;
-```
-
-- *Type:* projen.javascript.LicenseCheckerOptions
-- *Default:* no license checks are run during the build and all licenses will be accepted
-
-Configure which licenses should be deemed acceptable for use by dependencies.
-
-This setting will cause the build to fail, if any prohibited or not allowed licenses ares encountered.
-
----
-
-##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeCov"></a>
-
-```typescript
-public readonly codeCov: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`.
-
----
-
-##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeCovTokenSecret"></a>
-
-```typescript
-public readonly codeCovTokenSecret: string;
-```
-
-- *Type:* string
-- *Default:* if this option is not specified, only public repositories are supported
-
-Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
-
----
-
-##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.copyrightOwner"></a>
-
-```typescript
-public readonly copyrightOwner: string;
-```
-
-- *Type:* string
-- *Default:* defaults to the value of authorName or "" if `authorName` is undefined.
-
-License copyright owner.
-
----
-
-##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.copyrightPeriod"></a>
-
-```typescript
-public readonly copyrightPeriod: string;
-```
-
-- *Type:* string
-- *Default:* current year
-
-The copyright years to put in the LICENSE file.
-
----
-
-##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabot"></a>
-
-```typescript
-public readonly dependabot: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use dependabot to handle dependency upgrades.
-
-Cannot be used in conjunction with `depsUpgrade`.
-
----
-
-##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabotOptions"></a>
-
-```typescript
-public readonly dependabotOptions: DependabotOptions;
-```
-
-- *Type:* projen.github.DependabotOptions
-- *Default:* default options
-
-Options for dependabot.
-
----
-
-##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgrade"></a>
-
-```typescript
-public readonly depsUpgrade: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Use tasks and github workflows to handle dependency upgrades.
-
-Cannot be used in conjunction with `dependabot`.
-
----
-
-##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgradeOptions"></a>
-
-```typescript
-public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
-```
-
-- *Type:* projen.javascript.UpgradeDependenciesOptions
-- *Default:* default options
-
-Options for `UpgradeDependencies`.
-
----
-
-##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitignore"></a>
-
-```typescript
-public readonly gitignore: string[];
-```
-
-- *Type:* string[]
-
-Additional entries to .gitignore.
-
----
-
-##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jest"></a>
-
-```typescript
-public readonly jest: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Setup jest unit tests.
-
----
-
-##### `jestOptions`<sup>Optional</sup> <a name="jestOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jestOptions"></a>
-
-```typescript
-public readonly jestOptions: JestOptions;
-```
-
-- *Type:* projen.javascript.JestOptions
-- *Default:* default options
-
-Jest options.
-
----
-
-##### ~~`mutableBuild`~~<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mutableBuild"></a>
-
-- *Deprecated:* - Use `buildWorkflowOptions.mutableBuild`
-
-```typescript
-public readonly mutableBuild: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Automatically update files modified during builds to pull-request branches.
-
-This means
-that any files synthesized by projen or e.g. test snapshots will always be up-to-date
-before a PR is merged.
-
-Implies that PR builds do not have anti-tamper checks.
-
----
-
-##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmignore"></a>
-
-- *Deprecated:* - use `project.addPackageIgnore`
-
-```typescript
-public readonly npmignore: string[];
-```
-
-- *Type:* string[]
-
-Additional entries to .npmignore.
-
----
-
-##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmignoreEnabled"></a>
-
-```typescript
-public readonly npmignoreEnabled: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs.
-
----
-
-##### `npmIgnoreOptions`<sup>Optional</sup> <a name="npmIgnoreOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmIgnoreOptions"></a>
-
-```typescript
-public readonly npmIgnoreOptions: IgnoreFileOptions;
-```
-
-- *Type:* projen.IgnoreFileOptions
-
-Configuration options for .npmignore file.
-
----
-
-##### `package`<sup>Optional</sup> <a name="package" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.package"></a>
-
-```typescript
-public readonly package: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`).
-
----
-
-##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prettier"></a>
-
-```typescript
-public readonly prettier: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Setup prettier.
-
----
-
-##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prettierOptions"></a>
-
-```typescript
-public readonly prettierOptions: PrettierOptions;
-```
-
-- *Type:* projen.javascript.PrettierOptions
-- *Default:* default options
-
-Prettier options.
-
----
-
-##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenDevDependency"></a>
-
-```typescript
-public readonly projenDevDependency: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true if not a subproject
-
-Indicates of "projen" should be installed as a devDependency.
-
----
-
-##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJs"></a>
-
-```typescript
-public readonly projenrcJs: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true if projenrcJson is false
-
-Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation.
-
----
-
-##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJsOptions"></a>
-
-```typescript
-public readonly projenrcJsOptions: ProjenrcOptions;
-```
-
-- *Type:* projen.javascript.ProjenrcOptions
-- *Default:* default options
-
-Options for .projenrc.js.
-
----
-
-##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenVersion"></a>
-
-```typescript
-public readonly projenVersion: string;
-```
-
-- *Type:* string
-- *Default:* Defaults to the latest version.
-
-Version of projen to install.
-
----
-
-##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pullRequestTemplate"></a>
-
-```typescript
-public readonly pullRequestTemplate: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Include a GitHub pull request template.
-
----
-
-##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pullRequestTemplateContents"></a>
-
-```typescript
-public readonly pullRequestTemplateContents: string[];
-```
-
-- *Type:* string[]
-- *Default:* default content
-
-The contents of the pull request template.
-
----
-
-##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.release"></a>
-
-```typescript
-public readonly release: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true (false for subprojects)
-
-Add release management to this project.
-
----
-
-##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseToNpm"></a>
-
-```typescript
-public readonly releaseToNpm: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Automatically release to npm when new versions are introduced.
-
----
-
-##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflow"></a>
-
-- *Deprecated:* see `release`.
-
-```typescript
-public readonly releaseWorkflow: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true if not a subproject
-
-DEPRECATED: renamed to `release`.
-
----
-
-##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowBootstrapSteps"></a>
-
-```typescript
-public readonly workflowBootstrapSteps: JobStep[];
-```
-
-- *Type:* projen.github.workflows.JobStep[]
-- *Default:* "yarn install --frozen-lockfile && yarn projen"
-
-Workflow steps to use in order to bootstrap this repo.
-
----
-
-##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowGitIdentity"></a>
-
-```typescript
-public readonly workflowGitIdentity: GitIdentity;
-```
-
-- *Type:* projen.github.GitIdentity
-- *Default:* GitHub Actions
-
-The git identity to use in workflows.
-
----
-
-##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowNodeVersion"></a>
-
-```typescript
-public readonly workflowNodeVersion: string;
-```
-
-- *Type:* string
-- *Default:* same as `minNodeVersion`
-
-The node version to use in GitHub workflows.
-
----
-
-##### `workflowPackageCache`<sup>Optional</sup> <a name="workflowPackageCache" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowPackageCache"></a>
-
-```typescript
-public readonly workflowPackageCache: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Enable Node.js package cache in GitHub workflows.
-
----
-
-##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.disableTsconfig"></a>
-
-```typescript
-public readonly disableTsconfig: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler).
-
----
-
-##### `disableTsconfigDev`<sup>Optional</sup> <a name="disableTsconfigDev" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.disableTsconfigDev"></a>
-
-```typescript
-public readonly disableTsconfigDev: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Do not generate a `tsconfig.dev.json` file.
-
----
-
-##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docgen"></a>
-
-```typescript
-public readonly docgen: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Docgen by Typedoc.
-
----
-
-##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docsDirectory"></a>
-
-```typescript
-public readonly docsDirectory: string;
-```
-
-- *Type:* string
-- *Default:* "docs"
-
-Docs directory.
-
----
-
-##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.entrypointTypes"></a>
-
-```typescript
-public readonly entrypointTypes: string;
-```
-
-- *Type:* string
-- *Default:* .d.ts file derived from the project's entrypoint (usually lib/index.d.ts)
-
-The .d.ts file that includes the type declarations for this module.
-
----
-
-##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.eslint"></a>
-
-```typescript
-public readonly eslint: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Setup eslint.
-
----
-
-##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.eslintOptions"></a>
-
-```typescript
-public readonly eslintOptions: EslintOptions;
-```
-
-- *Type:* projen.javascript.EslintOptions
-- *Default:* opinionated default options
-
-Eslint options.
-
----
-
-##### `libdir`<sup>Optional</sup> <a name="libdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.libdir"></a>
-
-```typescript
-public readonly libdir: string;
-```
-
-- *Type:* string
-- *Default:* "lib"
-
-Typescript  artifacts output directory.
-
----
-
-##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcTs"></a>
-
-```typescript
-public readonly projenrcTs: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use TypeScript for your projenrc file (`.projenrc.ts`).
-
----
-
-##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcTsOptions"></a>
-
-```typescript
-public readonly projenrcTsOptions: ProjenrcOptions;
-```
-
-- *Type:* projen.typescript.ProjenrcOptions
-
-Options for .projenrc.ts.
-
----
-
-##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.sampleCode"></a>
-
-```typescript
-public readonly sampleCode: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Generate one-time sample in `src/` and `test/` if there are no files there.
-
----
-
-##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.srcdir"></a>
-
-```typescript
-public readonly srcdir: string;
-```
-
-- *Type:* string
-- *Default:* "src"
-
-Typescript sources directory.
-
----
-
-##### `testdir`<sup>Optional</sup> <a name="testdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.testdir"></a>
-
-```typescript
-public readonly testdir: string;
-```
-
-- *Type:* string
-- *Default:* "test"
-
-Jest tests directory. Tests files should be named `xxx.test.ts`.
-
-If this directory is under `srcdir` (e.g. `src/test`, `src/__tests__`),
-then tests are going to be compiled into `lib/` and executed as javascript.
-If the test directory is outside of `src`, then we configure jest to
-compile the code in-memory.
-
----
-
-##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfig"></a>
-
-```typescript
-public readonly tsconfig: TypescriptConfigOptions;
-```
-
-- *Type:* projen.javascript.TypescriptConfigOptions
-- *Default:* default options
-
-Custom TSConfig.
-
----
-
-##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfigDev"></a>
-
-```typescript
-public readonly tsconfigDev: TypescriptConfigOptions;
-```
-
-- *Type:* projen.javascript.TypescriptConfigOptions
-- *Default:* use the production tsconfig options
-
-Custom tsconfig options for the development tsconfig.json file (used for testing).
-
----
-
-##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfigDevFile"></a>
-
-```typescript
-public readonly tsconfigDevFile: string;
-```
-
-- *Type:* string
-- *Default:* "tsconfig.dev.json"
-
-The name of the development tsconfig.json file.
-
----
-
-##### `tsJestOptions`<sup>Optional</sup> <a name="tsJestOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsJestOptions"></a>
-
-```typescript
-public readonly tsJestOptions: TsJestOptions;
-```
-
-- *Type:* projen.typescript.TsJestOptions
-
-Options for ts-jest.
-
----
-
-##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.typescriptVersion"></a>
-
-```typescript
-public readonly typescriptVersion: string;
-```
-
-- *Type:* string
-- *Default:* "latest"
-
-TypeScript version to use.
-
-NOTE: Typescript is not semantically versioned and should remain on the
-same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
-
----
-
-##### `author`<sup>Required</sup> <a name="author" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.author"></a>
-
-```typescript
-public readonly author: string;
-```
-
-- *Type:* string
-- *Default:* $GIT_USER_NAME
-
-The name of the library author.
-
----
-
-##### `authorAddress`<sup>Required</sup> <a name="authorAddress" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.authorAddress"></a>
-
-```typescript
-public readonly authorAddress: string;
-```
-
-- *Type:* string
-- *Default:* $GIT_USER_EMAIL
-
-Email or URL of the library author.
-
----
-
-##### `repositoryUrl`<sup>Required</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryUrl"></a>
-
-```typescript
-public readonly repositoryUrl: string;
-```
-
-- *Type:* string
-- *Default:* $GIT_REMOTE
-
-Git repository URL.
-
----
-
-##### `compat`<sup>Optional</sup> <a name="compat" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compat"></a>
-
-```typescript
-public readonly compat: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Automatically run API compatibility test against the latest version published to npm after compilation.
-
-You can manually run compatibility tests using `yarn compat` if this feature is disabled.
-- You can ignore compatibility failures by adding lines to a ".compatignore" file.
-
----
-
-##### `compatIgnore`<sup>Optional</sup> <a name="compatIgnore" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compatIgnore"></a>
-
-```typescript
-public readonly compatIgnore: string;
-```
-
-- *Type:* string
-- *Default:* ".compatignore"
-
-Name of the ignore file for API compatibility tests.
-
----
-
-##### `compressAssembly`<sup>Optional</sup> <a name="compressAssembly" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compressAssembly"></a>
-
-```typescript
-public readonly compressAssembly: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Emit a compressed version of the assembly.
-
----
-
-##### `docgenFilePath`<sup>Optional</sup> <a name="docgenFilePath" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docgenFilePath"></a>
-
-```typescript
-public readonly docgenFilePath: string;
-```
-
-- *Type:* string
-- *Default:* "API.md"
-
-File path for generated docs.
-
----
-
-##### ~~`dotnet`~~<sup>Optional</sup> <a name="dotnet" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dotnet"></a>
-
-- *Deprecated:* use `publishToNuget`
-
-```typescript
-public readonly dotnet: JsiiDotNetTarget;
-```
-
-- *Type:* projen.cdk.JsiiDotNetTarget
-
----
-
-##### `excludeTypescript`<sup>Optional</sup> <a name="excludeTypescript" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.excludeTypescript"></a>
-
-```typescript
-public readonly excludeTypescript: string[];
-```
-
-- *Type:* string[]
-
-Accepts a list of glob patterns.
-
-Files matching any of those patterns will be excluded from the TypeScript compiler input.
-
-By default, jsii will include all *.ts files (except .d.ts files) in the TypeScript compiler input.
-This can be problematic for example when the package's build or test procedure generates .ts files
-that cannot be compiled with jsii's compiler settings.
-
----
-
-##### `jsiiVersion`<sup>Optional</sup> <a name="jsiiVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiVersion"></a>
-
-```typescript
-public readonly jsiiVersion: string;
-```
-
-- *Type:* string
-- *Default:* "1.x"
-
-Version of the jsii compiler to use.
-
-Set to "*" if you want to manually manage the version of jsii in your
-project by managing updates to `package.json` on your own.
-
-NOTE: The jsii compiler releases since 5.0.0 are not semantically versioned
-and should remain on the same minor, so we recommend using a `~` dependency
-(e.g. `~5.0.0`).
-
----
-
-##### `publishToGo`<sup>Optional</sup> <a name="publishToGo" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToGo"></a>
-
-```typescript
-public readonly publishToGo: JsiiGoTarget;
-```
-
-- *Type:* projen.cdk.JsiiGoTarget
-- *Default:* no publishing
-
-Publish Go bindings to a git repository.
-
----
-
-##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToMaven"></a>
-
-```typescript
-public readonly publishToMaven: JsiiJavaTarget;
-```
-
-- *Type:* projen.cdk.JsiiJavaTarget
-- *Default:* no publishing
-
-Publish to maven.
-
----
-
-##### `publishToNuget`<sup>Optional</sup> <a name="publishToNuget" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToNuget"></a>
-
-```typescript
-public readonly publishToNuget: JsiiDotNetTarget;
-```
-
-- *Type:* projen.cdk.JsiiDotNetTarget
-- *Default:* no publishing
-
-Publish to NuGet.
-
----
-
-##### `publishToPypi`<sup>Optional</sup> <a name="publishToPypi" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToPypi"></a>
-
-```typescript
-public readonly publishToPypi: JsiiPythonTarget;
-```
-
-- *Type:* projen.cdk.JsiiPythonTarget
-- *Default:* no publishing
-
-Publish to pypi.
-
----
-
-##### ~~`python`~~<sup>Optional</sup> <a name="python" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.python"></a>
-
-- *Deprecated:* use `publishToPyPi`
-
-```typescript
-public readonly python: JsiiPythonTarget;
-```
-
-- *Type:* projen.cdk.JsiiPythonTarget
-
----
-
-##### `rootdir`<sup>Optional</sup> <a name="rootdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rootdir"></a>
-
-```typescript
-public readonly rootdir: string;
-```
-
-- *Type:* string
-- *Default:* "."
 
 ---
 
@@ -22843,21 +20893,6 @@ through `{ announce: false }`.
 
 You can also add a Twitter handle through `{ twitter: 'xx' }` which will be
 mentioned in the tweet.
-
-> [https://github.com/construct-catalog/catalog](https://github.com/construct-catalog/catalog)
-
----
-
-##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkVersion"></a>
-
-```typescript
-public readonly cdkVersion: string;
-```
-
-- *Type:* string
-- *Default:* "2.1.0"
-
-Minimum version of the AWS CDK to depend on.
 
 ---
 
@@ -22959,6 +20994,130 @@ If you use experimental features this will let you define the moment you include
 
 ---
 
+##### `checkLicenses`<sup>Optional</sup> <a name="checkLicenses" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.checkLicenses"></a>
+
+```typescript
+public readonly checkLicenses: LicenseCheckerOptions;
+```
+
+- *Type:* projen.javascript.LicenseCheckerOptions
+- *Default:* no license checks are run during the build and all licenses will be accepted
+
+Configure which licenses should be deemed acceptable for use by dependencies.
+
+This setting will cause the build to fail, if any prohibited or not allowed licenses ares encountered.
+
+---
+
+##### `clobber`<sup>Optional</sup> <a name="clobber" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.clobber"></a>
+
+```typescript
+public readonly clobber: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true, but false for subprojects
+
+Add a `clobber` task which resets the repo to origin.
+
+---
+
+##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeArtifactOptions"></a>
+
+```typescript
+public readonly codeArtifactOptions: CodeArtifactOptions;
+```
+
+- *Type:* projen.javascript.CodeArtifactOptions
+- *Default:* undefined
+
+Options for npm packages using AWS CodeArtifact.
+
+This is required if publishing packages to, or installing scoped packages from AWS CodeArtifact
+
+---
+
+##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeCov"></a>
+
+```typescript
+public readonly codeCov: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`.
+
+---
+
+##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeCovTokenSecret"></a>
+
+```typescript
+public readonly codeCovTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* if this option is not specified, only public repositories are supported
+
+Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
+
+---
+
+##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compat`<sup>Optional</sup> <a name="compat" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compat"></a>
+
+```typescript
+public readonly compat: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically run API compatibility test against the latest version published to npm after compilation.
+
+You can manually run compatibility tests using `yarn compat` if this feature is disabled.
+- You can ignore compatibility failures by adding lines to a ".compatignore" file.
+
+---
+
+##### `compatIgnore`<sup>Optional</sup> <a name="compatIgnore" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compatIgnore"></a>
+
+```typescript
+public readonly compatIgnore: string;
+```
+
+- *Type:* string
+- *Default:* ".compatignore"
+
+Name of the ignore file for API compatibility tests.
+
+---
+
+##### `compressAssembly`<sup>Optional</sup> <a name="compressAssembly" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.compressAssembly"></a>
+
+```typescript
+public readonly compressAssembly: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Emit a compressed version of the assembly.
+
+---
+
 ##### `constructsVersion`<sup>Optional</sup> <a name="constructsVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.constructsVersion"></a>
 
 ```typescript
@@ -22969,6 +21128,237 @@ public readonly constructsVersion: string;
 - *Default:* for CDK 1.x the default is "3.2.27", for CDK 2.x the default is "10.0.5".
 
 Minimum version of the `constructs` library to depend on.
+
+---
+
+##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.copyrightOwner"></a>
+
+```typescript
+public readonly copyrightOwner: string;
+```
+
+- *Type:* string
+- *Default:* defaults to the value of authorName or "" if `authorName` is undefined.
+
+License copyright owner.
+
+---
+
+##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.copyrightPeriod"></a>
+
+```typescript
+public readonly copyrightPeriod: string;
+```
+
+- *Type:* string
+- *Default:* current year
+
+The copyright years to put in the LICENSE file.
+
+---
+
+##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabot"></a>
+
+```typescript
+public readonly dependabot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use dependabot to handle dependency upgrades.
+
+Cannot be used in conjunction with `depsUpgrade`.
+
+---
+
+##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabotOptions"></a>
+
+```typescript
+public readonly dependabotOptions: DependabotOptions;
+```
+
+- *Type:* projen.github.DependabotOptions
+- *Default:* default options
+
+Options for dependabot.
+
+---
+
+##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.deps"></a>
+
+```typescript
+public readonly deps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Runtime dependencies of this module.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgrade"></a>
+
+```typescript
+public readonly depsUpgrade: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Use tasks and github workflows to handle dependency upgrades.
+
+Cannot be used in conjunction with `dependabot`.
+
+---
+
+##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgradeOptions"></a>
+
+```typescript
+public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
+```
+
+- *Type:* projen.javascript.UpgradeDependenciesOptions
+- *Default:* default options
+
+Options for `UpgradeDependencies`.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description is just a string that helps people understand the purpose of the package.
+
+It can be used when searching for packages in a package manager as well.
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a VSCode development environment (used for GitHub Codespaces).
+
+---
+
+##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devDeps"></a>
+
+```typescript
+public readonly devDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Build dependencies for this module.
+
+These dependencies will only be
+available in your build environment but will not be fetched when this
+module is consumed.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.disableTsconfig"></a>
+
+```typescript
+public readonly disableTsconfig: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler).
+
+---
+
+##### `disableTsconfigDev`<sup>Optional</sup> <a name="disableTsconfigDev" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.disableTsconfigDev"></a>
+
+```typescript
+public readonly disableTsconfigDev: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not generate a `tsconfig.dev.json` file.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Docgen by Typedoc.
+
+---
+
+##### `docgenFilePath`<sup>Optional</sup> <a name="docgenFilePath" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docgenFilePath"></a>
+
+```typescript
+public readonly docgenFilePath: string;
+```
+
+- *Type:* string
+- *Default:* "API.md"
+
+File path for generated docs.
+
+---
+
+##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "docs"
+
+Docs directory.
+
+---
+
+##### ~~`dotnet`~~<sup>Optional</sup> <a name="dotnet" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dotnet"></a>
+
+- *Deprecated:* use `publishToNuget`
+
+```typescript
+public readonly dotnet: JsiiDotNetTarget;
+```
+
+- *Type:* projen.cdk.JsiiDotNetTarget
 
 ---
 
@@ -22985,6 +21375,74 @@ Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lam
 
 ---
 
+##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.entrypoint"></a>
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+- *Default:* "lib/index.js"
+
+Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json.
+
+---
+
+##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.entrypointTypes"></a>
+
+```typescript
+public readonly entrypointTypes: string;
+```
+
+- *Type:* string
+- *Default:* .d.ts file derived from the project's entrypoint (usually lib/index.d.ts)
+
+The .d.ts file that includes the type declarations for this module.
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.eslint"></a>
+
+```typescript
+public readonly eslint: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Setup eslint.
+
+---
+
+##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.eslintOptions"></a>
+
+```typescript
+public readonly eslintOptions: EslintOptions;
+```
+
+- *Type:* projen.javascript.EslintOptions
+- *Default:* opinionated default options
+
+Eslint options.
+
+---
+
+##### `excludeTypescript`<sup>Optional</sup> <a name="excludeTypescript" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.excludeTypescript"></a>
+
+```typescript
+public readonly excludeTypescript: string[];
+```
+
+- *Type:* string[]
+
+Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input.
+
+By default, jsii will include all *.ts files (except .d.ts files) in the TypeScript compiler input.
+This can be problematic for example when the package's build or test procedure generates .ts files
+that cannot be compiled with jsii's compiler settings.
+
+---
+
 ##### `experimentalIntegRunner`<sup>Optional</sup> <a name="experimentalIntegRunner" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.experimentalIntegRunner"></a>
 
 ```typescript
@@ -22998,6 +21456,95 @@ Enable experimental support for the AWS CDK integ-runner.
 
 ---
 
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.github"></a>
+
+```typescript
+public readonly github: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.githubOptions"></a>
+
+```typescript
+public readonly githubOptions: GitHubOptions;
+```
+
+- *Type:* projen.github.GitHubOptions
+- *Default:* see GitHubOptions
+
+Options for GitHub integration.
+
+---
+
+##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .gitignore.
+
+---
+
+##### `gitIgnoreOptions`<sup>Optional</sup> <a name="gitIgnoreOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitIgnoreOptions"></a>
+
+```typescript
+public readonly gitIgnoreOptions: IgnoreFileOptions;
+```
+
+- *Type:* projen.IgnoreFileOptions
+
+Configuration options for .gitignore file.
+
+---
+
+##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitOptions"></a>
+
+```typescript
+public readonly gitOptions: GitOptions;
+```
+
+- *Type:* projen.GitOptions
+
+Configuration options for git.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a Gitpod development environment.
+
+---
+
+##### `homepage`<sup>Optional</sup> <a name="homepage" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.homepage"></a>
+
+```typescript
+public readonly homepage: string;
+```
+
+- *Type:* string
+
+Package's Homepage / Website.
+
+---
+
 ##### `integrationTestAutoDiscover`<sup>Optional</sup> <a name="integrationTestAutoDiscover" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.integrationTestAutoDiscover"></a>
 
 ```typescript
@@ -23008,6 +21555,77 @@ public readonly integrationTestAutoDiscover: boolean;
 - *Default:* true
 
 Automatically discovers and creates integration tests for each `.integ.ts` file under your test directory.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jest"></a>
+
+```typescript
+public readonly jest: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Setup jest unit tests.
+
+---
+
+##### `jestOptions`<sup>Optional</sup> <a name="jestOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jestOptions"></a>
+
+```typescript
+public readonly jestOptions: JestOptions;
+```
+
+- *Type:* projen.javascript.JestOptions
+- *Default:* default options
+
+Jest options.
+
+---
+
+##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiReleaseVersion"></a>
+
+```typescript
+public readonly jsiiReleaseVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+Version requirement of `publib` which is used to publish modules to npm.
+
+---
+
+##### `jsiiVersion`<sup>Optional</sup> <a name="jsiiVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.jsiiVersion"></a>
+
+```typescript
+public readonly jsiiVersion: string;
+```
+
+- *Type:* string
+- *Default:* "1.x"
+
+Version of the jsii compiler to use.
+
+Set to "*" if you want to manually manage the version of jsii in your
+project by managing updates to `package.json` on your own.
+
+NOTE: The jsii compiler releases since 5.0.0 are not semantically versioned
+and should remain on the same minor, so we recommend using a `~` dependency
+(e.g. `~5.0.0`).
+
+---
+
+##### `keywords`<sup>Optional</sup> <a name="keywords" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.keywords"></a>
+
+```typescript
+public readonly keywords: string[];
+```
+
+- *Type:* string[]
+
+Keywords to include in `package.json`.
 
 ---
 
@@ -23047,6 +21665,1345 @@ public readonly lambdaOptions: LambdaFunctionCommonOptions;
 - *Default:* default options
 
 Common options for all AWS Lambda functions.
+
+---
+
+##### `libdir`<sup>Optional</sup> <a name="libdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+- *Default:* "lib"
+
+Typescript  artifacts output directory.
+
+---
+
+##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.license"></a>
+
+```typescript
+public readonly license: string;
+```
+
+- *Type:* string
+- *Default:* "Apache-2.0"
+
+License's SPDX identifier.
+
+See https://github.com/projen/projen/tree/main/license-text for a list of supported licenses.
+Use the `licensed` option if you want to no license to be specified.
+
+---
+
+##### `licensed`<sup>Optional</sup> <a name="licensed" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.licensed"></a>
+
+```typescript
+public readonly licensed: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates if a license should be added.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.logging"></a>
+
+```typescript
+public readonly logging: LoggerOptions;
+```
+
+- *Type:* projen.LoggerOptions
+- *Default:* {}
+
+Configure logging options such as verbosity.
+
+---
+
+##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.majorVersion"></a>
+
+```typescript
+public readonly majorVersion: number;
+```
+
+- *Type:* number
+- *Default:* Major version is not enforced.
+
+Major version to release from the default branch.
+
+If this is specified, we bump the latest version of this major version line.
+If not specified, we bump the global latest version.
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no max
+
+Minimum node.js version to require via `engines` (inclusive).
+
+---
+
+##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mergify"></a>
+
+- *Deprecated:* use `githubOptions.mergify` instead
+
+```typescript
+public readonly mergify: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether mergify should be enabled on this repository or not.
+
+---
+
+##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mergifyOptions"></a>
+
+- *Deprecated:* use `githubOptions.mergifyOptions` instead
+
+```typescript
+public readonly mergifyOptions: MergifyOptions;
+```
+
+- *Type:* projen.github.MergifyOptions
+- *Default:* default options
+
+Options for mergify.
+
+---
+
+##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.minMajorVersion"></a>
+
+```typescript
+public readonly minMajorVersion: number;
+```
+
+- *Type:* number
+- *Default:* No minimum version is being enforced
+
+Minimal Major version to release.
+
+This can be useful to set to 1, as breaking changes before the 1.x major
+release are not incrementing the major version number.
+
+Can not be set together with `majorVersion`.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no "engines" specified
+
+Minimum Node.js version to require via package.json `engines` (inclusive).
+
+Only set this if your package will not work properly on specific (older?)
+Node versions.
+
+---
+
+##### ~~`mutableBuild`~~<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.mutableBuild"></a>
+
+- *Deprecated:* - Use `buildWorkflowOptions.mutableBuild`
+
+```typescript
+public readonly mutableBuild: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically update files modified during builds to pull-request branches.
+
+This means
+that any files synthesized by projen or e.g. test snapshots will always be up-to-date
+before a PR is merged.
+
+Implies that PR builds do not have anti-tamper checks.
+
+---
+
+##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmAccess"></a>
+
+```typescript
+public readonly npmAccess: NpmAccess;
+```
+
+- *Type:* projen.javascript.NpmAccess
+- *Default:* for scoped packages (e.g. `foo@bar`), the default is `NpmAccess.RESTRICTED`, for non-scoped packages, the default is `NpmAccess.PUBLIC`.
+
+Access level of the npm package.
+
+---
+
+##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmDistTag"></a>
+
+```typescript
+public readonly npmDistTag: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The npmDistTag to use when publishing from the default branch.
+
+To set the npm dist-tag for release branches, set the `npmDistTag` property
+for each branch.
+
+---
+
+##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmignore"></a>
+
+- *Deprecated:* - use `project.addPackageIgnore`
+
+```typescript
+public readonly npmignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .npmignore.
+
+---
+
+##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmignoreEnabled"></a>
+
+```typescript
+public readonly npmignoreEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs.
+
+---
+
+##### `npmIgnoreOptions`<sup>Optional</sup> <a name="npmIgnoreOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmIgnoreOptions"></a>
+
+```typescript
+public readonly npmIgnoreOptions: IgnoreFileOptions;
+```
+
+- *Type:* projen.IgnoreFileOptions
+
+Configuration options for .npmignore file.
+
+---
+
+##### `npmProvenance`<sup>Optional</sup> <a name="npmProvenance" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmProvenance"></a>
+
+```typescript
+public readonly npmProvenance: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true for public packages, false otherwise
+
+Should provenance statements be generated when the package is published.
+
+A supported package manager is required to publish a package with npm provenance statements and
+you will need to use a supported CI/CD provider.
+
+Note that the projen `Release` and `Publisher` components are using `publib` to publish packages,
+which is using npm internally and supports provenance statements independently of the package manager used.
+
+---
+
+##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmRegistry"></a>
+
+- *Deprecated:* use `npmRegistryUrl` instead
+
+```typescript
+public readonly npmRegistry: string;
+```
+
+- *Type:* string
+
+The host name of the npm registry to publish to.
+
+Cannot be set together with `npmRegistryUrl`.
+
+---
+
+##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmRegistryUrl"></a>
+
+```typescript
+public readonly npmRegistryUrl: string;
+```
+
+- *Type:* string
+- *Default:* "https://registry.npmjs.org"
+
+The base URL of the npm package registry.
+
+Must be a URL (e.g. start with "https://" or "http://")
+
+---
+
+##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmTokenSecret"></a>
+
+```typescript
+public readonly npmTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "NPM_TOKEN"
+
+GitHub secret which contains the NPM token to use when publishing packages.
+
+---
+
+##### `outdir`<sup>Optional</sup> <a name="outdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+The root directory of the project. Relative to this directory, all files are synthesized.
+
+If this project has a parent, this directory is relative to the parent
+directory and it cannot be the same as the parent or any of it's other
+subprojects.
+
+---
+
+##### `package`<sup>Optional</sup> <a name="package" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.package"></a>
+
+```typescript
+public readonly package: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`).
+
+---
+
+##### `packageManager`<sup>Optional</sup> <a name="packageManager" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.packageManager"></a>
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+- *Default:* NodePackageManager.YARN_CLASSIC
+
+The Node Package Manager used to execute scripts.
+
+---
+
+##### `packageName`<sup>Optional</sup> <a name="packageName" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.packageName"></a>
+
+```typescript
+public readonly packageName: string;
+```
+
+- *Type:* string
+- *Default:* defaults to project name
+
+The "name" in package.json.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+The parent project, if this project is part of a bigger project.
+
+---
+
+##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.peerDependencyOptions"></a>
+
+```typescript
+public readonly peerDependencyOptions: PeerDependencyOptions;
+```
+
+- *Type:* projen.javascript.PeerDependencyOptions
+
+Options for `peerDeps`.
+
+---
+
+##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.peerDeps"></a>
+
+```typescript
+public readonly peerDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Peer dependencies for this module.
+
+Dependencies listed here are required to
+be installed (and satisfied) by the _consumer_ of this library. Using peer
+dependencies allows you to ensure that only a single module of a certain
+library exists in the `node_modules` tree of your consumers.
+
+Note that prior to npm@7, peer dependencies are _not_ automatically
+installed, which means that adding peer dependencies to a library will be a
+breaking change for your customers.
+
+Unless `peerDependencyOptions.pinnedDevDependency` is disabled (it is
+enabled by default), projen will automatically add a dev dependency with a
+pinned version for each peer dependency. This will ensure that you build &
+test your module against the lowest peer version required.
+
+---
+
+##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pnpmVersion"></a>
+
+```typescript
+public readonly pnpmVersion: string;
+```
+
+- *Type:* string
+- *Default:* "7"
+
+The version of PNPM to use if using PNPM as a package manager.
+
+---
+
+##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.postBuildSteps"></a>
+
+```typescript
+public readonly postBuildSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* []
+
+Steps to execute after build as part of the release workflow.
+
+---
+
+##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prerelease"></a>
+
+```typescript
+public readonly prerelease: string;
+```
+
+- *Type:* string
+- *Default:* normal semantic versions
+
+Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre").
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prettier"></a>
+
+```typescript
+public readonly prettier: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Setup prettier.
+
+---
+
+##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.prettierOptions"></a>
+
+```typescript
+public readonly prettierOptions: PrettierOptions;
+```
+
+- *Type:* projen.javascript.PrettierOptions
+- *Default:* default options
+
+Prettier options.
+
+---
+
+##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projectType"></a>
+
+- *Deprecated:* no longer supported at the base project level
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+- *Default:* ProjectType.UNKNOWN
+
+Which type of project this is (library/app).
+
+---
+
+##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+- *Default:* "npx projen"
+
+The shell command to use in order to run the projen CLI.
+
+Can be used to customize in special environments.
+
+---
+
+##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenCredentials"></a>
+
+```typescript
+public readonly projenCredentials: GithubCredentials;
+```
+
+- *Type:* projen.github.GithubCredentials
+- *Default:* use a personal access token named PROJEN_GITHUB_TOKEN
+
+Choose a method of providing GitHub API access for projen workflows.
+
+---
+
+##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenDevDependency"></a>
+
+```typescript
+public readonly projenDevDependency: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+Indicates of "projen" should be installed as a devDependency.
+
+---
+
+##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJs"></a>
+
+```typescript
+public readonly projenrcJs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if projenrcJson is false
+
+Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation.
+
+---
+
+##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJson"></a>
+
+```typescript
+public readonly projenrcJson: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
+
+---
+
+##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJsonOptions"></a>
+
+```typescript
+public readonly projenrcJsonOptions: ProjenrcJsonOptions;
+```
+
+- *Type:* projen.ProjenrcJsonOptions
+- *Default:* default options
+
+Options for .projenrc.json.
+
+---
+
+##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcJsOptions"></a>
+
+```typescript
+public readonly projenrcJsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.javascript.ProjenrcOptions
+- *Default:* default options
+
+Options for .projenrc.js.
+
+---
+
+##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcTs"></a>
+
+```typescript
+public readonly projenrcTs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use TypeScript for your projenrc file (`.projenrc.ts`).
+
+---
+
+##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenrcTsOptions"></a>
+
+```typescript
+public readonly projenrcTsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.typescript.ProjenrcOptions
+
+Options for .projenrc.ts.
+
+---
+
+##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenTokenSecret"></a>
+
+- *Deprecated:* use `projenCredentials`
+
+```typescript
+public readonly projenTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "PROJEN_GITHUB_TOKEN"
+
+The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows.
+
+This token needs to have the `repo`, `workflows`
+and `packages` scope.
+
+---
+
+##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.projenVersion"></a>
+
+```typescript
+public readonly projenVersion: string;
+```
+
+- *Type:* string
+- *Default:* Defaults to the latest version.
+
+Version of projen to install.
+
+---
+
+##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishDryRun"></a>
+
+```typescript
+public readonly publishDryRun: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Instead of actually publishing to package managers, just print the publishing command.
+
+---
+
+##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishTasks"></a>
+
+```typescript
+public readonly publishTasks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define publishing tasks that can be executed manually as well as workflows.
+
+Normally, publishing only happens within automated workflows. Enable this
+in order to create a publishing task for each publishing activity.
+
+---
+
+##### `publishToGo`<sup>Optional</sup> <a name="publishToGo" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToGo"></a>
+
+```typescript
+public readonly publishToGo: JsiiGoTarget;
+```
+
+- *Type:* projen.cdk.JsiiGoTarget
+- *Default:* no publishing
+
+Publish Go bindings to a git repository.
+
+---
+
+##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToMaven"></a>
+
+```typescript
+public readonly publishToMaven: JsiiJavaTarget;
+```
+
+- *Type:* projen.cdk.JsiiJavaTarget
+- *Default:* no publishing
+
+Publish to maven.
+
+---
+
+##### `publishToNuget`<sup>Optional</sup> <a name="publishToNuget" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToNuget"></a>
+
+```typescript
+public readonly publishToNuget: JsiiDotNetTarget;
+```
+
+- *Type:* projen.cdk.JsiiDotNetTarget
+- *Default:* no publishing
+
+Publish to NuGet.
+
+---
+
+##### `publishToPypi`<sup>Optional</sup> <a name="publishToPypi" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToPypi"></a>
+
+```typescript
+public readonly publishToPypi: JsiiPythonTarget;
+```
+
+- *Type:* projen.cdk.JsiiPythonTarget
+- *Default:* no publishing
+
+Publish to pypi.
+
+---
+
+##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pullRequestTemplate"></a>
+
+```typescript
+public readonly pullRequestTemplate: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Include a GitHub pull request template.
+
+---
+
+##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.pullRequestTemplateContents"></a>
+
+```typescript
+public readonly pullRequestTemplateContents: string[];
+```
+
+- *Type:* string[]
+- *Default:* default content
+
+The contents of the pull request template.
+
+---
+
+##### ~~`python`~~<sup>Optional</sup> <a name="python" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.python"></a>
+
+- *Deprecated:* use `publishToPyPi`
+
+```typescript
+public readonly python: JsiiPythonTarget;
+```
+
+- *Type:* projen.cdk.JsiiPythonTarget
+
+---
+
+##### `readme`<sup>Optional</sup> <a name="readme" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.readme"></a>
+
+```typescript
+public readonly readme: SampleReadmeProps;
+```
+
+- *Type:* projen.SampleReadmeProps
+- *Default:* { filename: 'README.md', contents: '# replace this' }
+
+The README setup.
+
+---
+
+##### `releasableCommits`<sup>Optional</sup> <a name="releasableCommits" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releasableCommits"></a>
+
+```typescript
+public readonly releasableCommits: ReleasableCommits;
+```
+
+- *Type:* projen.ReleasableCommits
+- *Default:* ReleasableCommits.everyCommit()
+
+Find commits that should be considered releasable Used to decide if a release is required.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.release"></a>
+
+```typescript
+public readonly release: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true (false for subprojects)
+
+Add release management to this project.
+
+---
+
+##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseBranches"></a>
+
+```typescript
+public readonly releaseBranches: {[ key: string ]: BranchOptions};
+```
+
+- *Type:* {[ key: string ]: projen.release.BranchOptions}
+- *Default:* no additional branches are used for release. you can use `addBranch()` to add additional branches.
+
+Defines additional release branches.
+
+A workflow will be created for each
+release branch which will publish releases from commits in this branch.
+Each release branch _must_ be assigned a major version number which is used
+to enforce that versions published from that branch always use that major
+version. If multiple branches are used, the `majorVersion` field must also
+be provided for the default branch.
+
+---
+
+##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseEveryCommit"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.continuous()` instead
+
+```typescript
+public readonly releaseEveryCommit: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically release new versions every commit to one of branches in `releaseBranches`.
+
+---
+
+##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseFailureIssue"></a>
+
+```typescript
+public readonly releaseFailureIssue: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Create a github issue on every failed publishing task.
+
+---
+
+##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseFailureIssueLabel"></a>
+
+```typescript
+public readonly releaseFailureIssueLabel: string;
+```
+
+- *Type:* string
+- *Default:* "failed-release"
+
+The label to apply to issues indicating publish failures.
+
+Only applies if `releaseFailureIssue` is true.
+
+---
+
+##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseSchedule"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.scheduled()` instead
+
+```typescript
+public readonly releaseSchedule: string;
+```
+
+- *Type:* string
+- *Default:* no scheduled releases
+
+CRON schedule to trigger new releases.
+
+---
+
+##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseTagPrefix"></a>
+
+```typescript
+public readonly releaseTagPrefix: string;
+```
+
+- *Type:* string
+- *Default:* "v"
+
+Automatically add the given prefix to release tags.
+
+Useful if you are releasing on multiple branches with overlapping version numbers.
+Note: this prefix is used to detect the latest tagged version
+when bumping, so if you change this on a project with an existing version
+history, you may need to manually tag your latest release
+with the new prefix.
+
+---
+
+##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseToNpm"></a>
+
+```typescript
+public readonly releaseToNpm: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically release to npm when new versions are introduced.
+
+---
+
+##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseTrigger"></a>
+
+```typescript
+public readonly releaseTrigger: ReleaseTrigger;
+```
+
+- *Type:* projen.release.ReleaseTrigger
+- *Default:* Continuous releases (`ReleaseTrigger.continuous()`)
+
+The release trigger to use.
+
+---
+
+##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflow"></a>
+
+- *Deprecated:* see `release`.
+
+```typescript
+public readonly releaseWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+DEPRECATED: renamed to `release`.
+
+---
+
+##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflowName"></a>
+
+```typescript
+public readonly releaseWorkflowName: string;
+```
+
+- *Type:* string
+- *Default:* "release"
+
+The name of the default release workflow.
+
+---
+
+##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflowSetupSteps"></a>
+
+```typescript
+public readonly releaseWorkflowSetupSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+
+A set of workflow steps to execute in order to setup the workflow container.
+
+---
+
+##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebot"></a>
+
+```typescript
+public readonly renovatebot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use renovatebot to handle dependency upgrades.
+
+---
+
+##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebotOptions"></a>
+
+```typescript
+public readonly renovatebotOptions: RenovatebotOptions;
+```
+
+- *Type:* projen.RenovatebotOptions
+- *Default:* default options
+
+Options for renovatebot.
+
+---
+
+##### `repository`<sup>Optional</sup> <a name="repository" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repository"></a>
+
+```typescript
+public readonly repository: string;
+```
+
+- *Type:* string
+
+The repository is the location where the actual code for your package lives.
+
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+
+---
+
+##### `repositoryDirectory`<sup>Optional</sup> <a name="repositoryDirectory" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryDirectory"></a>
+
+```typescript
+public readonly repositoryDirectory: string;
+```
+
+- *Type:* string
+
+If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives.
+
+---
+
+##### `rootdir`<sup>Optional</sup> <a name="rootdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rootdir"></a>
+
+```typescript
+public readonly rootdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+---
+
+##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.sampleCode"></a>
+
+```typescript
+public readonly sampleCode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Generate one-time sample in `src/` and `test/` if there are no files there.
+
+---
+
+##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scopedPackagesOptions"></a>
+
+```typescript
+public readonly scopedPackagesOptions: ScopedPackagesOptions[];
+```
+
+- *Type:* projen.javascript.ScopedPackagesOptions[]
+- *Default:* fetch all scoped packages from the public npm registry
+
+Options for privately hosted scoped packages.
+
+---
+
+##### ~~`scripts`~~<sup>Optional</sup> <a name="scripts" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scripts"></a>
+
+- *Deprecated:* use `project.addTask()` or `package.setScript()`
+
+```typescript
+public readonly scripts: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* {}
+
+npm scripts to include.
+
+If a script has the same name as a standard script,
+the standard script will be overwritten.
+Also adds the script as a task.
+
+---
+
+##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+- *Default:* "src"
+
+Typescript sources directory.
+
+---
+
+##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stability"></a>
+
+```typescript
+public readonly stability: string;
+```
+
+- *Type:* string
+
+Package's Stability.
+
+---
+
+##### `stale`<sup>Optional</sup> <a name="stale" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stale"></a>
+
+```typescript
+public readonly stale: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Auto-close of stale issues and pull request.
+
+See `staleOptions` for options.
+
+---
+
+##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.staleOptions"></a>
+
+```typescript
+public readonly staleOptions: StaleOptions;
+```
+
+- *Type:* projen.github.StaleOptions
+- *Default:* see defaults in `StaleOptions`
+
+Auto-close stale issues and pull requests.
+
+To disable set `stale` to `false`.
+
+---
+
+##### `testdir`<sup>Optional</sup> <a name="testdir" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+- *Default:* "test"
+
+Jest tests directory.
+
+Tests files should be named `xxx.test.ts`.
+If this directory is under `srcdir` (e.g. `src/test`, `src/__tests__`),
+then tests are going to be compiled into `lib/` and executed as javascript.
+If the test directory is outside of `src`, then we configure jest to
+compile the code in-memory.
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* default options
+
+Custom TSConfig.
+
+---
+
+##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* use the production tsconfig options
+
+Custom tsconfig options for the development tsconfig.json file (used for testing).
+
+---
+
+##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsconfigDevFile"></a>
+
+```typescript
+public readonly tsconfigDevFile: string;
+```
+
+- *Type:* string
+- *Default:* "tsconfig.dev.json"
+
+The name of the development tsconfig.json file.
+
+---
+
+##### `tsJestOptions`<sup>Optional</sup> <a name="tsJestOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.tsJestOptions"></a>
+
+```typescript
+public readonly tsJestOptions: TsJestOptions;
+```
+
+- *Type:* projen.typescript.TsJestOptions
+
+Options for ts-jest.
+
+---
+
+##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.typescriptVersion"></a>
+
+```typescript
+public readonly typescriptVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+TypeScript version to use.
+
+NOTE: Typescript is not semantically versioned and should remain on the
+same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
+
+---
+
+##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.versionrcOptions"></a>
+
+```typescript
+public readonly versionrcOptions: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* standard configuration applicable for GitHub repositories
+
+Custom configuration used when creating changelog with commit-and-tag-version package.
+
+Given values either append to default configuration or overwrite values in it.
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.vscode"></a>
+
+```typescript
+public readonly vscode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable VSCode integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowBootstrapSteps"></a>
+
+```typescript
+public readonly workflowBootstrapSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* "yarn install --frozen-lockfile && yarn projen"
+
+Workflow steps to use in order to bootstrap this repo.
+
+---
+
+##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowContainerImage"></a>
+
+```typescript
+public readonly workflowContainerImage: string;
+```
+
+- *Type:* string
+- *Default:* default image
+
+Container image to use for GitHub workflows.
+
+---
+
+##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowGitIdentity"></a>
+
+```typescript
+public readonly workflowGitIdentity: GitIdentity;
+```
+
+- *Type:* projen.github.GitIdentity
+- *Default:* GitHub Actions
+
+The git identity to use in workflows.
+
+---
+
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowNodeVersion"></a>
+
+```typescript
+public readonly workflowNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* 'lts/*'
+
+The node version to use in GitHub workflows.
+
+---
+
+##### `workflowPackageCache`<sup>Optional</sup> <a name="workflowPackageCache" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowPackageCache"></a>
+
+```typescript
+public readonly workflowPackageCache: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable Node.js package cache in GitHub workflows.
+
+---
+
+##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOn"></a>
+
+```typescript
+public readonly workflowRunsOn: string[];
+```
+
+- *Type:* string[]
+- *Default:* ["ubuntu-latest"]
+
+Github Runner selection labels.
+
+---
+
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
+##### `yarnBerryOptions`<sup>Optional</sup> <a name="yarnBerryOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.yarnBerryOptions"></a>
+
+```typescript
+public readonly yarnBerryOptions: YarnBerryOptions;
+```
+
+- *Type:* projen.javascript.YarnBerryOptions
+- *Default:* Yarn Berry v4 with all default options
+
+Options for Yarn Berry.
 
 ---
 
@@ -26830,6 +26787,9 @@ public readonly minNodeVersion: string;
 
 Minimum Node.js version to require via package.json `engines` (inclusive).
 
+Only set this if your package will not work properly on specific (older?)
+Node versions.
+
 ---
 
 ##### ~~`mutableBuild`~~<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.mutableBuild"></a>
@@ -27903,7 +27863,7 @@ public readonly workflowNodeVersion: string;
 ```
 
 - *Type:* string
-- *Default:* same as `minNodeVersion`
+- *Default:* 'lts/*'
 
 The node version to use in GitHub workflows.
 
@@ -32721,6 +32681,2677 @@ The branch to merge to.
 
 ---
 
+### ModifiedProjenCdkConstructLibraryOptions <a name="ModifiedProjenCdkConstructLibraryOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions"></a>
+
+ModifiedProjenCdkConstructLibraryOptions.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.Initializer"></a>
+
+```typescript
+import { ModifiedProjenCdkConstructLibraryOptions } from 'cdklabs-projen-project-types'
+
+const modifiedProjenCdkConstructLibraryOptions: ModifiedProjenCdkConstructLibraryOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.author">author</a></code> | <code>string</code> | The name of the library author. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorAddress">authorAddress</a></code> | <code>string</code> | Email or URL of the library author. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | Git repository URL. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorName">authorName</a></code> | <code>string</code> | Author's name. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorOrganization">authorOrganization</a></code> | <code>boolean</code> | Is the author an organization. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorUrl">authorUrl</a></code> | <code>string</code> | Author's URL / Website. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoApproveOptions">autoApproveOptions</a></code> | <code>projen.github.AutoApproveOptions</code> | Enable and configure the 'auto approve' workflow. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoApproveUpgrades">autoApproveUpgrades</a></code> | <code>boolean</code> | Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoDetectBin">autoDetectBin</a></code> | <code>boolean</code> | Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Enable automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code>projen.github.AutoMergeOptions</code> | Configure options for automatic merging on GitHub. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.buildWorkflowOptions">buildWorkflowOptions</a></code> | <code>projen.javascript.BuildWorkflowOptions</code> | Options for PR build workflow. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.catalog">catalog</a></code> | <code>projen.cdk.Catalog</code> | Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkAssert">cdkAssert</a></code> | <code>boolean</code> | Warning: NodeJS only. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkAssertions">cdkAssertions</a></code> | <code>boolean</code> | Install the assertions library? |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkDependencies">cdkDependencies</a></code> | <code>string[]</code> | Which AWS CDKv1 modules this project requires. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkDependenciesAsDeps">cdkDependenciesAsDeps</a></code> | <code>boolean</code> | If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkTestDependencies">cdkTestDependencies</a></code> | <code>string[]</code> | AWS CDK modules required for testing. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkVersionPinning">cdkVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for CDK. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.compat">compat</a></code> | <code>boolean</code> | Automatically run API compatibility test against the latest version published to npm after compilation. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.compatIgnore">compatIgnore</a></code> | <code>string</code> | Name of the ignore file for API compatibility tests. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.compressAssembly">compressAssembly</a></code> | <code>boolean</code> | Emit a compressed version of the assembly. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.constructsVersion">constructsVersion</a></code> | <code>string</code> | Minimum version of the `constructs` library to depend on. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use tasks and github workflows to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a `tsconfig.dev.json` file. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.docgenFilePath">docgenFilePath</a></code> | <code>string</code> | File path for generated docs. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | Docs directory. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.dotnet">dotnet</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.edgeLambdaAutoDiscover">edgeLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.entrypoint">entrypoint</a></code> | <code>string</code> | Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.entrypointTypes">entrypointTypes</a></code> | <code>string</code> | The .d.ts file that includes the type declarations for this module. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.experimentalIntegRunner">experimentalIntegRunner</a></code> | <code>boolean</code> | Enable experimental support for the AWS CDK integ-runner. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.integrationTestAutoDiscover">integrationTestAutoDiscover</a></code> | <code>boolean</code> | Automatically discovers and creates integration tests for each `.integ.ts` file under your test directory. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.jestOptions">jestOptions</a></code> | <code>projen.javascript.JestOptions</code> | Jest options. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.jsiiVersion">jsiiVersion</a></code> | <code>string</code> | Version of the jsii compiler to use. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.keywords">keywords</a></code> | <code>string[]</code> | Keywords to include in `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `aws_lambda.Function` for each `.lambda.ts` handler in your source tree. If this is disabled, you either need to explicitly call `aws_lambda.Function.autoDiscover()` or define a `new aws_lambda.Function()` for each handler. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.license">license</a></code> | <code>string</code> | License's SPDX identifier. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.licensed">licensed</a></code> | <code>boolean</code> | Indicates if a license should be added. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Minimum node.js version to require via `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.mergify">mergify</a></code> | <code>boolean</code> | Whether mergify should be enabled on this repository or not. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.mergifyOptions">mergifyOptions</a></code> | <code>projen.github.MergifyOptions</code> | Options for mergify. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.minMajorVersion">minMajorVersion</a></code> | <code>number</code> | Minimal Major version to release. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum Node.js version to require via package.json `engines` (inclusive). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.mutableBuild">mutableBuild</a></code> | <code>boolean</code> | Automatically update files modified during builds to pull-request branches. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmAccess">npmAccess</a></code> | <code>projen.javascript.NpmAccess</code> | Access level of the npm package. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | The npmDistTag to use when publishing from the default branch. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmignore">npmignore</a></code> | <code>string[]</code> | Additional entries to .npmignore. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmignoreEnabled">npmignoreEnabled</a></code> | <code>boolean</code> | Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmIgnoreOptions">npmIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .npmignore file. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmProvenance">npmProvenance</a></code> | <code>boolean</code> | Should provenance statements be generated when the package is published. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmRegistry">npmRegistry</a></code> | <code>string</code> | The host name of the npm registry to publish to. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.peerDeps">peerDeps</a></code> | <code>string[]</code> | Peer dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.prettier">prettier</a></code> | <code>boolean</code> | Setup prettier. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.prettierOptions">prettierOptions</a></code> | <code>projen.javascript.PrettierOptions</code> | Prettier options. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | Which type of project this is (library/app). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenCredentials">projenCredentials</a></code> | <code>projen.github.GithubCredentials</code> | Choose a method of providing GitHub API access for projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenDevDependency">projenDevDependency</a></code> | <code>boolean</code> | Indicates of "projen" should be installed as a devDependency. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcJs">projenrcJs</a></code> | <code>boolean</code> | Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcJsOptions">projenrcJsOptions</a></code> | <code>projen.javascript.ProjenrcOptions</code> | Options for .projenrc.js. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenTokenSecret">projenTokenSecret</a></code> | <code>string</code> | The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenVersion">projenVersion</a></code> | <code>string</code> | Version of projen to install. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishDryRun">publishDryRun</a></code> | <code>boolean</code> | Instead of actually publishing to package managers, just print the publishing command. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishTasks">publishTasks</a></code> | <code>boolean</code> | Define publishing tasks that can be executed manually as well as workflows. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishToGo">publishToGo</a></code> | <code>projen.cdk.JsiiGoTarget</code> | Publish Go bindings to a git repository. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishToMaven">publishToMaven</a></code> | <code>projen.cdk.JsiiJavaTarget</code> | Publish to maven. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishToNuget">publishToNuget</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | Publish to NuGet. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishToPypi">publishToPypi</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | Publish to pypi. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.pullRequestTemplate">pullRequestTemplate</a></code> | <code>boolean</code> | Include a GitHub pull request template. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.pullRequestTemplateContents">pullRequestTemplateContents</a></code> | <code>string[]</code> | The contents of the pull request template. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.python">python</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.readme">readme</a></code> | <code>projen.SampleReadmeProps</code> | The README setup. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | Find commits that should be considered releasable Used to decide if a release is required. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.release">release</a></code> | <code>boolean</code> | Add release management to this project. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseBranches">releaseBranches</a></code> | <code>{[ key: string ]: projen.release.BranchOptions}</code> | Defines additional release branches. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseEveryCommit">releaseEveryCommit</a></code> | <code>boolean</code> | Automatically release new versions every commit to one of branches in `releaseBranches`. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseFailureIssue">releaseFailureIssue</a></code> | <code>boolean</code> | Create a github issue on every failed publishing task. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseFailureIssueLabel">releaseFailureIssueLabel</a></code> | <code>string</code> | The label to apply to issues indicating publish failures. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseSchedule">releaseSchedule</a></code> | <code>string</code> | CRON schedule to trigger new releases. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseTagPrefix">releaseTagPrefix</a></code> | <code>string</code> | Automatically add the given prefix to release tags. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Automatically release to npm when new versions are introduced. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseTrigger">releaseTrigger</a></code> | <code>projen.release.ReleaseTrigger</code> | The release trigger to use. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseWorkflow">releaseWorkflow</a></code> | <code>boolean</code> | DEPRECATED: renamed to `release`. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseWorkflowName">releaseWorkflowName</a></code> | <code>string</code> | The name of the default release workflow. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.staleOptions">staleOptions</a></code> | <code>projen.github.StaleOptions</code> | Auto-close stale issues and pull requests. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom TSConfig. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfigOptions</code> | Custom tsconfig options for the development tsconfig.json file (used for testing). |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with commit-and-tag-version package. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
+| <code><a href="#cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
+
+---
+
+##### `author`<sup>Required</sup> <a name="author" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.author"></a>
+
+```typescript
+public readonly author: string;
+```
+
+- *Type:* string
+- *Default:* $GIT_USER_NAME
+
+The name of the library author.
+
+---
+
+##### `authorAddress`<sup>Required</sup> <a name="authorAddress" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorAddress"></a>
+
+```typescript
+public readonly authorAddress: string;
+```
+
+- *Type:* string
+- *Default:* $GIT_USER_EMAIL
+
+Email or URL of the library author.
+
+---
+
+##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkVersion"></a>
+
+```typescript
+public readonly cdkVersion: string;
+```
+
+- *Type:* string
+- *Default:* "2.1.0"
+
+Minimum version of the AWS CDK to depend on.
+
+---
+
+##### `defaultReleaseBranch`<sup>Required</sup> <a name="defaultReleaseBranch" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.defaultReleaseBranch"></a>
+
+```typescript
+public readonly defaultReleaseBranch: string;
+```
+
+- *Type:* string
+- *Default:* "main"
+
+The name of the main release branch.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+- *Default:* $BASEDIR
+
+This is the name of your project.
+
+---
+
+##### `repositoryUrl`<sup>Required</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.repositoryUrl"></a>
+
+```typescript
+public readonly repositoryUrl: string;
+```
+
+- *Type:* string
+- *Default:* $GIT_REMOTE
+
+Git repository URL.
+
+---
+
+##### `allowLibraryDependencies`<sup>Optional</sup> <a name="allowLibraryDependencies" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.allowLibraryDependencies"></a>
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Allow the project to include `peerDependencies` and `bundledDependencies`.
+
+This is normally only allowed for libraries. For apps, there's no meaning
+for specifying these.
+
+---
+
+##### `artifactsDirectory`<sup>Optional</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "dist"
+
+A directory which will contain build artifacts.
+
+---
+
+##### `authorEmail`<sup>Optional</sup> <a name="authorEmail" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorEmail"></a>
+
+```typescript
+public readonly authorEmail: string;
+```
+
+- *Type:* string
+
+Author's e-mail.
+
+---
+
+##### `authorName`<sup>Optional</sup> <a name="authorName" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorName"></a>
+
+```typescript
+public readonly authorName: string;
+```
+
+- *Type:* string
+
+Author's name.
+
+---
+
+##### `authorOrganization`<sup>Optional</sup> <a name="authorOrganization" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorOrganization"></a>
+
+```typescript
+public readonly authorOrganization: boolean;
+```
+
+- *Type:* boolean
+
+Is the author an organization.
+
+---
+
+##### `authorUrl`<sup>Optional</sup> <a name="authorUrl" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.authorUrl"></a>
+
+```typescript
+public readonly authorUrl: string;
+```
+
+- *Type:* string
+
+Author's URL / Website.
+
+---
+
+##### `autoApproveOptions`<sup>Optional</sup> <a name="autoApproveOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoApproveOptions"></a>
+
+```typescript
+public readonly autoApproveOptions: AutoApproveOptions;
+```
+
+- *Type:* projen.github.AutoApproveOptions
+- *Default:* auto approve is disabled
+
+Enable and configure the 'auto approve' workflow.
+
+---
+
+##### `autoApproveUpgrades`<sup>Optional</sup> <a name="autoApproveUpgrades" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoApproveUpgrades"></a>
+
+```typescript
+public readonly autoApproveUpgrades: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically approve deps upgrade PRs, allowing them to be merged by mergify (if configued).
+
+Throw if set to true but `autoApproveOptions` are not defined.
+
+---
+
+##### `autoDetectBin`<sup>Optional</sup> <a name="autoDetectBin" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoDetectBin"></a>
+
+```typescript
+public readonly autoDetectBin: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically add all executables under the `bin` directory to your `package.json` file under the `bin` section.
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable automatic merging on GitHub.
+
+Has no effect if `github.mergify`
+is set to false.
+
+---
+
+##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.autoMergeOptions"></a>
+
+```typescript
+public readonly autoMergeOptions: AutoMergeOptions;
+```
+
+- *Type:* projen.github.AutoMergeOptions
+- *Default:* see defaults in `AutoMergeOptions`
+
+Configure options for automatic merging on GitHub.
+
+Has no effect if
+`github.mergify` or `autoMerge` is set to false.
+
+---
+
+##### `bin`<sup>Optional</sup> <a name="bin" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bin"></a>
+
+```typescript
+public readonly bin: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Binary programs vended with your module.
+
+You can use this option to add/customize how binaries are represented in
+your `package.json`, but unless `autoDetectBin` is `false`, every
+executable file under `bin` will automatically be added to this section.
+
+---
+
+##### `bugsEmail`<sup>Optional</sup> <a name="bugsEmail" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bugsEmail"></a>
+
+```typescript
+public readonly bugsEmail: string;
+```
+
+- *Type:* string
+
+The email address to which issues should be reported.
+
+---
+
+##### `bugsUrl`<sup>Optional</sup> <a name="bugsUrl" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bugsUrl"></a>
+
+```typescript
+public readonly bugsUrl: string;
+```
+
+- *Type:* string
+
+The url to your project's issue tracker.
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+Define a GitHub workflow for building PRs.
+
+---
+
+##### `buildWorkflowOptions`<sup>Optional</sup> <a name="buildWorkflowOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.buildWorkflowOptions"></a>
+
+```typescript
+public readonly buildWorkflowOptions: BuildWorkflowOptions;
+```
+
+- *Type:* projen.javascript.BuildWorkflowOptions
+
+Options for PR build workflow.
+
+---
+
+##### ~~`buildWorkflowTriggers`~~<sup>Optional</sup> <a name="buildWorkflowTriggers" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.buildWorkflowTriggers"></a>
+
+- *Deprecated:* - Use `buildWorkflowOptions.workflowTriggers`
+
+```typescript
+public readonly buildWorkflowTriggers: Triggers;
+```
+
+- *Type:* projen.github.workflows.Triggers
+- *Default:* "{ pullRequest: {}, workflowDispatch: {} }"
+
+Build workflow triggers.
+
+---
+
+##### `bundledDeps`<sup>Optional</sup> <a name="bundledDeps" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bundledDeps"></a>
+
+```typescript
+public readonly bundledDeps: string[];
+```
+
+- *Type:* string[]
+
+List of dependencies to bundle into this module.
+
+These modules will be
+added both to the `dependencies` section and `bundledDependencies` section of
+your `package.json`.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `bundlerOptions`<sup>Optional</sup> <a name="bundlerOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.bundlerOptions"></a>
+
+```typescript
+public readonly bundlerOptions: BundlerOptions;
+```
+
+- *Type:* projen.javascript.BundlerOptions
+
+Options for `Bundler`.
+
+---
+
+##### `catalog`<sup>Optional</sup> <a name="catalog" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.catalog"></a>
+
+```typescript
+public readonly catalog: Catalog;
+```
+
+- *Type:* projen.cdk.Catalog
+- *Default:* new version will be announced
+
+Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:.
+
+https://awscdk.io/packages/[@SCOPE/]PACKAGE@VERSION
+
+The catalog will also post a tweet to https://twitter.com/awscdkio with the
+package name, description and the above link. You can disable these tweets
+through `{ announce: false }`.
+
+You can also add a Twitter handle through `{ twitter: 'xx' }` which will be
+mentioned in the tweet.
+
+---
+
+##### ~~`cdkAssert`~~<sup>Optional</sup> <a name="cdkAssert" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkAssert"></a>
+
+- *Deprecated:* The
+
+```typescript
+public readonly cdkAssert: boolean;
+```
+
+- *Type:* boolean
+- *Default:* will be included by default for AWS CDK >= 1.0.0 < 2.0.0
+
+Warning: NodeJS only.
+
+Install the
+
+---
+
+##### `cdkAssertions`<sup>Optional</sup> <a name="cdkAssertions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkAssertions"></a>
+
+```typescript
+public readonly cdkAssertions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* will be included by default for AWS CDK >= 1.111.0 < 2.0.0
+
+Install the assertions library?
+
+Only needed for CDK 1.x. If using CDK 2.x then
+assertions is already included in 'aws-cdk-lib'
+
+---
+
+##### ~~`cdkDependencies`~~<sup>Optional</sup> <a name="cdkDependencies" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkDependencies"></a>
+
+- *Deprecated:* For CDK 2.x use "deps" instead. (or "peerDeps" if you're building a library)
+
+```typescript
+public readonly cdkDependencies: string[];
+```
+
+- *Type:* string[]
+
+Which AWS CDKv1 modules this project requires.
+
+---
+
+##### ~~`cdkDependenciesAsDeps`~~<sup>Optional</sup> <a name="cdkDependenciesAsDeps" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkDependenciesAsDeps"></a>
+
+- *Deprecated:* Not supported in CDK v2.
+
+```typescript
+public readonly cdkDependenciesAsDeps: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`).
+
+This is to ensure that downstream consumers actually have your CDK dependencies installed
+when using npm < 7 or yarn, where peer dependencies are not automatically installed.
+If this is disabled, `cdkDependencies` will be added to `devDependencies` to ensure
+they are present during development.
+
+Note: this setting only applies to construct library projects
+
+---
+
+##### ~~`cdkTestDependencies`~~<sup>Optional</sup> <a name="cdkTestDependencies" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkTestDependencies"></a>
+
+- *Deprecated:* For CDK 2.x use 'devDeps' (in node.js projects) or 'testDeps' (in java projects) instead
+
+```typescript
+public readonly cdkTestDependencies: string[];
+```
+
+- *Type:* string[]
+
+AWS CDK modules required for testing.
+
+---
+
+##### `cdkVersionPinning`<sup>Optional</sup> <a name="cdkVersionPinning" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.cdkVersionPinning"></a>
+
+```typescript
+public readonly cdkVersionPinning: boolean;
+```
+
+- *Type:* boolean
+
+Use pinned version instead of caret version for CDK.
+
+You can use this to prevent mixed versions for your CDK dependencies and to prevent auto-updates.
+If you use experimental features this will let you define the moment you include breaking changes.
+
+---
+
+##### `checkLicenses`<sup>Optional</sup> <a name="checkLicenses" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.checkLicenses"></a>
+
+```typescript
+public readonly checkLicenses: LicenseCheckerOptions;
+```
+
+- *Type:* projen.javascript.LicenseCheckerOptions
+- *Default:* no license checks are run during the build and all licenses will be accepted
+
+Configure which licenses should be deemed acceptable for use by dependencies.
+
+This setting will cause the build to fail, if any prohibited or not allowed licenses ares encountered.
+
+---
+
+##### `clobber`<sup>Optional</sup> <a name="clobber" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.clobber"></a>
+
+```typescript
+public readonly clobber: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true, but false for subprojects
+
+Add a `clobber` task which resets the repo to origin.
+
+---
+
+##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.codeArtifactOptions"></a>
+
+```typescript
+public readonly codeArtifactOptions: CodeArtifactOptions;
+```
+
+- *Type:* projen.javascript.CodeArtifactOptions
+- *Default:* undefined
+
+Options for npm packages using AWS CodeArtifact.
+
+This is required if publishing packages to, or installing scoped packages from AWS CodeArtifact
+
+---
+
+##### `codeCov`<sup>Optional</sup> <a name="codeCov" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.codeCov"></a>
+
+```typescript
+public readonly codeCov: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`.
+
+---
+
+##### `codeCovTokenSecret`<sup>Optional</sup> <a name="codeCovTokenSecret" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.codeCovTokenSecret"></a>
+
+```typescript
+public readonly codeCovTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* if this option is not specified, only public repositories are supported
+
+Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
+
+---
+
+##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compat`<sup>Optional</sup> <a name="compat" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.compat"></a>
+
+```typescript
+public readonly compat: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically run API compatibility test against the latest version published to npm after compilation.
+
+You can manually run compatibility tests using `yarn compat` if this feature is disabled.
+- You can ignore compatibility failures by adding lines to a ".compatignore" file.
+
+---
+
+##### `compatIgnore`<sup>Optional</sup> <a name="compatIgnore" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.compatIgnore"></a>
+
+```typescript
+public readonly compatIgnore: string;
+```
+
+- *Type:* string
+- *Default:* ".compatignore"
+
+Name of the ignore file for API compatibility tests.
+
+---
+
+##### `compressAssembly`<sup>Optional</sup> <a name="compressAssembly" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.compressAssembly"></a>
+
+```typescript
+public readonly compressAssembly: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Emit a compressed version of the assembly.
+
+---
+
+##### `constructsVersion`<sup>Optional</sup> <a name="constructsVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.constructsVersion"></a>
+
+```typescript
+public readonly constructsVersion: string;
+```
+
+- *Type:* string
+- *Default:* for CDK 1.x the default is "3.2.27", for CDK 2.x the default is "10.0.5".
+
+Minimum version of the `constructs` library to depend on.
+
+---
+
+##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.copyrightOwner"></a>
+
+```typescript
+public readonly copyrightOwner: string;
+```
+
+- *Type:* string
+- *Default:* defaults to the value of authorName or "" if `authorName` is undefined.
+
+License copyright owner.
+
+---
+
+##### `copyrightPeriod`<sup>Optional</sup> <a name="copyrightPeriod" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.copyrightPeriod"></a>
+
+```typescript
+public readonly copyrightPeriod: string;
+```
+
+- *Type:* string
+- *Default:* current year
+
+The copyright years to put in the LICENSE file.
+
+---
+
+##### `dependabot`<sup>Optional</sup> <a name="dependabot" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.dependabot"></a>
+
+```typescript
+public readonly dependabot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use dependabot to handle dependency upgrades.
+
+Cannot be used in conjunction with `depsUpgrade`.
+
+---
+
+##### `dependabotOptions`<sup>Optional</sup> <a name="dependabotOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.dependabotOptions"></a>
+
+```typescript
+public readonly dependabotOptions: DependabotOptions;
+```
+
+- *Type:* projen.github.DependabotOptions
+- *Default:* default options
+
+Options for dependabot.
+
+---
+
+##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.deps"></a>
+
+```typescript
+public readonly deps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Runtime dependencies of this module.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.depsUpgrade"></a>
+
+```typescript
+public readonly depsUpgrade: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Use tasks and github workflows to handle dependency upgrades.
+
+Cannot be used in conjunction with `dependabot`.
+
+---
+
+##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.depsUpgradeOptions"></a>
+
+```typescript
+public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
+```
+
+- *Type:* projen.javascript.UpgradeDependenciesOptions
+- *Default:* default options
+
+Options for `UpgradeDependencies`.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+
+The description is just a string that helps people understand the purpose of the package.
+
+It can be used when searching for packages in a package manager as well.
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a VSCode development environment (used for GitHub Codespaces).
+
+---
+
+##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.devDeps"></a>
+
+```typescript
+public readonly devDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Build dependencies for this module.
+
+These dependencies will only be
+available in your build environment but will not be fetched when this
+module is consumed.
+
+The recommendation is to only specify the module name here (e.g.
+`express`). This will behave similar to `yarn add` or `npm install` in the
+sense that it will add the module as a dependency to your `package.json`
+file with the latest version (`^`). You can specify semver requirements in
+the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
+this will be what you `package.json` will eventually include.
+
+---
+
+##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.disableTsconfig"></a>
+
+```typescript
+public readonly disableTsconfig: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler).
+
+---
+
+##### `disableTsconfigDev`<sup>Optional</sup> <a name="disableTsconfigDev" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.disableTsconfigDev"></a>
+
+```typescript
+public readonly disableTsconfigDev: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not generate a `tsconfig.dev.json` file.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Docgen by Typedoc.
+
+---
+
+##### `docgenFilePath`<sup>Optional</sup> <a name="docgenFilePath" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.docgenFilePath"></a>
+
+```typescript
+public readonly docgenFilePath: string;
+```
+
+- *Type:* string
+- *Default:* "API.md"
+
+File path for generated docs.
+
+---
+
+##### `docsDirectory`<sup>Optional</sup> <a name="docsDirectory" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "docs"
+
+Docs directory.
+
+---
+
+##### ~~`dotnet`~~<sup>Optional</sup> <a name="dotnet" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.dotnet"></a>
+
+- *Deprecated:* use `publishToNuget`
+
+```typescript
+public readonly dotnet: JsiiDotNetTarget;
+```
+
+- *Type:* projen.cdk.JsiiDotNetTarget
+
+---
+
+##### `edgeLambdaAutoDiscover`<sup>Optional</sup> <a name="edgeLambdaAutoDiscover" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.edgeLambdaAutoDiscover"></a>
+
+```typescript
+public readonly edgeLambdaAutoDiscover: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project.
+
+---
+
+##### `entrypoint`<sup>Optional</sup> <a name="entrypoint" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.entrypoint"></a>
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+- *Default:* "lib/index.js"
+
+Module entrypoint (`main` in `package.json`). Set to an empty string to not include `main` in your package.json.
+
+---
+
+##### `entrypointTypes`<sup>Optional</sup> <a name="entrypointTypes" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.entrypointTypes"></a>
+
+```typescript
+public readonly entrypointTypes: string;
+```
+
+- *Type:* string
+- *Default:* .d.ts file derived from the project's entrypoint (usually lib/index.d.ts)
+
+The .d.ts file that includes the type declarations for this module.
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.eslint"></a>
+
+```typescript
+public readonly eslint: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Setup eslint.
+
+---
+
+##### `eslintOptions`<sup>Optional</sup> <a name="eslintOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.eslintOptions"></a>
+
+```typescript
+public readonly eslintOptions: EslintOptions;
+```
+
+- *Type:* projen.javascript.EslintOptions
+- *Default:* opinionated default options
+
+Eslint options.
+
+---
+
+##### `excludeTypescript`<sup>Optional</sup> <a name="excludeTypescript" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.excludeTypescript"></a>
+
+```typescript
+public readonly excludeTypescript: string[];
+```
+
+- *Type:* string[]
+
+Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input.
+
+By default, jsii will include all *.ts files (except .d.ts files) in the TypeScript compiler input.
+This can be problematic for example when the package's build or test procedure generates .ts files
+that cannot be compiled with jsii's compiler settings.
+
+---
+
+##### `experimentalIntegRunner`<sup>Optional</sup> <a name="experimentalIntegRunner" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.experimentalIntegRunner"></a>
+
+```typescript
+public readonly experimentalIntegRunner: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable experimental support for the AWS CDK integ-runner.
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.github"></a>
+
+```typescript
+public readonly github: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `githubOptions`<sup>Optional</sup> <a name="githubOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.githubOptions"></a>
+
+```typescript
+public readonly githubOptions: GitHubOptions;
+```
+
+- *Type:* projen.github.GitHubOptions
+- *Default:* see GitHubOptions
+
+Options for GitHub integration.
+
+---
+
+##### `gitignore`<sup>Optional</sup> <a name="gitignore" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .gitignore.
+
+---
+
+##### `gitIgnoreOptions`<sup>Optional</sup> <a name="gitIgnoreOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.gitIgnoreOptions"></a>
+
+```typescript
+public readonly gitIgnoreOptions: IgnoreFileOptions;
+```
+
+- *Type:* projen.IgnoreFileOptions
+
+Configuration options for .gitignore file.
+
+---
+
+##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.gitOptions"></a>
+
+```typescript
+public readonly gitOptions: GitOptions;
+```
+
+- *Type:* projen.GitOptions
+
+Configuration options for git.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Add a Gitpod development environment.
+
+---
+
+##### `homepage`<sup>Optional</sup> <a name="homepage" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.homepage"></a>
+
+```typescript
+public readonly homepage: string;
+```
+
+- *Type:* string
+
+Package's Homepage / Website.
+
+---
+
+##### `integrationTestAutoDiscover`<sup>Optional</sup> <a name="integrationTestAutoDiscover" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.integrationTestAutoDiscover"></a>
+
+```typescript
+public readonly integrationTestAutoDiscover: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically discovers and creates integration tests for each `.integ.ts` file under your test directory.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.jest"></a>
+
+```typescript
+public readonly jest: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Setup jest unit tests.
+
+---
+
+##### `jestOptions`<sup>Optional</sup> <a name="jestOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.jestOptions"></a>
+
+```typescript
+public readonly jestOptions: JestOptions;
+```
+
+- *Type:* projen.javascript.JestOptions
+- *Default:* default options
+
+Jest options.
+
+---
+
+##### `jsiiReleaseVersion`<sup>Optional</sup> <a name="jsiiReleaseVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.jsiiReleaseVersion"></a>
+
+```typescript
+public readonly jsiiReleaseVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+Version requirement of `publib` which is used to publish modules to npm.
+
+---
+
+##### `jsiiVersion`<sup>Optional</sup> <a name="jsiiVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.jsiiVersion"></a>
+
+```typescript
+public readonly jsiiVersion: string;
+```
+
+- *Type:* string
+- *Default:* "1.x"
+
+Version of the jsii compiler to use.
+
+Set to "*" if you want to manually manage the version of jsii in your
+project by managing updates to `package.json` on your own.
+
+NOTE: The jsii compiler releases since 5.0.0 are not semantically versioned
+and should remain on the same minor, so we recommend using a `~` dependency
+(e.g. `~5.0.0`).
+
+---
+
+##### `keywords`<sup>Optional</sup> <a name="keywords" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.keywords"></a>
+
+```typescript
+public readonly keywords: string[];
+```
+
+- *Type:* string[]
+
+Keywords to include in `package.json`.
+
+---
+
+##### `lambdaAutoDiscover`<sup>Optional</sup> <a name="lambdaAutoDiscover" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.lambdaAutoDiscover"></a>
+
+```typescript
+public readonly lambdaAutoDiscover: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically adds an `aws_lambda.Function` for each `.lambda.ts` handler in your source tree. If this is disabled, you either need to explicitly call `aws_lambda.Function.autoDiscover()` or define a `new aws_lambda.Function()` for each handler.
+
+---
+
+##### `lambdaExtensionAutoDiscover`<sup>Optional</sup> <a name="lambdaExtensionAutoDiscover" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.lambdaExtensionAutoDiscover"></a>
+
+```typescript
+public readonly lambdaExtensionAutoDiscover: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project.
+
+---
+
+##### `lambdaOptions`<sup>Optional</sup> <a name="lambdaOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.lambdaOptions"></a>
+
+```typescript
+public readonly lambdaOptions: LambdaFunctionCommonOptions;
+```
+
+- *Type:* projen.awscdk.LambdaFunctionCommonOptions
+- *Default:* default options
+
+Common options for all AWS Lambda functions.
+
+---
+
+##### `libdir`<sup>Optional</sup> <a name="libdir" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+- *Default:* "lib"
+
+Typescript  artifacts output directory.
+
+---
+
+##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.license"></a>
+
+```typescript
+public readonly license: string;
+```
+
+- *Type:* string
+- *Default:* "Apache-2.0"
+
+License's SPDX identifier.
+
+See https://github.com/projen/projen/tree/main/license-text for a list of supported licenses.
+Use the `licensed` option if you want to no license to be specified.
+
+---
+
+##### `licensed`<sup>Optional</sup> <a name="licensed" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.licensed"></a>
+
+```typescript
+public readonly licensed: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Indicates if a license should be added.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.logging"></a>
+
+```typescript
+public readonly logging: LoggerOptions;
+```
+
+- *Type:* projen.LoggerOptions
+- *Default:* {}
+
+Configure logging options such as verbosity.
+
+---
+
+##### `majorVersion`<sup>Optional</sup> <a name="majorVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.majorVersion"></a>
+
+```typescript
+public readonly majorVersion: number;
+```
+
+- *Type:* number
+- *Default:* Major version is not enforced.
+
+Major version to release from the default branch.
+
+If this is specified, we bump the latest version of this major version line.
+If not specified, we bump the global latest version.
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no max
+
+Minimum node.js version to require via `engines` (inclusive).
+
+---
+
+##### ~~`mergify`~~<sup>Optional</sup> <a name="mergify" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.mergify"></a>
+
+- *Deprecated:* use `githubOptions.mergify` instead
+
+```typescript
+public readonly mergify: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether mergify should be enabled on this repository or not.
+
+---
+
+##### ~~`mergifyOptions`~~<sup>Optional</sup> <a name="mergifyOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.mergifyOptions"></a>
+
+- *Deprecated:* use `githubOptions.mergifyOptions` instead
+
+```typescript
+public readonly mergifyOptions: MergifyOptions;
+```
+
+- *Type:* projen.github.MergifyOptions
+- *Default:* default options
+
+Options for mergify.
+
+---
+
+##### `minMajorVersion`<sup>Optional</sup> <a name="minMajorVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.minMajorVersion"></a>
+
+```typescript
+public readonly minMajorVersion: number;
+```
+
+- *Type:* number
+- *Default:* No minimum version is being enforced
+
+Minimal Major version to release.
+
+This can be useful to set to 1, as breaking changes before the 1.x major
+release are not incrementing the major version number.
+
+Can not be set together with `majorVersion`.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* no "engines" specified
+
+Minimum Node.js version to require via package.json `engines` (inclusive).
+
+Only set this if your package will not work properly on specific (older?)
+Node versions.
+
+---
+
+##### ~~`mutableBuild`~~<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.mutableBuild"></a>
+
+- *Deprecated:* - Use `buildWorkflowOptions.mutableBuild`
+
+```typescript
+public readonly mutableBuild: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically update files modified during builds to pull-request branches.
+
+This means
+that any files synthesized by projen or e.g. test snapshots will always be up-to-date
+before a PR is merged.
+
+Implies that PR builds do not have anti-tamper checks.
+
+---
+
+##### `npmAccess`<sup>Optional</sup> <a name="npmAccess" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmAccess"></a>
+
+```typescript
+public readonly npmAccess: NpmAccess;
+```
+
+- *Type:* projen.javascript.NpmAccess
+- *Default:* for scoped packages (e.g. `foo@bar`), the default is `NpmAccess.RESTRICTED`, for non-scoped packages, the default is `NpmAccess.PUBLIC`.
+
+Access level of the npm package.
+
+---
+
+##### `npmDistTag`<sup>Optional</sup> <a name="npmDistTag" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmDistTag"></a>
+
+```typescript
+public readonly npmDistTag: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The npmDistTag to use when publishing from the default branch.
+
+To set the npm dist-tag for release branches, set the `npmDistTag` property
+for each branch.
+
+---
+
+##### ~~`npmignore`~~<sup>Optional</sup> <a name="npmignore" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmignore"></a>
+
+- *Deprecated:* - use `project.addPackageIgnore`
+
+```typescript
+public readonly npmignore: string[];
+```
+
+- *Type:* string[]
+
+Additional entries to .npmignore.
+
+---
+
+##### `npmignoreEnabled`<sup>Optional</sup> <a name="npmignoreEnabled" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmignoreEnabled"></a>
+
+```typescript
+public readonly npmignoreEnabled: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines an .npmignore file. Normally this is only needed for libraries that are packaged as tarballs.
+
+---
+
+##### `npmIgnoreOptions`<sup>Optional</sup> <a name="npmIgnoreOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmIgnoreOptions"></a>
+
+```typescript
+public readonly npmIgnoreOptions: IgnoreFileOptions;
+```
+
+- *Type:* projen.IgnoreFileOptions
+
+Configuration options for .npmignore file.
+
+---
+
+##### `npmProvenance`<sup>Optional</sup> <a name="npmProvenance" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmProvenance"></a>
+
+```typescript
+public readonly npmProvenance: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true for public packages, false otherwise
+
+Should provenance statements be generated when the package is published.
+
+A supported package manager is required to publish a package with npm provenance statements and
+you will need to use a supported CI/CD provider.
+
+Note that the projen `Release` and `Publisher` components are using `publib` to publish packages,
+which is using npm internally and supports provenance statements independently of the package manager used.
+
+---
+
+##### ~~`npmRegistry`~~<sup>Optional</sup> <a name="npmRegistry" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmRegistry"></a>
+
+- *Deprecated:* use `npmRegistryUrl` instead
+
+```typescript
+public readonly npmRegistry: string;
+```
+
+- *Type:* string
+
+The host name of the npm registry to publish to.
+
+Cannot be set together with `npmRegistryUrl`.
+
+---
+
+##### `npmRegistryUrl`<sup>Optional</sup> <a name="npmRegistryUrl" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmRegistryUrl"></a>
+
+```typescript
+public readonly npmRegistryUrl: string;
+```
+
+- *Type:* string
+- *Default:* "https://registry.npmjs.org"
+
+The base URL of the npm package registry.
+
+Must be a URL (e.g. start with "https://" or "http://")
+
+---
+
+##### `npmTokenSecret`<sup>Optional</sup> <a name="npmTokenSecret" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.npmTokenSecret"></a>
+
+```typescript
+public readonly npmTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "NPM_TOKEN"
+
+GitHub secret which contains the NPM token to use when publishing packages.
+
+---
+
+##### `outdir`<sup>Optional</sup> <a name="outdir" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+The root directory of the project. Relative to this directory, all files are synthesized.
+
+If this project has a parent, this directory is relative to the parent
+directory and it cannot be the same as the parent or any of it's other
+subprojects.
+
+---
+
+##### `package`<sup>Optional</sup> <a name="package" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.package"></a>
+
+```typescript
+public readonly package: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`).
+
+---
+
+##### `packageManager`<sup>Optional</sup> <a name="packageManager" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.packageManager"></a>
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+- *Default:* NodePackageManager.YARN_CLASSIC
+
+The Node Package Manager used to execute scripts.
+
+---
+
+##### `packageName`<sup>Optional</sup> <a name="packageName" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.packageName"></a>
+
+```typescript
+public readonly packageName: string;
+```
+
+- *Type:* string
+- *Default:* defaults to project name
+
+The "name" in package.json.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+The parent project, if this project is part of a bigger project.
+
+---
+
+##### `peerDependencyOptions`<sup>Optional</sup> <a name="peerDependencyOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.peerDependencyOptions"></a>
+
+```typescript
+public readonly peerDependencyOptions: PeerDependencyOptions;
+```
+
+- *Type:* projen.javascript.PeerDependencyOptions
+
+Options for `peerDeps`.
+
+---
+
+##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.peerDeps"></a>
+
+```typescript
+public readonly peerDeps: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Peer dependencies for this module.
+
+Dependencies listed here are required to
+be installed (and satisfied) by the _consumer_ of this library. Using peer
+dependencies allows you to ensure that only a single module of a certain
+library exists in the `node_modules` tree of your consumers.
+
+Note that prior to npm@7, peer dependencies are _not_ automatically
+installed, which means that adding peer dependencies to a library will be a
+breaking change for your customers.
+
+Unless `peerDependencyOptions.pinnedDevDependency` is disabled (it is
+enabled by default), projen will automatically add a dev dependency with a
+pinned version for each peer dependency. This will ensure that you build &
+test your module against the lowest peer version required.
+
+---
+
+##### `pnpmVersion`<sup>Optional</sup> <a name="pnpmVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.pnpmVersion"></a>
+
+```typescript
+public readonly pnpmVersion: string;
+```
+
+- *Type:* string
+- *Default:* "7"
+
+The version of PNPM to use if using PNPM as a package manager.
+
+---
+
+##### `postBuildSteps`<sup>Optional</sup> <a name="postBuildSteps" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.postBuildSteps"></a>
+
+```typescript
+public readonly postBuildSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* []
+
+Steps to execute after build as part of the release workflow.
+
+---
+
+##### `prerelease`<sup>Optional</sup> <a name="prerelease" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.prerelease"></a>
+
+```typescript
+public readonly prerelease: string;
+```
+
+- *Type:* string
+- *Default:* normal semantic versions
+
+Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre").
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.prettier"></a>
+
+```typescript
+public readonly prettier: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Setup prettier.
+
+---
+
+##### `prettierOptions`<sup>Optional</sup> <a name="prettierOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.prettierOptions"></a>
+
+```typescript
+public readonly prettierOptions: PrettierOptions;
+```
+
+- *Type:* projen.javascript.PrettierOptions
+- *Default:* default options
+
+Prettier options.
+
+---
+
+##### ~~`projectType`~~<sup>Optional</sup> <a name="projectType" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projectType"></a>
+
+- *Deprecated:* no longer supported at the base project level
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+- *Default:* ProjectType.UNKNOWN
+
+Which type of project this is (library/app).
+
+---
+
+##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+- *Default:* "npx projen"
+
+The shell command to use in order to run the projen CLI.
+
+Can be used to customize in special environments.
+
+---
+
+##### `projenCredentials`<sup>Optional</sup> <a name="projenCredentials" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenCredentials"></a>
+
+```typescript
+public readonly projenCredentials: GithubCredentials;
+```
+
+- *Type:* projen.github.GithubCredentials
+- *Default:* use a personal access token named PROJEN_GITHUB_TOKEN
+
+Choose a method of providing GitHub API access for projen workflows.
+
+---
+
+##### `projenDevDependency`<sup>Optional</sup> <a name="projenDevDependency" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenDevDependency"></a>
+
+```typescript
+public readonly projenDevDependency: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+Indicates of "projen" should be installed as a devDependency.
+
+---
+
+##### `projenrcJs`<sup>Optional</sup> <a name="projenrcJs" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcJs"></a>
+
+```typescript
+public readonly projenrcJs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if projenrcJson is false
+
+Generate (once) .projenrc.js (in JavaScript). Set to `false` in order to disable .projenrc.js generation.
+
+---
+
+##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcJson"></a>
+
+```typescript
+public readonly projenrcJson: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
+
+---
+
+##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcJsonOptions"></a>
+
+```typescript
+public readonly projenrcJsonOptions: ProjenrcJsonOptions;
+```
+
+- *Type:* projen.ProjenrcJsonOptions
+- *Default:* default options
+
+Options for .projenrc.json.
+
+---
+
+##### `projenrcJsOptions`<sup>Optional</sup> <a name="projenrcJsOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcJsOptions"></a>
+
+```typescript
+public readonly projenrcJsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.javascript.ProjenrcOptions
+- *Default:* default options
+
+Options for .projenrc.js.
+
+---
+
+##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcTs"></a>
+
+```typescript
+public readonly projenrcTs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use TypeScript for your projenrc file (`.projenrc.ts`).
+
+---
+
+##### `projenrcTsOptions`<sup>Optional</sup> <a name="projenrcTsOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenrcTsOptions"></a>
+
+```typescript
+public readonly projenrcTsOptions: ProjenrcOptions;
+```
+
+- *Type:* projen.typescript.ProjenrcOptions
+
+Options for .projenrc.ts.
+
+---
+
+##### ~~`projenTokenSecret`~~<sup>Optional</sup> <a name="projenTokenSecret" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenTokenSecret"></a>
+
+- *Deprecated:* use `projenCredentials`
+
+```typescript
+public readonly projenTokenSecret: string;
+```
+
+- *Type:* string
+- *Default:* "PROJEN_GITHUB_TOKEN"
+
+The name of a secret which includes a GitHub Personal Access Token to be used by projen workflows.
+
+This token needs to have the `repo`, `workflows`
+and `packages` scope.
+
+---
+
+##### `projenVersion`<sup>Optional</sup> <a name="projenVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.projenVersion"></a>
+
+```typescript
+public readonly projenVersion: string;
+```
+
+- *Type:* string
+- *Default:* Defaults to the latest version.
+
+Version of projen to install.
+
+---
+
+##### `publishDryRun`<sup>Optional</sup> <a name="publishDryRun" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishDryRun"></a>
+
+```typescript
+public readonly publishDryRun: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Instead of actually publishing to package managers, just print the publishing command.
+
+---
+
+##### `publishTasks`<sup>Optional</sup> <a name="publishTasks" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishTasks"></a>
+
+```typescript
+public readonly publishTasks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Define publishing tasks that can be executed manually as well as workflows.
+
+Normally, publishing only happens within automated workflows. Enable this
+in order to create a publishing task for each publishing activity.
+
+---
+
+##### `publishToGo`<sup>Optional</sup> <a name="publishToGo" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishToGo"></a>
+
+```typescript
+public readonly publishToGo: JsiiGoTarget;
+```
+
+- *Type:* projen.cdk.JsiiGoTarget
+- *Default:* no publishing
+
+Publish Go bindings to a git repository.
+
+---
+
+##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishToMaven"></a>
+
+```typescript
+public readonly publishToMaven: JsiiJavaTarget;
+```
+
+- *Type:* projen.cdk.JsiiJavaTarget
+- *Default:* no publishing
+
+Publish to maven.
+
+---
+
+##### `publishToNuget`<sup>Optional</sup> <a name="publishToNuget" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishToNuget"></a>
+
+```typescript
+public readonly publishToNuget: JsiiDotNetTarget;
+```
+
+- *Type:* projen.cdk.JsiiDotNetTarget
+- *Default:* no publishing
+
+Publish to NuGet.
+
+---
+
+##### `publishToPypi`<sup>Optional</sup> <a name="publishToPypi" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.publishToPypi"></a>
+
+```typescript
+public readonly publishToPypi: JsiiPythonTarget;
+```
+
+- *Type:* projen.cdk.JsiiPythonTarget
+- *Default:* no publishing
+
+Publish to pypi.
+
+---
+
+##### `pullRequestTemplate`<sup>Optional</sup> <a name="pullRequestTemplate" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.pullRequestTemplate"></a>
+
+```typescript
+public readonly pullRequestTemplate: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Include a GitHub pull request template.
+
+---
+
+##### `pullRequestTemplateContents`<sup>Optional</sup> <a name="pullRequestTemplateContents" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.pullRequestTemplateContents"></a>
+
+```typescript
+public readonly pullRequestTemplateContents: string[];
+```
+
+- *Type:* string[]
+- *Default:* default content
+
+The contents of the pull request template.
+
+---
+
+##### ~~`python`~~<sup>Optional</sup> <a name="python" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.python"></a>
+
+- *Deprecated:* use `publishToPyPi`
+
+```typescript
+public readonly python: JsiiPythonTarget;
+```
+
+- *Type:* projen.cdk.JsiiPythonTarget
+
+---
+
+##### `readme`<sup>Optional</sup> <a name="readme" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.readme"></a>
+
+```typescript
+public readonly readme: SampleReadmeProps;
+```
+
+- *Type:* projen.SampleReadmeProps
+- *Default:* { filename: 'README.md', contents: '# replace this' }
+
+The README setup.
+
+---
+
+##### `releasableCommits`<sup>Optional</sup> <a name="releasableCommits" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releasableCommits"></a>
+
+```typescript
+public readonly releasableCommits: ReleasableCommits;
+```
+
+- *Type:* projen.ReleasableCommits
+- *Default:* ReleasableCommits.everyCommit()
+
+Find commits that should be considered releasable Used to decide if a release is required.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.release"></a>
+
+```typescript
+public readonly release: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true (false for subprojects)
+
+Add release management to this project.
+
+---
+
+##### `releaseBranches`<sup>Optional</sup> <a name="releaseBranches" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseBranches"></a>
+
+```typescript
+public readonly releaseBranches: {[ key: string ]: BranchOptions};
+```
+
+- *Type:* {[ key: string ]: projen.release.BranchOptions}
+- *Default:* no additional branches are used for release. you can use `addBranch()` to add additional branches.
+
+Defines additional release branches.
+
+A workflow will be created for each
+release branch which will publish releases from commits in this branch.
+Each release branch _must_ be assigned a major version number which is used
+to enforce that versions published from that branch always use that major
+version. If multiple branches are used, the `majorVersion` field must also
+be provided for the default branch.
+
+---
+
+##### ~~`releaseEveryCommit`~~<sup>Optional</sup> <a name="releaseEveryCommit" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseEveryCommit"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.continuous()` instead
+
+```typescript
+public readonly releaseEveryCommit: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically release new versions every commit to one of branches in `releaseBranches`.
+
+---
+
+##### `releaseFailureIssue`<sup>Optional</sup> <a name="releaseFailureIssue" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseFailureIssue"></a>
+
+```typescript
+public readonly releaseFailureIssue: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Create a github issue on every failed publishing task.
+
+---
+
+##### `releaseFailureIssueLabel`<sup>Optional</sup> <a name="releaseFailureIssueLabel" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseFailureIssueLabel"></a>
+
+```typescript
+public readonly releaseFailureIssueLabel: string;
+```
+
+- *Type:* string
+- *Default:* "failed-release"
+
+The label to apply to issues indicating publish failures.
+
+Only applies if `releaseFailureIssue` is true.
+
+---
+
+##### ~~`releaseSchedule`~~<sup>Optional</sup> <a name="releaseSchedule" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseSchedule"></a>
+
+- *Deprecated:* Use `releaseTrigger: ReleaseTrigger.scheduled()` instead
+
+```typescript
+public readonly releaseSchedule: string;
+```
+
+- *Type:* string
+- *Default:* no scheduled releases
+
+CRON schedule to trigger new releases.
+
+---
+
+##### `releaseTagPrefix`<sup>Optional</sup> <a name="releaseTagPrefix" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseTagPrefix"></a>
+
+```typescript
+public readonly releaseTagPrefix: string;
+```
+
+- *Type:* string
+- *Default:* "v"
+
+Automatically add the given prefix to release tags.
+
+Useful if you are releasing on multiple branches with overlapping version numbers.
+Note: this prefix is used to detect the latest tagged version
+when bumping, so if you change this on a project with an existing version
+history, you may need to manually tag your latest release
+with the new prefix.
+
+---
+
+##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseToNpm"></a>
+
+```typescript
+public readonly releaseToNpm: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically release to npm when new versions are introduced.
+
+---
+
+##### `releaseTrigger`<sup>Optional</sup> <a name="releaseTrigger" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseTrigger"></a>
+
+```typescript
+public readonly releaseTrigger: ReleaseTrigger;
+```
+
+- *Type:* projen.release.ReleaseTrigger
+- *Default:* Continuous releases (`ReleaseTrigger.continuous()`)
+
+The release trigger to use.
+
+---
+
+##### ~~`releaseWorkflow`~~<sup>Optional</sup> <a name="releaseWorkflow" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseWorkflow"></a>
+
+- *Deprecated:* see `release`.
+
+```typescript
+public readonly releaseWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true if not a subproject
+
+DEPRECATED: renamed to `release`.
+
+---
+
+##### `releaseWorkflowName`<sup>Optional</sup> <a name="releaseWorkflowName" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseWorkflowName"></a>
+
+```typescript
+public readonly releaseWorkflowName: string;
+```
+
+- *Type:* string
+- *Default:* "release"
+
+The name of the default release workflow.
+
+---
+
+##### `releaseWorkflowSetupSteps`<sup>Optional</sup> <a name="releaseWorkflowSetupSteps" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.releaseWorkflowSetupSteps"></a>
+
+```typescript
+public readonly releaseWorkflowSetupSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+
+A set of workflow steps to execute in order to setup the workflow container.
+
+---
+
+##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.renovatebot"></a>
+
+```typescript
+public readonly renovatebot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use renovatebot to handle dependency upgrades.
+
+---
+
+##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.renovatebotOptions"></a>
+
+```typescript
+public readonly renovatebotOptions: RenovatebotOptions;
+```
+
+- *Type:* projen.RenovatebotOptions
+- *Default:* default options
+
+Options for renovatebot.
+
+---
+
+##### `repository`<sup>Optional</sup> <a name="repository" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.repository"></a>
+
+```typescript
+public readonly repository: string;
+```
+
+- *Type:* string
+
+The repository is the location where the actual code for your package lives.
+
+See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+
+---
+
+##### `repositoryDirectory`<sup>Optional</sup> <a name="repositoryDirectory" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.repositoryDirectory"></a>
+
+```typescript
+public readonly repositoryDirectory: string;
+```
+
+- *Type:* string
+
+If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives.
+
+---
+
+##### `rootdir`<sup>Optional</sup> <a name="rootdir" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.rootdir"></a>
+
+```typescript
+public readonly rootdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+---
+
+##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.sampleCode"></a>
+
+```typescript
+public readonly sampleCode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Generate one-time sample in `src/` and `test/` if there are no files there.
+
+---
+
+##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.scopedPackagesOptions"></a>
+
+```typescript
+public readonly scopedPackagesOptions: ScopedPackagesOptions[];
+```
+
+- *Type:* projen.javascript.ScopedPackagesOptions[]
+- *Default:* fetch all scoped packages from the public npm registry
+
+Options for privately hosted scoped packages.
+
+---
+
+##### ~~`scripts`~~<sup>Optional</sup> <a name="scripts" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.scripts"></a>
+
+- *Deprecated:* use `project.addTask()` or `package.setScript()`
+
+```typescript
+public readonly scripts: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* {}
+
+npm scripts to include.
+
+If a script has the same name as a standard script,
+the standard script will be overwritten.
+Also adds the script as a task.
+
+---
+
+##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+- *Default:* "src"
+
+Typescript sources directory.
+
+---
+
+##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.stability"></a>
+
+```typescript
+public readonly stability: string;
+```
+
+- *Type:* string
+
+Package's Stability.
+
+---
+
+##### `stale`<sup>Optional</sup> <a name="stale" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.stale"></a>
+
+```typescript
+public readonly stale: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Auto-close of stale issues and pull request.
+
+See `staleOptions` for options.
+
+---
+
+##### `staleOptions`<sup>Optional</sup> <a name="staleOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.staleOptions"></a>
+
+```typescript
+public readonly staleOptions: StaleOptions;
+```
+
+- *Type:* projen.github.StaleOptions
+- *Default:* see defaults in `StaleOptions`
+
+Auto-close stale issues and pull requests.
+
+To disable set `stale` to `false`.
+
+---
+
+##### `testdir`<sup>Optional</sup> <a name="testdir" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+- *Default:* "test"
+
+Jest tests directory.
+
+Tests files should be named `xxx.test.ts`.
+If this directory is under `srcdir` (e.g. `src/test`, `src/__tests__`),
+then tests are going to be compiled into `lib/` and executed as javascript.
+If the test directory is outside of `src`, then we configure jest to
+compile the code in-memory.
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* default options
+
+Custom TSConfig.
+
+---
+
+##### `tsconfigDev`<sup>Optional</sup> <a name="tsconfigDev" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfigOptions;
+```
+
+- *Type:* projen.javascript.TypescriptConfigOptions
+- *Default:* use the production tsconfig options
+
+Custom tsconfig options for the development tsconfig.json file (used for testing).
+
+---
+
+##### `tsconfigDevFile`<sup>Optional</sup> <a name="tsconfigDevFile" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.tsconfigDevFile"></a>
+
+```typescript
+public readonly tsconfigDevFile: string;
+```
+
+- *Type:* string
+- *Default:* "tsconfig.dev.json"
+
+The name of the development tsconfig.json file.
+
+---
+
+##### `tsJestOptions`<sup>Optional</sup> <a name="tsJestOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.tsJestOptions"></a>
+
+```typescript
+public readonly tsJestOptions: TsJestOptions;
+```
+
+- *Type:* projen.typescript.TsJestOptions
+
+Options for ts-jest.
+
+---
+
+##### `typescriptVersion`<sup>Optional</sup> <a name="typescriptVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.typescriptVersion"></a>
+
+```typescript
+public readonly typescriptVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+TypeScript version to use.
+
+NOTE: Typescript is not semantically versioned and should remain on the
+same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
+
+---
+
+##### `versionrcOptions`<sup>Optional</sup> <a name="versionrcOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.versionrcOptions"></a>
+
+```typescript
+public readonly versionrcOptions: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+- *Default:* standard configuration applicable for GitHub repositories
+
+Custom configuration used when creating changelog with commit-and-tag-version package.
+
+Given values either append to default configuration or overwrite values in it.
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.vscode"></a>
+
+```typescript
+public readonly vscode: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable VSCode integration.
+
+Enabled by default for root projects. Disabled for non-root projects.
+
+---
+
+##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowBootstrapSteps"></a>
+
+```typescript
+public readonly workflowBootstrapSteps: JobStep[];
+```
+
+- *Type:* projen.github.workflows.JobStep[]
+- *Default:* "yarn install --frozen-lockfile && yarn projen"
+
+Workflow steps to use in order to bootstrap this repo.
+
+---
+
+##### `workflowContainerImage`<sup>Optional</sup> <a name="workflowContainerImage" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowContainerImage"></a>
+
+```typescript
+public readonly workflowContainerImage: string;
+```
+
+- *Type:* string
+- *Default:* default image
+
+Container image to use for GitHub workflows.
+
+---
+
+##### `workflowGitIdentity`<sup>Optional</sup> <a name="workflowGitIdentity" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowGitIdentity"></a>
+
+```typescript
+public readonly workflowGitIdentity: GitIdentity;
+```
+
+- *Type:* projen.github.GitIdentity
+- *Default:* GitHub Actions
+
+The git identity to use in workflows.
+
+---
+
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowNodeVersion"></a>
+
+```typescript
+public readonly workflowNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* 'lts/*'
+
+The node version to use in GitHub workflows.
+
+---
+
+##### `workflowPackageCache`<sup>Optional</sup> <a name="workflowPackageCache" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowPackageCache"></a>
+
+```typescript
+public readonly workflowPackageCache: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Enable Node.js package cache in GitHub workflows.
+
+---
+
+##### `workflowRunsOn`<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowRunsOn"></a>
+
+```typescript
+public readonly workflowRunsOn: string[];
+```
+
+- *Type:* string[]
+- *Default:* ["ubuntu-latest"]
+
+Github Runner selection labels.
+
+---
+
+##### `workflowRunsOnGroup`<sup>Optional</sup> <a name="workflowRunsOnGroup" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.workflowRunsOnGroup"></a>
+
+```typescript
+public readonly workflowRunsOnGroup: GroupRunnerOptions;
+```
+
+- *Type:* projen.GroupRunnerOptions
+
+Github Runner Group selection options.
+
+---
+
+##### `yarnBerryOptions`<sup>Optional</sup> <a name="yarnBerryOptions" id="cdklabs-projen-project-types.ModifiedProjenCdkConstructLibraryOptions.property.yarnBerryOptions"></a>
+
+```typescript
+public readonly yarnBerryOptions: YarnBerryOptions;
+```
+
+- *Type:* projen.javascript.YarnBerryOptions
+- *Default:* Yarn Berry v4 with all default options
+
+Options for Yarn Berry.
+
+---
+
 ### MonorepoOptions <a name="MonorepoOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions"></a>
 
 MonorepoOptions.
@@ -33757,6 +36388,9 @@ public readonly minNodeVersion: string;
 - *Default:* no "engines" specified
 
 Minimum Node.js version to require via package.json `engines` (inclusive).
+
+Only set this if your package will not work properly on specific (older?)
+Node versions.
 
 ---
 
@@ -34831,7 +37465,7 @@ public readonly workflowNodeVersion: string;
 ```
 
 - *Type:* string
-- *Default:* same as `minNodeVersion`
+- *Default:* 'lts/*'
 
 The node version to use in GitHub workflows.
 
@@ -36260,6 +38894,9 @@ public readonly minNodeVersion: string;
 
 Minimum Node.js version to require via package.json `engines` (inclusive).
 
+Only set this if your package will not work properly on specific (older?)
+Node versions.
+
 ---
 
 ##### ~~`mutableBuild`~~<sup>Optional</sup> <a name="mutableBuild" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.mutableBuild"></a>
@@ -37280,7 +39917,7 @@ public readonly workflowNodeVersion: string;
 ```
 
 - *Type:* string
-- *Default:* same as `minNodeVersion`
+- *Default:* 'lts/*'
 
 The node version to use in GitHub workflows.
 

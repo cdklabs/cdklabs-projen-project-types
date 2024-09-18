@@ -1,7 +1,7 @@
 import { UpgradeDependenciesSchedule } from 'projen/lib/javascript';
+import { generateCdkConstructLibraryOptions } from './projenrc/cdk-constructlibrary-options';
 import { generateYarnMonorepoOptions } from './projenrc/yarn-monorepo-options';
 import { CdklabsJsiiProject } from './src';
-import { generateCdkConstructLibraryOptions } from './projenrc/cdk-constructlibrary-options';
 
 const project = new CdklabsJsiiProject({
   private: false,
