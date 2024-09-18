@@ -352,10 +352,6 @@ export interface MonorepoOptions {
   readonly minMajorVersion?: number;
   /**
    * Minimum Node.js version to require via package.json `engines` (inclusive).
-   *
-   * Only set this if your package will not work properly on specific (older?)
-   * Node versions.
-   *
    * @default - no "engines" specified
    */
   readonly minNodeVersion?: string;
@@ -803,8 +799,7 @@ export interface MonorepoOptions {
   readonly workflowGitIdentity?: github.GitIdentity;
   /**
    * The node version to use in GitHub workflows.
-   *
-   * @default - `lts/*`, the current LTS version
+   * @default - same as `minNodeVersion`
    */
   readonly workflowNodeVersion?: string;
   /**
