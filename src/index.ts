@@ -1,4 +1,5 @@
 export * from './cdk';
+export * from './cdk-options';
 export * from './common-options';
 export * from './jsii';
 export * from './cdklabs';

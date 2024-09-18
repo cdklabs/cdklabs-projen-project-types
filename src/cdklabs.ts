@@ -128,9 +128,7 @@ export interface CdklabsPublishingProjectOptions {
   readonly jsiiTargetLanguages?: JsiiLanguage[];
 }
 
-export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptions, CdklabsPublishingProjectOptions {
-
-}
+export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptions, CdklabsPublishingProjectOptions {}
 
 /**
  * Create a Cdklabs Construct Library Project
