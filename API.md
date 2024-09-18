@@ -37408,6 +37408,7 @@ public readonly workflowNodeVersion: string;
 ```
 
 - *Type:* string
+- *Default:* 'lts/*'
 
 ---
 
