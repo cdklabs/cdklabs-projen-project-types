@@ -24,6 +24,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       'devDeps',
       'excludeDepsFromUpgrade',
       'repository',
+      'workflowNodeVersion',
     );
 
     const useEslint = remainder.eslint ?? true;
@@ -33,6 +34,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     const workspaceDirectory =`${wsScope}/${options.name}`;
 
     const npmAccess = options.parent.monorepoRelease && !options.private ? javascript.NpmAccess.PUBLIC : undefined;
+
+    const workflowNodeVersion = options.workflowNodeVersion ?? 'lts/*';
 
     super({
       parent: options.parent,
@@ -78,6 +81,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       },
 
       npmAccess,
+      workflowNodeVersion,
 
       ...remainder,
     });

@@ -357,6 +357,10 @@ export interface TypeScriptWorkspaceOptions {
   readonly minMajorVersion?: number;
   /**
    * Minimum Node.js version to require via package.json `engines` (inclusive).
+   *
+   * Only set this if your package will not work properly on specific (older?)
+   * Node versions.
+   *
    * @default - no "engines" specified
    */
   readonly minNodeVersion?: string;
@@ -786,7 +790,8 @@ export interface TypeScriptWorkspaceOptions {
   readonly workflowGitIdentity?: github.GitIdentity;
   /**
    * The node version to use in GitHub workflows.
-   * @default - same as `minNodeVersion`
+   *
+   * @default - `lts/*`, the current LTS version
    */
   readonly workflowNodeVersion?: string;
   /**

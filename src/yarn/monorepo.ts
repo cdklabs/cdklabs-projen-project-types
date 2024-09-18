@@ -235,6 +235,7 @@ export class CdkLabsMonorepo extends Monorepo {
         ...options.githubOptions,
         mergify: false,
       },
+      workflowNodeVersion: options.workflowNodeVersion ?? 'lts/*',
     });
 
     new MergeQueue(this, {
