@@ -1,7 +1,7 @@
 import { Stability } from 'projen/lib/cdk';
 import { Testing } from 'projen/lib/testing';
 import { expectPrivate, expectNotPrivate } from './private-helpers';
-import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src/cdk';
+import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src';
 import { CdkJsiiProject, CdkJsiiProjectOptions } from '../src/jsii';
 
 describe('CdkConstructLibrary', () => {

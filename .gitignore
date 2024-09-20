@@ -51,8 +51,9 @@ tsconfig.json
 !/.github/workflows/auto-merge.yml
 !/.github/workflows/upgrade-main.yml
 !/.github/workflows/upgrade-dev-deps-main.yml
+!/src/cdk-common-options.ts
 !/src/yarn/monorepo-options.ts
 !/src/yarn/monorepo-release-options.ts
 !/src/yarn/typescript-workspace-options.ts
-!/src/cdk-options.ts
+!/src/cdk-construct-library-options.ts
 !/.projenrc.ts

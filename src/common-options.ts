@@ -1,6 +1,6 @@
 import { DependencyType, github, javascript, typescript } from 'projen';
 import { deepMerge } from 'projen/lib/util';
-import { AutoMergeOptions } from './auto-merge';
+import { CdkCommonOptions } from './cdk-common-options';
 import { MergeQueue } from './merge-queue';
 import { Private } from './private';
 import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
@@ -8,63 +8,6 @@ import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-proje
 export enum OrgTenancy {
   CDKLABS = 'cdklabs',
   AWS = 'aws',
-}
-
-export interface CdkCommonOptions {
-  /**
-   * Whether or not this package is private. Setting this variable
-   * to true means that your project is created with sane defaults
-   * for private repositories.
-   *
-   * @default true
-   */
-  readonly private?: boolean;
-
-  /**
-   * Whether to enable the auto merge workflow for PRs
-   * This will enable the auto merge workflow as well as the
-   * merge queue
-   *
-   * @default - true for private projects, false otherwise
-   */
-  readonly enablePRAutoMerge?: boolean;
-
-  /**
-   * Options for the GitHub auto merge workflow (the workflow
-   * that turns on auto merge on all PRs)
-   *
-   * @default - default options
-   */
-  readonly ghAutoMergeOptions?: AutoMergeOptions;
-
-  /**
-   * Whether to enforce the minNodeVersion via the `engines` field in `package.json`.
-   * Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
-   *
-   * @default true
-   */
-  readonly setNodeEngineVersion?: boolean;
-
-  /**
-   * Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dep
-   *
-   * @default true
-   */
-  readonly upgradeCdklabsProjenProjectTypes?: boolean;
-
-  /**
-   * Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix
-   *
-   * @default true
-   */
-  readonly upgradeRuntimeDepsAsFix?: boolean;
-
-  /**
-   * The org this project is part of.
-   *
-   * @default - Auto detected from package name
-   */
-  readonly tenancy?: OrgTenancy;
 }
 
 type CommonOptions = CdkCommonOptions & typescript.TypeScriptProjectOptions;
