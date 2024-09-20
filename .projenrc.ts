@@ -1,5 +1,5 @@
 import { UpgradeDependenciesSchedule } from 'projen/lib/javascript';
-import { generateCdkConstructLibraryOptions } from './projenrc/cdk-constructlibrary-options';
+import { generateCdkCommonOptions, generateCdkConstructLibraryOptions } from './projenrc/cdk-constructlibrary-options';
 import { generateYarnMonorepoOptions } from './projenrc/yarn-monorepo-options';
 import { CdklabsJsiiProject } from './src';
 
@@ -26,10 +26,12 @@ const project = new CdklabsJsiiProject({
   peerDependencyOptions: {
     pinnedDevDependency: false,
   },
-  jsiiVersion: '~5.2',
-  typescriptVersion: '~5.2',
+  jsiiVersion: '~5.5',
+  typescriptVersion: '~5.5',
 });
 project.addPeerDeps('constructs@^10.0.0');
+
+generateCdkCommonOptions(project);
 generateYarnMonorepoOptions(project);
 generateCdkConstructLibraryOptions(project);
 

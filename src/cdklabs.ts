@@ -11,10 +11,10 @@ export enum JsiiLanguage {
 
 import {
   CdkConstructLibrary,
-  CdkConstructLibraryOptions,
   CdkTypeScriptProject,
   CdkTypeScriptProjectOptions,
 } from './cdk';
+import { CdkConstructLibraryOptions } from './cdk-construct-library-options';
 import { CdkJsiiProject, CdkJsiiProjectOptions } from './jsii';
 // eslint-disable-next-line import/order
 import { ReleasableCommits } from 'projen';

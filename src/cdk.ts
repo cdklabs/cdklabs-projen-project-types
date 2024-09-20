@@ -1,25 +1,10 @@
 import { awscdk, cdk, typescript } from 'projen';
-import { ModifiedProjenCdkConstructLibraryOptions } from './cdk-options';
-import { CdkCommonOptions, configureCommonFeatures, withCommonOptionsDefaults } from './common-options';
+import { CdkCommonOptions } from './cdk-common-options';
+import { CdkConstructLibraryOptions } from './cdk-construct-library-options';
+import { configureCommonFeatures, withCommonOptionsDefaults } from './common-options';
 import { IntegRunner } from './integ-runner';
-import { Rosetta, RosettaOptions } from './rosetta';
+import { Rosetta } from './rosetta';
 
-/**
- * Options for CdkConstructLibrary
- *
- * `ModifiedProjenCdkConstructLibraryOptions` is generated automatically from upstream
- * by copying the properties from projen `CdkConstructLibraryOptions`, and modifying some
- * of them.
- *
- * We have to do it this way because jsii doesn't allow overwriting properties
- * by redeclaring them here, and we need to change the documentation of some props.
- */
-export interface CdkConstructLibraryOptions extends ModifiedProjenCdkConstructLibraryOptions, CdkCommonOptions {
-  /**
-   * Options for rosetta:extract task
-   */
-  readonly rosettaOptions?: RosettaOptions;
-}
 
 /**
  * Create a Cdk Construct Library Project
