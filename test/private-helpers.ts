@@ -14,7 +14,7 @@ export function expectNotPrivate(outdir: Record<string, any>) {
 export class TestPrivateProject extends CdkTypeScriptProject {
   constructor(options: Partial<CdkTypeScriptProjectOptions> = {}) {
     super({
-      name: 'test/test-node-project',
+      name: '@cdklabs/test-node-project',
       defaultReleaseBranch: 'main',
       private: true,
       ...options,

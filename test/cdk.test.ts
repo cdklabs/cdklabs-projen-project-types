@@ -1,8 +1,7 @@
 import { Stability } from 'projen/lib/cdk';
 import { Testing } from 'projen/lib/testing';
 import { expectPrivate, expectNotPrivate } from './private-helpers';
-import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src';
-import { CdkJsiiProject, CdkJsiiProjectOptions } from '../src/jsii';
+import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkJsiiProjectOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions, CdkJsiiProject } from '../src';
 
 describe('CdkConstructLibrary', () => {
   test('synthesizes with default settings', () => {
@@ -105,9 +104,18 @@ describe('CdkTypeScriptProject', () => {
     });
   });
 
-  test('can set a custom url to private', () => {
+  test('can set a custom repository on ts project', () => {
     const project = new TestCdkTypeScriptProject({
       repository: 'https://github.com/aws-samples/aws-cdk-examples.git',
+    });
+
+    const snapshot = Testing.synth(project);
+    expect(snapshot['package.json'].repository.url).toBe('https://github.com/aws-samples/aws-cdk-examples.git');
+  });
+
+  test('can set a custom repositoryUrl on construct lib project', () => {
+    const project = new TestCdkConstructLibrary({
+      repositoryUrl: 'https://github.com/aws-samples/aws-cdk-examples.git',
     });
 
     const snapshot = Testing.synth(project);
@@ -147,9 +155,8 @@ describe('CdkJsiiProject', () => {
 class TestCdkConstructLibrary extends CdkConstructLibrary {
   constructor(options: Partial<CdkConstructLibraryOptions> = {}) {
     super({
-      name: 'test-construct-library',
+      name: '@cdklabs/test-construct-library',
       defaultReleaseBranch: 'main',
-      repositoryUrl: 'url',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       cdkVersion: '2.1.0',
@@ -161,7 +168,7 @@ class TestCdkConstructLibrary extends CdkConstructLibrary {
 class TestCdkTypeScriptProject extends CdkTypeScriptProject {
   constructor(options: Partial<CdkTypeScriptProjectOptions> = {}) {
     super({
-      name: 'test-node-project',
+      name: '@cdklabs/test-node-project',
       defaultReleaseBranch: 'main',
       ...options,
     });
@@ -171,9 +178,8 @@ class TestCdkTypeScriptProject extends CdkTypeScriptProject {
 class TestCdkJsiiProject extends CdkJsiiProject {
   constructor(options: Partial<CdkJsiiProjectOptions> = {}) {
     super({
-      name: 'test-jsii-library',
+      name: '@cdklabs/test-jsii-library',
       defaultReleaseBranch: 'main',
-      repositoryUrl: 'url',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       ...options,

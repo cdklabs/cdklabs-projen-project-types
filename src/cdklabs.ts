@@ -15,7 +15,8 @@ import {
   CdkTypeScriptProjectOptions,
 } from './cdk';
 import { CdkConstructLibraryOptions } from './cdk-construct-library-options';
-import { CdkJsiiProject, CdkJsiiProjectOptions } from './jsii';
+import { CdkJsiiProjectOptions } from './cdk-jsii-options';
+import { CdkJsiiProject } from './jsii';
 // eslint-disable-next-line import/order
 import { ReleasableCommits } from 'projen';
 

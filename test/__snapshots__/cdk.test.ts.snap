@@ -556,7 +556,6 @@ jobs:
     needs: release
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
@@ -589,7 +588,6 @@ jobs:
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
-          NPM_CONFIG_PROVENANCE: "true"
           NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
         run: npx -p publib@latest publib-npm
 ",
@@ -764,6 +762,7 @@ jobs:
             *Automatically created by projen via the "upgrade-dev-deps-main" workflow*
           branch: github-actions/upgrade-dev-deps-main
           title: "chore(deps): upgrade dev dependencies"
+          labels: auto-approve
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 
@@ -857,6 +856,7 @@ jobs:
             *Automatically created by projen via the "upgrade-main" workflow*
           branch: github-actions/upgrade-main
           title: "fix(deps): upgrade dependencies"
+          labels: auto-approve
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 
@@ -1420,13 +1420,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-pacmak,jsii-rosetta,projen,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-pacmak,jsii-rosetta,typescript",
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types commit-and-tag-version eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest typescript @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii ts-jest typescript @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha",
           },
           {
             "exec": "npx projen",
@@ -1737,15 +1737,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     ],
     "license": "Apache-2.0",
     "main": "lib/index.js",
-    "name": "test-construct-library",
+    "name": "@cdklabs/test-construct-library",
     "peerDependencies": {
       "aws-cdk-lib": "^2.1.0",
       "constructs": "^10.0.5",
     },
     "private": true,
-    "publishConfig": {
-      "access": "public",
-    },
     "repository": {
       "type": "git",
       "url": "https://github.com/cdklabs/test-construct-library.git",
@@ -2177,6 +2174,10 @@ jobs:
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install --check-files
       - name: build
@@ -2249,7 +2250,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: lts/*
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -2338,6 +2339,10 @@ jobs:
         run: |-
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
@@ -2376,7 +2381,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: lts/*
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -2396,13 +2401,12 @@ jobs:
     needs: release
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
       contents: read
     if: needs.release.outputs.tag_exists != 'true' && needs.release.outputs.latest_commit == github.sha
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: lts/*
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -2429,7 +2433,6 @@ jobs:
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
-          NPM_CONFIG_PROVENANCE: "true"
           NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
         run: npx -p publib@latest publib-npm
 ",
@@ -2451,6 +2454,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -2541,6 +2546,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -2598,6 +2607,7 @@ jobs:
             *Automatically created by projen via the "upgrade-dev-deps-main" workflow*
           branch: github-actions/upgrade-dev-deps-main
           title: "chore(deps): upgrade dev dependencies"
+          labels: auto-approve
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 
@@ -2630,6 +2640,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -2687,6 +2701,7 @@ jobs:
             *Automatically created by projen via the "upgrade-main" workflow*
           branch: github-actions/upgrade-main
           title: "fix(deps): upgrade dependencies"
+          labels: auto-approve
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 
@@ -3199,13 +3214,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-pacmak,projen,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-pacmak,typescript",
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii ts-jest typescript",
           },
           {
             "exec": "npx projen",
@@ -3510,11 +3525,8 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     },
     "license": "Apache-2.0",
     "main": "lib/index.js",
-    "name": "test-jsii-library",
+    "name": "@cdklabs/test-jsii-library",
     "private": true,
-    "publishConfig": {
-      "access": "public",
-    },
     "repository": {
       "type": "git",
       "url": "https://github.com/cdklabs/test-jsii-library.git",
@@ -3930,6 +3942,10 @@ jobs:
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install --check-files
       - name: build
@@ -4048,6 +4064,10 @@ jobs:
         run: |-
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
@@ -4084,7 +4104,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: lts/*
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -4118,6 +4138,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -4208,6 +4230,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -4265,6 +4291,7 @@ jobs:
             *Automatically created by projen via the "upgrade-dev-deps-main" workflow*
           branch: github-actions/upgrade-dev-deps-main
           title: "chore(deps): upgrade dev dependencies"
+          labels: auto-approve
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 
@@ -4297,6 +4324,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
@@ -4354,6 +4385,7 @@ jobs:
             *Automatically created by projen via the "upgrade-main" workflow*
           branch: github-actions/upgrade-main
           title: "fix(deps): upgrade dependencies"
+          labels: auto-approve
           body: |-
             Upgrades project dependencies. See details in [workflow run].
 
@@ -4784,13 +4816,13 @@ junit.xml
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,cdklabs-projen-project-types,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev --filter=@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,ts-jest,typescript",
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdklabs-projen-project-types commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit projen ts-jest typescript",
+            "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit ts-jest typescript",
           },
           {
             "exec": "npx projen",
@@ -5079,11 +5111,8 @@ junit.xml
     },
     "license": "Apache-2.0",
     "main": "lib/index.js",
-    "name": "test-node-project",
+    "name": "@cdklabs/test-node-project",
     "private": true,
-    "publishConfig": {
-      "access": "public",
-    },
     "repository": {
       "type": "git",
       "url": "https://github.com/cdklabs/test-node-project.git",

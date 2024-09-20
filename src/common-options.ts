@@ -10,8 +10,19 @@ export enum OrgTenancy {
   AWS = 'aws',
 }
 
-type CommonOptions = CdkCommonOptions & typescript.TypeScriptProjectOptions;
-export function withCommonOptionsDefaults<T extends CommonOptions>(options: T): T & Required<CdkCommonOptions> {
+type ProjectOptions = CdkCommonOptions & typescript.TypeScriptProjectOptions;
+type ConfiguredTypeScriptOptions = Pick<typescript.TypeScriptProjectOptions,
+| 'githubOptions'
+| 'npmAccess'
+| 'autoApproveOptions'
+| 'autoApproveUpgrades'
+| 'depsUpgrade'
+| 'repository'
+| 'workflowNodeVersion'
+>;
+type ConfiguredCommonOptions = Required<CdkCommonOptions &ConfiguredTypeScriptOptions>;
+
+export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T): T & ConfiguredCommonOptions {
   const isPrivate = options.private ?? true;
   const enablePRAutoMerge = options.enablePRAutoMerge ?? isPrivate;
   const ghAutoMergeOptions = options.ghAutoMergeOptions ?? {
@@ -20,7 +31,7 @@ export function withCommonOptionsDefaults<T extends CommonOptions>(options: T): 
   const githubOptions: github.GitHubOptions = {
     mergify: !enablePRAutoMerge,
   };
-  const npmAccess = isPrivate ? undefined : javascript.NpmAccess.PUBLIC;
+  const npmAccess = isPrivate ? javascript.NpmAccess.RESTRICTED : javascript.NpmAccess.PUBLIC;
   const tenancy = options.tenancy ?? (options.name.startsWith('@aws-cdk/') ? OrgTenancy.AWS : OrgTenancy.CDKLABS);
   const shortname = (options.name.startsWith('@') && options.name.split('/')[1]) || options.name;
   const repository = options.repository ?? `https://github.com/${tenancy}/${shortname}.git`;
@@ -30,26 +41,31 @@ export function withCommonOptionsDefaults<T extends CommonOptions>(options: T): 
   };
   const upgradeRuntimeDepsAsFix = options.upgradeRuntimeDepsAsFix ?? true;
 
-  return deepMerge([
-    {},
-    options,
-    {
-      private: isPrivate,
-      enablePRAutoMerge,
-      ghAutoMergeOptions,
-      githubOptions,
-      setNodeEngineVersion: options.setNodeEngineVersion ?? true,
-      npmAccess,
-      tenancy,
-      autoApproveOptions,
-      depsUpgrade: !upgradeRuntimeDepsAsFix,
-      upgradeRuntimeDepsAsFix,
-      repository,
-    },
-  ]) as T & Required<CdkCommonOptions>;
+  const common: ConfiguredCommonOptions = {
+    private: isPrivate,
+    enablePRAutoMerge,
+    ghAutoMergeOptions,
+    githubOptions,
+    setNodeEngineVersion: options.setNodeEngineVersion ?? true,
+    npmAccess,
+    tenancy,
+    autoApproveOptions,
+    autoApproveUpgrades: options.autoApproveUpgrades ?? true,
+    depsUpgrade: !upgradeRuntimeDepsAsFix,
+    upgradeRuntimeDepsAsFix,
+    repository,
+    upgradeCdklabsProjenProjectTypes:
+      options.upgradeCdklabsProjenProjectTypes ?? true,
+
+    // Deviation from upstream projen: upstream projen defaults to minNodeVersion, but we have too many workflows
+    // that use tools that want a recent Node version, so default to a reasonable floating version.
+    workflowNodeVersion: options.workflowNodeVersion ?? 'lts/*',
+  };
+
+  return deepMerge([{}, options, common]) as T & ConfiguredCommonOptions;
 }
 
-export function configureCommonFeatures(project: typescript.TypeScriptProject, opts: CdkCommonOptions & Pick<javascript.NodeProjectOptions, 'autoApproveUpgrades' | 'autoApproveOptions'>) {
+export function configureCommonComponents(project: typescript.TypeScriptProject, opts: CdkCommonOptions & Pick<javascript.NodeProjectOptions, 'autoApproveUpgrades' | 'autoApproveOptions'>) {
   if (opts.private) {
     new Private(project);
   }
@@ -60,7 +76,7 @@ export function configureCommonFeatures(project: typescript.TypeScriptProject, o
     });
   }
 
-  if ((opts.upgradeCdklabsProjenProjectTypes ?? true)) {
+  if (opts.upgradeCdklabsProjenProjectTypes) {
     new UpgradeCdklabsProjenProjectTypes(project);
   }
 

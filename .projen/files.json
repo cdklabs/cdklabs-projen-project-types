@@ -17,6 +17,7 @@
     "LICENSE",
     "src/cdk-common-options.ts",
     "src/cdk-construct-library-options.ts",
+    "src/cdk-jsii-options.ts",
     "src/yarn/monorepo-options.ts",
     "src/yarn/monorepo-release-options.ts",
     "src/yarn/typescript-workspace-options.ts",
