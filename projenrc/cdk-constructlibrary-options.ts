@@ -8,6 +8,20 @@ export function generateCdkConstructLibraryOptions(project: typescript.TypeScrip
     fqn: 'cdklabs-projen-project-types.CdkConstructLibraryOptions',
     filePath: 'src/cdk-construct-library-options.ts',
     extends: 'projen.awscdk.AwsCdkConstructLibraryOptions',
+    updateProps: {
+      repositoryUrl: {
+        optional: true,
+        docs: {
+          default: '- generated from org tenancy and package name',
+          deprecated: 'use `repository`',
+        },
+      },
+      repository: {
+        docs: {
+          default: '- generated from org tenancy and package name',
+        },
+      },
+    },
     properties: [
       ...commonOptions,
       {

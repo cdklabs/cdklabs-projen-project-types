@@ -57,9 +57,9 @@ describe('Rosetta', () => {
 class TestCdkLabsConstructLibrary extends CdklabsConstructLibrary {
   constructor(options: Partial<CdklabsConstructLibraryOptions> = {}) {
     super({
-      name: 'test-construct-library',
+      name: '@cdklabs/test-construct-library',
       defaultReleaseBranch: 'main',
-      repositoryUrl: 'url',
+      repositoryUrl: '',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       cdkVersion: '2.1.0',

@@ -896,8 +896,7 @@ export interface CdkConstructLibraryOptions {
    */
   readonly renovatebotOptions?: RenovatebotOptions;
   /**
-   * The repository is the location where the actual code for your package lives.
-   * See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+   * @default - generated from org tenancy and package name
    */
   readonly repository?: string;
   /**
@@ -905,10 +904,10 @@ export interface CdkConstructLibraryOptions {
    */
   readonly repositoryDirectory?: string;
   /**
-   * Git repository URL.
-   * @default $GIT_REMOTE
+   * @default - generated from org tenancy and package name
+   * @deprecated use `repository`
    */
-  readonly repositoryUrl: string;
+  readonly repositoryUrl?: string;
   /**
    * @default "."
    */

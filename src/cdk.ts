@@ -1,7 +1,7 @@
 import { awscdk, cdk, typescript } from 'projen';
 import { CdkCommonOptions } from './cdk-common-options';
 import { CdkConstructLibraryOptions } from './cdk-construct-library-options';
-import { configureCommonFeatures, withCommonOptionsDefaults } from './common-options';
+import { configureCommonComponents, withCommonOptionsDefaults } from './common-options';
 import { IntegRunner } from './integ-runner';
 import { Rosetta } from './rosetta';
 
@@ -39,21 +39,23 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
       }
     }
 
-    const opts = withCommonOptionsDefaults(options);
+    const opts = withCommonOptionsDefaults({
+      ...options,
+      // also accept the deprecated repositoryUrl option
+      repository: options.repository ?? options.repositoryUrl,
+    });
+
     super({
       stability: cdk.Stability.EXPERIMENTAL,
+      // upstream JsiiProject uses a different name for this
+      repositoryUrl: opts.repository,
       ...opts,
-
-      // Deviation from upstream projen: upstream projen defaults to minNodeVersion, but we have too many workflows
-      // that use tools that want a recent Node version, so default to a reasonable floating version.
-      workflowNodeVersion: options.workflowNodeVersion ?? 'lts/*',
     });
     this.private = opts.private;
 
     new Rosetta(this, options.rosettaOptions);
     new IntegRunner(this);
-
-    configureCommonFeatures(this, opts);
+    configureCommonComponents(this, opts);
   }
 }
 
@@ -72,6 +74,6 @@ export class CdkTypeScriptProject extends typescript.TypeScriptProject {
     super(opts);
     this.private = opts.private;
 
-    configureCommonFeatures(this, opts);
+    configureCommonComponents(this, opts);
   }
 }

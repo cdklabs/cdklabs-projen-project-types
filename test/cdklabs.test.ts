@@ -13,12 +13,12 @@ const publishingTargets = {
     },
   },
   python: {
-    distName: 'test-construct-library',
-    module: 'test_construct_library',
+    distName: 'cdklabs.test-construct-library',
+    module: 'cdklabs.test_construct_library',
   },
   dotnet: {
-    namespace: 'CdklabsTestConstructLibrary',
-    packageId: 'CdklabsTestConstructLibrary',
+    namespace: 'Cdklabs.TestConstructLibrary',
+    packageId: 'Cdklabs.TestConstructLibrary',
   },
   go: {
     moduleName: 'github.com/cdklabs/test-construct-library-go',
@@ -341,9 +341,9 @@ describe('CdklabsJsiiProject', () => {
 class TestCdkLabsConstructLibrary extends CdklabsConstructLibrary {
   constructor(options: Partial<CdklabsConstructLibraryOptions> = {}) {
     super({
-      name: 'test-construct-library',
+      name: '@cdklabs/test-construct-library',
       defaultReleaseBranch: 'main',
-      repositoryUrl: 'url',
+      repositoryUrl: '',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       cdkVersion: '2.1.0',
@@ -355,7 +355,7 @@ class TestCdkLabsConstructLibrary extends CdklabsConstructLibrary {
 class TestCdkLabsTypeScriptProject extends CdklabsTypeScriptProject {
   constructor(options: Partial<CdklabsTypeScriptProjectOptions> = {}) {
     super({
-      name: 'test-node-project',
+      name: '@cdklabs/test-node-project',
       defaultReleaseBranch: 'main',
       ...options,
     });
@@ -365,9 +365,9 @@ class TestCdkLabsTypeScriptProject extends CdklabsTypeScriptProject {
 class TestCdklabsJsiiProject extends CdklabsJsiiProject {
   constructor(options: Partial<CdklabsJsiiProjectOptions> = {}) {
     super({
-      name: 'test-jsii-project',
+      name: '@cdklabs/test-jsii-project',
       defaultReleaseBranch: 'main',
-      repositoryUrl: 'url',
+      repositoryUrl: '',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       ...options,

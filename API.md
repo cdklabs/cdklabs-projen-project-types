@@ -15004,7 +15004,6 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | Git repository URL. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
@@ -15152,8 +15151,9 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repository">repository</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
@@ -15248,19 +15248,6 @@ public readonly name: string;
 - *Default:* $BASEDIR
 
 This is the name of your project.
-
----
-
-##### `repositoryUrl`<sup>Required</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryUrl"></a>
-
-```typescript
-public readonly repositoryUrl: string;
-```
-
-- *Type:* string
-- *Default:* $GIT_REMOTE
-
-Git repository URL.
 
 ---
 
@@ -17358,10 +17345,7 @@ public readonly repository: string;
 ```
 
 - *Type:* string
-
-The repository is the location where the actual code for your package lives.
-
-See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+- *Default:* generated from org tenancy and package name
 
 ---
 
@@ -17374,6 +17358,19 @@ public readonly repositoryDirectory: string;
 - *Type:* string
 
 If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives.
+
+---
+
+##### ~~`repositoryUrl`~~<sup>Optional</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryUrl"></a>
+
+- *Deprecated:* use `repository`
+
+```typescript
+public readonly repositoryUrl: string;
+```
+
+- *Type:* string
+- *Default:* generated from org tenancy and package name
 
 ---
 
@@ -20348,7 +20345,6 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.defaultReleaseBranch">defaultReleaseBranch</a></code> | <code>string</code> | The name of the main release branch. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | Git repository URL. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
@@ -20496,8 +20492,9 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.releaseWorkflowSetupSteps">releaseWorkflowSetupSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | A set of workflow steps to execute in order to setup the workflow container. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repository">repository</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
@@ -20594,19 +20591,6 @@ public readonly name: string;
 - *Default:* $BASEDIR
 
 This is the name of your project.
-
----
-
-##### `repositoryUrl`<sup>Required</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryUrl"></a>
-
-```typescript
-public readonly repositoryUrl: string;
-```
-
-- *Type:* string
-- *Default:* $GIT_REMOTE
-
-Git repository URL.
 
 ---
 
@@ -22704,10 +22688,7 @@ public readonly repository: string;
 ```
 
 - *Type:* string
-
-The repository is the location where the actual code for your package lives.
-
-See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+- *Default:* generated from org tenancy and package name
 
 ---
 
@@ -22720,6 +22701,19 @@ public readonly repositoryDirectory: string;
 - *Type:* string
 
 If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives.
+
+---
+
+##### ~~`repositoryUrl`~~<sup>Optional</sup> <a name="repositoryUrl" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryUrl"></a>
+
+- *Deprecated:* use `repository`
+
+```typescript
+public readonly repositoryUrl: string;
+```
+
+- *Type:* string
+- *Default:* generated from org tenancy and package name
 
 ---
 
