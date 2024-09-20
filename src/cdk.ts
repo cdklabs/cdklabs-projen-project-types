@@ -1,10 +1,20 @@
 import { awscdk, cdk, typescript } from 'projen';
+import { ModifiedProjenCdkConstructLibraryOptions } from './cdk-options';
 import { CdkCommonOptions, configureCommonFeatures, withCommonOptionsDefaults } from './common-options';
 import { IntegRunner } from './integ-runner';
 import { Rosetta, RosettaOptions } from './rosetta';
 
-
-export interface CdkConstructLibraryOptions extends awscdk.AwsCdkConstructLibraryOptions, CdkCommonOptions {
+/**
+ * Options for CdkConstructLibrary
+ *
+ * `ModifiedProjenCdkConstructLibraryOptions` is generated automatically from upstream
+ * by copying the properties from projen `CdkConstructLibraryOptions`, and modifying some
+ * of them.
+ *
+ * We have to do it this way because jsii doesn't allow overwriting properties
+ * by redeclaring them here, and we need to change the documentation of some props.
+ */
+export interface CdkConstructLibraryOptions extends ModifiedProjenCdkConstructLibraryOptions, CdkCommonOptions {
   /**
    * Options for rosetta:extract task
    */
@@ -48,6 +58,10 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
     super({
       stability: cdk.Stability.EXPERIMENTAL,
       ...opts,
+
+      // Deviation from upstream projen: upstream projen defaults to minNodeVersion, but we have too many workflows
+      // that use tools that want a recent Node version, so default to a reasonable floating version.
+      workflowNodeVersion: options.workflowNodeVersion ?? 'lts/*',
     });
     this.private = opts.private;
 

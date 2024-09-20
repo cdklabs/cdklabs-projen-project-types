@@ -5,6 +5,8 @@ import { TypeScriptWorkspace } from './typescript-workspace';
 
 export interface WorkspaceReleaseOptions {
   readonly private: boolean;
+
+  /** @default 'lts/*' */
   readonly workflowNodeVersion?: string;
   readonly publishToNpm?: boolean;
   readonly releasableCommits?: ReleasableCommits;
@@ -43,7 +45,7 @@ export class WorkspaceRelease extends Component {
         artifactName: project.artifactsDirectory,
         condition: 'needs.release.outputs.latest_commit == github.sha',
         buildJobId: 'release',
-        workflowNodeVersion: options.workflowNodeVersion,
+        workflowNodeVersion: options.workflowNodeVersion ?? 'lts/*',
       });
 
       this.publisher.publishToGitHubReleases({

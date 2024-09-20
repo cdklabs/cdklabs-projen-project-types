@@ -24,6 +24,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       'devDeps',
       'excludeDepsFromUpgrade',
       'repository',
+      'workflowNodeVersion',
     );
 
     const useEslint = remainder.eslint ?? true;
@@ -78,6 +79,10 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       },
 
       npmAccess,
+
+      // Deviation from upstream projen: upstream projen defaults to minNodeVersion, but we have too many workflows
+      // that use tools that want a recent Node version, so default to a reasonable floating version.
+      workflowNodeVersion: options.workflowNodeVersion ?? 'lts/*',
 
       ...remainder,
     });

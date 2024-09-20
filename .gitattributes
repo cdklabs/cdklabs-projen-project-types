@@ -21,6 +21,7 @@
 /API.md linguist-generated
 /LICENSE linguist-generated
 /package.json linguist-generated
+/src/cdk-options.ts linguist-generated
 /src/yarn/monorepo-options.ts linguist-generated
 /src/yarn/monorepo-release-options.ts linguist-generated
 /src/yarn/typescript-workspace-options.ts linguist-generated

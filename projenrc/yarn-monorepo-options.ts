@@ -52,6 +52,30 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
           summary: 'Options for the release workflows',
         },
       },
+      {
+        name: 'minNodeVersion',
+        optional: true,
+        type: { primitive: PrimitiveType.String },
+        docs: {
+          summary: 'Minimum Node.js version to require via package.json `engines` (inclusive).',
+          remarks: [
+            '',
+            'Only set this if your package will not work properly on specific (older?)',
+            'Node versions.',
+            '',
+          ].join('\n'),
+          default: '- no "engines" specified',
+        },
+      },
+      {
+        name: 'workflowNodeVersion',
+        optional: true,
+        type: { primitive: PrimitiveType.String },
+        docs: {
+          summary: 'The node version to use in GitHub workflows.',
+          default: '\'lts/*\'',
+        },
+      },
     ],
   });
 
@@ -172,6 +196,30 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
         docs: {
           summary: 'Dependencies that should be excluded from upgrades.',
           default: '[]',
+        },
+      },
+      {
+        name: 'minNodeVersion',
+        optional: true,
+        type: { primitive: PrimitiveType.String },
+        docs: {
+          summary: 'Minimum Node.js version to require via package.json `engines` (inclusive).',
+          remarks: [
+            '',
+            'Only set this if your package will not work properly on specific (older?)',
+            'Node versions.',
+            '',
+          ].join('\n'),
+          default: '- no "engines" specified',
+        },
+      },
+      {
+        name: 'workflowNodeVersion',
+        optional: true,
+        type: { primitive: PrimitiveType.String },
+        docs: {
+          summary: 'The node version to use in GitHub workflows.',
+          default: '\'lts/*\'',
         },
       },
     ],

@@ -1,4 +1,5 @@
 import { UpgradeDependenciesSchedule } from 'projen/lib/javascript';
+import { generateCdkConstructLibraryOptions } from './projenrc/cdk-constructlibrary-options';
 import { generateYarnMonorepoOptions } from './projenrc/yarn-monorepo-options';
 import { CdklabsJsiiProject } from './src';
 
@@ -30,6 +31,7 @@ const project = new CdklabsJsiiProject({
 });
 project.addPeerDeps('constructs@^10.0.0');
 generateYarnMonorepoOptions(project);
+generateCdkConstructLibraryOptions(project);
 
 // that is this package!
 project.deps.removeDependency(project.name);
