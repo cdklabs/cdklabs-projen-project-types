@@ -56,4 +56,5 @@ tsconfig.json
 !/src/yarn/monorepo-release-options.ts
 !/src/yarn/typescript-workspace-options.ts
 !/src/cdk-construct-library-options.ts
+!/src/cdk-jsii-options.ts
 !/.projenrc.ts

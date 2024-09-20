@@ -343,7 +343,6 @@ class TestCdkLabsConstructLibrary extends CdklabsConstructLibrary {
     super({
       name: '@cdklabs/test-construct-library',
       defaultReleaseBranch: 'main',
-      repositoryUrl: '',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       cdkVersion: '2.1.0',
@@ -367,7 +366,6 @@ class TestCdklabsJsiiProject extends CdklabsJsiiProject {
     super({
       name: '@cdklabs/test-jsii-project',
       defaultReleaseBranch: 'main',
-      repositoryUrl: '',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       ...options,

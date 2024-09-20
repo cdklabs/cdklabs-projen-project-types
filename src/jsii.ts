@@ -1,8 +1,6 @@
 import { cdk } from 'projen';
-import { CdkCommonOptions } from './cdk-common-options';
+import { CdkJsiiProjectOptions } from './cdk-jsii-options';
 import { configureCommonComponents, withCommonOptionsDefaults } from './common-options';
-
-export interface CdkJsiiProjectOptions extends cdk.JsiiProjectOptions, CdkCommonOptions {}
 
 /**
  * Create a Cdk Jsii Jsii project

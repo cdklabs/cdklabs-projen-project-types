@@ -59,7 +59,6 @@ class TestCdkLabsConstructLibrary extends CdklabsConstructLibrary {
     super({
       name: '@cdklabs/test-construct-library',
       defaultReleaseBranch: 'main',
-      repositoryUrl: '',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       cdkVersion: '2.1.0',

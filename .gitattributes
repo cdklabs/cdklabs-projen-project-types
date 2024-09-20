@@ -23,6 +23,7 @@
 /package.json linguist-generated
 /src/cdk-common-options.ts linguist-generated
 /src/cdk-construct-library-options.ts linguist-generated
+/src/cdk-jsii-options.ts linguist-generated
 /src/yarn/monorepo-options.ts linguist-generated
 /src/yarn/monorepo-release-options.ts linguist-generated
 /src/yarn/typescript-workspace-options.ts linguist-generated

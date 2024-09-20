@@ -1,8 +1,7 @@
 import { Stability } from 'projen/lib/cdk';
 import { Testing } from 'projen/lib/testing';
 import { expectPrivate, expectNotPrivate } from './private-helpers';
-import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions } from '../src';
-import { CdkJsiiProject, CdkJsiiProjectOptions } from '../src/jsii';
+import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkJsiiProjectOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions, CdkJsiiProject } from '../src';
 
 describe('CdkConstructLibrary', () => {
   test('synthesizes with default settings', () => {
@@ -158,7 +157,6 @@ class TestCdkConstructLibrary extends CdkConstructLibrary {
     super({
       name: '@cdklabs/test-construct-library',
       defaultReleaseBranch: 'main',
-      repositoryUrl: '',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       cdkVersion: '2.1.0',
@@ -182,7 +180,6 @@ class TestCdkJsiiProject extends CdkJsiiProject {
     super({
       name: '@cdklabs/test-jsii-library',
       defaultReleaseBranch: 'main',
-      repositoryUrl: '',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
       ...options,

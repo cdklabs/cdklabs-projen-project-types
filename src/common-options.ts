@@ -34,7 +34,7 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
   const npmAccess = isPrivate ? javascript.NpmAccess.RESTRICTED : javascript.NpmAccess.PUBLIC;
   const tenancy = options.tenancy ?? (options.name.startsWith('@aws-cdk/') ? OrgTenancy.AWS : OrgTenancy.CDKLABS);
   const shortname = (options.name.startsWith('@') && options.name.split('/')[1]) || options.name;
-  const repository = options.repository || `https://github.com/${tenancy}/${shortname}.git`;
+  const repository = options.repository ?? `https://github.com/${tenancy}/${shortname}.git`;
   const autoApproveOptions = {
     allowedUsernames: [automationUserForOrg(tenancy), 'dependabot[bot]'],
     secret: 'GITHUB_TOKEN',
