@@ -408,8 +408,13 @@ export interface CdkJsiiProjectOptions {
    */
   readonly majorVersion?: number;
   /**
-   * Minimum node.js version to require via `engines` (inclusive).
-   * @default - no max
+   * The maximum node version supported by this package. Most projects should not use this option.
+   * The value indicates that the package is incompatible with any newer versions of node.
+   * This requirement is enforced via the engines field.
+   *
+   * You will normally not need to set this option.
+   * Consider this option only if your package is known to not function with newer versions of node.
+   * @default - no maximum version is enforced
    */
   readonly maxNodeVersion?: string;
   /**
@@ -434,8 +439,17 @@ export interface CdkJsiiProjectOptions {
    */
   readonly minMajorVersion?: number;
   /**
-   * Minimum Node.js version to require via package.json `engines` (inclusive).
-   * @default - no "engines" specified
+   * The minimum node version required by this package to function. Most projects should not use this option.
+   * The value indicates that the package is incompatible with any older versions of node.
+   * This requirement is enforced via the engines field.
+   *
+   * You will normally not need to set this option, even if your package is incompatible with EOL versions of node.
+   * Consider this option only if your package depends on a specific feature, that is not available in other LTS versions.
+   * Setting this option has very high impact on the consumers of your package,
+   * as package managers will actively prevent usage with node versions you have marked as incompatible.
+   *
+   * To change the node version of your CI/CD workflows, use `workflowNodeVersion`.
+   * @default - no minimum version is enforced
    */
   readonly minNodeVersion?: string;
   /**
@@ -936,8 +950,9 @@ export interface CdkJsiiProjectOptions {
    */
   readonly workflowGitIdentity?: github.GitIdentity;
   /**
-   * The node version to use in GitHub workflows.
-   * @default - same as `minNodeVersion`
+   * The node version used in GitHub Actions workflows.
+   * Always use this option if your GitHub Actions workflows require a specific to run.
+   * @default - `minNodeVersion` if set, otherwise `lts/*`.
    */
   readonly workflowNodeVersion?: string;
   /**

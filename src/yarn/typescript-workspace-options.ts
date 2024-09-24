@@ -330,8 +330,13 @@ export interface TypeScriptWorkspaceOptions {
    */
   readonly majorVersion?: number;
   /**
-   * Minimum node.js version to require via `engines` (inclusive).
-   * @default - no max
+   * The maximum node version supported by this package. Most projects should not use this option.
+   * The value indicates that the package is incompatible with any newer versions of node.
+   * This requirement is enforced via the engines field.
+   *
+   * You will normally not need to set this option.
+   * Consider this option only if your package is known to not function with newer versions of node.
+   * @default - no maximum version is enforced
    */
   readonly maxNodeVersion?: string;
   /**
