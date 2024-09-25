@@ -31,7 +31,7 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
   const githubOptions: github.GitHubOptions = {
     mergify: !enablePRAutoMerge,
   };
-  const npmAccess = isPrivate ? javascript.NpmAccess.RESTRICTED : javascript.NpmAccess.PUBLIC;
+  const npmAccess = options.npmAccess ?? (isPrivate ? javascript.NpmAccess.RESTRICTED : javascript.NpmAccess.PUBLIC);
   const tenancy = options.tenancy ?? (options.name.startsWith('@aws-cdk/') ? OrgTenancy.AWS : OrgTenancy.CDKLABS);
   const shortname = (options.name.startsWith('@') && options.name.split('/')[1]) || options.name;
   const repository = options.repository ?? `https://github.com/${tenancy}/${shortname}.git`;
