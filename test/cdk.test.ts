@@ -1,4 +1,5 @@
 import { Stability } from 'projen/lib/cdk';
+import { NpmAccess } from 'projen/lib/javascript';
 import { Testing } from 'projen/lib/testing';
 import { expectPrivate, expectNotPrivate } from './private-helpers';
 import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkJsiiProjectOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions, CdkJsiiProject } from '../src';
@@ -121,6 +122,16 @@ describe('CdkTypeScriptProject', () => {
     const snapshot = Testing.synth(project);
     expect(snapshot['package.json'].repository.url).toBe('https://github.com/aws-samples/aws-cdk-examples.git');
   });
+
+  test('can set npm access', () => {
+    const project = new TestCdkConstructLibrary({
+      npmAccess: NpmAccess.PUBLIC,
+    });
+
+    const snapshot = Testing.synth(project);
+    expect(snapshot['package.json'].publishConfig.access).toEqual('public');
+  });
+
 });
 
 describe('CdkJsiiProject', () => {
