@@ -368,6 +368,9 @@ class TestCdklabsJsiiProject extends CdklabsJsiiProject {
       defaultReleaseBranch: 'main',
       author: 'AWS',
       authorAddress: 'aws-cdk-dev@amazon.com',
+      ghAutoMergeOptions: {
+        mergeBranch: 'banana',
+      },
       ...options,
     });
   }

@@ -25,8 +25,9 @@ type ConfiguredCommonOptions = Required<CdkCommonOptions &ConfiguredTypeScriptOp
 export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T): T & ConfiguredCommonOptions {
   const isPrivate = options.private ?? true;
   const enablePRAutoMerge = options.enablePRAutoMerge ?? isPrivate;
-  const ghAutoMergeOptions = options.ghAutoMergeOptions ?? {
+  const ghAutoMergeOptions = {
     secret: 'PROJEN_GITHUB_TOKEN',
+    ...options.ghAutoMergeOptions,
   };
   const githubOptions: github.GitHubOptions = {
     mergify: !enablePRAutoMerge,
