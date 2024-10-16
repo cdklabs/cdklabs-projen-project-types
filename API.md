@@ -14821,6 +14821,7 @@ const autoMergeOptions: AutoMergeOptions = { ... }
 | --- | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.allowedUsernames">allowedUsernames</a></code> | <code>string[]</code> | Only pull requests authored by these Github usernames will have auto-merge enabled. |
 | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.labels">labels</a></code> | <code>string[]</code> | Only pull requests with one of this labels will have auto-merge enabled. |
+| <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.mergeBranch">mergeBranch</a></code> | <code>string</code> | The branch to auto-merge into. |
 | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.mergeMethod">mergeMethod</a></code> | <code><a href="#cdklabs-projen-project-types.MergeMethod">MergeMethod</a></code> | The method used to auto-merge the PR. |
 | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.runsOn">runsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.secret">secret</a></code> | <code>string</code> | A GitHub secret name which contains a GitHub Access Token with write permissions for the `pull_request` scope. |
@@ -14850,6 +14851,19 @@ public readonly labels: string[];
 - *Default:* all pull requests are eligible for auto-merge
 
 Only pull requests with one of this labels will have auto-merge enabled.
+
+---
+
+##### `mergeBranch`<sup>Optional</sup> <a name="mergeBranch" id="cdklabs-projen-project-types.AutoMergeOptions.property.mergeBranch"></a>
+
+```typescript
+public readonly mergeBranch: string;
+```
+
+- *Type:* string
+- *Default:* "main"
+
+The branch to auto-merge into.
 
 ---
 

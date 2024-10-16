@@ -33,7 +33,7 @@ export class MergeQueue extends Component {
     super(project);
 
     const autoMerge = options.autoMerge ?? true;
-    const mergeBranch = options.mergeBranch ?? 'main';
+    const mergeBranch = options.mergeBranch ?? options.autoMergeOptions?.mergeBranch ?? 'main';
 
     project.github?.tryFindWorkflow('build')?.on({
       mergeGroup: {
