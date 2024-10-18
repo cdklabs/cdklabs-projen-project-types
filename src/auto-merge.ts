@@ -44,6 +44,13 @@ export interface AutoMergeOptions {
    * @default ["ubuntu-latest"]
    */
   readonly runsOn?: string[];
+
+  /**
+   * The branch to auto-merge into.
+   *
+   * @default "main"
+   */
+  readonly mergeBranch?: string;
 }
 
 /**
