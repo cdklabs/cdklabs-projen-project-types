@@ -200,12 +200,15 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
    * .eslintrc.js will take precedence over the JSON file, it will load the
    * JSON file and patch it with a dynamic directory name that cannot be represented in
    * plain JSON (see https://github.com/projen/projen/issues/2405).
+   *
+   * Since eslint config is loaded with different cwd's depending on whether it's
+   * from the VSCode plugin or from the command line, use absolute paths everywhere.
    */
   protected addEslintRcFix() {
     const eslintRc = new SourceCode(this, '.eslintrc.js');
     eslintRc.line('var path = require(\'path\');');
     eslintRc.line('var fs = require(\'fs\');');
-    eslintRc.line('var contents = fs.readFileSync(\'.eslintrc.json\', { encoding: \'utf-8\' });');
+    eslintRc.line('var contents = fs.readFileSync(`${__dirname}/.eslintrc.json`, { encoding: \'utf-8\' });');
     eslintRc.line('// Strip comments, JSON.parse() doesn\'t like those');
     eslintRc.line('contents = contents.replace(/^\\/\\/.*$/m, \'\');');
     eslintRc.line('var json = JSON.parse(contents);');
