@@ -26,7 +26,7 @@ export const COMMON_OPTIONS: Property[] = [
   {
     name: 'ghAutoMergeOptions',
     optional: true,
-    type: { fqn: 'cdklabs-projen-project-types.AutoMergeOptions' },
+    type: { fqn: 'projen.github.AutoQueueOptions' },
     docs: {
       summary: 'Options for the GitHub auto merge workflow.',
       remarks: 'That is the workflow that turns on auto merge on all PRs.',
@@ -38,7 +38,7 @@ export const COMMON_OPTIONS: Property[] = [
     optional: true,
     type: { primitive: PrimitiveType.Boolean },
     docs: {
-      summary: 'cdklabs-projen-project-types.AutoMergeOptions',
+      summary: 'Set a minimal node version via the engines field',
       remarks: "Set this to `false` if a package did not enforce this previously and we don't want to change this for now.",
       default: 'true',
     },

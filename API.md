@@ -2,171 +2,6 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### AutoMerge <a name="AutoMerge" id="cdklabs-projen-project-types.AutoMerge"></a>
-
-Merge pull requests using a merge queue.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.AutoMerge.Initializer"></a>
-
-```typescript
-import { AutoMerge } from 'cdklabs-projen-project-types'
-
-new AutoMerge(github: GitHub, options?: AutoMergeOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.Initializer.parameter.github">github</a></code> | <code>projen.github.GitHub</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | *No description.* |
-
----
-
-##### `github`<sup>Required</sup> <a name="github" id="cdklabs-projen-project-types.AutoMerge.Initializer.parameter.github"></a>
-
-- *Type:* projen.github.GitHub
-
----
-
-##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.AutoMerge.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
-
----
-
-##### `toString` <a name="toString" id="cdklabs-projen-project-types.AutoMerge.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.AutoMerge.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after synthesis.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.AutoMerge.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before synthesis.
-
-##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.AutoMerge.synthesize"></a>
-
-```typescript
-public synthesize(): void
-```
-
-Synthesizes files to the project output directory.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
-
----
-
-##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.AutoMerge.isConstruct"></a>
-
-```typescript
-import { AutoMerge } from 'cdklabs-projen-project-types'
-
-AutoMerge.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.AutoMerge.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.AutoMerge.isComponent"></a>
-
-```typescript
-import { AutoMerge } from 'cdklabs-projen-project-types'
-
-AutoMerge.isComponent(x: any)
-```
-
-Test whether the given construct is a component.
-
-###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.AutoMerge.isComponent.parameter.x"></a>
-
-- *Type:* any
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdklabs-projen-project-types.AutoMerge.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.AutoMerge.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.AutoMerge.property.project"></a>
-
-```typescript
-public readonly project: Project;
-```
-
-- *Type:* projen.Project
-
----
-
-
 ### CdkConstructLibrary <a name="CdkConstructLibrary" id="cdklabs-projen-project-types.CdkConstructLibrary"></a>
 
 Create a Cdk Construct Library Project.
@@ -10980,171 +10815,6 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 
 ---
 
-### MergeQueue <a name="MergeQueue" id="cdklabs-projen-project-types.MergeQueue"></a>
-
-Merge pull requests using a merge queue.
-
-#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.MergeQueue.Initializer"></a>
-
-```typescript
-import { MergeQueue } from 'cdklabs-projen-project-types'
-
-new MergeQueue(project: NodeProject, options?: MergeQueueOptions)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.Initializer.parameter.project">project</a></code> | <code>projen.javascript.NodeProject</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.MergeQueueOptions">MergeQueueOptions</a></code> | *No description.* |
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.MergeQueue.Initializer.parameter.project"></a>
-
-- *Type:* projen.javascript.NodeProject
-
----
-
-##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.MergeQueue.Initializer.parameter.options"></a>
-
-- *Type:* <a href="#cdklabs-projen-project-types.MergeQueueOptions">MergeQueueOptions</a>
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
-
----
-
-##### `toString` <a name="toString" id="cdklabs-projen-project-types.MergeQueue.toString"></a>
-
-```typescript
-public toString(): string
-```
-
-Returns a string representation of this construct.
-
-##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.MergeQueue.postSynthesize"></a>
-
-```typescript
-public postSynthesize(): void
-```
-
-Called after synthesis.
-
-Order is *not* guaranteed.
-
-##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.MergeQueue.preSynthesize"></a>
-
-```typescript
-public preSynthesize(): void
-```
-
-Called before synthesis.
-
-##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.MergeQueue.synthesize"></a>
-
-```typescript
-public synthesize(): void
-```
-
-Synthesizes files to the project output directory.
-
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
-
----
-
-##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.MergeQueue.isConstruct"></a>
-
-```typescript
-import { MergeQueue } from 'cdklabs-projen-project-types'
-
-MergeQueue.isConstruct(x: any)
-```
-
-Checks if `x` is a construct.
-
-Use this method instead of `instanceof` to properly detect `Construct`
-instances, even when the construct library is symlinked.
-
-Explanation: in JavaScript, multiple copies of the `constructs` library on
-disk are seen as independent, completely different libraries. As a
-consequence, the class `Construct` in each copy of the `constructs` library
-is seen as a different class, and an instance of one class will not test as
-`instanceof` the other class. `npm install` will not create installations
-like this, but users may manually symlink construct libraries together or
-use a monorepo tool: in those cases, multiple copies of the `constructs`
-library can be accidentally installed, and `instanceof` will behave
-unpredictably. It is safest to avoid using `instanceof`, and using
-this type-testing method instead.
-
-###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.MergeQueue.isConstruct.parameter.x"></a>
-
-- *Type:* any
-
-Any object.
-
----
-
-##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.MergeQueue.isComponent"></a>
-
-```typescript
-import { MergeQueue } from 'cdklabs-projen-project-types'
-
-MergeQueue.isComponent(x: any)
-```
-
-Test whether the given construct is a component.
-
-###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.MergeQueue.isComponent.parameter.x"></a>
-
-- *Type:* any
-
----
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdklabs-projen-project-types.MergeQueue.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.MergeQueue.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.MergeQueue.property.project"></a>
-
-```typescript
-public readonly project: Project;
-```
-
-- *Type:* projen.Project
-
----
-
-
 ### Monorepo <a name="Monorepo" id="cdklabs-projen-project-types.yarn.Monorepo"></a>
 
 A monorepo using yarn workspaces.
@@ -14803,99 +14473,6 @@ public readonly version: Version;
 
 ## Structs <a name="Structs" id="Structs"></a>
 
-### AutoMergeOptions <a name="AutoMergeOptions" id="cdklabs-projen-project-types.AutoMergeOptions"></a>
-
-Options for 'AutoMerge'.
-
-#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.AutoMergeOptions.Initializer"></a>
-
-```typescript
-import { AutoMergeOptions } from 'cdklabs-projen-project-types'
-
-const autoMergeOptions: AutoMergeOptions = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.allowedUsernames">allowedUsernames</a></code> | <code>string[]</code> | Only pull requests authored by these Github usernames will have auto-merge enabled. |
-| <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.labels">labels</a></code> | <code>string[]</code> | Only pull requests with one of this labels will have auto-merge enabled. |
-| <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.mergeMethod">mergeMethod</a></code> | <code><a href="#cdklabs-projen-project-types.MergeMethod">MergeMethod</a></code> | The method used to auto-merge the PR. |
-| <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.runsOn">runsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
-| <code><a href="#cdklabs-projen-project-types.AutoMergeOptions.property.secret">secret</a></code> | <code>string</code> | A GitHub secret name which contains a GitHub Access Token with write permissions for the `pull_request` scope. |
-
----
-
-##### `allowedUsernames`<sup>Optional</sup> <a name="allowedUsernames" id="cdklabs-projen-project-types.AutoMergeOptions.property.allowedUsernames"></a>
-
-```typescript
-public readonly allowedUsernames: string[];
-```
-
-- *Type:* string[]
-- *Default:* pull requests from all users are eligible for auto-merge
-
-Only pull requests authored by these Github usernames will have auto-merge enabled.
-
----
-
-##### `labels`<sup>Optional</sup> <a name="labels" id="cdklabs-projen-project-types.AutoMergeOptions.property.labels"></a>
-
-```typescript
-public readonly labels: string[];
-```
-
-- *Type:* string[]
-- *Default:* all pull requests are eligible for auto-merge
-
-Only pull requests with one of this labels will have auto-merge enabled.
-
----
-
-##### `mergeMethod`<sup>Optional</sup> <a name="mergeMethod" id="cdklabs-projen-project-types.AutoMergeOptions.property.mergeMethod"></a>
-
-```typescript
-public readonly mergeMethod: MergeMethod;
-```
-
-- *Type:* <a href="#cdklabs-projen-project-types.MergeMethod">MergeMethod</a>
-- *Default:* MergeMethod.SQUASH
-
-The method used to auto-merge the PR.
-
-Any branch protection rules must allow this merge method.
-
----
-
-##### `runsOn`<sup>Optional</sup> <a name="runsOn" id="cdklabs-projen-project-types.AutoMergeOptions.property.runsOn"></a>
-
-```typescript
-public readonly runsOn: string[];
-```
-
-- *Type:* string[]
-- *Default:* ["ubuntu-latest"]
-
-Github Runner selection labels.
-
----
-
-##### `secret`<sup>Optional</sup> <a name="secret" id="cdklabs-projen-project-types.AutoMergeOptions.property.secret"></a>
-
-```typescript
-public readonly secret: string;
-```
-
-- *Type:* string
-- *Default:* "GITHUB_TOKEN"
-
-A GitHub secret name which contains a GitHub Access Token with write permissions for the `pull_request` scope.
-
-This token is used to enable auto-merge on pull requests.
-
----
-
 ### CdkCommonOptions <a name="CdkCommonOptions" id="cdklabs-projen-project-types.CdkCommonOptions"></a>
 
 CdkCommonOptions.
@@ -14913,9 +14490,9 @@ const cdkCommonOptions: CdkCommonOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs. |
-| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
-| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The organization this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
@@ -14940,10 +14517,10 @@ This will enable the auto merge workflow as well as the merge queue
 ##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions"></a>
 
 ```typescript
-public readonly ghAutoMergeOptions: AutoMergeOptions;
+public readonly ghAutoMergeOptions: AutoQueueOptions;
 ```
 
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Type:* projen.github.AutoQueueOptions
 - *Default:* default options
 
 Options for the GitHub auto merge workflow.
@@ -14976,7 +14553,7 @@ public readonly setNodeEngineVersion: boolean;
 - *Type:* boolean
 - *Default:* true
 
-cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
@@ -15100,7 +14677,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.experimentalIntegRunner">experimentalIntegRunner</a></code> | <code>boolean</code> | Enable experimental support for the AWS CDK integ-runner. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
@@ -15195,7 +14772,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
-| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
@@ -16152,10 +15729,10 @@ Enable experimental support for the AWS CDK integ-runner.
 ##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.ghAutoMergeOptions"></a>
 
 ```typescript
-public readonly ghAutoMergeOptions: AutoMergeOptions;
+public readonly ghAutoMergeOptions: AutoQueueOptions;
 ```
 
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Type:* projen.github.AutoQueueOptions
 - *Default:* default options
 
 Options for the GitHub auto merge workflow.
@@ -17494,7 +17071,7 @@ public readonly setNodeEngineVersion: boolean;
 - *Type:* boolean
 - *Default:* true
 
-cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
@@ -17881,7 +17458,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
@@ -17971,7 +17548,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
-| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
@@ -18756,10 +18333,10 @@ that cannot be compiled with jsii's compiler settings.
 ##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.ghAutoMergeOptions"></a>
 
 ```typescript
-public readonly ghAutoMergeOptions: AutoMergeOptions;
+public readonly ghAutoMergeOptions: AutoQueueOptions;
 ```
 
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Type:* projen.github.AutoQueueOptions
 - *Default:* default options
 
 Options for the GitHub auto merge workflow.
@@ -20042,7 +19619,7 @@ public readonly setNodeEngineVersion: boolean;
 - *Type:* boolean
 - *Default:* true
 
-cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
@@ -20440,7 +20017,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.experimentalIntegRunner">experimentalIntegRunner</a></code> | <code>boolean</code> | Enable experimental support for the AWS CDK integ-runner. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
@@ -20535,7 +20112,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
@@ -21494,10 +21071,10 @@ Enable experimental support for the AWS CDK integ-runner.
 ##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.ghAutoMergeOptions"></a>
 
 ```typescript
-public readonly ghAutoMergeOptions: AutoMergeOptions;
+public readonly ghAutoMergeOptions: AutoQueueOptions;
 ```
 
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Type:* projen.github.AutoQueueOptions
 - *Default:* default options
 
 Options for the GitHub auto merge workflow.
@@ -22836,7 +22413,7 @@ public readonly setNodeEngineVersion: boolean;
 - *Type:* boolean
 - *Default:* true
 
-cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
@@ -23260,7 +22837,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.eslint">eslint</a></code> | <code>boolean</code> | Setup eslint. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.eslintOptions">eslintOptions</a></code> | <code>projen.javascript.EslintOptions</code> | Eslint options. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. Files matching any of those patterns will be excluded from the TypeScript compiler input. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.github">github</a></code> | <code>boolean</code> | Enable GitHub integration. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.githubOptions">githubOptions</a></code> | <code>projen.github.GitHubOptions</code> | Options for GitHub integration. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.gitignore">gitignore</a></code> | <code>string[]</code> | Additional entries to .gitignore. |
@@ -23350,7 +22927,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
@@ -24137,10 +23714,10 @@ that cannot be compiled with jsii's compiler settings.
 ##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.ghAutoMergeOptions"></a>
 
 ```typescript
-public readonly ghAutoMergeOptions: AutoMergeOptions;
+public readonly ghAutoMergeOptions: AutoQueueOptions;
 ```
 
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Type:* projen.github.AutoQueueOptions
 - *Default:* default options
 
 Options for the GitHub auto merge workflow.
@@ -25423,7 +25000,7 @@ public readonly setNodeEngineVersion: boolean;
 - *Type:* boolean
 - *Default:* true
 
-cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
@@ -28176,9 +27753,9 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
-| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The organization this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
@@ -30278,10 +29855,10 @@ This will enable the auto merge workflow as well as the merge queue
 ##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions"></a>
 
 ```typescript
-public readonly ghAutoMergeOptions: AutoMergeOptions;
+public readonly ghAutoMergeOptions: AutoQueueOptions;
 ```
 
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Type:* projen.github.AutoQueueOptions
 - *Default:* default options
 
 Options for the GitHub auto merge workflow.
@@ -30314,7 +29891,7 @@ public readonly setNodeEngineVersion: boolean;
 - *Type:* boolean
 - *Default:* true
 
-cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
@@ -30517,9 +30094,9 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Options for the GitHub auto merge workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
-| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The organization this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
@@ -32619,10 +32196,10 @@ This will enable the auto merge workflow as well as the merge queue
 ##### `ghAutoMergeOptions`<sup>Optional</sup> <a name="ghAutoMergeOptions" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions"></a>
 
 ```typescript
-public readonly ghAutoMergeOptions: AutoMergeOptions;
+public readonly ghAutoMergeOptions: AutoQueueOptions;
 ```
 
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
+- *Type:* projen.github.AutoQueueOptions
 - *Default:* default options
 
 Options for the GitHub auto merge workflow.
@@ -32655,7 +32232,7 @@ public readonly setNodeEngineVersion: boolean;
 - *Type:* boolean
 - *Default:* true
 
-cdklabs-projen-project-types.AutoMergeOptions Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
 
 ---
 
@@ -32695,67 +32272,6 @@ public readonly upgradeRuntimeDepsAsFix: boolean;
 - *Default:* true
 
 Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix.
-
----
-
-### MergeQueueOptions <a name="MergeQueueOptions" id="cdklabs-projen-project-types.MergeQueueOptions"></a>
-
-Options for 'MergeQueue'.
-
-#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.MergeQueueOptions.Initializer"></a>
-
-```typescript
-import { MergeQueueOptions } from 'cdklabs-projen-project-types'
-
-const mergeQueueOptions: MergeQueueOptions = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.MergeQueueOptions.property.autoMerge">autoMerge</a></code> | <code>boolean</code> | Should pull requests be merged automatically once they pass required checks. |
-| <code><a href="#cdklabs-projen-project-types.MergeQueueOptions.property.autoMergeOptions">autoMergeOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a></code> | Configure auto merge pull requests. |
-| <code><a href="#cdklabs-projen-project-types.MergeQueueOptions.property.mergeBranch">mergeBranch</a></code> | <code>string</code> | The branch to merge to. |
-
----
-
-##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="cdklabs-projen-project-types.MergeQueueOptions.property.autoMerge"></a>
-
-```typescript
-public readonly autoMerge: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Should pull requests be merged automatically once they pass required checks.
-
----
-
-##### `autoMergeOptions`<sup>Optional</sup> <a name="autoMergeOptions" id="cdklabs-projen-project-types.MergeQueueOptions.property.autoMergeOptions"></a>
-
-```typescript
-public readonly autoMergeOptions: AutoMergeOptions;
-```
-
-- *Type:* <a href="#cdklabs-projen-project-types.AutoMergeOptions">AutoMergeOptions</a>
-- *Default:* see AutoMergeOptions
-
-Configure auto merge pull requests.
-
----
-
-##### `mergeBranch`<sup>Optional</sup> <a name="mergeBranch" id="cdklabs-projen-project-types.MergeQueueOptions.property.mergeBranch"></a>
-
-```typescript
-public readonly mergeBranch: string;
-```
-
-- *Type:* string
-- *Default:* main
-
-The branch to merge to.
 
 ---
 
@@ -37523,33 +37039,6 @@ public resolveDepsAndWritePackageJson(): boolean
 
 
 ##### `GO` <a name="GO" id="cdklabs-projen-project-types.JsiiLanguage.GO"></a>
-
----
-
-
-### MergeMethod <a name="MergeMethod" id="cdklabs-projen-project-types.MergeMethod"></a>
-
-#### Members <a name="Members" id="Members"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdklabs-projen-project-types.MergeMethod.SQUASH">SQUASH</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.MergeMethod.MERGE">MERGE</a></code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.MergeMethod.REBASE">REBASE</a></code> | *No description.* |
-
----
-
-##### `SQUASH` <a name="SQUASH" id="cdklabs-projen-project-types.MergeMethod.SQUASH"></a>
-
----
-
-
-##### `MERGE` <a name="MERGE" id="cdklabs-projen-project-types.MergeMethod.MERGE"></a>
-
----
-
-
-##### `REBASE` <a name="REBASE" id="cdklabs-projen-project-types.MergeMethod.REBASE"></a>
 
 ---
 
