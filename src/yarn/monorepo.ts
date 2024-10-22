@@ -1,10 +1,9 @@
-import { JsonFile, Project, typescript } from 'projen';
+import { JsonFile, Project, typescript, github } from 'projen';
 import { NodePackageManager } from 'projen/lib/javascript';
 import { MonorepoOptions } from './monorepo-options';
 import { MonorepoRelease } from './monorepo-release';
 import { Nx } from './nx';
 import { TypeScriptWorkspace } from './typescript-workspace';
-import { MergeQueue } from '../merge-queue';
 
 /**
  * A monorepo using yarn workspaces.
@@ -240,8 +239,8 @@ export class CdkLabsMonorepo extends Monorepo {
       workflowNodeVersion: options.workflowNodeVersion ?? 'lts/*',
     });
 
-    new MergeQueue(this, {
-      autoMergeOptions: {
+    new github.MergeQueue(this, {
+      autoQueueOptions: {
         secret: 'PROJEN_GITHUB_TOKEN',
       },
     });

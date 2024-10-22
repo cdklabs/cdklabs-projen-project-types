@@ -1,7 +1,6 @@
 import { DependencyType, github, javascript, typescript } from 'projen';
 import { deepMerge } from 'projen/lib/util';
 import { CdkCommonOptions } from './cdk-common-options';
-import { MergeQueue } from './merge-queue';
 import { Private } from './private';
 import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
 
@@ -71,8 +70,8 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
   }
 
   if (opts.enablePRAutoMerge) {
-    new MergeQueue(project, {
-      autoMergeOptions: opts.ghAutoMergeOptions,
+    new github.MergeQueue(project, {
+      autoQueueOptions: opts.ghAutoMergeOptions,
     });
   }
 
