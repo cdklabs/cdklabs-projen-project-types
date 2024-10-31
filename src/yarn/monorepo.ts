@@ -1,5 +1,4 @@
-import { JsonFile, Project, typescript, github } from 'projen';
-import { NodePackageManager } from 'projen/lib/javascript';
+import { JsonFile, Project, javascript, typescript, github } from 'projen';
 import { MonorepoOptions } from './monorepo-options';
 import { MonorepoRelease } from './monorepo-release';
 import { Nx } from './nx';
@@ -22,7 +21,7 @@ export class Monorepo extends typescript.TypeScriptProject {
   constructor(options: MonorepoOptions) {
     super({
       ...options,
-      packageManager: NodePackageManager.YARN,
+      packageManager: javascript.NodePackageManager.YARN_CLASSIC,
       sampleCode: false,
       jest: false,
       eslint: false,
@@ -241,7 +240,7 @@ export class CdkLabsMonorepo extends Monorepo {
 
     new github.MergeQueue(this, {
       autoQueueOptions: {
-        secret: 'PROJEN_GITHUB_TOKEN',
+        projenCredentials: github.GithubCredentials.fromPersonalAccessToken({ secret: 'PROJEN_GITHUB_TOKEN' }),
       },
     });
   }
