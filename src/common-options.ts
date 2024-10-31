@@ -25,7 +25,7 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
   const isPrivate = options.private ?? true;
   const enablePRAutoMerge = options.enablePRAutoMerge ?? isPrivate;
   const ghAutoMergeOptions = options.ghAutoMergeOptions ?? {
-    secret: 'PROJEN_GITHUB_TOKEN',
+    projenCredentials: github.GithubCredentials.fromPersonalAccessToken({ secret: 'PROJEN_GITHUB_TOKEN' }),
   };
   const githubOptions: github.GitHubOptions = {
     mergify: !enablePRAutoMerge,
