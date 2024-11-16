@@ -11,6 +11,12 @@ export interface MonorepoReleaseOptions {
    */
   readonly branchName?: string;
   /**
+   * The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string.
+   * This can be any compatible package version, including the deprecated `standard-version@9`.
+   * @default - A recent version of "commit-and-tag-version"
+   */
+  readonly bumpPackage?: string;
+  /**
    * Version requirement of `publib` which is used to publish modules to npm.
    * @default "latest"
    */
@@ -31,6 +37,28 @@ export interface MonorepoReleaseOptions {
    * @default - No minimum version is being enforced
    */
   readonly minMajorVersion?: number;
+  /**
+   * A shell command to control the next version to release.
+   * If present, this shell command will be run before the bump is executed, and
+   * it determines what version to release. It will be executed in the following
+   * environment:
+   *
+   * - Working directory: the project directory.
+   * - `$VERSION`: the current version. Looks like `1.2.3`.
+   * - `$LATEST_TAG`: the most recent tag. Looks like `prefix-v1.2.3`, or may be unset.
+   *
+   * The command should print one of the following to `stdout`:
+   *
+   * - Nothing: the next version number will be determined based on commit history.
+   * - `x.y.z`: the next version number will be `x.y.z`.
+   * - `major|minor|patch`: the next version number will be the current version number
+   *   with the indicated component bumped.
+   *
+   * This setting cannot be specified together with `minMajorVersion`; the invoked
+   * script can be used to achieve the effects of `minMajorVersion`.
+   * @default - The next version will be determined based on the commit history and project settings.
+   */
+  readonly nextVersionCommand?: string;
   /**
    * Node version to use in the release workflow
    * @default "lts/*"
