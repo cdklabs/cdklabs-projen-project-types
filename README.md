@@ -164,3 +164,4 @@ The location the workspace is placed at. Defaults to `./packages`
 
 - `excludeDepsFromUpgrade: Array<string>`\
 List any dependencies that should not be updated in the workspace.
+
