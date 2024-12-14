@@ -511,7 +511,7 @@ export interface TypeScriptWorkspaceOptions {
   readonly peerDeps?: Array<string | yarn.TypeScriptWorkspace>;
   /**
    * The version of PNPM to use if using PNPM as a package manager.
-   * @default "7"
+   * @default "9"
    */
   readonly pnpmVersion?: string;
   /**

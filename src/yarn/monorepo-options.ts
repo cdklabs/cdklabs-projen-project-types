@@ -516,7 +516,7 @@ export interface MonorepoOptions {
   readonly peerDeps?: Array<string>;
   /**
    * The version of PNPM to use if using PNPM as a package manager.
-   * @default "7"
+   * @default "9"
    */
   readonly pnpmVersion?: string;
   /**
