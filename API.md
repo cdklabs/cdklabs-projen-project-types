@@ -37419,6 +37419,7 @@ const workspaceReleaseOptions: yarn.WorkspaceReleaseOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.private">private</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.nextVersionCommand">nextVersionCommand</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.publishToNpm">publishToNpm</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | *No description.* |
@@ -37432,6 +37433,16 @@ public readonly private: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `nextVersionCommand`<sup>Optional</sup> <a name="nextVersionCommand" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.nextVersionCommand"></a>
+
+```typescript
+public readonly nextVersionCommand: string;
+```
+
+- *Type:* string
 
 ---
 
