@@ -92,4 +92,23 @@ describe('CdkLabsMonorepo', () => {
     expect(releaseWorkflow.jobs['cdklabs-one_release_github'].needs).toStrictEqual(['release', 'cdklabs-one_release_npm']);
     expect(outdir).toMatchSnapshot();
   });
+
+  test('monorepo release with nextVersionCommand', () => {
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+      release: true,
+    });
+
+    new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/one',
+      nextVersionCommand: 'asdf',
+    });
+
+    const outdir = Testing.synth(parent);
+    const tasks = outdir['packages/@cdklabs/one/.projen/tasks.json'];
+
+    expect(tasks.tasks.bump.env.NEXT_VERSION_COMMAND).toStrictEqual('asdf');
+  });
 });
