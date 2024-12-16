@@ -10,6 +10,7 @@ export interface WorkspaceReleaseOptions {
   readonly workflowNodeVersion?: string;
   readonly publishToNpm?: boolean;
   readonly releasableCommits?: ReleasableCommits;
+  readonly nextVersionCommand?: string;
 }
 
 export class WorkspaceRelease extends Component {
@@ -39,6 +40,8 @@ export class WorkspaceRelease extends Component {
         // In a monorepo, only consider changes relevant to the subproject
         // Path is relative to the subproject outdir, so '.' is what we want here
         releasableCommits: options.releasableCommits ?? ReleasableCommits.everyCommit('.'),
+
+        nextVersionCommand: options.nextVersionCommand,
       });
 
       this.publisher = new release.Publisher(this.workspace, {
