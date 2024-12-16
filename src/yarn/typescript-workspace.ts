@@ -110,6 +110,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       private: this.isPrivatePackage,
       workflowNodeVersion: this.nodeVersion,
       releasableCommits: options.releasableCommits,
+      nextVersionCommand: options.nextVersionCommand,
     });
 
     // jest config
