@@ -41,7 +41,7 @@ const cdklabsDefaultProps: Partial<CdklabsConstructLibraryOptions> = {
   // project will basically release every day, because it will see devDependencies updates
   // every day, even though those are not interesting.
   releasableCommits: ReleasableCommits.featuresAndFixes(),
-  jsiiVersion: '~5.2',
+  jsiiVersion: '~5.7',
 };
 
 function createCdklabsPublishingDefaults(npmPackageName: string, langs?: JsiiLanguage[]) {
@@ -129,7 +129,7 @@ export interface CdklabsPublishingProjectOptions {
   readonly jsiiTargetLanguages?: JsiiLanguage[];
 }
 
-export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptions, CdklabsPublishingProjectOptions {}
+export interface CdklabsConstructLibraryOptions extends CdkConstructLibraryOptions, CdklabsPublishingProjectOptions { }
 
 /**
  * Create a Cdklabs Construct Library Project
@@ -175,7 +175,7 @@ export class CdklabsTypeScriptProject extends CdkTypeScriptProject {
   }
 }
 
-export interface CdklabsJsiiProjectOptions extends CdkJsiiProjectOptions, CdklabsPublishingProjectOptions {}
+export interface CdklabsJsiiProjectOptions extends CdkJsiiProjectOptions, CdklabsPublishingProjectOptions { }
 
 /**
  * Create a Cdklabs Jsii Project
