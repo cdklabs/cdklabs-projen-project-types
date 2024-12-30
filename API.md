@@ -37419,6 +37419,7 @@ const workspaceReleaseOptions: yarn.WorkspaceReleaseOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.private">private</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.versionBranchOptions">versionBranchOptions</a></code> | <code>projen.VersionBranchOptions</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.nextVersionCommand">nextVersionCommand</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.publishToNpm">publishToNpm</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | *No description.* |
@@ -37433,6 +37434,16 @@ public readonly private: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `versionBranchOptions`<sup>Required</sup> <a name="versionBranchOptions" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.versionBranchOptions"></a>
+
+```typescript
+public readonly versionBranchOptions: VersionBranchOptions;
+```
+
+- *Type:* projen.VersionBranchOptions
 
 ---
 
