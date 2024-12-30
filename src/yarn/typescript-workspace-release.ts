@@ -1,5 +1,5 @@
 import * as path from 'node:path';
-import { Component, ReleasableCommits, Task, Version, release } from 'projen';
+import { Component, ReleasableCommits, Task, Version, VersionBranchOptions, release } from 'projen';
 import { GatherVersions, VersionMatch } from './gather-versions.task';
 import { TypeScriptWorkspace } from './typescript-workspace';
 
@@ -11,6 +11,7 @@ export interface WorkspaceReleaseOptions {
   readonly publishToNpm?: boolean;
   readonly releasableCommits?: ReleasableCommits;
   readonly nextVersionCommand?: string;
+  readonly versionBranchOptions: VersionBranchOptions;
 }
 
 export class WorkspaceRelease extends Component {
@@ -73,7 +74,23 @@ export class WorkspaceRelease extends Component {
     const gatherVersions = project.addTask('gather-versions', {
       steps: [new GatherVersions(project, VersionMatch.MAJOR)],
     });
-    this.obtainBumpTask().prependSpawn(gatherVersions);
+
+    const bumpTask = this.obtainBumpTask();
+    bumpTask.prependSpawn(gatherVersions);
+    // The bumpTask needs to be executed with environment variables that control
+    // version information. These are not part of the upstream task itself yet,
+    // since they are part of the invocation there.
+    if (this.version) {
+      if (options.versionBranchOptions?.tagPrefix) {
+        throw new Error('Do not set versionBranchOptions.tagPrefix; it is configured another way');
+      }
+      for (const [key, value] of Object.entries(this.version.envForBranch({
+        ...options.versionBranchOptions,
+      }))) {
+        bumpTask.env(key, value);
+      }
+    }
+
 
     // After we have unbumped package versions back to 0.0.0,
     // we can run the gather-versions task again which will now replace the to-be-release versions with 0.0.0

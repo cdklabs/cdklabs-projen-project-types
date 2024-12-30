@@ -31,7 +31,9 @@ function main() {
 }
 
 function dependencyInfo(dependency: string): any {
-  return JSON.parse(readFileSync(require.resolve(`${dependency}/package.json`)).toString());
+  // Search needs to be w.r.t. the current directory, otherwise it is w.r.t. the current
+  // file and that doesn't work if `cdklabs-projen-project-types` is locally symlinked.
+  return JSON.parse(readFileSync(require.resolve(`${dependency}/package.json`, { paths: [process.cwd()] })).toString());
 }
 
 function versionConstraint(versionMatch: string): string {

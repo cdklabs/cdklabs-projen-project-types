@@ -111,6 +111,11 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       workflowNodeVersion: this.nodeVersion,
       releasableCommits: options.releasableCommits,
       nextVersionCommand: options.nextVersionCommand,
+      versionBranchOptions: {
+        majorVersion: options.majorVersion,
+        minMajorVersion: options.minMajorVersion,
+        prerelease: options.prerelease,
+      },
     });
 
     // jest config

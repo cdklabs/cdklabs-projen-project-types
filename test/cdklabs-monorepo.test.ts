@@ -69,46 +69,59 @@ describe('CdkLabsMonorepo', () => {
     expect(outdir['.npmignore']).toContain('/.nx');
   });
 
-  test('monorepo release', () => {
-    const parent = new yarn.CdkLabsMonorepo({
-      name: 'monorepo',
-      defaultReleaseBranch: 'main',
-      release: true,
+  describe('with monorepo that releases', () => {
+    let parent: yarn.CdkLabsMonorepo;
+    beforeEach(() => {
+      parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        release: true,
+      });
     });
 
-    new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/one',
+    test('monorepo release', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+      expect(releaseWorkflow.jobs['cdklabs-one_release_github'].needs).toStrictEqual(['release', 'cdklabs-one_release_npm']);
+      expect(outdir).toMatchSnapshot();
     });
 
-    new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/two',
+    test('monorepo release with nextVersionCommand', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        nextVersionCommand: 'asdf',
+      });
+
+      const outdir = Testing.synth(parent);
+      const tasks = outdir['packages/@cdklabs/one/.projen/tasks.json'];
+
+      expect(tasks.tasks.bump.env.NEXT_VERSION_COMMAND).toStrictEqual('asdf');
     });
 
-    const outdir = Testing.synth(parent);
-    const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+    test('minMajorVersion is respected', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        minMajorVersion: 3,
+      });
 
-    expect(releaseWorkflow.jobs['cdklabs-one_release_github'].needs).toStrictEqual(['release', 'cdklabs-one_release_npm']);
-    expect(outdir).toMatchSnapshot();
-  });
-
-  test('monorepo release with nextVersionCommand', () => {
-    const parent = new yarn.CdkLabsMonorepo({
-      name: 'monorepo',
-      defaultReleaseBranch: 'main',
-      release: true,
+      const outdir = Testing.synth(parent);
+      const tasks = outdir['packages/@cdklabs/one/.projen/tasks.json'];
+      expect(tasks.tasks.bump.env).toEqual(expect.objectContaining({
+        MIN_MAJOR: '3',
+      }));
     });
-
-    new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/one',
-      nextVersionCommand: 'asdf',
-    });
-
-    const outdir = Testing.synth(parent);
-    const tasks = outdir['packages/@cdklabs/one/.projen/tasks.json'];
-
-    expect(tasks.tasks.bump.env.NEXT_VERSION_COMMAND).toStrictEqual('asdf');
   });
 });
