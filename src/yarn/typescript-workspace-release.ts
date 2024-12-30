@@ -79,7 +79,8 @@ export class WorkspaceRelease extends Component {
     bumpTask.prependSpawn(gatherVersions);
     // The bumpTask needs to be executed with environment variables that control
     // version information. These are not part of the upstream task itself yet,
-    // since they are part of the invocation there.
+    // since they are part of the invocation there. We also need to make them part
+    // of the invocation here.
     if (this.version) {
       if (options.versionBranchOptions?.tagPrefix) {
         throw new Error('Do not set versionBranchOptions.tagPrefix; it is configured another way');
