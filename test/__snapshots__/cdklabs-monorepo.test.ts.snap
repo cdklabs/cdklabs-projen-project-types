@@ -1115,7 +1115,7 @@ tsconfig.tsbuildinfo
       {
         "name": "jest-junit",
         "type": "build",
-        "version": "^15",
+        "version": "^16",
       },
       {
         "name": "prettier",
@@ -1512,7 +1512,7 @@ tsconfig.tsbuildinfo
       "eslint-plugin-import": "*",
       "eslint-plugin-prettier": "*",
       "jest": "*",
-      "jest-junit": "^15",
+      "jest-junit": "^16",
       "prettier": "*",
       "projen": "*",
       "ts-jest": "*",
@@ -1934,7 +1934,7 @@ tsconfig.tsbuildinfo
       {
         "name": "jest-junit",
         "type": "build",
-        "version": "^15",
+        "version": "^16",
       },
       {
         "name": "prettier",
@@ -2331,7 +2331,7 @@ tsconfig.tsbuildinfo
       "eslint-plugin-import": "*",
       "eslint-plugin-prettier": "*",
       "jest": "*",
-      "jest-junit": "^15",
+      "jest-junit": "^16",
       "prettier": "*",
       "projen": "*",
       "ts-jest": "*",
@@ -3823,7 +3823,7 @@ tsconfig.tsbuildinfo
       {
         "name": "jest-junit",
         "type": "build",
-        "version": "^15",
+        "version": "^16",
       },
       {
         "name": "prettier",
@@ -4275,7 +4275,7 @@ tsconfig.tsbuildinfo
       "eslint-plugin-import": "*",
       "eslint-plugin-prettier": "*",
       "jest": "*",
-      "jest-junit": "^15",
+      "jest-junit": "^16",
       "prettier": "*",
       "projen": "*",
       "ts-jest": "*",
@@ -4712,7 +4712,7 @@ tsconfig.tsbuildinfo
       {
         "name": "jest-junit",
         "type": "build",
-        "version": "^15",
+        "version": "^16",
       },
       {
         "name": "prettier",
@@ -5164,7 +5164,7 @@ tsconfig.tsbuildinfo
       "eslint-plugin-import": "*",
       "eslint-plugin-prettier": "*",
       "jest": "*",
-      "jest-junit": "^15",
+      "jest-junit": "^16",
       "prettier": "*",
       "projen": "*",
       "ts-jest": "*",
@@ -6453,7 +6453,7 @@ tsconfig.tsbuildinfo
       {
         "name": "jest-junit",
         "type": "build",
-        "version": "^15",
+        "version": "^16",
       },
       {
         "name": "prettier",
@@ -6850,7 +6850,7 @@ tsconfig.tsbuildinfo
       "eslint-plugin-import": "*",
       "eslint-plugin-prettier": "*",
       "jest": "*",
-      "jest-junit": "^15",
+      "jest-junit": "^16",
       "prettier": "*",
       "projen": "*",
       "ts-jest": "*",

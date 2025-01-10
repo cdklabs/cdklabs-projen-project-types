@@ -14637,9 +14637,11 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bumpPackage">bumpPackage</a></code> | <code>string</code> | The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.catalog">catalog</a></code> | <code>projen.cdk.Catalog</code> | Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkAssert">cdkAssert</a></code> | <code>boolean</code> | Warning: NodeJS only. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkAssertions">cdkAssertions</a></code> | <code>boolean</code> | Install the assertions library? |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkCliVersion">cdkCliVersion</a></code> | <code>string</code> | Version range of the AWS CDK CLI to depend on. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkDependencies">cdkDependencies</a></code> | <code>string[]</code> | Which AWS CDKv1 modules this project requires. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkDependenciesAsDeps">cdkDependenciesAsDeps</a></code> | <code>boolean</code> | If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkTestDependencies">cdkTestDependencies</a></code> | <code>string[]</code> | AWS CDK modules required for testing. |
@@ -15146,6 +15148,19 @@ Options for `Bundler`.
 
 ---
 
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
+
+---
+
 ##### `catalog`<sup>Optional</sup> <a name="catalog" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.catalog"></a>
 
 ```typescript
@@ -15198,6 +15213,24 @@ Install the assertions library?
 
 Only needed for CDK 1.x. If using CDK 2.x then
 assertions is already included in 'aws-cdk-lib'
+
+---
+
+##### `cdkCliVersion`<sup>Optional</sup> <a name="cdkCliVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkCliVersion"></a>
+
+```typescript
+public readonly cdkCliVersion: string;
+```
+
+- *Type:* string
+- *Default:* "^2"
+
+Version range of the AWS CDK CLI to depend on.
+
+Can be either a specific version, or an NPM version range.
+
+By default, the latest 2.x version will be installed; you can use this
+option to restrict it to a specific version or version range.
 
 ---
 
@@ -17476,6 +17509,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.bumpPackage">bumpPackage</a></code> | <code>string</code> | The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -17954,6 +17988,19 @@ public readonly bundlerOptions: BundlerOptions;
 - *Type:* projen.javascript.BundlerOptions
 
 Options for `Bundler`.
+
+---
+
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
 
 ---
 
@@ -20073,9 +20120,11 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bumpPackage">bumpPackage</a></code> | <code>string</code> | The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.catalog">catalog</a></code> | <code>projen.cdk.Catalog</code> | Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkAssert">cdkAssert</a></code> | <code>boolean</code> | Warning: NodeJS only. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkAssertions">cdkAssertions</a></code> | <code>boolean</code> | Install the assertions library? |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkCliVersion">cdkCliVersion</a></code> | <code>string</code> | Version range of the AWS CDK CLI to depend on. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkDependencies">cdkDependencies</a></code> | <code>string[]</code> | Which AWS CDKv1 modules this project requires. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkDependenciesAsDeps">cdkDependenciesAsDeps</a></code> | <code>boolean</code> | If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkTestDependencies">cdkTestDependencies</a></code> | <code>string[]</code> | AWS CDK modules required for testing. |
@@ -20584,6 +20633,19 @@ Options for `Bundler`.
 
 ---
 
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
+
+---
+
 ##### `catalog`<sup>Optional</sup> <a name="catalog" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.catalog"></a>
 
 ```typescript
@@ -20636,6 +20698,24 @@ Install the assertions library?
 
 Only needed for CDK 1.x. If using CDK 2.x then
 assertions is already included in 'aws-cdk-lib'
+
+---
+
+##### `cdkCliVersion`<sup>Optional</sup> <a name="cdkCliVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkCliVersion"></a>
+
+```typescript
+public readonly cdkCliVersion: string;
+```
+
+- *Type:* string
+- *Default:* "^2"
+
+Version range of the AWS CDK CLI to depend on.
+
+Can be either a specific version, or an NPM version range.
+
+By default, the latest 2.x version will be installed; you can use this
+option to restrict it to a specific version or version range.
 
 ---
 
@@ -22951,6 +23031,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.bumpPackage">bumpPackage</a></code> | <code>string</code> | The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -23431,6 +23512,19 @@ public readonly bundlerOptions: BundlerOptions;
 - *Type:* projen.javascript.BundlerOptions
 
 Options for `Bundler`.
+
+---
+
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
 
 ---
 
@@ -25588,6 +25682,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bumpPackage">bumpPackage</a></code> | <code>string</code> | The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -26017,6 +26112,19 @@ public readonly bundlerOptions: BundlerOptions;
 - *Type:* projen.javascript.BundlerOptions
 
 Options for `Bundler`.
+
+---
+
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
 
 ---
 
@@ -27886,6 +27994,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
@@ -28555,6 +28664,19 @@ sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
 the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
 this will be what you `package.json` will eventually include.
+
+---
+
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
 
 ---
 
@@ -30275,6 +30397,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
@@ -30944,6 +31067,19 @@ sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
 the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
 this will be what you `package.json` will eventually include.
+
+---
+
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
 
 ---
 
@@ -32649,6 +32785,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bumpPackage">bumpPackage</a></code> | <code>string</code> | The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -33078,6 +33215,19 @@ public readonly bundlerOptions: BundlerOptions;
 - *Type:* projen.javascript.BundlerOptions
 
 Options for `Bundler`.
+
+---
+
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
 
 ---
 
@@ -35232,6 +35382,7 @@ const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bumpPackage">bumpPackage</a></code> | <code>string</code> | The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -35647,6 +35798,19 @@ public readonly bundlerOptions: BundlerOptions;
 - *Type:* projen.javascript.BundlerOptions
 
 Options for `Bundler`.
+
+---
+
+##### `bunVersion`<sup>Optional</sup> <a name="bunVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.bunVersion"></a>
+
+```typescript
+public readonly bunVersion: string;
+```
+
+- *Type:* string
+- *Default:* "latest"
+
+The version of Bun to use if using Bun as a package manager.
 
 ---
 
