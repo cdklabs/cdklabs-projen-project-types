@@ -129,6 +129,11 @@ export interface CdkConstructLibraryOptions {
    */
   readonly bundlerOptions?: javascript.BundlerOptions;
   /**
+   * The version of Bun to use if using Bun as a package manager.
+   * @default "latest"
+   */
+  readonly bunVersion?: string;
+  /**
    * Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:.
    * https://awscdk.io/packages/[@SCOPE/]PACKAGE@VERSION
    *
@@ -155,6 +160,15 @@ export interface CdkConstructLibraryOptions {
    * @default - will be included by default for AWS CDK >= 1.111.0 < 2.0.0
    */
   readonly cdkAssertions?: boolean;
+  /**
+   * Version range of the AWS CDK CLI to depend on.
+   * Can be either a specific version, or an NPM version range.
+   *
+   * By default, the latest 2.x version will be installed; you can use this
+   * option to restrict it to a specific version or version range.
+   * @default "^2"
+   */
+  readonly cdkCliVersion?: string;
   /**
    * Which AWS CDKv1 modules this project requires.
    * @deprecated For CDK 2.x use "deps" instead. (or "peerDeps" if you're building a library)
