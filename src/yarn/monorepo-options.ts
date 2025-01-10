@@ -119,6 +119,11 @@ export interface MonorepoOptions {
    */
   readonly bundlerOptions?: javascript.BundlerOptions;
   /**
+   * The version of Bun to use if using Bun as a package manager.
+   * @default "latest"
+   */
+  readonly bunVersion?: string;
+  /**
    * Configure which licenses should be deemed acceptable for use by dependencies.
    * This setting will cause the build to fail, if any prohibited or not allowed licenses ares encountered.
    * @default - no license checks are run during the build and all licenses will be accepted
