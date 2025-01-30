@@ -167,6 +167,7 @@ export class Monorepo extends typescript.TypeScriptProject {
     this.package.addField('private', true);
     this.package.addField('workspaces', {
       packages: this.projects.map((p) => p.workspaceDirectory),
+      ...this.renderNoHoist(),
     });
 
     this.tsconfig?.file.addOverride('include', []);
@@ -181,6 +182,21 @@ export class Monorepo extends typescript.TypeScriptProject {
     this.package.addField('jest', {
       projects: this.projects.map((p) => `<rootDir>/${p.workspaceDirectory}`),
     });
+  }
+
+  /**
+   * Render the 'nohoist' directive
+   *
+   * Bundled dependencies must be nohoist'ed, otherwise NPM silently won't bundle them.
+   *
+   * Renders an object that should be mixed into the `workspaces` object.
+   */
+  private renderNoHoist(): any {
+    const nohoist = this.projects.flatMap(p => p.bundledDeps.flatMap(dep => [
+      `${p.name}/${dep}`,
+      `${p.name}/${dep}/**`,
+    ]));
+    return nohoist.length > 0 ? { nohoist } : undefined;
   }
 
   /**

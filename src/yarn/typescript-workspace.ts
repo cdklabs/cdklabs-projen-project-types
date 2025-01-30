@@ -9,6 +9,7 @@ import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
  */
 export class TypeScriptWorkspace extends typescript.TypeScriptProject {
   public readonly workspaceDirectory: string;
+  public readonly bundledDeps: string[] = [];
 
   private readonly monorepo: Monorepo;
   private readonly isPrivatePackage: boolean;
@@ -188,6 +189,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     // Fixes
     this.addTsconfigDevFix();
     this.addEslintRcFix();
+
+    this.bundledDeps.push(...options.bundledDeps ?? []);
 
     options.parent.register(this);
   }
