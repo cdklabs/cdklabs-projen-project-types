@@ -24,6 +24,33 @@ describe('CdkLabsMonorepo', () => {
     expect(outdir).toMatchSnapshot();
   });
 
+  test('bundled dependencies lead to a nohoist directive', () => {
+    // GIVEN
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+    });
+
+    new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/one',
+      // WHEN
+      bundledDeps: ['jsonschema'],
+    });
+
+    // THEN
+    const outdir = Testing.synth(parent);
+
+    expect(outdir['package.json']).toEqual(expect.objectContaining({
+      workspaces: expect.objectContaining({
+        nohoist: [
+          '@cdklabs/one/jsonschema',
+          '@cdklabs/one/jsonschema/**',
+        ],
+      })
+    }));
+  });
+
   test('workspaces get monorepo repository configuration', () => {
     const testRepository = 'https://github.com/cdklabs/cdklabs-projen-project-types';
     const parent = new yarn.CdkLabsMonorepo({
