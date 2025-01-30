@@ -47,7 +47,7 @@ describe('CdkLabsMonorepo', () => {
           '@cdklabs/one/jsonschema',
           '@cdklabs/one/jsonschema/**',
         ],
-      })
+      }),
     }));
   });
 
