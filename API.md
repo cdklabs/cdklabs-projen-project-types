@@ -2,6 +2,194 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### CdkCliIntegTestsWorkflow <a name="CdkCliIntegTestsWorkflow" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow"></a>
+
+Add a workflow for running the tests.
+
+This MUST be a separate workflow that runs in privileged context. We have a couple
+of options:
+
+- `workflow_run`: we can trigger a privileged workflow run after the unprivileged
+  `pull_request` workflow finishes and reuse its output artifacts. The
+  problem is that the second run is disconnected from the PR so we would need
+  to script in visibility for approvals and success (by posting comments, for
+  example)
+- Use only a `pull_request_target` workflow on the PR: this either would run
+  a privileged workflow on any user code submission (might be fine given the
+  workflow's `permissions`, but I'm sure this will make our security team uneasy
+  anyway), OR this would mean any build needs human confirmation which means slow
+  feedback.
+- Use a `pull_request` for a regular fast-feedback build, and a separate
+  `pull_request_target` for the integ tests. This means we're building twice.
+
+Ultimately, our build isn't heavy enough to put in a lot of effort deduping
+it, so we'll go with the simplest solution which is the last one: 2
+independent workflows.
+
+projen doesn't make it easy to copy the relevant parts of the 'build' workflow,
+so they're unfortunately duplicated here.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.Initializer"></a>
+
+```typescript
+import { CdkCliIntegTestsWorkflow } from 'cdklabs-projen-project-types'
+
+new CdkCliIntegTestsWorkflow(repo: NodeProject, props: CdkCliIntegTestsWorkflowProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.Initializer.parameter.repo">repo</a></code> | <code>projen.javascript.NodeProject</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.Initializer.parameter.props">props</a></code> | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps">CdkCliIntegTestsWorkflowProps</a></code> | *No description.* |
+
+---
+
+##### `repo`<sup>Required</sup> <a name="repo" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.Initializer.parameter.repo"></a>
+
+- *Type:* projen.javascript.NodeProject
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps">CdkCliIntegTestsWorkflowProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.isConstruct"></a>
+
+```typescript
+import { CdkCliIntegTestsWorkflow } from 'cdklabs-projen-project-types'
+
+CdkCliIntegTestsWorkflow.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.isComponent"></a>
+
+```typescript
+import { CdkCliIntegTestsWorkflow } from 'cdklabs-projen-project-types'
+
+CdkCliIntegTestsWorkflow.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflow.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ### CdkConstructLibrary <a name="CdkConstructLibrary" id="cdklabs-projen-project-types.CdkConstructLibrary"></a>
 
 Create a Cdk Construct Library Project.
@@ -14483,6 +14671,96 @@ public readonly version: Version;
 
 
 ## Structs <a name="Structs" id="Structs"></a>
+
+### CdkCliIntegTestsWorkflowProps <a name="CdkCliIntegTestsWorkflowProps" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps"></a>
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.Initializer"></a>
+
+```typescript
+import { CdkCliIntegTestsWorkflowProps } from 'cdklabs-projen-project-types'
+
+const cdkCliIntegTestsWorkflowProps: CdkCliIntegTestsWorkflowProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.approvalEnvironment">approvalEnvironment</a></code> | <code>string</code> | GitHub environment name for approvals. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.buildRunsOn">buildRunsOn</a></code> | <code>string</code> | Runners for the workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.localPackages">localPackages</a></code> | <code>string[]</code> | Packages that are locally transfered (we will never use the upstream versions). |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testEnvironment">testEnvironment</a></code> | <code>string</code> | GitHub environment name for running the tests. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testRunsOn">testRunsOn</a></code> | <code>string</code> | Runners for the workflow. |
+
+---
+
+##### `approvalEnvironment`<sup>Required</sup> <a name="approvalEnvironment" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.approvalEnvironment"></a>
+
+```typescript
+public readonly approvalEnvironment: string;
+```
+
+- *Type:* string
+
+GitHub environment name for approvals.
+
+MUST be configured to require manual approval.
+
+---
+
+##### `buildRunsOn`<sup>Required</sup> <a name="buildRunsOn" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.buildRunsOn"></a>
+
+```typescript
+public readonly buildRunsOn: string;
+```
+
+- *Type:* string
+
+Runners for the workflow.
+
+---
+
+##### `localPackages`<sup>Required</sup> <a name="localPackages" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.localPackages"></a>
+
+```typescript
+public readonly localPackages: string[];
+```
+
+- *Type:* string[]
+
+Packages that are locally transfered (we will never use the upstream versions).
+
+---
+
+##### `testEnvironment`<sup>Required</sup> <a name="testEnvironment" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testEnvironment"></a>
+
+```typescript
+public readonly testEnvironment: string;
+```
+
+- *Type:* string
+
+GitHub environment name for running the tests.
+
+MUST be configured without approvals, and with the following vars and secrets:
+
+- vars: AWS_ROLE_TO_ASSUME_FOR_TESTING
+
+And the role needs to be configured to allow the AssumeRole operation.
+
+---
+
+##### `testRunsOn`<sup>Required</sup> <a name="testRunsOn" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testRunsOn"></a>
+
+```typescript
+public readonly testRunsOn: string;
+```
+
+- *Type:* string
+
+Runners for the workflow.
+
+---
 
 ### CdkCommonOptions <a name="CdkCommonOptions" id="cdklabs-projen-project-types.CdkCommonOptions"></a>
 
