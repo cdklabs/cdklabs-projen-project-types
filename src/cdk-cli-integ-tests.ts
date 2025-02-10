@@ -80,6 +80,13 @@ export class CdkCliIntegTestsWorkflow extends Component {
     // The 'build' part runs on the 'integ-approval' environment, which requires
     // approval. The actual runs access the real environment, not requiring approval
     // anymore.
+    //
+    // This is for 2 reasons:
+    // - The build job is the first one that runs. That means you get asked approval
+    //   immediately after push, instead of 5 minutes later after the build completes.
+    // - The build job is only one job, versus the tests which are a matrix build.
+    //   If the matrix test job needs approval, the Pull Request timeline gets spammed
+    //   with an approval request for every individual run.
     runTestsWorkflow.addJob('build', {
       environment: props.approvalEnvironment,
       runsOn: [props.buildRunsOn],
@@ -242,6 +249,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
           name: 'Configure npm to use local registry',
           run: [
             'npm config set registry http://localhost:4873/',
+            // This token is a bogus token. It doesn't represent any actual secret, it just needs to exist.
             'echo \'//localhost:4873/:_authToken="MWRjNDU3OTE1NTljYWUyOTFkMWJkOGUyYTIwZWMwNTI6YTgwZjkyNDE0NzgwYWQzNQ=="\' > ~/.npmrc',
           ].join('\n'),
         },
