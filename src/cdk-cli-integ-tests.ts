@@ -248,14 +248,14 @@ export class CdkCliIntegTestsWorkflow extends Component {
         {
           name: 'Configure npm to use local registry',
           run: [
-            'npm config set registry http://localhost:4873/',
             // This token is a bogus token. It doesn't represent any actual secret, it just needs to exist.
             'echo \'//localhost:4873/:_authToken="MWRjNDU3OTE1NTljYWUyOTFkMWJkOGUyYTIwZWMwNTI6YTgwZjkyNDE0NzgwYWQzNQ=="\' > ~/.npmrc',
+            'echo \'registry=http://localhost:4873/\' >> ~/.npmrc',
           ].join('\n'),
         },
         {
           name: 'Find an locally publish all tarballs',
-          run: 'find packages -name \\*.tgz -print0 | xargs -0 -n1 npm publish --registry http://localhost:4873/',
+          run: 'find packages -name \\*.tgz -print0 | xargs -0 -n1 npm publish',
         },
         {
           name: 'Download and install the test artifact',
@@ -268,18 +268,21 @@ export class CdkCliIntegTestsWorkflow extends Component {
           ].join('\n'),
         },
         {
-          name: 'Determine latest CLI version',
-          id: 'cli_version',
+          name: 'Determine latest package versions',
+          id: 'versions',
           run: [
             'CLI_VERSION=$(cd ${TMPDIR:-/tmp} && npm view aws-cdk version)',
             'echo "CLI version: ${CLI_VERSION}"',
             'echo "cli_version=${CLI_VERSION}" >> $GITHUB_OUTPUT',
+            'LIB_VERSION=$(cd ${TMPDIR:-/tmp} && npm view aws-cdk-lib version)',
+            'echo "lib version: ${LIB_VERSION}"',
+            'echo "lib_version=${LIB_VERSION}" >> $GITHUB_OUTPUT',
           ].join('\n'),
         },
         {
           name: 'Run the test suite: ${{ matrix.suite }}',
           run: [
-            'bin/run-suite --use-cli-release=${{ steps.cli_version.outputs.cli_version }} ${{ matrix.suite }}',
+            'bin/run-suite --use-cli-release=${{ steps.versions.outputs.cli_version }} --framework-version=${{ steps.versions.outputs.lib_version }} ${{ matrix.suite }}',
           ].join('\n'),
           env: {
             // Concurrency only for long-running cli-integ-tests
