@@ -255,7 +255,11 @@ export class CdkCliIntegTestsWorkflow extends Component {
         },
         {
           name: 'Find an locally publish all tarballs',
-          run: 'find packages -name \\*.tgz -print0 | xargs -0 -n1 npm publish',
+          run: [
+            `for pkg in packages/{${props.localPackages.join(',')}}/dist/js/*.tgz; do`,
+            '  npm publish $pkg',
+            'done',
+          ].join('\n'),
         },
         {
           name: 'Download and install the test artifact',
