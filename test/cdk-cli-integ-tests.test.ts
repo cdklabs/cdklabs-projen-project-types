@@ -12,7 +12,7 @@ test('snapshot test for the CDK CLI integ tests', () => {
     testEnvironment: 'test',
     buildRunsOn: 'runsOn',
     testRunsOn: 'testRunsOn',
-    localPackages: ['@aws-cdk/bla'],
+    localPackages: ['@aws-cdk/bla', '@aws-cdk/bloeh'],
   });
 
   const outdir = Testing.synth(repo);

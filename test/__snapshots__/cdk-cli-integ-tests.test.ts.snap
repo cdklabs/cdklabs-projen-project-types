@@ -146,7 +146,7 @@ jobs:
       - name: Create Verdaccio config
         run: |-
           mkdir -p $HOME/.config/verdaccio
-          echo '{"storage":"./storage","auth":{"htpasswd":{"file":"./htpasswd"}},"uplinks":{"npmjs":{"url":"https://registry.npmjs.org/"}},"packages":{"@aws-cdk/bla":{"access":"$all","publish":"$all","proxy":"none"},"**":{"access":"$all","proxy":"npmjs"}}}' > $HOME/.config/verdaccio/config.yaml
+          echo '{"storage":"./storage","auth":{"htpasswd":{"file":"./htpasswd"}},"uplinks":{"npmjs":{"url":"https://registry.npmjs.org/"}},"packages":{"@aws-cdk/bla":{"access":"$all","publish":"$all","proxy":"none"},"@aws-cdk/bloeh":{"access":"$all","publish":"$all","proxy":"none"},"**":{"access":"$all","proxy":"npmjs"}}}' > $HOME/.config/verdaccio/config.yaml
       - name: Start Verdaccio
         run: |-
           pm2 start verdaccio -- --config $HOME/.config/verdaccio/config.yaml
@@ -156,7 +156,10 @@ jobs:
           echo '//localhost:4873/:_authToken="MWRjNDU3OTE1NTljYWUyOTFkMWJkOGUyYTIwZWMwNTI6YTgwZjkyNDE0NzgwYWQzNQ=="' > ~/.npmrc
           echo 'registry=http://localhost:4873/' >> ~/.npmrc
       - name: Find an locally publish all tarballs
-        run: find packages -name \\*.tgz -print0 | xargs -0 -n1 npm publish
+        run: |-
+          for pkg in packages/{@aws-cdk/bla,@aws-cdk/bloeh}/dist/js/*.tgz; do
+            npm publish $pkg
+          done
       - name: Download and install the test artifact
         run: |-
           npm install @aws-cdk-testing/cli-integ
