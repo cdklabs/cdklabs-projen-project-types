@@ -105,6 +105,8 @@ export class CdkCliIntegTestsWorkflow extends Component {
             // are vulnerable to a TOCTOU attack.
             ref: '${{ github.event.pull_request.head.sha }}',
             repository: '${{ github.event.pull_request.head.repo.full_name }}',
+            // This is necessary to fetch tags, otherwise bumping won't work properly.
+            'fetch-depth': 0
           },
         },
         {
@@ -128,6 +130,11 @@ export class CdkCliIntegTestsWorkflow extends Component {
         {
           name: 'build',
           run: 'npx projen build',
+          env: {
+            // This is necessary to prevent projen from resetting the version numbers to
+            // 0.0.0 during its synthesis.
+            RELEASE: 'true',
+          },
         },
         {
           name: 'Upload artifact',
