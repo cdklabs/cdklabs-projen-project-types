@@ -33,6 +33,17 @@ export interface CdkCliIntegTestsWorkflowProps {
    * Packages that are locally transfered (we will never use the upstream versions)
    */
   readonly localPackages: string[];
+
+  /**
+   * Whether or not we expect the new cli-lib version
+   *
+   * This needs to be `false` for a while in the `aws-cdk-cli-testing`
+   * package, until we have had a release of `aws-cdk-cli` with the new
+   * version.
+   *
+   * This needs to be `true` always for the `aws-cdk-cli` repo.
+   */
+  readonly expectNewCliLibVersion?: boolean;
 }
 
 /**
@@ -184,7 +195,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
         CI: 'true',
         // This is necessary because the new versioning of @aws-cdk/cli-lib-alpha
         // matches the CLI and not the framework.
-        CLI_LIB_VERSION_MIRRORS_CLI: 'true',
+        ...props.expectNewCliLibVersion ? { CLI_LIB_VERSION_MIRRORS_CLI: 'true' } : {},
       },
       strategy: {
         failFast: false,
