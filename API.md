@@ -14691,6 +14691,7 @@ const cdkCliIntegTestsWorkflowProps: CdkCliIntegTestsWorkflowProps = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.localPackages">localPackages</a></code> | <code>string[]</code> | Packages that are locally transfered (we will never use the upstream versions). |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testEnvironment">testEnvironment</a></code> | <code>string</code> | GitHub environment name for running the tests. |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testRunsOn">testRunsOn</a></code> | <code>string</code> | Runners for the workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.expectNewCliLibVersion">expectNewCliLibVersion</a></code> | <code>boolean</code> | Whether or not we expect the new cli-lib version. |
 
 ---
 
@@ -14759,6 +14760,24 @@ public readonly testRunsOn: string;
 - *Type:* string
 
 Runners for the workflow.
+
+---
+
+##### `expectNewCliLibVersion`<sup>Optional</sup> <a name="expectNewCliLibVersion" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.expectNewCliLibVersion"></a>
+
+```typescript
+public readonly expectNewCliLibVersion: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not we expect the new cli-lib version.
+
+This needs to be `false` for a while in the `aws-cdk-cli-testing`
+package, until we have had a release of `aws-cdk-cli` with the new
+version.
+
+This needs to be `true` always for the `aws-cdk-cli` repo.
 
 ---
 

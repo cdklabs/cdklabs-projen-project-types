@@ -33,6 +33,17 @@ export interface CdkCliIntegTestsWorkflowProps {
    * Packages that are locally transfered (we will never use the upstream versions)
    */
   readonly localPackages: string[];
+
+  /**
+   * Whether or not we expect the new cli-lib version
+   *
+   * This needs to be `false` for a while in the `aws-cdk-cli-testing`
+   * package, until we have had a release of `aws-cdk-cli` with the new
+   * version.
+   *
+   * This needs to be `true` always for the `aws-cdk-cli` repo.
+   */
+  readonly expectNewCliLibVersion?: boolean;
 }
 
 /**
@@ -95,9 +106,6 @@ export class CdkCliIntegTestsWorkflow extends Component {
       },
       env: {
         CI: 'true',
-        // This is necessary because the new versioning of @aws-cdk/cli-lib-alpha
-        // matches the CLI and not the framework.
-        CLI_LIB_VERSION_MIRRORS_CLI: 'true',
       },
       steps: [
         {
@@ -106,8 +114,10 @@ export class CdkCliIntegTestsWorkflow extends Component {
           with: {
             // IMPORTANT! This must be `head.sha` not `head.ref`, otherwise we
             // are vulnerable to a TOCTOU attack.
-            ref: '${{ github.event.pull_request.head.sha }}',
-            repository: '${{ github.event.pull_request.head.repo.full_name }}',
+            'ref': '${{ github.event.pull_request.head.sha }}',
+            'repository': '${{ github.event.pull_request.head.repo.full_name }}',
+            // This is necessary to fetch tags, otherwise bumping won't work properly.
+            'fetch-depth': 0,
           },
         },
         {
@@ -122,8 +132,20 @@ export class CdkCliIntegTestsWorkflow extends Component {
           run: 'yarn install --check-files',
         },
         {
+          name: 'Bump to realistic versions',
+          run: 'yarn workspaces run bump',
+          env: {
+            TESTING_CANDIDATE: 'true',
+          },
+        },
+        {
           name: 'build',
           run: 'npx projen build',
+          env: {
+            // This is necessary to prevent projen from resetting the version numbers to
+            // 0.0.0 during its synthesis.
+            RELEASE: 'true',
+          },
         },
         {
           name: 'Upload artifact',
@@ -171,6 +193,9 @@ export class CdkCliIntegTestsWorkflow extends Component {
         // assumptions about the availability of source packages.
         IS_CANARY: 'true',
         CI: 'true',
+        // This is necessary because the new versioning of @aws-cdk/cli-lib-alpha
+        // matches the CLI and not the framework.
+        ...props.expectNewCliLibVersion ? { CLI_LIB_VERSION_MIRRORS_CLI: 'true' } : {},
       },
       strategy: {
         failFast: false,
