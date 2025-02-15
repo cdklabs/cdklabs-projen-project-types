@@ -103,10 +103,10 @@ export class CdkCliIntegTestsWorkflow extends Component {
           with: {
             // IMPORTANT! This must be `head.sha` not `head.ref`, otherwise we
             // are vulnerable to a TOCTOU attack.
-            ref: '${{ github.event.pull_request.head.sha }}',
-            repository: '${{ github.event.pull_request.head.repo.full_name }}',
+            'ref': '${{ github.event.pull_request.head.sha }}',
+            'repository': '${{ github.event.pull_request.head.repo.full_name }}',
             // This is necessary to fetch tags, otherwise bumping won't work properly.
-            'fetch-depth': 0
+            'fetch-depth': 0,
           },
         },
         {
