@@ -95,9 +95,6 @@ export class CdkCliIntegTestsWorkflow extends Component {
       },
       env: {
         CI: 'true',
-        // This is necessary because the new versioning of @aws-cdk/cli-lib-alpha
-        // matches the CLI and not the framework.
-        CLI_LIB_VERSION_MIRRORS_CLI: 'true',
       },
       steps: [
         {
@@ -120,6 +117,13 @@ export class CdkCliIntegTestsWorkflow extends Component {
         {
           name: 'Install dependencies',
           run: 'yarn install --check-files',
+        },
+        {
+          name: 'Bump to realistic versions',
+          run: 'yarn workspaces run bump',
+          env: {
+            TESTING_CANDIDATE: 'true',
+          },
         },
         {
           name: 'build',
@@ -171,6 +175,9 @@ export class CdkCliIntegTestsWorkflow extends Component {
         // assumptions about the availability of source packages.
         IS_CANARY: 'true',
         CI: 'true',
+        // This is necessary because the new versioning of @aws-cdk/cli-lib-alpha
+        // matches the CLI and not the framework.
+        CLI_LIB_VERSION_MIRRORS_CLI: 'true',
       },
       strategy: {
         failFast: false,
