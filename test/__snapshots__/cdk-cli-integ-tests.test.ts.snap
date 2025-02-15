@@ -85,6 +85,7 @@ jobs:
     environment: approval
     env:
       CI: "true"
+      CLI_LIB_VERSION_MIRRORS_CLI: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

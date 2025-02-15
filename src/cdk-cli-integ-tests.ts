@@ -95,6 +95,9 @@ export class CdkCliIntegTestsWorkflow extends Component {
       },
       env: {
         CI: 'true',
+        // This is necessary because the new versioning of @aws-cdk/cli-lib-alpha
+        // matches the CLI and not the framework.
+        CLI_LIB_VERSION_MIRRORS_CLI: 'true',
       },
       steps: [
         {
