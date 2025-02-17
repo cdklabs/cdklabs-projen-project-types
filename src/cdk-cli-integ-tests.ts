@@ -87,6 +87,10 @@ export class CdkCliIntegTestsWorkflow extends Component {
       pullRequestTarget: {
         branches: ['main'],
       },
+      // we need to trigger the workflow on the merge group so we can make it a required status check
+      // but we don't actually want to run the integ-test on the merge queue,
+      // so we later add an if condition to the job to always pass it when run on the merge queue
+      mergeGroup: {},
     });
     // The 'build' part runs on the 'integ-approval' environment, which requires
     // approval. The actual runs access the real environment, not requiring approval
@@ -99,6 +103,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
     //   If the matrix test job needs approval, the Pull Request timeline gets spammed
     //   with an approval request for every individual run.
     runTestsWorkflow.addJob('prepare', {
+      if: "if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')",
       environment: props.approvalEnvironment,
       runsOn: [props.buildRunsOn],
       permissions: {
