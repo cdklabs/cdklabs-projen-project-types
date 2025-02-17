@@ -77,7 +77,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
     super(repo);
 
     const buildWorkflow = repo.buildWorkflow;
-    const runTestsWorkflow = repo.github?.addWorkflow('build-and-integ');
+    const runTestsWorkflow = repo.github?.addWorkflow('integ');
     if (!buildWorkflow || !runTestsWorkflow) {
       throw new Error('Expected build and run tests workflow');
     }
@@ -98,7 +98,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
     // - The build job is only one job, versus the tests which are a matrix build.
     //   If the matrix test job needs approval, the Pull Request timeline gets spammed
     //   with an approval request for every individual run.
-    runTestsWorkflow.addJob('build', {
+    runTestsWorkflow.addJob('prepare', {
       environment: props.approvalEnvironment,
       runsOn: [props.buildRunsOn],
       permissions: {
@@ -178,10 +178,13 @@ export class CdkCliIntegTestsWorkflow extends Component {
       proxy: 'npmjs',
     };
 
-    runTestsWorkflow.addJob('integ', {
+    // We create a matrix job for the test.
+    // This job will run all the different test suites in parallel.
+    const JOB_INTEG_MATRIX = 'integ_matrix';
+    runTestsWorkflow.addJob(JOB_INTEG_MATRIX, {
       environment: props.testEnvironment,
       runsOn: [props.testRunsOn],
-      needs: ['build'],
+      needs: ['prepare'],
       permissions: {
         contents: github.workflows.JobPermission.READ,
         idToken: github.workflows.JobPermission.WRITE,
@@ -328,6 +331,28 @@ export class CdkCliIntegTestsWorkflow extends Component {
             RELEASE_TAG: 'latest',
             GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
           },
+        },
+      ],
+    });
+
+    // Add a job that collates all matrix jobs into a single status
+    // This is required so that we can setup required status checks
+    // and if we ever change the test matrix, we don't need to update
+    // the status check configuration.
+    runTestsWorkflow.addJob('integ', {
+      permissions: {},
+      runsOn: [props.testRunsOn],
+      needs: [JOB_INTEG_MATRIX],
+      if: 'always()',
+      steps: [
+        {
+          name: 'Build result',
+          run: `echo \${{ needs.${JOB_INTEG_MATRIX}.result }}`,
+        },
+        {
+          if: `\${{ needs.${JOB_INTEG_MATRIX}.result != 'success' }}`,
+          name: 'Set status based on matrix build',
+          run: 'exit 1',
         },
       ],
     });
