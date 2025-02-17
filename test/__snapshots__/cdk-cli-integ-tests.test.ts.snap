@@ -78,7 +78,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  integbuild:
     runs-on: runsOn
     permissions:
       contents: read
@@ -113,7 +113,7 @@ jobs:
           path: packages/**/dist/js/*.tgz
           overwrite: "true"
   integ:
-    needs: build
+    needs: integbuild
     runs-on: testRunsOn
     permissions:
       contents: read
