@@ -293,9 +293,9 @@ jobs:
     permissions: {}
     if: always()
     steps:
-      - name: Build result
+      - name: Integ test result
         run: echo \${{ needs.integ_matrix.result }}
-      - name: Set status based on matrix build
+      - name: Set status based on matrix job
         if: \${{ needs.integ_matrix.result != 'success' }}
         run: exit 1
 ",

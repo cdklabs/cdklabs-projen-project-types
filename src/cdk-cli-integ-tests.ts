@@ -346,12 +346,12 @@ export class CdkCliIntegTestsWorkflow extends Component {
       if: 'always()',
       steps: [
         {
-          name: 'Build result',
+          name: 'Integ test result',
           run: `echo \${{ needs.${JOB_INTEG_MATRIX}.result }}`,
         },
         {
           if: `\${{ needs.${JOB_INTEG_MATRIX}.result != 'success' }}`,
-          name: 'Set status based on matrix build',
+          name: 'Set status based on matrix job',
           run: 'exit 1',
         },
       ],
