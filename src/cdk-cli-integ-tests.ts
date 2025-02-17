@@ -88,7 +88,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
         branches: ['main'],
       },
     });
-    // The 'build' part runs on the 'integ-approval' environment, which requires
+    // The 'integbuild' part runs on the 'integ-approval' environment, which requires
     // approval. The actual runs access the real environment, not requiring approval
     // anymore.
     //
@@ -98,7 +98,10 @@ export class CdkCliIntegTestsWorkflow extends Component {
     // - The build job is only one job, versus the tests which are a matrix build.
     //   If the matrix test job needs approval, the Pull Request timeline gets spammed
     //   with an approval request for every individual run.
-    runTestsWorkflow.addJob('build', {
+
+    // Called 'integbuild' not 'build' so we can distinguish between them for the purposes of
+    // branch protection rules.
+    runTestsWorkflow.addJob('integbuild', {
       environment: props.approvalEnvironment,
       runsOn: [props.buildRunsOn],
       permissions: {
@@ -181,7 +184,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
     runTestsWorkflow.addJob('integ', {
       environment: props.testEnvironment,
       runsOn: [props.testRunsOn],
-      needs: ['build'],
+      needs: ['integbuild'],
       permissions: {
         contents: github.workflows.JobPermission.READ,
         idToken: github.workflows.JobPermission.WRITE,
