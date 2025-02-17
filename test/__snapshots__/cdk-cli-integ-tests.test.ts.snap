@@ -158,6 +158,8 @@ on:
   pull_request_target:
     branches:
       - main
+  merge_group: {}
+  workflow_dispatch: {}
 jobs:
   prepare:
     runs-on: runsOn
@@ -166,6 +168,7 @@ jobs:
     environment: approval
     env:
       CI: "true"
+    if: github.event_name != 'merge_group'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -204,6 +207,7 @@ jobs:
       MAVEN_ARGS: --no-transfer-progress
       IS_CANARY: "true"
       CI: "true"
+    if: github.event_name != 'merge_group'
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
