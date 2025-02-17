@@ -87,6 +87,10 @@ export class CdkCliIntegTestsWorkflow extends Component {
       pullRequestTarget: {
         branches: ['main'],
       },
+      // Needs to trigger and report success on merge queue builds as well
+      mergeGroup: {},
+      // Never hurts to be able to run this manually
+      workflowDispatch: {},
     });
     // The 'build' part runs on the 'integ-approval' environment, which requires
     // approval. The actual runs access the real environment, not requiring approval
@@ -107,6 +111,9 @@ export class CdkCliIntegTestsWorkflow extends Component {
       env: {
         CI: 'true',
       },
+      // Don't run again on the merge queue, we already got confirmation that it works and the
+      // tests are quite expensive.
+      if: "github.event_name != 'merge_group'",
       steps: [
         {
           name: 'Checkout',
@@ -200,6 +207,9 @@ export class CdkCliIntegTestsWorkflow extends Component {
         // matches the CLI and not the framework.
         ...props.expectNewCliLibVersion ? { CLI_LIB_VERSION_MIRRORS_CLI: 'true' } : {},
       },
+      // Don't run again on the merge queue, we already got confirmation that it works and the
+      // tests are quite expensive.
+      if: "github.event_name != 'merge_group'",
       strategy: {
         failFast: false,
         matrix: {
