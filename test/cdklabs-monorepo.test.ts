@@ -150,6 +150,24 @@ describe('CdkLabsMonorepo', () => {
         MIN_MAJOR: '3',
       }));
     });
+
+    test('npmDistTag works', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        npmDistTag: 'foobar',
+      });
+
+      Testing.synth(parent);
+
+      expect(parent.github?.tryFindWorkflow('release')?.getJob('cdklabs-one_release_npm'))
+        .toMatchObject(expect.objectContaining({
+          steps: expect.arrayContaining([expect.objectContaining({
+            name: 'Release',
+            env: expect.objectContaining({ NPM_DIST_TAG: 'foobar' }),
+          })]),
+        }));
+    });
   });
 
   describe('VSCode Workspace', () => {
