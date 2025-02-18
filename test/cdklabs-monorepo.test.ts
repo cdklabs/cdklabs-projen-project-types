@@ -151,4 +151,67 @@ describe('CdkLabsMonorepo', () => {
       }));
     });
   });
+
+  describe('VSCode Workspace', () => {
+    test('can include a root workspace', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        vscodeWorkspace: true,
+        vscodeWorkspaceOptions: {
+          includeRootWorkspace: true,
+        },
+      });
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      const workspacesFile = parseJsonWithMarker(outdir['monorepo.code-workspace']);
+      expect(workspacesFile).toMatchObject({
+        folders: [
+          {
+            name: '<root>',
+            path: '.',
+          },
+          {
+            path: 'packages/@cdklabs/one',
+          },
+        ],
+        settings: {
+          'files.exclude': {
+            packages: true,
+          },
+        },
+      });
+    });
+
+    test('can set a custom name for the root workspace', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        vscodeWorkspace: true,
+        vscodeWorkspaceOptions: {
+          includeRootWorkspace: true,
+          rootWorkspaceName: 'foobar',
+        },
+      });
+
+      const outdir = Testing.synth(parent);
+      const workspacesFile = parseJsonWithMarker(outdir['monorepo.code-workspace']);
+      expect(workspacesFile).toMatchObject({
+        folders: [
+          {
+            name: 'foobar',
+            path: '.',
+          },
+        ],
+      });
+    });
+  });
 });
+
+function parseJsonWithMarker(content: string): any {
+  return JSON.parse(content.split('\n').slice(1).join('\n'));
+}

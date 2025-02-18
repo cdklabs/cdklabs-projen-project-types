@@ -825,6 +825,11 @@ export interface MonorepoOptions {
    */
   readonly vscodeWorkspace?: boolean;
   /**
+   * Configuration options for the VSCode multi-root workspace file
+   * @default - default configuration
+   */
+  readonly vscodeWorkspaceOptions?: yarn.VsCodeWorkspaceOptions;
+  /**
    * Workflow steps to use in order to bootstrap this repo.
    * @default "yarn install --frozen-lockfile && yarn projen"
    */
