@@ -185,6 +185,12 @@ export class CdkCliIntegTestsWorkflow extends Component {
       proxy: 'npmjs',
     };
 
+    // bash only expands {...} if there's a , in there, otherwise it will leave the
+    // braces in literally. So we need to do case analysis here. Thanks, I hate it.
+    const tarballBashExpr = props.localPackages.length === 1
+      ? `packages/${props.localPackages[0]}/dist/js/*.tgz`
+      : `packages/{${props.localPackages.join(',')}}/dist/js/*.tgz`;
+
     // We create a matrix job for the test.
     // This job will run all the different test suites in parallel.
     const JOB_INTEG_MATRIX = 'integ_matrix';
@@ -297,7 +303,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
         {
           name: 'Find an locally publish all tarballs',
           run: [
-            `for pkg in packages/{${props.localPackages.join(',')}}/dist/js/*.tgz; do`,
+            `for pkg in ${tarballBashExpr}; do`,
             '  npm publish $pkg',
             'done',
           ].join('\n'),
