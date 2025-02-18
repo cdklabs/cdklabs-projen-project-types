@@ -20,6 +20,8 @@ export class MonorepoRelease extends Component {
     return project.components.find(isMonorepoReleaseWorkflow);
   }
 
+  public readonly workspaceReleases = new Map<TypeScriptWorkspace, WorkspaceRelease>();
+
   private readonly branchName: string;
   private readonly github: github.GitHub;
   private readonly releaseTrigger: projenRelease.ReleaseTrigger;
@@ -51,6 +53,10 @@ export class MonorepoRelease extends Component {
       publishToNpm: this.options.publishToNpm,
       ...options,
     });
+
+    // Make these publicly accessible
+    this.workspaceReleases.set(project, workspaceRelease);
+
     if (!options.private && workspaceRelease.publisher) {
       this.obtainReleaseTask();
 
