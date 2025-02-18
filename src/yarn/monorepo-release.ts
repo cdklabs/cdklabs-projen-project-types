@@ -248,11 +248,20 @@ export class MonorepoRelease extends Component {
 
     // check if new commits were pushed to the repo while we were building.
     // if new commits have been pushed, we will cancel this release
-    postBuildSteps.push({
-      name: 'Check for new commits',
-      id: GIT_REMOTE_STEPID,
-      run: `echo "${LATEST_COMMIT_OUTPUT}=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT`,
-    });
+    if (this.options.releaseTrigger?.isContinuous ?? true) {
+      postBuildSteps.push({
+        name: 'Check for new commits',
+        id: GIT_REMOTE_STEPID,
+        run: `echo "${LATEST_COMMIT_OUTPUT}=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT`,
+      });
+    } else {
+      // For non-continuous builds we'll just put the value there that downstream steps are going to compare against
+      postBuildSteps.push({
+        name: 'Output the sha value that downstream checks expect',
+        id: GIT_REMOTE_STEPID,
+        run: `echo "${LATEST_COMMIT_OUTPUT}=\${{ github.sha }}" >> $GITHUB_OUTPUT`,
+      });
+    }
 
     this.workflow = new github.TaskWorkflow(this.github, {
       name: workflowName,
