@@ -5,10 +5,16 @@ import { MonorepoRelease } from './monorepo-release';
 import { Nx } from './nx';
 import { TypeScriptWorkspace } from './typescript-workspace';
 
+const MONOREPO_SYM = Symbol.for('cdklabs-projen-project-types.yarn.Monorepo');
+
 /**
  * A monorepo using yarn workspaces.
  */
 export class Monorepo extends typescript.TypeScriptProject {
+  public static isMonorepo(x: Project): x is Monorepo {
+    return Boolean(x && typeof x === 'object' && MONOREPO_SYM in x);
+  }
+
   public readonly monorepoRelease?: MonorepoRelease;
 
   /**
@@ -28,6 +34,8 @@ export class Monorepo extends typescript.TypeScriptProject {
       eslint: false,
       release: false,
     });
+
+    Object.defineProperty(this, MONOREPO_SYM, { value: true });
 
     this.repositoryUrl = options.repository;
 
