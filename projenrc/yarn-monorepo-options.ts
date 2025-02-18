@@ -27,6 +27,15 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
         },
       },
       {
+        name: 'vscodeWorkspaceOptions',
+        optional: true,
+        type: { fqn: 'cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions' },
+        docs: {
+          summary: 'Configuration options for the VSCode multi-root workspace file',
+          default: '- default configuration',
+        },
+      },
+      {
         name: 'nx',
         optional: true,
         type: { primitive: PrimitiveType.Boolean },
@@ -220,6 +229,32 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
         docs: {
           summary: 'The node version to use in GitHub workflows.',
           default: '\'lts/*\'',
+        },
+      },
+    ],
+  });
+
+  new JsiiInterface(project, {
+    name: 'VsCodeWorkspaceOptions',
+    fqn: 'cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions',
+    filePath: 'src/yarn/vscode-workspace-options.ts',
+    properties: [
+      {
+        name: 'includeRootWorkspace',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'Adds a workspace for the repository root. This can be useful to manage the repository configuration.',
+          default: 'false',
+        },
+      },
+      {
+        name: 'rootWorkspaceName',
+        optional: true,
+        type: { primitive: PrimitiveType.String },
+        docs: {
+          summary: 'The name of the root workspace if included.',
+          default: '<root>',
         },
       },
     ],

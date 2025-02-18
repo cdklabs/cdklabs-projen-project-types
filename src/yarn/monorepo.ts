@@ -1,3 +1,4 @@
+import * as pathPosix from 'node:path/posix';
 import { JsonFile, Project, javascript, typescript, github } from 'projen';
 import { MonorepoOptions } from './monorepo-options';
 import { MonorepoRelease } from './monorepo-release';
@@ -68,10 +69,32 @@ export class Monorepo extends typescript.TypeScriptProject {
       new JsonFile(this, workspaceFile, {
         allowComments: true,
         obj: () => ({
-          folders: this.projects
-            .sort((p1, p2) => p1.name.localeCompare(p2.name))
-            .map((p) => ({ path: p.workspaceDirectory })),
-          settings: () => getObjFromFile(this, '.vscode/settings.json'),
+          folders: () => {
+            const folders: Array<{
+              path: string;
+              name?: string;
+            }> = this.projects
+              .sort((p1, p2) => p1.name.localeCompare(p2.name))
+              .map((p) => ({ path: p.workspaceDirectory }));
+
+            if (options.vscodeWorkspaceOptions?.includeRootWorkspace) {
+              folders.unshift({ path: '.', name: options.vscodeWorkspaceOptions?.rootWorkspaceName ?? '<root>' });
+            }
+
+            return folders;
+          },
+          settings: () => {
+            const settings = (getObjFromFile(this, '.vscode/settings.json') ?? {}) as any;
+            if (options.vscodeWorkspaceOptions?.includeRootWorkspace && this.projects.length) {
+              settings['files.exclude'] = this.projects.reduce((excludes, p) => {
+                return {
+                  ...excludes,
+                  [p.workspaceDirectory.split(pathPosix.sep)[0]]: true,
+                };
+              }, settings['files.exclude'] ?? {});
+            }
+            return settings;
+          },
           extensions: () => getObjFromFile(this, '.vscode/extensions.json'),
         }),
       });
