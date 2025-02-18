@@ -366,7 +366,8 @@ export class CdkCliIntegTestsWorkflow extends Component {
           run: `echo \${{ needs.${JOB_INTEG_MATRIX}.result }}`,
         },
         {
-          if: `\${{ needs.${JOB_INTEG_MATRIX}.result != 'success' }}`,
+          // Don't fail the job if the matrix build was successful or intentionally skipped
+          if: `\${{ !contains(fromJSON('["success", "skipped"]'), needs.${JOB_INTEG_MATRIX}.result) }}`,
           name: 'Set status based on matrix job',
           run: 'exit 1',
         },
