@@ -110,6 +110,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     this.monorepo.monorepoRelease?.addWorkspace(this, {
       private: this.isPrivatePackage,
       workflowNodeVersion: this.nodeVersion,
+      npmDistTag: options.npmDistTag,
       releasableCommits: options.releasableCommits,
       nextVersionCommand: options.nextVersionCommand,
       versionBranchOptions: {
