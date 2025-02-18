@@ -26106,6 +26106,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with commit-and-tag-version package. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.vscodeWorkspace">vscodeWorkspace</a></code> | <code>boolean</code> | Create a VSCode multi-root workspace file for all monorepo workspaces. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.vscodeWorkspaceOptions">vscodeWorkspaceOptions</a></code> | <code>cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions</code> | Configuration options for the VSCode multi-root workspace file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
@@ -28085,6 +28086,19 @@ public readonly vscodeWorkspace: boolean;
 - *Default:* false
 
 Create a VSCode multi-root workspace file for all monorepo workspaces.
+
+---
+
+##### `vscodeWorkspaceOptions`<sup>Optional</sup> <a name="vscodeWorkspaceOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.vscodeWorkspaceOptions"></a>
+
+```typescript
+public readonly vscodeWorkspaceOptions: VsCodeWorkspaceOptions;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions
+- *Default:* default configuration
+
+Configuration options for the VSCode multi-root workspace file.
 
 ---
 
@@ -33209,6 +33223,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.versionrcOptions">versionrcOptions</a></code> | <code>{[ key: string ]: any}</code> | Custom configuration used when creating changelog with commit-and-tag-version package. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.vscode">vscode</a></code> | <code>boolean</code> | Enable VSCode integration. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.vscodeWorkspace">vscodeWorkspace</a></code> | <code>boolean</code> | Create a VSCode multi-root workspace file for all monorepo workspaces. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.vscodeWorkspaceOptions">vscodeWorkspaceOptions</a></code> | <code>cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions</code> | Configuration options for the VSCode multi-root workspace file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Workflow steps to use in order to bootstrap this repo. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
@@ -35188,6 +35203,19 @@ public readonly vscodeWorkspace: boolean;
 - *Default:* false
 
 Create a VSCode multi-root workspace file for all monorepo workspaces.
+
+---
+
+##### `vscodeWorkspaceOptions`<sup>Optional</sup> <a name="vscodeWorkspaceOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.vscodeWorkspaceOptions"></a>
+
+```typescript
+public readonly vscodeWorkspaceOptions: VsCodeWorkspaceOptions;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions
+- *Default:* default configuration
+
+Configuration options for the VSCode multi-root workspace file.
 
 ---
 
@@ -37873,6 +37901,55 @@ public readonly yarnBerryOptions: YarnBerryOptions;
 - *Default:* Yarn Berry v4 with all default options
 
 Options for Yarn Berry.
+
+---
+
+### VsCodeWorkspaceOptions <a name="VsCodeWorkspaceOptions" id="cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions"></a>
+
+VsCodeWorkspaceOptions.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const vsCodeWorkspaceOptions: yarn.VsCodeWorkspaceOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions.property.includeRootWorkspace">includeRootWorkspace</a></code> | <code>boolean</code> | Adds a workspace for the repository root. |
+| <code><a href="#cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions.property.rootWorkspaceName">rootWorkspaceName</a></code> | <code>string</code> | The name of the root workspace if included. |
+
+---
+
+##### `includeRootWorkspace`<sup>Optional</sup> <a name="includeRootWorkspace" id="cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions.property.includeRootWorkspace"></a>
+
+```typescript
+public readonly includeRootWorkspace: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Adds a workspace for the repository root.
+
+This can be useful to manage the repository configuration.
+
+---
+
+##### `rootWorkspaceName`<sup>Optional</sup> <a name="rootWorkspaceName" id="cdklabs-projen-project-types.yarn.VsCodeWorkspaceOptions.property.rootWorkspaceName"></a>
+
+```typescript
+public readonly rootWorkspaceName: string;
+```
+
+- *Type:* string
+- *Default:* <root>
+
+The name of the root workspace if included.
 
 ---
 
