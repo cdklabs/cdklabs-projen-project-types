@@ -20,8 +20,6 @@ export class MonorepoRelease extends Component {
     return project.components.find(isMonorepoReleaseWorkflow);
   }
 
-  public readonly workspaceReleases = new Map<TypeScriptWorkspace, WorkspaceRelease>();
-
   private readonly branchName: string;
   private readonly github: github.GitHub;
   private readonly releaseTrigger: projenRelease.ReleaseTrigger;
@@ -35,6 +33,7 @@ export class MonorepoRelease extends Component {
 
   private workflow?: github.TaskWorkflow;
   private releaseTask?: Task;
+  private readonly workspaceReleases = new Map<TypeScriptWorkspace, WorkspaceRelease>();
 
   constructor(project: Project, private readonly options: MonorepoReleaseOptions = {}) {
     super(project);
@@ -46,6 +45,14 @@ export class MonorepoRelease extends Component {
     }
     this.github = gh;
     this.releaseTrigger = options.releaseTrigger ?? projenRelease.ReleaseTrigger.continuous();
+  }
+
+  public workspaceRelease(project: TypeScriptWorkspace) {
+    const ret = this.workspaceReleases.get(project);
+    if (!ret) {
+      throw new Error(`No release for project ${project.name}`);
+    }
+    return ret;
   }
 
   public addWorkspace(project: TypeScriptWorkspace, options: WorkspaceReleaseOptions) {

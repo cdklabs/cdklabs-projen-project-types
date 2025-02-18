@@ -7021,6 +7021,7 @@ This is used to resolve dependency versions from `*` to a concrete version const
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isProject">isProject</a></code> | Test whether the given construct is a project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.of">of</a></code> | Find the closest ancestor project for given construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isMonorepo">isMonorepo</a></code> | *No description.* |
 
 ---
 
@@ -7087,6 +7088,20 @@ When given a project, this it the project itself.
 ###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.of.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
+
+---
+
+##### `isMonorepo` <a name="isMonorepo" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isMonorepo"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.CdkLabsMonorepo.isMonorepo(x: Project)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.isMonorepo.parameter.x"></a>
+
+- *Type:* projen.Project
 
 ---
 
@@ -11616,6 +11631,7 @@ This is used to resolve dependency versions from `*` to a concrete version const
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.isProject">isProject</a></code> | Test whether the given construct is a project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.of">of</a></code> | Find the closest ancestor project for given construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.isMonorepo">isMonorepo</a></code> | *No description.* |
 
 ---
 
@@ -11682,6 +11698,20 @@ When given a project, this it the project itself.
 ###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.yarn.Monorepo.of.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
+
+---
+
+##### `isMonorepo` <a name="isMonorepo" id="cdklabs-projen-project-types.yarn.Monorepo.isMonorepo"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.Monorepo.isMonorepo(x: Project)
+```
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.Monorepo.isMonorepo.parameter.x"></a>
+
+- *Type:* projen.Project
 
 ---
 
@@ -12600,6 +12630,7 @@ new yarn.MonorepoRelease(project: Project, options?: MonorepoReleaseOptions)
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.addWorkspace">addWorkspace</a></code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.workspaceRelease">workspaceRelease</a></code> | *No description.* |
 
 ---
 
@@ -12652,6 +12683,18 @@ public addWorkspace(project: TypeScriptWorkspace, options: WorkspaceReleaseOptio
 ###### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.MonorepoRelease.addWorkspace.parameter.options"></a>
 
 - *Type:* cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions
+
+---
+
+##### `workspaceRelease` <a name="workspaceRelease" id="cdklabs-projen-project-types.yarn.MonorepoRelease.workspaceRelease"></a>
+
+```typescript
+public workspaceRelease(project: TypeScriptWorkspace): WorkspaceRelease
+```
+
+###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.MonorepoRelease.workspaceRelease.parameter.project"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
 
 ---
 
