@@ -28,6 +28,7 @@ export class MonorepoRelease extends Component {
     readonly release: {
       readonly workspace: TypeScriptWorkspace;
       readonly publisher: projenRelease.Publisher;
+      readonly options: Partial<projenRelease.BranchOptions>;
     };
   }>();
 
@@ -72,6 +73,17 @@ export class MonorepoRelease extends Component {
         release: {
           workspace: workspaceRelease.workspace,
           publisher: workspaceRelease.publisher,
+          options: {
+            // enforced options
+            workflowName: this.options.releaseWorkflowName,
+            tagPrefix: `${project.name}@`,
+
+            // options that may be override locally
+            majorVersion: options.versionBranchOptions.majorVersion ?? this.options.majorVersion,
+            minMajorVersion: options.versionBranchOptions.minMajorVersion ?? this.options.minMajorVersion,
+            prerelease: options.versionBranchOptions.prerelease ?? this.options.prerelease,
+            npmDistTag: options.npmDistTag ?? this.options.npmDistTag,
+          },
         },
       });
     }
@@ -116,12 +128,7 @@ export class MonorepoRelease extends Component {
 
   private renderPublishJobs() {
     for (const { release } of this.packagesToRelease) {
-      const packagePublishJobs = release.publisher._renderJobsForBranch(this.branchName, {
-        majorVersion: this.options.majorVersion,
-        minMajorVersion: this.options.minMajorVersion,
-        npmDistTag: this.options.npmDistTag,
-        prerelease: this.options.prerelease,
-      });
+      const packagePublishJobs = release.publisher._renderJobsForBranch(this.branchName, release.options);
 
       for (const job of Object.values(packagePublishJobs)) {
         // Find the 'download-artifact' job and replace the build artifact name with the unique per-project one

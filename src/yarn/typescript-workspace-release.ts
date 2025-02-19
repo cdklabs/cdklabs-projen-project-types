@@ -62,7 +62,6 @@ export class WorkspaceRelease extends Component {
       // GitHub Releases comes for free with a `Release` component, NPM must be added explicitly
       if (options.publishToNpm ?? true) {
         this.publisher.publishToNpm({
-          distTag: options.npmDistTag,
           registry: project.package.npmRegistry,
           npmTokenSecret: project.package.npmTokenSecret,
         });
