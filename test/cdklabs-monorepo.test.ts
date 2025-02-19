@@ -168,6 +168,37 @@ describe('CdkLabsMonorepo', () => {
           })]),
         }));
     });
+
+    test('prerelease is respected for the right workspace package', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        prerelease: 'rc',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+      });
+
+      Testing.synth(parent);
+
+      expect(parent.github?.tryFindWorkflow('release')?.getJob('cdklabs-one_release_github'))
+        .toMatchObject(expect.objectContaining({
+          steps: expect.arrayContaining([expect.objectContaining({
+            name: 'Release',
+            run: expect.stringContaining('-p'),
+          })]),
+        }));
+
+      expect(parent.github?.tryFindWorkflow('release')?.getJob('cdklabs-two_release_github'))
+        .toMatchObject(expect.objectContaining({
+          steps: expect.arrayContaining([expect.objectContaining({
+            name: 'Release',
+            run: expect.not.stringContaining('-p'),
+          })]),
+        }));
+    });
   });
 
   describe('VSCode Workspace', () => {
