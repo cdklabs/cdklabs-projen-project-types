@@ -2840,6 +2840,7 @@ jobs:
     needs: release
     runs-on: ubuntu-latest
     permissions:
+      id-token: write
       contents: read
     if: \${{ needs.release.outputs.latest_commit == github.sha && needs.release.outputs.publish-cdklabs-one == 'true' }}
     steps:
@@ -2858,6 +2859,7 @@ jobs:
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
+          NPM_CONFIG_PROVENANCE: "true"
           NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
         run: npx -p publib@latest publib-npm
   cdklabs-two_release_github:
@@ -2892,6 +2894,7 @@ jobs:
     needs: release
     runs-on: ubuntu-latest
     permissions:
+      id-token: write
       contents: read
     if: \${{ needs.release.outputs.latest_commit == github.sha && needs.release.outputs.publish-cdklabs-two == 'true' }}
     steps:
@@ -2910,6 +2913,7 @@ jobs:
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
+          NPM_CONFIG_PROVENANCE: "true"
           NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
         run: npx -p publib@latest publib-npm
 ",
