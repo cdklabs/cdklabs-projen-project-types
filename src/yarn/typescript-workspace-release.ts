@@ -64,6 +64,7 @@ export class WorkspaceRelease extends Component {
         this.publisher.publishToNpm({
           registry: project.package.npmRegistry,
           npmTokenSecret: project.package.npmTokenSecret,
+          npmProvenance: project.package.npmProvenance,
         });
       }
     }

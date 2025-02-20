@@ -199,6 +199,25 @@ describe('CdkLabsMonorepo', () => {
           })]),
         }));
     });
+
+    test('will automatically enable npm release provenance', () => {
+      const one = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        npmDistTag: 'foobar',
+      });
+
+      Testing.synth(parent);
+
+      expect(one.package.npmProvenance).toBe(true);
+      expect(parent.github?.tryFindWorkflow('release')?.getJob('cdklabs-one_release_npm'))
+        .toMatchObject(expect.objectContaining({
+          steps: expect.arrayContaining([expect.objectContaining({
+            name: 'Release',
+            env: expect.objectContaining({ NPM_CONFIG_PROVENANCE: 'true' }),
+          })]),
+        }));
+    });
   });
 
   describe('VSCode Workspace', () => {
