@@ -295,7 +295,7 @@ jobs:
     needs: integ_matrix
     runs-on: testRunsOn
     permissions: {}
-    if: always() && !contains(github.event.pull_request.labels.*.name, 'pr/exempt-integ-test')
+    if: always()
     steps:
       - name: Integ test result
         run: echo \${{ needs.integ_matrix.result }}
