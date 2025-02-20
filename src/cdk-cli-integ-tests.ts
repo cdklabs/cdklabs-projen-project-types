@@ -1,5 +1,7 @@
 import { Component, github, javascript } from 'projen';
 
+const NOT_FLAGGED_EXPR = "!contains(github.event.pull_request.labels.*.name, 'pr/exempt-integ-test')";
+
 export interface CdkCliIntegTestsWorkflowProps {
   /**
    * Runners for the workflow
@@ -113,7 +115,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
       },
       // Don't run again on the merge queue, we already got confirmation that it works and the
       // tests are quite expensive.
-      if: "github.event_name != 'merge_group'",
+      if: `github.event_name != 'merge_group' && ${NOT_FLAGGED_EXPR}`,
       steps: [
         {
           name: 'Checkout',
@@ -215,7 +217,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
       },
       // Don't run again on the merge queue, we already got confirmation that it works and the
       // tests are quite expensive.
-      if: "github.event_name != 'merge_group'",
+      if: `github.event_name != 'merge_group' && ${NOT_FLAGGED_EXPR}`,
       strategy: {
         failFast: false,
         matrix: {
