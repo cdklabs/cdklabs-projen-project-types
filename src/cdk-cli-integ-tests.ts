@@ -361,7 +361,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
       permissions: {},
       runsOn: [props.testRunsOn],
       needs: [JOB_INTEG_MATRIX],
-      if: `always() && ${NOT_FLAGGED_EXPR}`,
+      if: 'always()',
       steps: [
         {
           name: 'Integ test result',
