@@ -36,7 +36,7 @@ describe('CdkLabsMonorepo', () => {
       name: '@cdklabs/one',
       // WHEN
       bundledDeps: ['@cdklabs/dep-a', '@cdklabs/dep-b@~1.0.0'],
-      deps: ['@cdklabs/dep-four'],
+      deps: ['@cdklabs/dep-c'], // will not show up
     });
 
     // THEN
