@@ -44,8 +44,35 @@ describe('CdkLabsMonorepo', () => {
     expect(outdir['package.json']).toEqual(expect.objectContaining({
       workspaces: expect.objectContaining({
         nohoist: [
-          '@cdklabs/one/jsonschema',
-          '@cdklabs/one/jsonschema/**',
+          '**/@cdklabs/one/jsonschema',
+          '**/@cdklabs/one/jsonschema/**',
+        ],
+      }),
+    }));
+  });
+
+  test('bundled dependency versions are not included in the nohoist directive', () => {
+    // GIVEN
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+    });
+
+    new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/one',
+      // WHEN
+      bundledDeps: ['jsonschema@~1.4.1'],
+    });
+
+    // THEN
+    const outdir = Testing.synth(parent);
+
+    expect(outdir['package.json']).toEqual(expect.objectContaining({
+      workspaces: expect.objectContaining({
+        nohoist: [
+          '**/@cdklabs/one/jsonschema',
+          '**/@cdklabs/one/jsonschema/**',
         ],
       }),
     }));

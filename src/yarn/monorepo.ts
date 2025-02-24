@@ -1,5 +1,5 @@
 import * as pathPosix from 'node:path/posix';
-import { JsonFile, Project, javascript, typescript, github } from 'projen';
+import { JsonFile, Project, javascript, typescript, github, DependencyType } from 'projen';
 import { MonorepoOptions } from './monorepo-options';
 import { MonorepoRelease } from './monorepo-release';
 import { Nx } from './nx';
@@ -223,10 +223,14 @@ export class Monorepo extends typescript.TypeScriptProject {
    * Renders an object that should be mixed into the `workspaces` object.
    */
   private renderNoHoist(): any {
-    const nohoist = this.projects.flatMap(p => p.bundledDeps.flatMap(dep => [
-      `${p.name}/${dep}`,
-      `${p.name}/${dep}/**`,
-    ]));
+    const nohoist = this.projects.flatMap((p) =>
+      p.deps.all
+        .filter((dep) => dep.type === DependencyType.BUNDLED)
+        .flatMap((dep) => [
+          `**/${p.name}/${dep.name}`,
+          `**/${p.name}/${dep.name}/**`,
+        ]),
+    );
     return nohoist.length > 0 ? { nohoist } : undefined;
   }
 
