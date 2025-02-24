@@ -44,8 +44,8 @@ describe('CdkLabsMonorepo', () => {
     expect(outdir['package.json']).toEqual(expect.objectContaining({
       workspaces: expect.objectContaining({
         nohoist: [
-          '**/@cdklabs/one/jsonschema',
-          '**/@cdklabs/one/jsonschema/**',
+          '@cdklabs/one/jsonschema',
+          '@cdklabs/one/jsonschema/**',
         ],
       }),
     }));
@@ -62,7 +62,7 @@ describe('CdkLabsMonorepo', () => {
       parent,
       name: '@cdklabs/one',
       // WHEN
-      bundledDeps: ['jsonschema@~1.4.1'],
+      bundledDeps: ['jsonschema@'],
     });
 
     // THEN
@@ -71,8 +71,8 @@ describe('CdkLabsMonorepo', () => {
     expect(outdir['package.json']).toEqual(expect.objectContaining({
       workspaces: expect.objectContaining({
         nohoist: [
-          '**/@cdklabs/one/jsonschema',
-          '**/@cdklabs/one/jsonschema/**',
+          '@cdklabs/one/jsonschema',
+          '@cdklabs/one/jsonschema/**',
         ],
       }),
     }));

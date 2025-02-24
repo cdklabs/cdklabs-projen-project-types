@@ -227,8 +227,8 @@ export class Monorepo extends typescript.TypeScriptProject {
       p.deps.all
         .filter((dep) => dep.type === DependencyType.BUNDLED)
         .flatMap((dep) => [
-          `**/${p.name}/${dep.name}`,
-          `**/${p.name}/${dep.name}/**`,
+          `${p.name}/${dep.name}`,
+          `${p.name}/${dep.name}/**`,
         ]),
     );
     return nohoist.length > 0 ? { nohoist } : undefined;
