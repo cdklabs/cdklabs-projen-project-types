@@ -129,8 +129,8 @@ export class CdkCliIntegTestsWorkflow extends Component {
           name: 'Fetch tags from origin repo',
           run: [
             // Can be either aws/aws-cdk-cli or aws/aws-cdk-cli-testing
-            // (Has to be exactly this form because we're unauthenticated)
-            `git remote add upstream git://github.com/${props.sourceRepo}`,
+            // (Must clone over HTTPS because we have no SSH auth set up)
+            `git remote add upstream https://github.com/${props.sourceRepo}.git`,
             'git fetch upstream \'refs/tags/*:refs/tags/*\'',
           ].join('\n'),
         },
