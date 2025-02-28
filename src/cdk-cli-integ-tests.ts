@@ -98,7 +98,8 @@ export class CdkCliIntegTestsWorkflow extends Component {
     // - The build job is only one job, versus the tests which are a matrix build.
     //   If the matrix test job needs approval, the Pull Request timeline gets spammed
     //   with an approval request for every individual run.
-    runTestsWorkflow.addJob('prepare', {
+    const JOB_PREPARE = 'prepare';
+    runTestsWorkflow.addJob(JOB_PREPARE, {
       environment: props.approvalEnvironment,
       runsOn: [props.buildRunsOn],
       permissions: {
@@ -204,7 +205,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
     runTestsWorkflow.addJob(JOB_INTEG_MATRIX, {
       environment: props.testEnvironment,
       runsOn: [props.testRunsOn],
-      needs: ['prepare'],
+      needs: [JOB_PREPARE],
       permissions: {
         contents: github.workflows.JobPermission.READ,
         idToken: github.workflows.JobPermission.WRITE,
@@ -365,7 +366,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
     runTestsWorkflow.addJob('integ', {
       permissions: {},
       runsOn: [props.testRunsOn],
-      needs: [JOB_INTEG_MATRIX],
+      needs: [JOB_PREPARE, JOB_INTEG_MATRIX],
       if: 'always()',
       steps: [
         {
@@ -373,8 +374,8 @@ export class CdkCliIntegTestsWorkflow extends Component {
           run: `echo \${{ needs.${JOB_INTEG_MATRIX}.result }}`,
         },
         {
-          // Don't fail the job if the matrix build was successful or intentionally skipped
-          if: `\${{ !contains(fromJSON('["success", "skipped"]'), needs.${JOB_INTEG_MATRIX}.result) }}`,
+          // Don't fail the job if the test was successful or intentionally skipped
+          if: `\${{ !(contains(fromJSON('["success", "skipped"]'), needs.${JOB_PREPARE}.result) && contains(fromJSON('["success", "skipped"]'), needs.${JOB_INTEG_MATRIX}.result)) }}`,
           name: 'Set status based on matrix job',
           run: 'exit 1',
         },
