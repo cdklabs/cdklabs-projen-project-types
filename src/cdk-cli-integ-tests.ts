@@ -37,15 +37,9 @@ export interface CdkCliIntegTestsWorkflowProps {
   readonly localPackages: string[];
 
   /**
-   * Whether or not we expect the new cli-lib version
-   *
-   * This needs to be `false` for a while in the `aws-cdk-cli-testing`
-   * package, until we have had a release of `aws-cdk-cli` with the new
-   * version.
-   *
-   * This needs to be `true` always for the `aws-cdk-cli` repo.
+   * The official repo this workflow is used for
    */
-  readonly expectNewCliLibVersion?: boolean;
+  readonly sourceRepo: string;
 }
 
 /**
@@ -128,6 +122,18 @@ export class CdkCliIntegTestsWorkflow extends Component {
             // This is necessary to fetch tags, otherwise bumping won't work properly.
             'fetch-depth': 0,
           },
+        },
+        // We used to fetch tags from the repo using 'checkout', but if it's a fork
+        // the tags won't be there, so we have to fetch them from upstream.
+        //
+        // The tags are necessary to realistically bump versions
+        {
+          name: 'Fetch tags from origin repo',
+          run: [
+            // Can be either aws/aws-cdk-cli or aws/aws-cdk-cli-testing
+            `git remote add upstream git@github.com:${props.sourceRepo}.git`,
+            'git fetch upstream \'refs/tags/*:refs/tags/*\'',
+          ].join('\n'),
         },
         {
           name: 'Setup Node.js',
@@ -213,7 +219,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
         CI: 'true',
         // This is necessary because the new versioning of @aws-cdk/cli-lib-alpha
         // matches the CLI and not the framework.
-        ...props.expectNewCliLibVersion ? { CLI_LIB_VERSION_MIRRORS_CLI: 'true' } : {},
+        CLI_LIB_VERSION_MIRRORS_CLI: 'true',
       },
       // Don't run again on the merge queue, we already got confirmation that it works and the
       // tests are quite expensive.

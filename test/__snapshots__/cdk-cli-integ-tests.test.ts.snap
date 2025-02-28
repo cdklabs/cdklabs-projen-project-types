@@ -176,6 +176,10 @@ jobs:
           ref: \${{ github.event.pull_request.head.sha }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           fetch-depth: 0
+      - name: Fetch tags from origin repo
+        run: |-
+          git remote add upstream git@github.com:aws/some-repo.git
+          git fetch upstream 'refs/tags/*:refs/tags/*'
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -207,6 +211,7 @@ jobs:
       MAVEN_ARGS: --no-transfer-progress
       IS_CANARY: "true"
       CI: "true"
+      CLI_LIB_VERSION_MIRRORS_CLI: "true"
     if: github.event_name != 'merge_group' && !contains(github.event.pull_request.labels.*.name, 'pr/exempt-integ-test')
     steps:
       - name: Download build artifacts
