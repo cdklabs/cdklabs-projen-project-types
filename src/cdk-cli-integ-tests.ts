@@ -117,8 +117,8 @@ export class CdkCliIntegTestsWorkflow extends Component {
           with: {
             // IMPORTANT! This must be `head.sha` not `head.ref`, otherwise we
             // are vulnerable to a TOCTOU attack.
-            'ref': '${{ github.event.pull_request.head.sha }}',
-            'repository': '${{ github.event.pull_request.head.repo.full_name }}',
+            ref: '${{ github.event.pull_request.head.sha }}',
+            repository: '${{ github.event.pull_request.head.repo.full_name }}',
           },
         },
         // We used to fetch tags from the repo using 'checkout', but if it's a fork
