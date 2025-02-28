@@ -119,8 +119,6 @@ export class CdkCliIntegTestsWorkflow extends Component {
             // are vulnerable to a TOCTOU attack.
             'ref': '${{ github.event.pull_request.head.sha }}',
             'repository': '${{ github.event.pull_request.head.repo.full_name }}',
-            // This is necessary to fetch tags, otherwise bumping won't work properly.
-            'fetch-depth': 0,
           },
         },
         // We used to fetch tags from the repo using 'checkout', but if it's a fork
@@ -131,7 +129,8 @@ export class CdkCliIntegTestsWorkflow extends Component {
           name: 'Fetch tags from origin repo',
           run: [
             // Can be either aws/aws-cdk-cli or aws/aws-cdk-cli-testing
-            `git remote add upstream git@github.com:${props.sourceRepo}.git`,
+            // (Has to be exactly this form because we're unauthenticated)
+            `git remote add upstream git://github.com/${props.sourceRepo}`,
             'git fetch upstream \'refs/tags/*:refs/tags/*\'',
           ].join('\n'),
         },
