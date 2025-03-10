@@ -14735,6 +14735,7 @@ const cdkCliIntegTestsWorkflowProps: CdkCliIntegTestsWorkflowProps = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.sourceRepo">sourceRepo</a></code> | <code>string</code> | The official repo this workflow is used for. |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testEnvironment">testEnvironment</a></code> | <code>string</code> | GitHub environment name for running the tests. |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testRunsOn">testRunsOn</a></code> | <code>string</code> | Runners for the workflow. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.allowUpstreamVersions">allowUpstreamVersions</a></code> | <code>string[]</code> | If given, allows accessing upstream versions of these packages. |
 
 ---
 
@@ -14773,6 +14774,8 @@ public readonly localPackages: string[];
 - *Type:* string[]
 
 Packages that are locally transfered (we will never use the upstream versions).
+
+Takes package names; these are expected to live in `packages/<NAME>/dist/js`.
 
 ---
 
@@ -14815,6 +14818,19 @@ public readonly testRunsOn: string;
 - *Type:* string
 
 Runners for the workflow.
+
+---
+
+##### `allowUpstreamVersions`<sup>Optional</sup> <a name="allowUpstreamVersions" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.allowUpstreamVersions"></a>
+
+```typescript
+public readonly allowUpstreamVersions: string[];
+```
+
+- *Type:* string[]
+- *Default:* No upstream versions
+
+If given, allows accessing upstream versions of these packages.
 
 ---
 
