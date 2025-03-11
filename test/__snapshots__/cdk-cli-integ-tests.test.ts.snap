@@ -242,7 +242,7 @@ jobs:
       - name: Create Verdaccio config
         run: |-
           mkdir -p $HOME/.config/verdaccio
-          echo '{"storage":"./storage","auth":{"htpasswd":{"file":"./htpasswd"}},"uplinks":{"npmjs":{"url":"https://registry.npmjs.org/"}},"packages":{"@aws-cdk/bla":{"access":"$all","publish":"$all","proxy":"none"},"@aws-cdk/bloeh":{"access":"$all","publish":"$all","proxy":"none"},"**":{"access":"$all","proxy":"npmjs"}}}' > $HOME/.config/verdaccio/config.yaml
+          echo '{"storage":"./storage","auth":{"htpasswd":{"file":"./htpasswd"}},"uplinks":{"npmjs":{"url":"https://registry.npmjs.org/"}},"packages":{"@aws-cdk/bla":{"access":"$all","publish":"$all","proxy":"npmjs"},"@aws-cdk/bloeh":{"access":"$all","publish":"$all","proxy":"none"},"**":{"access":"$all","proxy":"npmjs"}}}' > $HOME/.config/verdaccio/config.yaml
       - name: Start Verdaccio
         run: |-
           pm2 start verdaccio -- --config $HOME/.config/verdaccio/config.yaml

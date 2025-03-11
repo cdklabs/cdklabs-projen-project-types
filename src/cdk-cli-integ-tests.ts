@@ -33,6 +33,8 @@ export interface CdkCliIntegTestsWorkflowProps {
 
   /**
    * Packages that are locally transfered (we will never use the upstream versions)
+   *
+   * Takes package names; these are expected to live in `packages/<NAME>/dist/js`.
    */
   readonly localPackages: string[];
 
@@ -40,6 +42,13 @@ export interface CdkCliIntegTestsWorkflowProps {
    * The official repo this workflow is used for
    */
   readonly sourceRepo: string;
+
+  /**
+   * If given, allows accessing upstream versions of these packages
+   *
+   * @default - No upstream versions
+   */
+  readonly allowUpstreamVersions?: string[];
 }
 
 /**
@@ -78,6 +87,12 @@ export class CdkCliIntegTestsWorkflow extends Component {
       throw new Error('Expected build and run tests workflow');
     }
     ((buildWorkflow as any).workflow as github.GithubWorkflow);
+
+    props.allowUpstreamVersions?.forEach((pack) => {
+      if (!props.localPackages.includes(pack)) {
+        throw new Error(`Package in allowUpstreamVersions but not in localPackages: ${pack}`);
+      }
+    });
 
     runTestsWorkflow.on({
       pullRequestTarget: {
@@ -182,10 +197,12 @@ export class CdkCliIntegTestsWorkflow extends Component {
     };
 
     for (const pack of props.localPackages) {
+      const allowUpstream = props.allowUpstreamVersions?.includes(pack);
+
       verdaccioConfig.packages[pack] = {
         access: '$all',
         publish: '$all',
-        proxy: 'none',
+        proxy: allowUpstream ? 'npmjs' : 'none',
       };
     };
     verdaccioConfig.packages['**'] = {
