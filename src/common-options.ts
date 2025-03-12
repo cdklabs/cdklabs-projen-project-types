@@ -79,9 +79,12 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
     new UpgradeCdklabsProjenProjectTypes(project);
   }
 
-  if ((opts.upgradeRuntimeDepsAsFix)) {
+  if (opts.upgradeRuntimeDepsAsFix) {
     const exclude = opts.upgradeCdklabsProjenProjectTypes ? UpgradeCdklabsProjenProjectTypes.deps : [];
     const labels = opts.autoApproveUpgrades ? [opts.autoApproveOptions?.label ?? 'auto-approve'] : [];
+
+    // Run at 18:00Z once a week (on Monday)
+    const upgradeSchedule = javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * 1']);
 
     new javascript.UpgradeDependencies(project, {
       taskName: 'upgrade',
@@ -94,7 +97,7 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
       semanticCommit: 'fix',
       workflowOptions: {
         labels,
-        schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * *']),
+        schedule: upgradeSchedule,
       },
     });
 
@@ -106,6 +109,7 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
       pullRequestTitle: 'upgrade dev dependencies',
       workflowOptions: {
         labels,
+        schedule: upgradeSchedule,
       },
     });
   }

@@ -295,17 +295,6 @@ export interface CdkConstructLibraryOptions {
    */
   readonly deps?: Array<string>;
   /**
-   * Use tasks and github workflows to handle dependency upgrades.
-   * Cannot be used in conjunction with `dependabot`.
-   * @default true
-   */
-  readonly depsUpgrade?: boolean;
-  /**
-   * Options for `UpgradeDependencies`.
-   * @default - default options
-   */
-  readonly depsUpgradeOptions?: javascript.UpgradeDependenciesOptions;
-  /**
    * The description is just a string that helps people understand the purpose of the package.
    * It can be used when searching for packages in a package manager as well.
    * See https://classic.yarnpkg.com/en/docs/package-json/#toc-description
