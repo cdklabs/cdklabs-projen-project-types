@@ -128,7 +128,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     this.monorepo = options.parent;
     this.isPrivatePackage = options.private ?? false;
     this.workspaceDirectory = workspaceDirectory;
-    this.dependencyRange = `^${this.actualPackageVersion}`;
+    this.dependencyRange = ''; // Empty string leads to name-only dependency which leads to default projen behavior
 
     // If the package is public, all local deps and peer deps must also be public and other TypeScriptWorkspaces
     if (!this.isPrivatePackage) {

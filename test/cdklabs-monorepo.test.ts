@@ -103,7 +103,7 @@ describe('CdkLabsMonorepo', () => {
       }).toThrow(/cannot depend on any private packages/);
     });
 
-    test('workspace dependencies use caret by default', () => {
+    test('workspace dependencies use asterisk by default', () => {
       const dep = new yarn.TypeScriptWorkspace({
         parent,
         name: '@cdklabs/one',
@@ -120,7 +120,8 @@ describe('CdkLabsMonorepo', () => {
 
       expect(outdir['packages/@cdklabs/two/package.json']).toEqual(expect.objectContaining({
         dependencies: {
-          '@cdklabs/one': '^0.0.0',
+          // In a monorepo, this will be translated to ^0.0.0 by a post-synthesis step
+          '@cdklabs/one': '*',
         },
       }));
     });
