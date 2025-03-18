@@ -13728,8 +13728,8 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.dependencyRange">dependencyRange</a></code> | <code>string</code> | The semver range that should be used to reference this package when it is released. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.isPrivatePackage">isPrivatePackage</a></code> | <code>boolean</code> | Whether the referenced workspace package is private. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.versionType">versionType</a></code> | <code>string</code> | The semver range that should be used to reference this package when it is released. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.workspaceDirectory">workspaceDirectory</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -14494,18 +14494,6 @@ public readonly bundledDeps: string[];
 
 ---
 
-##### `dependencyRange`<sup>Required</sup> <a name="dependencyRange" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.dependencyRange"></a>
-
-```typescript
-public readonly dependencyRange: string;
-```
-
-- *Type:* string
-
-The semver range that should be used to reference this package when it is released.
-
----
-
 ##### `isPrivatePackage`<sup>Required</sup> <a name="isPrivatePackage" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.isPrivatePackage"></a>
 
 ```typescript
@@ -14515,6 +14503,18 @@ public readonly isPrivatePackage: boolean;
 - *Type:* boolean
 
 Whether the referenced workspace package is private.
+
+---
+
+##### `versionType`<sup>Required</sup> <a name="versionType" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.versionType"></a>
+
+```typescript
+public readonly versionType: string;
+```
+
+- *Type:* string
+
+The semver range that should be used to reference this package when it is released.
 
 ---
 
@@ -35690,14 +35690,14 @@ const referenceOptions: yarn.ReferenceOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.ReferenceOptions.property.dependencyRange">dependencyRange</a></code> | <code>string</code> | What type of dependency to take on this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.ReferenceOptions.property.versionType">versionType</a></code> | <code>string</code> | What type of dependency to take on this package. |
 
 ---
 
-##### `dependencyRange`<sup>Optional</sup> <a name="dependencyRange" id="cdklabs-projen-project-types.yarn.ReferenceOptions.property.dependencyRange"></a>
+##### `versionType`<sup>Optional</sup> <a name="versionType" id="cdklabs-projen-project-types.yarn.ReferenceOptions.property.versionType"></a>
 
 ```typescript
-public readonly dependencyRange: string;
+public readonly versionType: string;
 ```
 
 - *Type:* string
@@ -38066,7 +38066,7 @@ const workspaceReleaseOptions: yarn.WorkspaceReleaseOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.publishToNpm">publishToNpm</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.repoDependencies">repoDependencies</a></code> | <code>{[ key: string ]: string}</code> | For runtime and peer dependencies, the type of dependency we take on each package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.repoRuntimeDependencies">repoRuntimeDependencies</a></code> | <code>{[ key: string ]: string}</code> | For runtime and peer dependencies, the type of dependency we take on each package. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -38131,10 +38131,10 @@ public readonly releasableCommits: ReleasableCommits;
 
 ---
 
-##### `repoDependencies`<sup>Optional</sup> <a name="repoDependencies" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.repoDependencies"></a>
+##### `repoRuntimeDependencies`<sup>Optional</sup> <a name="repoRuntimeDependencies" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.repoRuntimeDependencies"></a>
 
 ```typescript
-public readonly repoDependencies: {[ key: string ]: string};
+public readonly repoRuntimeDependencies: {[ key: string ]: string};
 ```
 
 - *Type:* {[ key: string ]: string}
@@ -38196,22 +38196,10 @@ different behavior.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.yarn.IWorkspaceReference.property.dependencyRange">dependencyRange</a></code> | <code>string</code> | The semver range that should be used to reference this package when it is released. |
 | <code><a href="#cdklabs-projen-project-types.yarn.IWorkspaceReference.property.isPrivatePackage">isPrivatePackage</a></code> | <code>boolean</code> | Whether the referenced workspace package is private. |
 | <code><a href="#cdklabs-projen-project-types.yarn.IWorkspaceReference.property.name">name</a></code> | <code>string</code> | The dependency name of the package. |
 | <code><a href="#cdklabs-projen-project-types.yarn.IWorkspaceReference.property.outdir">outdir</a></code> | <code>string</code> | The directory that holds this package in the monorepo. |
-
----
-
-##### `dependencyRange`<sup>Required</sup> <a name="dependencyRange" id="cdklabs-projen-project-types.yarn.IWorkspaceReference.property.dependencyRange"></a>
-
-```typescript
-public readonly dependencyRange: string;
-```
-
-- *Type:* string
-
-The semver range that should be used to reference this package when it is released.
+| <code><a href="#cdklabs-projen-project-types.yarn.IWorkspaceReference.property.versionType">versionType</a></code> | <code>string</code> | The semver range that should be used to reference this package when it is released. |
 
 ---
 
@@ -38248,6 +38236,18 @@ public readonly outdir: string;
 - *Type:* string
 
 The directory that holds this package in the monorepo.
+
+---
+
+##### `versionType`<sup>Required</sup> <a name="versionType" id="cdklabs-projen-project-types.yarn.IWorkspaceReference.property.versionType"></a>
+
+```typescript
+public readonly versionType: string;
+```
+
+- *Type:* string
+
+The semver range that should be used to reference this package when it is released.
 
 ---
 
