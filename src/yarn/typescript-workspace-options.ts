@@ -14,6 +14,14 @@ export interface TypeScriptWorkspaceOptions {
    */
   readonly allowLibraryDependencies?: boolean;
   /**
+   * Allow private workspace dependencies in the 'deps' parameter.
+
+By default, private dependencies are not allowed as users will not be able to install
+your package. It makes sense to relax this check *only* if you are bundling your package.
+   * @default false
+   */
+  readonly allowPrivateDeps?: boolean;
+  /**
    * A directory which will contain build artifacts.
    * @default "dist"
    */

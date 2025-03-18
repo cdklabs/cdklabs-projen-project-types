@@ -231,6 +231,20 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
           default: '\'lts/*\'',
         },
       },
+      {
+        name: 'allowPrivateDeps',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: [
+            'Allow private workspace dependencies in the \'deps\' parameter.',
+            '',
+            'By default, private dependencies are not allowed as users will not be able to install',
+            'your package. It makes sense to relax this check *only* if you are bundling your package.',
+          ].join('\n'),
+          default: 'false',
+        },
+      },
     ],
   });
 

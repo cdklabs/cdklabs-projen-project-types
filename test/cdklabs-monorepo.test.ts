@@ -79,7 +79,8 @@ describe('CdkLabsMonorepo', () => {
       new yarn.TypeScriptWorkspace({
         parent,
         name: '@cdklabs/two',
-        deps: [privDep.customizeReference({ allowPrivate: true })],
+        deps: [privDep],
+        allowPrivateDeps: true,
       });
 
       // THEN: does not throw
@@ -96,7 +97,8 @@ describe('CdkLabsMonorepo', () => {
         new yarn.TypeScriptWorkspace({
           parent,
           name: '@cdklabs/two',
-          peerDeps: [privDep.customizeReference({ allowPrivate: true })],
+          peerDeps: [privDep],
+        allowPrivateDeps: true,
         });
       }).toThrow(/cannot depend on any private packages/);
     });

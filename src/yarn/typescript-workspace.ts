@@ -24,11 +24,6 @@ export interface IWorkspaceReference {
   readonly isPrivatePackage: boolean;
 
   /**
-   * Whether we should allow a dependency on this package, even if it is private.
-   */
-  readonly allowPrivateDependency: boolean;
-
-  /**
    * The dependency name of the package
    */
   readonly name: string;
@@ -51,7 +46,6 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
   public readonly workspaceDirectory: string;
   public readonly bundledDeps: string[] = [];
   public readonly isPrivatePackage: boolean;
-  public readonly allowPrivateDependency = false;
   public readonly dependencyRange: string;
 
   private readonly monorepo: Monorepo;
@@ -68,6 +62,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       'excludeDepsFromUpgrade',
       'repository',
       'workflowNodeVersion',
+      'allowPrivateDeps',
     );
 
     const useEslint = remainder.eslint ?? true;
@@ -139,7 +134,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     if (!this.isPrivatePackage) {
       const illegalDeps = [
         // Overridable for deps because this might make sense if we bundle the package.
-        ...options.deps?.filter(isWorkspaceReference).filter(w => w.isPrivatePackage && !w.allowPrivateDependency) ?? [],
+        ...options.deps?.filter(isWorkspaceReference).filter(w => w.isPrivatePackage && !options.allowPrivateDeps) ?? [],
         // But not for peerDeps, they must always be installed by the user.
         ...options.peerDeps?.filter(isWorkspaceReference).filter(w => w.isPrivatePackage) ?? [],
         // devDeps can be private, we don't care.
@@ -293,7 +288,6 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       name: this.name,
       outdir: this.outdir,
       isPrivatePackage: this.isPrivatePackage,
-      allowPrivateDependency: refOpts?.allowPrivate ?? false,
       // Empty string leads to default behavior of ^, otherwise we specify an exact version of 0.0.0
       // which will be replaced come release time.
       dependencyRange: refOpts?.exactVersion ? '0.0.0' : '',
@@ -315,16 +309,6 @@ export interface ReferenceOptions {
    * @deafult false
    */
   readonly exactVersion?: boolean;
-
-  /**
-   * Allow a dependency on a private package
-   *
-   * Only makes sense if the consuming package is bundled, otherwise the package
-   * will be broken once published.
-   *
-   * @default false
-   */
-  readonly allowPrivate?: boolean;
 }
 
 
