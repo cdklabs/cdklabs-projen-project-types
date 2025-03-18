@@ -1,6 +1,6 @@
 import * as path from 'node:path';
 import { Component, ReleasableCommits, Task, Version, VersionBranchOptions, release } from 'projen';
-import { GatherVersions, VersionMatch } from './gather-versions.task';
+import { GatherVersions } from './gather-versions.task';
 import { TypeScriptWorkspace } from './typescript-workspace';
 
 export interface WorkspaceReleaseOptions {
@@ -74,7 +74,7 @@ export class WorkspaceRelease extends Component {
     // Therefor it is guaranteed that any local packages a package depends on,
     // already have been bumped.
     const gatherVersions = project.addTask('gather-versions', {
-      steps: [new GatherVersions(project, VersionMatch.MAJOR)],
+      steps: [new GatherVersions(project)],
     });
 
     const bumpTask = this.obtainBumpTask();
