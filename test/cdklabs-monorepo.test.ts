@@ -3,55 +3,149 @@ import * as YAML from 'yaml';
 import { yarn } from '../src';
 
 describe('CdkLabsMonorepo', () => {
-  test('synthesizes with default settings', () => {
-    const parent = new yarn.CdkLabsMonorepo({
-      name: 'monorepo',
-      defaultReleaseBranch: 'main',
+  describe('with a monorepo with indifferent settings', () => {
+    let parent: yarn.CdkLabsMonorepo;
+    beforeEach(() => {
+      parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+      });
     });
 
-    new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/one',
+    test('synthesizes with default settings', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+      });
+
+      const outdir = Testing.synth(parent);
+
+      expect(outdir).toMatchSnapshot();
     });
 
-    new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/two',
+    test('bundled dependencies lead to a nohoist directive', () => {
+      // GIVEN
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        // WHEN
+        bundledDeps: ['@cdklabs/dep-a', '@cdklabs/dep-b@~1.0.0'],
+        deps: ['@cdklabs/dep-c'], // will not show up
+      });
+
+      // THEN
+      const outdir = Testing.synth(parent);
+
+      expect(outdir['package.json']).toEqual(expect.objectContaining({
+        workspaces: expect.objectContaining({
+          nohoist: [
+            '@cdklabs/one/@cdklabs/dep-a',
+            '@cdklabs/one/@cdklabs/dep-a/**',
+            '@cdklabs/one/@cdklabs/dep-b',
+            '@cdklabs/one/@cdklabs/dep-b/**',
+          ],
+        }),
+      }));
     });
 
-    const outdir = Testing.synth(parent);
+    test('public dependency on a private package errors', () => {
+      const privDep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        private: true,
+      });
 
-    expect(outdir).toMatchSnapshot();
-  });
-
-  test('bundled dependencies lead to a nohoist directive', () => {
-    // GIVEN
-    const parent = new yarn.CdkLabsMonorepo({
-      name: 'monorepo',
-      defaultReleaseBranch: 'main',
+      expect(() => {
+        new yarn.TypeScriptWorkspace({
+          parent,
+          name: '@cdklabs/two',
+          deps: [privDep],
+        });
+      }).toThrow(/cannot depend on any private packages/);
     });
 
-    new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/one',
-      // WHEN
-      bundledDeps: ['@cdklabs/dep-a', '@cdklabs/dep-b@~1.0.0'],
-      deps: ['@cdklabs/dep-c'], // will not show up
+    test('public dependency on a private package error can be suppressed', () => {
+      const privDep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        private: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+        deps: [privDep],
+        allowPrivateDeps: true,
+      });
+
+      // THEN: does not throw
     });
 
-    // THEN
-    const outdir = Testing.synth(parent);
+    test('public dependency on a private package error cannot be suppressed for peerDeps', () => {
+      const privDep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        private: true,
+      });
 
-    expect(outdir['package.json']).toEqual(expect.objectContaining({
-      workspaces: expect.objectContaining({
-        nohoist: [
-          '@cdklabs/one/@cdklabs/dep-a',
-          '@cdklabs/one/@cdklabs/dep-a/**',
-          '@cdklabs/one/@cdklabs/dep-b',
-          '@cdklabs/one/@cdklabs/dep-b/**',
-        ],
-      }),
-    }));
+      expect(() => {
+        new yarn.TypeScriptWorkspace({
+          parent,
+          name: '@cdklabs/two',
+          peerDeps: [privDep],
+          allowPrivateDeps: true,
+        });
+      }).toThrow(/cannot depend on any private packages/);
+    });
+
+    test('workspace dependencies use caret by default', () => {
+      const dep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+        deps: [dep],
+      });
+
+      // THEN
+      const outdir = Testing.synth(parent);
+
+      expect(outdir['packages/@cdklabs/two/package.json']).toEqual(expect.objectContaining({
+        dependencies: {
+          '@cdklabs/one': '^0.0.0',
+        },
+      }));
+    });
+
+    test('workspace dependencies can be made exact', () => {
+      const dep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+        deps: [dep.customizeReference({ exactVersion: true })],
+      });
+
+      // THEN
+      const outdir = Testing.synth(parent);
+
+      expect(outdir['packages/@cdklabs/two/package.json']).toEqual(expect.objectContaining({
+        dependencies: {
+          '@cdklabs/one': '0.0.0',
+        },
+      }));
+    });
   });
 
   test('workspaces get monorepo repository configuration', () => {

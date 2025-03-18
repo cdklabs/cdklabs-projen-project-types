@@ -12975,6 +12975,8 @@ public readonly project: Project;
 
 ### TypeScriptWorkspace <a name="TypeScriptWorkspace" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace"></a>
 
+- *Implements:* cdklabs-projen-project-types.yarn.IWorkspaceReference
+
 A TypeScript workspace in a `yarn.Monorepo`.
 
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.Initializer"></a>
@@ -13031,7 +13033,8 @@ new yarn.TypeScriptWorkspace(options: TypeScriptWorkspaceOptions)
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.workspaceDependencies">workspaceDependencies</a></code> | Return all dependencies that are also workspaces int the monorepo Optionally filter by dependency type. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.customizeReference">customizeReference</a></code> | Return a specialized reference to this workspace. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.workspaceDependencies">workspaceDependencies</a></code> | Return all Projects in the workspace that are also dependencies. |
 
 ---
 
@@ -13552,13 +13555,29 @@ The command to execute.
 
 ---
 
+##### `customizeReference` <a name="customizeReference" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.customizeReference"></a>
+
+```typescript
+public customizeReference(refOpts?: ReferenceOptions): IWorkspaceReference
+```
+
+Return a specialized reference to this workspace.
+
+###### `refOpts`<sup>Optional</sup> <a name="refOpts" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.customizeReference.parameter.refOpts"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.ReferenceOptions
+
+---
+
 ##### `workspaceDependencies` <a name="workspaceDependencies" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.workspaceDependencies"></a>
 
 ```typescript
 public workspaceDependencies(types?: DependencyType[]): Project[]
 ```
 
-Return all dependencies that are also workspaces int the monorepo Optionally filter by dependency type.
+Return all Projects in the workspace that are also dependencies.
+
+Optionally filter by dependency type.
 
 ###### `types`<sup>Optional</sup> <a name="types" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.workspaceDependencies.parameter.types"></a>
 
@@ -13709,6 +13728,8 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.dependencyRange">dependencyRange</a></code> | <code>string</code> | The semver range that should be used to reference this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.isPrivatePackage">isPrivatePackage</a></code> | <code>boolean</code> | Whether the referenced workspace package is private. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.workspaceDirectory">workspaceDirectory</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -14470,6 +14491,30 @@ public readonly bundledDeps: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+##### `dependencyRange`<sup>Required</sup> <a name="dependencyRange" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.dependencyRange"></a>
+
+```typescript
+public readonly dependencyRange: string;
+```
+
+- *Type:* string
+
+The semver range that should be used to reference this package.
+
+---
+
+##### `isPrivatePackage`<sup>Required</sup> <a name="isPrivatePackage" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.isPrivatePackage"></a>
+
+```typescript
+public readonly isPrivatePackage: boolean;
+```
+
+- *Type:* boolean
+
+Whether the referenced workspace package is private.
 
 ---
 
@@ -35629,6 +35674,42 @@ Github Runner Group selection options.
 
 ---
 
+### ReferenceOptions <a name="ReferenceOptions" id="cdklabs-projen-project-types.yarn.ReferenceOptions"></a>
+
+Options for the `workspace.reference()` method.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.ReferenceOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const referenceOptions: yarn.ReferenceOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.ReferenceOptions.property.exactVersion">exactVersion</a></code> | <code>boolean</code> | Depend on the exact version of this package at release time. |
+
+---
+
+##### `exactVersion`<sup>Optional</sup> <a name="exactVersion" id="cdklabs-projen-project-types.yarn.ReferenceOptions.property.exactVersion"></a>
+
+```typescript
+public readonly exactVersion: boolean;
+```
+
+- *Type:* boolean
+
+Depend on the exact version of this package at release time.
+
+By default, dependencies will be referenced with a `^`, and come install time
+a newer version may be installed. Set this to `true` to require exactly the
+version of this package that is released along with the consuming package.
+
+---
+
 ### RosettaOptions <a name="RosettaOptions" id="cdklabs-projen-project-types.RosettaOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.RosettaOptions.Initializer"></a>
@@ -35693,6 +35774,7 @@ const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.parent">parent</a></code> | <code>cdklabs-projen-project-types.yarn.Monorepo</code> | The parent `yarn.Monorepo` project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | Allow the project to include `peerDependencies` and `bundledDependencies`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.allowPrivateDeps">allowPrivateDeps</a></code> | <code>boolean</code> | Allow private workspace dependencies in the 'deps' parameter. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | A directory which will contain build artifacts. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorEmail">authorEmail</a></code> | <code>string</code> | Author's e-mail. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.authorName">authorName</a></code> | <code>string</code> | Author's name. |
@@ -35722,11 +35804,11 @@ const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.deps">deps</a></code> | <code>string \| cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]</code> | Runtime dependencies of this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.deps">deps</a></code> | <code>string \| cdklabs-projen-project-types.yarn.IWorkspaceReference[]</code> | Runtime dependencies of this module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use tasks and github workflows to handle dependency upgrades. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.devDeps">devDeps</a></code> | <code>string \| cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]</code> | Build dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.devDeps">devDeps</a></code> | <code>string \| cdklabs-projen-project-types.yarn.IWorkspaceReference[]</code> | Build dependencies for this module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a `tsconfig.dev.json` file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
@@ -35772,7 +35854,7 @@ const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.peerDeps">peerDeps</a></code> | <code>string \| cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]</code> | Peer dependencies for this module. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.peerDeps">peerDeps</a></code> | <code>string \| cdklabs-projen-project-types.yarn.IWorkspaceReference[]</code> | Peer dependencies for this module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.pnpmVersion">pnpmVersion</a></code> | <code>string</code> | The version of PNPM to use if using PNPM as a package manager. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.postBuildSteps">postBuildSteps</a></code> | <code>projen.github.workflows.JobStep[]</code> | Steps to execute after build as part of the release workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.prerelease">prerelease</a></code> | <code>string</code> | Bump versions from the default branch as pre-releases (e.g. "beta", "alpha", "pre"). |
@@ -35876,6 +35958,22 @@ Allow the project to include `peerDependencies` and `bundledDependencies`.
 
 This is normally only allowed for libraries. For apps, there's no meaning
 for specifying these.
+
+---
+
+##### `allowPrivateDeps`<sup>Optional</sup> <a name="allowPrivateDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.allowPrivateDeps"></a>
+
+```typescript
+public readonly allowPrivateDeps: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Allow private workspace dependencies in the 'deps' parameter.
+
+By default, private dependencies are not allowed as users will not be able to install
+your package. It makes sense to relax this check *only* if you are bundling your package.
 
 ---
 
@@ -36282,10 +36380,10 @@ Options for dependabot.
 ##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.deps"></a>
 
 ```typescript
-public readonly deps: string | TypeScriptWorkspace[];
+public readonly deps: string | IWorkspaceReference[];
 ```
 
-- *Type:* string | cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]
+- *Type:* string | cdklabs-projen-project-types.yarn.IWorkspaceReference[]
 - *Default:* []
 
 Runtime dependencies of this module.
@@ -36345,10 +36443,10 @@ Add a VSCode development environment (used for GitHub Codespaces).
 ##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.devDeps"></a>
 
 ```typescript
-public readonly devDeps: string | TypeScriptWorkspace[];
+public readonly devDeps: string | IWorkspaceReference[];
 ```
 
-- *Type:* string | cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]
+- *Type:* string | cdklabs-projen-project-types.yarn.IWorkspaceReference[]
 - *Default:* []
 
 Build dependencies for this module.
@@ -37015,10 +37113,10 @@ Options for `peerDeps`.
 ##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.peerDeps"></a>
 
 ```typescript
-public readonly peerDeps: string | TypeScriptWorkspace[];
+public readonly peerDeps: string | IWorkspaceReference[];
 ```
 
-- *Type:* string | cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]
+- *Type:* string | cdklabs-projen-project-types.yarn.IWorkspaceReference[]
 - *Default:* []
 
 Peer dependencies for this module.
@@ -38062,6 +38160,81 @@ public readonly workflowNodeVersion: string;
 public resolveDepsAndWritePackageJson(): boolean
 ```
 
+
+### IWorkspaceReference <a name="IWorkspaceReference" id="cdklabs-projen-project-types.yarn.IWorkspaceReference"></a>
+
+- *Implemented By:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace, cdklabs-projen-project-types.yarn.IWorkspaceReference
+
+A reference to a workspace in the same monorepo.
+
+This can be used to reference packages in the same monorepo when declaring
+`deps` and `devDeps`.
+
+By default, all `TypeScriptWorkspace`s implement this interface, representing themselves
+with a `^` dependency and a restriction that public packages must have public dependencies.
+
+The method `.customizeReference({ ... })` can be used to create a workspace reference with
+different behavior.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.IWorkspaceReference.property.dependencyRange">dependencyRange</a></code> | <code>string</code> | The semver range that should be used to reference this package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.IWorkspaceReference.property.isPrivatePackage">isPrivatePackage</a></code> | <code>boolean</code> | Whether the referenced workspace package is private. |
+| <code><a href="#cdklabs-projen-project-types.yarn.IWorkspaceReference.property.name">name</a></code> | <code>string</code> | The dependency name of the package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.IWorkspaceReference.property.outdir">outdir</a></code> | <code>string</code> | The directory that holds this package in the monorepo. |
+
+---
+
+##### `dependencyRange`<sup>Required</sup> <a name="dependencyRange" id="cdklabs-projen-project-types.yarn.IWorkspaceReference.property.dependencyRange"></a>
+
+```typescript
+public readonly dependencyRange: string;
+```
+
+- *Type:* string
+
+The semver range that should be used to reference this package.
+
+---
+
+##### `isPrivatePackage`<sup>Required</sup> <a name="isPrivatePackage" id="cdklabs-projen-project-types.yarn.IWorkspaceReference.property.isPrivatePackage"></a>
+
+```typescript
+public readonly isPrivatePackage: boolean;
+```
+
+- *Type:* boolean
+
+Whether the referenced workspace package is private.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdklabs-projen-project-types.yarn.IWorkspaceReference.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The dependency name of the package.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="cdklabs-projen-project-types.yarn.IWorkspaceReference.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+The directory that holds this package in the monorepo.
+
+---
 
 ## Enums <a name="Enums" id="Enums"></a>
 
