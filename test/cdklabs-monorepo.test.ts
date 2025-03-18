@@ -98,7 +98,7 @@ describe('CdkLabsMonorepo', () => {
           parent,
           name: '@cdklabs/two',
           peerDeps: [privDep],
-        allowPrivateDeps: true,
+          allowPrivateDeps: true,
         });
       }).toThrow(/cannot depend on any private packages/);
     });
