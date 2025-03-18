@@ -22,31 +22,33 @@ test('gather-versions updates all package versions respecting existing ranges', 
       'package.json': {
         name: 'root',
         dependencies: {
-          depA: '0.0.0',
+          depA: '*',
+          depB: '*',
         },
         devDependencies: {
           depB: '^0.0.0',
         },
         peerDependencies: {
-          depC: '>= 0.0.0',
+          depC: '^0.0.0',
         },
       },
     });
 
     // WHEN
-    main(['depA', 'depB', 'depC'], dir);
+    main(['depA=exact', 'depB=major', 'depC=minimal'], dir);
 
     // THEN
     expect(JSON.parse(await fs.readFile(path.join(dir, 'package.json'), 'utf-8'))).toEqual({
       name: 'root',
       dependencies: {
         depA: '1.2.3',
-      },
-      devDependencies: {
         depB: '^4.5.6',
       },
+      devDependencies: {
+        depB: '4.5.6', // devDependency always point
+      },
       peerDependencies: {
-        depC: '>= 7.8.9',
+        depC: '>=7.8.9',
       },
     });
   });

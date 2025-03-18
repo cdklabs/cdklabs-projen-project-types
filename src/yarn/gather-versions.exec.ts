@@ -6,13 +6,14 @@ export function cliMain() {
 
 export function main(argv: string[], packageDirectory: string) {
   if (argv.includes('--help') || argv.length < 2) {
-    console.log('Usage: gather-versions [DEPENDENCIES]\n');
+    console.log('Usage: gather-versions PKG=TYPE [PKG=TYPE] [...]\n');
     console.log('Positionals:');
-    console.log('  DEPENDENCIES\tNames of the dependencies to gather versions from.');
+    console.log('  PKG\tPackage name.');
+    console.log('  TYPE\tmajor | minor | exact | minimal');
     return;
   }
 
-  const [...deps] = argv;
+  const deps = Object.fromEntries(argv.map(x => x.split('=', 2) as [string, string]));
 
   // The PJ file we are updating
   const targetPjFile = `${packageDirectory ?? '.'}/package.json`;
@@ -23,16 +24,31 @@ export function main(argv: string[], packageDirectory: string) {
     version: manifest.version,
   };
 
-  for (const dep of deps) {
+  for (const [dep, depType] of Object.entries(deps)) {
     const depVersion = dependencyInfo(dep, packageDirectory).version;
+    const runtimePrefix = prefixFromRange(depType);
 
-    for (const depSection of ['dependencies', 'devDependencies', 'peerDependencies']) {
+    const dependencyClasses = [
+      ['dependencies', runtimePrefix],
+      ['peerDependencies', runtimePrefix],
+      // It doesn't matter what we do for devDependencies (might even do
+      // nothing), but it feels like nice form to show the exact version we used
+      // when we built this package.
+      ['devDependencies', ''],
+    ];
+
+    for (const [depSection, prefix] of dependencyClasses) {
+      const updatedRange = prefix + depVersion;
+
       if (manifest[depSection]?.[dep]) {
-        manifest[depSection][dep] = replaceVersion(manifest[depSection][dep], depVersion);
+        manifest[depSection][dep] = updatedRange;
 
+        // Also update the report so that we can print what we did.
+        // The below syntax works regardless of whether depSection already
+        // exists or not, and only adds depSection if there are changes in it.
         changeReport[depSection] = {
           ...changeReport[depSection],
-          [dep]: manifest[depSection][dep],
+          [dep]: updatedRange,
         };
       }
     }
@@ -53,12 +69,17 @@ function dependencyInfo(dependency: string, searchDirectory: string): any {
   return JSON.parse(readFileSync(pjLoc, 'utf-8'));
 }
 
-/**
- * In a semver range, replace the string `0.0.0` with a different version
- *
- * If the semver range contains symbols like `^` or `>=`, they will be left
- * in.
- */
-function replaceVersion(versionRange: string, version: string): string {
-  return versionRange.replace(/0\.0\.0/g, version);
+function prefixFromRange(x: string): string {
+  switch (x) {
+    case 'major':
+      return '^';
+    case 'minor':
+      return '~';
+    case 'exact':
+      return '';
+    case 'minimal':
+      return '>=';
+    default:
+      throw new Error(`Unknown range type: ${x}`);
+  }
 }

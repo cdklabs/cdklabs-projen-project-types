@@ -4,6 +4,15 @@ import { Component, javascript, typescript, TaskStep, SourceCode, DependencyType
 import { Monorepo } from './monorepo';
 import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
 
+/**
+ * What kind of semver dependency to take
+ *
+ * - 'major' corresponds to '^'
+ * - 'minor' to '~'
+ * - 'exact' to ''
+ * - 'minimal' to '>='
+ */
+export type VersionRange = 'major' | 'minor' | 'exact' | 'minimal';
 
 /**
  * A reference to a workspace in the same monorepo
@@ -29,9 +38,9 @@ export interface IWorkspaceReference {
   readonly name: string;
 
   /**
-   * The semver range that should be used to reference this package
+   * The semver range that should be used to reference this package when it is released
    */
-  readonly dependencyRange: string;
+  readonly dependencyRange: VersionRange;
 
   /**
    * The directory that holds this package in the monorepo
@@ -46,7 +55,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
   public readonly workspaceDirectory: string;
   public readonly bundledDeps: string[] = [];
   public readonly isPrivatePackage: boolean;
-  public readonly dependencyRange: string;
+  public readonly dependencyRange = 'major';
 
   private readonly monorepo: Monorepo;
 
@@ -128,7 +137,6 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     this.monorepo = options.parent;
     this.isPrivatePackage = options.private ?? false;
     this.workspaceDirectory = workspaceDirectory;
-    this.dependencyRange = '^0.0.0';
 
     // If the package is public, all local deps and peer deps must also be public and other TypeScriptWorkspaces
     if (!this.isPrivatePackage) {
@@ -148,6 +156,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       }
     }
 
+    // Write a config file to the ${outdir}/.projen directory for gather-versions.
+
     // Register with release workflow
     this.monorepo.monorepoRelease?.addWorkspace(this, {
       private: this.isPrivatePackage,
@@ -160,6 +170,10 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
         minMajorVersion: options.minMajorVersion,
         prerelease: options.prerelease,
       },
+      repoDependencies: Object.fromEntries([
+        ...options.deps ?? [],
+        ...options.peerDeps ?? [],
+      ].filter(isWorkspaceReference).map(w => [w.name, w.dependencyRange])),
     });
 
     // jest config
@@ -288,39 +302,33 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       name: this.name,
       outdir: this.outdir,
       isPrivatePackage: this.isPrivatePackage,
-      // Empty string leads to default behavior of ^, otherwise we specify an exact version of 0.0.0
-      // which will be replaced come release time.
-      dependencyRange: refOpts?.exactVersion ? '0.0.0' : '',
+      dependencyRange: refOpts?.dependencyRange ?? this.dependencyRange,
     };
   }
 }
 
 /**
- * Options for the `workspace.reference()` method
+ * Options for the `workspace.customizeReference()` method
  */
 export interface ReferenceOptions {
   /**
-   * Depend on the exact version of this package at release time
+   * What type of dependency to take on this package
    *
-   * By default, dependencies will be referenced with a `^`, and come install time
-   * a newer version may be installed. Set this to `true` to require exactly the
-   * version of this package that is released along with the consuming package.
+   * By default, dependencies will be referenced with a `^`, which means that
+   * come install time a newer version may be installed.
    *
-   * @deafult false
+   * Choose a different range type to take, for example, an `exact` dependency.
+   *
+   * @default 'major'
    */
-  readonly exactVersion?: boolean;
+  readonly dependencyRange?: VersionRange;
 }
-
 
 function packageNames(xs?: Array<string | IWorkspaceReference>): string[] | undefined {
   if (!xs) {
     return undefined;
   }
-  return xs.map((x) => (typeof x === 'string' ? x : refString(x)));
-
-  function refString(x: IWorkspaceReference): string {
-    return x.dependencyRange ? `${x.name}@${x.dependencyRange}` : x.name;
-  }
+  return xs.map((x) => (typeof x === 'string' ? x : x.name));
 }
 
 function without<A extends object, K extends keyof A>(x: A, ...ks: K[]): Omit<A, K> {
