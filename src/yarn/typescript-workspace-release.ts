@@ -1,6 +1,6 @@
 import * as path from 'node:path';
 import { Component, ReleasableCommits, Task, Version, VersionBranchOptions, release } from 'projen';
-import { GatherVersions, VersionMatch } from './gather-versions.task';
+import { GatherVersions, GatherVersionsOptions } from './gather-versions.task';
 import { TypeScriptWorkspace } from './typescript-workspace';
 
 export interface WorkspaceReleaseOptions {
@@ -13,6 +13,11 @@ export interface WorkspaceReleaseOptions {
   readonly releasableCommits?: ReleasableCommits;
   readonly nextVersionCommand?: string;
   readonly versionBranchOptions: VersionBranchOptions;
+
+  /**
+   * For runtime and peer dependencies, the type of dependency we take on each package
+   */
+  readonly repoRuntimeDependencies?: GatherVersionsOptions['repoRuntimeDependencies'];
 }
 
 export class WorkspaceRelease extends Component {
@@ -74,7 +79,9 @@ export class WorkspaceRelease extends Component {
     // Therefor it is guaranteed that any local packages a package depends on,
     // already have been bumped.
     const gatherVersions = project.addTask('gather-versions', {
-      steps: [new GatherVersions(project, VersionMatch.MAJOR)],
+      steps: [new GatherVersions(project, {
+        repoRuntimeDependencies: options.repoRuntimeDependencies ?? {},
+      })],
     });
 
     const bumpTask = this.obtainBumpTask();

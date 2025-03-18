@@ -103,7 +103,7 @@ describe('CdkLabsMonorepo', () => {
       }).toThrow(/cannot depend on any private packages/);
     });
 
-    test('workspace dependencies use caret by default', () => {
+    test('workspace dependencies synthesize to asterisk by default', () => {
       const dep = new yarn.TypeScriptWorkspace({
         parent,
         name: '@cdklabs/one',
@@ -120,29 +120,9 @@ describe('CdkLabsMonorepo', () => {
 
       expect(outdir['packages/@cdklabs/two/package.json']).toEqual(expect.objectContaining({
         dependencies: {
-          '@cdklabs/one': '^0.0.0',
-        },
-      }));
-    });
-
-    test('workspace dependencies can be made exact', () => {
-      const dep = new yarn.TypeScriptWorkspace({
-        parent,
-        name: '@cdklabs/one',
-      });
-
-      new yarn.TypeScriptWorkspace({
-        parent,
-        name: '@cdklabs/two',
-        deps: [dep.customizeReference({ exactVersion: true })],
-      });
-
-      // THEN
-      const outdir = Testing.synth(parent);
-
-      expect(outdir['packages/@cdklabs/two/package.json']).toEqual(expect.objectContaining({
-        dependencies: {
-          '@cdklabs/one': '0.0.0',
+          // This will be replaced with the actual version (which in a workspace is ^0.0.0)
+          // in a post-synth step.
+          '@cdklabs/one': '*',
         },
       }));
     });
@@ -314,6 +294,26 @@ describe('CdkLabsMonorepo', () => {
             env: expect.objectContaining({ NPM_CONFIG_PROVENANCE: 'true' }),
           })]),
         }));
+    });
+
+    test('workspace dependencies can be made exact', () => {
+      const dep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+        deps: [dep.customizeReference({ versionType: 'exact' })],
+      });
+
+      // THEN
+      const outdir = Testing.synth(parent);
+
+      const tasks = outdir['packages/@cdklabs/two/.projen/tasks.json'];
+      // Checking for the correct invocation of the gather-versions script
+      expect(tasks.tasks['gather-versions'].steps[0].exec).toContain('@cdklabs/one=exact');
     });
   });
 
