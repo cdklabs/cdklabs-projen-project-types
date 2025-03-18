@@ -13727,6 +13727,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.actualPackageVersion">actualPackageVersion</a></code> | <code>string</code> | Return the actual declared version number from this package's package.json. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.dependencyRange">dependencyRange</a></code> | <code>string</code> | The semver range that should be used to reference this package. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.isPrivatePackage">isPrivatePackage</a></code> | <code>boolean</code> | Whether the referenced workspace package is private. |
@@ -14481,6 +14482,20 @@ public readonly tsconfigEslint: TypescriptConfig;
 ```
 
 - *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `actualPackageVersion`<sup>Required</sup> <a name="actualPackageVersion" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.actualPackageVersion"></a>
+
+```typescript
+public readonly actualPackageVersion: string;
+```
+
+- *Type:* string
+
+Return the actual declared version number from this package's package.json.
+
+If that file doesn't exist, it's assumed to be `0.0.0`.
 
 ---
 

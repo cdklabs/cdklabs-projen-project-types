@@ -1,5 +1,5 @@
-
-import { relative } from 'path';
+import * as fs from 'fs';
+import { join, relative } from 'path';
 import { Component, javascript, typescript, TaskStep, SourceCode, DependencyType, Project } from 'projen';
 import { Monorepo } from './monorepo';
 import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
@@ -128,7 +128,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     this.monorepo = options.parent;
     this.isPrivatePackage = options.private ?? false;
     this.workspaceDirectory = workspaceDirectory;
-    this.dependencyRange = '^0.0.0';
+    this.dependencyRange = `^${this.actualPackageVersion}`;
 
     // If the package is public, all local deps and peer deps must also be public and other TypeScriptWorkspaces
     if (!this.isPrivatePackage) {
@@ -290,8 +290,25 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       isPrivatePackage: this.isPrivatePackage,
       // Empty string leads to default behavior of ^, otherwise we specify an exact version of 0.0.0
       // which will be replaced come release time.
-      dependencyRange: refOpts?.exactVersion ? '0.0.0' : '',
+      dependencyRange: refOpts?.exactVersion ? this.actualPackageVersion : '',
     };
+  }
+
+  /**
+   * Return the actual declared version number from this package's package.json
+   *
+   * If that file doesn't exist, it's assumed to be `0.0.0`.
+   */
+  public get actualPackageVersion(): string {
+    try {
+      const pkgJson = JSON.parse(fs.readFileSync(join(this.outdir, 'package.json'), 'utf-8'));
+      return pkgJson.version;
+    } catch (e: any) {
+      if (e.code === 'ENOENT') {
+        return '0.0.0';
+      }
+      throw e;
+    }
   }
 }
 
