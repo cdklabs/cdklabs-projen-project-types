@@ -305,7 +305,7 @@ describe('CdkLabsMonorepo', () => {
       new yarn.TypeScriptWorkspace({
         parent,
         name: '@cdklabs/two',
-        deps: [dep.customizeReference({ dependencyRange: 'exact' })],
+        deps: [dep.customizeReference({ versionType: 'exact' })],
       });
 
       // THEN

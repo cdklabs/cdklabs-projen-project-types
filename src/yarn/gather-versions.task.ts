@@ -1,19 +1,19 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DependencyType, TaskOptions, TaskStep } from 'projen';
-import { TypeScriptWorkspace, VersionRange } from './typescript-workspace';
+import { TypeScriptWorkspace, VersionType } from './typescript-workspace';
 
 export interface GatherVersionsOptions {
   /**
    * For regular and peer dependencies only, the type of dependency we take on each package
    */
-  readonly repoRuntimeDependencies: Record<string, VersionRange>;
+  readonly repoRuntimeDependencies: Record<string, VersionType>;
 }
 
 export class GatherVersions implements TaskOptions, TaskStep {
   public receiveArgs = true;
 
-  private repoDependencies: Record<string, VersionRange>;
+  private repoDependencies: Record<string, VersionType>;
 
   public constructor(public readonly project: TypeScriptWorkspace, options: GatherVersionsOptions) {
     // Start by building a list of all repo devdependencies and map them to an 'exact' dependency,
@@ -22,7 +22,7 @@ export class GatherVersions implements TaskOptions, TaskStep {
 
     const repoDevDependencies = Object.fromEntries(devDeps(this.project)
       .filter(d => wsDeps.has(d.name))
-      .map((d) => [d.name, 'exact'] satisfies [string, VersionRange]),
+      .map((d) => [d.name, 'exact'] satisfies [string, VersionType]),
     );
 
     this.repoDependencies = {

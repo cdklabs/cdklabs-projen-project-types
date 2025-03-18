@@ -17,7 +17,7 @@ export interface WorkspaceReleaseOptions {
   /**
    * For runtime and peer dependencies, the type of dependency we take on each package
    */
-  readonly repoDependencies?: GatherVersionsOptions['repoRuntimeDependencies'];
+  readonly repoRuntimeDependencies?: GatherVersionsOptions['repoRuntimeDependencies'];
 }
 
 export class WorkspaceRelease extends Component {
@@ -80,7 +80,7 @@ export class WorkspaceRelease extends Component {
     // already have been bumped.
     const gatherVersions = project.addTask('gather-versions', {
       steps: [new GatherVersions(project, {
-        repoRuntimeDependencies: options.repoDependencies ?? {},
+        repoRuntimeDependencies: options.repoRuntimeDependencies ?? {},
       })],
     });
 

@@ -12,7 +12,7 @@ import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
  * - 'exact' to ''
  * - 'minimal' to '>='
  */
-export type VersionRange = 'major' | 'minor' | 'exact' | 'minimal';
+export type VersionType = 'major' | 'minor' | 'exact' | 'minimal';
 
 /**
  * A reference to a workspace in the same monorepo
@@ -40,7 +40,7 @@ export interface IWorkspaceReference {
   /**
    * The semver range that should be used to reference this package when it is released
    */
-  readonly dependencyRange: VersionRange;
+  readonly versionType: VersionType;
 
   /**
    * The directory that holds this package in the monorepo
@@ -55,7 +55,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
   public readonly workspaceDirectory: string;
   public readonly bundledDeps: string[] = [];
   public readonly isPrivatePackage: boolean;
-  public readonly dependencyRange = 'major';
+  public readonly versionType = 'major';
 
   private readonly monorepo: Monorepo;
 
@@ -156,8 +156,6 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       }
     }
 
-    // Write a config file to the ${outdir}/.projen directory for gather-versions.
-
     // Register with release workflow
     this.monorepo.monorepoRelease?.addWorkspace(this, {
       private: this.isPrivatePackage,
@@ -170,10 +168,10 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
         minMajorVersion: options.minMajorVersion,
         prerelease: options.prerelease,
       },
-      repoDependencies: Object.fromEntries([
+      repoRuntimeDependencies: Object.fromEntries([
         ...options.deps ?? [],
         ...options.peerDeps ?? [],
-      ].filter(isWorkspaceReference).map(w => [w.name, w.dependencyRange])),
+      ].filter(isWorkspaceReference).map(w => [w.name, w.versionType])),
     });
 
     // jest config
@@ -302,7 +300,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       name: this.name,
       outdir: this.outdir,
       isPrivatePackage: this.isPrivatePackage,
-      dependencyRange: refOpts?.dependencyRange ?? this.dependencyRange,
+      versionType: refOpts?.versionType ?? this.versionType,
     };
   }
 }
@@ -321,7 +319,7 @@ export interface ReferenceOptions {
    *
    * @default 'major'
    */
-  readonly dependencyRange?: VersionRange;
+  readonly versionType?: VersionType;
 }
 
 function packageNames(xs?: Array<string | IWorkspaceReference>): string[] | undefined {
@@ -340,5 +338,5 @@ function without<A extends object, K extends keyof A>(x: A, ...ks: K[]): Omit<A,
 }
 
 function isWorkspaceReference(x: unknown): x is IWorkspaceReference {
-  return typeof x === 'object' && !!x && (['isPrivatePackage', 'dependencyRange', 'name', 'outdir'] satisfies Array<keyof IWorkspaceReference>).every(k => (x as any)[k] !== undefined);
+  return typeof x === 'object' && !!x && (['isPrivatePackage', 'versionType', 'name', 'outdir'] satisfies Array<keyof IWorkspaceReference>).every(k => (x as any)[k] !== undefined);
 }
