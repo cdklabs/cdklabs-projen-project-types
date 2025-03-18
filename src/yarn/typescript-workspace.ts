@@ -4,15 +4,57 @@ import { Component, javascript, typescript, TaskStep, SourceCode, DependencyType
 import { Monorepo } from './monorepo';
 import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
 
+
+/**
+ * A reference to a workspace in the same monorepo
+ *
+ * This can be used to reference packages in the same monorepo when declaring
+ * `deps` and `devDeps`.
+ *
+ * By default, all `TypeScriptWorkspace`s implement this interface, representing themselves
+ * with a `^` dependency and a restriction that public packages must have public dependencies.
+ *
+ * The method `.customizeReference({ ... })` can be used to create a workspace reference with
+ * different behavior.
+ */
+export interface IWorkspaceReference {
+  /**
+   * Whether the referenced workspace package is private
+   */
+  readonly isPrivatePackage: boolean;
+
+  /**
+   * Whether we should allow a dependency on this package, even if it is private.
+   */
+  readonly allowPrivateDependency: boolean;
+
+  /**
+   * The dependency name of the package
+   */
+  readonly name: string;
+
+  /**
+   * The semver range that should be used to reference this package
+   */
+  readonly dependencyRange: string;
+
+  /**
+   * The directory that holds this package in the monorepo
+   */
+  readonly outdir: string;
+}
+
 /**
  * A TypeScript workspace in a `yarn.Monorepo`
  */
-export class TypeScriptWorkspace extends typescript.TypeScriptProject {
+export class TypeScriptWorkspace extends typescript.TypeScriptProject implements IWorkspaceReference {
   public readonly workspaceDirectory: string;
   public readonly bundledDeps: string[] = [];
+  public readonly isPrivatePackage: boolean;
+  public readonly allowPrivateDependency = false;
+  public readonly dependencyRange: string;
 
   private readonly monorepo: Monorepo;
-  private readonly isPrivatePackage: boolean;
 
   constructor(options: TypeScriptWorkspaceOptions) {
     const remainder = without(
@@ -73,9 +115,9 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       depsUpgradeOptions: {
         exclude: [
           ...(options.excludeDepsFromUpgrade ?? []),
-          ...(packageNames(options.deps?.filter(isTypeScriptWorkspace)) ?? []),
-          ...(packageNames(options.peerDeps?.filter(isTypeScriptWorkspace)) ?? []),
-          ...(packageNames(options.devDeps?.filter(isTypeScriptWorkspace)) ?? []),
+          ...(packageNames(options.deps?.filter(isWorkspaceReference)) ?? []),
+          ...(packageNames(options.peerDeps?.filter(isWorkspaceReference)) ?? []),
+          ...(packageNames(options.devDeps?.filter(isWorkspaceReference)) ?? []),
         ],
       },
 
@@ -91,18 +133,23 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
     this.monorepo = options.parent;
     this.isPrivatePackage = options.private ?? false;
     this.workspaceDirectory = workspaceDirectory;
+    this.dependencyRange = '^0.0.0';
 
     // If the package is public, all local deps and peer deps must also be public and other TypeScriptWorkspaces
     if (!this.isPrivatePackage) {
-      const illegalDeps = this.workspaceDependencies([DependencyType.RUNTIME, DependencyType.PEER])?.filter(
-        (dep) => 'isPrivatePackage' in dep && dep.isPrivatePackage,
-      );
+      const illegalDeps = [
+        // Overridable for deps because this might make sense if we bundle the package.
+        ...options.deps?.filter(isWorkspaceReference).filter(w => w.isPrivatePackage && !w.allowPrivateDependency) ?? [],
+        // But not for peerDeps, they must always be installed by the user.
+        ...options.peerDeps?.filter(isWorkspaceReference).filter(w => w.isPrivatePackage) ?? [],
+        // devDeps can be private, we don't care.
+      ];
+
       if (illegalDeps.length) {
-        this.logger.error(`${this.name} is public and cannot depend on any private packages or packages that are not a ${this.constructor.name}.`);
-        this.logger.error(
+        throw new Error([
+          `${this.name} is public and cannot depend on any private packages from the workspace.`,
           `Please fix these dependencies:\n    - ${illegalDeps.map((p) => p.name).join('\n    - ')}`,
-        );
-        throw new Error();
+        ].join('\n'));
       }
     }
 
@@ -162,7 +209,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       tsconfig?.file.addOverride('compilerOptions.composite', true);
       tsconfig?.file.addOverride(
         'references',
-        allDeps.filter(isTypeScriptWorkspace).map((p) => ({ path: relative(this.outdir, p.outdir) })),
+        allDeps.filter(isWorkspaceReference).map((p) => ({ path: relative(this.outdir, p.outdir) })),
       );
     }
 
@@ -228,7 +275,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
   }
 
   /**
-   * Return all dependencies that are also workspaces int the monorepo
+   * Return all Projects in the workspace that are also dependencies.
+   *
    * Optionally filter by dependency type.
    */
   public workspaceDependencies(types?: DependencyType[]): Project[] {
@@ -236,14 +284,59 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject {
       this.deps.all.some((d) => d.name === sibling.name && (!types || types.includes(d.type))),
     );
   }
+
+  /**
+   * Return a specialized reference to this workspace
+   */
+  public customizeReference(refOpts?: ReferenceOptions): IWorkspaceReference {
+    return {
+      name: this.name,
+      outdir: this.outdir,
+      isPrivatePackage: this.isPrivatePackage,
+      allowPrivateDependency: refOpts?.allowPrivate ?? false,
+      // Empty string leads to default behavior of ^, otherwise we specify an exact version of 0.0.0
+      // which will be replaced come release time.
+      dependencyRange: refOpts?.exactVersion ? '0.0.0' : '',
+    };
+  }
+}
+
+/**
+ * Options for the `workspace.reference()` method
+ */
+export interface ReferenceOptions {
+  /**
+   * Depend on the exact version of this package at release time
+   *
+   * By default, dependencies will be referenced with a `^`, and come install time
+   * a newer version may be installed. Set this to `true` to require exactly the
+   * version of this package that is released along with the consuming package.
+   *
+   * @deafult false
+   */
+  readonly exactVersion?: boolean;
+
+  /**
+   * Allow a dependency on a private package
+   *
+   * Only makes sense if the consuming package is bundled, otherwise the package
+   * will be broken once published.
+   *
+   * @default false
+   */
+  readonly allowPrivate?: boolean;
 }
 
 
-function packageNames(xs?: Array<string | TypeScriptWorkspace>): string[] | undefined {
+function packageNames(xs?: Array<string | IWorkspaceReference>): string[] | undefined {
   if (!xs) {
     return undefined;
   }
-  return xs.map((x) => (typeof x === 'string' ? x : x.name));
+  return xs.map((x) => (typeof x === 'string' ? x : refString(x)));
+
+  function refString(x: IWorkspaceReference): string {
+    return x.dependencyRange ? `${x.name}@${x.dependencyRange}` : x.name;
+  }
 }
 
 function without<A extends object, K extends keyof A>(x: A, ...ks: K[]): Omit<A, K> {
@@ -254,6 +347,6 @@ function without<A extends object, K extends keyof A>(x: A, ...ks: K[]): Omit<A,
   return ret;
 }
 
-function isTypeScriptWorkspace(x: unknown): x is TypeScriptWorkspace {
-  return typeof x === 'object' && !!x && x instanceof TypeScriptWorkspace;
+function isWorkspaceReference(x: unknown): x is IWorkspaceReference {
+  return typeof x === 'object' && !!x && (['isPrivatePackage', 'dependencyRange', 'name', 'outdir'] satisfies Array<keyof IWorkspaceReference>).every(k => (x as any)[k] !== undefined);
 }

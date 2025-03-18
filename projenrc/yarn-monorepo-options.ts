@@ -141,7 +141,7 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
         union: {
           types: [
             { primitive: PrimitiveType.String },
-            { fqn: 'cdklabs-projen-project-types.yarn.TypeScriptWorkspace' },
+            { fqn: 'cdklabs-projen-project-types.yarn.IWorkspaceReference' },
           ],
         },
       },
