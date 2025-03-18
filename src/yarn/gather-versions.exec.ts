@@ -47,10 +47,9 @@ export function main(argv: string[], packageDirectory: string) {
 function dependencyInfo(dependency: string, searchDirectory: string): any {
   // Search needs to be w.r.t. the current directory, otherwise it is w.r.t. the current
   // file and that doesn't work if `cdklabs-projen-project-types` is locally symlinked.
+
+  // This will throw if the resolution fails
   const pjLoc = require.resolve(`${dependency}/package.json`, { paths: [searchDirectory] });
-  if (!pjLoc) {
-    throw new Error(`Could not find ${dependency} in ${searchDirectory}`);
-  }
   return JSON.parse(readFileSync(pjLoc, 'utf-8'));
 }
 
