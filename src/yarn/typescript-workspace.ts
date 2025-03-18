@@ -288,8 +288,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       name: this.name,
       outdir: this.outdir,
       isPrivatePackage: this.isPrivatePackage,
-      // Empty string leads to default behavior of ^, otherwise we specify an exact version of 0.0.0
-      // which will be replaced come release time.
+      // Empty string leads to default behavior of '*' which gets translated to '^0.0.0'
+      // which will be replaced with `^1.2.3` come release time.
       dependencyRange: refOpts?.exactVersion ? this.actualPackageVersion : '',
     };
   }
