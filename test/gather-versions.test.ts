@@ -5,9 +5,6 @@ import { Project, TaskRuntime } from 'projen';
 import { yarn } from '../src';
 import { TypeScriptWorkspaceOptions } from '../src/yarn';
 import { main } from '../src/yarn/gather-versions.exec';
-import { yarn } from '../src';
-import { Project, TaskRuntime } from 'projen';
-import { TypeScriptWorkspaceOptions } from '../src/yarn';
 
 // Test the actual gather-versions script
 test('gather-versions updates all package versions respecting existing ranges', async () => {
@@ -67,25 +64,27 @@ const NO_DEVDEPS: Partial<TypeScriptWorkspaceOptions> = {
   prettier: false,
 };
 
-test('make sure a run of gather-versions writes the right version to package.json', async () => {
+test.each([0, 1, 2])('make sure gather-versions works for %p dependencies', async (N) => {
   // GIVEN
   const parent = new yarn.CdkLabsMonorepo({
     name: 'monorepo',
     defaultReleaseBranch: 'main',
     release: true,
   });
-
-  const dep = new yarn.TypeScriptWorkspace({
-    parent,
-    name: '@cdklabs/one',
-    ...NO_DEVDEPS,
-  });
+  let deps: yarn.TypeScriptWorkspace[] = [];
+  for (let i = 0; i < N; i++) {
+    deps.push(new yarn.TypeScriptWorkspace({
+      parent,
+      name: `@cdklabs/dep${i}`,
+      ...NO_DEVDEPS,
+    }));
+  }
 
   // WHEN
   const pack = new yarn.TypeScriptWorkspace({
     parent,
     name: '@cdklabs/two',
-    deps: [dep.customizeReference({ versionType: 'exact' })],
+    deps: deps.map(dep => dep.customizeReference({ versionType: 'exact' })),
     ...NO_DEVDEPS,
   });
 
@@ -96,9 +95,11 @@ test('make sure a run of gather-versions writes the right version to package.jso
   new TaskRuntime(pack.outdir).runTask('gather-versions');
 
   const packageJson = JSON.parse(await fs.readFile(path.join(pack.outdir, 'package.json'), 'utf-8'));
-  expect(Object.entries(packageJson.dependencies)).toContainEqual([
-    '@cdklabs/one', '0.0.0',
-  ]);
+  for (let i = 0; i < N; i++) {
+    expect(Object.entries(packageJson.dependencies)).toContainEqual([
+      `@cdklabs/dep${i}`, '0.0.0',
+    ]);
+  }
 }, 60_000); // Needs to install real packages
 
 /**
