@@ -32,7 +32,8 @@ export class GatherVersions implements TaskOptions, TaskStep {
   }
 
   public get exec(): string {
-    const main = `require(path.join(path.dirname(require.resolve('${currentPackageName()}')), 'yarn', 'gather-versions.exec.js')).cliMain()`;
+    // We must resolve paths at runtime to avoid writing '/home/$USER/...' into the `tasks.json` file
+    const main = `require(require.resolve('${currentPackageName()}/lib/yarn/gather-versions.exec.js')).cliMain()`;
     return `node -e "${main}" ${Object.entries(this.repoDependencies).map(([d, r]) => `${d}=${r}`)}`;
   }
 
