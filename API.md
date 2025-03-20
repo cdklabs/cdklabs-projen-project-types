@@ -7171,7 +7171,7 @@ yarn.CdkLabsMonorepo.isMonorepo(x: Project)
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.monorepoRelease">monorepoRelease</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoRelease</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.monorepoRelease">monorepoRelease</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoRelease</code> | The Monorepo Release component. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | The URL where the actual code for the package lives. |
 
 ---
@@ -7933,6 +7933,8 @@ public readonly monorepoRelease: MonorepoRelease;
 ```
 
 - *Type:* cdklabs-projen-project-types.yarn.MonorepoRelease
+
+The Monorepo Release component.
 
 ---
 
@@ -11781,7 +11783,7 @@ yarn.Monorepo.isMonorepo(x: Project)
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.monorepoRelease">monorepoRelease</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoRelease</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.monorepoRelease">monorepoRelease</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoRelease</code> | The Monorepo Release component. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | The URL where the actual code for the package lives. |
 
 ---
@@ -12543,6 +12545,8 @@ public readonly monorepoRelease: MonorepoRelease;
 ```
 
 - *Type:* cdklabs-projen-project-types.yarn.MonorepoRelease
+
+The Monorepo Release component.
 
 ---
 
@@ -26022,6 +26026,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWithNx">buildWithNx</a></code> | <code>boolean</code> | When Nx is enabled, always build the monorepo using Nx Will build projects in parallel and can improve build performance. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWorkflowOptions">buildWorkflowOptions</a></code> | <code>projen.javascript.BuildWorkflowOptions</code> | Options for PR build workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
@@ -26369,6 +26374,19 @@ public readonly bugsUrl: string;
 - *Type:* string
 
 The url to your project's issue tracker.
+
+---
+
+##### `buildWithNx`<sup>Optional</sup> <a name="buildWithNx" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWithNx"></a>
+
+```typescript
+public readonly buildWithNx: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When Nx is enabled, always build the monorepo using Nx Will build projects in parallel and can improve build performance.
 
 ---
 
@@ -33139,6 +33157,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bin">bin</a></code> | <code>{[ key: string ]: string}</code> | Binary programs vended with your module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWithNx">buildWithNx</a></code> | <code>boolean</code> | When Nx is enabled, always build the monorepo using Nx Will build projects in parallel and can improve build performance. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWorkflowOptions">buildWorkflowOptions</a></code> | <code>projen.javascript.BuildWorkflowOptions</code> | Options for PR build workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWorkflowTriggers">buildWorkflowTriggers</a></code> | <code>projen.github.workflows.Triggers</code> | Build workflow triggers. |
@@ -33486,6 +33505,19 @@ public readonly bugsUrl: string;
 - *Type:* string
 
 The url to your project's issue tracker.
+
+---
+
+##### `buildWithNx`<sup>Optional</sup> <a name="buildWithNx" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWithNx"></a>
+
+```typescript
+public readonly buildWithNx: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+When Nx is enabled, always build the monorepo using Nx Will build projects in parallel and can improve build performance.
 
 ---
 
@@ -35377,6 +35409,7 @@ const monorepoReleaseOptions: yarn.MonorepoReleaseOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.branchName">branchName</a></code> | <code>string</code> | Branch name to release from. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.buildWithNx">buildWithNx</a></code> | <code>boolean</code> | Build the monorepo using Nx during the release. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.bumpPackage">bumpPackage</a></code> | <code>string</code> | The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.jsiiReleaseVersion">jsiiReleaseVersion</a></code> | <code>string</code> | Version requirement of `publib` which is used to publish modules to npm. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.majorVersion">majorVersion</a></code> | <code>number</code> | Major version to release from the default branch. |
@@ -35408,6 +35441,21 @@ public readonly branchName: string;
 - *Default:* "main"
 
 Branch name to release from.
+
+---
+
+##### `buildWithNx`<sup>Optional</sup> <a name="buildWithNx" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.buildWithNx"></a>
+
+```typescript
+public readonly buildWithNx: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Build the monorepo using Nx during the release.
+
+Will build projects in parallel and can improve build performance
 
 ---
 

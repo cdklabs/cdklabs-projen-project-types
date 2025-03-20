@@ -45,6 +45,16 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
         },
       },
       {
+        name: 'buildWithNx',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'When Nx is enabled, always build the monorepo using Nx',
+          remarks: 'Will build projects in parallel and can improve build performance',
+          default: 'false',
+        },
+      },
+      {
         name: 'release',
         optional: true,
         type: { primitive: PrimitiveType.Boolean },
@@ -129,6 +139,16 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
         docs: {
           summary: 'Publish packages to npm',
           default: 'true',
+        },
+      },
+      {
+        name: 'buildWithNx',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'Build the monorepo using Nx during the release.',
+          remarks: 'Will build projects in parallel and can improve build performance',
+          default: 'false',
         },
       },
     ],

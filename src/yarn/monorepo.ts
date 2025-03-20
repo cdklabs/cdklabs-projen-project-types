@@ -1,5 +1,5 @@
 import * as pathPosix from 'node:path/posix';
-import { JsonFile, Project, javascript, typescript, github, DependencyType } from 'projen';
+import { JsonFile, Project, javascript, typescript, github, DependencyType, JsonPatch } from 'projen';
 import { MonorepoOptions } from './monorepo-options';
 import { MonorepoRelease } from './monorepo-release';
 import { Nx } from './nx';
@@ -15,6 +15,9 @@ export class Monorepo extends typescript.TypeScriptProject {
     return Boolean(x && typeof x === 'object' && MONOREPO_SYM in x);
   }
 
+  /**
+   * The Monorepo Release component
+   */
   public readonly monorepoRelease?: MonorepoRelease;
 
   /**
@@ -38,6 +41,7 @@ export class Monorepo extends typescript.TypeScriptProject {
     Object.defineProperty(this, MONOREPO_SYM, { value: true });
 
     this.repositoryUrl = options.repository;
+    const buildWithNx = Boolean(options.nx && options.buildWithNx);
 
     /**
      * Prettier formatting
@@ -121,7 +125,14 @@ export class Monorepo extends typescript.TypeScriptProject {
     if (fmtTask) {
       buildTask.spawn(fmtTask);
     }
-    buildTask.exec('yarn workspaces run build');
+    if (buildWithNx) {
+      buildTask.exec('nx run-many -t build');
+      this.github?.tryFindWorkflow('build')?.file?.patch(
+        JsonPatch.add('/jobs/build/env/NX_SKIP_NX_CACHE', 'true'),
+      );
+    } else {
+      buildTask.exec('yarn workspaces run build');
+    }
 
     // Run in all workspaces tasks
     this.tasks.tryFind('compile')?.reset('yarn workspaces run compile');
@@ -166,6 +177,7 @@ export class Monorepo extends typescript.TypeScriptProject {
     if (options.release) {
       this.monorepoRelease = new MonorepoRelease(this, {
         workflowRunsOn: options.workflowRunsOn,
+        buildWithNx,
         ...options.releaseOptions,
       });
     }
