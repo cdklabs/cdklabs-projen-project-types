@@ -11,6 +11,12 @@ export interface MonorepoReleaseOptions {
    */
   readonly branchName?: string;
   /**
+   * Build the monorepo using Nx during the release.
+   * Will build projects in parallel and can improve build performance
+   * @default false
+   */
+  readonly buildWithNx?: boolean;
+  /**
    * The `commit-and-tag-version` compatible package used to bump the package version, as a dependency string.
    * This can be any compatible package version, including the deprecated `standard-version@9`.
    * @default - A recent version of "commit-and-tag-version"

@@ -56,20 +56,12 @@ export class Nx extends Component {
     project.addPackageIgnore('/.nx');
     new JsonFile(project, 'nx.json', {
       obj: {
-        tasksRunnerOptions: {
-          default: {
-            runner: 'nx/tasks-runners/default',
-            options: {
-              cacheableOperations: () =>
-                cachableTasks.map(({ name }) => name).filter((name) => project.tasks.tryFind(name)),
-            },
-          },
-        },
         targetDefaults: () =>
           cachableTasks.reduce((targetDefaults, { name, outputs, inputs }) => {
             const task = project.tasks.tryFind(name);
             if (task) {
               targetDefaults[name] = {
+                cache: true,
                 dependsOn: [`^${name}`],
                 outputs,
                 inputs,

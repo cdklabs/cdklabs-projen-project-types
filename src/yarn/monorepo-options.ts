@@ -80,6 +80,12 @@ export interface MonorepoOptions {
    */
   readonly bugsUrl?: string;
   /**
+   * When Nx is enabled, always build the monorepo using Nx
+   * Will build projects in parallel and can improve build performance
+   * @default false
+   */
+  readonly buildWithNx?: boolean;
+  /**
    * Define a GitHub workflow for building PRs.
    * @default - true if not a subproject
    */

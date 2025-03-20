@@ -150,27 +150,56 @@ describe('CdkLabsMonorepo', () => {
     expect(outdir).toMatchSnapshot();
   });
 
-  test('nx integration', () => {
-    const parent = new yarn.CdkLabsMonorepo({
-      name: 'monorepo',
-      defaultReleaseBranch: 'main',
-      nx: true,
+  describe('nx integration', () => {
+    test('nx can be used', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        nx: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['nx.json']).toMatchSnapshot();
+      expect(outdir['.gitignore']).toContain('/.nx');
+      expect(outdir['.npmignore']).toContain('/.nx');
     });
 
-    new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/one',
-    });
+    test('can build with nx', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        nx: true,
+        buildWithNx: true,
+        release: true,
+      });
 
-    new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/two',
-    });
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
 
-    const outdir = Testing.synth(parent);
-    expect(outdir['nx.json']).toMatchSnapshot();
-    expect(outdir['.gitignore']).toContain('/.nx');
-    expect(outdir['.npmignore']).toContain('/.nx');
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['.projen/tasks.json'].tasks.build).toMatchSnapshot();
+      expect(outdir['.projen/tasks.json'].tasks.release).toMatchSnapshot();
+
+      const buildWorkflow = YAML.parse(outdir['.github/workflows/build.yml']);
+      expect(buildWorkflow.jobs.build.env).toHaveProperty('NX_SKIP_NX_CACHE', 'true');
+    });
   });
 
   describe('with monorepo that releases', () => {

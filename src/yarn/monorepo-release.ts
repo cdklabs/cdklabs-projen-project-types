@@ -23,6 +23,7 @@ export class MonorepoRelease extends Component {
   private readonly branchName: string;
   private readonly github: github.GitHub;
   private readonly releaseTrigger: projenRelease.ReleaseTrigger;
+  private readonly buildWithNx: boolean;
   private readonly packagesToRelease = new Array<{
     readonly workspaceDirectory: string;
     readonly release: {
@@ -46,6 +47,7 @@ export class MonorepoRelease extends Component {
     }
     this.github = gh;
     this.releaseTrigger = options.releaseTrigger ?? projenRelease.ReleaseTrigger.continuous();
+    this.buildWithNx = options.buildWithNx ?? false;
   }
 
   public workspaceRelease(project: TypeScriptWorkspace) {
@@ -200,7 +202,12 @@ export class MonorepoRelease extends Component {
     // time so that the dependency versions in all 'package.json's are correct.
     this.releaseTask.exec('yarn workspaces run shx rm -rf dist');
     this.releaseTask.exec('yarn workspaces run bump');
-    this.releaseTask.exec('yarn workspaces run build');
+    if (this.buildWithNx) {
+      this.releaseTask.exec('nx run-many -t build');
+      this.releaseTask.env('NX_SKIP_NX_CACHE', 'true');
+    } else {
+      this.releaseTask.exec('yarn workspaces run build');
+    }
     this.releaseTask.exec('yarn workspaces run unbump');
     // anti-tamper check (fails if there were changes to committed files)
     // this will identify any non-committed files generated during build (e.g. test snapshots)
