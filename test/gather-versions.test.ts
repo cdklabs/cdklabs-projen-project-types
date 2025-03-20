@@ -1,6 +1,9 @@
 import * as fs from 'fs/promises';
 import * as os from 'os';
 import * as path from 'path';
+import { Project, TaskRuntime } from 'projen';
+import { yarn } from '../src';
+import { TypeScriptWorkspaceOptions } from '../src/yarn';
 import { main } from '../src/yarn/gather-versions.exec';
 import { yarn } from '../src';
 import { Project, TaskRuntime } from 'projen';
