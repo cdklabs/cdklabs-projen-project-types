@@ -3962,7 +3962,7 @@ tsconfig.tsbuildinfo
         "name": "gather-versions",
         "steps": [
           {
-            "exec": "node -e "require(path.join(path.dirname(require.resolve('cdklabs-projen-project-types')), 'yarn', 'gather-versions.exec.js')).cliMain()" ",
+            "exec": "node -e "require(require.resolve('cdklabs-projen-project-types/lib/yarn/gather-versions.exec.js')).cliMain()" ",
             "receiveArgs": true,
           },
         ],
@@ -4851,7 +4851,7 @@ tsconfig.tsbuildinfo
         "name": "gather-versions",
         "steps": [
           {
-            "exec": "node -e "require(path.join(path.dirname(require.resolve('cdklabs-projen-project-types')), 'yarn', 'gather-versions.exec.js')).cliMain()" ",
+            "exec": "node -e "require(require.resolve('cdklabs-projen-project-types/lib/yarn/gather-versions.exec.js')).cliMain()" ",
             "receiveArgs": true,
           },
         ],

@@ -1,6 +1,9 @@
 import * as fs from 'fs/promises';
 import * as os from 'os';
 import * as path from 'path';
+import { Project, TaskRuntime } from 'projen';
+import { yarn } from '../src';
+import { TypeScriptWorkspaceOptions } from '../src/yarn';
 import { main } from '../src/yarn/gather-versions.exec';
 
 // Test the actual gather-versions script
@@ -54,6 +57,47 @@ test('gather-versions updates all package versions respecting existing ranges', 
   });
 });
 
+const NO_DEVDEPS: Partial<TypeScriptWorkspaceOptions> = {
+  // We're actually installing these, so cut down on deps
+  jest: false,
+  eslint: false,
+  prettier: false,
+};
+
+test('make sure a run of gather-versions writes the right version to package.json', async () => {
+  // GIVEN
+  const parent = new yarn.CdkLabsMonorepo({
+    name: 'monorepo',
+    defaultReleaseBranch: 'main',
+    release: true,
+  });
+
+  const dep = new yarn.TypeScriptWorkspace({
+    parent,
+    name: '@cdklabs/one',
+    ...NO_DEVDEPS,
+  });
+
+  // WHEN
+  const pack = new yarn.TypeScriptWorkspace({
+    parent,
+    name: '@cdklabs/two',
+    deps: [dep.customizeReference({ versionType: 'exact' })],
+    ...NO_DEVDEPS,
+  });
+
+  // THEN
+  parent.synth();
+  // Running this script requires the package to have been compiled before we see any updates to the script
+  await addSymlinkToMe(parent);
+  new TaskRuntime(pack.outdir).runTask('gather-versions');
+
+  const packageJson = JSON.parse(await fs.readFile(path.join(pack.outdir, 'package.json'), 'utf-8'));
+  expect(Object.entries(packageJson.dependencies)).toContainEqual([
+    '@cdklabs/one', '0.0.0',
+  ]);
+}, 60_000); // Needs to install real packages
+
 /**
  * Runs an async function in a temporary directory that gets cleaned up afterwards
  */
@@ -82,4 +126,17 @@ async function writeJsonFiles(root: string, files: Record<string, any>): Promise
       await fs.writeFile(fullPath, JSON.stringify(data, null, 2), 'utf-8');
     }),
   );
+}
+
+/**
+ * (Temporarily) symlink this package into the `node_modules` directory of a project.
+ *
+ * This is necessary because running our script does a `require.resolve('cdklabs-projen-project-types')`.
+ */
+async function addSymlinkToMe(project: Project) {
+  const pkgRoot = path.join(__dirname, '..');
+
+  const name = JSON.parse(await fs.readFile(`${pkgRoot}/package.json`, 'utf-8')).name;
+  const symlinkName = `${project.outdir}/node_modules/${name}`;
+  await fs.symlink(pkgRoot, symlinkName);
 }

@@ -5,11 +5,12 @@ export function cliMain() {
 }
 
 export function main(argv: string[], packageDirectory: string) {
-  if (argv.includes('--help') || argv.length < 2) {
-    console.log('Usage: gather-versions PKG=TYPE [PKG=TYPE] [...]\n');
-    console.log('Positionals:');
-    console.log('  PKG\tPackage name.');
-    console.log('  TYPE\tmajor | minor | exact | minimal');
+  if (argv.includes('--help')) {
+    console.error('Usage: gather-versions [PKG=TYPE] [PKG=TYPE] [...]\n');
+    console.error('Positionals:');
+    console.error('  PKG\tPackage name.');
+    console.error('  TYPE\tmajor | minor | exact | minimal');
+    process.exitCode = 1;
     return;
   }
 
@@ -55,7 +56,7 @@ export function main(argv: string[], packageDirectory: string) {
   }
 
   // Print a report of what we did
-  console.log('New versions', JSON.stringify(changeReport, undefined, 2));
+  console.log('Updated versions', JSON.stringify(changeReport, undefined, 2));
 
   writeFileSync(targetPjFile, JSON.stringify(manifest, null, 2) + '\n');
 }
