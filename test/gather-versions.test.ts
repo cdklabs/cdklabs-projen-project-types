@@ -57,6 +57,36 @@ test('gather-versions updates all package versions respecting existing ranges', 
   });
 });
 
+test('if RESET_VERSIONS is true, gather-versions ignores command line and reverts ^0.0.0', async () => {
+  await withTempDir(async (dir) => {
+    await writeJsonFiles(dir, {
+      'node_modules/depA/package.json': {
+        name: 'depA',
+        version: '0.0.0',
+      },
+      'package.json': {
+        name: 'root',
+        dependencies: {
+          depA: '1.2.3',
+        },
+      },
+    });
+
+    // WHEN
+    process.env.RESET_VERSIONS = 'true';
+    main(['depA=exact'], dir);
+    delete process.env.RESET_VERSIONS;
+
+    // THEN
+    expect(JSON.parse(await fs.readFile(path.join(dir, 'package.json'), 'utf-8'))).toEqual({
+      name: 'root',
+      dependencies: {
+        depA: '^0.0.0',
+      },
+    });
+  });
+});
+
 const NO_DEVDEPS: Partial<TypeScriptWorkspaceOptions> = {
   // We're actually installing these, so cut down on deps
   jest: false,
