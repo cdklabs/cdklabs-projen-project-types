@@ -4078,6 +4078,9 @@ tsconfig.tsbuildinfo
             "builtin": "release/reset-version",
           },
           {
+            "env": {
+              "RESET_VERSIONS": "true",
+            },
             "spawn": "gather-versions",
           },
         ],
@@ -4967,6 +4970,9 @@ tsconfig.tsbuildinfo
             "builtin": "release/reset-version",
           },
           {
+            "env": {
+              "RESET_VERSIONS": "true",
+            },
             "spawn": "gather-versions",
           },
         ],

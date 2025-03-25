@@ -10,9 +10,13 @@ export function main(argv: string[], packageDirectory: string) {
     console.error('Positionals:');
     console.error('  PKG\tPackage name.');
     console.error('  TYPE\tmajor | minor | exact | minimal');
+    console.error('');
+    console.error('If $RESET_VERSIONS is "true", ignore the version specifier and just reset all packages to ^0.0.0');
     process.exitCode = 1;
     return;
   }
+
+  const isReset = process.env.RESET_VERSIONS === 'true';
 
   const deps = Object.fromEntries(argv.map(x => x.split('=', 2) as [string, string]));
 
@@ -39,7 +43,8 @@ export function main(argv: string[], packageDirectory: string) {
     ];
 
     for (const [depSection, prefix] of dependencyClasses) {
-      const updatedRange = prefix + depVersion;
+      const bumpForward = !isReset;
+      const updatedRange = bumpForward ? prefix + depVersion : '^0.0.0';
 
       if (manifest[depSection]?.[dep]) {
         manifest[depSection][dep] = updatedRange;

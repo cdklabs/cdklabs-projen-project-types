@@ -102,9 +102,17 @@ export class WorkspaceRelease extends Component {
     }
 
 
-    // After we have unbumped package versions back to 0.0.0,
-    // we can run the gather-versions task again which will now replace the to-be-release versions with 0.0.0
-    this.obtainUnbumpTask().spawn(gatherVersions);
+    // After we have unbumped package versions back to ^0.0.0,
+    // we can run the gather-versions task again which will now replace the to-be-release versions with ^0.0.0
+    //
+    // We need to set an environment variable to get `gatherVersions` to behave differently in the unbump
+    // invocation (in the bump invocation, it may change the package.json dependency range from `^0.0.0` to `1.2.3`;
+    // using a different range symbol), but when unbumping it must always reset back to the `^0.0.0` version.
+    this.obtainUnbumpTask().spawn(gatherVersions, {
+      env: {
+        RESET_VERSIONS: 'true',
+      },
+    });
   }
 
   /**
