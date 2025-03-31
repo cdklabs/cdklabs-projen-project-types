@@ -2,6 +2,25 @@ import { Component, github, javascript } from 'projen';
 
 const NOT_FLAGGED_EXPR = "!contains(github.event.pull_request.labels.*.name, 'pr/exempt-integ-test')";
 
+/**
+ * Options for atmosphere service usage.
+ */
+export interface AtmosphereOptions {
+  /**
+   * Atmosphere service endpoint.
+   */
+  readonly endpoint: string;
+  /**
+   * Which pool to retrieve environments from.
+   */
+  readonly pool: string;
+  /**
+   * OIDC role to assume prior to using atmosphere. Must be allow listed
+   * on the service endpoint.
+   */
+  readonly oidcRoleArn: string;
+}
+
 export interface CdkCliIntegTestsWorkflowProps {
   /**
    * Runners for the workflow
@@ -49,6 +68,20 @@ export interface CdkCliIntegTestsWorkflowProps {
    * @default - No upstream versions
    */
   readonly allowUpstreamVersions?: string[];
+
+  /**
+   * Invoke atmosphere service to retrieve AWS test environments.
+   *
+   * @default false
+   */
+  readonly atmosphereEnabled?: boolean;
+
+  /**
+   * Options for invoking the atmosphere service. Applicable only if `atmosphereEnabled` is true.
+   *
+   * @default { endpointVariable: 'ATMOSPHERE_ENDPOINT', oidcRoleArnVariable: 'ATMOSPHERE_OIDC_ROLE_ARN' }
+   */
+  readonly atmosphereOptions?: AtmosphereOptions;
 }
 
 /**
@@ -93,6 +126,11 @@ export class CdkCliIntegTestsWorkflow extends Component {
         throw new Error(`Package in allowUpstreamVersions but not in localPackages: ${pack}`);
       }
     });
+
+    const atmosphereEnabled = props.atmosphereEnabled ?? false;
+    if (atmosphereEnabled && !props.atmosphereOptions) {
+      throw new Error('\'atmosphereOptions\' must be provided if \'atmosphereEnabled\' is true');
+    }
 
     runTestsWorkflow.on({
       pullRequestTarget: {
@@ -286,7 +324,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
             'aws-region': 'us-east-1',
             'role-duration-seconds': 4 * 60 * 60,
             // Expect this in Environment Variables
-            'role-to-assume': '${{ vars.AWS_ROLE_TO_ASSUME_FOR_TESTING }}',
+            'role-to-assume': atmosphereEnabled ? props.atmosphereOptions!.oidcRoleArn : '${{ vars.AWS_ROLE_TO_ASSUME_FOR_TESTING }}',
             'role-session-name': 'run-tests@aws-cdk-cli-integ',
             'output-credentials': true,
           },
@@ -361,13 +399,19 @@ export class CdkCliIntegTestsWorkflow extends Component {
             'bin/run-suite --use-cli-release=${{ steps.versions.outputs.cli_version }} --framework-version=${{ steps.versions.outputs.lib_version }} ${{ matrix.suite }}',
           ].join('\n'),
           env: {
-            // Concurrency only for long-running cli-integ-tests
-            JEST_TEST_CONCURRENT: "${{ matrix.suite == 'cli-integ-tests' && 'true' || 'false' }}",
             JSII_SILENCE_WARNING_DEPRECATED_NODE_VERSION: 'true',
             JSII_SILENCE_WARNING_UNTESTED_NODE_VERSION: 'true',
             JSII_SILENCE_WARNING_KNOWN_BROKEN_NODE_VERSION: 'true',
             DOCKERHUB_DISABLED: 'true',
-            AWS_REGIONS: ['us-east-2', 'eu-west-1', 'eu-north-1', 'ap-northeast-1', 'ap-south-1'].join(','),
+            ...(atmosphereEnabled ?
+              {
+                CDK_INTEG_ATMOSPHERE_ENABLED: 'true',
+                CDK_INTEG_ATMOSPHERE_ENDPOINT: props.atmosphereOptions!.endpoint,
+                CDK_INTEG_ATMOSPHERE_POOL: props.atmosphereOptions!.pool,
+              } :
+              {
+                AWS_REGIONS: ['us-east-2', 'eu-west-1', 'eu-north-1', 'ap-northeast-1', 'ap-south-1'].join(','),
+              }),
             CDK_MAJOR_VERSION: '2',
             RELEASE_TAG: 'latest',
             GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}',
