@@ -21,27 +21,6 @@ test('snapshot test for the CDK CLI integ tests', () => {
   expect(outdir).toMatchSnapshot();
 });
 
-test('throws error if atmosphere enabled with no options', () => {
-  const repo = new yarn.CdkLabsMonorepo({
-    name: 'monorepo',
-    defaultReleaseBranch: 'main',
-  });
-
-  expect(() => {
-    new CdkCliIntegTestsWorkflow(repo, {
-      approvalEnvironment: 'approval',
-      testEnvironment: 'test',
-      buildRunsOn: 'runsOn',
-      testRunsOn: 'testRunsOn',
-      localPackages: ['@aws-cdk/bla', '@aws-cdk/bloeh'],
-      sourceRepo: 'aws/some-repo',
-      allowUpstreamVersions: ['@aws-cdk/bla'],
-      atmosphereEnabled: true,
-    });
-  }).toThrow('\'atmosphereOptions\' must be provided');
-
-});
-
 test('snapshot test for the CDK CLI integ tests using atmosphere', () => {
   const repo = new yarn.CdkLabsMonorepo({
     name: 'monorepo',
@@ -56,8 +35,7 @@ test('snapshot test for the CDK CLI integ tests using atmosphere', () => {
     localPackages: ['@aws-cdk/bla', '@aws-cdk/bloeh'],
     sourceRepo: 'aws/some-repo',
     allowUpstreamVersions: ['@aws-cdk/bla'],
-    atmosphereEnabled: true,
-    atmosphereOptions: {
+    enableAtmosphere: {
       endpoint: 'atmosphere.endpoint',
       pool: 'atmosphere.pool',
       oidcRoleArn: 'oidcRoleArn',

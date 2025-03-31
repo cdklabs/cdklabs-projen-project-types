@@ -14846,8 +14846,7 @@ const cdkCliIntegTestsWorkflowProps: CdkCliIntegTestsWorkflowProps = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testEnvironment">testEnvironment</a></code> | <code>string</code> | GitHub environment name for running the tests. |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testRunsOn">testRunsOn</a></code> | <code>string</code> | Runners for the workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.allowUpstreamVersions">allowUpstreamVersions</a></code> | <code>string[]</code> | If given, allows accessing upstream versions of these packages. |
-| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.atmosphereEnabled">atmosphereEnabled</a></code> | <code>boolean</code> | Invoke atmosphere service to retrieve AWS test environments. |
-| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.atmosphereOptions">atmosphereOptions</a></code> | <code><a href="#cdklabs-projen-project-types.AtmosphereOptions">AtmosphereOptions</a></code> | Options for invoking the atmosphere service. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.enableAtmosphere">enableAtmosphere</a></code> | <code><a href="#cdklabs-projen-project-types.AtmosphereOptions">AtmosphereOptions</a></code> | Enable atmosphere service to retrieve AWS test environments. |
 
 ---
 
@@ -14946,31 +14945,16 @@ If given, allows accessing upstream versions of these packages.
 
 ---
 
-##### `atmosphereEnabled`<sup>Optional</sup> <a name="atmosphereEnabled" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.atmosphereEnabled"></a>
+##### `enableAtmosphere`<sup>Optional</sup> <a name="enableAtmosphere" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.enableAtmosphere"></a>
 
 ```typescript
-public readonly atmosphereEnabled: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Invoke atmosphere service to retrieve AWS test environments.
-
----
-
-##### `atmosphereOptions`<sup>Optional</sup> <a name="atmosphereOptions" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.atmosphereOptions"></a>
-
-```typescript
-public readonly atmosphereOptions: AtmosphereOptions;
+public readonly enableAtmosphere: AtmosphereOptions;
 ```
 
 - *Type:* <a href="#cdklabs-projen-project-types.AtmosphereOptions">AtmosphereOptions</a>
-- *Default:* { endpointVariable: 'ATMOSPHERE_ENDPOINT', oidcRoleArnVariable: 'ATMOSPHERE_OIDC_ROLE_ARN' }
+- *Default:* atmosphere is not used
 
-Options for invoking the atmosphere service.
-
-Applicable only if `atmosphereEnabled` is true.
+Enable atmosphere service to retrieve AWS test environments.
 
 ---
 

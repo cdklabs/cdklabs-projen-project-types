@@ -70,18 +70,11 @@ export interface CdkCliIntegTestsWorkflowProps {
   readonly allowUpstreamVersions?: string[];
 
   /**
-   * Invoke atmosphere service to retrieve AWS test environments.
+   * Enable atmosphere service to retrieve AWS test environments.
    *
-   * @default false
+   * @default - atmosphere is not used
    */
-  readonly atmosphereEnabled?: boolean;
-
-  /**
-   * Options for invoking the atmosphere service. Applicable only if `atmosphereEnabled` is true.
-   *
-   * @default { endpointVariable: 'ATMOSPHERE_ENDPOINT', oidcRoleArnVariable: 'ATMOSPHERE_OIDC_ROLE_ARN' }
-   */
-  readonly atmosphereOptions?: AtmosphereOptions;
+  readonly enableAtmosphere?: AtmosphereOptions;
 }
 
 /**
@@ -126,11 +119,6 @@ export class CdkCliIntegTestsWorkflow extends Component {
         throw new Error(`Package in allowUpstreamVersions but not in localPackages: ${pack}`);
       }
     });
-
-    const atmosphereEnabled = props.atmosphereEnabled ?? false;
-    if (atmosphereEnabled && !props.atmosphereOptions) {
-      throw new Error('\'atmosphereOptions\' must be provided if \'atmosphereEnabled\' is true');
-    }
 
     runTestsWorkflow.on({
       pullRequestTarget: {
@@ -324,7 +312,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
             'aws-region': 'us-east-1',
             'role-duration-seconds': 4 * 60 * 60,
             // Expect this in Environment Variables
-            'role-to-assume': atmosphereEnabled ? props.atmosphereOptions!.oidcRoleArn : '${{ vars.AWS_ROLE_TO_ASSUME_FOR_TESTING }}',
+            'role-to-assume': props.enableAtmosphere ? props.enableAtmosphere.oidcRoleArn : '${{ vars.AWS_ROLE_TO_ASSUME_FOR_TESTING }}',
             'role-session-name': 'run-tests@aws-cdk-cli-integ',
             'output-credentials': true,
           },
@@ -403,11 +391,11 @@ export class CdkCliIntegTestsWorkflow extends Component {
             JSII_SILENCE_WARNING_UNTESTED_NODE_VERSION: 'true',
             JSII_SILENCE_WARNING_KNOWN_BROKEN_NODE_VERSION: 'true',
             DOCKERHUB_DISABLED: 'true',
-            ...(atmosphereEnabled ?
+            ...(props.enableAtmosphere ?
               {
                 CDK_INTEG_ATMOSPHERE_ENABLED: 'true',
-                CDK_INTEG_ATMOSPHERE_ENDPOINT: props.atmosphereOptions!.endpoint,
-                CDK_INTEG_ATMOSPHERE_POOL: props.atmosphereOptions!.pool,
+                CDK_INTEG_ATMOSPHERE_ENDPOINT: props.enableAtmosphere.endpoint,
+                CDK_INTEG_ATMOSPHERE_POOL: props.enableAtmosphere.pool,
               } :
               {
                 AWS_REGIONS: ['us-east-2', 'eu-west-1', 'eu-north-1', 'ap-northeast-1', 'ap-south-1'].join(','),
