@@ -14764,6 +14764,67 @@ public readonly version: Version;
 
 ## Structs <a name="Structs" id="Structs"></a>
 
+### AtmosphereOptions <a name="AtmosphereOptions" id="cdklabs-projen-project-types.AtmosphereOptions"></a>
+
+Options for atmosphere service usage.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.AtmosphereOptions.Initializer"></a>
+
+```typescript
+import { AtmosphereOptions } from 'cdklabs-projen-project-types'
+
+const atmosphereOptions: AtmosphereOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.AtmosphereOptions.property.endpoint">endpoint</a></code> | <code>string</code> | Atmosphere service endpoint. |
+| <code><a href="#cdklabs-projen-project-types.AtmosphereOptions.property.oidcRoleArn">oidcRoleArn</a></code> | <code>string</code> | OIDC role to assume prior to using atmosphere. |
+| <code><a href="#cdklabs-projen-project-types.AtmosphereOptions.property.pool">pool</a></code> | <code>string</code> | Which pool to retrieve environments from. |
+
+---
+
+##### `endpoint`<sup>Required</sup> <a name="endpoint" id="cdklabs-projen-project-types.AtmosphereOptions.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: string;
+```
+
+- *Type:* string
+
+Atmosphere service endpoint.
+
+---
+
+##### `oidcRoleArn`<sup>Required</sup> <a name="oidcRoleArn" id="cdklabs-projen-project-types.AtmosphereOptions.property.oidcRoleArn"></a>
+
+```typescript
+public readonly oidcRoleArn: string;
+```
+
+- *Type:* string
+
+OIDC role to assume prior to using atmosphere.
+
+Must be allow listed
+on the service endpoint.
+
+---
+
+##### `pool`<sup>Required</sup> <a name="pool" id="cdklabs-projen-project-types.AtmosphereOptions.property.pool"></a>
+
+```typescript
+public readonly pool: string;
+```
+
+- *Type:* string
+
+Which pool to retrieve environments from.
+
+---
+
 ### CdkCliIntegTestsWorkflowProps <a name="CdkCliIntegTestsWorkflowProps" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.Initializer"></a>
@@ -14785,6 +14846,7 @@ const cdkCliIntegTestsWorkflowProps: CdkCliIntegTestsWorkflowProps = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testEnvironment">testEnvironment</a></code> | <code>string</code> | GitHub environment name for running the tests. |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testRunsOn">testRunsOn</a></code> | <code>string</code> | Runners for the workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.allowUpstreamVersions">allowUpstreamVersions</a></code> | <code>string[]</code> | If given, allows accessing upstream versions of these packages. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.enableAtmosphere">enableAtmosphere</a></code> | <code><a href="#cdklabs-projen-project-types.AtmosphereOptions">AtmosphereOptions</a></code> | Enable atmosphere service to retrieve AWS test environments. |
 
 ---
 
@@ -14880,6 +14942,19 @@ public readonly allowUpstreamVersions: string[];
 - *Default:* No upstream versions
 
 If given, allows accessing upstream versions of these packages.
+
+---
+
+##### `enableAtmosphere`<sup>Optional</sup> <a name="enableAtmosphere" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.enableAtmosphere"></a>
+
+```typescript
+public readonly enableAtmosphere: AtmosphereOptions;
+```
+
+- *Type:* <a href="#cdklabs-projen-project-types.AtmosphereOptions">AtmosphereOptions</a>
+- *Default:* atmosphere is not used
+
+Enable atmosphere service to retrieve AWS test environments.
 
 ---
 
