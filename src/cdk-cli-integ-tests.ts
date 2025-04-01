@@ -310,7 +310,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
           uses: 'aws-actions/configure-aws-credentials@v4',
           with: {
             'aws-region': 'us-east-1',
-            'role-duration-seconds': 4 * 60 * 60,
+            'role-duration-seconds': props.enableAtmosphere ? 60 * 60 : 4 * 60 * 60,
             // Expect this in Environment Variables
             'role-to-assume': props.enableAtmosphere ? props.enableAtmosphere.oidcRoleArn : '${{ vars.AWS_ROLE_TO_ASSUME_FOR_TESTING }}',
             'role-session-name': 'run-tests@aws-cdk-cli-integ',

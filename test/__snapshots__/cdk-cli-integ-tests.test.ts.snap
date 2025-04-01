@@ -1227,7 +1227,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-duration-seconds: 14400
+          role-duration-seconds: 3600
           role-to-assume: oidcRoleArn
           role-session-name: run-tests@aws-cdk-cli-integ
           output-credentials: true
