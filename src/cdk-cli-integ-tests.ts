@@ -75,6 +75,14 @@ export interface CdkCliIntegTestsWorkflowProps {
    * @default - atmosphere is not used
    */
   readonly enableAtmosphere?: AtmosphereOptions;
+
+
+  /**
+   * Specifies the maximum number of workers the worker-pool will spawn for running tests.
+   *
+   * @default - the cli integ test package determines a sensible default
+   */
+  readonly maxWorkers?: string;
 }
 
 /**
@@ -119,6 +127,11 @@ export class CdkCliIntegTestsWorkflow extends Component {
         throw new Error(`Package in allowUpstreamVersions but not in localPackages: ${pack}`);
       }
     });
+
+    let maxWorkersArg = '';
+    if (props.maxWorkers) {
+      maxWorkersArg = ` --maxWorkers=${props.maxWorkers}`;
+    }
 
     runTestsWorkflow.on({
       pullRequestTarget: {
@@ -384,7 +397,7 @@ export class CdkCliIntegTestsWorkflow extends Component {
         {
           name: 'Run the test suite: ${{ matrix.suite }}',
           run: [
-            'bin/run-suite --use-cli-release=${{ steps.versions.outputs.cli_version }} --framework-version=${{ steps.versions.outputs.lib_version }} ${{ matrix.suite }}',
+            `bin/run-suite${maxWorkersArg} --use-cli-release=\${{ steps.versions.outputs.cli_version }} --framework-version=\${{ steps.versions.outputs.lib_version }} \${{ matrix.suite }}`,
           ].join('\n'),
           env: {
             JSII_SILENCE_WARNING_DEPRECATED_NODE_VERSION: 'true',
