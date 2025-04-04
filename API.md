@@ -14847,6 +14847,7 @@ const cdkCliIntegTestsWorkflowProps: CdkCliIntegTestsWorkflowProps = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.testRunsOn">testRunsOn</a></code> | <code>string</code> | Runners for the workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.allowUpstreamVersions">allowUpstreamVersions</a></code> | <code>string[]</code> | If given, allows accessing upstream versions of these packages. |
 | <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.enableAtmosphere">enableAtmosphere</a></code> | <code><a href="#cdklabs-projen-project-types.AtmosphereOptions">AtmosphereOptions</a></code> | Enable atmosphere service to retrieve AWS test environments. |
+| <code><a href="#cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.maxWorkers">maxWorkers</a></code> | <code>string</code> | Specifies the maximum number of workers the worker-pool will spawn for running tests. |
 
 ---
 
@@ -14955,6 +14956,19 @@ public readonly enableAtmosphere: AtmosphereOptions;
 - *Default:* atmosphere is not used
 
 Enable atmosphere service to retrieve AWS test environments.
+
+---
+
+##### `maxWorkers`<sup>Optional</sup> <a name="maxWorkers" id="cdklabs-projen-project-types.CdkCliIntegTestsWorkflowProps.property.maxWorkers"></a>
+
+```typescript
+public readonly maxWorkers: string;
+```
+
+- *Type:* string
+- *Default:* the cli integ test package determines a sensible default
+
+Specifies the maximum number of workers the worker-pool will spawn for running tests.
 
 ---
 
