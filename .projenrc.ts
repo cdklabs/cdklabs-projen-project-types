@@ -1,4 +1,3 @@
-import { UpgradeDependenciesSchedule } from 'projen/lib/javascript';
 import { generateCdkCommonOptions } from './projenrc/cdk-common-options';
 import { generateCdkConstructLibraryOptions } from './projenrc/cdk-construct-library-options';
 import { generateCdkJsiiOptions } from './projenrc/cdk-jsii-options';
@@ -20,11 +19,6 @@ const project = new CdklabsJsiiProject({
   cdklabsPublishingDefaults: false,
   upgradeCdklabsProjenProjectTypes: false, // that is this project!
   setNodeEngineVersion: false,
-  depsUpgradeOptions: {
-    workflowOptions: {
-      schedule: UpgradeDependenciesSchedule.WEEKLY,
-    },
-  },
   peerDependencyOptions: {
     pinnedDevDependency: false,
   },
