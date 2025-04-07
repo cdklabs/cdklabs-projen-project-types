@@ -15160,6 +15160,8 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use tasks and github workflows to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
@@ -16004,6 +16006,34 @@ sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
 the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
 this will be what you `package.json` will eventually include.
+
+---
+
+##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgrade"></a>
+
+```typescript
+public readonly depsUpgrade: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Use tasks and github workflows to handle dependency upgrades.
+
+Cannot be used in conjunction with `dependabot`.
+
+---
+
+##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.depsUpgradeOptions"></a>
+
+```typescript
+public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
+```
+
+- *Type:* projen.javascript.UpgradeDependenciesOptions
+- *Default:* default options
+
+Options for `UpgradeDependencies`.
 
 ---
 
@@ -20613,6 +20643,8 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabot">dependabot</a></code> | <code>boolean</code> | Use dependabot to handle dependency upgrades. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.dependabotOptions">dependabotOptions</a></code> | <code>projen.github.DependabotOptions</code> | Options for dependabot. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.deps">deps</a></code> | <code>string[]</code> | Runtime dependencies of this module. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgrade">depsUpgrade</a></code> | <code>boolean</code> | Use tasks and github workflows to handle dependency upgrades. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgradeOptions">depsUpgradeOptions</a></code> | <code>projen.javascript.UpgradeDependenciesOptions</code> | Options for `UpgradeDependencies`. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.description">description</a></code> | <code>string</code> | The description is just a string that helps people understand the purpose of the package. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devContainer">devContainer</a></code> | <code>boolean</code> | Add a VSCode development environment (used for GitHub Codespaces). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.devDeps">devDeps</a></code> | <code>string[]</code> | Build dependencies for this module. |
@@ -21459,6 +21491,34 @@ sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
 the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
 this will be what you `package.json` will eventually include.
+
+---
+
+##### `depsUpgrade`<sup>Optional</sup> <a name="depsUpgrade" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgrade"></a>
+
+```typescript
+public readonly depsUpgrade: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Use tasks and github workflows to handle dependency upgrades.
+
+Cannot be used in conjunction with `dependabot`.
+
+---
+
+##### `depsUpgradeOptions`<sup>Optional</sup> <a name="depsUpgradeOptions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.depsUpgradeOptions"></a>
+
+```typescript
+public readonly depsUpgradeOptions: UpgradeDependenciesOptions;
+```
+
+- *Type:* projen.javascript.UpgradeDependenciesOptions
+- *Default:* default options
+
+Options for `UpgradeDependencies`.
 
 ---
 
