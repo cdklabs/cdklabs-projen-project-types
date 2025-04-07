@@ -219,6 +219,46 @@ describe('CdklabsConstructLibrary', () => {
       expect(workflow).toMatchSnapshot();
     });
   });
+
+  test('respects branch configuration with custom upgrade tasks', () => {
+    const testBranches = ['branch1/main', 'branch2/main'];
+
+    const project = new TestCdkLabsConstructLibrary({
+      depsUpgradeOptions: {
+        workflowOptions: {
+          branches: testBranches,
+        },
+      },
+    });
+
+    const outdir = Testing.synth(project);
+    // Verify upgrade workflows exist in the outdir
+    expect(outdir['.github/workflows/upgrade-branch1-main.yml']).toBeDefined();
+    expect(outdir['.github/workflows/upgrade-branch2-main.yml']).toBeDefined();
+    expect(outdir['.github/workflows/upgrade-dev-deps-branch1-main.yml']).toBeDefined();
+    expect(outdir['.github/workflows/upgrade-dev-deps-branch2-main.yml']).toBeDefined();
+
+    // Verify the checkout refs in each workflow
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-branch1-main.yml']).jobs.upgrade.steps
+        .find((step: any) => step.uses === 'actions/checkout@v4').with.ref,
+    ).toBe('branch1/main');
+
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-branch2-main.yml']).jobs.upgrade.steps
+        .find((step: any) => step.uses === 'actions/checkout@v4').with.ref,
+    ).toBe('branch2/main');
+
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-dev-deps-branch1-main.yml']).jobs.upgrade.steps
+        .find((step: any) => step.uses === 'actions/checkout@v4').with.ref,
+    ).toBe('branch1/main');
+
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-dev-deps-branch2-main.yml']).jobs.upgrade.steps
+        .find((step: any) => step.uses === 'actions/checkout@v4').with.ref,
+    ).toBe('branch2/main');
+  });
 });
 
 describe('CdklabsTypeScriptProject', () => {

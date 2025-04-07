@@ -23,10 +23,6 @@ export function generateCdkConstructLibraryOptions(project: typescript.TypeScrip
         },
       },
     },
-    omitProps: [
-      // These properties are ignored; a CdkLabsConstructLibrary does what it wants anyway.
-      'depsUpgrade', 'depsUpgradeOptions',
-    ],
     properties: [
       ...COMMON_OPTIONS,
       {

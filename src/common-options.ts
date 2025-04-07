@@ -64,7 +64,7 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
   return deepMerge([{}, options, common]) as T & ConfiguredCommonOptions;
 }
 
-export function configureCommonComponents(project: typescript.TypeScriptProject, opts: CdkCommonOptions & Pick<javascript.NodeProjectOptions, 'autoApproveUpgrades' | 'autoApproveOptions'>) {
+export function configureCommonComponents(project: typescript.TypeScriptProject, opts: CdkCommonOptions & Pick<javascript.NodeProjectOptions, 'autoApproveUpgrades' | 'autoApproveOptions' | 'depsUpgradeOptions'>) {
   if (opts.private) {
     new Private(project);
   }
@@ -86,6 +86,13 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
     // Run at 18:00Z once a week (on Monday)
     const upgradeSchedule = javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * 1']);
 
+    // Get branch configuration from depsUpgradeOptions if available
+    const workflowOptions = {
+      labels,
+      schedule: upgradeSchedule,
+      ...(opts.depsUpgradeOptions?.workflowOptions ?? {}),
+    };
+
     new javascript.UpgradeDependencies(project, {
       taskName: 'upgrade',
       // NOTE: we explicitly do NOT upgrade PEER dependencies. We want the widest range of compatibility possible,
@@ -95,10 +102,7 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
       types: [DependencyType.RUNTIME, DependencyType.BUNDLED],
       exclude,
       semanticCommit: 'fix',
-      workflowOptions: {
-        labels,
-        schedule: upgradeSchedule,
-      },
+      workflowOptions,
     });
 
     new javascript.UpgradeDependencies(project, {
@@ -107,10 +111,7 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
       exclude,
       semanticCommit: 'chore',
       pullRequestTitle: 'upgrade dev dependencies',
-      workflowOptions: {
-        labels,
-        schedule: upgradeSchedule,
-      },
+      workflowOptions,
     });
   }
 
