@@ -2779,7 +2779,13 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      package_list:
+        description: JSON array of packages to selectively release
+        required: false
+        type: string
+        default: "[]"
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -2787,8 +2793,8 @@ jobs:
       contents: write
     outputs:
       latest_commit: \${{ steps.git_remote.outputs.latest_commit }}
-      publish-cdklabs-one: \${{ steps.check-publish-cdklabs-one.outputs.publish }}
-      publish-cdklabs-two: \${{ steps.check-publish-cdklabs-two.outputs.publish }}
+      publish-cdklabs-one: \${{ steps.check-publish-cdklabs-one && (fromJSON(inputs.package_list || '[]')[0] == null || contains(fromJSON(inputs.package_list || '[]'), '@cdklabs/one')).outputs.publish }}
+      publish-cdklabs-two: \${{ steps.check-publish-cdklabs-two && (fromJSON(inputs.package_list || '[]')[0] == null || contains(fromJSON(inputs.package_list || '[]'), '@cdklabs/two')).outputs.publish }}
     env:
       CI: "true"
     steps:
