@@ -251,12 +251,17 @@ export class MonorepoRelease extends Component {
     const postBuildSteps = [...(this.options.postBuildSteps ?? [])];
 
     // Add an output to the job to indicate if a certain package needs publishing
+    // We do another default to an empty array here in case this is not a 'workflow_dispatch' event.
+    const selectiveReleaseExpr = 'fromJSON(inputs.package_list || \'[]\')';
+    const noPackagesSelected = `${selectiveReleaseExpr}[0] == null`;
+
     const shouldPublishOutputs = Object.fromEntries(
       this.packagesToRelease.map(({ release }) => {
         return [
           publishProjectOutputId(release.workspace),
           {
-            stepId: shouldPublishProjectStepId(release.workspace),
+            // It's called 'stepId' but it gets rendered as an expression
+            stepId: `${shouldPublishProjectStepId(release.workspace)} && (${noPackagesSelected} || contains(${selectiveReleaseExpr}, '${release.workspace.name}'))`,
             outputName: 'publish',
           },
         ];
@@ -320,6 +325,22 @@ export class MonorepoRelease extends Component {
       task: this.releaseTask!,
       postBuildSteps,
       runsOn: this.options.workflowRunsOn,
+    });
+
+    // Would have liked to use a checkbox per package, but there is a limit of 10 inputs
+    // to a GHA workflow.
+    this.workflow?.on({
+      workflowDispatch: {
+        inputs: {
+          package_list: {
+            description: 'JSON array of packages to selectively release',
+            required: false,
+            type: 'string',
+            // The default is just here to show the expected format
+            default: '[]',
+          },
+        },
+      },
     });
   }
 }
