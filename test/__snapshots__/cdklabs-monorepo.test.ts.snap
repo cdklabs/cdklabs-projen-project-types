@@ -1155,10 +1155,6 @@ tsconfig.tsbuildinfo
         "type": "build",
       },
       {
-        "name": "projen",
-        "type": "build",
-      },
-      {
         "name": "ts-jest",
         "type": "build",
       },
@@ -1220,7 +1216,7 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
           },
         ],
       },
@@ -1547,7 +1543,6 @@ tsconfig.tsbuildinfo
       "jest": "*",
       "jest-junit": "^16",
       "prettier": "*",
-      "projen": "*",
       "ts-jest": "*",
       "typescript": "*",
     },
@@ -1974,10 +1969,6 @@ tsconfig.tsbuildinfo
         "type": "build",
       },
       {
-        "name": "projen",
-        "type": "build",
-      },
-      {
         "name": "ts-jest",
         "type": "build",
       },
@@ -2039,7 +2030,7 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
           },
         ],
       },
@@ -2366,7 +2357,6 @@ tsconfig.tsbuildinfo
       "jest": "*",
       "jest-junit": "^16",
       "prettier": "*",
-      "projen": "*",
       "ts-jest": "*",
       "typescript": "*",
     },
@@ -3867,10 +3857,6 @@ tsconfig.tsbuildinfo
         "type": "build",
       },
       {
-        "name": "projen",
-        "type": "build",
-      },
-      {
         "name": "ts-jest",
         "type": "build",
       },
@@ -3955,7 +3941,7 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
           },
         ],
       },
@@ -4317,7 +4303,6 @@ tsconfig.tsbuildinfo
       "jest": "*",
       "jest-junit": "^16",
       "prettier": "*",
-      "projen": "*",
       "ts-jest": "*",
       "typescript": "*",
     },
@@ -4759,10 +4744,6 @@ tsconfig.tsbuildinfo
         "type": "build",
       },
       {
-        "name": "projen",
-        "type": "build",
-      },
-      {
         "name": "ts-jest",
         "type": "build",
       },
@@ -4847,7 +4828,7 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
           },
         ],
       },
@@ -5209,7 +5190,6 @@ tsconfig.tsbuildinfo
       "jest": "*",
       "jest-junit": "^16",
       "prettier": "*",
-      "projen": "*",
       "ts-jest": "*",
       "typescript": "*",
     },
@@ -6503,10 +6483,6 @@ tsconfig.tsbuildinfo
         "type": "build",
       },
       {
-        "name": "projen",
-        "type": "build",
-      },
-      {
         "name": "ts-jest",
         "type": "build",
       },
@@ -6568,7 +6544,7 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,projen,ts-jest,typescript",
+            "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
           },
         ],
       },
@@ -6895,7 +6871,6 @@ tsconfig.tsbuildinfo
       "jest": "*",
       "jest-junit": "^16",
       "prettier": "*",
-      "projen": "*",
       "ts-jest": "*",
       "typescript": "*",
     },
