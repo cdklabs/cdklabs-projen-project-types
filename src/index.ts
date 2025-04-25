@@ -6,6 +6,5 @@ export * from './common-options';
 export * from './jsii';
 export * from './cdklabs';
 export * from './rosetta';
-export * from './cdk-cli-integ-tests';
 
 export * as yarn from './yarn';
