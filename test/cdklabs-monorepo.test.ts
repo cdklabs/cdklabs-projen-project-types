@@ -28,6 +28,19 @@ describe('CdkLabsMonorepo', () => {
       expect(outdir).toMatchSnapshot();
     });
 
+    test('workspaces dont have their own projen dependency', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      const deps = outdir['packages/@cdklabs/one/.projen/deps.json'];
+      expect(deps.dependencies).not.toContain(expect.objectContaining({
+        name: 'projen',
+      }));
+    });
+
     test('bundled dependencies lead to a nohoist directive', () => {
       // GIVEN
       new yarn.TypeScriptWorkspace({
