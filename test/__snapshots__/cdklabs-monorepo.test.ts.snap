@@ -1619,7 +1619,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -1635,7 +1635,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [
       "node_modules",
@@ -1656,7 +1656,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -1673,7 +1673,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [],
     "include": [
@@ -2433,7 +2433,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -2449,7 +2449,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [
       "node_modules",
@@ -2470,7 +2470,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -2487,7 +2487,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [],
     "include": [
@@ -2504,7 +2504,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -2519,7 +2519,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [
       "node_modules",
@@ -2546,7 +2546,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -2563,7 +2563,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [],
     "include": [],
@@ -2855,9 +2855,7 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: \${{ github.repository }}
-          GITHUB_REF: \${{ github.sha }}
-        run: errout=$(mktemp); gh release create $(cat dist/releasetag.txt) -R $GITHUB_REPOSITORY -F dist/changelog.md -t $(cat dist/releasetag.txt) --target $GITHUB_REF 2> $errout && true; exitcode=$?; if [ $exitcode -ne 0 ] && ! grep -q "Release.tag_name already exists" $errout; then cat $errout; exit $exitcode; fi
+        run: errout=$(mktemp); gh release create $(cat dist/releasetag.txt) -R $GITHUB_REPOSITORY -F dist/changelog.md -t $(cat dist/releasetag.txt) --target $GITHUB_SHA 2> $errout && true; exitcode=$?; if [ $exitcode -ne 0 ] && ! grep -q "Release.tag_name already exists" $errout; then cat $errout; exit $exitcode; fi
   cdklabs-one_release_npm:
     name: "@cdklabs/one: Publish to npm"
     needs: release
@@ -2909,9 +2907,7 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: \${{ github.repository }}
-          GITHUB_REF: \${{ github.sha }}
-        run: errout=$(mktemp); gh release create $(cat dist/releasetag.txt) -R $GITHUB_REPOSITORY -F dist/changelog.md -t $(cat dist/releasetag.txt) --target $GITHUB_REF 2> $errout && true; exitcode=$?; if [ $exitcode -ne 0 ] && ! grep -q "Release.tag_name already exists" $errout; then cat $errout; exit $exitcode; fi
+        run: errout=$(mktemp); gh release create $(cat dist/releasetag.txt) -R $GITHUB_REPOSITORY -F dist/changelog.md -t $(cat dist/releasetag.txt) --target $GITHUB_SHA 2> $errout && true; exitcode=$?; if [ $exitcode -ne 0 ] && ! grep -q "Release.tag_name already exists" $errout; then cat $errout; exit $exitcode; fi
   cdklabs-two_release_npm:
     name: "@cdklabs/two: Publish to npm"
     needs: release
@@ -4385,7 +4381,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -4401,7 +4397,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [
       "node_modules",
@@ -4422,7 +4418,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -4439,7 +4435,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [],
     "include": [
@@ -5272,7 +5268,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -5288,7 +5284,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [
       "node_modules",
@@ -5309,7 +5305,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -5326,7 +5322,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [],
     "include": [
@@ -5343,7 +5339,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -5358,7 +5354,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [
       "node_modules",
@@ -5385,7 +5381,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -5402,7 +5398,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [],
     "include": [],
@@ -6952,7 +6948,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -6968,7 +6964,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [
       "node_modules",
@@ -6989,7 +6985,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -7006,7 +7002,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [],
     "include": [
@@ -7023,7 +7019,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -7038,7 +7034,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [
       "node_modules",
@@ -7062,7 +7058,7 @@ tsconfig.tsbuildinfo
       "inlineSourceMap": true,
       "inlineSources": true,
       "lib": [
-        "es2019",
+        "es2020",
       ],
       "module": "CommonJS",
       "noEmitOnError": false,
@@ -7079,7 +7075,7 @@ tsconfig.tsbuildinfo
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
       "stripInternal": true,
-      "target": "ES2019",
+      "target": "ES2020",
     },
     "exclude": [],
     "include": [],
