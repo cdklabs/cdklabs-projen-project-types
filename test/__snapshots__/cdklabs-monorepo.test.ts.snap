@@ -921,17 +921,14 @@ module.exports = json;",
           ],
         },
       ],
-      "@typescript-eslint/no-floating-promises": [
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-shadow": "error",
+      "@typescript-eslint/return-await": "error",
+      "curly": [
         "error",
-      ],
-      "@typescript-eslint/no-require-imports": [
-        "error",
-      ],
-      "@typescript-eslint/no-shadow": [
-        "error",
-      ],
-      "@typescript-eslint/return-await": [
-        "error",
+        "multi-line",
+        "consistent",
       ],
       "dot-notation": [
         "error",
@@ -966,13 +963,7 @@ module.exports = json;",
           ],
         },
       ],
-      "key-spacing": [
-        "error",
-      ],
       "no-bitwise": [
-        "error",
-      ],
-      "no-multiple-empty-lines": [
         "error",
       ],
       "no-return-await": [
@@ -980,9 +971,6 @@ module.exports = json;",
       ],
       "no-shadow": [
         "off",
-      ],
-      "no-trailing-spaces": [
-        "error",
       ],
     },
     "settings": {
@@ -1735,17 +1723,14 @@ module.exports = json;",
           ],
         },
       ],
-      "@typescript-eslint/no-floating-promises": [
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-shadow": "error",
+      "@typescript-eslint/return-await": "error",
+      "curly": [
         "error",
-      ],
-      "@typescript-eslint/no-require-imports": [
-        "error",
-      ],
-      "@typescript-eslint/no-shadow": [
-        "error",
-      ],
-      "@typescript-eslint/return-await": [
-        "error",
+        "multi-line",
+        "consistent",
       ],
       "dot-notation": [
         "error",
@@ -1780,13 +1765,7 @@ module.exports = json;",
           ],
         },
       ],
-      "key-spacing": [
-        "error",
-      ],
       "no-bitwise": [
-        "error",
-      ],
-      "no-multiple-empty-lines": [
         "error",
       ],
       "no-return-await": [
@@ -1794,9 +1773,6 @@ module.exports = json;",
       ],
       "no-shadow": [
         "off",
-      ],
-      "no-trailing-spaces": [
-        "error",
       ],
     },
     "settings": {
@@ -3610,17 +3586,14 @@ module.exports = json;",
           ],
         },
       ],
-      "@typescript-eslint/no-floating-promises": [
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-shadow": "error",
+      "@typescript-eslint/return-await": "error",
+      "curly": [
         "error",
-      ],
-      "@typescript-eslint/no-require-imports": [
-        "error",
-      ],
-      "@typescript-eslint/no-shadow": [
-        "error",
-      ],
-      "@typescript-eslint/return-await": [
-        "error",
+        "multi-line",
+        "consistent",
       ],
       "dot-notation": [
         "error",
@@ -3655,13 +3628,7 @@ module.exports = json;",
           ],
         },
       ],
-      "key-spacing": [
-        "error",
-      ],
       "no-bitwise": [
-        "error",
-      ],
-      "no-multiple-empty-lines": [
         "error",
       ],
       "no-return-await": [
@@ -3669,9 +3636,6 @@ module.exports = json;",
       ],
       "no-shadow": [
         "off",
-      ],
-      "no-trailing-spaces": [
-        "error",
       ],
     },
     "settings": {
@@ -4497,17 +4461,14 @@ module.exports = json;",
           ],
         },
       ],
-      "@typescript-eslint/no-floating-promises": [
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-shadow": "error",
+      "@typescript-eslint/return-await": "error",
+      "curly": [
         "error",
-      ],
-      "@typescript-eslint/no-require-imports": [
-        "error",
-      ],
-      "@typescript-eslint/no-shadow": [
-        "error",
-      ],
-      "@typescript-eslint/return-await": [
-        "error",
+        "multi-line",
+        "consistent",
       ],
       "dot-notation": [
         "error",
@@ -4542,13 +4503,7 @@ module.exports = json;",
           ],
         },
       ],
-      "key-spacing": [
-        "error",
-      ],
       "no-bitwise": [
-        "error",
-      ],
-      "no-multiple-empty-lines": [
         "error",
       ],
       "no-return-await": [
@@ -4556,9 +4511,6 @@ module.exports = json;",
       ],
       "no-shadow": [
         "off",
-      ],
-      "no-trailing-spaces": [
-        "error",
       ],
     },
     "settings": {
@@ -6245,17 +6197,14 @@ module.exports = json;",
           ],
         },
       ],
-      "@typescript-eslint/no-floating-promises": [
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-shadow": "error",
+      "@typescript-eslint/return-await": "error",
+      "curly": [
         "error",
-      ],
-      "@typescript-eslint/no-require-imports": [
-        "error",
-      ],
-      "@typescript-eslint/no-shadow": [
-        "error",
-      ],
-      "@typescript-eslint/return-await": [
-        "error",
+        "multi-line",
+        "consistent",
       ],
       "dot-notation": [
         "error",
@@ -6290,13 +6239,7 @@ module.exports = json;",
           ],
         },
       ],
-      "key-spacing": [
-        "error",
-      ],
       "no-bitwise": [
-        "error",
-      ],
-      "no-multiple-empty-lines": [
         "error",
       ],
       "no-return-await": [
@@ -6304,9 +6247,6 @@ module.exports = json;",
       ],
       "no-shadow": [
         "off",
-      ],
-      "no-trailing-spaces": [
-        "error",
       ],
     },
     "settings": {
