@@ -9,7 +9,7 @@ export function main(argv: string[], packageDirectory: string) {
     console.error('Usage: gather-versions [PKG=TYPE] [PKG=TYPE] [...]\n');
     console.error('Positionals:');
     console.error('  PKG\tPackage name.');
-    console.error('  TYPE\tmajor | minor | exact | minimal');
+    console.error('  TYPE\tmajor | minor | exact | minimal | current-major | current-minor | any');
     console.error('');
     console.error('If $RESET_VERSIONS is "true", ignore the version specifier and just reset all packages to ^0.0.0');
     process.exitCode = 1;
@@ -31,20 +31,20 @@ export function main(argv: string[], packageDirectory: string) {
 
   for (const [dep, depType] of Object.entries(deps)) {
     const depVersion = dependencyInfo(dep, packageDirectory).version;
-    const runtimePrefix = prefixFromRange(depType);
+    const rangeVersion = versionForRange(depType, depVersion);
 
     const dependencyClasses = [
-      ['dependencies', runtimePrefix],
-      ['peerDependencies', runtimePrefix],
+      ['dependencies', rangeVersion],
+      ['peerDependencies', rangeVersion],
       // It doesn't matter what we do for devDependencies (might even do
       // nothing), but it feels like nice form to show the exact version we used
       // when we built this package.
-      ['devDependencies', ''],
+      ['devDependencies', depVersion],
     ];
 
-    for (const [depSection, prefix] of dependencyClasses) {
+    for (const [depSection, computedVersion] of dependencyClasses) {
       const bumpForward = !isReset;
-      const updatedRange = bumpForward ? prefix + depVersion : '^0.0.0';
+      const updatedRange = bumpForward ? computedVersion : '^0.0.0';
 
       if (manifest[depSection]?.[dep]) {
         manifest[depSection][dep] = updatedRange;
@@ -75,12 +75,59 @@ function dependencyInfo(dependency: string, searchDirectory: string): any {
   return JSON.parse(readFileSync(pjLoc, 'utf-8'));
 }
 
+function versionForRange(depType: string, version: string) {
+  const runtimePrefix = prefixFromRange(depType);
+
+  switch (depType) {
+    case 'major':
+    case 'minor':
+    case 'exact':
+    case 'minimal':
+      return runtimePrefix + version;
+    case 'any':
+      return '*';
+  }
+
+  const details = semver(version);
+  switch (depType) {
+    case 'current-major':
+      return `${runtimePrefix}${details.major}`;
+    case 'current-minor':
+      return `${runtimePrefix}${details.major}.${details.minor}`;
+  }
+
+  return runtimePrefix + version;
+}
+
+/**
+ * @see https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
+ */
+function semver(version: string) {
+  const res = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/.exec(version);
+
+  if (!res) {
+    throw new Error(`Cannot parse version: ${version}`);
+  }
+
+  return {
+    version: res[0],
+    major: res[1],
+    minor: res[2],
+    patch: res[3],
+    prerelease: res[4],
+    buildmetadata: res[5],
+  };
+}
+
 function prefixFromRange(x: string): string {
   switch (x) {
+    case 'current-major':
     case 'major':
       return '^';
+    case 'current-minor':
     case 'minor':
       return '~';
+    case 'any':
     case 'exact':
       return '';
     case 'minimal':

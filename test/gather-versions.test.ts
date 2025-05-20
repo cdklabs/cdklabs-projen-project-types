@@ -3,7 +3,7 @@ import * as os from 'os';
 import * as path from 'path';
 import { Project, TaskRuntime } from 'projen';
 import { yarn } from '../src';
-import { TypeScriptWorkspaceOptions } from '../src/yarn';
+import { TypeScriptWorkspaceOptions, VersionType } from '../src/yarn';
 import { main } from '../src/yarn/gather-versions.exec';
 
 // Test the actual gather-versions script
@@ -128,6 +128,55 @@ test.each([0, 1, 2])('make sure gather-versions works for %p dependencies', asyn
   for (let i = 0; i < N; i++) {
     expect(Object.entries(packageJson.dependencies)).toContainEqual([
       `@cdklabs/dep${i}`, '0.0.0',
+    ]);
+  }
+}, 60_000); // Needs to install real packages
+
+test('gather-versions with different reference types', async () => {
+  const expected: Record<VersionType, string> = {
+    'major': '^0.0.0',
+    'minor': '~0.0.0',
+    'exact': '0.0.0',
+    'minimal': '>=0.0.0',
+    'current-major': '^0',
+    'current-minor': '~0.0',
+    'any': '*',
+  };
+
+  // GIVEN
+  const parent = new yarn.CdkLabsMonorepo({
+    name: 'monorepo',
+    defaultReleaseBranch: 'main',
+    release: true,
+  });
+
+  let deps: yarn.IWorkspaceReference[] = [];
+  for (const refType of Object.keys(expected) as VersionType[]) {
+    deps.push((new yarn.TypeScriptWorkspace({
+      parent,
+      name: `@cdklabs/dep-${refType}`,
+      ...NO_DEVDEPS,
+    })).customizeReference({ versionType: refType }));
+  }
+
+  // WHEN
+  const pack = new yarn.TypeScriptWorkspace({
+    parent,
+    name: '@cdklabs/pack',
+    deps,
+    ...NO_DEVDEPS,
+  });
+
+  // THEN
+  parent.synth();
+  // Running this script requires the package to have been compiled before we see any updates to the script
+  await addSymlinkToMe(parent);
+  new TaskRuntime(pack.outdir).runTask('gather-versions');
+
+  const packageJson = JSON.parse(await fs.readFile(path.join(pack.outdir, 'package.json'), 'utf-8'));
+  for (const [refType, expectedVersion] of Object.entries(expected)) {
+    expect(Object.entries(packageJson.dependencies)).toContainEqual([
+      `@cdklabs/dep-${refType}`, expectedVersion,
     ]);
   }
 }, 60_000); // Needs to install real packages

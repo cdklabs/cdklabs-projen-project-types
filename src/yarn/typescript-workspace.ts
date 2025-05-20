@@ -7,12 +7,15 @@ import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
 /**
  * What kind of semver dependency to take
  *
- * - 'major' corresponds to '^'
- * - 'minor' to '~'
- * - 'exact' to ''
- * - 'minimal' to '>='
+ * - 'major' corresponds to '^1.2.3'
+ * - 'current-major' corresponds to '^1'
+ * - 'minor' to '~1.2.3'
+ * - 'current-minor' corresponds to '~1.2'
+ * - 'exact' corresponds to '1.2.3'
+ * - 'minimal' corresponds to '>=1.2.3'
+ * - 'any' corresponds to '*'
  */
-export type VersionType = 'major' | 'minor' | 'exact' | 'minimal';
+export type VersionType = 'major' | 'minor' | 'exact' | 'minimal' | 'current-major' | 'current-minor' | 'any';
 
 /**
  * A reference to a workspace in the same monorepo
