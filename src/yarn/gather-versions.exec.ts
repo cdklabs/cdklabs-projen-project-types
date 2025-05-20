@@ -9,7 +9,7 @@ export function main(argv: string[], packageDirectory: string) {
     console.error('Usage: gather-versions [PKG=TYPE] [PKG=TYPE] [...]\n');
     console.error('Positionals:');
     console.error('  PKG\tPackage name.');
-    console.error('  TYPE\tmajor | minor | exact | minimal | current-major | current-minor | any');
+    console.error('  TYPE\tany-minor | future-minor | any-patch | future-patch | exact | any-future | any');
     console.error('');
     console.error('If $RESET_VERSIONS is "true", ignore the version specifier and just reset all packages to ^0.0.0');
     process.exitCode = 1;
@@ -79,10 +79,10 @@ function versionForRange(depType: string, version: string) {
   const runtimePrefix = prefixFromRange(depType);
 
   switch (depType) {
-    case 'major':
-    case 'minor':
+    case 'future-minor':
+    case 'future-patch':
+    case 'any-future':
     case 'exact':
-    case 'minimal':
       return runtimePrefix + version;
     case 'any':
       return '*';
@@ -90,9 +90,9 @@ function versionForRange(depType: string, version: string) {
 
   const details = semver(version);
   switch (depType) {
-    case 'current-major':
+    case 'any-minor':
       return `${runtimePrefix}${details.major}`;
-    case 'current-minor':
+    case 'any-patch':
       return `${runtimePrefix}${details.major}.${details.minor}`;
   }
 
@@ -121,16 +121,16 @@ function semver(version: string) {
 
 function prefixFromRange(x: string): string {
   switch (x) {
-    case 'current-major':
-    case 'major':
+    case 'any-minor':
+    case 'future-minor':
       return '^';
-    case 'current-minor':
-    case 'minor':
+    case 'any-patch':
+    case 'future-patch':
       return '~';
     case 'any':
     case 'exact':
       return '';
-    case 'minimal':
+    case 'any-future':
       return '>=';
     default:
       throw new Error(`Unknown range type: ${x}`);

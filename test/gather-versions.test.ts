@@ -38,7 +38,7 @@ test('gather-versions updates all package versions respecting existing ranges', 
     });
 
     // WHEN
-    main(['depA=exact', 'depB=major', 'depC=minimal'], dir);
+    main(['depA=exact', 'depB=future-minor', 'depC=any-future'], dir);
 
     // THEN
     expect(JSON.parse(await fs.readFile(path.join(dir, 'package.json'), 'utf-8'))).toEqual({
@@ -134,12 +134,12 @@ test.each([0, 1, 2])('make sure gather-versions works for %p dependencies', asyn
 
 test('gather-versions with different reference types', async () => {
   const expected: Record<VersionType, string> = {
-    'major': '^0.0.0',
-    'minor': '~0.0.0',
+    'any-minor': '^0',
+    'future-minor': '^0.0.0',
+    'any-patch': '~0.0',
+    'future-patch': '~0.0.0',
     'exact': '0.0.0',
-    'minimal': '>=0.0.0',
-    'current-major': '^0',
-    'current-minor': '~0.0',
+    'any-future': '>=0.0.0',
     'any': '*',
   };
 

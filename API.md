@@ -35511,7 +35511,7 @@ public readonly versionType: string;
 ```
 
 - *Type:* string
-- *Default:* 'major'
+- *Default:* 'future-minor'
 
 What type of dependency to take on this package.
 

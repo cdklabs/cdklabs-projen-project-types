@@ -7,15 +7,15 @@ import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
 /**
  * What kind of semver dependency to take
  *
- * - 'major' corresponds to '^1.2.3'
- * - 'current-major' corresponds to '^1'
- * - 'minor' to '~1.2.3'
- * - 'current-minor' corresponds to '~1.2'
+ * - 'any-minor' corresponds to '^1'
+ * - 'future-minor' corresponds to '^1.2.3'
+ * - 'any-patch' to '~1.2'
+ * - 'future-patch' corresponds to '~1.2.3'
  * - 'exact' corresponds to '1.2.3'
- * - 'minimal' corresponds to '>=1.2.3'
+ * - 'any-future' corresponds to '>=1.2.3'
  * - 'any' corresponds to '*'
  */
-export type VersionType = 'major' | 'minor' | 'exact' | 'minimal' | 'current-major' | 'current-minor' | 'any';
+export type VersionType = 'any-minor' | 'future-minor' | 'any-patch' | 'future-patch' | 'exact' | 'any-future' | 'any';
 
 /**
  * A reference to a workspace in the same monorepo
@@ -58,7 +58,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
   public readonly workspaceDirectory: string;
   public readonly bundledDeps: string[] = [];
   public readonly isPrivatePackage: boolean;
-  public readonly versionType = 'major';
+  public readonly versionType = 'future-minor';
 
   private readonly monorepo: Monorepo;
 
@@ -323,7 +323,7 @@ export interface ReferenceOptions {
    *
    * Choose a different range type to take, for example, an `exact` dependency.
    *
-   * @default 'major'
+   * @default 'future-minor'
    */
   readonly versionType?: VersionType;
 }
