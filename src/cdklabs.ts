@@ -66,7 +66,7 @@ function createPublishingDefaults(namespace: string, packageBasename: string, al
         javaPackage: `io.github.${namespace}.${changeDelimiter(packageBasename, '.')}`,
         mavenGroupId: `io.github.${namespace}`,
         mavenArtifactId: packageBasename,
-        mavenEndpoint: 'https://s01.oss.sonatype.org',
+        mavenServerId: 'central-ossrh',
       },
     }),
     ...publishLanguageWrapper(JsiiLanguage.DOTNET, {
