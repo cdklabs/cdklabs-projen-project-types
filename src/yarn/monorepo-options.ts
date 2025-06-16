@@ -72,6 +72,16 @@ export interface MonorepoOptions {
    */
   readonly bin?: Record<string, string>;
   /**
+   * Setup Biome.
+   * @default false
+   */
+  readonly biome?: boolean;
+  /**
+   * Biome options.
+   * @default - default options
+   */
+  readonly biomeOptions?: javascript.BiomeOptions;
+  /**
    * The email address to which issues should be reported.
    */
   readonly bugsEmail?: string;
