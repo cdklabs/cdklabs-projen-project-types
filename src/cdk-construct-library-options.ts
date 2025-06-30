@@ -394,7 +394,7 @@ export interface CdkConstructLibraryOptions {
   readonly entrypointTypes?: string;
   /**
    * Setup eslint.
-   * @default true
+   * @default - true, unless biome is enabled
    */
   readonly eslint?: boolean;
   /**

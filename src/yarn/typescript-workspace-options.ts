@@ -265,7 +265,7 @@ your package. It makes sense to relax this check *only* if you are bundling your
   readonly entrypointTypes?: string;
   /**
    * Setup eslint.
-   * @default true
+   * @default - true, unless biome is enabled
    */
   readonly eslint?: boolean;
   /**
