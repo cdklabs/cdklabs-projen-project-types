@@ -104,6 +104,16 @@ export interface MonorepoReleaseOptions {
    */
   readonly releasableCommits?: ReleasableCommits;
   /**
+   * The GitHub Actions environment used for the release.
+   * This can be used to add an explicit approval step to the release
+   * or limit who can initiate a release through environment protection rules.
+   *
+   * When multiple artifacts are released, the environment can be overwritten
+   * on a per artifact basis.
+   * @default - no environment used, unless set at the artifact level
+   */
+  readonly releaseEnvironment?: string;
+  /**
    * The release trigger to use.
    * @default - Continuous releases (`ReleaseTrigger.continuous()`)
    */
