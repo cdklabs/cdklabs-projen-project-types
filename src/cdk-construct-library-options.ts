@@ -230,13 +230,13 @@ export interface CdkConstructLibraryOptions {
    */
   readonly codeArtifactOptions?: javascript.CodeArtifactOptions;
   /**
-   * Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`.
+   * Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v5 By default, OIDC auth is used. Alternatively a token can be provided via `codeCovTokenSecret`.
    * @default false
    */
   readonly codeCov?: boolean;
   /**
-   * Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
-   * @default - if this option is not specified, only public repositories are supported
+   * Define the secret name for a specified https://codecov.io/ token.
+   * @default - OIDC auth is used
    */
   readonly codeCovTokenSecret?: string;
   /**
@@ -667,6 +667,11 @@ export interface CdkConstructLibraryOptions {
    * @default "NPM_TOKEN"
    */
   readonly npmTokenSecret?: string;
+  /**
+   * Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+   * @default - false
+   */
+  readonly npmTrustedPublishing?: boolean;
   /**
    * The root directory of the project.
    * Relative to this directory, all files are synthesized.
