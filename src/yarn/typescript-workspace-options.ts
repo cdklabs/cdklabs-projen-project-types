@@ -154,13 +154,13 @@ your package. It makes sense to relax this check *only* if you are bundling your
    */
   readonly codeArtifactOptions?: javascript.CodeArtifactOptions;
   /**
-   * Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v4 A secret is required for private repos. Configured with `@codeCovTokenSecret`.
+   * Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v5 By default, OIDC auth is used. Alternatively a token can be provided via `codeCovTokenSecret`.
    * @default false
    */
   readonly codeCov?: boolean;
   /**
-   * Define the secret name for a specified https://codecov.io/ token A secret is required to send coverage for private repositories.
-   * @default - if this option is not specified, only public repositories are supported
+   * Define the secret name for a specified https://codecov.io/ token.
+   * @default - OIDC auth is used
    */
   readonly codeCovTokenSecret?: string;
   /**
@@ -492,6 +492,11 @@ your package. It makes sense to relax this check *only* if you are bundling your
    * @default "NPM_TOKEN"
    */
   readonly npmTokenSecret?: string;
+  /**
+   * Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+   * @default - false
+   */
+  readonly npmTrustedPublishing?: boolean;
   /**
    * Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`).
    * @default true
