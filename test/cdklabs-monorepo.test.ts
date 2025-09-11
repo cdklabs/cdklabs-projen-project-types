@@ -223,8 +223,8 @@ describe('CdkLabsMonorepo', () => {
         defaultReleaseBranch: 'main',
         release: true,
         releaseOptions: {
-          nodeVersion: '24.x'
-        }
+          nodeVersion: '24.x',
+        },
       });
     });
 
@@ -239,9 +239,9 @@ describe('CdkLabsMonorepo', () => {
 
       expect(releaseWorkflow.jobs['cdklabs-one_release_npm'].steps[0].with['node-version']).toStrictEqual('24.x');
 
-    })
+    });
 
-  })
+  });
 
   describe('with monorepo that releases', () => {
     let parent: yarn.CdkLabsMonorepo;

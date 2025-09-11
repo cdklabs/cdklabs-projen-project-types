@@ -164,8 +164,8 @@ export class MonorepoRelease extends Component {
                 tools: {
                   ...job.tools,
                   node: {
-                    version: this.options.nodeVersion ?? job.tools?.node?.version ?? 'lts/*'
-                  }
+                    version: this.options.nodeVersion ?? job.tools?.node?.version ?? 'lts/*',
+                  },
                 },
                 needs,
                 if: `\${{ needs.release.outputs.latest_commit == github.sha && needs.release.outputs.${publishProjectOutputId(
