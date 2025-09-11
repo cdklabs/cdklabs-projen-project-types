@@ -215,6 +215,34 @@ describe('CdkLabsMonorepo', () => {
     });
   });
 
+  describe('with monorepo that customizes release options', () => {
+    let parent: yarn.CdkLabsMonorepo;
+    beforeEach(() => {
+      parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        release: true,
+        releaseOptions: {
+          nodeVersion: '24.x',
+        },
+      });
+    });
+
+    test('node version is propagated to release workflow', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+      expect(releaseWorkflow.jobs['cdklabs-one_release_npm'].steps[0].with['node-version']).toStrictEqual('24.x');
+
+    });
+
+  });
+
   describe('with monorepo that releases', () => {
     let parent: yarn.CdkLabsMonorepo;
     beforeEach(() => {
