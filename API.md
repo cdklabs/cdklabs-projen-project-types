@@ -38550,8 +38550,10 @@ const workspaceReleaseOptions: yarn.WorkspaceReleaseOptions = { ... }
 | --- | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.private">private</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.versionBranchOptions">versionBranchOptions</a></code> | <code>projen.VersionBranchOptions</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.environment">environment</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.nextVersionCommand">nextVersionCommand</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.publishToNpm">publishToNpm</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.repoRuntimeDependencies">repoRuntimeDependencies</a></code> | <code>{[ key: string ]: string}</code> | For runtime and peer dependencies, the type of dependency we take on each package. |
@@ -38579,6 +38581,16 @@ public readonly versionBranchOptions: VersionBranchOptions;
 
 ---
 
+##### `environment`<sup>Optional</sup> <a name="environment" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.environment"></a>
+
+```typescript
+public readonly environment: string;
+```
+
+- *Type:* string
+
+---
+
 ##### `nextVersionCommand`<sup>Optional</sup> <a name="nextVersionCommand" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.nextVersionCommand"></a>
 
 ```typescript
@@ -38596,6 +38608,16 @@ public readonly npmDistTag: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `npmTrustedPublishing`<sup>Optional</sup> <a name="npmTrustedPublishing" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmTrustedPublishing"></a>
+
+```typescript
+public readonly npmTrustedPublishing: boolean;
+```
+
+- *Type:* boolean
 
 ---
 

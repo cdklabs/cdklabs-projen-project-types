@@ -85,6 +85,7 @@ export class MonorepoRelease extends Component {
             minMajorVersion: options.versionBranchOptions.minMajorVersion ?? this.options.minMajorVersion,
             prerelease: options.versionBranchOptions.prerelease ?? this.options.prerelease,
             npmDistTag: options.npmDistTag ?? this.options.npmDistTag,
+            environment: options.environment,
           },
         },
       });
