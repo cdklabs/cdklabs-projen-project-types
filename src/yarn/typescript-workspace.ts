@@ -81,7 +81,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     const usePrettier = remainder.prettier ?? true;
 
     const wsScope = remainder.workspaceScope ?? 'packages';
-    const workspaceDirectory =`${wsScope}/${options.name}`;
+    const workspaceDirectory = `${wsScope}/${options.name}`;
 
     const npmAccess = options.parent.monorepoRelease && !options.private ? javascript.NpmAccess.PUBLIC : undefined;
 
@@ -164,6 +164,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       private: this.isPrivatePackage,
       workflowNodeVersion: this.nodeVersion,
       npmDistTag: options.npmDistTag,
+      npmTrustedPublishing: options.npmTrustedPublishing,
+      environment: options.releaseEnvironment,
       releasableCommits: options.releasableCommits,
       nextVersionCommand: options.nextVersionCommand,
       versionBranchOptions: {
@@ -237,7 +239,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       options.parent.requestInstallDependencies({ resolveDepsAndWritePackageJson: () => originalResolve.apply(this.package) });
     };
     /* @ts-ignore access private method */
-    this.package.resolveDepsAndWritePackageJson = () => {};
+    this.package.resolveDepsAndWritePackageJson = () => { };
 
     // Private package
     if (options.private) {
@@ -260,7 +262,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
    * I don't know why `tsconfig.dev.json` doesn't have an outdir, or where it's used,
    * but it's causing in-place `.js` files to appear.
    */
-  protected addTsconfigDevFix () {
+  protected addTsconfigDevFix() {
     this.tsconfigDev.file.addOverride('compilerOptions.outDir', 'lib');
   }
 

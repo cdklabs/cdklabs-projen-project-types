@@ -12,6 +12,8 @@ export interface WorkspaceReleaseOptions {
   readonly npmDistTag?: string;
   readonly releasableCommits?: ReleasableCommits;
   readonly nextVersionCommand?: string;
+  readonly npmTrustedPublishing?: boolean;
+  readonly environment?: string;
   readonly versionBranchOptions: VersionBranchOptions;
 
   /**
@@ -70,6 +72,7 @@ export class WorkspaceRelease extends Component {
           registry: project.package.npmRegistry,
           npmTokenSecret: project.package.npmTokenSecret,
           npmProvenance: project.package.npmProvenance,
+          trustedPublishing: options.npmTrustedPublishing,
         });
       }
     }
