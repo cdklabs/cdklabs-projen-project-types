@@ -1,10 +1,10 @@
 import * as path from 'path';
 import { github, release as projenRelease, Component, Project, Task } from 'projen';
 import { BUILD_ARTIFACT_NAME, PERMISSION_BACKUP_FILE } from 'projen/lib/github/constants';
+import { Tools } from 'projen/lib/github/workflows-model';
 import { MonorepoReleaseOptions } from './monorepo-release-options';
 import { TypeScriptWorkspace } from './typescript-workspace';
 import { WorkspaceRelease, WorkspaceReleaseOptions } from './typescript-workspace-release';
-import { Tools } from 'projen/lib/github/workflows-model';
 
 // copied from projen/release.ts
 const RELEASE_JOBID = 'release';
@@ -167,7 +167,7 @@ export class MonorepoRelease extends Component {
                 // use the node version specified on the mono repo.
                 version: this.options.nodeVersion ?? job.tools?.node?.version ?? 'lts/*',
               },
-            }
+            };
 
             return [
               `${prefix}_${key}`,
