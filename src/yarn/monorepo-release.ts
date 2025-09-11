@@ -4,6 +4,7 @@ import { BUILD_ARTIFACT_NAME, PERMISSION_BACKUP_FILE } from 'projen/lib/github/c
 import { MonorepoReleaseOptions } from './monorepo-release-options';
 import { TypeScriptWorkspace } from './typescript-workspace';
 import { WorkspaceRelease, WorkspaceReleaseOptions } from './typescript-workspace-release';
+import { Tools } from 'projen/lib/github/workflows-model';
 
 // copied from projen/release.ts
 const RELEASE_JOBID = 'release';
@@ -157,16 +158,22 @@ export class MonorepoRelease extends Component {
               return `${prefix}_${dep}`;
             });
 
+            // we build the tools object so that we can modify it with our
+            // own custom properties.
+            const toolsRebuilt: Tools = {
+              ...job.tools,
+              node: {
+                ...job.tools?.node ?? {},
+                // use the node version specified on the mono repo.
+                version: this.options.nodeVersion ?? job.tools?.node?.version ?? 'lts/*',
+              },
+            }
+
             return [
               `${prefix}_${key}`,
               {
                 ...job,
-                tools: {
-                  ...job.tools,
-                  node: {
-                    version: this.options.nodeVersion ?? job.tools?.node?.version ?? 'lts/*',
-                  },
-                },
+                tools: toolsRebuilt,
                 needs,
                 if: `\${{ needs.release.outputs.latest_commit == github.sha && needs.release.outputs.${publishProjectOutputId(
                   release.workspace,
