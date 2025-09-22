@@ -735,6 +735,11 @@ your package. It makes sense to relax this check *only* if you are bundling your
    */
   readonly releaseWorkflow?: boolean;
   /**
+   * Build environment variables for release workflows.
+   * @default {}
+   */
+  readonly releaseWorkflowEnv?: Record<string, string>;
+  /**
    * The name of the default release workflow.
    * @default "release"
    */

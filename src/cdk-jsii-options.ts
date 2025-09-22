@@ -392,7 +392,7 @@ export interface CdkJsiiProjectOptions {
    * NOTE: The jsii compiler releases since 5.0.0 are not semantically versioned
    * and should remain on the same minor, so we recommend using a `~` dependency
    * (e.g. `~5.0.0`).
-   * @default "~5.6.0"
+   * @default "~5.8.0"
    */
   readonly jsiiVersion?: string;
   /**
@@ -849,6 +849,11 @@ export interface CdkJsiiProjectOptions {
    * @deprecated see `release`.
    */
   readonly releaseWorkflow?: boolean;
+  /**
+   * Build environment variables for release workflows.
+   * @default {}
+   */
+  readonly releaseWorkflowEnv?: Record<string, string>;
   /**
    * The name of the default release workflow.
    * @default "release"
