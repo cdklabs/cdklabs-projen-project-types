@@ -119,6 +119,11 @@ export interface MonorepoReleaseOptions {
    */
   readonly releaseTrigger?: release.ReleaseTrigger;
   /**
+   * Build environment variables for release workflows.
+   * @default {}
+   */
+  readonly releaseWorkflowEnv?: Record<string, string>;
+  /**
    * The name of the default release workflow.
    * @default "release"
    */
