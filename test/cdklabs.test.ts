@@ -241,22 +241,22 @@ describe('CdklabsConstructLibrary', () => {
     // Verify the checkout refs in each workflow
     expect(
       YAML.parse(outdir['.github/workflows/upgrade-branch1-main.yml']).jobs.upgrade.steps
-        .find((step: any) => step.uses === 'actions/checkout@v4').with.ref,
+        .find((step: any) => step.uses.startsWith('actions/checkout')).with.ref,
     ).toBe('branch1/main');
 
     expect(
       YAML.parse(outdir['.github/workflows/upgrade-branch2-main.yml']).jobs.upgrade.steps
-        .find((step: any) => step.uses === 'actions/checkout@v4').with.ref,
+        .find((step: any) => step.uses.startsWith('actions/checkout')).with.ref,
     ).toBe('branch2/main');
 
     expect(
       YAML.parse(outdir['.github/workflows/upgrade-dev-deps-branch1-main.yml']).jobs.upgrade.steps
-        .find((step: any) => step.uses === 'actions/checkout@v4').with.ref,
+        .find((step: any) => step.uses.startsWith('actions/checkout')).with.ref,
     ).toBe('branch1/main');
 
     expect(
       YAML.parse(outdir['.github/workflows/upgrade-dev-deps-branch2-main.yml']).jobs.upgrade.steps
-        .find((step: any) => step.uses === 'actions/checkout@v4').with.ref,
+        .find((step: any) => step.uses.startsWith('actions/checkout')).with.ref,
     ).toBe('branch2/main');
   });
 });
