@@ -36964,7 +36964,7 @@ Options for dependabot.
 ##### `deps`<sup>Optional</sup> <a name="deps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.deps"></a>
 
 ```typescript
-public readonly deps: string | IWorkspaceReference[];
+public readonly deps: (string | IWorkspaceReference)[];
 ```
 
 - *Type:* string | cdklabs-projen-project-types.yarn.IWorkspaceReference[]
@@ -37027,7 +37027,7 @@ Add a VSCode development environment (used for GitHub Codespaces).
 ##### `devDeps`<sup>Optional</sup> <a name="devDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.devDeps"></a>
 
 ```typescript
-public readonly devDeps: string | IWorkspaceReference[];
+public readonly devDeps: (string | IWorkspaceReference)[];
 ```
 
 - *Type:* string | cdklabs-projen-project-types.yarn.IWorkspaceReference[]
@@ -37711,7 +37711,7 @@ Options for `peerDeps`.
 ##### `peerDeps`<sup>Optional</sup> <a name="peerDeps" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.peerDeps"></a>
 
 ```typescript
-public readonly peerDeps: string | IWorkspaceReference[];
+public readonly peerDeps: (string | IWorkspaceReference)[];
 ```
 
 - *Type:* string | cdklabs-projen-project-types.yarn.IWorkspaceReference[]
