@@ -54,7 +54,7 @@
     "jsii-pacmak": "^1.115.0",
     "jsii-reflect": "^1.115.0",
     "jsii-rosetta": "~5.5",
-    "projen": "^0.96.3",
+    "projen": "^0.97.0",
     "ts-jest": "^29",
     "ts-node": "^10.9.2",
     "typescript": "~5.5"
