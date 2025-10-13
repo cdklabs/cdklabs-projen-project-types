@@ -862,7 +862,7 @@ your package. It makes sense to relax this check *only* if you are bundling your
   readonly workflowContainerImage?: string;
   /**
    * The git identity to use in workflows.
-   * @default - GitHub Actions
+   * @default - default GitHub Actions user
    */
   readonly workflowGitIdentity?: github.GitIdentity;
   /**

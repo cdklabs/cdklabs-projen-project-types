@@ -878,7 +878,7 @@ export interface MonorepoOptions {
   readonly workflowContainerImage?: string;
   /**
    * The git identity to use in workflows.
-   * @default - GitHub Actions
+   * @default - default GitHub Actions user
    */
   readonly workflowGitIdentity?: github.GitIdentity;
   /**
