@@ -1185,6 +1185,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "description": "Runs eslint against the codebase",
         "env": {
           "ESLINT_USE_FLAT_CONFIG": "false",
+          "NODE_NO_WARNINGS": "1",
         },
         "name": "eslint",
         "steps": [
@@ -2996,6 +2997,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "description": "Runs eslint against the codebase",
         "env": {
           "ESLINT_USE_FLAT_CONFIG": "false",
+          "NODE_NO_WARNINGS": "1",
         },
         "name": "eslint",
         "steps": [
@@ -4618,6 +4620,7 @@ junit.xml
         "description": "Runs eslint against the codebase",
         "env": {
           "ESLINT_USE_FLAT_CONFIG": "false",
+          "NODE_NO_WARNINGS": "1",
         },
         "name": "eslint",
         "steps": [
