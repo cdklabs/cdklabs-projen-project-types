@@ -83,15 +83,12 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
     const exclude = opts.upgradeCdklabsProjenProjectTypes ? UpgradeCdklabsProjenProjectTypes.deps : [];
     const labels = opts.autoApproveUpgrades ? [opts.autoApproveOptions?.label ?? 'auto-approve'] : [];
 
-    // Run at 18:00Z once a week (on Monday)
-    const upgradeSchedule = javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * 1']);
-
     // Get branch configuration from depsUpgradeOptions if available
-    const workflowOptions = {
+    const workflowOptions = (cron: string) => ({
       labels,
-      schedule: upgradeSchedule,
+      schedule: javascript.UpgradeDependenciesSchedule.expressions([cron]),
       ...(opts.depsUpgradeOptions?.workflowOptions ?? {}),
-    };
+    });
 
     new javascript.UpgradeDependencies(project, {
       taskName: 'upgrade',
@@ -102,7 +99,8 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
       types: [DependencyType.RUNTIME, DependencyType.BUNDLED],
       exclude,
       semanticCommit: 'fix',
-      workflowOptions,
+      // Run at 18:00Z every Monday
+      workflowOptions: workflowOptions('0 18 * * 1'),
     });
 
     new javascript.UpgradeDependencies(project, {
@@ -111,7 +109,8 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
       exclude,
       semanticCommit: 'chore',
       pullRequestTitle: 'upgrade dev dependencies',
-      workflowOptions,
+      // Run at 22:00Z every Monday, this is deliberately after prod updates to avoid conflicts
+      workflowOptions: workflowOptions('0 22 * * 1'),
     });
   }
 
