@@ -55,6 +55,7 @@ export class CdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
 
     new Rosetta(this, options.rosettaOptions);
     new IntegRunner(this);
+
     configureCommonComponents(this, opts);
   }
 }

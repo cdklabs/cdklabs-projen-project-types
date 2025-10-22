@@ -2,6 +2,7 @@ import { DependencyType, github, javascript, typescript } from 'projen';
 import { deepMerge } from 'projen/lib/util';
 import { CdkCommonOptions } from './cdk-common-options';
 import { Private } from './private';
+import { RetryAutoMerge } from './retryautomerge';
 import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
 
 export enum OrgTenancy {
@@ -65,6 +66,8 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
 }
 
 export function configureCommonComponents(project: typescript.TypeScriptProject, opts: CdkCommonOptions & Pick<javascript.NodeProjectOptions, 'autoApproveUpgrades' | 'autoApproveOptions' | 'depsUpgradeOptions'>) {
+  new RetryAutoMerge(project);
+
   if (opts.private) {
     new Private(project);
   }
