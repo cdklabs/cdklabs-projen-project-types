@@ -16,14 +16,18 @@ const project = new CdklabsJsiiProject({
   bundledDeps: ['yaml'],
   peerDeps: ['projen@>=0.88.6 <1.0.0'],
   enablePRAutoMerge: true,
-  cdklabsPublishingDefaults: false,
   upgradeCdklabsProjenProjectTypes: false, // that is this project!
   setNodeEngineVersion: false,
   peerDependencyOptions: {
     pinnedDevDependency: false,
   },
-  jsiiVersion: '~5.5',
-  typescriptVersion: '~5.5',
+  jsiiVersion: '~5.9',
+  typescriptVersion: '~5.9',
+
+  // Custom publishing settings since we only release to npm
+  cdklabsPublishingDefaults: false,
+  npmTrustedPublishing: true,
+  releaseEnvironment: 'release',
 });
 project.addPeerDeps('constructs@^10.0.0');
 

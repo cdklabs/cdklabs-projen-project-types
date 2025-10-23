@@ -55,8 +55,10 @@ function createPublishingDefaults(namespace: string, packageBasename: string, al
   const nugetPrefix = alwaysUseNamespace ? `${upperCaseName(namespace)}.` : `${upperCaseName(namespace)}`;
 
   return {
+    ...createNpmPublishingDefaults(),
     ...publishLanguageWrapper(JsiiLanguage.PYTHON, {
       publishToPypi: {
+        trustedPublishing: true,
         distName: `${piPyPrefix}${packageBasename}`,
         module: `${piPyPrefix}${changeDelimiter(packageBasename, '_')}`,
       },
@@ -71,6 +73,7 @@ function createPublishingDefaults(namespace: string, packageBasename: string, al
     }),
     ...publishLanguageWrapper(JsiiLanguage.DOTNET, {
       publishToNuget: {
+        trustedPublishing: true,
         dotNetNamespace: `${nugetPrefix}${upperCaseName(packageBasename)}`,
         packageId: `${nugetPrefix}${upperCaseName(packageBasename)}`,
       },
@@ -103,6 +106,13 @@ function createPublishingDefaults(namespace: string, packageBasename: string, al
     return str.split('-').join(delim);
   }
 };
+
+function createNpmPublishingDefaults() {
+  return {
+    npmTrustedPublishing: true,
+    releaseEnvironment: 'release',
+  };
+}
 
 export interface CdklabsPublishingProjectOptions {
   /**
@@ -167,6 +177,7 @@ export class CdklabsTypeScriptProject extends CdkTypeScriptProject {
     const mergedOptions = deepMerge([
       {},
       cdklabsDefaultProps,
+      createNpmPublishingDefaults(),
       options,
       cdklabsForcedProps,
     ]) as CdkConstructLibraryOptions;
