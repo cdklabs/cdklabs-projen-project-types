@@ -182,6 +182,26 @@ describe('CdklabsConstructLibrary', () => {
         expect(packageJson.jsii?.targets).toEqual({});
       });
     });
+
+    test('sets release environment for every release job', () => {
+      const project = new TestCdkLabsConstructLibrary();
+      const outdir = Testing.synth(project);
+      const releaseWorkflow = outdir['.github/workflows/release.yml'];
+
+      // we have 6 releases: github, npm, python, java, nuget, go
+      expect(countOccurrences(releaseWorkflow, 'environment: release')).toBe(6);
+    });
+
+    test('enables trusted publishing for supported package registries', () => {
+      const project = new TestCdkLabsConstructLibrary();
+      const outdir = Testing.synth(project);
+      const releaseWorkflow = outdir['.github/workflows/release.yml'];
+
+      // see https://github.com/cdklabs/publib
+      expect(releaseWorkflow).toContain('NPM_TRUSTED_PUBLISHER: "true"');
+      expect(releaseWorkflow).toContain('PYPI_TRUSTED_PUBLISHER: "true"');
+      expect(releaseWorkflow).toContain('NUGET_TRUSTED_PUBLISHER: "true"');
+    });
   });
 
   test('can set tenancy to aws', () => {
@@ -318,6 +338,26 @@ describe('CdklabsTypeScriptProject', () => {
 
     expect(outdir).toMatchSnapshot();
   });
+
+  describe('cdklabsPublishingDefaults', () => {
+    test('sets release environment for every release job', () => {
+      const project = new TestCdkLabsTypeScriptProject({ releaseToNpm: true });
+      const outdir = Testing.synth(project);
+      const releaseWorkflow = outdir['.github/workflows/release.yml'];
+
+      // we have 2 releases: github, npm
+      expect(countOccurrences(releaseWorkflow, 'environment: release')).toBe(2);
+    });
+
+    test('enables trusted publishing for supported package registries', () => {
+      const project = new TestCdkLabsTypeScriptProject({ releaseToNpm: true });
+      const outdir = Testing.synth(project);
+      const releaseWorkflow = outdir['.github/workflows/release.yml'];
+
+      // see https://github.com/cdklabs/publib
+      expect(releaseWorkflow).toContain('NPM_TRUSTED_PUBLISHER: "true"');
+    });
+  });
 });
 
 describe('CdklabsJsiiProject', () => {
@@ -376,6 +416,27 @@ describe('CdklabsJsiiProject', () => {
 
   });
 
+  describe('cdklabsPublishingDefaults', () => {
+    test('sets release environment for every release job', () => {
+      const project = new TestCdklabsJsiiProject();
+      const outdir = Testing.synth(project);
+      const releaseWorkflow = outdir['.github/workflows/release.yml'];
+
+      // we have 6 releases: github, npm, python, java, nuget, go
+      expect(countOccurrences(releaseWorkflow, 'environment: release')).toBe(6);
+    });
+
+    test('enables trusted publishing for supported package registries', () => {
+      const project = new TestCdklabsJsiiProject();
+      const outdir = Testing.synth(project);
+      const releaseWorkflow = outdir['.github/workflows/release.yml'];
+
+      // see https://github.com/cdklabs/publib
+      expect(releaseWorkflow).toContain('NPM_TRUSTED_PUBLISHER: "true"');
+      expect(releaseWorkflow).toContain('PYPI_TRUSTED_PUBLISHER: "true"');
+      expect(releaseWorkflow).toContain('NUGET_TRUSTED_PUBLISHER: "true"');
+    });
+  });
 });
 
 class TestCdkLabsConstructLibrary extends CdklabsConstructLibrary {
@@ -411,4 +472,8 @@ class TestCdklabsJsiiProject extends CdklabsJsiiProject {
       ...options,
     });
   }
+}
+
+function countOccurrences(haystack: string, needle: string): number {
+  return haystack.split(needle).length - 1;
 }
