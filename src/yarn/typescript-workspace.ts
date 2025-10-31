@@ -85,6 +85,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
 
     const npmAccess = options.parent.monorepoRelease && !options.private ? javascript.NpmAccess.PUBLIC : undefined;
 
+    const releaseEnvironment = options.releaseEnvironment ?? options.parent.options.releaseEnvironment;
+
     super({
       parent: options.parent,
       name: options.name,
@@ -118,6 +120,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       peerDeps: packageNames(options.peerDeps),
       devDeps: packageNames(options.devDeps),
       projenDevDependency: true,
+      releaseEnvironment,
 
       depsUpgradeOptions: {
         exclude: [
@@ -166,7 +169,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       npmDistTag: options.npmDistTag,
       // Inherit setting from Monorepo if configured
       npmTrustedPublishing: options.npmTrustedPublishing ?? this.monorepo.options.npmTrustedPublishing,
-      environment: options.releaseEnvironment,
+      environment: releaseEnvironment,
       releasableCommits: options.releasableCommits,
       nextVersionCommand: options.nextVersionCommand,
       versionBranchOptions: {

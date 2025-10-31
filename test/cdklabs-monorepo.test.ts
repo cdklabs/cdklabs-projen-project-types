@@ -141,51 +141,78 @@ describe('CdkLabsMonorepo', () => {
     });
   });
 
-  test('workspaces get monorepo repository configuration', () => {
-    const testRepository = 'https://github.com/cdklabs/cdklabs-projen-project-types';
-    const parent = new yarn.CdkLabsMonorepo({
-      name: 'monorepo',
-      defaultReleaseBranch: 'main',
-      repository: testRepository,
+  describe('workspace inherits config from monorepo', () => {
+    test('repository configuration', () => {
+      const testRepository = 'https://github.com/cdklabs/cdklabs-projen-project-types';
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        repository: testRepository,
+      });
+
+      const workspace = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        workspaceScope: 'packages',
+      });
+
+      const repository = workspace.package.manifest.repository;
+      expect(repository.url).toBe(testRepository);
+      expect(repository.directory).toBe('packages/@cdklabs/one');
+
+      const outdir = Testing.synth(parent);
+      expect(outdir).toMatchSnapshot();
     });
 
-    const workspace = new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/one',
-      workspaceScope: 'packages',
+    test('NPM trusted publishing setting', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        release: true,
+        releaseOptions: {
+          publishToNpm: true,
+        },
+        npmTrustedPublishing: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        workspaceScope: 'packages',
+        npmTokenSecret: undefined,
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+      const step = releaseWorkflow.jobs['cdklabs-one_release_npm'].steps.find((s: any) => s.name === 'Release');
+      expect(step.env).toMatchObject({ NPM_TRUSTED_PUBLISHER: 'true' });
     });
 
-    const repository = workspace.package.manifest.repository;
-    expect(repository.url).toBe(testRepository);
-    expect(repository.directory).toBe('packages/@cdklabs/one');
+    test('releaseEnvironment', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        release: true,
+        releaseOptions: {
+          publishToNpm: true,
+        },
+        releaseEnvironment: 'asdf',
+      });
 
-    const outdir = Testing.synth(parent);
-    expect(outdir).toMatchSnapshot();
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        workspaceScope: 'packages',
+        npmTokenSecret: undefined,
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+      expect(releaseWorkflow.jobs['cdklabs-one_release_npm']).toMatchObject({ environment: 'asdf' });
+    });
+
   });
 
-  test('workspace inherits NPM trusted publishing setting from monorepo', () => {
-    const parent = new yarn.CdkLabsMonorepo({
-      name: 'monorepo',
-      defaultReleaseBranch: 'main',
-      release: true,
-      releaseOptions: {
-        publishToNpm: true,
-      },
-      npmTrustedPublishing: true,
-    });
-
-    new yarn.TypeScriptWorkspace({
-      parent,
-      name: '@cdklabs/one',
-      workspaceScope: 'packages',
-      npmTokenSecret: undefined,
-    });
-
-    const outdir = Testing.synth(parent);
-    const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
-    const step = releaseWorkflow.jobs['cdklabs-one_release_npm'].steps.find((s: any) => s.name === 'Release');
-    expect(step.env).toMatchObject({ NPM_TRUSTED_PUBLISHER: 'true' });
-  });
 
   describe('nx integration', () => {
     test('nx can be used', () => {
