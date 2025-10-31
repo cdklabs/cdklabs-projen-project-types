@@ -70,7 +70,7 @@ export class WorkspaceRelease extends Component {
       if (options.publishToNpm ?? true) {
         this.publisher.publishToNpm({
           registry: project.package.npmRegistry,
-          npmTokenSecret: project.package.npmTokenSecret,
+          npmTokenSecret: options.npmTrustedPublishing ? undefined : project.package.npmTokenSecret,
           npmProvenance: project.package.npmProvenance,
           trustedPublishing: options.npmTrustedPublishing,
         });

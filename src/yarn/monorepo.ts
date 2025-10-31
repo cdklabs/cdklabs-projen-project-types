@@ -28,7 +28,7 @@ export class Monorepo extends typescript.TypeScriptProject {
   private projects = new Array<TypeScriptWorkspace>();
   private postInstallDependencies = new Array<() => boolean>();
 
-  constructor(options: MonorepoOptions) {
+  constructor(public readonly options: MonorepoOptions) {
     super({
       ...options,
       packageManager: javascript.NodePackageManager.YARN_CLASSIC,
