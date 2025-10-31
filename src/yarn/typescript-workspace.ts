@@ -164,7 +164,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       private: this.isPrivatePackage,
       workflowNodeVersion: this.nodeVersion,
       npmDistTag: options.npmDistTag,
-      npmTrustedPublishing: options.npmTrustedPublishing,
+      // Inherit setting from Monorepo if configured
+      npmTrustedPublishing: options.npmTrustedPublishing ?? this.monorepo.options.npmTrustedPublishing,
       environment: options.releaseEnvironment,
       releasableCommits: options.releasableCommits,
       nextVersionCommand: options.nextVersionCommand,

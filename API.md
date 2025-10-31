@@ -7028,6 +7028,7 @@ yarn.CdkLabsMonorepo.isMonorepo(x: Project)
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoOptions</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.monorepoRelease">monorepoRelease</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoRelease</code> | The Monorepo Release component. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | The URL where the actual code for the package lives. |
 
@@ -7790,6 +7791,16 @@ public readonly tsconfigEslint: TypescriptConfig;
 ```
 
 - *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.options"></a>
+
+```typescript
+public readonly options: MonorepoOptions;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.MonorepoOptions
 
 ---
 
@@ -11673,6 +11684,7 @@ yarn.Monorepo.isMonorepo(x: Project)
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoOptions</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.monorepoRelease">monorepoRelease</a></code> | <code>cdklabs-projen-project-types.yarn.MonorepoRelease</code> | The Monorepo Release component. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | The URL where the actual code for the package lives. |
 
@@ -12435,6 +12447,16 @@ public readonly tsconfigEslint: TypescriptConfig;
 ```
 
 - *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.Monorepo.property.options"></a>
+
+```typescript
+public readonly options: MonorepoOptions;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.MonorepoOptions
 
 ---
 
