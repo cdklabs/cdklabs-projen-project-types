@@ -58,7 +58,7 @@ function createPublishingDefaults(namespace: string, packageBasename: string, al
     ...createNpmPublishingDefaults(),
     ...publishLanguageWrapper(JsiiLanguage.PYTHON, {
       publishToPypi: {
-        trustedPublishing: true,
+        trustedPublishing: 1,
         distName: `${piPyPrefix}${packageBasename}`,
         module: `${piPyPrefix}${changeDelimiter(packageBasename, '_')}`,
       },
@@ -73,7 +73,7 @@ function createPublishingDefaults(namespace: string, packageBasename: string, al
     }),
     ...publishLanguageWrapper(JsiiLanguage.DOTNET, {
       publishToNuget: {
-        trustedPublishing: true,
+        trustedPublishing: 1,
         dotNetNamespace: `${nugetPrefix}${upperCaseName(packageBasename)}`,
         packageId: `${nugetPrefix}${upperCaseName(packageBasename)}`,
       },
