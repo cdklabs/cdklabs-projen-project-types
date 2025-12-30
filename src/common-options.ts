@@ -79,7 +79,7 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
   }
 
   if (opts.upgradeCdklabsProjenProjectTypes) {
-    new UpgradeCdklabsProjenProjectTypes(project);
+    new UpgradeCdklabsProjenProjectTypes(project, opts.depsUpgradeOptions);
   }
 
   if (opts.upgradeRuntimeDepsAsFix) {

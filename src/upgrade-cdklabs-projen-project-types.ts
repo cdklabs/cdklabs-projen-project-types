@@ -11,7 +11,10 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
     'projen',
   ];
 
-  constructor(public readonly project: javascript.NodeProject) {
+  constructor(
+    public readonly project: javascript.NodeProject,
+    depsUpgradeOptions?: javascript.UpgradeDependenciesOptions,
+  ) {
     super(project, 'UpgradeCdklabsProjenProjectTypes');
 
     const taskName = 'upgrade-cdklabs-projen-project-types';
@@ -24,6 +27,8 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
       workflowOptions: {
         labels: ['auto-approve'],
         schedule: javascript.UpgradeDependenciesSchedule.NEVER,
+        // Inherit branch configuration from depsUpgradeOptions if available
+        ...(depsUpgradeOptions?.workflowOptions ?? {}),
       },
     });
 
