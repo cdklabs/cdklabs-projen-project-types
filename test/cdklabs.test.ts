@@ -278,6 +278,21 @@ describe('CdklabsConstructLibrary', () => {
       YAML.parse(outdir['.github/workflows/upgrade-dev-deps-branch2-main.yml']).jobs.upgrade.steps
         .find((step: any) => step.uses.startsWith('actions/checkout')).with.ref,
     ).toBe('branch2/main');
+
+    // Verify upgrade-cdklabs-projen-project-types workflows also exist for custom branches
+    expect(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-branch1-main.yml']).toBeDefined();
+    expect(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-branch2-main.yml']).toBeDefined();
+
+    // Verify the checkout refs in upgrade-cdklabs-projen-project-types workflows
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-branch1-main.yml']).jobs.upgrade.steps
+        .find((step: any) => step.uses.startsWith('actions/checkout')).with.ref,
+    ).toBe('branch1/main');
+
+    expect(
+      YAML.parse(outdir['.github/workflows/upgrade-cdklabs-projen-project-types-branch2-main.yml']).jobs.upgrade.steps
+        .find((step: any) => step.uses.startsWith('actions/checkout')).with.ref,
+    ).toBe('branch2/main');
   });
 });
 
