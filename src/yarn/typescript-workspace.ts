@@ -122,7 +122,9 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       projenDevDependency: true,
       releaseEnvironment,
 
+      depsUpgrade: options.depsUpgrade ?? true,
       depsUpgradeOptions: {
+        workflow: false,
         exclude: [
           ...(options.excludeDepsFromUpgrade ?? []),
           ...(packageNames(options.deps?.filter(isWorkspaceReference)) ?? []),
@@ -201,22 +203,28 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     this.tasks.removeTask('clobber');
     this.tasks.removeTask('eject');
 
-    const upgrades: any = this.components.find(
-      (c: Component): c is javascript.UpgradeDependencies => c instanceof javascript.UpgradeDependencies,
+    const upgradeTaskName = 'upgrade';
+    const upgrades = this.components.find(
+      (c: Component): c is javascript.UpgradeDependencies => (
+        c instanceof javascript.UpgradeDependencies && c.upgradeTask.name === upgradeTaskName
+      ),
     );
-    this.tasks.removeTask('upgrade');
-    this.tasks.removeTask('post-upgrade');
-    this.tasks.addTask('check-for-updates', {
-      env: { CI: '0' },
-      steps: {
-        toJSON: () => {
-          const steps = upgrades.renderTaskSteps() as TaskStep[];
-          return steps.filter(
-            (step) => step.exec && typeof step.exec === 'string' && step.exec?.startsWith('npx npm-check-updates'),
-          );
-        },
-      } as any,
-    });
+
+    if (upgrades) {
+      this.tasks.removeTask(upgrades.upgradeTask.name);
+      this.tasks.removeTask(upgrades.postUpgradeTask.name);
+      this.tasks.addTask('check-for-updates', {
+        env: { CI: '0' },
+        steps: {
+          toJSON: () => {
+            const steps = (upgrades as any).renderTaskSteps() as TaskStep[];
+            return steps.filter(
+              (step) => step.exec && typeof step.exec === 'string' && step.exec?.startsWith('npx npm-check-updates'),
+            );
+          },
+        } as any,
+      });
+    }
 
     // Composite project and references
     const allDeps = [...(options.deps ?? []), ...(options.peerDeps ?? []), ...(options.devDeps ?? [])];
