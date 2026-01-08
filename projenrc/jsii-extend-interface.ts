@@ -4,7 +4,7 @@ import { Assembly, TypeSystem } from 'jsii-reflect';
 import { Component, Project, SourceCode, SourceCodeOptions, typescript } from 'projen';
 
 const typesystem = new TypeSystem();
-const asm = new Assembly(typesystem, loadAssemblyFromPath('node_modules/projen', false));
+const asm = new Assembly(typesystem, loadAssemblyFromPath('node_modules/projen', false, ['class-covariant-overrides']));
 typesystem.addAssembly(asm, { isRoot: true });
 
 export interface OptionsGeneratorOptions {
