@@ -1,3 +1,4 @@
+import { javascript } from 'projen';
 import { Testing } from 'projen/lib/testing';
 import * as YAML from 'yaml';
 import { yarn } from '../src';
@@ -212,7 +213,6 @@ describe('CdkLabsMonorepo', () => {
     });
 
   });
-
 
   describe('nx integration', () => {
     test('nx can be used', () => {
@@ -458,6 +458,45 @@ describe('CdkLabsMonorepo', () => {
       const tasks = outdir['packages/@cdklabs/two/.projen/tasks.json'];
       // Checking for the correct invocation of the gather-versions script
       expect(tasks.tasks['gather-versions'].steps[0].exec).toContain('@cdklabs/one=exact');
+    });
+  });
+
+  describe('monorepo dependency upgrades', () => {
+    test('workspaces get a check-for-updates task, but not upgrades', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+      });
+
+      const workspace = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        workspaceScope: 'packages',
+      });
+
+      expect(workspace.tasks.all.find(t => t.name === 'check-for-updates')).toBeDefined();
+      expect(workspace.tasks.all.find(t => t.name === 'upgrades')).toBeUndefined();
+      expect(workspace.tasks.all.find(t => t.name === 'post-upgrades')).toBeUndefined();
+    });
+
+    test('workspaces can have custom upgrades', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+      });
+
+      const workspace = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        workspaceScope: 'packages',
+      });
+
+      new javascript.UpgradeDependencies(workspace, {
+        taskName: 'custom-upgrades',
+      });
+
+      expect(workspace.tasks.all.find(t => t.name === 'custom-upgrades')).toBeDefined();
+      expect(parent.github?.workflows.find(w => w.name === 'custom-upgrades_cdklabs-one')).toBeDefined();
     });
   });
 
