@@ -1346,7 +1346,7 @@ tsconfig.json
       {
         "name": "jsii",
         "type": "build",
-        "version": "~5.7",
+        "version": "~5.9",
       },
       {
         "name": "projen",
@@ -2063,7 +2063,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "eslint-plugin-import": "*",
       "jest": "*",
       "jest-junit": "^16",
-      "jsii": "~5.7",
+      "jsii": "~5.9",
       "jsii-diff": "*",
       "jsii-docgen": "^10.5.0",
       "jsii-pacmak": "*",
@@ -3693,12 +3693,12 @@ tsconfig.json
       {
         "name": "jsii-rosetta",
         "type": "build",
-        "version": "~5.7",
+        "version": "~5.9",
       },
       {
         "name": "jsii",
         "type": "build",
-        "version": "~5.7",
+        "version": "~5.9",
       },
       {
         "name": "projen",
@@ -4357,11 +4357,11 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "eslint-plugin-import": "*",
       "jest": "*",
       "jest-junit": "^16",
-      "jsii": "~5.7",
+      "jsii": "~5.9",
       "jsii-diff": "*",
       "jsii-docgen": "^10.5.0",
       "jsii-pacmak": "*",
-      "jsii-rosetta": "~5.7",
+      "jsii-rosetta": "~5.9",
       "projen": "*",
       "ts-jest": "*",
       "typescript": "*",

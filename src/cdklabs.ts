@@ -41,7 +41,7 @@ const cdklabsDefaultProps: Partial<CdklabsConstructLibraryOptions> = {
   // project will basically release every day, because it will see devDependencies updates
   // every day, even though those are not interesting.
   releasableCommits: ReleasableCommits.featuresAndFixes(),
-  jsiiVersion: '~5.7',
+  jsiiVersion: '~5.9',
 };
 
 function createCdklabsPublishingDefaults(npmPackageName: string, langs?: JsiiLanguage[]) {
