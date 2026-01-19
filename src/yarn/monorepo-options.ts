@@ -580,6 +580,11 @@ export interface MonorepoOptions {
    */
   readonly prettierOptions?: javascript.PrettierOptions;
   /**
+   * Generate a project tree file (`.projen/tree.json`) that shows all components and their relationships. Useful for understanding your project structure and debugging.
+   * @default false
+   */
+  readonly projectTree?: boolean;
+  /**
    * Which type of project this is (library/app).
    * @default ProjectType.UNKNOWN
    * @deprecated no longer supported at the base project level
