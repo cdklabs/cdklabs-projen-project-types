@@ -31,6 +31,7 @@ new CdkConstructLibrary(options: CdkConstructLibraryOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -72,6 +73,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.CdkConstructLibrary.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.CdkConstructLibrary.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdkConstructLibrary.addExcludeFromCleanup"></a>
 
@@ -1633,6 +1655,7 @@ new CdkJsiiProject(options: CdkJsiiProjectOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -1672,6 +1695,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.CdkJsiiProject.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.CdkJsiiProject.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdkJsiiProject.addExcludeFromCleanup"></a>
 
@@ -3162,6 +3206,7 @@ new CdklabsConstructLibrary(options: CdklabsConstructLibraryOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -3203,6 +3248,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.CdklabsConstructLibrary.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.CdklabsConstructLibrary.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdklabsConstructLibrary.addExcludeFromCleanup"></a>
 
@@ -4764,6 +4830,7 @@ new CdklabsJsiiProject(options: CdklabsJsiiProjectOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -4803,6 +4870,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.CdklabsJsiiProject.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.CdklabsJsiiProject.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdklabsJsiiProject.addExcludeFromCleanup"></a>
 
@@ -6293,6 +6381,7 @@ new yarn.CdkLabsMonorepo(options: CdkLabsMonorepoOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -6334,6 +6423,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.addExcludeFromCleanup"></a>
 
@@ -7891,6 +8001,7 @@ new CdklabsTypeScriptProject(options: CdklabsTypeScriptProjectOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -7930,6 +8041,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.addExcludeFromCleanup"></a>
 
@@ -9420,6 +9552,7 @@ new CdkTypeScriptProject(options: CdkTypeScriptProjectOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -9459,6 +9592,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.CdkTypeScriptProject.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.CdkTypeScriptProject.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.CdkTypeScriptProject.addExcludeFromCleanup"></a>
 
@@ -10949,6 +11103,7 @@ new yarn.Monorepo(options: MonorepoOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -10990,6 +11145,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.yarn.Monorepo.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.yarn.Monorepo.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.Monorepo.addExcludeFromCleanup"></a>
 
@@ -12552,6 +12728,7 @@ new yarn.MonorepoRelease(project: Project, options?: MonorepoReleaseOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoRelease.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
@@ -12567,6 +12744,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.yarn.MonorepoRelease.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.yarn.MonorepoRelease.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.MonorepoRelease.postSynthesize"></a>
 
@@ -12770,6 +12968,7 @@ new Rosetta(project: JsiiProject, options?: RosettaOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.Rosetta.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.Rosetta.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
 | <code><a href="#cdklabs-projen-project-types.Rosetta.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
 | <code><a href="#cdklabs-projen-project-types.Rosetta.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
@@ -12783,6 +12982,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.Rosetta.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.Rosetta.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.Rosetta.postSynthesize"></a>
 
@@ -12930,6 +13150,7 @@ new yarn.TypeScriptWorkspace(options: TypeScriptWorkspaceOptions)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
@@ -12971,6 +13192,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addExcludeFromCleanup"></a>
 
@@ -14533,6 +14775,7 @@ new yarn.WorkspaceRelease(project: TypeScriptWorkspace, options: WorkspaceReleas
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
@@ -14546,6 +14789,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.postSynthesize"></a>
 
