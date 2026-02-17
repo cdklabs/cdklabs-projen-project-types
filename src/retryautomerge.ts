@@ -20,7 +20,9 @@ export class RetryAutoMerge extends Component {
     const wf = github.addWorkflow('retry-automerge');
     wf.on({
       pullRequest: {
-        types: ['auto_merge_disabled' as any],
+        // The 'auto_merge_disabled' even triggers if a person clicks the button, but
+        // not if the system disables automerge because of a dequeue.
+        types: ['dequeued' as any],
       },
     });
 

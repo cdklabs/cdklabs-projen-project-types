@@ -584,7 +584,7 @@ name: retry-automerge
 on:
   pull_request:
     types:
-      - auto_merge_disabled
+      - dequeued
 jobs:
   retry-automerge:
     runs-on: ubuntu-latest
@@ -2434,7 +2434,7 @@ name: retry-automerge
 on:
   pull_request:
     types:
-      - auto_merge_disabled
+      - dequeued
 jobs:
   retry-automerge:
     runs-on: ubuntu-latest
@@ -4123,7 +4123,7 @@ name: retry-automerge
 on:
   pull_request:
     types:
-      - auto_merge_disabled
+      - dequeued
 jobs:
   retry-automerge:
     runs-on: ubuntu-latest
