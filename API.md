@@ -15332,7 +15332,7 @@ public readonly cdkVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "2.1.0"
+- *Default:* "2.189.1"
 
 Minimum version of the AWS CDK to depend on.
 
@@ -15982,7 +15982,7 @@ public readonly constructsVersion: string;
 ```
 
 - *Type:* string
-- *Default:* for CDK 1.x the default is "3.2.27", for CDK 2.x the default is "10.0.5".
+- *Default:* for CDK 1.x the default is "3.2.27", for CDK 2.x the default is "10.5.1".
 
 Minimum version of the `constructs` library to depend on.
 
@@ -16491,7 +16491,7 @@ public readonly jsiiVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "~5.8.0"
+- *Default:* "~5.9.0"
 
 Version of the jsii compiler to use.
 
@@ -19267,7 +19267,7 @@ public readonly jsiiVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "~5.8.0"
+- *Default:* "~5.9.0"
 
 Version of the jsii compiler to use.
 
@@ -21063,7 +21063,7 @@ public readonly cdkVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "2.1.0"
+- *Default:* "2.189.1"
 
 Minimum version of the AWS CDK to depend on.
 
@@ -21713,7 +21713,7 @@ public readonly constructsVersion: string;
 ```
 
 - *Type:* string
-- *Default:* for CDK 1.x the default is "3.2.27", for CDK 2.x the default is "10.0.5".
+- *Default:* for CDK 1.x the default is "3.2.27", for CDK 2.x the default is "10.5.1".
 
 Minimum version of the `constructs` library to depend on.
 
@@ -22222,7 +22222,7 @@ public readonly jsiiVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "~5.8.0"
+- *Default:* "~5.9.0"
 
 Version of the jsii compiler to use.
 
@@ -25037,7 +25037,7 @@ public readonly jsiiVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "~5.8.0"
+- *Default:* "~5.9.0"
 
 Version of the jsii compiler to use.
 

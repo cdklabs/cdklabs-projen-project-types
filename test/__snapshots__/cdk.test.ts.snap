@@ -1014,7 +1014,7 @@ tsconfig.json
       {
         "name": "jsii",
         "type": "build",
-        "version": "~5.8.0",
+        "version": "~5.9.0",
       },
       {
         "name": "projen",
@@ -1046,7 +1046,7 @@ tsconfig.json
       {
         "name": "constructs",
         "type": "peer",
-        "version": "^10.0.5",
+        "version": "^10.5.1",
       },
     ],
   },
@@ -1675,13 +1675,13 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "aws-cdk-lib": "2.1.0",
       "cdklabs-projen-project-types": "*",
       "commit-and-tag-version": "^12",
-      "constructs": "10.0.5",
+      "constructs": "10.5.1",
       "eslint": "^9",
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
       "jest": "*",
       "jest-junit": "^16",
-      "jsii": "~5.8.0",
+      "jsii": "~5.9.0",
       "jsii-diff": "*",
       "jsii-docgen": "^10.5.0",
       "jsii-pacmak": "*",
@@ -1749,7 +1749,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "name": "@cdklabs/test-construct-library",
     "peerDependencies": {
       "aws-cdk-lib": "^2.1.0",
-      "constructs": "^10.0.5",
+      "constructs": "^10.5.1",
     },
     "private": true,
     "repository": {
@@ -2863,12 +2863,12 @@ tsconfig.json
       {
         "name": "jsii-rosetta",
         "type": "build",
-        "version": "~5.8.0",
+        "version": "~5.9.0",
       },
       {
         "name": "jsii",
         "type": "build",
-        "version": "~5.8.0",
+        "version": "~5.9.0",
       },
       {
         "name": "projen",
@@ -3477,11 +3477,11 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "eslint-plugin-import": "*",
       "jest": "*",
       "jest-junit": "^16",
-      "jsii": "~5.8.0",
+      "jsii": "~5.9.0",
       "jsii-diff": "*",
       "jsii-docgen": "^10.5.0",
       "jsii-pacmak": "*",
-      "jsii-rosetta": "~5.8.0",
+      "jsii-rosetta": "~5.9.0",
       "projen": "*",
       "ts-jest": "*",
       "typescript": "*",
