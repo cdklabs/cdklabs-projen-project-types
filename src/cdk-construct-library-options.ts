@@ -216,7 +216,7 @@ export interface CdkConstructLibraryOptions {
   readonly cdkTestDependencies?: Array<string>;
   /**
    * Minimum version of the AWS CDK to depend on.
-   * @default "2.1.0"
+   * @default "2.189.1"
    */
   readonly cdkVersion: string;
   /**
@@ -277,7 +277,7 @@ export interface CdkConstructLibraryOptions {
   /**
    * Minimum version of the `constructs` library to depend on.
    * @default - for CDK 1.x the default is "3.2.27", for CDK 2.x the default is
-"10.0.5".
+"10.5.1".
    */
   readonly constructsVersion?: string;
   /**
@@ -495,7 +495,7 @@ export interface CdkConstructLibraryOptions {
    * NOTE: The jsii compiler releases since 5.0.0 are not semantically versioned
    * and should remain on the same minor, so we recommend using a `~` dependency
    * (e.g. `~5.0.0`).
-   * @default "~5.8.0"
+   * @default "~5.9.0"
    */
   readonly jsiiVersion?: string;
   /**
