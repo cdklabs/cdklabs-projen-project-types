@@ -1378,7 +1378,7 @@ tsconfig.json
       {
         "name": "constructs",
         "type": "peer",
-        "version": "^10.0.5",
+        "version": "^10.5.1",
       },
     ],
   },
@@ -2057,7 +2057,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
       "aws-cdk-lib": "2.1.0",
       "cdklabs-projen-project-types": "*",
       "commit-and-tag-version": "^12",
-      "constructs": "10.0.5",
+      "constructs": "10.5.1",
       "eslint": "^9",
       "eslint-import-resolver-typescript": "*",
       "eslint-plugin-import": "*",
@@ -2153,7 +2153,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "name": "@cdklabs/test-construct-library",
     "peerDependencies": {
       "aws-cdk-lib": "^2.1.0",
-      "constructs": "^10.0.5",
+      "constructs": "^10.5.1",
     },
     "private": true,
     "repository": {
