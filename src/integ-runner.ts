@@ -15,12 +15,12 @@ export class IntegRunner extends Component {
     const integSnapshotTask = project.addTask('integ', {
       description: 'Run integration snapshot tests',
       receiveArgs: true,
-      exec: 'yarn integ-runner --language typescript',
+      exec: 'integ-runner --language typescript',
     });
 
     project.addTask('integ:update', {
       description: 'Run and update integration snapshot tests',
-      exec: 'yarn integ-runner --language typescript --update-on-failed',
+      exec: 'integ-runner --language typescript --update-on-failed',
       receiveArgs: true,
     });
 

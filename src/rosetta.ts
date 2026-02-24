@@ -38,7 +38,7 @@ export class Rosetta extends Component {
 
     const rosettaTask = project.addTask('rosetta:extract', {
       description: 'Test rosetta extract',
-      exec: `yarn --silent jsii-rosetta extract ${strict ? '--strict' : ''}`.trim(),
+      exec: `jsii-rosetta extract ${strict ? '--strict' : ''}`.trim(),
     });
     project.postCompileTask.spawn(rosettaTask);
     project.addGitIgnore('.jsii.tabl.json');
