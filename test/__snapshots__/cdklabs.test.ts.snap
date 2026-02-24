@@ -1573,7 +1573,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "integ",
         "steps": [
           {
-            "exec": "yarn integ-runner --language typescript",
+            "exec": "integ-runner --language typescript",
             "receiveArgs": true,
           },
         ],
@@ -1583,7 +1583,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "integ:update",
         "steps": [
           {
-            "exec": "yarn integ-runner --language typescript --update-on-failed",
+            "exec": "integ-runner --language typescript --update-on-failed",
             "receiveArgs": true,
           },
         ],
@@ -1717,7 +1717,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "rosetta:extract",
         "steps": [
           {
-            "exec": "yarn --silent jsii-rosetta extract --strict",
+            "exec": "jsii-rosetta extract --strict",
           },
         ],
       },
