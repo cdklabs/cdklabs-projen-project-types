@@ -1038,6 +1038,11 @@ export interface CdkConstructLibraryOptions {
    */
   readonly setNodeEngineVersion?: boolean;
   /**
+   * Automatically adds an `awscdk.SingletonFunction` for each `.singleton-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project.
+   * @default true
+   */
+  readonly singletonLambdaAutoDiscover?: boolean;
+  /**
    * Typescript sources directory.
    * @default "src"
    */
