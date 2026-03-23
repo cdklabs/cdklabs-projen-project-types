@@ -15273,6 +15273,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.singletonLambdaAutoDiscover">singletonLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.SingletonFunction` for each `.singleton-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
@@ -17764,6 +17765,19 @@ public readonly setNodeEngineVersion: boolean;
 - *Default:* true
 
 Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+
+---
+
+##### `singletonLambdaAutoDiscover`<sup>Optional</sup> <a name="singletonLambdaAutoDiscover" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.singletonLambdaAutoDiscover"></a>
+
+```typescript
+public readonly singletonLambdaAutoDiscover: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically adds an `awscdk.SingletonFunction` for each `.singleton-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project.
 
 ---
 
@@ -21002,6 +21016,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scripts">scripts</a></code> | <code>{[ key: string ]: string}</code> | npm scripts to include. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.singletonLambdaAutoDiscover">singletonLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.SingletonFunction` for each `.singleton-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
@@ -23495,6 +23510,19 @@ public readonly setNodeEngineVersion: boolean;
 - *Default:* true
 
 Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now.
+
+---
+
+##### `singletonLambdaAutoDiscover`<sup>Optional</sup> <a name="singletonLambdaAutoDiscover" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.singletonLambdaAutoDiscover"></a>
+
+```typescript
+public readonly singletonLambdaAutoDiscover: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Automatically adds an `awscdk.SingletonFunction` for each `.singleton-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project.
 
 ---
 
