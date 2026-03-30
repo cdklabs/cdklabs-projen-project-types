@@ -335,7 +335,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.self_mutation.outputs.self_mutation_happened
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -350,7 +350,7 @@ jobs:
         run: cd dist && getfacl -R . > permissions-backup.acl
         continue-on-error: true
       - name: Upload artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: build-artifact
           path: dist
@@ -369,7 +369,7 @@ jobs:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -397,7 +397,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -435,7 +435,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -472,7 +472,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -509,7 +509,7 @@ jobs:
         with:
           dotnet-version: 6.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -546,7 +546,7 @@ jobs:
         with:
           go-version: ^1.18.0
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -657,7 +657,7 @@ jobs:
         continue-on-error: true
       - name: Upload artifact
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: build-artifact
           path: dist
@@ -681,7 +681,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -706,7 +706,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -750,7 +750,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -797,7 +797,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -839,7 +839,7 @@ jobs:
         with:
           dotnet-version: 6.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -881,7 +881,7 @@ jobs:
         with:
           go-version: ^1.18.0
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -961,7 +961,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -979,7 +979,7 @@ jobs:
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -1056,7 +1056,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -1074,7 +1074,7 @@ jobs:
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -1151,7 +1151,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -1169,7 +1169,7 @@ jobs:
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -2290,7 +2290,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -2306,7 +2306,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -2683,7 +2683,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.self_mutation.outputs.self_mutation_happened
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -2698,7 +2698,7 @@ jobs:
         run: cd dist && getfacl -R . > permissions-backup.acl
         continue-on-error: true
       - name: Upload artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: build-artifact
           path: dist
@@ -2717,7 +2717,7 @@ jobs:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -2745,7 +2745,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -2783,7 +2783,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -2820,7 +2820,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -2857,7 +2857,7 @@ jobs:
         with:
           dotnet-version: 6.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -2894,7 +2894,7 @@ jobs:
         with:
           go-version: ^1.18.0
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -3005,7 +3005,7 @@ jobs:
         continue-on-error: true
       - name: Upload artifact
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: build-artifact
           path: dist
@@ -3029,7 +3029,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -3054,7 +3054,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -3098,7 +3098,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -3145,7 +3145,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -3187,7 +3187,7 @@ jobs:
         with:
           dotnet-version: 6.x
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -3229,7 +3229,7 @@ jobs:
         with:
           go-version: ^1.18.0
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -3309,7 +3309,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -3327,7 +3327,7 @@ jobs:
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -3404,7 +3404,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -3422,7 +3422,7 @@ jobs:
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -3499,7 +3499,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -3517,7 +3517,7 @@ jobs:
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -4864,7 +4864,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.self_mutation.outputs.self_mutation_happened
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -4889,7 +4889,7 @@ jobs:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -4994,7 +4994,7 @@ jobs:
         continue-on-error: true
       - name: Upload artifact
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: build-artifact
           path: dist
@@ -5012,7 +5012,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Download build artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-artifact
           path: dist
@@ -5076,7 +5076,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -5094,7 +5094,7 @@ jobs:
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -5171,7 +5171,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -5189,7 +5189,7 @@ jobs:
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
@@ -5266,7 +5266,7 @@ jobs:
         working-directory: ./
       - name: Upload patch
         if: steps.create_patch.outputs.patch_created
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7
         with:
           name: repo.patch
           path: repo.patch
@@ -5284,7 +5284,7 @@ jobs:
         with:
           ref: main
       - name: Download patch
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
