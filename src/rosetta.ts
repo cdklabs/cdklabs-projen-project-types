@@ -29,6 +29,7 @@ export class Rosetta extends Component {
     const strict = options.strict ?? true;
 
     if (!strict) {
+      // before removing this, consider https://github.com/cdklabs/cdklabs-projen-project-types/issues/904
       project.logger.warn('Rosetta is NOT operating in strict mode. We are going to enforce this soon.\nPlease fix any examples.');
     }
 
