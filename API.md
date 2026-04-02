@@ -26688,6 +26688,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.biomeOptions">biomeOptions</a></code> | <code>projen.javascript.BiomeOptions</code> | Biome options. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildablePackages">buildablePackages</a></code> | <code>string[]</code> | Packages that should have their build scripts enabled during install. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWithNx">buildWithNx</a></code> | <code>boolean</code> | When Nx is enabled, always build the monorepo using Nx Will build projects in parallel and can improve build performance. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildWorkflowOptions">buildWorkflowOptions</a></code> | <code>projen.javascript.BuildWorkflowOptions</code> | Options for PR build workflow. |
@@ -27097,6 +27098,23 @@ public readonly bugsUrl: string;
 - *Type:* string
 
 The url to your project's issue tracker.
+
+---
+
+##### `buildablePackages`<sup>Optional</sup> <a name="buildablePackages" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.buildablePackages"></a>
+
+```typescript
+public readonly buildablePackages: string[];
+```
+
+- *Type:* string[]
+
+Packages that should have their build scripts enabled during install.
+
+Yarn Berry disables build scripts by default (`enableScripts: false`).
+This option sets `dependenciesMeta.<pkg>.built: true` in the root `package.json`
+for each listed package, allowing them to run their install scripts.
+Only has an effect when the monorepo uses Yarn Berry.
 
 ---
 
@@ -34206,6 +34224,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.biomeOptions">biomeOptions</a></code> | <code>projen.javascript.BiomeOptions</code> | Biome options. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bugsEmail">bugsEmail</a></code> | <code>string</code> | The email address to which issues should be reported. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bugsUrl">bugsUrl</a></code> | <code>string</code> | The url to your project's issue tracker. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildablePackages">buildablePackages</a></code> | <code>string[]</code> | Packages that should have their build scripts enabled during install. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWithNx">buildWithNx</a></code> | <code>boolean</code> | When Nx is enabled, always build the monorepo using Nx Will build projects in parallel and can improve build performance. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWorkflow">buildWorkflow</a></code> | <code>boolean</code> | Define a GitHub workflow for building PRs. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildWorkflowOptions">buildWorkflowOptions</a></code> | <code>projen.javascript.BuildWorkflowOptions</code> | Options for PR build workflow. |
@@ -34615,6 +34634,23 @@ public readonly bugsUrl: string;
 - *Type:* string
 
 The url to your project's issue tracker.
+
+---
+
+##### `buildablePackages`<sup>Optional</sup> <a name="buildablePackages" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.buildablePackages"></a>
+
+```typescript
+public readonly buildablePackages: string[];
+```
+
+- *Type:* string[]
+
+Packages that should have their build scripts enabled during install.
+
+Yarn Berry disables build scripts by default (`enableScripts: false`).
+This option sets `dependenciesMeta.<pkg>.built: true` in the root `package.json`
+for each listed package, allowing them to run their install scripts.
+Only has an effect when the monorepo uses Yarn Berry.
 
 ---
 
@@ -37099,6 +37135,7 @@ const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.gitpod">gitpod</a></code> | <code>boolean</code> | Add a Gitpod development environment. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.hoistingLimits">hoistingLimits</a></code> | <code>string</code> | Configure Yarn Berry's `installConfig.hoistingLimits` for this workspace. Sets the `installConfig.hoistingLimits` field in the workspace `package.json`. Accepted values are `workspaces`, `dependencies`, or `none`. Only has an effect when the parent monorepo uses Yarn Berry. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.homepage">homepage</a></code> | <code>string</code> | Package's Homepage / Website. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.jest">jest</a></code> | <code>boolean</code> | Setup jest unit tests. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.jestOptions">jestOptions</a></code> | <code>projen.javascript.JestOptions</code> | Jest options. |
@@ -37990,6 +38027,18 @@ public readonly gitpod: boolean;
 - *Default:* false
 
 Add a Gitpod development environment.
+
+---
+
+##### `hoistingLimits`<sup>Optional</sup> <a name="hoistingLimits" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.hoistingLimits"></a>
+
+```typescript
+public readonly hoistingLimits: string;
+```
+
+- *Type:* string
+
+Configure Yarn Berry's `installConfig.hoistingLimits` for this workspace. Sets the `installConfig.hoistingLimits` field in the workspace `package.json`. Accepted values are `workspaces`, `dependencies`, or `none`. Only has an effect when the parent monorepo uses Yarn Berry.
 
 ---
 
