@@ -224,8 +224,17 @@ export class Monorepo extends typescript.TypeScriptProject {
     this.package.addField('private', true);
     this.package.addField('workspaces', {
       packages: this.projects.map((p) => p.workspaceDirectory),
-      ...this.renderNoHoist(),
+      ...(!this.options.yarnBerry ? this.renderNoHoist() : undefined),
     });
+
+    // Auto-set hoistingLimits for workspaces with bundled deps when using Yarn Berry
+    if (this.options.yarnBerry) {
+      for (const p of this.projects) {
+        if (p.bundledDeps.length > 0) {
+          p.package.addField('installConfig', { hoistingLimits: 'workspaces' });
+        }
+      }
+    }
 
     this.tsconfig?.file.addOverride('include', []);
     this.tsconfigDev?.file.addOverride('include', ['.projenrc.ts', 'projenrc/**/*.ts']);

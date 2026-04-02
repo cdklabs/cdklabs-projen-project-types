@@ -95,6 +95,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       repositoryDirectory: workspaceDirectory,
       outdir: workspaceDirectory,
       defaultReleaseBranch: 'REQUIRED-BUT-SHOULD-NOT-BE',
+      packageManager: options.parent.package.packageManager,
       release: false,
       package: !options.private,
       eslint: useEslint,

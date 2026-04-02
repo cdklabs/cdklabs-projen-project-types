@@ -643,6 +643,48 @@ describe('CdkLabsMonorepo', () => {
       });
     });
 
+    test('bundled deps auto-set hoistingLimits to workspaces', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        bundledDeps: ['some-dep'],
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['packages/@cdklabs/one/package.json'].installConfig).toEqual({
+        hoistingLimits: 'workspaces',
+      });
+      expect(outdir['packages/@cdklabs/two/package.json'].installConfig).toBeUndefined();
+    });
+
+    test('bundled deps do not produce nohoist on Yarn Berry', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        bundledDeps: ['some-dep'],
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['package.json'].workspaces.nohoist).toBeUndefined();
+    });
+
     test('workspace can configure buildable packages', () => {
       const parent = new yarn.CdkLabsMonorepo({
         name: 'monorepo',
