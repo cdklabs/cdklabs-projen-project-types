@@ -275,6 +275,15 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
           default: 'false',
         },
       },
+      {
+        name: 'hoistingLimits',
+        optional: true,
+        type: { primitive: PrimitiveType.String },
+        docs: {
+          summary: 'Configure Yarn Berry\'s `installConfig.hoistingLimits` for this workspace.',
+          remarks: 'Sets the `installConfig.hoistingLimits` field in the workspace `package.json`.\nAccepted values are `workspaces`, `dependencies`, or `none`.\nOnly has an effect when the parent monorepo uses Yarn Berry.',
+        },
+      },
     ],
   });
 

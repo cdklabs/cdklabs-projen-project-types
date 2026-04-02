@@ -623,6 +623,25 @@ describe('CdkLabsMonorepo', () => {
       const outdir = Testing.synth(parent);
       expect(outdir['.yarnrc.yml']).toBeDefined();
     });
+
+    test('workspace can configure hoistingLimits', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        hoistingLimits: 'workspaces',
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['packages/@cdklabs/one/package.json'].installConfig).toEqual({
+        hoistingLimits: 'workspaces',
+      });
+    });
   });
 });
 

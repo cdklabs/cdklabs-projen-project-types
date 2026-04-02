@@ -258,6 +258,11 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       this.package.addField('private', true);
     }
 
+    // Yarn Berry installConfig
+    if (options.hoistingLimits) {
+      this.package.addField('installConfig', { hoistingLimits: options.hoistingLimits });
+    }
+
     // Fixes
     this.addTsconfigDevFix();
     this.addEslintRcFix();

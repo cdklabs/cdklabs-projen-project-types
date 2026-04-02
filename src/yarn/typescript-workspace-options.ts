@@ -320,6 +320,13 @@ your package. It makes sense to relax this check *only* if you are bundling your
    */
   readonly gitpod?: boolean;
   /**
+   * Configure Yarn Berry's `installConfig.hoistingLimits` for this workspace.
+   * Sets the `installConfig.hoistingLimits` field in the workspace `package.json`.
+   * Accepted values are `workspaces`, `dependencies`, or `none`.
+   * Only has an effect when the parent monorepo uses Yarn Berry.
+   */
+  readonly hoistingLimits?: string;
+  /**
    * Package's Homepage / Website.
    */
   readonly homepage?: string;
