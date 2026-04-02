@@ -18,6 +18,30 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
     ],
     properties: [
       {
+        name: 'yarnBerry',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'Use Yarn Berry as the package manager.',
+          remarks: 'When enabled, the monorepo will use `YARN_BERRY` instead of `YARN_CLASSIC`.\n`yarnBerryOptions` can be used to further configure Yarn Berry.\nThe `nodeLinker` defaults to `node-modules`.',
+          default: 'false',
+        },
+      },
+      {
+        name: 'buildablePackages',
+        optional: true,
+        type: {
+          collection: {
+            kind: CollectionKind.Array,
+            elementtype: { primitive: PrimitiveType.String },
+          },
+        },
+        docs: {
+          summary: 'Packages that should have their build scripts enabled during install.',
+          remarks: 'Yarn Berry disables build scripts by default (`enableScripts: false`).\nThis option sets `dependenciesMeta.<pkg>.built: true` in the root `package.json`\nfor each listed package, allowing them to run their install scripts.\nOnly has an effect when the monorepo uses Yarn Berry.',
+        },
+      },
+      {
         name: 'vscodeWorkspace',
         optional: true,
         type: { primitive: PrimitiveType.Boolean },
@@ -263,6 +287,15 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
             'your package. It makes sense to relax this check *only* if you are bundling your package.',
           ].join('\n'),
           default: 'false',
+        },
+      },
+      {
+        name: 'hoistingLimits',
+        optional: true,
+        type: { primitive: PrimitiveType.String },
+        docs: {
+          summary: 'Configure Yarn Berry\'s `installConfig.hoistingLimits` for this workspace.',
+          remarks: 'Sets the `installConfig.hoistingLimits` field in the workspace `package.json`.\nAccepted values are `workspaces`, `dependencies`, or `none`.\nOnly has an effect when the parent monorepo uses Yarn Berry.',
         },
       },
     ],

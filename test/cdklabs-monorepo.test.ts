@@ -558,6 +558,111 @@ describe('CdkLabsMonorepo', () => {
       });
     });
   });
+
+  describe('Yarn Berry', () => {
+    test('defaults to Yarn Classic', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['package.json'].packageManager).toBeUndefined();
+      expect(outdir['.yarnrc.yml']).toBeUndefined();
+    });
+
+    test('can enable Yarn Berry', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['package.json'].packageManager).toBeDefined();
+      expect(outdir['.yarnrc.yml']).toContain('nodeLinker: node-modules');
+    });
+
+    test('nodeLinker defaults to node-modules', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['.yarnrc.yml']).toContain('nodeLinker: node-modules');
+    });
+
+    test('nodeLinker can be overridden', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+        yarnBerryOptions: {
+          yarnRcOptions: {
+            nodeLinker: javascript.YarnNodeLinker.PNPM,
+          },
+        },
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['.yarnrc.yml']).toContain('nodeLinker: pnpm');
+    });
+
+    test('yarnBerryOptions are passed through', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+        yarnBerryOptions: {
+          zeroInstalls: true,
+        },
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['.yarnrc.yml']).toBeDefined();
+    });
+
+    test('workspace can configure hoistingLimits', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        hoistingLimits: 'workspaces',
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['packages/@cdklabs/one/package.json'].installConfig).toEqual({
+        hoistingLimits: 'workspaces',
+      });
+    });
+
+    test('workspace can configure buildable packages', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+        buildablePackages: ['esbuild', '@swc/core'],
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['package.json'].dependenciesMeta).toEqual({
+        'esbuild': { built: true },
+        '@swc/core': { built: true },
+      });
+    });
+  });
 });
 
 function parseJsonWithMarker(content: string): any {
