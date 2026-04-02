@@ -26823,6 +26823,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.yarnBerry">yarnBerry</a></code> | <code>boolean</code> | Use Yarn Berry as the package manager. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
 
 ---
@@ -29026,6 +29027,23 @@ public readonly workflowRunsOnGroup: GroupRunnerOptions;
 - *Type:* projen.GroupRunnerOptions
 
 Github Runner Group selection options.
+
+---
+
+##### `yarnBerry`<sup>Optional</sup> <a name="yarnBerry" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.yarnBerry"></a>
+
+```typescript
+public readonly yarnBerry: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use Yarn Berry as the package manager.
+
+When enabled, the monorepo will use `YARN_BERRY` instead of `YARN_CLASSIC`.
+`yarnBerryOptions` can be used to further configure Yarn Berry.
+The `nodeLinker` defaults to `node-modules`.
 
 ---
 
@@ -34323,6 +34341,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.yarnBerry">yarnBerry</a></code> | <code>boolean</code> | Use Yarn Berry as the package manager. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
 
 ---
@@ -36526,6 +36545,23 @@ public readonly workflowRunsOnGroup: GroupRunnerOptions;
 - *Type:* projen.GroupRunnerOptions
 
 Github Runner Group selection options.
+
+---
+
+##### `yarnBerry`<sup>Optional</sup> <a name="yarnBerry" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.yarnBerry"></a>
+
+```typescript
+public readonly yarnBerry: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use Yarn Berry as the package manager.
+
+When enabled, the monorepo will use `YARN_BERRY` instead of `YARN_CLASSIC`.
+`yarnBerryOptions` can be used to further configure Yarn Berry.
+The `nodeLinker` defaults to `node-modules`.
 
 ---
 
