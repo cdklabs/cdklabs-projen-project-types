@@ -146,4 +146,10 @@ export interface MonorepoReleaseOptions {
    * Github Runner Group selection options.
    */
   readonly workflowRunsOnGroup?: GroupRunnerOptions;
+  /**
+   * Whether the monorepo uses Yarn Berry.
+   * When enabled, release tasks use Yarn Berry compatible commands.
+   * @default false
+   */
+  readonly yarnBerry?: boolean;
 }

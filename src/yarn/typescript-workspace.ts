@@ -200,7 +200,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     }
 
     // Tasks
-    this.tasks.tryFind('default')?.reset(`cd ${relative(this.outdir, options.parent.outdir)} && npx projen default`);
+    this.tasks.tryFind('default')?.reset('projen default', { cwd: relative(this.outdir, options.parent.outdir) });
     this.tasks.removeTask('clobber');
     this.tasks.removeTask('eject');
 
@@ -220,7 +220,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
           toJSON: () => {
             const steps = (upgrades as any).renderTaskSteps() as TaskStep[];
             return steps.filter(
-              (step) => step.exec && typeof step.exec === 'string' && step.exec?.startsWith('npx npm-check-updates'),
+              (step) => step.exec && typeof step.exec === 'string' && step.exec?.includes('npm-check-updates'),
             );
           },
         } as any,

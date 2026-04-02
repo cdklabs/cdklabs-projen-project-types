@@ -139,21 +139,23 @@ export class Monorepo extends typescript.TypeScriptProject {
     if (fmtTask) {
       buildTask.spawn(fmtTask);
     }
+    const wsRun = options.yarnBerry ? 'yarn workspaces foreach --all run' : 'yarn workspaces run';
+
     if (buildWithNx) {
       buildTask.exec('nx run-many -t build');
       this.github?.tryFindWorkflow('build')?.file?.patch(
         JsonPatch.add('/jobs/build/env/NX_SKIP_NX_CACHE', 'true'),
       );
     } else {
-      buildTask.exec('yarn workspaces run build');
+      buildTask.exec(`${wsRun} build`);
     }
 
     // Run in all workspaces tasks
-    this.tasks.tryFind('compile')?.reset('yarn workspaces run compile');
-    this.tasks.tryFind('package')?.reset('yarn workspaces run package');
-    this.tasks.tryFind('test')?.reset('yarn workspaces run test');
+    this.tasks.tryFind('compile')?.reset(`${wsRun} compile`);
+    this.tasks.tryFind('package')?.reset(`${wsRun} package`);
+    this.tasks.tryFind('test')?.reset(`${wsRun} test`);
     this.addTask('run', {
-      exec: 'yarn workspaces run',
+      exec: wsRun,
       receiveArgs: true,
     });
 
@@ -163,12 +165,11 @@ export class Monorepo extends typescript.TypeScriptProject {
       env: { CI: '0' },
       description: 'Upgrade dependencies in all workspaces',
       steps: [
-        // It is not safe anymore to have 'npm-check-updates' in a Yarn 1 dependency tree, so run it in a separate
-        // tree by using npx.
-        { exec: 'npx npm-check-updates@16 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor' },
-        { exec: 'yarn workspaces run check-for-updates' },
-        { exec: 'yarn install --check-files' },
-        { exec: 'yarn upgrade' },
+        // It is not safe anymore to have 'npm-check-updates' in a Yarn 1 dependency tree, so run it in a separate tree.
+        { exec: `${options.yarnBerry ? 'yarn dlx' : 'npx'} npm-check-updates@20 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor` },
+        { exec: `${wsRun} check-for-updates` },
+        { exec: options.yarnBerry ? 'yarn install' : 'yarn install --check-files' },
+        { exec: options.yarnBerry ? 'yarn up' : 'yarn upgrade' },
         { spawn: 'default' },
         { spawn: 'post-upgrade' },
       ],
@@ -192,6 +193,7 @@ export class Monorepo extends typescript.TypeScriptProject {
       this.monorepoRelease = new MonorepoRelease(this, {
         workflowRunsOn: options.workflowRunsOn,
         buildWithNx,
+        yarnBerry: options.yarnBerry,
         ...options.releaseOptions,
       });
     }
