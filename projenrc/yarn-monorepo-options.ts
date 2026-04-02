@@ -28,6 +28,20 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
         },
       },
       {
+        name: 'buildablePackages',
+        optional: true,
+        type: {
+          collection: {
+            kind: CollectionKind.Array,
+            elementtype: { primitive: PrimitiveType.String },
+          },
+        },
+        docs: {
+          summary: 'Packages that should have their build scripts enabled during install.',
+          remarks: 'Yarn Berry disables build scripts by default (`enableScripts: false`).\nThis option sets `dependenciesMeta.<pkg>.built: true` in the root `package.json`\nfor each listed package, allowing them to run their install scripts.\nOnly has an effect when the monorepo uses Yarn Berry.',
+        },
+      },
+      {
         name: 'vscodeWorkspace',
         optional: true,
         type: { primitive: PrimitiveType.Boolean },

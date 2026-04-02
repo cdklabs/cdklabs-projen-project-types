@@ -50,6 +50,13 @@ export class Monorepo extends typescript.TypeScriptProject {
     this.repositoryUrl = options.repository;
     const buildWithNx = Boolean(options.nx && options.buildWithNx);
 
+    // Yarn Berry dependenciesMeta for buildable packages
+    if (options.buildablePackages?.length) {
+      this.package.addField('dependenciesMeta', Object.fromEntries(
+        options.buildablePackages.map((pkg) => [pkg, { built: true }]),
+      ));
+    }
+
     /**
      * Prettier formatting
      */

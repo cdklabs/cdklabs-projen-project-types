@@ -642,6 +642,26 @@ describe('CdkLabsMonorepo', () => {
         hoistingLimits: 'workspaces',
       });
     });
+
+    test('workspace can configure buildable packages', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+        buildablePackages: ['esbuild', '@swc/core'],
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['package.json'].dependenciesMeta).toEqual({
+        'esbuild': { built: true },
+        '@swc/core': { built: true },
+      });
+    });
   });
 });
 

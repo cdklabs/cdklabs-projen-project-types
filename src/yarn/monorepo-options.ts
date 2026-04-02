@@ -103,6 +103,14 @@ export interface MonorepoOptions {
    */
   readonly bugsUrl?: string;
   /**
+   * Packages that should have their build scripts enabled during install.
+   * Yarn Berry disables build scripts by default (`enableScripts: false`).
+   * This option sets `dependenciesMeta.<pkg>.built: true` in the root `package.json`
+   * for each listed package, allowing them to run their install scripts.
+   * Only has an effect when the monorepo uses Yarn Berry.
+   */
+  readonly buildablePackages?: Array<string>;
+  /**
    * When Nx is enabled, always build the monorepo using Nx
    * Will build projects in parallel and can improve build performance
    * @default false
