@@ -919,6 +919,14 @@ export interface MonorepoOptions {
    */
   readonly workflowRunsOnGroup?: GroupRunnerOptions;
   /**
+   * Use Yarn Berry as the package manager.
+   * When enabled, the monorepo will use `YARN_BERRY` instead of `YARN_CLASSIC`.
+   * `yarnBerryOptions` can be used to further configure Yarn Berry.
+   * The `nodeLinker` defaults to `node-modules`.
+   * @default false
+   */
+  readonly yarnBerry?: boolean;
+  /**
    * Options for Yarn Berry.
    * @default - Yarn Berry v4 with all default options
    */

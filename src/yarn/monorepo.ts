@@ -31,7 +31,14 @@ export class Monorepo extends typescript.TypeScriptProject {
   constructor(public readonly options: MonorepoOptions) {
     super({
       ...options,
-      packageManager: javascript.NodePackageManager.YARN_CLASSIC,
+      packageManager: options.yarnBerry ? javascript.NodePackageManager.YARN_BERRY : javascript.NodePackageManager.YARN_CLASSIC,
+      yarnBerryOptions: options.yarnBerry ? {
+        ...options.yarnBerryOptions,
+        yarnRcOptions: {
+          nodeLinker: javascript.YarnNodeLinker.NODE_MODULES,
+          ...options.yarnBerryOptions?.yarnRcOptions,
+        },
+      } : undefined,
       sampleCode: false,
       jest: false,
       eslint: false,

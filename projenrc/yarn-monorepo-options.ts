@@ -18,6 +18,16 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
     ],
     properties: [
       {
+        name: 'yarnBerry',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'Use Yarn Berry as the package manager.',
+          remarks: 'When enabled, the monorepo will use `YARN_BERRY` instead of `YARN_CLASSIC`.\n`yarnBerryOptions` can be used to further configure Yarn Berry.\nThe `nodeLinker` defaults to `node-modules`.',
+          default: 'false',
+        },
+      },
+      {
         name: 'vscodeWorkspace',
         optional: true,
         type: { primitive: PrimitiveType.Boolean },
