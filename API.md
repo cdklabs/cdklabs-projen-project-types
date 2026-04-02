@@ -36652,6 +36652,7 @@ const monorepoReleaseOptions: yarn.MonorepoReleaseOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.workflowContainerImage">workflowContainerImage</a></code> | <code>string</code> | Container image to use for GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.yarnBerry">yarnBerry</a></code> | <code>boolean</code> | Whether the monorepo uses Yarn Berry. |
 
 ---
 
@@ -36976,6 +36977,21 @@ public readonly workflowRunsOnGroup: GroupRunnerOptions;
 - *Type:* projen.GroupRunnerOptions
 
 Github Runner Group selection options.
+
+---
+
+##### `yarnBerry`<sup>Optional</sup> <a name="yarnBerry" id="cdklabs-projen-project-types.yarn.MonorepoReleaseOptions.property.yarnBerry"></a>
+
+```typescript
+public readonly yarnBerry: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether the monorepo uses Yarn Berry.
+
+When enabled, release tasks use Yarn Berry compatible commands.
 
 ---
 
