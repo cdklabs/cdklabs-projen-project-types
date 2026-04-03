@@ -601,7 +601,7 @@ tsconfig.tsbuildinfo
         "name": "upgrade",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor",
+            "exec": "npx npm-check-updates@20 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor",
           },
           {
             "exec": "yarn workspaces run check-for-updates",
@@ -1225,7 +1225,8 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "cd ../../.. && npx projen default",
+            "cwd": "../../..",
+            "exec": "projen default",
           },
         ],
       },
@@ -2028,7 +2029,8 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "cd ../../.. && npx projen default",
+            "cwd": "../../..",
+            "exec": "projen default",
           },
         ],
       },
@@ -2772,9 +2774,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: lts/*
+          package-manager-cache: false
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
@@ -3269,7 +3272,7 @@ tsconfig.tsbuildinfo
         "name": "upgrade",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor",
+            "exec": "npx npm-check-updates@20 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor",
           },
           {
             "exec": "yarn workspaces run check-for-updates",
@@ -3926,7 +3929,8 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "cd ../../.. && npx projen default",
+            "cwd": "../../..",
+            "exec": "projen default",
           },
         ],
       },
@@ -4802,7 +4806,8 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "cd ../../.. && npx projen default",
+            "cwd": "../../..",
+            "exec": "projen default",
           },
         ],
       },
@@ -5883,7 +5888,7 @@ tsconfig.tsbuildinfo
         "name": "upgrade",
         "steps": [
           {
-            "exec": "npx npm-check-updates@16 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor",
+            "exec": "npx npm-check-updates@20 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor",
           },
           {
             "exec": "yarn workspaces run check-for-updates",
@@ -6509,7 +6514,8 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "cd ../../.. && npx projen default",
+            "cwd": "../../..",
+            "exec": "projen default",
           },
         ],
       },

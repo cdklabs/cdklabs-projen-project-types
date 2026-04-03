@@ -175,6 +175,16 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
           default: 'false',
         },
       },
+      {
+        name: 'yarnBerry',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'Whether the monorepo uses Yarn Berry.',
+          remarks: 'When enabled, release tasks use Yarn Berry compatible commands.',
+          default: 'false',
+        },
+      },
     ],
   });
 

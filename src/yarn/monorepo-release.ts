@@ -25,6 +25,7 @@ export class MonorepoRelease extends Component {
   private readonly github: github.GitHub;
   private readonly releaseTrigger: projenRelease.ReleaseTrigger;
   private readonly buildWithNx: boolean;
+  private readonly wsRun: string;
   private readonly packagesToRelease = new Array<{
     readonly workspaceDirectory: string;
     readonly release: {
@@ -49,6 +50,7 @@ export class MonorepoRelease extends Component {
     this.github = gh;
     this.releaseTrigger = options.releaseTrigger ?? projenRelease.ReleaseTrigger.continuous();
     this.buildWithNx = options.buildWithNx ?? false;
+    this.wsRun = options.yarnBerry ? 'yarn workspaces foreach --all run' : 'yarn workspaces run';
   }
 
   public workspaceRelease(project: TypeScriptWorkspace) {
@@ -214,15 +216,15 @@ export class MonorepoRelease extends Component {
     });
     // Unroll out the 'release' task, and do all the phases for each individual package. We need to 'bump' at the same
     // time so that the dependency versions in all 'package.json's are correct.
-    this.releaseTask.exec('yarn workspaces run shx rm -rf dist');
-    this.releaseTask.exec('yarn workspaces run bump');
+    this.releaseTask.exec(`${this.wsRun} shx rm -rf dist`);
+    this.releaseTask.exec(`${this.wsRun} bump`);
     if (this.buildWithNx) {
       this.releaseTask.exec('nx run-many -t build');
       this.releaseTask.env('NX_SKIP_NX_CACHE', 'true');
     } else {
-      this.releaseTask.exec('yarn workspaces run build');
+      this.releaseTask.exec(`${this.wsRun} build`);
     }
-    this.releaseTask.exec('yarn workspaces run unbump');
+    this.releaseTask.exec(`${this.wsRun} unbump`);
     // anti-tamper check (fails if there were changes to committed files)
     // this will identify any non-committed files generated during build (e.g. test snapshots)
     this.releaseTask.exec(projenRelease.Release.ANTI_TAMPER_CMD);
@@ -251,14 +253,15 @@ export class MonorepoRelease extends Component {
     const preBuildSteps = [
       {
         name: 'Setup Node.js',
-        uses: 'actions/setup-node@v4',
+        uses: 'actions/setup-node@v6',
         with: {
           'node-version': (this.project as any).nodeVersion ?? 'lts/*',
+          'package-manager-cache': false,
         },
       },
       {
         name: 'Install dependencies',
-        run: 'yarn install --check-files --frozen-lockfile',
+        run: this.options.yarnBerry ? 'yarn install --immutable' : 'yarn install --check-files --frozen-lockfile',
       },
       ...(this.options.releaseWorkflowSetupSteps ?? []),
     ];
