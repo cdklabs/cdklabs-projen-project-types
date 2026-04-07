@@ -139,7 +139,7 @@ export class Monorepo extends typescript.TypeScriptProject {
     if (fmtTask) {
       buildTask.spawn(fmtTask);
     }
-    const wsRun = options.yarnBerry ? 'yarn workspaces foreach --all run' : 'yarn workspaces run';
+    const wsRun = options.yarnBerry ? 'yarn workspaces foreach --all --exclude . run' : 'yarn workspaces run';
 
     if (buildWithNx) {
       buildTask.exec('nx run-many -t build');
@@ -160,13 +160,18 @@ export class Monorepo extends typescript.TypeScriptProject {
     });
 
     // Upgrade all packages
+    const cooldown = options.depsUpgradeOptions?.cooldown;
+    const upgradeEnv: Record<string, string> = { CI: '0' };
+    if (cooldown && options.yarnBerry) {
+      upgradeEnv.YARN_NPM_MINIMAL_AGE_GATE = String(cooldown * 24 * 60);
+    }
     this.tasks.removeTask('upgrade');
     this.tasks.addTask('upgrade', {
-      env: { CI: '0' },
+      env: upgradeEnv,
       description: 'Upgrade dependencies in all workspaces',
       steps: [
         // It is not safe anymore to have 'npm-check-updates' in a Yarn 1 dependency tree, so run it in a separate tree.
-        { exec: `${options.yarnBerry ? 'yarn dlx' : 'npx'} npm-check-updates@20 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor` },
+        { exec: `${options.yarnBerry ? 'yarn dlx' : 'npx'} npm-check-updates@20 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor${cooldown ? ` --cooldown=${cooldown}` : ''}` },
         { exec: `${wsRun} check-for-updates` },
         { exec: options.yarnBerry ? 'yarn install' : 'yarn install --check-files' },
         { exec: options.yarnBerry ? 'yarn up' : 'yarn upgrade' },
