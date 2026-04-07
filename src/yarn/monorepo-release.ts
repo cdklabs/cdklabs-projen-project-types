@@ -50,7 +50,7 @@ export class MonorepoRelease extends Component {
     this.github = gh;
     this.releaseTrigger = options.releaseTrigger ?? projenRelease.ReleaseTrigger.continuous();
     this.buildWithNx = options.buildWithNx ?? false;
-    this.wsRun = options.yarnBerry ? 'yarn workspaces foreach --all --exclude . run' : 'yarn workspaces run';
+    this.wsRun = options.yarnBerry ? 'yarn workspaces foreach --all --exclude . --topological run' : 'yarn workspaces run';
   }
 
   public workspaceRelease(project: TypeScriptWorkspace) {
