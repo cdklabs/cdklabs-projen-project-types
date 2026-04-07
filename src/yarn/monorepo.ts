@@ -139,7 +139,7 @@ export class Monorepo extends typescript.TypeScriptProject {
     if (fmtTask) {
       buildTask.spawn(fmtTask);
     }
-    const wsRun = options.yarnBerry ? 'yarn workspaces foreach --all --exclude . run' : 'yarn workspaces run';
+    const wsRun = options.yarnBerry ? 'yarn workspaces foreach --all --exclude . --topological-dev run' : 'yarn workspaces run';
 
     if (buildWithNx) {
       buildTask.exec('nx run-many -t build');
