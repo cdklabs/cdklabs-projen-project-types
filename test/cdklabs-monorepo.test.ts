@@ -705,7 +705,7 @@ describe('CdkLabsMonorepo', () => {
       });
     });
 
-    test('workspace commands run in topological order', () => {
+    test('workspace commands run in topological order including devDependencies', () => {
       const parent = new yarn.CdkLabsMonorepo({
         name: 'monorepo',
         defaultReleaseBranch: 'main',
@@ -715,12 +715,12 @@ describe('CdkLabsMonorepo', () => {
       const outdir = Testing.synth(parent);
       const tasks = outdir['.projen/tasks.json'].tasks;
 
-      // Every task step that uses `yarn workspaces foreach` must include `--topological`
+      // Every task step that uses `yarn workspaces foreach` must include `--topological-dev`
       const allSteps = Object.values(tasks).flatMap((t: any) => t.steps ?? []);
       const foreachSteps = allSteps.filter((s: any) => s.exec?.includes('yarn workspaces foreach'));
       expect(foreachSteps.length).toBeGreaterThan(0);
       for (const step of foreachSteps) {
-        expect(step.exec).toContain('--topological');
+        expect(step.exec).toContain('--topological-dev');
       }
     });
   });
