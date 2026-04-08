@@ -251,18 +251,7 @@ export class MonorepoRelease extends Component {
 
     // The arrays are being cloned to avoid accumulating values from previous branches
     const preBuildSteps = [
-      {
-        name: 'Setup Node.js',
-        uses: 'actions/setup-node@v6',
-        with: {
-          'node-version': (this.project as any).nodeVersion ?? 'lts/*',
-          'package-manager-cache': false,
-        },
-      },
-      {
-        name: 'Install dependencies',
-        run: this.options.yarnBerry ? 'yarn install --immutable' : 'yarn install --check-files --frozen-lockfile',
-      },
+      ...(this.project as any).renderWorkflowSetup({ mutable: false }),
       ...(this.options.releaseWorkflowSetupSteps ?? []),
     ];
     const postBuildSteps = [...(this.options.postBuildSteps ?? [])];
