@@ -322,6 +322,18 @@ describe('CdkLabsMonorepo', () => {
       expect(outdir).toMatchSnapshot();
     });
 
+    test('release workflow setup steps for yarn classic', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+      expect(releaseWorkflow.jobs.release.steps).toMatchSnapshot();
+    });
+
     test('monorepo release with nextVersionCommand', () => {
       new yarn.TypeScriptWorkspace({
         parent,
@@ -722,6 +734,25 @@ describe('CdkLabsMonorepo', () => {
       for (const step of foreachSteps) {
         expect(step.exec).toContain('--topological-dev');
       }
+    });
+
+    test('release workflow setup steps for yarn berry', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+        release: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+      expect(releaseWorkflow.jobs.release.steps).toMatchSnapshot();
     });
   });
 });

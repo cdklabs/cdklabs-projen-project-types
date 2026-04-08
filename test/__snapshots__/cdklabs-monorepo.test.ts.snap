@@ -1,5 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CdkLabsMonorepo Yarn Berry release workflow setup steps for yarn berry 1`] = `
+[
+  {
+    "name": "Checkout",
+    "uses": "actions/checkout@v6",
+    "with": {
+      "fetch-depth": 0,
+    },
+  },
+  {
+    "name": "Set git identity",
+    "run": "git config user.name "github-actions[bot]"
+git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
+  },
+  {
+    "name": "Enable corepack",
+    "run": "corepack enable",
+  },
+  {
+    "name": "Setup Node.js",
+    "uses": "actions/setup-node@v6",
+    "with": {
+      "node-version": "lts/*",
+      "package-manager-cache": false,
+    },
+  },
+  {
+    "name": "Install dependencies",
+    "run": "yarn install --immutable",
+  },
+  {
+    "name": "release",
+    "run": "npx projen release",
+  },
+  {
+    "id": "check-publish-cdklabs-one",
+    "run": "(git ls-remote -q --exit-code --tags origin $(cat dist/releasetag.txt) && (echo "publish=false" >> $GITHUB_OUTPUT)) || echo "publish=true" >> $GITHUB_OUTPUT",
+    "working-directory": "packages/@cdklabs/one",
+  },
+  {
+    "id": "git_remote",
+    "name": "Check for new commits",
+    "run": "echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT",
+  },
+  {
+    "continue-on-error": true,
+    "if": "\${{ steps.git_remote.outputs.latest_commit == github.sha }}",
+    "name": "@cdklabs/one: Backup artifact permissions",
+    "run": "cd dist && getfacl -R . > permissions-backup.acl",
+    "working-directory": "packages/@cdklabs/one",
+  },
+  {
+    "if": "\${{ steps.git_remote.outputs.latest_commit == github.sha }}",
+    "name": "@cdklabs/one: Upload artifact",
+    "uses": "actions/upload-artifact@v7",
+    "with": {
+      "name": "cdklabs-one_build-artifact",
+      "overwrite": true,
+      "path": "packages/@cdklabs/one/dist",
+    },
+  },
+]
+`;
+
 exports[`CdkLabsMonorepo nx integration can build with nx 1`] = `
 {
   "name": "build",
@@ -5471,6 +5535,66 @@ tsconfig.tsbuildinfo
     ],
   },
 }
+`;
+
+exports[`CdkLabsMonorepo with monorepo that releases release workflow setup steps for yarn classic 1`] = `
+[
+  {
+    "name": "Checkout",
+    "uses": "actions/checkout@v6",
+    "with": {
+      "fetch-depth": 0,
+    },
+  },
+  {
+    "name": "Set git identity",
+    "run": "git config user.name "github-actions[bot]"
+git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
+  },
+  {
+    "name": "Setup Node.js",
+    "uses": "actions/setup-node@v6",
+    "with": {
+      "node-version": "lts/*",
+      "package-manager-cache": false,
+    },
+  },
+  {
+    "name": "Install dependencies",
+    "run": "yarn install --check-files --frozen-lockfile",
+  },
+  {
+    "name": "release",
+    "run": "npx projen release",
+  },
+  {
+    "id": "check-publish-cdklabs-one",
+    "run": "(git ls-remote -q --exit-code --tags origin $(cat dist/releasetag.txt) && (echo "publish=false" >> $GITHUB_OUTPUT)) || echo "publish=true" >> $GITHUB_OUTPUT",
+    "working-directory": "packages/@cdklabs/one",
+  },
+  {
+    "id": "git_remote",
+    "name": "Check for new commits",
+    "run": "echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT",
+  },
+  {
+    "continue-on-error": true,
+    "if": "\${{ steps.git_remote.outputs.latest_commit == github.sha }}",
+    "name": "@cdklabs/one: Backup artifact permissions",
+    "run": "cd dist && getfacl -R . > permissions-backup.acl",
+    "working-directory": "packages/@cdklabs/one",
+  },
+  {
+    "if": "\${{ steps.git_remote.outputs.latest_commit == github.sha }}",
+    "name": "@cdklabs/one: Upload artifact",
+    "uses": "actions/upload-artifact@v7",
+    "with": {
+      "name": "cdklabs-one_build-artifact",
+      "overwrite": true,
+      "path": "packages/@cdklabs/one/dist",
+    },
+  },
+]
 `;
 
 exports[`CdkLabsMonorepo workspace inherits config from monorepo repository configuration 1`] = `
