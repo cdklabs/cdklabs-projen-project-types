@@ -149,11 +149,11 @@ export interface MonorepoOptions {
    * your `package.json`.
    *
    * The recommendation is to only specify the module name here (e.g.
-   * `express`). This will behave similar to `yarn add` or `npm install` in the
+   * `express`). This will behave similar to `pnpm add` or `npm install` in the
    * sense that it will add the module as a dependency to your `package.json`
    * file with the latest version (`^`). You can specify semver requirements in
-   * the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-   * this will be what you `package.json` will eventually include.
+   * the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+   * this will be what your `package.json` will eventually include.
    */
   readonly bundledDeps?: Array<string>;
   /**
@@ -198,6 +198,13 @@ export interface MonorepoOptions {
    */
   readonly commitGenerated?: boolean;
   /**
+   * Package names that must use a consistent version across all workspaces.
+   * Uses Yarn Berry constraints to enforce that all workspaces use the same version
+   * of the listed packages. The version is read from the root `devDependencies`.
+   * Only has an effect when the monorepo uses Yarn Berry.
+   */
+  readonly consistentVersions?: Array<string>;
+  /**
    * License copyright owner.
    * @default - defaults to the value of authorName or "" if `authorName` is undefined.
    */
@@ -235,11 +242,11 @@ export interface MonorepoOptions {
   /**
    * Runtime dependencies of this module.
    * The recommendation is to only specify the module name here (e.g.
-   * `express`). This will behave similar to `yarn add` or `npm install` in the
+   * `express`). This will behave similar to `pnpm add` or `npm install` in the
    * sense that it will add the module as a dependency to your `package.json`
    * file with the latest version (`^`). You can specify semver requirements in
-   * the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-   * this will be what you `package.json` will eventually include.
+   * the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+   * this will be what your `package.json` will eventually include.
    * @default []
    */
   readonly deps?: Array<string>;
@@ -272,11 +279,11 @@ export interface MonorepoOptions {
    * module is consumed.
    *
    * The recommendation is to only specify the module name here (e.g.
-   * `express`). This will behave similar to `yarn add` or `npm install` in the
+   * `express`). This will behave similar to `pnpm add` or `npm install` in the
    * sense that it will add the module as a dependency to your `package.json`
    * file with the latest version (`^`). You can specify semver requirements in
-   * the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-   * this will be what you `package.json` will eventually include.
+   * the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+   * this will be what your `package.json` will eventually include.
    * @default []
    */
   readonly devDeps?: Array<string>;
@@ -585,7 +592,7 @@ export interface MonorepoOptions {
   readonly peerDeps?: Array<string>;
   /**
    * The version of PNPM to use if using PNPM as a package manager.
-   * @default "9"
+   * @default "10.33.0"
    */
   readonly pnpmVersion?: string;
   /**

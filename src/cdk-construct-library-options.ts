@@ -145,11 +145,11 @@ export interface CdkConstructLibraryOptions {
    * your `package.json`.
    *
    * The recommendation is to only specify the module name here (e.g.
-   * `express`). This will behave similar to `yarn add` or `npm install` in the
+   * `express`). This will behave similar to `pnpm add` or `npm install` in the
    * sense that it will add the module as a dependency to your `package.json`
    * file with the latest version (`^`). You can specify semver requirements in
-   * the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-   * this will be what you `package.json` will eventually include.
+   * the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+   * this will be what your `package.json` will eventually include.
    */
   readonly bundledDeps?: Array<string>;
   /**
@@ -323,11 +323,11 @@ export interface CdkConstructLibraryOptions {
   /**
    * Runtime dependencies of this module.
    * The recommendation is to only specify the module name here (e.g.
-   * `express`). This will behave similar to `yarn add` or `npm install` in the
+   * `express`). This will behave similar to `pnpm add` or `npm install` in the
    * sense that it will add the module as a dependency to your `package.json`
    * file with the latest version (`^`). You can specify semver requirements in
-   * the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-   * this will be what you `package.json` will eventually include.
+   * the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+   * this will be what your `package.json` will eventually include.
    * @default []
    */
   readonly deps?: Array<string>;
@@ -360,11 +360,11 @@ export interface CdkConstructLibraryOptions {
    * module is consumed.
    *
    * The recommendation is to only specify the module name here (e.g.
-   * `express`). This will behave similar to `yarn add` or `npm install` in the
+   * `express`). This will behave similar to `pnpm add` or `npm install` in the
    * sense that it will add the module as a dependency to your `package.json`
    * file with the latest version (`^`). You can specify semver requirements in
-   * the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-   * this will be what you `package.json` will eventually include.
+   * the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+   * this will be what your `package.json` will eventually include.
    * @default []
    */
   readonly devDeps?: Array<string>;
@@ -759,7 +759,7 @@ export interface CdkConstructLibraryOptions {
   readonly peerDeps?: Array<string>;
   /**
    * The version of PNPM to use if using PNPM as a package manager.
-   * @default "9"
+   * @default "10.33.0"
    */
   readonly pnpmVersion?: string;
   /**

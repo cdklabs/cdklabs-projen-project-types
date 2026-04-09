@@ -254,7 +254,7 @@ public runTaskCommand(task: Task): string
 Returns the shell command to execute in order to run a task.
 
 This will
-typically be `npx projen TASK`.
+typically be `pnpm projen TASK`.
 
 ###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdkConstructLibrary.runTaskCommand.parameter.task"></a>
 
@@ -379,9 +379,9 @@ Bundled dependencies will be added as normal dependencies as well as to the
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -415,9 +415,9 @@ Defines normal dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -437,9 +437,9 @@ Defines development/test dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -495,9 +495,9 @@ your code against the minimum version required from your consumers.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -1876,7 +1876,7 @@ public runTaskCommand(task: Task): string
 Returns the shell command to execute in order to run a task.
 
 This will
-typically be `npx projen TASK`.
+typically be `pnpm projen TASK`.
 
 ###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdkJsiiProject.runTaskCommand.parameter.task"></a>
 
@@ -2001,9 +2001,9 @@ Bundled dependencies will be added as normal dependencies as well as to the
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -2037,9 +2037,9 @@ Defines normal dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -2059,9 +2059,9 @@ Defines development/test dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -2117,9 +2117,9 @@ your code against the minimum version required from your consumers.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -3429,7 +3429,7 @@ public runTaskCommand(task: Task): string
 Returns the shell command to execute in order to run a task.
 
 This will
-typically be `npx projen TASK`.
+typically be `pnpm projen TASK`.
 
 ###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdklabsConstructLibrary.runTaskCommand.parameter.task"></a>
 
@@ -3554,9 +3554,9 @@ Bundled dependencies will be added as normal dependencies as well as to the
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -3590,9 +3590,9 @@ Defines normal dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -3612,9 +3612,9 @@ Defines development/test dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -3670,9 +3670,9 @@ your code against the minimum version required from your consumers.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -5051,7 +5051,7 @@ public runTaskCommand(task: Task): string
 Returns the shell command to execute in order to run a task.
 
 This will
-typically be `npx projen TASK`.
+typically be `pnpm projen TASK`.
 
 ###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdklabsJsiiProject.runTaskCommand.parameter.task"></a>
 
@@ -5176,9 +5176,9 @@ Bundled dependencies will be added as normal dependencies as well as to the
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -5212,9 +5212,9 @@ Defines normal dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -5234,9 +5234,9 @@ Defines development/test dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -5292,9 +5292,9 @@ your code against the minimum version required from your consumers.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -6411,7 +6411,6 @@ new yarn.CdkLabsMonorepo(options: CdkLabsMonorepoOptions)
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register">register</a></code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.requestInstallDependencies">requestInstallDependencies</a></code> | Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run. |
 
 ---
@@ -6602,7 +6601,7 @@ public runTaskCommand(task: Task): string
 Returns the shell command to execute in order to run a task.
 
 This will
-typically be `npx projen TASK`.
+typically be `pnpm projen TASK`.
 
 ###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.runTaskCommand.parameter.task"></a>
 
@@ -6727,9 +6726,9 @@ Bundled dependencies will be added as normal dependencies as well as to the
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -6763,9 +6762,9 @@ Defines normal dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -6785,9 +6784,9 @@ Defines development/test dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -6843,9 +6842,9 @@ your code against the minimum version required from your consumers.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -6949,18 +6948,6 @@ The script name.
 - *Type:* string
 
 The command to execute.
-
----
-
-##### `register` <a name="register" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register"></a>
-
-```typescript
-public register(project: TypeScriptWorkspace): void
-```
-
-###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.register.parameter.project"></a>
-
-- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
 
 ---
 
@@ -7094,7 +7081,7 @@ yarn.CdkLabsMonorepo.isMonorepo(x: Project)
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.subprojects">subprojects</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -7365,10 +7352,10 @@ The root project.
 ##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.subprojects"></a>
 
 ```typescript
-public readonly subprojects: Project[];
+public readonly subprojects: TypeScriptWorkspace[];
 ```
 
-- *Type:* projen.Project[]
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]
 
 Returns all the subprojects within this project.
 
@@ -8222,7 +8209,7 @@ public runTaskCommand(task: Task): string
 Returns the shell command to execute in order to run a task.
 
 This will
-typically be `npx projen TASK`.
+typically be `pnpm projen TASK`.
 
 ###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.runTaskCommand.parameter.task"></a>
 
@@ -8347,9 +8334,9 @@ Bundled dependencies will be added as normal dependencies as well as to the
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -8383,9 +8370,9 @@ Defines normal dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -8405,9 +8392,9 @@ Defines development/test dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -8463,9 +8450,9 @@ your code against the minimum version required from your consumers.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -9773,7 +9760,7 @@ public runTaskCommand(task: Task): string
 Returns the shell command to execute in order to run a task.
 
 This will
-typically be `npx projen TASK`.
+typically be `pnpm projen TASK`.
 
 ###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.CdkTypeScriptProject.runTaskCommand.parameter.task"></a>
 
@@ -9898,9 +9885,9 @@ Bundled dependencies will be added as normal dependencies as well as to the
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -9934,9 +9921,9 @@ Defines normal dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -9956,9 +9943,9 @@ Defines development/test dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -10014,9 +10001,9 @@ your code against the minimum version required from your consumers.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -11074,6 +11061,191 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 
 ---
 
+### Constraints <a name="Constraints" id="cdklabs-projen-project-types.yarn.Constraints"></a>
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.Constraints.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.Constraints(project: Monorepo, options: ConstraintsOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.Initializer.parameter.project">project</a></code> | <code>cdklabs-projen-project-types.yarn.Monorepo</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.ConstraintsOptions</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.Constraints.Initializer.parameter.project"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.Monorepo
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdklabs-projen-project-types.yarn.Constraints.Initializer.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.ConstraintsOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.yarn.Constraints.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.yarn.Constraints.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.yarn.Constraints.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.yarn.Constraints.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.yarn.Constraints.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.yarn.Constraints.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.yarn.Constraints.isConstruct"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.Constraints.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.Constraints.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.yarn.Constraints.isComponent"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+yarn.Constraints.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.yarn.Constraints.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Constraints.property.project">project</a></code> | <code>cdklabs-projen-project-types.yarn.Monorepo</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.yarn.Constraints.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.Constraints.property.project"></a>
+
+```typescript
+public readonly project: Monorepo;
+```
+
+- *Type:* cdklabs-projen-project-types.yarn.Monorepo
+
+---
+
+
 ### Monorepo <a name="Monorepo" id="cdklabs-projen-project-types.yarn.Monorepo"></a>
 
 A monorepo using yarn workspaces.
@@ -11133,7 +11305,6 @@ new yarn.Monorepo(options: MonorepoOptions)
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.register">register</a></code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.requestInstallDependencies">requestInstallDependencies</a></code> | Allows a sub project to request installation of dependency at the Monorepo root They must provide a function that is executed after dependencies have been installed If this function returns true, the install command is run for a second time after all sub project requests have run. |
 
 ---
@@ -11324,7 +11495,7 @@ public runTaskCommand(task: Task): string
 Returns the shell command to execute in order to run a task.
 
 This will
-typically be `npx projen TASK`.
+typically be `pnpm projen TASK`.
 
 ###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.Monorepo.runTaskCommand.parameter.task"></a>
 
@@ -11449,9 +11620,9 @@ Bundled dependencies will be added as normal dependencies as well as to the
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -11485,9 +11656,9 @@ Defines normal dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -11507,9 +11678,9 @@ Defines development/test dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -11565,9 +11736,9 @@ your code against the minimum version required from your consumers.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -11671,18 +11842,6 @@ The script name.
 - *Type:* string
 
 The command to execute.
-
----
-
-##### `register` <a name="register" id="cdklabs-projen-project-types.yarn.Monorepo.register"></a>
-
-```typescript
-public register(project: TypeScriptWorkspace): void
-```
-
-###### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.yarn.Monorepo.register.parameter.project"></a>
-
-- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace
 
 ---
 
@@ -11816,7 +11975,7 @@ yarn.Monorepo.isMonorepo(x: Project)
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
-| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.subprojects">subprojects</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -12087,10 +12246,10 @@ The root project.
 ##### `subprojects`<sup>Required</sup> <a name="subprojects" id="cdklabs-projen-project-types.yarn.Monorepo.property.subprojects"></a>
 
 ```typescript
-public readonly subprojects: Project[];
+public readonly subprojects: TypeScriptWorkspace[];
 ```
 
-- *Type:* projen.Project[]
+- *Type:* cdklabs-projen-project-types.yarn.TypeScriptWorkspace[]
 
 Returns all the subprojects within this project.
 
@@ -13373,7 +13532,7 @@ public runTaskCommand(task: Task): string
 Returns the shell command to execute in order to run a task.
 
 This will
-typically be `npx projen TASK`.
+typically be `pnpm projen TASK`.
 
 ###### `task`<sup>Required</sup> <a name="task" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.runTaskCommand.parameter.task"></a>
 
@@ -13498,9 +13657,9 @@ Bundled dependencies will be added as normal dependencies as well as to the
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -13534,9 +13693,9 @@ Defines normal dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -13556,9 +13715,9 @@ Defines development/test dependencies.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -13614,9 +13773,9 @@ your code against the minimum version required from your consumers.
 Names modules to install.
 
 By default, the the dependency will
-be installed in the next `npx projen` run and the version will be recorded
-in your `package.json` file. You can upgrade manually or using `yarn
-add/upgrade`. If you wish to specify a version range use this syntax:
+be installed in the next `pnpm projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `pnpm
+add/update`. If you wish to specify a version range use this syntax:
 `module@^7`.
 
 ---
@@ -15697,11 +15856,11 @@ added both to the `dependencies` section and `bundledDependencies` section of
 your `package.json`.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -16089,11 +16248,11 @@ public readonly deps: string[];
 Runtime dependencies of this module.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -16169,11 +16328,11 @@ available in your build environment but will not be fetched when this
 module is consumed.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -17068,7 +17227,7 @@ public readonly pnpmVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "9"
+- *Default:* "10.33.0"
 
 The version of PNPM to use if using PNPM as a package manager.
 
@@ -18722,11 +18881,11 @@ added both to the `dependencies` section and `bundledDependencies` section of
 your `package.json`.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -18963,11 +19122,11 @@ public readonly deps: string[];
 Runtime dependencies of this module.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -19043,11 +19202,11 @@ available in your build environment but will not be fetched when this
 module is consumed.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -19872,7 +20031,7 @@ public readonly pnpmVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "9"
+- *Default:* "10.33.0"
 
 The version of PNPM to use if using PNPM as a package manager.
 
@@ -21534,11 +21693,11 @@ added both to the `dependencies` section and `bundledDependencies` section of
 your `package.json`.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -21926,11 +22085,11 @@ public readonly deps: string[];
 Runtime dependencies of this module.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -22006,11 +22165,11 @@ available in your build environment but will not be fetched when this
 module is consumed.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -22905,7 +23064,7 @@ public readonly pnpmVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "9"
+- *Default:* "10.33.0"
 
 The version of PNPM to use if using PNPM as a package manager.
 
@@ -24598,11 +24757,11 @@ added both to the `dependencies` section and `bundledDependencies` section of
 your `package.json`.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -24839,11 +24998,11 @@ public readonly deps: string[];
 Runtime dependencies of this module.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -24919,11 +25078,11 @@ available in your build environment but will not be fetched when this
 module is consumed.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -25748,7 +25907,7 @@ public readonly pnpmVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "9"
+- *Default:* "10.33.0"
 
 The version of PNPM to use if using PNPM as a package manager.
 
@@ -26888,6 +27047,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v5 By default, OIDC auth is used. Alternatively a token can be provided via `codeCovTokenSecret`. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.consistentVersions">consistentVersions</a></code> | <code>string[]</code> | Package names that must use a consistent version across all workspaces. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.deleteOrphanedLockFiles">deleteOrphanedLockFiles</a></code> | <code>boolean</code> | Automatically delete lockfiles from package managers that are not the active one. |
@@ -27401,11 +27561,11 @@ added both to the `dependencies` section and `bundledDependencies` section of
 your `package.json`.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -27516,6 +27676,22 @@ Whether to commit the managed files by default.
 
 ---
 
+##### `consistentVersions`<sup>Optional</sup> <a name="consistentVersions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.consistentVersions"></a>
+
+```typescript
+public readonly consistentVersions: string[];
+```
+
+- *Type:* string[]
+
+Package names that must use a consistent version across all workspaces.
+
+Uses Yarn Berry constraints to enforce that all workspaces use the same version
+of the listed packages. The version is read from the root `devDependencies`.
+Only has an effect when the monorepo uses Yarn Berry.
+
+---
+
 ##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.copyrightOwner"></a>
 
 ```typescript
@@ -27600,11 +27776,11 @@ public readonly deps: string[];
 Runtime dependencies of this module.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -27680,11 +27856,11 @@ available in your build environment but will not be fetched when this
 module is consumed.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -28371,7 +28547,7 @@ public readonly pnpmVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "9"
+- *Default:* "10.33.0"
 
 The version of PNPM to use if using PNPM as a package manager.
 
@@ -30121,11 +30297,11 @@ added both to the `dependencies` section and `bundledDependencies` section of
 your `package.json`.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -30187,11 +30363,11 @@ public readonly deps: string[];
 Runtime dependencies of this module.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -30233,11 +30409,11 @@ available in your build environment but will not be fetched when this
 module is consumed.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -30539,7 +30715,7 @@ public readonly pnpmVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "9"
+- *Default:* "10.33.0"
 
 The version of PNPM to use if using PNPM as a package manager.
 
@@ -32699,11 +32875,11 @@ added both to the `dependencies` section and `bundledDependencies` section of
 your `package.json`.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -32765,11 +32941,11 @@ public readonly deps: string[];
 Runtime dependencies of this module.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -32811,11 +32987,11 @@ available in your build environment but will not be fetched when this
 module is consumed.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -33117,7 +33293,7 @@ public readonly pnpmVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "9"
+- *Default:* "10.33.0"
 
 The version of PNPM to use if using PNPM as a package manager.
 
@@ -34522,6 +34698,39 @@ Whether to have a separate workflow to upgrade runtime deps and mark this PR as 
 
 ---
 
+### ConstraintsOptions <a name="ConstraintsOptions" id="cdklabs-projen-project-types.yarn.ConstraintsOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.ConstraintsOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const constraintsOptions: yarn.ConstraintsOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.ConstraintsOptions.property.consistentVersions">consistentVersions</a></code> | <code>string[]</code> | Package names that must use a consistent version across all workspaces. |
+
+---
+
+##### `consistentVersions`<sup>Required</sup> <a name="consistentVersions" id="cdklabs-projen-project-types.yarn.ConstraintsOptions.property.consistentVersions"></a>
+
+```typescript
+public readonly consistentVersions: string[];
+```
+
+- *Type:* string[]
+
+Package names that must use a consistent version across all workspaces.
+
+Each package must already be declared as a dev dependency on the monorepo root.
+The version is enforced across all workspaces using Yarn Berry constraints.
+
+---
+
 ### MonorepoOptions <a name="MonorepoOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions"></a>
 
 MonorepoOptions.
@@ -34574,6 +34783,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeCov">codeCov</a></code> | <code>boolean</code> | Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v5 By default, OIDC auth is used. Alternatively a token can be provided via `codeCovTokenSecret`. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeCovTokenSecret">codeCovTokenSecret</a></code> | <code>string</code> | Define the secret name for a specified https://codecov.io/ token. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.consistentVersions">consistentVersions</a></code> | <code>string[]</code> | Package names that must use a consistent version across all workspaces. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.copyrightOwner">copyrightOwner</a></code> | <code>string</code> | License copyright owner. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.copyrightPeriod">copyrightPeriod</a></code> | <code>string</code> | The copyright years to put in the LICENSE file. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.deleteOrphanedLockFiles">deleteOrphanedLockFiles</a></code> | <code>boolean</code> | Automatically delete lockfiles from package managers that are not the active one. |
@@ -35087,11 +35297,11 @@ added both to the `dependencies` section and `bundledDependencies` section of
 your `package.json`.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -35202,6 +35412,22 @@ Whether to commit the managed files by default.
 
 ---
 
+##### `consistentVersions`<sup>Optional</sup> <a name="consistentVersions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.consistentVersions"></a>
+
+```typescript
+public readonly consistentVersions: string[];
+```
+
+- *Type:* string[]
+
+Package names that must use a consistent version across all workspaces.
+
+Uses Yarn Berry constraints to enforce that all workspaces use the same version
+of the listed packages. The version is read from the root `devDependencies`.
+Only has an effect when the monorepo uses Yarn Berry.
+
+---
+
 ##### `copyrightOwner`<sup>Optional</sup> <a name="copyrightOwner" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.copyrightOwner"></a>
 
 ```typescript
@@ -35286,11 +35512,11 @@ public readonly deps: string[];
 Runtime dependencies of this module.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -35366,11 +35592,11 @@ available in your build environment but will not be fetched when this
 module is consumed.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -36057,7 +36283,7 @@ public readonly pnpmVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "9"
+- *Default:* "10.33.0"
 
 The version of PNPM to use if using PNPM as a package manager.
 
@@ -37992,11 +38218,11 @@ added both to the `dependencies` section and `bundledDependencies` section of
 your `package.json`.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -38191,11 +38417,11 @@ public readonly deps: (string | IWorkspaceReference)[];
 Runtime dependencies of this module.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -38258,11 +38484,11 @@ available in your build environment but will not be fetched when this
 module is consumed.
 
 The recommendation is to only specify the module name here (e.g.
-`express`). This will behave similar to `yarn add` or `npm install` in the
+`express`). This will behave similar to `pnpm add` or `npm install` in the
 sense that it will add the module as a dependency to your `package.json`
 file with the latest version (`^`). You can specify semver requirements in
-the same syntax passed to `npm i` or `yarn add` (e.g. `express@^2`) and
-this will be what you `package.json` will eventually include.
+the same syntax passed to `pnpm add` or `npm i` (e.g. `express@^2`) and
+this will be what your `package.json` will eventually include.
 
 ---
 
@@ -38984,7 +39210,7 @@ public readonly pnpmVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "9"
+- *Default:* "10.33.0"
 
 The version of PNPM to use if using PNPM as a package manager.
 

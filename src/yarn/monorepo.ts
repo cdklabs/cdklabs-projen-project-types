@@ -1,5 +1,6 @@
 import * as pathPosix from 'node:path/posix';
 import { JsonFile, Project, javascript, typescript, github, DependencyType, JsonPatch } from 'projen';
+import { Constraints } from './constraints';
 import { MonorepoOptions } from './monorepo-options';
 import { MonorepoRelease } from './monorepo-release';
 import { Nx } from './nx';
@@ -25,7 +26,6 @@ export class Monorepo extends typescript.TypeScriptProject {
    */
   public readonly repositoryUrl?: string;
 
-  private projects = new Array<TypeScriptWorkspace>();
   private postInstallDependencies = new Array<() => boolean>();
 
   constructor(public readonly options: MonorepoOptions) {
@@ -99,7 +99,7 @@ export class Monorepo extends typescript.TypeScriptProject {
             const folders: Array<{
               path: string;
               name?: string;
-            }> = this.projects
+            }> = this.subprojects
               .sort((p1, p2) => p1.name.localeCompare(p2.name))
               .map((p) => ({ path: p.workspaceDirectory }));
 
@@ -111,8 +111,8 @@ export class Monorepo extends typescript.TypeScriptProject {
           },
           settings: () => {
             const settings = (getObjFromFile(this, '.vscode/settings.json') ?? {}) as any;
-            if (options.vscodeWorkspaceOptions?.includeRootWorkspace && this.projects.length) {
-              settings['files.exclude'] = this.projects.reduce((excludes, p) => {
+            if (options.vscodeWorkspaceOptions?.includeRootWorkspace && this.subprojects.length) {
+              settings['files.exclude'] = this.subprojects.reduce((excludes, p) => {
                 return {
                   ...excludes,
                   [p.workspaceDirectory.split(pathPosix.sep)[0]]: true,
@@ -193,6 +193,15 @@ export class Monorepo extends typescript.TypeScriptProject {
       });
     }
 
+    // Yarn Constraints
+    const consistentVersions = [...(options.consistentVersions ?? [])];
+    if (options.nx) {
+      consistentVersions.push('nx');
+    }
+    if (options.yarnBerry && consistentVersions.length) {
+      new Constraints(this, { consistentVersions });
+    }
+
     // Release Workflow
     if (options.release) {
       this.monorepoRelease = new MonorepoRelease(this, {
@@ -204,8 +213,8 @@ export class Monorepo extends typescript.TypeScriptProject {
     }
   }
 
-  public register(project: TypeScriptWorkspace) {
-    this.projects.push(project);
+  public override get subprojects(): TypeScriptWorkspace[] {
+    return super.subprojects as TypeScriptWorkspace[];
   }
 
   public synth() {
@@ -230,13 +239,13 @@ export class Monorepo extends typescript.TypeScriptProject {
     // Get the ObjectFile
     this.package.addField('private', true);
     this.package.addField('workspaces', {
-      packages: this.projects.map((p) => p.workspaceDirectory),
+      packages: this.subprojects.map((p) => p.workspaceDirectory),
       ...(!this.options.yarnBerry ? this.renderNoHoist() : undefined),
     });
 
     // Auto-set hoistingLimits for workspaces with bundled deps when using Yarn Berry
     if (this.options.yarnBerry) {
-      for (const p of this.projects) {
+      for (const p of this.subprojects) {
         if (p.bundledDeps.length > 0) {
           p.package.addField('installConfig', { hoistingLimits: 'workspaces' });
         }
@@ -248,12 +257,12 @@ export class Monorepo extends typescript.TypeScriptProject {
     for (const tsconfig of [this.tsconfig, this.tsconfigDev]) {
       tsconfig?.file.addOverride(
         'references',
-        this.projects.map((p) => ({ path: p.workspaceDirectory })),
+        this.subprojects.map((p) => ({ path: p.workspaceDirectory })),
       );
     }
 
     this.package.addField('jest', {
-      projects: this.projects.map((p) => `<rootDir>/${p.workspaceDirectory}`),
+      projects: this.subprojects.map((p) => `<rootDir>/${p.workspaceDirectory}`),
     });
   }
 
@@ -265,7 +274,7 @@ export class Monorepo extends typescript.TypeScriptProject {
    * Renders an object that should be mixed into the `workspaces` object.
    */
   private renderNoHoist(): any {
-    const nohoist = this.projects.flatMap((p) =>
+    const nohoist = this.subprojects.flatMap((p) =>
       p.deps.all
         .filter((dep) => dep.type === DependencyType.BUNDLED)
         .flatMap((dep) => [

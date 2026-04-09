@@ -264,6 +264,59 @@ describe('CdkLabsMonorepo', () => {
       const buildWorkflow = YAML.parse(outdir['.github/workflows/build.yml']);
       expect(buildWorkflow.jobs.build.env).toHaveProperty('NX_SKIP_NX_CACHE', 'true');
     });
+
+    test('workspace nx task uses plain command for yarn classic', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        nx: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      const tasks = outdir['packages/@cdklabs/one/.projen/tasks.json'];
+      expect(tasks.tasks.nx).toEqual({
+        name: 'nx',
+        steps: [{
+          exec: 'nx run',
+          receiveArgs: true,
+        }],
+      });
+    });
+
+    test('workspaces get nx as a devDependency', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        nx: true,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      const deps = outdir['packages/@cdklabs/one/.projen/deps.json'];
+      expect(deps.dependencies).toEqual(expect.arrayContaining([
+        expect.objectContaining({ name: 'nx', type: 'build' }),
+      ]));
+    });
+    test('nx is added to consistentVersions when yarn berry is used', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        nx: true,
+        yarnBerry: true,
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['yarn.config.cjs']).toContain('"nx"');
+    });
   });
 
   describe('with monorepo that customizes release options', () => {
@@ -753,6 +806,111 @@ describe('CdkLabsMonorepo', () => {
       const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
 
       expect(releaseWorkflow.jobs.release.steps).toMatchSnapshot();
+    });
+
+    test('consistentVersions creates yarn.config.cjs', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+        devDeps: ['typescript@^5'],
+        consistentVersions: ['typescript'],
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['yarn.config.cjs']).toContain('["typescript"]');
+    });
+
+    test('consistentVersions adds packages as devDeps to workspaces', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+        devDeps: ['typescript@^5'],
+        consistentVersions: ['typescript'],
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      const deps = outdir['packages/@cdklabs/one/.projen/deps.json'];
+      expect(deps.dependencies).toEqual(expect.arrayContaining([
+        expect.objectContaining({ name: 'typescript', type: 'build' }),
+      ]));
+    });
+
+    test('consistentVersions does not add to workspace if already present', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+        devDeps: ['typescript@^5'],
+        consistentVersions: ['typescript'],
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        devDeps: ['typescript'],
+      });
+
+      const outdir = Testing.synth(parent);
+      const deps = outdir['packages/@cdklabs/one/.projen/deps.json'];
+      const tsDeps = deps.dependencies.filter((d: any) => d.name === 'typescript');
+      expect(tsDeps).toHaveLength(1);
+    });
+
+    test('consistentVersions adds constraints fix to default task', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+        devDeps: ['typescript@^5'],
+        consistentVersions: ['typescript'],
+      });
+
+      const outdir = Testing.synth(parent);
+      const defaultTask = outdir['.projen/tasks.json'].tasks.default;
+      expect(defaultTask.steps).toEqual(expect.arrayContaining([
+        expect.objectContaining({ exec: 'yarn constraints --fix' }),
+      ]));
+    });
+
+    test('consistentVersions throws if package is not a root dev dep', () => {
+      expect(() => {
+        const parent = new yarn.CdkLabsMonorepo({
+          name: 'monorepo',
+          defaultReleaseBranch: 'main',
+          yarnBerry: true,
+          consistentVersions: ['some-nonexistent-pkg'],
+        });
+        Testing.synth(parent);
+      }).toThrow(/must be declared as a dev dependency/);
+    });
+
+    test('no yarn.config.cjs without consistentVersions', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['yarn.config.cjs']).toBeUndefined();
+    });
+
+    test('consistentVersions is ignored without yarnBerry', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        consistentVersions: ['typescript'],
+      });
+
+      const outdir = Testing.synth(parent);
+      expect(outdir['yarn.config.cjs']).toBeUndefined();
     });
   });
 });
