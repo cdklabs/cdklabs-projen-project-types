@@ -42,6 +42,20 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
         },
       },
       {
+        name: 'consistentVersions',
+        optional: true,
+        type: {
+          collection: {
+            kind: CollectionKind.Array,
+            elementtype: { primitive: PrimitiveType.String },
+          },
+        },
+        docs: {
+          summary: 'Package names that must use a consistent version across all workspaces.',
+          remarks: 'Uses Yarn Berry constraints to enforce that all workspaces use the same version\nof the listed packages. The version is read from the root `devDependencies`.\nOnly has an effect when the monorepo uses Yarn Berry.',
+        },
+      },
+      {
         name: 'vscodeWorkspace',
         optional: true,
         type: { primitive: PrimitiveType.Boolean },

@@ -22,6 +22,8 @@ export interface NxOptions {
 }
 
 export class Nx extends Component {
+  declare readonly project: javascript.NodeProject;
+
   public constructor(project: javascript.NodeProject, options: NxOptions = {}) {
     super(project);
 
@@ -56,6 +58,9 @@ export class Nx extends Component {
     project.addPackageIgnore('/.nx');
     new JsonFile(project, 'nx.json', {
       obj: {
+        analytics: false,
+        auto_install_console: false,
+        tui: { enabled: false, autoExit: true },
         targetDefaults: () =>
           cachableTasks.reduce((targetDefaults, { name, outputs, inputs }) => {
             const task = project.tasks.tryFind(name);
@@ -78,6 +83,7 @@ export class Nx extends Component {
 
   preSynthesize(): void {
     for (const subproject of (this.project as any).subprojects as javascript.NodeProject[]) {
+      subproject.addDevDeps('nx');
       subproject.tasks.addTask('nx').exec('nx run', {
         receiveArgs: true,
       });

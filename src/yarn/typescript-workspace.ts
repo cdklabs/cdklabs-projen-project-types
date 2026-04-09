@@ -272,8 +272,6 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
 
     // Individual workspace packages shouldn't depend on "projen", it gets brought in at the monorepo root
     this.deps.removeDependency('projen');
-
-    options.parent.register(this);
   }
 
   /**

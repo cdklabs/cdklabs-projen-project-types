@@ -1,3 +1,4 @@
+import { javascript } from 'projen';
 import { generateCdkCommonOptions } from './projenrc/cdk-common-options';
 import { generateCdkConstructLibraryOptions } from './projenrc/cdk-construct-library-options';
 import { generateCdkJsiiOptions } from './projenrc/cdk-jsii-options';
@@ -7,6 +8,7 @@ import { CdklabsJsiiProject } from './src';
 const project = new CdklabsJsiiProject({
   private: false,
   projenrcTs: true,
+  packageManager: javascript.NodePackageManager.YARN_CLASSIC,
   author: 'AWS',
   authorAddress: 'aws-cdk-dev@amazon.com',
   defaultReleaseBranch: 'main',
