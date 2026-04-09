@@ -100,6 +100,9 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
     const exclude = opts.upgradeCdklabsProjenProjectTypes ? UpgradeCdklabsProjenProjectTypes.deps : [];
     const labels = opts.autoApproveUpgrades ? [opts.autoApproveOptions?.label ?? 'auto-approve'] : [];
 
+    // Default cooldown of 3 days for non-yarn_classic package managers
+    const cooldown = project.package.packageManager !== javascript.NodePackageManager.YARN_CLASSIC ? 3 : undefined;
+
     // Get branch configuration from depsUpgradeOptions if available
     const workflowOptions = (cron: string) => ({
       labels,
@@ -109,6 +112,7 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
 
     new javascript.UpgradeDependencies(project, {
       taskName: 'upgrade',
+      cooldown,
       // NOTE: we explicitly do NOT upgrade PEER dependencies. We want the widest range of compatibility possible,
       // and by bumping peer dependencies we force the customer to also unnecessarily upgrade, which they may not want
       // to do. Never mind that peerDependencies are usually also devDependencies, so it doesn't make sense to upgrade
@@ -125,6 +129,7 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
       types: [DependencyType.BUILD, DependencyType.DEVENV, DependencyType.TEST],
       exclude,
       semanticCommit: 'chore',
+      cooldown,
       pullRequestTitle: 'upgrade dev dependencies',
       // Run at 22:00Z every Monday, this is deliberately after prod updates to avoid conflicts
       workflowOptions: workflowOptions('0 22 * * 1'),

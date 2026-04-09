@@ -527,6 +527,54 @@ describe('CdkLabsMonorepo', () => {
   });
 
   describe('monorepo dependency upgrades', () => {
+    test('no cooldown for yarn classic monorepo', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+      });
+
+      new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/one' });
+
+      const outdir = Testing.synth(parent);
+      const tasks = outdir['.projen/tasks.json'].tasks;
+
+      expect(tasks.upgrade.steps[0].exec).not.toContain('--cooldown');
+      expect(tasks.upgrade.env.YARN_NPM_MINIMAL_AGE_GATE).toBeUndefined();
+    });
+
+    test('3 day cooldown for yarn berry monorepo', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+      });
+
+      new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/one' });
+
+      const outdir = Testing.synth(parent);
+      const tasks = outdir['.projen/tasks.json'].tasks;
+
+      expect(tasks.upgrade.steps[0].exec).toContain('--cooldown=3');
+      expect(tasks.upgrade.env.YARN_NPM_MINIMAL_AGE_GATE).toBe('4320');
+    });
+
+    test('workspace check-for-updates inherits cooldown env from yarn berry monorepo', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        yarnBerry: true,
+      });
+
+      new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/one' });
+
+      const outdir = Testing.synth(parent);
+      const wsTasks = outdir['packages/@cdklabs/one/.projen/tasks.json'].tasks;
+
+      // The env vars from the workspace's UpgradeDependencies are propagated
+      expect(wsTasks['check-for-updates'].env).toBeDefined();
+      expect(wsTasks['check-for-updates'].env.CI).toBe('0');
+    });
+
     test('workspaces get a check-for-updates task, but not upgrades', () => {
       const parent = new yarn.CdkLabsMonorepo({
         name: 'monorepo',

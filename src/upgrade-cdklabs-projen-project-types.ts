@@ -21,6 +21,7 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
 
     const upgrade = new javascript.UpgradeDependencies(project, {
       taskName,
+      cooldown: undefined, // Always update without delay
       target: 'latest',
       pullRequestTitle: 'upgrade cdklabs-projen-project-types',
       include: UpgradeCdklabsProjenProjectTypes.deps,

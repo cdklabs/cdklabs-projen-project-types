@@ -1,4 +1,4 @@
-import { Testing } from 'projen';
+import { Testing, javascript } from 'projen';
 import { Stability } from 'projen/lib/cdk';
 import * as YAML from 'yaml';
 import { CdklabsConstructLibrary, CdklabsConstructLibraryOptions, CdklabsJsiiProject, CdklabsJsiiProjectOptions, CdklabsTypeScriptProject, CdklabsTypeScriptProjectOptions, JsiiLanguage } from '../src/cdklabs';
@@ -451,6 +451,39 @@ describe('CdklabsJsiiProject', () => {
       expect(releaseWorkflow).toContain('PYPI_TRUSTED_PUBLISHER: "true"');
       expect(releaseWorkflow).toContain('NUGET_TRUSTED_PUBLISHER: "true"');
     });
+  });
+});
+
+describe('upgrade dependency cooldown', () => {
+  test('no cooldown for yarn classic (default)', () => {
+    const project = new TestCdkLabsConstructLibrary();
+    const outdir = Testing.synth(project);
+    const tasks = outdir['.projen/tasks.json'].tasks;
+
+    expect(tasks.upgrade.steps[0].exec).not.toContain('--cooldown');
+    expect(tasks['upgrade-dev-deps'].steps[0].exec).not.toContain('--cooldown');
+  });
+
+  test('3 day cooldown for non-yarn_classic package managers', () => {
+    const project = new TestCdkLabsTypeScriptProject({
+      packageManager: javascript.NodePackageManager.YARN_BERRY,
+      deps: ['some-dep'],
+    });
+    const outdir = Testing.synth(project);
+    const tasks = outdir['.projen/tasks.json'].tasks;
+
+    expect(tasks.upgrade.steps[0].exec).toContain('--cooldown=3');
+    expect(tasks['upgrade-dev-deps'].steps[0].exec).toContain('--cooldown=3');
+  });
+
+  test('upgrade-cdklabs-projen-project-types never has cooldown', () => {
+    const project = new TestCdkLabsTypeScriptProject({
+      packageManager: javascript.NodePackageManager.YARN_BERRY,
+    });
+    const outdir = Testing.synth(project);
+    const tasks = outdir['.projen/tasks.json'].tasks;
+
+    expect(tasks['upgrade-cdklabs-projen-project-types'].steps[0].exec).not.toContain('--cooldown');
   });
 });
 
