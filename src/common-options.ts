@@ -23,6 +23,20 @@ type ConfiguredTypeScriptOptions = Pick<typescript.TypeScriptProjectOptions,
 type ConfiguredCommonOptions = Required<CdkCommonOptions &ConfiguredTypeScriptOptions>;
 
 export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T): T & ConfiguredCommonOptions {
+  // Default to node_modules linker for Yarn Berry
+  if (options.packageManager === javascript.NodePackageManager.YARN_BERRY) {
+    options = {
+      ...options,
+      yarnBerryOptions: {
+        ...options.yarnBerryOptions,
+        yarnRcOptions: {
+          nodeLinker: javascript.YarnNodeLinker.NODE_MODULES,
+          ...options.yarnBerryOptions?.yarnRcOptions,
+        },
+      },
+    };
+  }
+
   const isPrivate = options.private ?? true;
   const enablePRAutoMerge = options.enablePRAutoMerge ?? isPrivate;
   const ghAutoMergeOptions = options.ghAutoMergeOptions ?? {
