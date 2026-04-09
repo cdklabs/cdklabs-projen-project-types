@@ -8,7 +8,7 @@ import { CdklabsJsiiProject } from './src';
 const project = new CdklabsJsiiProject({
   private: false,
   projenrcTs: true,
-  packageManager: javascript.NodePackageManager.YARN_CLASSIC,
+  packageManager: javascript.NodePackageManager.YARN_BERRY,
   author: 'AWS',
   authorAddress: 'aws-cdk-dev@amazon.com',
   defaultReleaseBranch: 'main',
