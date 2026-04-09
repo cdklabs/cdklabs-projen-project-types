@@ -1,4 +1,4 @@
-import { javascript } from 'projen';
+import { javascript, JsonPatch } from 'projen';
 import { generateCdkCommonOptions } from './projenrc/cdk-common-options';
 import { generateCdkConstructLibraryOptions } from './projenrc/cdk-construct-library-options';
 import { generateCdkJsiiOptions } from './projenrc/cdk-jsii-options';
@@ -40,5 +40,10 @@ generateCdkJsiiOptions(project);
 
 // that is this package!
 project.deps.removeDependency(project.name);
+
+// Workaround: projen doesn't add corepack enable to package-js job for Yarn Berry
+project.github?.tryFindWorkflow('build')?.file?.patch(
+  JsonPatch.add('/jobs/package-js/steps/4', { name: 'Enable corepack', run: 'corepack enable' }),
+);
 
 project.synth();

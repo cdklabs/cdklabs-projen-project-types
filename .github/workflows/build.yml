@@ -116,6 +116,8 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
+      - name: Enable corepack
+        run: corepack enable
       - name: Install Dependencies
         run: cd .repo && yarn install --immutable
       - name: Extract build artifact
