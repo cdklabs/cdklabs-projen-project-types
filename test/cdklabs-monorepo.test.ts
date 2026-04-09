@@ -819,6 +819,7 @@ describe('CdkLabsMonorepo', () => {
 
       const outdir = Testing.synth(parent);
       expect(outdir['yarn.config.cjs']).toContain('["typescript"]');
+      expect(outdir['yarn.config.cjs']).toMatchSnapshot();
     });
 
     test('consistentVersions adds packages as devDeps to workspaces', () => {

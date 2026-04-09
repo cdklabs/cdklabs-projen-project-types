@@ -60,7 +60,7 @@ class ConstraintsFile extends FileBase {
 
   protected synthesizeContent(_: IResolver): string | undefined {
     const lines = [
-      this.marker,
+      `// ${this.marker}`,
       '// @ts-check',
       '/** @type {import(\'@yarnpkg/types\')} */',
       'const { defineConfig } = require(`@yarnpkg/types`);',
