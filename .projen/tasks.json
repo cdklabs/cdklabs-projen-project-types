@@ -278,7 +278,7 @@
       },
       "steps": [
         {
-          "exec": "yarn dlx npm-check-updates@18 --upgrade --target=minor --cooldown=3 --peer --no-deprecated --dep=prod --filter=yaml"
+          "exec": "yarn dlx npm-check-updates@20 --upgrade --target=minor --cooldown=3 --peer --no-deprecated --dep=prod --filter=yaml"
         },
         {
           "exec": "yarn install --no-immutable"
@@ -304,7 +304,7 @@
       },
       "steps": [
         {
-          "exec": "yarn dlx npm-check-updates@18 --upgrade --target=minor --cooldown=3 --peer --no-deprecated --dep=dev --filter=@jsii/spec,@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,jsii-reflect,projen,ts-jest,ts-node"
+          "exec": "yarn dlx npm-check-updates@20 --upgrade --target=minor --cooldown=3 --peer --no-deprecated --dep=dev --filter=@jsii/spec,@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,jsii-reflect,projen,ts-jest,ts-node"
         },
         {
           "exec": "yarn install --no-immutable"
