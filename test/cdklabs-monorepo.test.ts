@@ -573,6 +573,10 @@ describe('CdkLabsMonorepo', () => {
       // The env vars from the workspace's UpgradeDependencies are propagated
       expect(wsTasks['check-for-updates'].env).toBeDefined();
       expect(wsTasks['check-for-updates'].env.CI).toBe('0');
+
+      // The cooldown flag is included in the check-for-updates steps
+      const ncuStep = wsTasks['check-for-updates'].steps.find((s: any) => s.exec?.includes('npm-check-updates'));
+      expect(ncuStep.exec).toContain('--cooldown=3');
     });
 
     test('workspaces get a check-for-updates task, but not upgrades', () => {

@@ -126,6 +126,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       depsUpgrade: options.depsUpgrade ?? true,
       depsUpgradeOptions: {
         workflow: false,
+        cooldown: options.parent.options.depsUpgradeOptions?.cooldown ?? (options.parent.options.yarnBerry ? 3 : undefined),
         exclude: [
           ...(options.excludeDepsFromUpgrade ?? []),
           ...(packageNames(options.deps?.filter(isWorkspaceReference)) ?? []),
