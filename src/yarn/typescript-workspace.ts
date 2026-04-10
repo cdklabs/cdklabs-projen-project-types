@@ -215,7 +215,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       this.tasks.removeTask(upgrades.upgradeTask.name);
       this.tasks.removeTask(upgrades.postUpgradeTask.name);
       this.tasks.addTask('check-for-updates', {
-        env: { CI: '0' },
+        env: { ...upgrades.upgradeTask.envVars },
         steps: {
           toJSON: () => {
             const steps = (upgrades as any).renderTaskSteps() as TaskStep[];

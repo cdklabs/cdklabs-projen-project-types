@@ -160,8 +160,8 @@ export class Monorepo extends typescript.TypeScriptProject {
     });
 
     // Upgrade all packages
-    const cooldown = options.depsUpgradeOptions?.cooldown;
-    const upgradeEnv: Record<string, string> = { CI: '0' };
+    const cooldown = options.depsUpgradeOptions?.cooldown ?? (options.yarnBerry ? 3 : undefined);
+    const upgradeEnv = { ...this.upgradeWorkflow?.upgradeTask.envVars || {} };
     if (cooldown && options.yarnBerry) {
       upgradeEnv.YARN_NPM_MINIMAL_AGE_GATE = String(cooldown * 24 * 60);
     }
