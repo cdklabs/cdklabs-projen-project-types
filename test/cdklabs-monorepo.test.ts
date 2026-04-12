@@ -968,6 +968,81 @@ describe('CdkLabsMonorepo', () => {
   });
 });
 
+describe('install trigger handling', () => {
+  test('workspace skips install for NO_NODE_MODULES reason', () => {
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+    });
+
+    const ws = new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/one',
+    });
+
+    // Spy on requestInstallDependencies to verify it's NOT called
+    const requestSpy = jest.spyOn(parent, 'requestInstallDependencies');
+
+    const pkg: any = ws.package;
+    pkg.installDependencies({ reason: javascript.InstallReason.NO_NODE_MODULES });
+
+    expect(requestSpy).not.toHaveBeenCalled();
+  });
+
+  test('workspace delegates install for PACKAGE_JSON_CHANGED reason', () => {
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+    });
+
+    const ws = new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/one',
+    });
+
+    const requestSpy = jest.spyOn(parent, 'requestInstallDependencies');
+
+    const pkg: any = ws.package;
+    pkg.installDependencies({ reason: javascript.InstallReason.PACKAGE_JSON_CHANGED });
+
+    expect(requestSpy).toHaveBeenCalledTimes(1);
+  });
+
+  test('workspace delegates install for DEPS_RESOLVED reason', () => {
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+    });
+
+    const ws = new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/one',
+    });
+
+    const requestSpy = jest.spyOn(parent, 'requestInstallDependencies');
+
+    const pkg: any = ws.package;
+    pkg.installDependencies({ reason: javascript.InstallReason.DEPS_RESOLVED, resolutions: ['ms: * => ^2.1.3'] });
+
+    expect(requestSpy).toHaveBeenCalledTimes(1);
+  });
+
+  test('workspace resolveDepsAndWritePackageJson returns empty array', () => {
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+    });
+
+    const ws = new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/one',
+    });
+
+    const pkg: any = ws.package;
+    expect(pkg.resolveDepsAndWritePackageJson()).toEqual([]);
+  });
+});
+
 function parseJsonWithMarker(content: string): any {
   return JSON.parse(content.split('\n').slice(1).join('\n'));
 }
