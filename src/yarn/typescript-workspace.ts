@@ -249,11 +249,15 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     /* @ts-ignore access private method */
     const originalResolve = this.package.resolveDepsAndWritePackageJson;
     /* @ts-ignore access private method */
-    this.package.installDependencies = () => {
+    this.package.installDependencies = (trigger: javascript.InstallTrigger) => {
+      if (trigger.reason === javascript.InstallReason.NO_NODE_MODULES) {
+        // In a monorepo, a workspace node_modules may legitimately not exist due to hoisting. We just skip this case.
+        return;
+      }
       options.parent.requestInstallDependencies({ resolveDepsAndWritePackageJson: () => originalResolve.apply(this.package) });
     };
     /* @ts-ignore access private method */
-    this.package.resolveDepsAndWritePackageJson = () => { };
+    this.package.resolveDepsAndWritePackageJson = () => [];
 
     // Private package
     if (options.private) {

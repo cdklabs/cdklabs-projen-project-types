@@ -26,7 +26,7 @@ export class Monorepo extends typescript.TypeScriptProject {
    */
   public readonly repositoryUrl?: string;
 
-  private postInstallDependencies = new Array<() => boolean>();
+  private postInstallDependencies = new Array<() => string[]>();
 
   constructor(public readonly options: MonorepoOptions) {
     super({
@@ -291,11 +291,11 @@ export class Monorepo extends typescript.TypeScriptProject {
   public postSynthesize() {
     if (this.postInstallDependencies.length) {
       const nodePkg: any = this.package;
-      nodePkg.installDependencies();
+      nodePkg.installDependencies({ reason: javascript.InstallReason.PACKAGE_JSON_CHANGED });
 
-      const completedRequests = this.postInstallDependencies.map((request) => request());
-      if (completedRequests.some(Boolean)) {
-        nodePkg.installDependencies();
+      const resolutions = this.postInstallDependencies.flatMap((request) => request());
+      if (resolutions.length) {
+        nodePkg.installDependencies({ reason: javascript.InstallReason.DEPS_RESOLVED, resolutions });
       }
 
       this.postInstallDependencies = [];
@@ -304,7 +304,7 @@ export class Monorepo extends typescript.TypeScriptProject {
 }
 
 export interface IDependencyResolver {
-  resolveDepsAndWritePackageJson(): boolean;
+  resolveDepsAndWritePackageJson(): string[];
 }
 
 function getObjFromFile(project: Project, file: string): object {

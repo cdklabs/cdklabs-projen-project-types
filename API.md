@@ -40303,7 +40303,7 @@ public readonly workflowNodeVersion: string;
 ##### `resolveDepsAndWritePackageJson` <a name="resolveDepsAndWritePackageJson" id="cdklabs-projen-project-types.yarn.IDependencyResolver.resolveDepsAndWritePackageJson"></a>
 
 ```typescript
-public resolveDepsAndWritePackageJson(): boolean
+public resolveDepsAndWritePackageJson(): string[]
 ```
 
 
