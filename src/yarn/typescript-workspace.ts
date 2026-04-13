@@ -245,9 +245,15 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       receiveArgs: true,
     });
 
-    // Install dependencies via the parent project
+    // We handle dependencies via the parent project
+
+    // Disable workspace resolveDepsAndWritePackageJson
     /* @ts-ignore access private method */
     const originalResolve = this.package.resolveDepsAndWritePackageJson;
+    /* @ts-ignore access private method */
+    this.package.resolveDepsAndWritePackageJson = () => [];
+
+    // Instead of installing dependencies, request from the parent
     /* @ts-ignore access private method */
     this.package.installDependencies = (trigger: javascript.InstallTrigger) => {
       if (trigger.reason === javascript.InstallReason.NO_NODE_MODULES) {
@@ -256,8 +262,18 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       }
       options.parent.requestInstallDependencies({ resolveDepsAndWritePackageJson: () => originalResolve.apply(this.package) });
     };
+
+    // Fix the install trigger logging to match actual requests
     /* @ts-ignore access private method */
-    this.package.resolveDepsAndWritePackageJson = () => [];
+    const originalLogTrigger = this.package.logInstallTrigger;
+    /* @ts-ignore access private method */
+    this.package.logInstallTrigger = (trigger: InstallTrigger) => {
+      if (trigger.reason === javascript.InstallReason.NO_NODE_MODULES) {
+        return;
+      }
+      /* @ts-ignore access private method */
+      return originalLogTrigger.apply(this.package, [trigger]);
+    };
 
     // Private package
     if (options.private) {
