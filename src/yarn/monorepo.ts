@@ -291,11 +291,11 @@ export class Monorepo extends typescript.TypeScriptProject {
   public postSynthesize() {
     if (this.postInstallDependencies.length) {
       const nodePkg: any = this.package;
-      nodePkg.installDependencies({ reason: javascript.InstallReason.PACKAGE_JSON_CHANGED });
+      nodePkg.installDependencies();
 
       const resolutions = this.postInstallDependencies.flatMap((request) => request());
       if (resolutions.length) {
-        nodePkg.installDependencies({ reason: javascript.InstallReason.DEPS_RESOLVED, resolutions });
+        nodePkg.installDependencies();
       }
 
       this.postInstallDependencies = [];

@@ -984,7 +984,7 @@ describe('install trigger handling', () => {
     const requestSpy = jest.spyOn(parent, 'requestInstallDependencies');
 
     const pkg: any = ws.package;
-    pkg.installDependencies({ reason: javascript.InstallReason.NO_NODE_MODULES });
+    pkg.installDependencies({ reason: 'node_modules is missing' });
 
     expect(requestSpy).not.toHaveBeenCalled();
   });
@@ -1003,7 +1003,7 @@ describe('install trigger handling', () => {
     const requestSpy = jest.spyOn(parent, 'requestInstallDependencies');
 
     const pkg: any = ws.package;
-    pkg.installDependencies({ reason: javascript.InstallReason.PACKAGE_JSON_CHANGED });
+    pkg.installDependencies({ reason: 'package.json has changed' });
 
     expect(requestSpy).toHaveBeenCalledTimes(1);
   });
@@ -1022,7 +1022,7 @@ describe('install trigger handling', () => {
     const requestSpy = jest.spyOn(parent, 'requestInstallDependencies');
 
     const pkg: any = ws.package;
-    pkg.installDependencies({ reason: javascript.InstallReason.DEPS_RESOLVED, resolutions: ['ms: * => ^2.1.3'] });
+    pkg.installDependencies({ reason: 'resolved dependency versions changed', resolutions: ['ms: * => ^2.1.3'] });
 
     expect(requestSpy).toHaveBeenCalledTimes(1);
   });

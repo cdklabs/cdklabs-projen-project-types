@@ -255,8 +255,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
 
     // Instead of installing dependencies, request from the parent
     /* @ts-ignore access private method */
-    this.package.installDependencies = (trigger: javascript.InstallTrigger) => {
-      if (trigger.reason === javascript.InstallReason.NO_NODE_MODULES) {
+    this.package.installDependencies = (trigger?: { reason: string }) => {
+      if (trigger?.reason === 'node_modules is missing') {
         // In a monorepo, a workspace node_modules may legitimately not exist due to hoisting. We just skip this case.
         return;
       }
@@ -267,8 +267,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     /* @ts-ignore access private method */
     const originalLogTrigger = this.package.logInstallTrigger;
     /* @ts-ignore access private method */
-    this.package.logInstallTrigger = (trigger: InstallTrigger) => {
-      if (trigger.reason === javascript.InstallReason.NO_NODE_MODULES) {
+    this.package.logInstallTrigger = (trigger?: { reason: string }) => {
+      if (trigger?.reason === 'node_modules is missing') {
         return;
       }
       /* @ts-ignore access private method */
