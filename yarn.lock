@@ -2061,7 +2061,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^8"
     "@typescript-eslint/parser": "npm:^8"
     commit-and-tag-version: "npm:^12"
-    constructs: "npm:^10.0.0"
+    constructs: "npm:10.0.0"
     eslint: "npm:^9"
     eslint-import-resolver-typescript: "npm:^3.10.1"
     eslint-plugin-import: "npm:^2.32.0"
@@ -2073,7 +2073,7 @@ __metadata:
     jsii-pacmak: "npm:^1.127.0"
     jsii-reflect: "npm:^1.127.0"
     jsii-rosetta: "npm:~5.9"
-    projen: "npm:^0.99.48"
+    projen: "npm:0.99.48"
     ts-jest: "npm:^29"
     ts-node: "npm:^10.9.2"
     typescript: "npm:~5.9"
@@ -2296,6 +2296,13 @@ __metadata:
     readable-stream: "npm:^3.0.2"
     typedarray: "npm:^0.0.6"
   checksum: 10c0/29565dd9198fe1d8cf57f6cc71527dbc6ad67e12e4ac9401feb389c53042b2dceedf47034cbe702dfc4fd8df3ae7e6bfeeebe732cc4fa2674e484c13f04c219a
+  languageName: node
+  linkType: hard
+
+"constructs@npm:10.0.0":
+  version: 10.0.0
+  resolution: "constructs@npm:10.0.0"
+  checksum: 10c0/67a200e2bb582b35210b101ba31f42603650ebf35b88f912a2d2dd66069649e4aa02391252c8f2e2eb4d3fa4d13d57171caf066d4fbafeaf030650914f0b26d4
   languageName: node
   linkType: hard
 
@@ -6109,7 +6116,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"projen@npm:^0.99.48":
+"projen@npm:0.99.48":
   version: 0.99.48
   resolution: "projen@npm:0.99.48"
   dependencies:
