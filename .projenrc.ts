@@ -20,9 +20,6 @@ const project = new CdklabsJsiiProject({
   enablePRAutoMerge: true,
   upgradeCdklabsProjenProjectTypes: false, // that is this project!
   setNodeEngineVersion: false,
-  peerDependencyOptions: {
-    pinnedDevDependency: false,
-  },
   jsiiVersion: '~5.9',
   typescriptVersion: '~5.9',
 
