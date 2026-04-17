@@ -44,6 +44,7 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
   };
   const githubOptions: github.GitHubOptions = {
     mergify: !enablePRAutoMerge,
+    dependencyReview: true,
   };
   const npmAccess = options.npmAccess ?? (isPrivate ? javascript.NpmAccess.RESTRICTED : javascript.NpmAccess.PUBLIC);
   const tenancy = options.tenancy ?? (options.name.startsWith('@aws-cdk/') ? OrgTenancy.AWS : OrgTenancy.CDKLABS);
