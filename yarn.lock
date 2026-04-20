@@ -2173,7 +2173,7 @@ __metadata:
     jsii-pacmak: "npm:^1.128.0"
     jsii-reflect: "npm:^1.128.0"
     jsii-rosetta: "npm:~5.9"
-    projen: "npm:^0.99.48"
+    projen: "npm:^0.99.51"
     ts-jest: "npm:^29"
     ts-node: "npm:^10.9.2"
     typescript: "npm:~5.9"
@@ -6209,7 +6209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"projen@npm:^0.99.48":
+"projen@npm:^0.99.51":
   version: 0.99.51
   resolution: "projen@npm:0.99.51"
   dependencies:
