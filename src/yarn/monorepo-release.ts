@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { github, release as projenRelease, Component, Project, Task } from 'projen';
+import { DependencyType, github, release as projenRelease, Component, Project, Task } from 'projen';
 import { BUILD_ARTIFACT_NAME, PERMISSION_BACKUP_FILE } from 'projen/lib/github/constants';
 import { Tools } from 'projen/lib/github/workflows-model';
 import { MonorepoReleaseOptions } from './monorepo-release-options';
@@ -133,11 +133,20 @@ export class MonorepoRelease extends Component {
   }
 
   private renderPublishJobs() {
-    for (const { release } of this.packagesToRelease) {
-      const packagePublishJobs = release.publisher._renderJobsForBranch(this.branchName, release.options);
+    // First pass: render jobs and collect prefixed job keys per workspace
+    const publishJobsByWorkspace = new Map<string, {
+      prefix: string;
+      jobs: Record<string, github.workflows.Job>;
+      release: { workspace: TypeScriptWorkspace; publisher: projenRelease.Publisher; options: Partial<projenRelease.BranchOptions> };
+      jobKeys: string[];
+    }>();
 
-      for (const job of Object.values(packagePublishJobs)) {
-        // Find the 'download-artifact' job and replace the build artifact name with the unique per-project one
+    for (const { release } of this.packagesToRelease) {
+      const jobs = release.publisher._renderJobsForBranch(this.branchName, release.options);
+      const prefix = slugify(`${release.workspace.name}`);
+
+      for (const job of Object.values(jobs)) {
+        // Replace the build artifact name with the unique per-project one
         const downloadStep = job.steps.find((j) => j.uses?.startsWith('actions/download-artifact@'));
         if (!downloadStep) {
           throw new Error(`Could not find downloadStep among steps: ${JSON.stringify(job.steps, undefined, 2)}`);
@@ -145,20 +154,38 @@ export class MonorepoRelease extends Component {
         (downloadStep.with ?? {}).name = buildArtifactName(release.workspace);
       }
 
+      publishJobsByWorkspace.set(release.workspace.name, {
+        prefix,
+        jobs,
+        release,
+        jobKeys: Object.keys(jobs).map(k => `${prefix}_${k}`),
+      });
+    }
+
+    // Second pass: add topological needs and inject jobs into workflow
+    for (const { prefix, jobs, release } of publishJobsByWorkspace.values()) {
+
+      // Determine runtime dependency job keys for topological ordering
+      const runtimeDepJobKeys = release.workspace.workspaceDependencies([DependencyType.RUNTIME, DependencyType.PEER])
+        .flatMap((dep: Project) => publishJobsByWorkspace.get(dep.name)?.jobKeys ?? []);
+
       // Make the job names unique
       this.workflow?.addJobs(
         Object.fromEntries(
-          Object.entries(packagePublishJobs).map(([key, job]) => {
-            const prefix = slugify(`${release.workspace.name}`);
-            const needs = (job.needs ?? []).map(dep => {
-              // All publish jobs depend on the main release job
-              if (dep === 'release') {
-                return dep;
-              }
+          Object.entries(jobs).map(([key, job]) => {
+            const needs = [
+              ...(job.needs ?? []).map((dep: string) => {
+                // All publish jobs depend on the main release job
+                if (dep === 'release') {
+                  return dep;
+                }
 
-              // ... and possibly on individual publish jobs that are prefixed
-              return `${prefix}_${dep}`;
-            });
+                // ... and possibly on individual publish jobs that are prefixed
+                return `${prefix}_${dep}`;
+              }),
+              // Add topological dependencies on runtime dep publish jobs
+              ...runtimeDepJobKeys,
+            ];
 
             // we build the tools object so that we can modify it with our
             // own custom properties.
