@@ -524,6 +524,65 @@ describe('CdkLabsMonorepo', () => {
       // Checking for the correct invocation of the gather-versions script
       expect(tasks.tasks['gather-versions'].steps[0].exec).toContain('@cdklabs/one=exact');
     });
+
+    test('publish jobs have topological needs on runtime workspace dependencies', () => {
+      const dep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/dep',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/consumer',
+        deps: [dep],
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+      // consumer's npm job should need dep's publish jobs
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).toContain('cdklabs-dep_release_npm');
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).toContain('cdklabs-dep_release_github');
+
+      // dep's npm job should NOT need consumer's jobs
+      expect(releaseWorkflow.jobs['cdklabs-dep_release_npm'].needs).not.toContain('cdklabs-consumer_release_npm');
+    });
+
+    test('devDeps on a workspace do not add release dependency', () => {
+      const dep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/dep',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/consumer',
+        devDeps: [dep],
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).not.toContain('cdklabs-dep_release_npm');
+    });
+
+    test('peerDeps on a workspace add release dependency', () => {
+      const dep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/dep',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/consumer',
+        peerDeps: [dep],
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).toContain('cdklabs-dep_release_npm');
+    });
   });
 
   describe('monorepo dependency upgrades', () => {
