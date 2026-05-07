@@ -871,16 +871,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jsii/check-node@npm:1.127.0":
-  version: 1.127.0
-  resolution: "@jsii/check-node@npm:1.127.0"
-  dependencies:
-    chalk: "npm:^4.1.2"
-    semver: "npm:^7.7.4"
-  checksum: 10c0/68a1d8af161892b4b599f8343b9b29352ca0eada142f2be8353b56ecfe81459acdb44161122b2852f7ff93be869b2f3b4f11f19590edf9ca90b7ddebd51fec35
-  languageName: node
-  linkType: hard
-
 "@jsii/check-node@npm:1.129.0":
   version: 1.129.0
   resolution: "@jsii/check-node@npm:1.129.0"
@@ -898,13 +888,6 @@ __metadata:
     chalk: "npm:^4.1.2"
     semver: "npm:^7.7.4"
   checksum: 10c0/bcacfd17137bcf8634f97924f07ea53080bbd79315cb3f1fb88e126398e9f9c6c662b215bc1d77f82c5306b84e326d059d6ea175eb60df97b7cc1f035105c930
-  languageName: node
-  linkType: hard
-
-"@jsii/spec@npm:1.127.0":
-  version: 1.127.0
-  resolution: "@jsii/spec@npm:1.127.0"
-  checksum: 10c0/dc46c71d92765dacd7dc4c6956b10d4d39477da9b9eaa208d5f08c3b547d6f847f1edceb0496fc18abb8106fcaceff32172a61c8cb1a4b72093bc679483aacb4
   languageName: node
   linkType: hard
 
@@ -5073,8 +5056,8 @@ __metadata:
   linkType: hard
 
 "jsii-rosetta@npm:~5.9":
-  version: 5.9.43
-  resolution: "jsii-rosetta@npm:5.9.43"
+  version: 5.9.44
+  resolution: "jsii-rosetta@npm:5.9.44"
   dependencies:
     "@jsii/check-node": "npm:^1.128.0"
     "@jsii/spec": "npm:^1.128.0"
@@ -5091,16 +5074,16 @@ __metadata:
     yargs: "npm:^17.7.2"
   bin:
     jsii-rosetta: bin/jsii-rosetta
-  checksum: 10c0/2a77ffce5c89494faa9ff7101d03b0b32e7fffcbd099c497c47986c89574662719b3b3a01d43bc01dec41594b29dcc731fe6a0611763f42a1c5d255cc6843201
+  checksum: 10c0/f8ed304e18833368e7baca2f001b53f09048623df99b307156e15f7b4518b46d78efcded29bd39342fe5d608646fe07a50c5e73917f9c42c091a4a8dd4acc179
   languageName: node
   linkType: hard
 
 "jsii@npm:~5.9, jsii@npm:~5.9.1":
-  version: 5.9.37
-  resolution: "jsii@npm:5.9.37"
+  version: 5.9.39
+  resolution: "jsii@npm:5.9.39"
   dependencies:
-    "@jsii/check-node": "npm:1.127.0"
-    "@jsii/spec": "npm:1.127.0"
+    "@jsii/check-node": "npm:1.129.0"
+    "@jsii/spec": "npm:1.129.0"
     case: "npm:^1.6.3"
     chalk: "npm:^4"
     fast-deep-equal: "npm:^3.1.3"
@@ -5113,7 +5096,7 @@ __metadata:
     yargs: "npm:^17.7.2"
   bin:
     jsii: bin/jsii
-  checksum: 10c0/be08d365e5e8db4691bcebef5c28a1e4421ee0436aee31a7f055e7845d97642f0c325421f7011678e57d74e6ba5f87c85b358e290f073763549606ae4e11d5ca
+  checksum: 10c0/d3c99a68265f2a7c70f6f16c8b1f1750b0a862dd796fd244b678815b9f31ac97d4b9804ab75f08d57507b063b2e615e1bf1f6f4a9a378a3d2eaec807db9bd406
   languageName: node
   linkType: hard
 
