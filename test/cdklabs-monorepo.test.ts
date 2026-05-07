@@ -1122,6 +1122,78 @@ describe('install trigger handling', () => {
     const pkg: any = ws.package;
     expect(pkg.resolveDepsAndWritePackageJson()).toEqual([]);
   });
+
+  test('release workflow has workflow_dispatch input to select a package', () => {
+    const parent = new yarn.CdkLabsMonorepo({
+      name: 'monorepo',
+      defaultReleaseBranch: 'main',
+      release: true,
+      releaseOptions: {
+        publishToNpm: true,
+      },
+    });
+
+    // @cdklabs/base has no deps
+    const base = new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/base',
+    });
+
+    // @cdklabs/mid depends on @cdklabs/base
+    const mid = new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/mid',
+      deps: [base],
+    });
+
+    // @cdklabs/top depends on @cdklabs/mid (transitively on @cdklabs/base)
+    new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@cdklabs/top',
+      deps: [mid],
+    });
+
+    const outdir = Testing.synth(parent);
+    const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+    // Check the workflow_dispatch input
+    expect(releaseWorkflow.on.workflow_dispatch.inputs).toEqual({
+      dry_run: {
+        description: 'Dry run (skip actual publishing)',
+        required: false,
+        type: 'boolean',
+      },
+      package: {
+        description: 'Select specific package to release',
+        required: false,
+        type: 'choice',
+        options: ['*all packages*', '@cdklabs/base', '@cdklabs/mid', '@cdklabs/top'],
+        default: '*all packages*',
+      },
+    });
+
+    // When @cdklabs/top is selected, all three packages should be released
+    const topPublishIf = releaseWorkflow.jobs['cdklabs-top_release_npm'].if;
+    expect(topPublishIf).toContain('!github.event.inputs.package');
+    expect(topPublishIf).toContain("github.event.inputs.package == '*all packages*'");
+    expect(topPublishIf).toContain('@cdklabs/top');
+
+    const midPublishIf = releaseWorkflow.jobs['cdklabs-mid_release_npm'].if;
+    expect(midPublishIf).toContain('@cdklabs/top');
+    expect(midPublishIf).toContain('@cdklabs/mid');
+
+    const basePublishIf = releaseWorkflow.jobs['cdklabs-base_release_npm'].if;
+    expect(basePublishIf).toContain('@cdklabs/top');
+    expect(basePublishIf).toContain('@cdklabs/mid');
+    expect(basePublishIf).toContain('@cdklabs/base');
+
+    // When @cdklabs/mid is selected, only base and mid should be released (not top)
+    expect(basePublishIf).toContain('@cdklabs/mid');
+    expect(topPublishIf).not.toContain('@cdklabs/mid');
+
+    // Full workflow snapshot
+    expect(outdir['.github/workflows/release.yml']).toMatchSnapshot();
+  });
 });
 
 function parseJsonWithMarker(content: string): any {
