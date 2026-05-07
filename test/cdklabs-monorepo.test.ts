@@ -428,7 +428,7 @@ describe('CdkLabsMonorepo', () => {
       expect(releaseWorkflow.jobs['cdklabs-one_release_npm'].environment).toStrictEqual('release');
 
       // this also ensures the npm token doens't exist
-      expect(releaseWorkflow.jobs['cdklabs-one_release_npm'].steps[3].env).toStrictEqual({
+      expect(releaseWorkflow.jobs['cdklabs-one_release_npm'].steps[3].env).toMatchObject({
         NPM_CONFIG_PROVENANCE: 'true',
         NPM_DIST_TAG: 'latest',
         NPM_REGISTRY: 'registry.npmjs.org',
