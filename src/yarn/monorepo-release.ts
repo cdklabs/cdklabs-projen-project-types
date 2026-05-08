@@ -354,6 +354,20 @@ export class MonorepoRelease extends Component {
       postBuildSteps,
       runsOn: this.options.workflowRunsOn,
     });
+
+    // Override the default empty workflow_dispatch added by TaskWorkflow
+    // to include the dry_run input for testing the release pipeline
+    this.workflow.on({
+      workflowDispatch: {
+        inputs: {
+          dry_run: {
+            description: 'Dry run (skip actual publishing)',
+            required: false,
+            type: 'boolean',
+          },
+        },
+      },
+    });
   }
 }
 
