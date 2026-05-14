@@ -10,6 +10,7 @@ import { WorkspaceRelease, WorkspaceReleaseOptions } from './typescript-workspac
 const RELEASE_JOBID = 'release';
 const GIT_REMOTE_STEPID = 'git_remote';
 const LATEST_COMMIT_OUTPUT = 'latest_commit';
+const ALL_PACKAGES_INPUT = '*all packages*';
 
 export class MonorepoRelease extends Component {
   /**
@@ -38,6 +39,7 @@ export class MonorepoRelease extends Component {
   private workflow?: github.TaskWorkflow;
   private releaseTask?: Task;
   private readonly workspaceReleases = new Map<TypeScriptWorkspace, WorkspaceRelease>();
+  private _releaseSetByChoice = new Map<string, Set<string>>();
 
   constructor(project: Project, private readonly options: MonorepoReleaseOptions = {}) {
     super(project);
@@ -101,9 +103,11 @@ export class MonorepoRelease extends Component {
       return;
     }
 
+    this.computeReleaseSets();
     this.createPublishingMechanism();
     this.renderPackageUploads();
     this.renderPublishJobs();
+    this.renderWorkflowDispatchInput();
   }
 
   private renderPackageUploads() {
@@ -202,6 +206,8 @@ export class MonorepoRelease extends Component {
               release.workspace,
             )} == 'true'`;
 
+            const packageFilter = `(!github.event.inputs.package || github.event.inputs.package == '${ALL_PACKAGES_INPUT}' || ${shouldReleaseExpression(release.workspace.name, this._releaseSetByChoice)})`;
+
             return [
               `${prefix}_${key}`,
               {
@@ -209,8 +215,8 @@ export class MonorepoRelease extends Component {
                 tools: toolsRebuilt,
                 needs,
                 if: runtimeDepJobKeys.length > 0
-                  ? `\${{ !cancelled() && !failure() && ${condition} }}`
-                  : `\${{ ${condition} }}`,
+                  ? `\${{ !cancelled() && !failure() && ${condition} && ${packageFilter} }}`
+                  : `\${{ ${condition} && ${packageFilter} }}`,
                 name: `${release.workspace.name}: ${job.name}`,
               },
             ];
@@ -273,6 +279,56 @@ export class MonorepoRelease extends Component {
 
   private createPublishTask() {
     throw new Error('Manual publishing is not supported right now');
+  }
+
+  /**
+   * Compute the transitive upstream dependencies (runtime + peer) of a workspace.
+   */
+  private upstreamPackageNames(workspace: TypeScriptWorkspace): Set<string> {
+    const result = new Set<string>();
+    const visit = (ws: TypeScriptWorkspace) => {
+      for (const dep of ws.workspaceDependencies([DependencyType.RUNTIME, DependencyType.PEER])) {
+        if (!result.has(dep.name)) {
+          result.add(dep.name);
+          if (dep instanceof TypeScriptWorkspace) {
+            visit(dep);
+          }
+        }
+      }
+    };
+    visit(workspace);
+    return result;
+  }
+
+  /**
+   * Add workflow_dispatch input with a choice of packages.
+   * When a package is selected, only that package and its upstream deps are released.
+   */
+  private renderWorkflowDispatchInput() {
+    if (!this.workflow?.file) {
+      return;
+    }
+
+    const packageNames = this.packagesToRelease.map(p => p.release.workspace.name);
+
+    this.workflow.file.addOverride('on.workflow_dispatch.inputs.package', {
+      description: 'Select specific package to release',
+      required: false,
+      type: 'choice',
+      options: [ALL_PACKAGES_INPUT, ...packageNames],
+      default: ALL_PACKAGES_INPUT,
+    });
+  }
+
+  /**
+   * Compute the release set for each package (itself + transitive upstream deps).
+   */
+  private computeReleaseSets() {
+    for (const { release } of this.packagesToRelease) {
+      const upstream = this.upstreamPackageNames(release.workspace);
+      upstream.add(release.workspace.name);
+      this._releaseSetByChoice.set(release.workspace.name, upstream);
+    }
   }
 
   private createPublishWorkflow() {
@@ -340,6 +396,7 @@ export class MonorepoRelease extends Component {
       triggers: {
         schedule: this.releaseTrigger.schedule ? [{ cron: this.releaseTrigger.schedule }] : undefined,
         push: this.releaseTrigger.isContinuous ? { branches: [this.branchName] } : undefined,
+        workflowDispatch: {},
       },
       container: this.options.workflowContainerImage ? { image: this.options.workflowContainerImage } : undefined,
       env: {
@@ -389,4 +446,20 @@ function publishProjectOutputId(project: Project) {
 
 function shouldPublishProjectStepId(project: Project) {
   return `check-${publishProjectOutputId(project)}`;
+}
+
+/**
+ * Returns a GitHub Actions expression that evaluates to true if the given workspace
+ * should be released based on the selected package input.
+ *
+ * A workspace should be released if the selected package is one for which this workspace
+ * is in the release set (i.e., the workspace is the selected package itself or an upstream dep).
+ */
+function shouldReleaseExpression(workspaceName: string, releaseSetByChoice: Map<string, Set<string>>): string {
+  // Find all packages whose release set includes this workspace
+  const triggeringPackages = Array.from(releaseSetByChoice.entries())
+    .filter(([_, releaseSet]) => releaseSet.has(workspaceName))
+    .map(([pkg]) => pkg);
+
+  return `contains(fromJSON('${JSON.stringify(triggeringPackages)}'), github.event.inputs.package)`;
 }
