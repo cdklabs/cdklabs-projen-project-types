@@ -548,6 +548,28 @@ describe('CdkLabsMonorepo', () => {
       expect(releaseWorkflow.jobs['cdklabs-dep_release_npm'].needs).not.toContain('cdklabs-consumer_release_npm');
     });
 
+    test('publish jobs with topological needs do not directly depend on release job', () => {
+      const dep = new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/dep',
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/consumer',
+        deps: [dep],
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+      // consumer has a transitive dep on release through dep's publish jobs, so no direct dep needed
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).not.toContain('release');
+
+      // dep has no topological deps, so it still needs 'release' directly
+      expect(releaseWorkflow.jobs['cdklabs-dep_release_npm'].needs).toContain('release');
+    });
+
     test('publish jobs with topological needs include !cancelled() && !failure() in if condition', () => {
       const dep = new yarn.TypeScriptWorkspace({
         parent,
