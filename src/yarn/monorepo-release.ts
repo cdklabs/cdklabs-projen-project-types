@@ -198,15 +198,19 @@ export class MonorepoRelease extends Component {
               },
             };
 
+            const condition = `needs.release.outputs.latest_commit == github.sha && needs.release.outputs.${publishProjectOutputId(
+              release.workspace,
+            )} == 'true'`;
+
             return [
               `${prefix}_${key}`,
               {
                 ...job,
                 tools: toolsRebuilt,
                 needs,
-                if: `\${{ needs.release.outputs.latest_commit == github.sha && needs.release.outputs.${publishProjectOutputId(
-                  release.workspace,
-                )} == 'true' }}`,
+                if: runtimeDepJobKeys.length > 0
+                  ? `\${{ !cancelled() && !failure() && ${condition} }}`
+                  : `\${{ ${condition} }}`,
                 name: `${release.workspace.name}: ${job.name}`,
               },
             ];
