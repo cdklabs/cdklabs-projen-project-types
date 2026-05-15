@@ -189,7 +189,14 @@ export class MonorepoRelease extends Component {
               }),
               // Add topological dependencies on runtime dep publish jobs
               ...runtimeDepJobKeys,
-            ];
+            ].filter((dep) => {
+              // If we have topological deps, the 'release' dependency is transitively
+              // satisfied through upstream packages — no need to add it directly.
+              if (dep === 'release' && runtimeDepJobKeys.length > 0) {
+                return false;
+              }
+              return true;
+            });
 
             // we build the tools object so that we can modify it with our
             // own custom properties.

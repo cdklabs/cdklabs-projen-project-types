@@ -7576,7 +7576,6 @@ jobs:
   cdklabs-mid_release_github:
     name: "@cdklabs/mid: Publish to GitHub Releases"
     needs:
-      - release
       - cdklabs-mid_release_npm
       - cdklabs-base_release_github
       - cdklabs-base_release_npm
@@ -7605,7 +7604,6 @@ jobs:
   cdklabs-mid_release_npm:
     name: "@cdklabs/mid: Publish to npm"
     needs:
-      - release
       - cdklabs-base_release_github
       - cdklabs-base_release_npm
     runs-on: ubuntu-latest
@@ -7637,7 +7635,6 @@ jobs:
   cdklabs-top_release_github:
     name: "@cdklabs/top: Publish to GitHub Releases"
     needs:
-      - release
       - cdklabs-top_release_npm
       - cdklabs-mid_release_github
       - cdklabs-mid_release_npm
@@ -7666,7 +7663,6 @@ jobs:
   cdklabs-top_release_npm:
     name: "@cdklabs/top: Publish to npm"
     needs:
-      - release
       - cdklabs-mid_release_github
       - cdklabs-mid_release_npm
     runs-on: ubuntu-latest
