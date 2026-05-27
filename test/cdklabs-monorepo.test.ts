@@ -371,7 +371,7 @@ describe('CdkLabsMonorepo', () => {
       const outdir = Testing.synth(parent);
       const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
 
-      expect(releaseWorkflow.jobs['cdklabs-one_release_github'].needs).toStrictEqual(['release', 'cdklabs-one_release_npm']);
+      expect(releaseWorkflow.jobs['cdklabs-one_release_github'].needs).toEqual('cdklabs-one_release_npm');
       expect(outdir).toMatchSnapshot();
     });
 
@@ -525,7 +525,7 @@ describe('CdkLabsMonorepo', () => {
       expect(tasks.tasks['gather-versions'].steps[0].exec).toContain('@cdklabs/one=exact');
     });
 
-    test('publish jobs have topological needs on runtime workspace dependencies', () => {
+    test('a package waits for its dependencies to finish publishing before it publishes', () => {
       const dep = new yarn.TypeScriptWorkspace({
         parent,
         name: '@cdklabs/dep',
@@ -540,15 +540,17 @@ describe('CdkLabsMonorepo', () => {
       const outdir = Testing.synth(parent);
       const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
 
-      // consumer's npm job should need dep's publish jobs
-      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).toContain('cdklabs-dep_release_npm');
-      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).toContain('cdklabs-dep_release_github');
+      // Consumer waits for dep to finish all publishing before starting its own
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).toContain('cdklabs-dep_release_done');
 
-      // dep's npm job should NOT need consumer's jobs
-      expect(releaseWorkflow.jobs['cdklabs-dep_release_npm'].needs).not.toContain('cdklabs-consumer_release_npm');
+      // Consumer still needs its own gate to pass
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).toContain('cdklabs-consumer_release');
+
+      // Dep does not wait for consumer (no circular dependency)
+      expect(releaseWorkflow.jobs['cdklabs-dep_release_done'].needs).not.toContain('cdklabs-consumer');
     });
 
-    test('publish jobs with topological needs do not directly depend on release job', () => {
+    test('publish jobs are isolated from the release job', () => {
       const dep = new yarn.TypeScriptWorkspace({
         parent,
         name: '@cdklabs/dep',
@@ -563,14 +565,17 @@ describe('CdkLabsMonorepo', () => {
       const outdir = Testing.synth(parent);
       const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
 
-      // consumer has a transitive dep on release through dep's publish jobs, so no direct dep needed
-      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).not.toContain('release');
-
-      // dep has no topological deps, so it still needs 'release' directly
-      expect(releaseWorkflow.jobs['cdklabs-dep_release_npm'].needs).toContain('release');
+      // Publish jobs never directly depend on the release or release_gate jobs
+      // (all gating is done through the package gate)
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).not.toEqual(
+        expect.arrayContaining(['release']),
+      );
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).not.toEqual(
+        expect.arrayContaining(['release_gate']),
+      );
     });
 
-    test('publish jobs with topological needs include !cancelled() && !failure() in if condition', () => {
+    test('a package can still publish even if an unchanged dependency is skipped', () => {
       const dep = new yarn.TypeScriptWorkspace({
         parent,
         name: '@cdklabs/dep',
@@ -585,11 +590,69 @@ describe('CdkLabsMonorepo', () => {
       const outdir = Testing.synth(parent);
       const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
 
-      // consumer's job has topological deps, so it should tolerate skipped upstream jobs
-      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].if).toContain('!cancelled() && !failure()');
+      // The done job uses !cancelled() && !failure() so it succeeds even when
+      // publish jobs are skipped (package has no changes), allowing downstream
+      // packages to proceed. But if a publish job fails, the done job is skipped
+      // which blocks downstream packages.
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_done'].if).toContain('!cancelled() && !failure()');
+      expect(releaseWorkflow.jobs['cdklabs-dep_release_done'].if).toContain('!cancelled() && !failure()');
+    });
 
-      // dep's job has no topological deps, so it should NOT have the extra condition
-      expect(releaseWorkflow.jobs['cdklabs-dep_release_npm'].if).not.toContain('!cancelled() && !failure()');
+    test('diamond dependency graph publishes packages in correct order', () => {
+      // Diamond: schema <- api, schema <- diff, api <- toolkit, diff <- toolkit
+      // Plus: toolkit <- cli, cli <- integ-runner
+      const schema = new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/schema' });
+      const api = new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/api', deps: [schema] });
+      const diff = new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/diff', deps: [schema] });
+      const toolkit = new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/toolkit', deps: [api, diff] });
+      const cli = new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/cli', deps: [toolkit] });
+      new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/integ-runner', deps: [cli] });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+
+      // The release_gate decides which packages to publish based on tags and filters
+      expect(releaseWorkflow.jobs.release_gate.needs).toEqual('release');
+      expect(releaseWorkflow.jobs.release_gate.if).toContain('latest_commit');
+
+      // Each package gate only depends on release_gate (no topological deps on gates)
+      // This ensures the "should publish?" decision is independent per package
+      expect(releaseWorkflow.jobs['cdklabs-schema_release'].needs).toEqual('release_gate');
+      expect(releaseWorkflow.jobs['cdklabs-api_release'].needs).toEqual('release_gate');
+      expect(releaseWorkflow.jobs['cdklabs-diff_release'].needs).toEqual('release_gate');
+
+      // Topological ordering happens at the publish level via _release_done
+      // Each package waits for its dependencies to finish publishing first
+      expect(releaseWorkflow.jobs['cdklabs-api_release_npm'].needs).toContain('cdklabs-schema_release_done');
+      expect(releaseWorkflow.jobs['cdklabs-toolkit_release_npm'].needs).toContain('cdklabs-api_release_done');
+      expect(releaseWorkflow.jobs['cdklabs-toolkit_release_npm'].needs).toContain('cdklabs-diff_release_done');
+      expect(releaseWorkflow.jobs['cdklabs-cli_release_npm'].needs).toContain('cdklabs-toolkit_release_done');
+      expect(releaseWorkflow.jobs['cdklabs-integ-runner_release_npm'].needs).toContain('cdklabs-cli_release_done');
+
+      // Each package's publish jobs also need their own gate to pass
+      expect(releaseWorkflow.jobs['cdklabs-toolkit_release_npm'].needs).toContain('cdklabs-toolkit_release');
+      expect(releaseWorkflow.jobs['cdklabs-cli_release_npm'].needs).toContain('cdklabs-cli_release');
+
+      // The GitHub release job runs after all other publish jobs for the same package
+      // (it doesn't need the gate directly since it's transitively satisfied)
+      const toolkitGhNeeds = [].concat(releaseWorkflow.jobs['cdklabs-toolkit_release_github'].needs);
+      expect(toolkitGhNeeds).toContain('cdklabs-toolkit_release_npm');
+      expect(toolkitGhNeeds).not.toEqual(expect.arrayContaining(['cdklabs-toolkit_release']));
+
+      // Publish jobs have no if condition — all gating is done by the package gate
+      expect(releaseWorkflow.jobs['cdklabs-toolkit_release_npm'].if).toBeUndefined();
+      expect(releaseWorkflow.jobs['cdklabs-integ-runner_release_npm'].if).toBeUndefined();
+
+      // No publish job directly accesses release job outputs
+      // (prevents invalid GitHub Actions context access warnings)
+      for (const [jobId, job] of Object.entries(releaseWorkflow.jobs) as [string, any][]) {
+        if (jobId === 'release' || jobId === 'release_gate') continue;
+        const jobStr = JSON.stringify(job);
+        expect(jobStr).not.toContain('needs.release.outputs');
+      }
+
+      // Full workflow snapshot for easy inspection
+      expect(outdir['.github/workflows/release.yml']).toMatchSnapshot();
     });
 
     test('devDeps on a workspace do not add release dependency', () => {
@@ -625,7 +688,7 @@ describe('CdkLabsMonorepo', () => {
       const outdir = Testing.synth(parent);
       const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
 
-      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).toContain('cdklabs-dep_release_npm');
+      expect(releaseWorkflow.jobs['cdklabs-consumer_release_npm'].needs).toContain('cdklabs-dep_release_done');
     });
   });
 
@@ -1195,23 +1258,25 @@ describe('install trigger handling', () => {
     });
 
     // When @cdklabs/top is selected, all three packages should be released
-    const topPublishIf = releaseWorkflow.jobs['cdklabs-top_release_npm'].if;
-    expect(topPublishIf).toContain('!github.event.inputs.package');
-    expect(topPublishIf).toContain("github.event.inputs.package == '*all packages*'");
-    expect(topPublishIf).toContain('@cdklabs/top');
+    // Package filter is now in the gate job's steps
+    const gateJob = releaseWorkflow.jobs.release_gate;
+    const topGateStep = gateJob.steps.find((s: any) => s.name?.includes('@cdklabs/top'));
+    expect(topGateStep.run).toContain('!github.event.inputs.package');
+    expect(topGateStep.run).toContain("github.event.inputs.package == '*all packages*'");
+    expect(topGateStep.run).toContain('@cdklabs/top');
 
-    const midPublishIf = releaseWorkflow.jobs['cdklabs-mid_release_npm'].if;
-    expect(midPublishIf).toContain('@cdklabs/top');
-    expect(midPublishIf).toContain('@cdklabs/mid');
+    const midGateStep = gateJob.steps.find((s: any) => s.name?.includes('@cdklabs/mid'));
+    expect(midGateStep.run).toContain('@cdklabs/top');
+    expect(midGateStep.run).toContain('@cdklabs/mid');
 
-    const basePublishIf = releaseWorkflow.jobs['cdklabs-base_release_npm'].if;
-    expect(basePublishIf).toContain('@cdklabs/top');
-    expect(basePublishIf).toContain('@cdklabs/mid');
-    expect(basePublishIf).toContain('@cdklabs/base');
+    const baseGateStep = gateJob.steps.find((s: any) => s.name?.includes('@cdklabs/base'));
+    expect(baseGateStep.run).toContain('@cdklabs/top');
+    expect(baseGateStep.run).toContain('@cdklabs/mid');
+    expect(baseGateStep.run).toContain('@cdklabs/base');
 
     // When @cdklabs/mid is selected, only base and mid should be released (not top)
-    expect(basePublishIf).toContain('@cdklabs/mid');
-    expect(topPublishIf).not.toContain('@cdklabs/mid');
+    expect(baseGateStep.run).toContain('@cdklabs/mid');
+    expect(topGateStep.run).not.toContain('@cdklabs/mid');
 
     // Full workflow snapshot
     expect(outdir['.github/workflows/release.yml']).toMatchSnapshot();
