@@ -1,7 +1,6 @@
 import * as path from 'path';
 import { DependencyType, github, release as projenRelease, Component, Project, Task } from 'projen';
 import { BUILD_ARTIFACT_NAME, PERMISSION_BACKUP_FILE } from 'projen/lib/github/constants';
-import { Tools } from 'projen/lib/github/workflows-model';
 import { MonorepoReleaseOptions } from './monorepo-release-options';
 import { TypeScriptWorkspace } from './typescript-workspace';
 import { WorkspaceRelease, WorkspaceReleaseOptions } from './typescript-workspace-release';
@@ -137,99 +136,69 @@ export class MonorepoRelease extends Component {
   }
 
   private renderPublishJobs() {
-    // First pass: render jobs and collect prefixed job keys per workspace
-    const publishJobsByWorkspace = new Map<string, {
-      prefix: string;
-      jobs: Record<string, github.workflows.Job>;
-      release: { workspace: TypeScriptWorkspace; publisher: projenRelease.Publisher; options: Partial<projenRelease.BranchOptions> };
-      jobKeys: string[];
-    }>();
+    const GATE_JOBID = 'release_gate';
+    const GATE_OUTPUT_STEP = 'collect';
 
-    for (const { release } of this.packagesToRelease) {
-      const jobs = release.publisher._renderJobsForBranch(this.branchName, release.options);
-      const prefix = slugify(`${release.workspace.name}`);
+    // Build the release tree
+    const tree = new ReleaseTree(this.packagesToRelease, this.branchName);
 
-      for (const job of Object.values(jobs)) {
-        // Replace the build artifact name with the unique per-project one
-        const downloadStep = job.steps.find((j) => j.uses?.startsWith('actions/download-artifact@'));
-        if (!downloadStep) {
-          throw new Error(`Could not find downloadStep among steps: ${JSON.stringify(job.steps, undefined, 2)}`);
-        }
-        (downloadStep.with ?? {}).name = buildArtifactName(release.workspace);
-      }
+    // Render the release_gate job
+    const gateSteps: github.workflows.JobStep[] = tree.nodes.map((node) => {
+      const packageFilter = `(!github.event.inputs.package || github.event.inputs.package == '${ALL_PACKAGES_INPUT}' || ${shouldReleaseExpression(node.name, this._releaseSetByChoice)})`;
+      return {
+        name: `${node.name}: Check publish`,
+        run: [
+          `should_publish="\${{ needs.${RELEASE_JOBID}.outputs.${publishProjectOutputId(node.workspace)} }}"`,
+          `package_filter="\${{ ${packageFilter} }}"`,
+          'if [[ "$should_publish" != "true" ]]; then',
+          `  echo "⏭️ Skipping ${node.name}: release tag already exists"`,
+          'elif [[ "$package_filter" != "true" ]]; then',
+          `  echo "⏭️ Skipping ${node.name}: not selected for release"`,
+          'else',
+          `  echo "✅ Will publish ${node.name}"`,
+          `  echo "${node.name}" >> publish.txt`,
+          'fi',
+        ].join('\n'),
+      };
+    });
+    gateSteps.push({
+      id: GATE_OUTPUT_STEP,
+      name: 'Collect packages to publish',
+      run: [
+        'if [ -f publish.txt ]; then',
+        '  packages=$(jq -Rc \'.\' publish.txt | jq -sc \'.\')',
+        'else',
+        '  packages=\'[]\'',
+        'fi',
+        'echo "packages_to_publish=$packages" >> $GITHUB_OUTPUT',
+        'echo "Publishing: $packages"',
+      ].join('\n'),
+    });
 
-      publishJobsByWorkspace.set(release.workspace.name, {
-        prefix,
-        jobs,
-        release,
-        jobKeys: Object.keys(jobs).map(k => `${prefix}_${k}`),
+    this.workflow?.addJobs({
+      [GATE_JOBID]: {
+        runsOn: ['ubuntu-latest'],
+        needs: [RELEASE_JOBID],
+        permissions: {},
+        if: `\${{ needs.${RELEASE_JOBID}.outputs.latest_commit == github.sha }}`,
+        name: 'Publish gate',
+        outputs: {
+          packages_to_publish: {
+            stepId: GATE_OUTPUT_STEP,
+            outputName: 'packages_to_publish',
+          },
+        },
+        steps: gateSteps,
+      } as any,
+    });
+
+    // Render per-package gate jobs and publish jobs from the tree
+    for (const node of tree.nodes) {
+      this.workflow?.addJobs({
+        [node.gateJobId]: node.renderGateJob(GATE_JOBID),
+        ...node.renderPublishJobs(this.options.nodeVersion),
+        [node.doneJobId]: node.renderDoneJob(),
       });
-    }
-
-    // Second pass: add topological needs and inject jobs into workflow
-    for (const { prefix, jobs, release } of publishJobsByWorkspace.values()) {
-
-      // Determine runtime dependency job keys for topological ordering
-      const runtimeDepJobKeys = release.workspace.workspaceDependencies([DependencyType.RUNTIME, DependencyType.PEER])
-        .flatMap((dep: Project) => publishJobsByWorkspace.get(dep.name)?.jobKeys ?? []);
-
-      // Make the job names unique
-      this.workflow?.addJobs(
-        Object.fromEntries(
-          Object.entries(jobs).map(([key, job]) => {
-            const needs = [
-              ...(job.needs ?? []).map((dep: string) => {
-                // All publish jobs depend on the main release job
-                if (dep === 'release') {
-                  return dep;
-                }
-
-                // ... and possibly on individual publish jobs that are prefixed
-                return `${prefix}_${dep}`;
-              }),
-              // Add topological dependencies on runtime dep publish jobs
-              ...runtimeDepJobKeys,
-            ].filter((dep) => {
-              // If we have topological deps, the 'release' dependency is transitively
-              // satisfied through upstream packages — no need to add it directly.
-              if (dep === 'release' && runtimeDepJobKeys.length > 0) {
-                return false;
-              }
-              return true;
-            });
-
-            // we build the tools object so that we can modify it with our
-            // own custom properties.
-            const toolsRebuilt: Tools = {
-              ...job.tools,
-              node: {
-                ...job.tools?.node ?? {},
-                // use the node version specified on the mono repo.
-                version: this.options.nodeVersion ?? job.tools?.node?.version ?? 'lts/*',
-              },
-            };
-
-            const condition = `needs.release.outputs.latest_commit == github.sha && needs.release.outputs.${publishProjectOutputId(
-              release.workspace,
-            )} == 'true'`;
-
-            const packageFilter = `(!github.event.inputs.package || github.event.inputs.package == '${ALL_PACKAGES_INPUT}' || ${shouldReleaseExpression(release.workspace.name, this._releaseSetByChoice)})`;
-
-            return [
-              `${prefix}_${key}`,
-              {
-                ...job,
-                tools: toolsRebuilt,
-                needs,
-                if: runtimeDepJobKeys.length > 0
-                  ? `\${{ !cancelled() && !failure() && ${condition} && ${packageFilter} }}`
-                  : `\${{ ${condition} && ${packageFilter} }}`,
-                name: `${release.workspace.name}: ${job.name}`,
-              },
-            ];
-          }),
-        ),
-      );
     }
   }
 
@@ -436,6 +405,179 @@ export class MonorepoRelease extends Component {
         },
       },
     });
+  }
+}
+
+/**
+ * A node representing a single publish job (e.g. npm, maven, github).
+ */
+class PublishJobNode {
+  public readonly jobId: string;
+  public readonly job: github.workflows.Job;
+
+  constructor(
+    public readonly parent: PackageReleaseNode,
+    key: string,
+    job: github.workflows.Job,
+  ) {
+    this.jobId = `${parent.prefix}_${key}`;
+    this.job = job;
+  }
+
+  /**
+   * Compute the `needs` for this publish job.
+   * Jobs with sibling deps (e.g. github depends on npm) use those;
+   * the first job in the chain depends on the gate + upstream done jobs.
+   */
+  public get needs(): string[] {
+    const siblingDeps = (this.job.needs ?? [])
+      .filter((dep: string) => dep !== 'release')
+      .map((dep: string) => `${this.parent.prefix}_${dep}`);
+
+    if (siblingDeps.length > 0) {
+      return siblingDeps;
+    }
+
+    // First publish job: depends on gate + upstream packages' done jobs
+    return [
+      this.parent.gateJobId,
+      ...this.parent.upstream.map((n) => n.doneJobId),
+    ];
+  }
+}
+
+/**
+ * A node representing a package's release gate, publish jobs, and done signal.
+ */
+class PackageReleaseNode {
+  public readonly name: string;
+  public readonly workspace: TypeScriptWorkspace;
+  public readonly prefix: string;
+  public readonly gateJobId: string;
+  public readonly doneJobId: string;
+  public readonly publishJobs: PublishJobNode[];
+  public readonly upstream: PackageReleaseNode[] = [];
+
+  constructor(workspace: TypeScriptWorkspace, publishJobs: Record<string, github.workflows.Job>) {
+    this.name = workspace.name;
+    this.workspace = workspace;
+    this.prefix = slugify(workspace.name);
+    this.gateJobId = `${this.prefix}_release`;
+    this.doneJobId = `${this.prefix}_release_done`;
+    this.publishJobs = Object.entries(publishJobs).map(
+      ([key, job]) => new PublishJobNode(this, key, job),
+    );
+  }
+
+  /**
+   * Render the package gate job — purely checks if this package should publish.
+   */
+  public renderGateJob(releaseGateJobId: string): any {
+    const condition = `contains(fromJSON(needs.${releaseGateJobId}.outputs.packages_to_publish), '${this.name}')`;
+    return {
+      runsOn: ['ubuntu-latest'],
+      needs: [releaseGateJobId],
+      permissions: {},
+      if: `\${{ ${condition} }}`,
+      name: `${this.name}: Release`,
+      steps: [{ run: `echo "Releasing ${this.name}..."` }],
+    };
+  }
+
+  /**
+   * Render all publish job definitions for this package.
+   */
+  public renderPublishJobs(nodeVersion?: string): Record<string, any> {
+    return Object.fromEntries(
+      this.publishJobs.map((pubNode) => [
+        pubNode.jobId,
+        {
+          ...pubNode.job,
+          if: undefined,
+          tools: {
+            ...pubNode.job.tools,
+            node: {
+              ...pubNode.job.tools?.node ?? {},
+              version: nodeVersion ?? pubNode.job.tools?.node?.version ?? 'lts/*',
+            },
+          },
+          needs: pubNode.needs,
+          name: `${this.name}: ${pubNode.job.name}`,
+        },
+      ]),
+    );
+  }
+
+  /**
+   * Render the done job — fan-in that signals all publishing for this package is complete.
+   */
+  public renderDoneJob(): any {
+    return {
+      runsOn: ['ubuntu-latest'],
+      needs: this.publishJobs.map((p) => p.jobId),
+      permissions: {},
+      // Use !cancelled() && !failure() so that:
+      // - If publish jobs are skipped (package has no changes, gate was skipped), done still succeeds
+      //   → allows downstream packages to proceed with their own release
+      // - If a publish job fails, done is skipped (failure() is true)
+      //   → blocks downstream packages from releasing
+      if: '${{ !cancelled() && !failure() }}',
+      name: `${this.name}: Release complete`,
+      steps: [{ run: 'echo "All publish jobs complete"' }],
+    };
+  }
+}
+
+/**
+ * A topological tree of packages to release.
+ * Each node knows its upstream dependencies (runtime + peer).
+ */
+class ReleaseTree {
+  public readonly nodes: PackageReleaseNode[];
+  private readonly nodesByName = new Map<string, PackageReleaseNode>();
+
+  constructor(
+    packagesToRelease: Array<{
+      readonly workspaceDirectory: string;
+      readonly release: {
+        readonly workspace: TypeScriptWorkspace;
+        readonly publisher: projenRelease.Publisher;
+        readonly options: Partial<projenRelease.BranchOptions>;
+      };
+    }>,
+    branchName: string,
+  ) {
+    // Create nodes
+    for (const { release } of packagesToRelease) {
+      const publishJobs = release.publisher._renderJobsForBranch(branchName, release.options);
+
+      // Fix download steps to use artifact name instead of immutable artifact IDs
+      for (const job of Object.values(publishJobs)) {
+        const downloadStep = job.steps.find((j) => j.uses?.startsWith('actions/download-artifact@'));
+        if (!downloadStep) {
+          throw new Error(`Could not find downloadStep among steps: ${JSON.stringify(job.steps, undefined, 2)}`);
+        }
+        if (downloadStep.with) {
+          delete downloadStep.with['artifact-ids'];
+          downloadStep.with.name = buildArtifactName(release.workspace);
+        }
+      }
+
+      const node = new PackageReleaseNode(release.workspace, publishJobs);
+      this.nodesByName.set(node.name, node);
+    }
+
+    // Resolve upstream edges
+    for (const node of this.nodesByName.values()) {
+      for (const dep of node.workspace.workspaceDependencies([DependencyType.RUNTIME, DependencyType.PEER])) {
+        const upstream = this.nodesByName.get(dep.name);
+        if (upstream) {
+          node.upstream.push(upstream);
+        }
+      }
+    }
+
+    this.nodes = [...this.nodesByName.values()];
   }
 }
 
