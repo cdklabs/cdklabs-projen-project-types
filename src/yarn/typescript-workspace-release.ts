@@ -26,10 +26,12 @@ export class WorkspaceRelease extends Component {
   public readonly publisher?: release.Publisher;
   public readonly version?: Version;
   public readonly workspace: TypeScriptWorkspace;
+  public readonly artifactsDirectory: string;
 
   public constructor(project: TypeScriptWorkspace, options: WorkspaceReleaseOptions) {
     super(project);
     this.workspace = project;
+    this.artifactsDirectory = project.artifactsDirectory;
 
     // The root package is release-aware. Either we create a proper
     // 'yarn release' task here, or we create a fake one that just does

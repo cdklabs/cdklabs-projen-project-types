@@ -1,4 +1,5 @@
 export * from './constraints';
+export * from './jsii-build';
 export * from './monorepo';
 export * from './monorepo-options';
 export * from './monorepo-release';
