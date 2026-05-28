@@ -13100,19 +13100,19 @@ ensure that rosetta will run successfully
 ```typescript
 import { Rosetta } from 'cdklabs-projen-project-types'
 
-new Rosetta(project: JsiiProject, options?: RosettaOptions)
+new Rosetta(project: TypeScriptProject, options?: RosettaOptions)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdklabs-projen-project-types.Rosetta.Initializer.parameter.project">project</a></code> | <code>projen.cdk.JsiiProject</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.Rosetta.Initializer.parameter.project">project</a></code> | <code>projen.typescript.TypeScriptProject</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.Rosetta.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | *No description.* |
 
 ---
 
 ##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.Rosetta.Initializer.parameter.project"></a>
 
-- *Type:* projen.cdk.JsiiProject
+- *Type:* projen.typescript.TypeScriptProject
 
 ---
 
@@ -14016,7 +14016,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
-| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.parent">parent</a></code> | <code>cdklabs-projen-project-types.yarn.Monorepo</code> | A parent project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
@@ -14348,10 +14348,10 @@ FQN of the project type.
 ##### `parent`<sup>Optional</sup> <a name="parent" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.parent"></a>
 
 ```typescript
-public readonly parent: Project;
+public readonly parent: Monorepo;
 ```
 
-- *Type:* projen.Project
+- *Type:* cdklabs-projen-project-types.yarn.Monorepo
 
 A parent project.
 
@@ -15059,6 +15059,7 @@ Test whether the given construct is a component.
 | --- | --- | --- |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.workspace">workspace</a></code> | <code>cdklabs-projen-project-types.yarn.TypeScriptWorkspace</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceRelease.property.version">version</a></code> | <code>projen.Version</code> | *No description.* |
@@ -15084,6 +15085,16 @@ public readonly project: Project;
 ```
 
 - *Type:* projen.Project
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -34731,6 +34742,295 @@ The version is enforced across all workspaces using Yarn Berry constraints.
 
 ---
 
+### JsiiBuildOptions <a name="JsiiBuildOptions" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions"></a>
+
+Options for `JsiiBuild`.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const jsiiBuildOptions: yarn.JsiiBuildOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.release.CodeArtifactOptions</code> | Options for publishing npm package to AWS CodeArtifact. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.compat">compat</a></code> | <code>boolean</code> | Automatically run API compatibility test against the latest version published to npm after compilation. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.compatIgnore">compatIgnore</a></code> | <code>string</code> | Name of the ignore file for API compatibility tests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.compressAssembly">compressAssembly</a></code> | <code>boolean</code> | Emit a compressed version of the assembly. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Generate a MarkDown file describing the jsii API. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.docgenFilePath">docgenFilePath</a></code> | <code>string</code> | File path for generated docs. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.jsiiVersion">jsiiVersion</a></code> | <code>string</code> | Version of the jsii compiler to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Whether to use trusted publishing for npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToGo">publishToGo</a></code> | <code>projen.cdk.JsiiGoTarget</code> | Publish Go bindings to a git repository. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToMaven">publishToMaven</a></code> | <code>projen.cdk.JsiiJavaTarget</code> | Publish to maven. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToNuget">publishToNuget</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | Publish to NuGet. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToPypi">publishToPypi</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | Publish to pypi. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Whether to publish to npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.stability">stability</a></code> | <code>string</code> | The stability of the package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.Step[]</code> | Additional steps to run before packaging in workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in packaging workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.workspaceDirectory">workspaceDirectory</a></code> | <code>string</code> | Relative path of the package within the repository. |
+
+---
+
+##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.codeArtifactOptions"></a>
+
+```typescript
+public readonly codeArtifactOptions: CodeArtifactOptions;
+```
+
+- *Type:* projen.release.CodeArtifactOptions
+- *Default:* undefined
+
+Options for publishing npm package to AWS CodeArtifact.
+
+---
+
+##### `compat`<sup>Optional</sup> <a name="compat" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.compat"></a>
+
+```typescript
+public readonly compat: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically run API compatibility test against the latest version published to npm after compilation.
+
+You can manually run compatibility tests using `yarn compat` if this feature is disabled.
+- You can ignore compatibility failures by adding lines to a ".compatignore" file.
+
+---
+
+##### `compatIgnore`<sup>Optional</sup> <a name="compatIgnore" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.compatIgnore"></a>
+
+```typescript
+public readonly compatIgnore: string;
+```
+
+- *Type:* string
+- *Default:* ".compatignore"
+
+Name of the ignore file for API compatibility tests.
+
+---
+
+##### `compressAssembly`<sup>Optional</sup> <a name="compressAssembly" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.compressAssembly"></a>
+
+```typescript
+public readonly compressAssembly: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Emit a compressed version of the assembly.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Generate a MarkDown file describing the jsii API.
+
+---
+
+##### `docgenFilePath`<sup>Optional</sup> <a name="docgenFilePath" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.docgenFilePath"></a>
+
+```typescript
+public readonly docgenFilePath: string;
+```
+
+- *Type:* string
+- *Default:* "API.md"
+
+File path for generated docs.
+
+---
+
+##### `excludeTypescript`<sup>Optional</sup> <a name="excludeTypescript" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.excludeTypescript"></a>
+
+```typescript
+public readonly excludeTypescript: string[];
+```
+
+- *Type:* string[]
+
+Accepts a list of glob patterns.
+
+Files matching any of those patterns will be excluded from the TypeScript compiler input.
+
+By default, jsii will include all *.ts files (except .d.ts files) in the TypeScript compiler input.
+This can be problematic for example when the package's build or test procedure generates .ts files
+that cannot be compiled with jsii's compiler settings.
+
+---
+
+##### `jsiiVersion`<sup>Optional</sup> <a name="jsiiVersion" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.jsiiVersion"></a>
+
+```typescript
+public readonly jsiiVersion: string;
+```
+
+- *Type:* string
+- *Default:* "~5.9.0"
+
+Version of the jsii compiler to use.
+
+Set to "*" if you want to manually manage the version of jsii in your
+project by managing updates to `package.json` on your own.
+
+NOTE: The jsii compiler releases since 5.0.0 are not semantically versioned
+and should remain on the same minor, so we recommend using a `~` dependency
+(e.g. `~5.0.0`).
+
+---
+
+##### `npmTrustedPublishing`<sup>Optional</sup> <a name="npmTrustedPublishing" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.npmTrustedPublishing"></a>
+
+```typescript
+public readonly npmTrustedPublishing: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to use trusted publishing for npm.
+
+---
+
+##### `publishToGo`<sup>Optional</sup> <a name="publishToGo" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToGo"></a>
+
+```typescript
+public readonly publishToGo: JsiiGoTarget;
+```
+
+- *Type:* projen.cdk.JsiiGoTarget
+- *Default:* no publishing
+
+Publish Go bindings to a git repository.
+
+---
+
+##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToMaven"></a>
+
+```typescript
+public readonly publishToMaven: JsiiJavaTarget;
+```
+
+- *Type:* projen.cdk.JsiiJavaTarget
+- *Default:* no publishing
+
+Publish to maven.
+
+---
+
+##### `publishToNuget`<sup>Optional</sup> <a name="publishToNuget" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToNuget"></a>
+
+```typescript
+public readonly publishToNuget: JsiiDotNetTarget;
+```
+
+- *Type:* projen.cdk.JsiiDotNetTarget
+- *Default:* no publishing
+
+Publish to NuGet.
+
+---
+
+##### `publishToPypi`<sup>Optional</sup> <a name="publishToPypi" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToPypi"></a>
+
+```typescript
+public readonly publishToPypi: JsiiPythonTarget;
+```
+
+- *Type:* projen.cdk.JsiiPythonTarget
+- *Default:* no publishing
+
+Publish to pypi.
+
+---
+
+##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.releaseToNpm"></a>
+
+```typescript
+public readonly releaseToNpm: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to publish to npm.
+
+---
+
+##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.stability"></a>
+
+```typescript
+public readonly stability: string;
+```
+
+- *Type:* string
+- *Default:* "stable"
+
+The stability of the package.
+
+---
+
+##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.workflowBootstrapSteps"></a>
+
+```typescript
+public readonly workflowBootstrapSteps: Step[];
+```
+
+- *Type:* projen.github.workflows.Step[]
+- *Default:* []
+
+Additional steps to run before packaging in workflows.
+
+---
+
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.workflowNodeVersion"></a>
+
+```typescript
+public readonly workflowNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* "lts/*"
+
+The node version to use in packaging workflows.
+
+---
+
+##### `workspaceDirectory`<sup>Optional</sup> <a name="workspaceDirectory" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.workspaceDirectory"></a>
+
+```typescript
+public readonly workspaceDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "." - root of the repository
+
+Relative path of the package within the repository.
+
+This is used in monorepo setups where the package is not at the root.
+Packaging steps will extract build artifacts into this subdirectory.
+
+---
+
 ### MonorepoOptions <a name="MonorepoOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions"></a>
 
 MonorepoOptions.
@@ -40155,6 +40455,351 @@ The name of the root workspace if included.
 
 ---
 
+### WorkspaceJsiiBuildOptions <a name="WorkspaceJsiiBuildOptions" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+const workspaceJsiiBuildOptions: yarn.WorkspaceJsiiBuildOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.release.CodeArtifactOptions</code> | Options for publishing npm package to AWS CodeArtifact. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.compat">compat</a></code> | <code>boolean</code> | Automatically run API compatibility test against the latest version published to npm after compilation. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.compatIgnore">compatIgnore</a></code> | <code>string</code> | Name of the ignore file for API compatibility tests. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.compressAssembly">compressAssembly</a></code> | <code>boolean</code> | Emit a compressed version of the assembly. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Generate a MarkDown file describing the jsii API. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.docgenFilePath">docgenFilePath</a></code> | <code>string</code> | File path for generated docs. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.jsiiVersion">jsiiVersion</a></code> | <code>string</code> | Version of the jsii compiler to use. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Whether to use trusted publishing for npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToGo">publishToGo</a></code> | <code>projen.cdk.JsiiGoTarget</code> | Publish Go bindings to a git repository. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToMaven">publishToMaven</a></code> | <code>projen.cdk.JsiiJavaTarget</code> | Publish to maven. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToNuget">publishToNuget</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | Publish to NuGet. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToPypi">publishToPypi</a></code> | <code>projen.cdk.JsiiPythonTarget</code> | Publish to pypi. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.releaseToNpm">releaseToNpm</a></code> | <code>boolean</code> | Whether to publish to npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.stability">stability</a></code> | <code>string</code> | The stability of the package. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.workflowBootstrapSteps">workflowBootstrapSteps</a></code> | <code>projen.github.workflows.Step[]</code> | Additional steps to run before packaging in workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in packaging workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.workspaceDirectory">workspaceDirectory</a></code> | <code>string</code> | Relative path of the package within the repository. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.composite">composite</a></code> | <code>boolean</code> | Whether to turn on composite mode for the TypeScript project. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.pypiClassifiers">pypiClassifiers</a></code> | <code>string[]</code> | PyPI classifiers to add to `package.json`. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.rosettaDependencies">rosettaDependencies</a></code> | <code>string[]</code> | Additional example dependencies for Rosetta. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.rosettaStrict">rosettaStrict</a></code> | <code>boolean</code> | Whether to turn on 'strict' mode for Rosetta. |
+
+---
+
+##### `codeArtifactOptions`<sup>Optional</sup> <a name="codeArtifactOptions" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.codeArtifactOptions"></a>
+
+```typescript
+public readonly codeArtifactOptions: CodeArtifactOptions;
+```
+
+- *Type:* projen.release.CodeArtifactOptions
+- *Default:* undefined
+
+Options for publishing npm package to AWS CodeArtifact.
+
+---
+
+##### `compat`<sup>Optional</sup> <a name="compat" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.compat"></a>
+
+```typescript
+public readonly compat: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Automatically run API compatibility test against the latest version published to npm after compilation.
+
+You can manually run compatibility tests using `yarn compat` if this feature is disabled.
+- You can ignore compatibility failures by adding lines to a ".compatignore" file.
+
+---
+
+##### `compatIgnore`<sup>Optional</sup> <a name="compatIgnore" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.compatIgnore"></a>
+
+```typescript
+public readonly compatIgnore: string;
+```
+
+- *Type:* string
+- *Default:* ".compatignore"
+
+Name of the ignore file for API compatibility tests.
+
+---
+
+##### `compressAssembly`<sup>Optional</sup> <a name="compressAssembly" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.compressAssembly"></a>
+
+```typescript
+public readonly compressAssembly: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Emit a compressed version of the assembly.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Generate a MarkDown file describing the jsii API.
+
+---
+
+##### `docgenFilePath`<sup>Optional</sup> <a name="docgenFilePath" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.docgenFilePath"></a>
+
+```typescript
+public readonly docgenFilePath: string;
+```
+
+- *Type:* string
+- *Default:* "API.md"
+
+File path for generated docs.
+
+---
+
+##### `excludeTypescript`<sup>Optional</sup> <a name="excludeTypescript" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.excludeTypescript"></a>
+
+```typescript
+public readonly excludeTypescript: string[];
+```
+
+- *Type:* string[]
+
+Accepts a list of glob patterns.
+
+Files matching any of those patterns will be excluded from the TypeScript compiler input.
+
+By default, jsii will include all *.ts files (except .d.ts files) in the TypeScript compiler input.
+This can be problematic for example when the package's build or test procedure generates .ts files
+that cannot be compiled with jsii's compiler settings.
+
+---
+
+##### `jsiiVersion`<sup>Optional</sup> <a name="jsiiVersion" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.jsiiVersion"></a>
+
+```typescript
+public readonly jsiiVersion: string;
+```
+
+- *Type:* string
+- *Default:* "~5.9.0"
+
+Version of the jsii compiler to use.
+
+Set to "*" if you want to manually manage the version of jsii in your
+project by managing updates to `package.json` on your own.
+
+NOTE: The jsii compiler releases since 5.0.0 are not semantically versioned
+and should remain on the same minor, so we recommend using a `~` dependency
+(e.g. `~5.0.0`).
+
+---
+
+##### `npmTrustedPublishing`<sup>Optional</sup> <a name="npmTrustedPublishing" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.npmTrustedPublishing"></a>
+
+```typescript
+public readonly npmTrustedPublishing: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to use trusted publishing for npm.
+
+---
+
+##### `publishToGo`<sup>Optional</sup> <a name="publishToGo" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToGo"></a>
+
+```typescript
+public readonly publishToGo: JsiiGoTarget;
+```
+
+- *Type:* projen.cdk.JsiiGoTarget
+- *Default:* no publishing
+
+Publish Go bindings to a git repository.
+
+---
+
+##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToMaven"></a>
+
+```typescript
+public readonly publishToMaven: JsiiJavaTarget;
+```
+
+- *Type:* projen.cdk.JsiiJavaTarget
+- *Default:* no publishing
+
+Publish to maven.
+
+---
+
+##### `publishToNuget`<sup>Optional</sup> <a name="publishToNuget" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToNuget"></a>
+
+```typescript
+public readonly publishToNuget: JsiiDotNetTarget;
+```
+
+- *Type:* projen.cdk.JsiiDotNetTarget
+- *Default:* no publishing
+
+Publish to NuGet.
+
+---
+
+##### `publishToPypi`<sup>Optional</sup> <a name="publishToPypi" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToPypi"></a>
+
+```typescript
+public readonly publishToPypi: JsiiPythonTarget;
+```
+
+- *Type:* projen.cdk.JsiiPythonTarget
+- *Default:* no publishing
+
+Publish to pypi.
+
+---
+
+##### `releaseToNpm`<sup>Optional</sup> <a name="releaseToNpm" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.releaseToNpm"></a>
+
+```typescript
+public readonly releaseToNpm: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to publish to npm.
+
+---
+
+##### `stability`<sup>Optional</sup> <a name="stability" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.stability"></a>
+
+```typescript
+public readonly stability: string;
+```
+
+- *Type:* string
+- *Default:* "stable"
+
+The stability of the package.
+
+---
+
+##### `workflowBootstrapSteps`<sup>Optional</sup> <a name="workflowBootstrapSteps" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.workflowBootstrapSteps"></a>
+
+```typescript
+public readonly workflowBootstrapSteps: Step[];
+```
+
+- *Type:* projen.github.workflows.Step[]
+- *Default:* []
+
+Additional steps to run before packaging in workflows.
+
+---
+
+##### `workflowNodeVersion`<sup>Optional</sup> <a name="workflowNodeVersion" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.workflowNodeVersion"></a>
+
+```typescript
+public readonly workflowNodeVersion: string;
+```
+
+- *Type:* string
+- *Default:* "lts/*"
+
+The node version to use in packaging workflows.
+
+---
+
+##### `workspaceDirectory`<sup>Optional</sup> <a name="workspaceDirectory" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.workspaceDirectory"></a>
+
+```typescript
+public readonly workspaceDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "." - root of the repository
+
+Relative path of the package within the repository.
+
+This is used in monorepo setups where the package is not at the root.
+Packaging steps will extract build artifacts into this subdirectory.
+
+---
+
+##### `composite`<sup>Optional</sup> <a name="composite" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.composite"></a>
+
+```typescript
+public readonly composite: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to turn on composite mode for the TypeScript project.
+
+---
+
+##### `pypiClassifiers`<sup>Optional</sup> <a name="pypiClassifiers" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.pypiClassifiers"></a>
+
+```typescript
+public readonly pypiClassifiers: string[];
+```
+
+- *Type:* string[]
+- *Default:* none
+
+PyPI classifiers to add to `package.json`.
+
+---
+
+##### `rosettaDependencies`<sup>Optional</sup> <a name="rosettaDependencies" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.rosettaDependencies"></a>
+
+```typescript
+public readonly rosettaDependencies: string[];
+```
+
+- *Type:* string[]
+- *Default:* []
+
+Additional example dependencies for Rosetta.
+
+> [https://github.com/aws/jsii-rosetta?tab=readme-ov-file#dependencies](https://github.com/aws/jsii-rosetta?tab=readme-ov-file#dependencies)
+
+---
+
+##### `rosettaStrict`<sup>Optional</sup> <a name="rosettaStrict" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.rosettaStrict"></a>
+
+```typescript
+public readonly rosettaStrict: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to turn on 'strict' mode for Rosetta.
+
+---
+
 ### WorkspaceReleaseOptions <a name="WorkspaceReleaseOptions" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.Initializer"></a>
@@ -40284,6 +40929,73 @@ public readonly workflowNodeVersion: string;
 - *Default:* 'lts/*'
 
 ---
+
+## Classes <a name="Classes" id="Classes"></a>
+
+### WorkspaceJsiiBuild <a name="WorkspaceJsiiBuild" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild"></a>
+
+- *Implements:* constructs.IMixin
+
+A mixin that applies the upstream projen JsiiBuild to a TypeScriptWorkspace, adding monorepo-appropriate defaults (Rosetta, composite, pypiClassifiers).
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild.Initializer"></a>
+
+```typescript
+import { yarn } from 'cdklabs-projen-project-types'
+
+new yarn.WorkspaceJsiiBuild(options?: WorkspaceJsiiBuildOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild.Initializer.parameter.options">options</a></code> | <code>cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions</code> | *No description.* |
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild.Initializer.parameter.options"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild.applyTo">applyTo</a></code> | Applies the mixin functionality to the target construct. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild.supports">supports</a></code> | Determines whether this mixin can be applied to the given construct. |
+
+---
+
+##### `applyTo` <a name="applyTo" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild.applyTo"></a>
+
+```typescript
+public applyTo(construct: IConstruct): void
+```
+
+Applies the mixin functionality to the target construct.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild.applyTo.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `supports` <a name="supports" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild.supports"></a>
+
+```typescript
+public supports(construct: IConstruct): boolean
+```
+
+Determines whether this mixin can be applied to the given construct.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuild.supports.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+
 
 
 ## Protocols <a name="Protocols" id="Protocols"></a>

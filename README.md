@@ -165,4 +165,28 @@ The location the workspace is placed at. Defaults to `./packages`
 - `excludeDepsFromUpgrade: Array<string>`\
 List any dependencies that should not be updated in the workspace.
 
+#### JsiiBuild
 
+Use `WorkspaceJsiiBuild` to add jsii compilation and multi-language publishing to a workspace:
+
+```ts
+const lib = new yarn.TypeScriptWorkspace({
+  parent: project,
+  name: '@cdklabs/my-lib',
+  disableTsconfig: true, // required for jsii
+});
+
+lib.with(new yarn.WorkspaceJsiiBuild({
+  publishToMaven: { ... },
+  publishToPypi: { ... },
+  publishToNuget: { ... },
+  publishToGo: { ... },
+}));
+```
+
+This is a mixin that wraps the upstream projen `JsiiBuild` and adds:
+
+- Rosetta (strict mode by default)
+- Composite project references (`composite: true`)
+- PyPI classifiers (`pypiClassifiers`)
+- Monorepo-appropriate packaging (only `package:js`, other targets in release workflow)

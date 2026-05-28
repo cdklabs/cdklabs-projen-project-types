@@ -55,6 +55,7 @@ export interface IWorkspaceReference {
  * A TypeScript workspace in a `yarn.Monorepo`
  */
 export class TypeScriptWorkspace extends typescript.TypeScriptProject implements IWorkspaceReference {
+  public declare readonly parent: Monorepo | undefined;
   public readonly workspaceDirectory: string;
   public readonly bundledDeps: string[] = [];
   public readonly isPrivatePackage: boolean;
@@ -186,6 +187,11 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
         ...options.peerDeps ?? [],
       ].filter(isWorkspaceReference).map(w => [w.name, w.versionType])),
     });
+
+    // Expose the monorepo publisher as project.release so that other code can find it via project.release?.publisher
+    // MUST be called after `this.monorepo.monorepoRelease?.addWorkspace(...)`
+    // @ts-ignore - readonly property, but we need to set it for upstream mixin compatibility
+    this.release = this.monorepo.monorepoRelease?.workspaceRelease(this);
 
     // jest config
     if (this.jest?.config && this.jest.config.preset === 'ts-jest') {

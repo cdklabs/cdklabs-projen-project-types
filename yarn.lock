@@ -2173,14 +2173,14 @@ __metadata:
     jsii-pacmak: "npm:^1.132.0"
     jsii-reflect: "npm:^1.132.0"
     jsii-rosetta: "npm:~5.9"
-    projen: "npm:^0.99.67"
+    projen: "npm:^0.99.70"
     ts-jest: "npm:^29"
     ts-node: "npm:^10.9.2"
     typescript: "npm:~5.9"
     yaml: "npm:^2.9.0"
   peerDependencies:
     constructs: ^10.0.0
-    projen: ">=0.99.48 <1.0.0"
+    projen: ">=0.99.68 <1.0.0"
   languageName: unknown
   linkType: soft
 
@@ -2399,7 +2399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"constructs@npm:^10.0.0":
+"constructs@npm:^10.0.0, constructs@npm:^10.5.0":
   version: 10.6.0
   resolution: "constructs@npm:10.6.0"
   checksum: 10c0/67fbd1719698509b527d2d7c1f8a6ac26d91eaf15edc69fedebc71100abf4d8ebc306184883fbb677299d6fd9c2dcbbea80db0e4201564f88f9ff88f15d6668f
@@ -6209,15 +6209,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"projen@npm:^0.99.67":
-  version: 0.99.67
-  resolution: "projen@npm:0.99.67"
+"projen@npm:^0.99.70":
+  version: 0.99.70
+  resolution: "projen@npm:0.99.70"
   dependencies:
     "@iarna/toml": "npm:^2.2.5"
     case: "npm:^1.6.3"
     chalk: "npm:^4.1.2"
     comment-json: "npm:4.2.2"
-    constructs: "npm:^10.0.0"
+    constructs: "npm:^10.5.0"
     conventional-changelog-config-spec: "npm:^2.1.0"
     fast-glob: "npm:^3.3.3"
     fast-json-patch: "npm:^3.1.1"
@@ -6229,10 +6229,10 @@ __metadata:
     yaml: "npm:^2.2.2"
     yargs: "npm:^17.7.2"
   peerDependencies:
-    constructs: ^10.0.0
+    constructs: ^10.5.0
   bin:
     projen: bin/projen
-  checksum: 10c0/6e13dafe0dbaa36b8ee058280a577347c2d7d9ae54e94f6775477e18bb21bf519fec48e4320009f4f336ef2bce87b37b2eef4b883826c55d85b57ec80e3bff01
+  checksum: 10c0/51c88babaecc472040a99a8e1a3cfe1c887557f4afe8fc59cb95c129a0e7a344705f98426be53849bb279d7d0ed8252aa18e4d6da29cf4de55c733b164f53861
   languageName: node
   linkType: hard
 

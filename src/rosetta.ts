@@ -1,4 +1,4 @@
-import { Component, SampleFile, cdk } from 'projen';
+import { Component, SampleFile, typescript } from 'projen';
 
 export interface RosettaOptions {
   /**
@@ -23,7 +23,7 @@ export interface RosettaOptions {
  * ensure that rosetta will run successfully
  */
 export class Rosetta extends Component {
-  constructor(project: cdk.JsiiProject, options: RosettaOptions = {}) {
+  constructor(project: typescript.TypeScriptProject, options: RosettaOptions = {}) {
     super(project);
 
     const strict = options.strict ?? true;
