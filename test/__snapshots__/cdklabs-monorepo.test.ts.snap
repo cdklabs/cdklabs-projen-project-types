@@ -2982,6 +2982,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-schema_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3007,6 +3008,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-schema_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3052,6 +3054,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-api_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3079,6 +3082,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-api_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3124,6 +3128,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-diff_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3151,6 +3156,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-diff_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3196,6 +3202,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-toolkit_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3224,6 +3231,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-toolkit_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3269,6 +3277,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-cli_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3296,6 +3305,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-cli_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3341,6 +3351,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-integ-runner_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3368,6 +3379,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-integ-runner_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3751,6 +3763,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-one_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3776,6 +3789,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-one_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3821,6 +3835,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-two_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -3846,6 +3861,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-two_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -8335,6 +8351,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-base_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -8360,6 +8377,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-base_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -8405,6 +8423,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-mid_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -8432,6 +8451,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-mid_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -8477,6 +8497,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-top_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:
@@ -8504,6 +8525,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    if: \${{ !cancelled() && !failure() && needs.cdklabs-top_release.result == 'success' }}
     steps:
       - uses: actions/setup-node@v6
         with:

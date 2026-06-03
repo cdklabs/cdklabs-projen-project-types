@@ -639,9 +639,9 @@ describe('CdkLabsMonorepo', () => {
       expect(toolkitGhNeeds).toContain('cdklabs-toolkit_release_npm');
       expect(toolkitGhNeeds).not.toEqual(expect.arrayContaining(['cdklabs-toolkit_release']));
 
-      // Publish jobs have no if condition — all gating is done by the package gate
-      expect(releaseWorkflow.jobs['cdklabs-toolkit_release_npm'].if).toBeUndefined();
-      expect(releaseWorkflow.jobs['cdklabs-integ-runner_release_npm'].if).toBeUndefined();
+      // Publish jobs tolerate skipped dependency ancestors while gating on the package gate
+      expect(releaseWorkflow.jobs['cdklabs-toolkit_release_npm'].if).toBe("${{ !cancelled() && !failure() && needs.cdklabs-toolkit_release.result == 'success' }}");
+      expect(releaseWorkflow.jobs['cdklabs-integ-runner_release_npm'].if).toBe("${{ !cancelled() && !failure() && needs.cdklabs-integ-runner_release.result == 'success' }}");
 
       // No publish job directly accesses release job outputs
       // (prevents invalid GitHub Actions context access warnings)
