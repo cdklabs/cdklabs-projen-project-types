@@ -493,7 +493,8 @@ class PackageReleaseNode {
         pubNode.jobId,
         {
           ...pubNode.job,
-          if: undefined,
+          // Tolerate skipped dependency ancestors while still requiring this package's gate to pass
+          if: `\${{ !cancelled() && !failure() && needs.${this.gateJobId}.result == 'success' }}`,
           tools: {
             ...pubNode.job.tools,
             node: {
