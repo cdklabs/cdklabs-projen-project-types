@@ -74,13 +74,13 @@ describe('CdkLabsMonorepo', () => {
         private: true,
       });
 
-      expect(() => {
-        new yarn.TypeScriptWorkspace({
-          parent,
-          name: '@cdklabs/two',
-          deps: [privDep],
-        });
-      }).toThrow(/cannot depend on any private packages/);
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+        deps: [privDep],
+      });
+
+      expect(() => Testing.synth(parent)).toThrow(/cannot depend on private workspace packages/);
     });
 
     test('public dependency on a private package error can be suppressed', () => {
@@ -107,14 +107,14 @@ describe('CdkLabsMonorepo', () => {
         private: true,
       });
 
-      expect(() => {
-        new yarn.TypeScriptWorkspace({
-          parent,
-          name: '@cdklabs/two',
-          peerDeps: [privDep],
-          allowPrivateDeps: true,
-        });
-      }).toThrow(/cannot depend on any private packages/);
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/two',
+        peerDeps: [privDep],
+        allowPrivateDeps: true,
+      });
+
+      expect(() => Testing.synth(parent)).toThrow(/cannot depend on private workspace packages/);
     });
 
     test('workspace dependencies synthesize to asterisk by default', () => {
