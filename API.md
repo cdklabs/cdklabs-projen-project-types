@@ -13339,6 +13339,7 @@ new yarn.TypeScriptWorkspace(options: TypeScriptWorkspaceOptions)
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addWorkspaceDep">addWorkspaceDep</a></code> | Add a workspace package as a dependency, including tsconfig project references. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.customizeReference">customizeReference</a></code> | Return a specialized reference to this workspace. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.workspaceDependencies">workspaceDependencies</a></code> | Return all Projects in the workspace that are also dependencies. |
 
@@ -13879,6 +13880,29 @@ The script name.
 - *Type:* string
 
 The command to execute.
+
+---
+
+##### `addWorkspaceDep` <a name="addWorkspaceDep" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addWorkspaceDep"></a>
+
+```typescript
+public addWorkspaceDep(ref: IWorkspaceReference, type?: DependencyType): void
+```
+
+Add a workspace package as a dependency, including tsconfig project references.
+
+Use this to add workspace dependencies after construction (e.g. from a mixin).
+It does the same as passing the workspace in the `deps`/`devDeps`/`peerDeps` constructor option.
+
+###### `ref`<sup>Required</sup> <a name="ref" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addWorkspaceDep.parameter.ref"></a>
+
+- *Type:* cdklabs-projen-project-types.yarn.IWorkspaceReference
+
+---
+
+###### `type`<sup>Optional</sup> <a name="type" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.addWorkspaceDep.parameter.type"></a>
+
+- *Type:* projen.DependencyType
 
 ---
 

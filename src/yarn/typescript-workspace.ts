@@ -62,6 +62,9 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
   public readonly versionType = 'future-minor';
 
   private readonly monorepo: Monorepo;
+  private readonly allowPrivateDeps: boolean;
+  private readonly excludeFromUpgrade: string[];
+  private readonly repoRuntimeDeps: Record<string, VersionType> = {};
 
   constructor(options: TypeScriptWorkspaceOptions) {
     const remainder = without(
@@ -87,6 +90,10 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     const npmAccess = options.parent.monorepoRelease && !options.private ? javascript.NpmAccess.PUBLIC : undefined;
 
     const releaseEnvironment = options.releaseEnvironment ?? options.parent.options.releaseEnvironment;
+
+    const excludeFromUpgrade = [
+      ...(options.excludeDepsFromUpgrade ?? []),
+    ];
 
     super({
       parent: options.parent,
@@ -118,9 +125,12 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
         : undefined,
       sampleCode: false,
 
-      deps: packageNames(options.deps),
-      peerDeps: packageNames(options.peerDeps),
-      devDeps: packageNames(options.devDeps),
+      // add non workspace dependencies here
+      // workspace refs are added later
+      deps: options.deps?.filter(isNotWorkspaceReference),
+      peerDeps: options.peerDeps?.filter(isNotWorkspaceReference),
+      devDeps: options.devDeps?.filter(isNotWorkspaceReference),
+
       projenDevDependency: true,
       releaseEnvironment,
 
@@ -128,12 +138,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       depsUpgradeOptions: {
         workflow: false,
         cooldown: options.parent.options.depsUpgradeOptions?.cooldown ?? (options.parent.options.yarnBerry ? 3 : undefined),
-        exclude: [
-          ...(options.excludeDepsFromUpgrade ?? []),
-          ...(packageNames(options.deps?.filter(isWorkspaceReference)) ?? []),
-          ...(packageNames(options.peerDeps?.filter(isWorkspaceReference)) ?? []),
-          ...(packageNames(options.devDeps?.filter(isWorkspaceReference)) ?? []),
-        ],
+        exclude: excludeFromUpgrade,
       },
 
       npmAccess,
@@ -147,25 +152,9 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
 
     this.monorepo = options.parent;
     this.isPrivatePackage = options.private ?? false;
+    this.allowPrivateDeps = options.allowPrivateDeps ?? false;
+    this.excludeFromUpgrade = excludeFromUpgrade;
     this.workspaceDirectory = workspaceDirectory;
-
-    // If the package is public, all local deps and peer deps must also be public and other TypeScriptWorkspaces
-    if (!this.isPrivatePackage) {
-      const illegalDeps = [
-        // Overridable for deps because this might make sense if we bundle the package.
-        ...options.deps?.filter(isWorkspaceReference).filter(w => w.isPrivatePackage && !options.allowPrivateDeps) ?? [],
-        // But not for peerDeps, they must always be installed by the user.
-        ...options.peerDeps?.filter(isWorkspaceReference).filter(w => w.isPrivatePackage) ?? [],
-        // devDeps can be private, we don't care.
-      ];
-
-      if (illegalDeps.length) {
-        throw new Error([
-          `${this.name} is public and cannot depend on any private packages from the workspace.`,
-          `Please fix these dependencies:\n    - ${illegalDeps.map((p) => p.name).join('\n    - ')}`,
-        ].join('\n'));
-      }
-    }
 
     // Register with release workflow
     this.monorepo.monorepoRelease?.addWorkspace(this, {
@@ -182,10 +171,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
         minMajorVersion: options.minMajorVersion,
         prerelease: options.prerelease,
       },
-      repoRuntimeDependencies: Object.fromEntries([
-        ...options.deps ?? [],
-        ...options.peerDeps ?? [],
-      ].filter(isWorkspaceReference).map(w => [w.name, w.versionType])),
+      repoRuntimeDependencies: this.repoRuntimeDeps,
     });
 
     // Expose the monorepo publisher as project.release so that other code can find it via project.release?.publisher
@@ -235,14 +221,20 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
     }
 
     // Composite project and references
-    const allDeps = [...(options.deps ?? []), ...(options.peerDeps ?? []), ...(options.devDeps ?? [])];
-
     for (const tsconfig of [this.tsconfig, this.tsconfigDev]) {
       tsconfig?.file.addOverride('compilerOptions.composite', true);
-      tsconfig?.file.addOverride(
-        'references',
-        allDeps.filter(isWorkspaceReference).map((p) => ({ path: relative(this.outdir, p.outdir) })),
-      );
+      tsconfig?.file.addOverride('references', []);
+    }
+
+    // Add workspace references
+    for (const dep of options.deps?.filter(isWorkspaceReference) ?? []) {
+      this.addWorkspaceDep(dep, DependencyType.RUNTIME);
+    }
+    for (const dep of options.peerDeps?.filter(isWorkspaceReference) ?? []) {
+      this.addWorkspaceDep(dep, DependencyType.PEER);
+    }
+    for (const dep of options.devDeps?.filter(isWorkspaceReference) ?? []) {
+      this.addWorkspaceDep(dep, DependencyType.BUILD);
     }
 
     // Allow passing additional args like `--force` to the compile task
@@ -333,6 +325,73 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
   }
 
   /**
+   * Add a workspace package as a dependency, including tsconfig project references.
+   *
+   * Use this to add workspace dependencies after construction (e.g. from a mixin).
+   * It does the same as passing the workspace in the `deps`/`devDeps`/`peerDeps` constructor option.
+   */
+  public addWorkspaceDep(ref: IWorkspaceReference, type: DependencyType = DependencyType.RUNTIME): void {
+    if (this.deps.tryGetDependency(ref.name)) {
+      return;
+    }
+    switch (type) {
+      case DependencyType.RUNTIME:
+        this.addDeps(ref.name);
+        break;
+      case DependencyType.PEER:
+        this.addPeerDeps(ref.name);
+        break;
+      case DependencyType.DEVENV:
+      case DependencyType.BUILD:
+      case DependencyType.TEST:
+        this.addDevDeps(ref.name);
+        break;
+      default:
+        this.addDeps(ref.name);
+    }
+    const relativePath = relative(this.outdir, ref.outdir);
+    for (const tsconfig of [this.tsconfig, this.tsconfigDev]) {
+      tsconfig?.file.addToArray('references', { path: relativePath });
+    }
+    this.excludeFromUpgrade.push(ref.name);
+    if (type === DependencyType.RUNTIME || type === DependencyType.PEER) {
+      this.repoRuntimeDeps[ref.name] = ref.versionType;
+    }
+  }
+
+  public preSynthesize(): void {
+    super.preSynthesize();
+    this.validateNoPrivateWorkspaceDeps();
+  }
+
+  private validateNoPrivateWorkspaceDeps(): void {
+    if (this.isPrivatePackage) return;
+
+    const siblings = new Map(
+      this.monorepo.subprojects
+        .filter((p): p is TypeScriptWorkspace => p instanceof TypeScriptWorkspace)
+        .map((p) => [p.name, p]),
+    );
+
+    const illegalDeps = this.deps.all
+      .filter((d) => d.type === DependencyType.RUNTIME || d.type === DependencyType.PEER)
+      .filter((d) => {
+        const ws = siblings.get(d.name);
+        if (!ws?.isPrivatePackage) return false;
+        if (d.type === DependencyType.RUNTIME && this.allowPrivateDeps) return false;
+        return true;
+      })
+      .map((d) => d.name);
+
+    if (illegalDeps.length) {
+      throw new Error([
+        `${this.name} is public and cannot depend on private workspace packages.`,
+        `Illegal dependencies:\n    - ${illegalDeps.join('\n    - ')}`,
+      ].join('\n'));
+    }
+  }
+
+  /**
    * Return all Projects in the workspace that are also dependencies.
    *
    * Optionally filter by dependency type.
@@ -373,13 +432,6 @@ export interface ReferenceOptions {
   readonly versionType?: VersionType;
 }
 
-function packageNames(xs?: Array<string | IWorkspaceReference>): string[] | undefined {
-  if (!xs) {
-    return undefined;
-  }
-  return xs.map((x) => (typeof x === 'string' ? x : x.name));
-}
-
 function without<A extends object, K extends keyof A>(x: A, ...ks: K[]): Omit<A, K> {
   const ret = { ...x };
   for (const k of ks) {
@@ -390,4 +442,8 @@ function without<A extends object, K extends keyof A>(x: A, ...ks: K[]): Omit<A,
 
 function isWorkspaceReference(x: unknown): x is IWorkspaceReference {
   return typeof x === 'object' && !!x && (['isPrivatePackage', 'versionType', 'name', 'outdir'] satisfies Array<keyof IWorkspaceReference>).every(k => (x as any)[k] !== undefined);
+}
+
+function isNotWorkspaceReference(x: unknown): x is string {
+  return !isWorkspaceReference(x);
 }

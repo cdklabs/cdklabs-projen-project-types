@@ -13,11 +13,14 @@ export interface GatherVersionsOptions {
 export class GatherVersions implements TaskOptions, TaskStep {
   public receiveArgs = true;
 
-  private repoDependencies: Record<string, VersionType>;
+  private readonly options: GatherVersionsOptions;
 
   public constructor(public readonly project: TypeScriptWorkspace, options: GatherVersionsOptions) {
-    // Start by building a list of all repo devdependencies and map them to an 'exact' dependency,
-    // then add in the runtime dependencies. Only devs and peers can clash this way, peer will win.
+    this.options = options;
+  }
+
+  private get repoDependencies(): Record<string, VersionType> {
+    // Build list at access time so lazily-added workspace deps are included
     const wsDeps = new Set(this.project.workspaceDependencies().map(p => p.name));
 
     const repoDevDependencies = Object.fromEntries(devDeps(this.project)
@@ -25,9 +28,9 @@ export class GatherVersions implements TaskOptions, TaskStep {
       .map((d) => [d.name, 'exact'] satisfies [string, VersionType]),
     );
 
-    this.repoDependencies = {
+    return {
       ...repoDevDependencies,
-      ...options.repoRuntimeDependencies,
+      ...this.options.repoRuntimeDependencies,
     };
   }
 
