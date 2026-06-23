@@ -4,7 +4,7 @@ import { JsiiBuild, JsiiBuildOptions } from 'projen/lib/cdk';
 import { TypeScriptWorkspace } from './typescript-workspace';
 import { Rosetta } from '../rosetta';
 
-export { JsiiBuildOptions } from 'projen/lib/cdk';
+export type { JsiiBuildOptions } from 'projen/lib/cdk';
 
 export interface WorkspaceJsiiBuildOptions extends JsiiBuildOptions {
   /**

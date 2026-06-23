@@ -1,7 +1,7 @@
 import * as fs from 'fs/promises';
 import * as os from 'os';
 import * as path from 'path';
-import { Project, TaskRuntime } from 'projen';
+import { Project } from 'projen';
 import { yarn } from '../src';
 import { TypeScriptWorkspaceOptions, VersionType } from '../src/yarn';
 import { main } from '../src/yarn/gather-versions.exec';
@@ -122,7 +122,7 @@ test.each([0, 1, 2])('make sure gather-versions works for %p dependencies', asyn
   parent.synth();
   // Running this script requires the package to have been compiled before we see any updates to the script
   await addSymlinkToMe(parent);
-  new TaskRuntime(pack.outdir).runTask('gather-versions');
+  pack.tasks.runTask('gather-versions');
 
   const packageJson = JSON.parse(await fs.readFile(path.join(pack.outdir, 'package.json'), 'utf-8'));
   for (let i = 0; i < N; i++) {
@@ -171,7 +171,7 @@ test('gather-versions with different reference types', async () => {
   parent.synth();
   // Running this script requires the package to have been compiled before we see any updates to the script
   await addSymlinkToMe(parent);
-  new TaskRuntime(pack.outdir).runTask('gather-versions');
+  pack.tasks.runTask('gather-versions');
 
   const packageJson = JSON.parse(await fs.readFile(path.join(pack.outdir, 'package.json'), 'utf-8'));
   for (const [refType, expectedVersion] of Object.entries(expected)) {

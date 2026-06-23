@@ -16,7 +16,7 @@ const project = new CdklabsJsiiProject({
   repositoryUrl: 'https://github.com/cdklabs/cdklabs-projen-project-types.git',
   devDeps: ['@jsii/spec', 'jsii-reflect', 'projen'],
   bundledDeps: ['yaml'],
-  peerDeps: ['projen@>=0.99.68 <1.0.0'],
+  peerDeps: ['projen@>=0.100.0 <1.0.0'],
   enablePRAutoMerge: true,
   upgradeCdklabsProjenProjectTypes: false, // that is this project!
   setNodeEngineVersion: false,
@@ -25,6 +25,11 @@ const project = new CdklabsJsiiProject({
   },
   jsiiVersion: '~5.9',
   typescriptVersion: '~5.9',
+  tsconfig: {
+    compilerOptions: {
+      isolatedModules: true,
+    },
+  },
 
   // Custom publishing settings since we only release to npm
   cdklabsPublishingDefaults: false,
