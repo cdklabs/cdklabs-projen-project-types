@@ -28,15 +28,15 @@ export class Monorepo extends typescript.TypeScriptProject {
 
   private postInstallDependencies = new Array<() => string[]>();
 
-  constructor(public readonly options: MonorepoOptions) {
+  constructor(public readonly settings: MonorepoOptions) {
     super({
-      ...options,
-      packageManager: options.yarnBerry ? javascript.NodePackageManager.YARN_BERRY : javascript.NodePackageManager.YARN_CLASSIC,
-      yarnBerryOptions: options.yarnBerry ? {
-        ...options.yarnBerryOptions,
+      ...settings,
+      packageManager: settings.yarnBerry ? javascript.NodePackageManager.YARN_BERRY : javascript.NodePackageManager.YARN_CLASSIC,
+      yarnBerryOptions: settings.yarnBerry ? {
+        ...settings.yarnBerryOptions,
         yarnRcOptions: {
           nodeLinker: javascript.YarnNodeLinker.NODE_MODULES,
-          ...options.yarnBerryOptions?.yarnRcOptions,
+          ...settings.yarnBerryOptions?.yarnRcOptions,
         },
       } : undefined,
       sampleCode: false,
@@ -47,20 +47,20 @@ export class Monorepo extends typescript.TypeScriptProject {
 
     Object.defineProperty(this, MONOREPO_SYM, { value: true });
 
-    this.repositoryUrl = options.repository;
-    const buildWithNx = Boolean(options.nx && options.buildWithNx);
+    this.repositoryUrl = settings.repository;
+    const buildWithNx = Boolean(settings.nx && settings.buildWithNx);
 
     // Yarn Berry dependenciesMeta for buildable packages
-    if (options.buildablePackages?.length) {
+    if (settings.buildablePackages?.length) {
       this.package.addField('dependenciesMeta', Object.fromEntries(
-        options.buildablePackages.map((pkg) => [pkg, { built: true }]),
+        settings.buildablePackages.map((pkg) => [pkg, { built: true }]),
       ));
     }
 
     /**
      * Prettier formatting
      */
-    if (options.prettier) {
+    if (settings.prettier) {
       this.addDevDeps('eslint-config-prettier', 'eslint-plugin-prettier');
       new JsonFile(this, '.eslintrc.json', {
         allowComments: true,
@@ -90,7 +90,7 @@ export class Monorepo extends typescript.TypeScriptProject {
     /**
      * Create a VSCode Workspace
      */
-    if (options.vscodeWorkspace) {
+    if (settings.vscodeWorkspace) {
       const workspaceFile = `${this.name}.code-workspace`;
       new JsonFile(this, workspaceFile, {
         allowComments: true,
@@ -103,23 +103,23 @@ export class Monorepo extends typescript.TypeScriptProject {
               .sort((p1, p2) => p1.name.localeCompare(p2.name))
               .map((p) => ({ path: p.workspaceDirectory }));
 
-            if (options.vscodeWorkspaceOptions?.includeRootWorkspace) {
-              folders.unshift({ path: '.', name: options.vscodeWorkspaceOptions?.rootWorkspaceName ?? '<root>' });
+            if (settings.vscodeWorkspaceOptions?.includeRootWorkspace) {
+              folders.unshift({ path: '.', name: settings.vscodeWorkspaceOptions?.rootWorkspaceName ?? '<root>' });
             }
 
             return folders;
           },
           settings: () => {
-            const settings = (getObjFromFile(this, '.vscode/settings.json') ?? {}) as any;
-            if (options.vscodeWorkspaceOptions?.includeRootWorkspace && this.subprojects.length) {
-              settings['files.exclude'] = this.subprojects.reduce((excludes, p) => {
+            const vscodeSettings = (getObjFromFile(this, '.vscode/settings.json') ?? {}) as any;
+            if (settings.vscodeWorkspaceOptions?.includeRootWorkspace && this.subprojects.length) {
+              vscodeSettings['files.exclude'] = this.subprojects.reduce((excludes, p) => {
                 return {
                   ...excludes,
                   [p.workspaceDirectory.split(pathPosix.sep)[0]]: true,
                 };
-              }, settings['files.exclude'] ?? {});
+              }, vscodeSettings['files.exclude'] ?? {});
             }
-            return settings;
+            return vscodeSettings;
           },
           extensions: () => getObjFromFile(this, '.vscode/extensions.json'),
         }),
@@ -139,7 +139,7 @@ export class Monorepo extends typescript.TypeScriptProject {
     if (fmtTask) {
       buildTask.spawn(fmtTask);
     }
-    const wsRun = options.yarnBerry ? 'yarn workspaces foreach --all --exclude . --topological-dev run' : 'yarn workspaces run';
+    const wsRun = settings.yarnBerry ? 'yarn workspaces foreach --all --exclude . --topological-dev run' : 'yarn workspaces run';
 
     if (buildWithNx) {
       buildTask.exec('nx run-many -t build');
@@ -160,9 +160,9 @@ export class Monorepo extends typescript.TypeScriptProject {
     });
 
     // Upgrade all packages
-    const cooldown = options.depsUpgradeOptions?.cooldown ?? (options.yarnBerry ? 3 : undefined);
+    const cooldown = settings.depsUpgradeOptions?.cooldown ?? (settings.yarnBerry ? 3 : undefined);
     const upgradeEnv = { ...this.upgradeWorkflow?.upgradeTask.envVars || {} };
-    if (cooldown && options.yarnBerry) {
+    if (cooldown && settings.yarnBerry) {
       upgradeEnv.YARN_NPM_MINIMAL_AGE_GATE = String(cooldown * 24 * 60);
     }
     this.tasks.removeTask('upgrade');
@@ -171,10 +171,10 @@ export class Monorepo extends typescript.TypeScriptProject {
       description: 'Upgrade dependencies in all workspaces',
       steps: [
         // It is not safe anymore to have 'npm-check-updates' in a Yarn 1 dependency tree, so run it in a separate tree.
-        { exec: `${options.yarnBerry ? 'yarn dlx' : 'npx'} npm-check-updates@20 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor${cooldown ? ` --cooldown=${cooldown}` : ''}` },
+        { exec: `${settings.yarnBerry ? 'yarn dlx' : 'npx'} npm-check-updates@20 --dep=dev,optional,peer,prod,bundle --upgrade --target=minor${cooldown ? ` --cooldown=${cooldown}` : ''}` },
         { exec: `${wsRun} check-for-updates` },
-        { exec: options.yarnBerry ? 'yarn install' : 'yarn install --check-files' },
-        { exec: options.yarnBerry ? 'yarn up' : 'yarn upgrade' },
+        { exec: settings.yarnBerry ? 'yarn install' : 'yarn install --check-files' },
+        { exec: settings.yarnBerry ? 'yarn up' : 'yarn upgrade' },
         { spawn: 'default' },
         { spawn: 'post-upgrade' },
       ],
@@ -187,28 +187,28 @@ export class Monorepo extends typescript.TypeScriptProject {
     this.tasks.removeTask('post-compile');
 
     // Nx
-    if (options.nx) {
+    if (settings.nx) {
       new Nx(this, {
-        defaultBase: options.defaultReleaseBranch,
+        defaultBase: settings.defaultReleaseBranch,
       });
     }
 
     // Yarn Constraints
-    const consistentVersions = [...(options.consistentVersions ?? [])];
-    if (options.nx) {
+    const consistentVersions = [...(settings.consistentVersions ?? [])];
+    if (settings.nx) {
       consistentVersions.push('nx');
     }
-    if (options.yarnBerry && consistentVersions.length) {
+    if (settings.yarnBerry && consistentVersions.length) {
       new Constraints(this, { consistentVersions });
     }
 
     // Release Workflow
-    if (options.release) {
+    if (settings.release) {
       this.monorepoRelease = new MonorepoRelease(this, {
-        workflowRunsOn: options.workflowRunsOn,
+        workflowRunsOn: settings.workflowRunsOn,
         buildWithNx,
-        yarnBerry: options.yarnBerry,
-        ...options.releaseOptions,
+        yarnBerry: settings.yarnBerry,
+        ...settings.releaseOptions,
       });
     }
   }
@@ -240,11 +240,11 @@ export class Monorepo extends typescript.TypeScriptProject {
     this.package.addField('private', true);
     this.package.addField('workspaces', {
       packages: this.subprojects.map((p) => p.workspaceDirectory),
-      ...(!this.options.yarnBerry ? this.renderNoHoist() : undefined),
+      ...(!this.settings.yarnBerry ? this.renderNoHoist() : undefined),
     });
 
     // Auto-set hoistingLimits for workspaces with bundled deps when using Yarn Berry
-    if (this.options.yarnBerry) {
+    if (this.settings.yarnBerry) {
       for (const p of this.subprojects) {
         if (p.bundledDeps.length > 0) {
           p.package.addField('installConfig', { hoistingLimits: 'workspaces' });

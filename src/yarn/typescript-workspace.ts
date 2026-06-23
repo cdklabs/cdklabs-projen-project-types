@@ -89,7 +89,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
 
     const npmAccess = options.parent.monorepoRelease && !options.private ? javascript.NpmAccess.PUBLIC : undefined;
 
-    const releaseEnvironment = options.releaseEnvironment ?? options.parent.options.releaseEnvironment;
+    const releaseEnvironment = options.releaseEnvironment ?? options.parent.settings.releaseEnvironment;
 
     const excludeFromUpgrade = [
       ...(options.excludeDepsFromUpgrade ?? []),
@@ -137,7 +137,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       depsUpgrade: options.depsUpgrade ?? true,
       depsUpgradeOptions: {
         workflow: false,
-        cooldown: options.parent.options.depsUpgradeOptions?.cooldown ?? (options.parent.options.yarnBerry ? 3 : undefined),
+        cooldown: options.parent.settings.depsUpgradeOptions?.cooldown ?? (options.parent.settings.yarnBerry ? 3 : undefined),
         exclude: excludeFromUpgrade,
       },
 
@@ -162,7 +162,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       workflowNodeVersion: this.nodeVersion,
       npmDistTag: options.npmDistTag,
       // Inherit setting from Monorepo if configured
-      npmTrustedPublishing: options.npmTrustedPublishing ?? this.monorepo.options.npmTrustedPublishing,
+      npmTrustedPublishing: options.npmTrustedPublishing ?? this.monorepo.settings.npmTrustedPublishing,
       environment: releaseEnvironment,
       releasableCommits: options.releasableCommits,
       nextVersionCommand: options.nextVersionCommand,
