@@ -162,6 +162,57 @@ describe('addWorkspaceDep', () => {
     expect(tsconfigDev.references).toContainEqual({ path: '../../dep' });
   });
 
+  test('dev tsconfig in a subdirectory gets a self-reference to the main project', () => {
+    // By default the dev tsconfig lives at `test/tsconfig.json` and extends the main
+    // `tsconfig.json` with `composite: true`. Without a project reference back to the
+    // main project, test files importing from `../lib` fail with TS6307. The dev tsconfig
+    // must reference the directory of the main tsconfig (one level up).
+    const ws = new yarn.TypeScriptWorkspace({ parent, name: '@scope/lib' });
+
+    const outdir = Testing.synth(parent);
+
+    const tsconfigDev = outdir['packages/@scope/lib/test/tsconfig.json'];
+    expect(tsconfigDev.references).toContainEqual({ path: '..' });
+
+    // The main tsconfig must NOT reference itself.
+    const tsconfig = outdir['packages/@scope/lib/tsconfig.json'];
+    expect(tsconfig.references).toEqual([]);
+    void ws;
+  });
+
+  test('self-reference is combined with workspace references in the dev tsconfig', () => {
+    const dep = new yarn.TypeScriptWorkspace({ parent, name: '@scope/dep' });
+    const consumer = new yarn.TypeScriptWorkspace({ parent, name: '@scope/consumer' });
+
+    consumer.addWorkspaceDep(dep, DependencyType.BUILD);
+
+    const outdir = Testing.synth(parent);
+
+    // Dev tsconfig sits in `test/`, so it needs both the self-reference (`..`)
+    // and the workspace dep reference (`../../dep`).
+    const tsconfigDev = outdir['packages/@scope/consumer/test/tsconfig.json'];
+    expect(tsconfigDev.references).toContainEqual({ path: '..' });
+    expect(tsconfigDev.references).toContainEqual({ path: '../../dep' });
+  });
+
+  test('co-located dev tsconfig does not get a self-reference', () => {
+    // When the dev tsconfig lives next to the main tsconfig (workspace root), there is
+    // no project boundary to cross, so no self-reference should be added (an empty path
+    // reference would be invalid).
+    const ws = new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@scope/lib',
+      tsconfigDevFile: 'tsconfig.dev.json',
+    });
+
+    const outdir = Testing.synth(parent);
+
+    const tsconfigDev = outdir['packages/@scope/lib/tsconfig.dev.json'];
+    expect(tsconfigDev.references).not.toContainEqual({ path: '' });
+    expect(tsconfigDev.references).not.toContainEqual({ path: '.' });
+    void ws;
+  });
+
   test('lazily added dev dep appears as exact in gather-versions', () => {
     const relParent = new yarn.CdkLabsMonorepo({
       name: 'monorepo',
