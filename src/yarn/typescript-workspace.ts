@@ -226,6 +226,28 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       tsconfig?.file.addOverride('references', []);
     }
 
+    // Self-reference from the dev/test tsconfig to the main project tsconfig.
+    //
+    // By default the dev tsconfig lives in a subdirectory (e.g. `test/tsconfig.json`)
+    // and extends the main `tsconfig.json`. Under `composite: true`, TypeScript treats
+    // the dev tsconfig as a separate compilation unit with strict project boundaries:
+    // its `include` only covers files under its own directory. Test files that import
+    // from the parent `lib/` (`../lib/...`) are then reachable via imports but are not
+    // part of the dev project's file set, which fails with TS6307 on `tsc --build`.
+    //
+    // Adding a project reference from the dev tsconfig back to the directory of the main
+    // tsconfig tells TypeScript that the lib source is a separate, already-built project
+    // and to consume its declarations. We only do this when the two tsconfigs are not
+    // co-located (i.e. the dev tsconfig is not aliased to / sitting next to the main one).
+    if (this.tsconfig && this.tsconfigDev && this.tsconfig !== this.tsconfigDev) {
+      const mainTsconfigDir = dirname(this.tsconfig.file.absolutePath);
+      const devTsconfigDir = dirname(this.tsconfigDev.file.absolutePath);
+      const selfReference = relative(devTsconfigDir, mainTsconfigDir);
+      if (selfReference !== '') {
+        this.tsconfigDev.file.addToArray('references', { path: selfReference });
+      }
+    }
+
     // Add workspace references
     for (const dep of options.deps?.filter(isWorkspaceReference) ?? []) {
       this.addWorkspaceDep(dep, DependencyType.RUNTIME);
