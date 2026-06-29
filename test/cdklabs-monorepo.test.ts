@@ -29,6 +29,32 @@ describe('CdkLabsMonorepo', () => {
       expect(outdir).toMatchSnapshot();
     });
 
+    test('does not generate a dev tsconfig at the root', () => {
+      const outdir = Testing.synth(parent);
+
+      expect(outdir['tsconfig.dev.json']).toBeUndefined();
+      // The projenrc include lives on the single root tsconfig.
+      expect(outdir['tsconfig.json'].include).toEqual(['.projenrc.ts', 'projenrc/**/*.ts']);
+    });
+
+    test('does not pollute the test tsconfig with projenrc include or workspace references', () => {
+      new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/one' });
+
+      const outdir = Testing.synth(parent);
+
+      // Previously the root "dev" tsconfig resolved to test/tsconfig.json, so
+      // the projenrc include and workspace references leaked into it. It should
+      // now be free of both (and is no longer generated at the root at all).
+      const testTsconfig = outdir['test/tsconfig.json'];
+      if (testTsconfig) {
+        expect(testTsconfig.include ?? []).not.toContain('.projenrc.ts');
+        expect(testTsconfig.references ?? []).toEqual([]);
+      }
+
+      // The workspace references live on the single root tsconfig instead.
+      expect(outdir['tsconfig.json'].references).toContainEqual({ path: 'packages/@cdklabs/one' });
+    });
+
     test('workspaces dont have their own projen dependency', () => {
       new yarn.TypeScriptWorkspace({
         parent,

@@ -208,7 +208,6 @@ exports[`CdkLabsMonorepo with a monorepo with indifferent settings synthesizes w
 /LICENSE linguist-generated
 /package.json linguist-generated
 /projenrc/tsconfig.json linguist-generated linguist-language=JSON-with-Comments
-/test/tsconfig.json linguist-generated linguist-language=JSON-with-Comments
 /tsconfig.json linguist-generated linguist-language=JSON-with-Comments
 /yarn.lock linguist-generated",
   ".github/pull_request_template.md": "Fixes #",
@@ -524,7 +523,6 @@ jspm_packages/
 !/.github/pull_request_template.md
 !/test/
 !/tsconfig.json
-!/test/tsconfig.json
 !/src/
 /lib
 /dist/
@@ -536,7 +534,6 @@ jspm_packages/
 /.projen/
 permissions-backup.acl
 /test/
-/test/tsconfig.json
 /src/
 !/lib/
 !/lib/**/*.js
@@ -597,7 +594,6 @@ tsconfig.tsbuildinfo
       ".projen/tasks.json",
       "LICENSE",
       "projenrc/tsconfig.json",
-      "test/tsconfig.json",
       "tsconfig.json",
     ],
   },
@@ -665,7 +661,7 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "ts-node --project test/tsconfig.json .projenrc.ts",
+            "exec": "ts-node --project tsconfig.json .projenrc.ts",
           },
         ],
       },
@@ -2608,28 +2604,6 @@ tsconfig.tsbuildinfo
       "**/*.ts",
     ],
   },
-  "test/tsconfig.json": {
-    "compilerOptions": {
-      "noEmit": true,
-      "rootDir": "..",
-    },
-    "exclude": [
-      "node_modules",
-    ],
-    "extends": "../tsconfig.json",
-    "include": [
-      ".projenrc.ts",
-      "projenrc/**/*.ts",
-    ],
-    "references": [
-      {
-        "path": "packages/@cdklabs/one",
-      },
-      {
-        "path": "packages/@cdklabs/two",
-      },
-    ],
-  },
   "tsconfig.json": {
     "compilerOptions": {
       "alwaysStrict": true,
@@ -2664,7 +2638,10 @@ tsconfig.tsbuildinfo
     "exclude": [
       "node_modules",
     ],
-    "include": [],
+    "include": [
+      ".projenrc.ts",
+      "projenrc/**/*.ts",
+    ],
     "references": [
       {
         "path": "packages/@cdklabs/one",
@@ -3391,7 +3368,6 @@ exports[`CdkLabsMonorepo with monorepo that releases monorepo release 1`] = `
 /LICENSE linguist-generated
 /package.json linguist-generated
 /projenrc/tsconfig.json linguist-generated linguist-language=JSON-with-Comments
-/test/tsconfig.json linguist-generated linguist-language=JSON-with-Comments
 /tsconfig.json linguist-generated linguist-language=JSON-with-Comments
 /yarn.lock linguist-generated",
   ".github/pull_request_template.md": "Fixes #",
@@ -3979,7 +3955,6 @@ jspm_packages/
 !/.github/pull_request_template.md
 !/test/
 !/tsconfig.json
-!/test/tsconfig.json
 !/src/
 /lib
 /dist/
@@ -3992,7 +3967,6 @@ jspm_packages/
 /.projen/
 permissions-backup.acl
 /test/
-/test/tsconfig.json
 /src/
 !/lib/
 !/lib/**/*.js
@@ -4054,7 +4028,6 @@ tsconfig.tsbuildinfo
       ".projen/tasks.json",
       "LICENSE",
       "projenrc/tsconfig.json",
-      "test/tsconfig.json",
       "tsconfig.json",
     ],
   },
@@ -4122,7 +4095,7 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "ts-node --project test/tsconfig.json .projenrc.ts",
+            "exec": "ts-node --project tsconfig.json .projenrc.ts",
           },
         ],
       },
@@ -6236,28 +6209,6 @@ tsconfig.tsbuildinfo
       "**/*.ts",
     ],
   },
-  "test/tsconfig.json": {
-    "compilerOptions": {
-      "noEmit": true,
-      "rootDir": "..",
-    },
-    "exclude": [
-      "node_modules",
-    ],
-    "extends": "../tsconfig.json",
-    "include": [
-      ".projenrc.ts",
-      "projenrc/**/*.ts",
-    ],
-    "references": [
-      {
-        "path": "packages/@cdklabs/one",
-      },
-      {
-        "path": "packages/@cdklabs/two",
-      },
-    ],
-  },
   "tsconfig.json": {
     "compilerOptions": {
       "alwaysStrict": true,
@@ -6292,7 +6243,10 @@ tsconfig.tsbuildinfo
     "exclude": [
       "node_modules",
     ],
-    "include": [],
+    "include": [
+      ".projenrc.ts",
+      "projenrc/**/*.ts",
+    ],
     "references": [
       {
         "path": "packages/@cdklabs/one",
@@ -6388,7 +6342,6 @@ exports[`CdkLabsMonorepo workspace inherits config from monorepo repository conf
 /LICENSE linguist-generated
 /package.json linguist-generated
 /projenrc/tsconfig.json linguist-generated linguist-language=JSON-with-Comments
-/test/tsconfig.json linguist-generated linguist-language=JSON-with-Comments
 /tsconfig.json linguist-generated linguist-language=JSON-with-Comments
 /yarn.lock linguist-generated",
   ".github/pull_request_template.md": "Fixes #",
@@ -6704,7 +6657,6 @@ jspm_packages/
 !/.github/pull_request_template.md
 !/test/
 !/tsconfig.json
-!/test/tsconfig.json
 !/src/
 /lib
 /dist/
@@ -6716,7 +6668,6 @@ jspm_packages/
 /.projen/
 permissions-backup.acl
 /test/
-/test/tsconfig.json
 /src/
 !/lib/
 !/lib/**/*.js
@@ -6777,7 +6728,6 @@ tsconfig.tsbuildinfo
       ".projen/tasks.json",
       "LICENSE",
       "projenrc/tsconfig.json",
-      "test/tsconfig.json",
       "tsconfig.json",
     ],
   },
@@ -6845,7 +6795,7 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "ts-node --project test/tsconfig.json .projenrc.ts",
+            "exec": "ts-node --project tsconfig.json .projenrc.ts",
           },
         ],
       },
@@ -7998,25 +7948,6 @@ tsconfig.tsbuildinfo
       "**/*.ts",
     ],
   },
-  "test/tsconfig.json": {
-    "compilerOptions": {
-      "noEmit": true,
-      "rootDir": "..",
-    },
-    "exclude": [
-      "node_modules",
-    ],
-    "extends": "../tsconfig.json",
-    "include": [
-      ".projenrc.ts",
-      "projenrc/**/*.ts",
-    ],
-    "references": [
-      {
-        "path": "packages/@cdklabs/one",
-      },
-    ],
-  },
   "tsconfig.json": {
     "compilerOptions": {
       "alwaysStrict": true,
@@ -8051,7 +7982,10 @@ tsconfig.tsbuildinfo
     "exclude": [
       "node_modules",
     ],
-    "include": [],
+    "include": [
+      ".projenrc.ts",
+      "projenrc/**/*.ts",
+    ],
     "references": [
       {
         "path": "packages/@cdklabs/one",

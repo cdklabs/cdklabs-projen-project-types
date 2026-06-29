@@ -43,6 +43,13 @@ export class Monorepo extends typescript.TypeScriptProject {
       jest: false,
       eslint: false,
       release: false,
+      // The monorepo root is not a real compilation unit; its single tsconfig
+      // only exists to type-check the projenrc files and hold project
+      // references to the workspaces. A separate dev tsconfig is not just
+      // redundant, it actively resolves to `test/tsconfig.json` in projen and
+      // would pollute that file. Disabling it makes `tsconfigDev` alias
+      // `tsconfig`, consolidating everything onto the root `tsconfig.json`.
+      disableTsconfigDev: true,
     });
 
     Object.defineProperty(this, MONOREPO_SYM, { value: true });
@@ -70,7 +77,7 @@ export class Monorepo extends typescript.TypeScriptProject {
           parserOptions: {
             ecmaVersion: 2018,
             sourceType: 'module',
-            project: './tsconfig.dev.json',
+            project: `./${(this.tsconfigDev ?? this.tsconfig)?.fileName ?? 'tsconfig.json'}`,
           },
           ignorePatterns: ['!.projenrc.ts'],
           extends: ['plugin:prettier/recommended'],
@@ -252,9 +259,12 @@ export class Monorepo extends typescript.TypeScriptProject {
       }
     }
 
-    this.tsconfig?.file.addOverride('include', []);
-    this.tsconfigDev?.file.addOverride('include', ['.projenrc.ts', 'projenrc/**/*.ts']);
-    for (const tsconfig of [this.tsconfig, this.tsconfigDev]) {
+    // The root tsconfig is only there to type-check the projenrc files and to
+    // hold project references to the workspaces. Because the dev tsconfig is
+    // disabled, `tsconfigDev` aliases `tsconfig`, so we only have a single file
+    // to configure here (the `Set` dedupes in case that ever changes).
+    for (const tsconfig of new Set([this.tsconfig, this.tsconfigDev])) {
+      tsconfig?.file.addOverride('include', ['.projenrc.ts', 'projenrc/**/*.ts']);
       tsconfig?.file.addOverride(
         'references',
         this.subprojects.map((p) => ({ path: p.workspaceDirectory })),
