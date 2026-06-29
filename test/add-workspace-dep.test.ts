@@ -138,6 +138,30 @@ describe('addWorkspaceDep', () => {
     expect(gatherVersions.steps[0].exec).toContain('@scope/dep=future-minor');
   });
 
+  test('tsconfig reference path is relative to the tsconfig file, not the workspace outdir', () => {
+    // When a tsconfig lives in a subdirectory of the workspace, the project
+    // reference path must be computed relative to that tsconfig file's own
+    // directory, otherwise the relative path is missing a `..` segment.
+    const dep = new yarn.TypeScriptWorkspace({ parent, name: '@scope/dep' });
+    const consumer = new yarn.TypeScriptWorkspace({
+      parent,
+      name: '@scope/consumer',
+      tsconfigDev: { fileName: 'config/tsconfig.dev.json' },
+    });
+
+    consumer.addWorkspaceDep(dep);
+
+    const outdir = Testing.synth(parent);
+
+    // Root tsconfig.json sits at the workspace root -> single `..`
+    const tsconfig = outdir['packages/@scope/consumer/tsconfig.json'];
+    expect(tsconfig.references).toContainEqual({ path: '../dep' });
+
+    // Dev tsconfig sits one directory deeper -> needs an extra `..`
+    const tsconfigDev = outdir['packages/@scope/consumer/config/tsconfig.dev.json'];
+    expect(tsconfigDev.references).toContainEqual({ path: '../../dep' });
+  });
+
   test('lazily added dev dep appears as exact in gather-versions', () => {
     const relParent = new yarn.CdkLabsMonorepo({
       name: 'monorepo',
