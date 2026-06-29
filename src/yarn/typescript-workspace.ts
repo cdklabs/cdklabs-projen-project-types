@@ -1,5 +1,5 @@
 
-import { relative } from 'path';
+import { dirname, relative } from 'path';
 import { Component, javascript, typescript, TaskStep, SourceCode, DependencyType, Project } from 'projen';
 import { Monorepo } from './monorepo';
 import { TypeScriptWorkspaceOptions } from './typescript-workspace-options';
@@ -349,9 +349,11 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       default:
         this.addDeps(ref.name);
     }
-    const relativePath = relative(this.outdir, ref.outdir);
     for (const tsconfig of [this.tsconfig, this.tsconfigDev]) {
-      tsconfig?.file.addToArray('references', { path: relativePath });
+      if (tsconfig) {
+        const relativePath = relative(dirname(tsconfig.file.absolutePath), ref.outdir);
+        tsconfig?.file.addToArray('references', { path: relativePath });
+      }
     }
     this.excludeFromUpgrade.push(ref.name);
     if (type === DependencyType.RUNTIME || type === DependencyType.PEER) {
