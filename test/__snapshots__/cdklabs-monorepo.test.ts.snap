@@ -1750,12 +1750,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/one/tsconfig.json": {
     "compilerOptions": {
@@ -2551,12 +2548,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/two/tsconfig.json": {
     "compilerOptions": {
@@ -5290,12 +5284,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/one/tsconfig.json": {
     "compilerOptions": {
@@ -6164,12 +6155,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/two/tsconfig.json": {
     "compilerOptions": {
@@ -7907,12 +7895,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/one/tsconfig.json": {
     "compilerOptions": {

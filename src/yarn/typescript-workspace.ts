@@ -226,27 +226,6 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       tsconfig?.file.addOverride('references', []);
     }
 
-    // Self-reference from the dev/test tsconfig to the main project tsconfig.
-    //
-    // By default the dev tsconfig lives in a subdirectory (e.g. `test/tsconfig.json`)
-    // and extends the main `tsconfig.json`. Under `composite: true`, TypeScript treats
-    // the dev tsconfig as a separate compilation unit with strict project boundaries:
-    // its `include` only covers files under its own directory. Test files that import
-    // from the parent `lib/` (`../lib/...`) are then reachable via imports but are not
-    // part of the dev project's file set, which fails with TS6307 on `tsc --build`.
-    //
-    // Adding a project reference from the dev tsconfig back to the directory of the main
-    // tsconfig tells TypeScript that the lib source is a separate, already-built project
-    // and to consume its declarations. We only do this when the two tsconfigs are not
-    // co-located (i.e. the dev tsconfig is not aliased to / sitting next to the main one).
-    if (this.tsconfig && this.tsconfigDev && this.tsconfig !== this.tsconfigDev) {
-      const mainTsconfigDir = dirname(this.tsconfig.file.absolutePath);
-      const devTsconfigDir = dirname(this.tsconfigDev.file.absolutePath);
-      const selfReference = relative(devTsconfigDir, mainTsconfigDir);
-      if (selfReference !== '') {
-        this.tsconfigDev.file.addToArray('references', { path: selfReference });
-      }
-    }
 
     // Add workspace references
     for (const dep of options.deps?.filter(isWorkspaceReference) ?? []) {
@@ -385,7 +364,56 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
 
   public preSynthesize(): void {
     super.preSynthesize();
+    this.typecheckTestsAgainstLibrarySource();
     this.validateNoPrivateWorkspaceDeps();
+  }
+
+  /**
+   * Type-check tests against the library *source* rather than its emitted declarations.
+   *
+   * The dev/test tsconfig is a separate `composite` project, so it doesn't see the library
+   * source by default. Rather than referencing the main project (which would consume its
+   * `stripInternal`'d declarations and hide `@internal` members from tests under `tsc --build`),
+   * we mirror the main project's `include` into the test program, path-adjusted to the test dir.
+   *
+   * Excludes are only mirrored when they target the source dir (`src/...`): a `src/`-prefixed
+   * pattern can only match source files, so it can never drop a test file the test build owns
+   * (e.g. `test/.../integ.*.ts`, which the library build excludes but the test build must keep).
+   *
+   * Runs at `preSynthesize` since the main tsconfig's patterns may be modified after construction.
+   */
+  private typecheckTestsAgainstLibrarySource(): void {
+    const mainTsconfig = this.tsconfig;
+    const testTsconfig = this.tsconfigDev;
+
+    // When the dev tsconfig is disabled it aliases the main one (`tsconfig === tsconfigDev`),
+    // so there is nothing to wire up.
+    if (!mainTsconfig || !testTsconfig || mainTsconfig === testTsconfig) {
+      return;
+    }
+
+    // The relative path from the test tsconfig directory to the main tsconfig directory
+    // (e.g. `..`). When the two are co-located there is no project boundary to cross and the
+    // library source is already part of the test program's file set, so there is nothing to do.
+    const toMain = relative(dirname(testTsconfig.file.absolutePath), dirname(mainTsconfig.file.absolutePath));
+    if (toMain === '') {
+      return;
+    }
+
+    // Compile the same set of library source files as the main build, so `@internal` members
+    // remain visible. The main tsconfig's patterns are relative to the package root; the test
+    // tsconfig lives one directory deeper, so prefix them with the path back to the main dir.
+    const srcPrefix = `${this.srcdir}/`;
+    for (const pattern of mainTsconfig.include) {
+      testTsconfig.addInclude(`${toMain}/${pattern}`);
+    }
+    // Only mirror excludes that target the source directory; test-directory excludes belong to
+    // the library build alone (see above).
+    for (const pattern of mainTsconfig.exclude) {
+      if (pattern.startsWith(srcPrefix)) {
+        testTsconfig.addExclude(`${toMain}/${pattern}`);
+      }
+    }
   }
 
   private validateNoPrivateWorkspaceDeps(): void {
