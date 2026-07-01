@@ -456,7 +456,9 @@ describe('CdklabsJsiiProject', () => {
 
 describe('upgrade dependency cooldown', () => {
   test('no cooldown for yarn classic (default)', () => {
-    const project = new TestCdkLabsConstructLibrary();
+    const project = new TestCdkLabsConstructLibrary({
+      deps: ['aws-cdk-lib'],
+    });
     const outdir = Testing.synth(project);
     const tasks = outdir['.projen/tasks.json'].tasks;
 
