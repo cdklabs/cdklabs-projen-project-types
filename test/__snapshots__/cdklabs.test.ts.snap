@@ -1472,7 +1472,7 @@ junit.xml
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 1,
+    "manifestVersion": 2,
     "tasks": {
       "build": {
         "description": "Full release build",
@@ -1574,7 +1574,10 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "default",
         "steps": [
           {
-            "exec": "node .projenrc.js",
+            "execArgs": [
+              "node",
+              ".projenrc.js",
+            ],
           },
         ],
       },
@@ -1583,7 +1586,11 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "docgen",
         "steps": [
           {
-            "exec": "jsii-docgen -o API.md",
+            "execArgs": [
+              "jsii-docgen",
+              "-o",
+              "API.md",
+            ],
           },
         ],
       },
@@ -1691,7 +1698,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:dotnet",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target dotnet",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "dotnet",
+            ],
           },
         ],
       },
@@ -1700,7 +1712,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:go",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target go",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "go",
+            ],
           },
         ],
       },
@@ -1709,7 +1726,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:java",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target java",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "java",
+            ],
           },
         ],
       },
@@ -1718,7 +1740,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:js",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target js",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "js",
+            ],
           },
         ],
       },
@@ -1727,7 +1754,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:python",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target python",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "python",
+            ],
           },
         ],
       },
@@ -1835,7 +1867,10 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade",
         "steps": [
           {
-            "exec": "echo No dependencies to upgrade.",
+            "execArgs": [
+              "echo",
+              "No dependencies to upgrade.",
+            ],
           },
         ],
       },
@@ -3880,7 +3915,7 @@ junit.xml
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 1,
+    "manifestVersion": 2,
     "tasks": {
       "build": {
         "description": "Full release build",
@@ -3982,7 +4017,10 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "default",
         "steps": [
           {
-            "exec": "node .projenrc.js",
+            "execArgs": [
+              "node",
+              ".projenrc.js",
+            ],
           },
         ],
       },
@@ -3991,7 +4029,11 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "docgen",
         "steps": [
           {
-            "exec": "jsii-docgen -o API.md",
+            "execArgs": [
+              "jsii-docgen",
+              "-o",
+              "API.md",
+            ],
           },
         ],
       },
@@ -4079,7 +4121,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:dotnet",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target dotnet",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "dotnet",
+            ],
           },
         ],
       },
@@ -4088,7 +4135,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:go",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target go",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "go",
+            ],
           },
         ],
       },
@@ -4097,7 +4149,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:java",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target java",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "java",
+            ],
           },
         ],
       },
@@ -4106,7 +4163,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:js",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target js",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "js",
+            ],
           },
         ],
       },
@@ -4115,7 +4177,12 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "package:python",
         "steps": [
           {
-            "exec": "jsii-pacmak -v --target python",
+            "execArgs": [
+              "jsii-pacmak",
+              "-v",
+              "--target",
+              "python",
+            ],
           },
         ],
       },
@@ -4208,7 +4275,10 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade",
         "steps": [
           {
-            "exec": "echo No dependencies to upgrade.",
+            "execArgs": [
+              "echo",
+              "No dependencies to upgrade.",
+            ],
           },
         ],
       },
@@ -5676,7 +5746,7 @@ junit.xml
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 1,
+    "manifestVersion": 2,
     "tasks": {
       "build": {
         "description": "Full release build",
@@ -5758,7 +5828,10 @@ junit.xml
         "name": "compile",
         "steps": [
           {
-            "exec": "tsc --build",
+            "execArgs": [
+              "tsc",
+              "--build",
+            ],
           },
         ],
       },
@@ -5767,7 +5840,10 @@ junit.xml
         "name": "default",
         "steps": [
           {
-            "exec": "node .projenrc.js",
+            "execArgs": [
+              "node",
+              ".projenrc.js",
+            ],
           },
         ],
       },
@@ -5820,10 +5896,19 @@ junit.xml
         "name": "package",
         "steps": [
           {
-            "exec": "mkdir -p dist/js",
+            "execArgs": [
+              "mkdir",
+              "-p",
+              "dist/js",
+            ],
           },
           {
-            "exec": "npm pack --pack-destination dist/js",
+            "execArgs": [
+              "npm",
+              "pack",
+              "--pack-destination",
+              "dist/js",
+            ],
           },
         ],
       },
@@ -5911,7 +5996,10 @@ junit.xml
         "name": "upgrade",
         "steps": [
           {
-            "exec": "echo No dependencies to upgrade.",
+            "execArgs": [
+              "echo",
+              "No dependencies to upgrade.",
+            ],
           },
         ],
       },
@@ -5968,7 +6056,11 @@ junit.xml
         "name": "watch",
         "steps": [
           {
-            "exec": "tsc --build -w",
+            "execArgs": [
+              "tsc",
+              "--build",
+              "-w",
+            ],
           },
         ],
       },
