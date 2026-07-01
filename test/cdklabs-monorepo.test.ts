@@ -37,6 +37,15 @@ describe('CdkLabsMonorepo', () => {
       expect(outdir['tsconfig.json'].include).toEqual(['.projenrc.ts', 'projenrc/**/*.ts']);
     });
 
+    test('root tsconfig emits nothing and roots at the repo root', () => {
+      const outdir = Testing.synth(parent);
+
+      const compilerOptions = outdir['tsconfig.json'].compilerOptions;
+      expect(compilerOptions.rootDir).toEqual('.');
+      expect(compilerOptions.outDir).toBeUndefined();
+      expect(compilerOptions.noEmit).toEqual(true);
+    });
+
     test('does not pollute the test tsconfig with projenrc include or workspace references', () => {
       new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/one' });
 

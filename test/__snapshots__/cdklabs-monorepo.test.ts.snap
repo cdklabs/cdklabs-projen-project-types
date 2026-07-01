@@ -1750,12 +1750,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/one/tsconfig.json": {
     "compilerOptions": {
@@ -2551,12 +2548,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/two/tsconfig.json": {
     "compilerOptions": {
@@ -2624,6 +2618,7 @@ tsconfig.tsbuildinfo
         "es2020",
       ],
       "module": "CommonJS",
+      "noEmit": true,
       "noEmitOnError": false,
       "noFallthroughCasesInSwitch": true,
       "noImplicitAny": true,
@@ -2631,9 +2626,8 @@ tsconfig.tsbuildinfo
       "noImplicitThis": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "outDir": "lib",
       "resolveJsonModule": true,
-      "rootDir": "src",
+      "rootDir": ".",
       "strict": true,
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
@@ -5290,12 +5284,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/one/tsconfig.json": {
     "compilerOptions": {
@@ -6164,12 +6155,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/two/tsconfig.json": {
     "compilerOptions": {
@@ -6237,6 +6225,7 @@ tsconfig.tsbuildinfo
         "es2020",
       ],
       "module": "CommonJS",
+      "noEmit": true,
       "noEmitOnError": false,
       "noFallthroughCasesInSwitch": true,
       "noImplicitAny": true,
@@ -6244,9 +6233,8 @@ tsconfig.tsbuildinfo
       "noImplicitThis": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "outDir": "lib",
       "resolveJsonModule": true,
-      "rootDir": "src",
+      "rootDir": ".",
       "strict": true,
       "strictNullChecks": true,
       "strictPropertyInitialization": true,
@@ -7907,12 +7895,9 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../src/**/*.ts",
     ],
-    "references": [
-      {
-        "path": "..",
-      },
-    ],
+    "references": [],
   },
   "packages/@cdklabs/one/tsconfig.json": {
     "compilerOptions": {
@@ -7980,6 +7965,7 @@ tsconfig.tsbuildinfo
         "es2020",
       ],
       "module": "CommonJS",
+      "noEmit": true,
       "noEmitOnError": false,
       "noFallthroughCasesInSwitch": true,
       "noImplicitAny": true,
@@ -7987,9 +7973,8 @@ tsconfig.tsbuildinfo
       "noImplicitThis": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "outDir": "lib",
       "resolveJsonModule": true,
-      "rootDir": "src",
+      "rootDir": ".",
       "strict": true,
       "strictNullChecks": true,
       "strictPropertyInitialization": true,

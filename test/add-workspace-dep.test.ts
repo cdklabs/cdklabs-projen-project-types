@@ -162,17 +162,23 @@ describe('addWorkspaceDep', () => {
     expect(tsconfigDev.references).toContainEqual({ path: '../../dep' });
   });
 
-  test('dev tsconfig in a subdirectory gets a self-reference to the main project', () => {
+  test('dev tsconfig compiles the library source instead of self-referencing the main project', () => {
     // By default the dev tsconfig lives at `test/tsconfig.json` and extends the main
-    // `tsconfig.json` with `composite: true`. Without a project reference back to the
-    // main project, test files importing from `../lib` fail with TS6307. The dev tsconfig
-    // must reference the directory of the main tsconfig (one level up).
+    // `tsconfig.json` with `composite: true`. To type-check tests against the library
+    // *source* (so `@internal` members remain visible under `tsc --build`), the dev tsconfig
+    // must NOT reference the main project's `stripInternal`'d declarations. Instead it mirrors
+    // the main project's `include`/`exclude` patterns, path-adjusted one directory up.
     const ws = new yarn.TypeScriptWorkspace({ parent, name: '@scope/lib' });
 
     const outdir = Testing.synth(parent);
 
     const tsconfigDev = outdir['packages/@scope/lib/test/tsconfig.json'];
-    expect(tsconfigDev.references).toContainEqual({ path: '..' });
+    // No self-reference to the main project.
+    expect(tsconfigDev.references).not.toContainEqual({ path: '..' });
+    // The library source is compiled as part of the test program.
+    expect(tsconfigDev.include).toContain('../src/**/*.ts');
+    // The main project's non-source excludes (e.g. `node_modules`) are NOT mirrored.
+    expect(tsconfigDev.exclude).not.toContain('../node_modules');
 
     // The main tsconfig must NOT reference itself.
     const tsconfig = outdir['packages/@scope/lib/tsconfig.json'];
@@ -180,7 +186,23 @@ describe('addWorkspaceDep', () => {
     void ws;
   });
 
-  test('self-reference is combined with workspace references in the dev tsconfig', () => {
+  test('only source-directory excludes are mirrored into the dev tsconfig', () => {
+    const ws = new yarn.TypeScriptWorkspace({ parent, name: '@scope/lib' });
+    // A source-targeted exclude must be mirrored: the file is not valid standalone TS and
+    // should be kept out of both the library and the test build.
+    ws.tsconfig!.addExclude('src/init-templates/**/*.template.ts');
+    // A test-targeted exclude must NOT be mirrored: the test build owns the test tree, and the
+    // library build only excludes it to keep test files out of the library compilation.
+    ws.tsconfig!.addExclude('test/language-tests/**/integ.*.ts');
+
+    const outdir = Testing.synth(parent);
+
+    const tsconfigDev = outdir['packages/@scope/lib/test/tsconfig.json'];
+    expect(tsconfigDev.exclude).toContain('../src/init-templates/**/*.template.ts');
+    expect(tsconfigDev.exclude).not.toContain('../test/language-tests/**/integ.*.ts');
+  });
+
+  test('workspace references are kept while the library source is compiled into the dev tsconfig', () => {
     const dep = new yarn.TypeScriptWorkspace({ parent, name: '@scope/dep' });
     const consumer = new yarn.TypeScriptWorkspace({ parent, name: '@scope/consumer' });
 
@@ -188,17 +210,19 @@ describe('addWorkspaceDep', () => {
 
     const outdir = Testing.synth(parent);
 
-    // Dev tsconfig sits in `test/`, so it needs both the self-reference (`..`)
-    // and the workspace dep reference (`../../dep`).
     const tsconfigDev = outdir['packages/@scope/consumer/test/tsconfig.json'];
-    expect(tsconfigDev.references).toContainEqual({ path: '..' });
+    // No self-reference to the main project ...
+    expect(tsconfigDev.references).not.toContainEqual({ path: '..' });
+    // ... but the workspace dep reference is preserved.
     expect(tsconfigDev.references).toContainEqual({ path: '../../dep' });
+    // ... and the library source is compiled into the test program.
+    expect(tsconfigDev.include).toContain('../src/**/*.ts');
   });
 
-  test('co-located dev tsconfig does not get a self-reference', () => {
-    // When the dev tsconfig lives next to the main tsconfig (workspace root), there is
-    // no project boundary to cross, so no self-reference should be added (an empty path
-    // reference would be invalid).
+  test('co-located dev tsconfig does not mirror the library source', () => {
+    // When the dev tsconfig lives next to the main tsconfig (workspace root), there is no
+    // project boundary to cross: the library source is already part of its file set, so no
+    // path-adjusted include/exclude is added and no self-reference exists.
     const ws = new yarn.TypeScriptWorkspace({
       parent,
       name: '@scope/lib',
@@ -210,6 +234,7 @@ describe('addWorkspaceDep', () => {
     const tsconfigDev = outdir['packages/@scope/lib/tsconfig.dev.json'];
     expect(tsconfigDev.references).not.toContainEqual({ path: '' });
     expect(tsconfigDev.references).not.toContainEqual({ path: '.' });
+    expect(tsconfigDev.include).not.toContain('../src/**/*.ts');
     void ws;
   });
 

@@ -269,6 +269,12 @@ export class Monorepo extends typescript.TypeScriptProject {
         'references',
         this.subprojects.map((p) => ({ path: p.workspaceDirectory })),
       );
+      // The root is not a real compilation unit: it only type-checks projenrc
+      // files and holds project references. Emit nothing and root everything at
+      // the repo root so the references resolve correctly.
+      tsconfig?.file.addOverride('compilerOptions.rootDir', '.');
+      tsconfig?.file.addOverride('compilerOptions.outDir', undefined);
+      tsconfig?.file.addOverride('compilerOptions.noEmit', true);
     }
 
     this.package.addField('jest', {
