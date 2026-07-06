@@ -602,7 +602,7 @@ tsconfig.tsbuildinfo
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 2,
+    "manifestVersion": 3,
     "tasks": {
       "build": {
         "name": "build",
@@ -661,7 +661,12 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "ts-node --project tsconfig.json .projenrc.ts",
+            "execArgs": [
+              "ts-node",
+              "--project",
+              "projenrc/tsconfig.json",
+              ".projenrc.ts",
+            ],
           },
         ],
       },
@@ -1305,7 +1310,7 @@ tsconfig.tsbuildinfo
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 2,
+    "manifestVersion": 3,
     "tasks": {
       "build": {
         "description": "Full release build",
@@ -2116,7 +2121,7 @@ tsconfig.tsbuildinfo
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 2,
+    "manifestVersion": 3,
     "tasks": {
       "build": {
         "description": "Full release build",
@@ -2630,6 +2635,7 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../.projenrc.ts",
     ],
   },
   "tsconfig.json": {
@@ -4064,7 +4070,7 @@ tsconfig.tsbuildinfo
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 2,
+    "manifestVersion": 3,
     "tasks": {
       "build": {
         "name": "build",
@@ -4123,7 +4129,12 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "ts-node --project tsconfig.json .projenrc.ts",
+            "execArgs": [
+              "ts-node",
+              "--project",
+              "projenrc/tsconfig.json",
+              ".projenrc.ts",
+            ],
           },
         ],
       },
@@ -4801,7 +4812,7 @@ tsconfig.tsbuildinfo
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 2,
+    "manifestVersion": 3,
     "tasks": {
       "build": {
         "description": "Full release build",
@@ -5685,7 +5696,7 @@ tsconfig.tsbuildinfo
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 2,
+    "manifestVersion": 3,
     "tasks": {
       "build": {
         "description": "Full release build",
@@ -6263,6 +6274,7 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../.projenrc.ts",
     ],
   },
   "tsconfig.json": {
@@ -6792,7 +6804,7 @@ tsconfig.tsbuildinfo
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 2,
+    "manifestVersion": 3,
     "tasks": {
       "build": {
         "name": "build",
@@ -6851,7 +6863,12 @@ tsconfig.tsbuildinfo
         "name": "default",
         "steps": [
           {
-            "exec": "ts-node --project tsconfig.json .projenrc.ts",
+            "execArgs": [
+              "ts-node",
+              "--project",
+              "projenrc/tsconfig.json",
+              ".projenrc.ts",
+            ],
           },
         ],
       },
@@ -7497,7 +7514,7 @@ tsconfig.tsbuildinfo
     "env": {
       "PATH": "$(npx -c "node --print process.env.PATH")",
     },
-    "manifestVersion": 2,
+    "manifestVersion": 3,
     "tasks": {
       "build": {
         "description": "Full release build",
@@ -8016,6 +8033,7 @@ tsconfig.tsbuildinfo
     "extends": "../tsconfig.json",
     "include": [
       "**/*.ts",
+      "../.projenrc.ts",
     ],
   },
   "tsconfig.json": {

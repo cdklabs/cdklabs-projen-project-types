@@ -918,6 +918,13 @@ export interface CdkConstructLibraryOptions {
    */
   readonly rosettaOptions?: RosettaOptions;
   /**
+   * The TypeScript runner to use for executing TypeScript files.
+   * This is a project-level setting that components (e.g. projenrc) will
+   * use as their default runner.
+   * @default TypeScriptRunner.tsNode()
+   */
+  readonly runner?: typescript.TypeScriptRunner;
+  /**
    * Generate one-time sample in `src/` and `test/` if there are no files there.
    * @default true
    */

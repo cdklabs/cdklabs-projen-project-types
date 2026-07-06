@@ -757,6 +757,13 @@ export interface MonorepoOptions {
    */
   readonly repositoryDirectory?: string;
   /**
+   * The TypeScript runner to use for executing TypeScript files.
+   * This is a project-level setting that components (e.g. projenrc) will
+   * use as their default runner.
+   * @default TypeScriptRunner.tsNode()
+   */
+  readonly runner?: typescript.TypeScriptRunner;
+  /**
    * Options for privately hosted scoped packages.
    * @default - fetch all scoped packages from the public npm registry
    */
