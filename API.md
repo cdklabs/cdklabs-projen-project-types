@@ -650,6 +650,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner used for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibrary.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
@@ -1256,6 +1257,18 @@ public readonly libdir: string;
 - *Type:* string
 
 The directory in which compiled .js files reside.
+
+---
+
+##### `runner`<sup>Required</sup> <a name="runner" id="cdklabs-projen-project-types.CdkConstructLibrary.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+
+The TypeScript runner used for executing TypeScript files.
 
 ---
 
@@ -2061,6 +2074,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner used for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
@@ -2665,6 +2679,18 @@ public readonly libdir: string;
 - *Type:* string
 
 The directory in which compiled .js files reside.
+
+---
+
+##### `runner`<sup>Required</sup> <a name="runner" id="cdklabs-projen-project-types.CdkJsiiProject.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+
+The TypeScript runner used for executing TypeScript files.
 
 ---
 
@@ -3448,6 +3474,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner used for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibrary.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
@@ -4054,6 +4081,18 @@ public readonly libdir: string;
 - *Type:* string
 
 The directory in which compiled .js files reside.
+
+---
+
+##### `runner`<sup>Required</sup> <a name="runner" id="cdklabs-projen-project-types.CdklabsConstructLibrary.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+
+The TypeScript runner used for executing TypeScript files.
 
 ---
 
@@ -4859,6 +4898,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner used for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
@@ -5463,6 +5503,18 @@ public readonly libdir: string;
 - *Type:* string
 
 The directory in which compiled .js files reside.
+
+---
+
+##### `runner`<sup>Required</sup> <a name="runner" id="cdklabs-projen-project-types.CdklabsJsiiProject.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+
+The TypeScript runner used for executing TypeScript files.
 
 ---
 
@@ -6276,6 +6328,7 @@ yarn.CdkLabsMonorepo.isMonorepo(x: Project)
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner used for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
@@ -6882,6 +6935,18 @@ public readonly libdir: string;
 - *Type:* string
 
 The directory in which compiled .js files reside.
+
+---
+
+##### `runner`<sup>Required</sup> <a name="runner" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+
+The TypeScript runner used for executing TypeScript files.
 
 ---
 
@@ -7689,6 +7754,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner used for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
@@ -8293,6 +8359,18 @@ public readonly libdir: string;
 - *Type:* string
 
 The directory in which compiled .js files reside.
+
+---
+
+##### `runner`<sup>Required</sup> <a name="runner" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+
+The TypeScript runner used for executing TypeScript files.
 
 ---
 
@@ -9076,6 +9154,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner used for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProject.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
@@ -9680,6 +9759,18 @@ public readonly libdir: string;
 - *Type:* string
 
 The directory in which compiled .js files reside.
+
+---
+
+##### `runner`<sup>Required</sup> <a name="runner" id="cdklabs-projen-project-types.CdkTypeScriptProject.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+
+The TypeScript runner used for executing TypeScript files.
 
 ---
 
@@ -10678,6 +10769,7 @@ yarn.Monorepo.isMonorepo(x: Project)
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner used for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
 | <code><a href="#cdklabs-projen-project-types.yarn.Monorepo.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
@@ -11284,6 +11376,18 @@ public readonly libdir: string;
 - *Type:* string
 
 The directory in which compiled .js files reside.
+
+---
+
+##### `runner`<sup>Required</sup> <a name="runner" id="cdklabs-projen-project-types.yarn.Monorepo.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+
+The TypeScript runner used for executing TypeScript files.
 
 ---
 
@@ -12574,6 +12678,7 @@ When given a project, this it the project itself.
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner used for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
@@ -13181,6 +13286,18 @@ public readonly libdir: string;
 - *Type:* string
 
 The directory in which compiled .js files reside.
+
+---
+
+##### `runner`<sup>Required</sup> <a name="runner" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+
+The TypeScript runner used for executing TypeScript files.
 
 ---
 
@@ -13874,6 +13991,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
@@ -16077,6 +16195,22 @@ Options for rosetta:extract task.
 
 ---
 
+##### `runner`<sup>Optional</sup> <a name="runner" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+- *Default:* TypeScriptRunner.tsNode()
+
+The TypeScript runner to use for executing TypeScript files.
+
+This is a project-level setting that components (e.g. projenrc) will
+use as their default runner.
+
+---
+
 ##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.sampleCode"></a>
 
 ```typescript
@@ -16620,6 +16754,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
@@ -18659,6 +18794,22 @@ public readonly rootdir: string;
 
 ---
 
+##### `runner`<sup>Optional</sup> <a name="runner" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+- *Default:* TypeScriptRunner.tsNode()
+
+The TypeScript runner to use for executing TypeScript files.
+
+This is a project-level setting that components (e.g. projenrc) will
+use as their default runner.
+
+---
+
 ##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.sampleCode"></a>
 
 ```typescript
@@ -19201,6 +19352,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.rosettaOptions">rosettaOptions</a></code> | <code><a href="#cdklabs-projen-project-types.RosettaOptions">RosettaOptions</a></code> | Options for rosetta:extract task. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
@@ -21406,6 +21558,22 @@ Options for rosetta:extract task.
 
 ---
 
+##### `runner`<sup>Optional</sup> <a name="runner" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+- *Default:* TypeScriptRunner.tsNode()
+
+The TypeScript runner to use for executing TypeScript files.
+
+This is a project-level setting that components (e.g. projenrc) will
+use as their default runner.
+
+---
+
 ##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.sampleCode"></a>
 
 ```typescript
@@ -21986,6 +22154,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.repositoryUrl">repositoryUrl</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.rootdir">rootdir</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
@@ -24027,6 +24196,22 @@ public readonly rootdir: string;
 
 ---
 
+##### `runner`<sup>Optional</sup> <a name="runner" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+- *Default:* TypeScriptRunner.tsNode()
+
+The TypeScript runner to use for executing TypeScript files.
+
+This is a project-level setting that components (e.g. projenrc) will
+use as their default runner.
+
+---
+
 ##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.sampleCode"></a>
 
 ```typescript
@@ -24582,6 +24767,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
@@ -26394,6 +26580,22 @@ If the package.json for your package is not in the root directory (for example i
 
 ---
 
+##### `runner`<sup>Optional</sup> <a name="runner" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+- *Default:* TypeScriptRunner.tsNode()
+
+The TypeScript runner to use for executing TypeScript files.
+
+This is a project-level setting that components (e.g. projenrc) will
+use as their default runner.
+
+---
+
 ##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.scopedPackagesOptions"></a>
 
 ```typescript
@@ -26939,6 +27141,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. Tests files should be named `xxx.test.ts`. |
@@ -28951,6 +29154,22 @@ Options for .projenrc.ts.
 
 ---
 
+##### `runner`<sup>Optional</sup> <a name="runner" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+- *Default:* TypeScriptRunner.tsNode()
+
+The TypeScript runner to use for executing TypeScript files.
+
+This is a project-level setting that components (e.g. projenrc) will
+use as their default runner.
+
+---
+
 ##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.sampleCode"></a>
 
 ```typescript
@@ -29316,6 +29535,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.libdir">libdir</a></code> | <code>string</code> | Typescript  artifacts output directory. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.projenrcTs">projenrcTs</a></code> | <code>boolean</code> | Use TypeScript for your projenrc file (`.projenrc.ts`). |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.projenrcTsOptions">projenrcTsOptions</a></code> | <code>projen.typescript.ProjenrcOptions</code> | Options for .projenrc.ts. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.testdir">testdir</a></code> | <code>string</code> | Jest tests directory. Tests files should be named `xxx.test.ts`. |
@@ -31328,6 +31548,22 @@ Options for .projenrc.ts.
 
 ---
 
+##### `runner`<sup>Optional</sup> <a name="runner" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+- *Default:* TypeScriptRunner.tsNode()
+
+The TypeScript runner to use for executing TypeScript files.
+
+This is a project-level setting that components (e.g. projenrc) will
+use as their default runner.
+
+---
+
 ##### `sampleCode`<sup>Optional</sup> <a name="sampleCode" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.sampleCode"></a>
 
 ```typescript
@@ -32042,6 +32278,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
@@ -33854,6 +34091,22 @@ If the package.json for your package is not in the root directory (for example i
 
 ---
 
+##### `runner`<sup>Optional</sup> <a name="runner" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+- *Default:* TypeScriptRunner.tsNode()
+
+The TypeScript runner to use for executing TypeScript files.
+
+This is a project-level setting that components (e.g. projenrc) will
+use as their default runner.
+
+---
+
 ##### `scopedPackagesOptions`<sup>Optional</sup> <a name="scopedPackagesOptions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.scopedPackagesOptions"></a>
 
 ```typescript
@@ -34791,6 +35044,7 @@ const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.repository">repository</a></code> | <code>string</code> | The repository is the location where the actual code for your package lives. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
@@ -36553,6 +36807,22 @@ public readonly repository: string;
 The repository is the location where the actual code for your package lives.
 
 See https://classic.yarnpkg.com/en/docs/package-json/#toc-repository
+
+---
+
+##### `runner`<sup>Optional</sup> <a name="runner" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.runner"></a>
+
+```typescript
+public readonly runner: TypeScriptRunner;
+```
+
+- *Type:* projen.typescript.TypeScriptRunner
+- *Default:* TypeScriptRunner.tsNode()
+
+The TypeScript runner to use for executing TypeScript files.
+
+This is a project-level setting that components (e.g. projenrc) will
+use as their default runner.
 
 ---
 
