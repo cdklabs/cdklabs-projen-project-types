@@ -18,6 +18,10 @@ export function main(argv: string[], packageDirectory: string) {
 
   const isReset = process.env.RESET_VERSIONS === 'true';
 
+  // Set to 'true' by the monorepo release task while it bumps and builds packages.
+  // Used to enforce the guard below only during a real release (not local dev/synth).
+  const isRelease = process.env.RELEASE === 'true';
+
   const deps = Object.fromEntries(argv.map(x => x.split('=', 2) as [string, string]));
 
   // The PJ file we are updating
@@ -31,6 +35,24 @@ export function main(argv: string[], packageDirectory: string) {
 
   for (const [dep, depType] of Object.entries(deps)) {
     const depVersion = dependencyInfo(dep, packageDirectory).version;
+
+    // A dependency that still resolves to the 0.0.0 placeholder was not versioned before this
+    // package gathered its dependency ranges: the dependency's bump task did not run (it was skipped
+    // or failed), so its package.json still holds the projen 0.0.0 placeholder. Writing a range off
+    // 0.0.0 publishes a broken '^0.0.0' (or '0.0.0'/'~0.0.0'/'>=0.0.0') dependency that npm resolves
+    // to the ancient 0.0.0 artifact. Fail loudly instead of publishing it. Only enforced for
+    // runtime/peer dependencies declared on this package, and only during a release, so local
+    // dev/synth and the reset (unbump) path are unaffected.
+    const isRuntimeOrPeerDep = Boolean(manifest.dependencies?.[dep]) || Boolean(manifest.peerDependencies?.[dep]);
+    if (isRelease && !isReset && isRuntimeOrPeerDep && depVersion === '0.0.0') {
+      throw new Error(
+        `gather-versions: dependency '${dep}' of '${manifest.name}' resolved to the placeholder version 0.0.0. ` +
+        `Its bump task did not run before '${manifest.name}' gathered versions (skipped or failed), so publishing ` +
+        'now would ship a broken \'^0.0.0\' range. Re-run the release; if it recurs, check why the bump task for ' +
+        `'${dep}' was skipped (see its task condition).`,
+      );
+    }
+
     const rangeVersion = versionForRange(depType, depVersion);
 
     const dependencyClasses = [
