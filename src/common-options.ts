@@ -4,6 +4,7 @@ import { CdkCommonOptions } from './cdk-common-options';
 import { Private } from './private';
 import { RetryAutoMerge } from './retryautomerge';
 import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
+import { CheckGhaExpressions } from './check-gha-expressions';
 
 export enum OrgTenancy {
   CDKLABS = 'cdklabs',
@@ -82,6 +83,7 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
 
 export function configureCommonComponents(project: typescript.TypeScriptProject, opts: CdkCommonOptions & Pick<javascript.NodeProjectOptions, 'autoApproveUpgrades' | 'autoApproveOptions' | 'depsUpgradeOptions'>) {
   new RetryAutoMerge(project);
+  new CheckGhaExpressions(project);
 
   if (opts.private) {
     new Private(project);
