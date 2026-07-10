@@ -70,6 +70,15 @@ export const COMMON_OPTIONS: Property[] = [
       default: '- Auto detected from package name',
     },
   },
+  {
+    name: 'checkGhaExpressions',
+    optional: true,
+    type: { primitive: PrimitiveType.Boolean },
+    docs: {
+      summary: 'Enable GitHub Actions expressions validation.',
+      default: 'true',
+    },
+  },
 ];
 
 export function generateCdkCommonOptions(project: typescript.TypeScriptProject) {

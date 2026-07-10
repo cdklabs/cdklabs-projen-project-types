@@ -5,6 +5,7 @@ import { MonorepoOptions } from './monorepo-options';
 import { MonorepoRelease } from './monorepo-release';
 import { Nx } from './nx';
 import { TypeScriptWorkspace } from './typescript-workspace';
+import { CheckGhaExpressions } from '../check-gha-expressions';
 
 const MONOREPO_SYM = Symbol.for('cdklabs-projen-project-types.yarn.Monorepo');
 
@@ -51,6 +52,10 @@ export class Monorepo extends typescript.TypeScriptProject {
       // `tsconfig`, consolidating everything onto the root `tsconfig.json`.
       disableTsconfigDev: true,
     });
+
+    if (settings.checkGhaExpressions ?? true) {
+      new CheckGhaExpressions(this);
+    }
 
     Object.defineProperty(this, MONOREPO_SYM, { value: true });
 

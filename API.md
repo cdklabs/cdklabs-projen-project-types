@@ -9906,6 +9906,191 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 
 ---
 
+### CheckGhaExpressions <a name="CheckGhaExpressions" id="cdklabs-projen-project-types.CheckGhaExpressions"></a>
+
+Check GitHub Actions workflows for the use of dangerous expressions directly interpolated in shell steps.
+
+Some of these can be used to perform command injection attacks. We block all of them to be overly safe,
+even the ones that are not dangerous.
+
+Automatically added to all of our project types.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CheckGhaExpressions.Initializer"></a>
+
+```typescript
+import { CheckGhaExpressions } from 'cdklabs-projen-project-types'
+
+new CheckGhaExpressions(project: IConstruct)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.Initializer.parameter.project">project</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.CheckGhaExpressions.Initializer.parameter.project"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.CheckGhaExpressions.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.CheckGhaExpressions.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.CheckGhaExpressions.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CheckGhaExpressions.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CheckGhaExpressions.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.CheckGhaExpressions.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.CheckGhaExpressions.isConstruct"></a>
+
+```typescript
+import { CheckGhaExpressions } from 'cdklabs-projen-project-types'
+
+CheckGhaExpressions.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CheckGhaExpressions.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.CheckGhaExpressions.isComponent"></a>
+
+```typescript
+import { CheckGhaExpressions } from 'cdklabs-projen-project-types'
+
+CheckGhaExpressions.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CheckGhaExpressions.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.CheckGhaExpressions.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.CheckGhaExpressions.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ### Constraints <a name="Constraints" id="cdklabs-projen-project-types.yarn.Constraints"></a>
 
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.Constraints.Initializer"></a>
@@ -13714,6 +13899,7 @@ const cdkCommonOptions: CdkCommonOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.checkGhaExpressions">checkGhaExpressions</a></code> | <code>boolean</code> | Enable GitHub Actions expressions validation. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
@@ -13721,6 +13907,19 @@ const cdkCommonOptions: CdkCommonOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The organization this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeRuntimeDepsAsFix">upgradeRuntimeDepsAsFix</a></code> | <code>boolean</code> | Whether to have a separate workflow to upgrade runtime deps and mark this PR as fix. |
+
+---
+
+##### `checkGhaExpressions`<sup>Optional</sup> <a name="checkGhaExpressions" id="cdklabs-projen-project-types.CdkCommonOptions.property.checkGhaExpressions"></a>
+
+```typescript
+public readonly checkGhaExpressions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub Actions expressions validation.
 
 ---
 
@@ -13869,6 +14068,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.catalog">catalog</a></code> | <code>projen.cdk.Catalog</code> | Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkCliVersion">cdkCliVersion</a></code> | <code>string</code> | Version range of the AWS CDK CLI to depend on. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.cdkVersionPinning">cdkVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for CDK. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.checkGhaExpressions">checkGhaExpressions</a></code> | <code>boolean</code> | Enable GitHub Actions expressions validation. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -14474,6 +14674,19 @@ Use pinned version instead of caret version for CDK.
 
 You can use this to prevent mixed versions for your CDK dependencies and to prevent auto-updates.
 If you use experimental features this will let you define the moment you include breaking changes.
+
+---
+
+##### `checkGhaExpressions`<sup>Optional</sup> <a name="checkGhaExpressions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.checkGhaExpressions"></a>
+
+```typescript
+public readonly checkGhaExpressions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub Actions expressions validation.
 
 ---
 
@@ -16640,6 +16853,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.checkGhaExpressions">checkGhaExpressions</a></code> | <code>boolean</code> | Enable GitHub Actions expressions validation. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -17168,6 +17382,19 @@ public readonly bunVersion: string;
 - *Default:* "latest"
 
 The version of Bun to use if using Bun as a package manager.
+
+---
+
+##### `checkGhaExpressions`<sup>Optional</sup> <a name="checkGhaExpressions" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.checkGhaExpressions"></a>
+
+```typescript
+public readonly checkGhaExpressions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub Actions expressions validation.
 
 ---
 
@@ -19230,6 +19457,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.catalog">catalog</a></code> | <code>projen.cdk.Catalog</code> | Libraries will be picked up by the construct catalog when they are published to npm as jsii modules and will be published under:. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkCliVersion">cdkCliVersion</a></code> | <code>string</code> | Version range of the AWS CDK CLI to depend on. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.cdkVersionPinning">cdkVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for CDK. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.checkGhaExpressions">checkGhaExpressions</a></code> | <code>boolean</code> | Enable GitHub Actions expressions validation. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -19837,6 +20065,19 @@ Use pinned version instead of caret version for CDK.
 
 You can use this to prevent mixed versions for your CDK dependencies and to prevent auto-updates.
 If you use experimental features this will let you define the moment you include breaking changes.
+
+---
+
+##### `checkGhaExpressions`<sup>Optional</sup> <a name="checkGhaExpressions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.checkGhaExpressions"></a>
+
+```typescript
+public readonly checkGhaExpressions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub Actions expressions validation.
 
 ---
 
@@ -22040,6 +22281,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.checkGhaExpressions">checkGhaExpressions</a></code> | <code>boolean</code> | Enable GitHub Actions expressions validation. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -22570,6 +22812,19 @@ public readonly bunVersion: string;
 - *Default:* "latest"
 
 The version of Bun to use if using Bun as a package manager.
+
+---
+
+##### `checkGhaExpressions`<sup>Optional</sup> <a name="checkGhaExpressions" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.checkGhaExpressions"></a>
+
+```typescript
+public readonly checkGhaExpressions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub Actions expressions validation.
 
 ---
 
@@ -24669,6 +24924,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.checkGhaExpressions">checkGhaExpressions</a></code> | <code>boolean</code> | Enable GitHub Actions expressions validation. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -25182,6 +25438,19 @@ public readonly bunVersion: string;
 - *Default:* "latest"
 
 The version of Bun to use if using Bun as a package manager.
+
+---
+
+##### `checkGhaExpressions`<sup>Optional</sup> <a name="checkGhaExpressions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.checkGhaExpressions"></a>
+
+```typescript
+public readonly checkGhaExpressions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub Actions expressions validation.
 
 ---
 
@@ -27150,6 +27419,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name (and path) of the development tsconfig file. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.checkGhaExpressions">checkGhaExpressions</a></code> | <code>boolean</code> | Enable GitHub Actions expressions validation. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
@@ -29285,6 +29555,19 @@ same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
 
 ---
 
+##### `checkGhaExpressions`<sup>Optional</sup> <a name="checkGhaExpressions" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.checkGhaExpressions"></a>
+
+```typescript
+public readonly checkGhaExpressions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub Actions expressions validation.
+
+---
+
 ##### `enablePRAutoMerge`<sup>Optional</sup> <a name="enablePRAutoMerge" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.enablePRAutoMerge"></a>
 
 ```typescript
@@ -29544,6 +29827,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name (and path) of the development tsconfig file. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.checkGhaExpressions">checkGhaExpressions</a></code> | <code>boolean</code> | Enable GitHub Actions expressions validation. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
@@ -31679,6 +31963,19 @@ same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
 
 ---
 
+##### `checkGhaExpressions`<sup>Optional</sup> <a name="checkGhaExpressions" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.checkGhaExpressions"></a>
+
+```typescript
+public readonly checkGhaExpressions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub Actions expressions validation.
+
+---
+
 ##### `enablePRAutoMerge`<sup>Optional</sup> <a name="enablePRAutoMerge" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.enablePRAutoMerge"></a>
 
 ```typescript
@@ -32180,6 +32477,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bundledDeps">bundledDeps</a></code> | <code>string[]</code> | List of dependencies to bundle into this module. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bundlerOptions">bundlerOptions</a></code> | <code>projen.javascript.BundlerOptions</code> | Options for `Bundler`. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.bunVersion">bunVersion</a></code> | <code>string</code> | The version of Bun to use if using Bun as a package manager. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.checkGhaExpressions">checkGhaExpressions</a></code> | <code>boolean</code> | Enable GitHub Actions expressions validation. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.checkLicenses">checkLicenses</a></code> | <code>projen.javascript.LicenseCheckerOptions</code> | Configure which licenses should be deemed acceptable for use by dependencies. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.clobber">clobber</a></code> | <code>boolean</code> | Add a `clobber` task which resets the repo to origin. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.codeArtifactOptions">codeArtifactOptions</a></code> | <code>projen.javascript.CodeArtifactOptions</code> | Options for npm packages using AWS CodeArtifact. |
@@ -32693,6 +32991,19 @@ public readonly bunVersion: string;
 - *Default:* "latest"
 
 The version of Bun to use if using Bun as a package manager.
+
+---
+
+##### `checkGhaExpressions`<sup>Optional</sup> <a name="checkGhaExpressions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.checkGhaExpressions"></a>
+
+```typescript
+public readonly checkGhaExpressions: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub Actions expressions validation.
 
 ---
 
