@@ -1,7 +1,6 @@
 import type { IConstruct } from 'constructs';
 import { Component, github } from 'projen';
 import type { workflows } from 'projen/lib/github';
-import type { JobStep } from 'projen/lib/github/workflows-model';
 
 /**
  * Check GitHub Actions workflows for the use of dangerous expressions directly interpolated in shell steps.
@@ -33,13 +32,10 @@ export class CheckGhaExpressions extends Component {
   private validateWorkflow(workflow: github.GithubWorkflow, violations: Violation[]) {
     for (const [jobName, job] of Object.entries(workflow.jobs)) {
       if (isJob(job)) {
-        // Any value can be a function
-        const steps: JobStep[] = typeof job.steps === 'function' ? (job.steps as any)() : job.steps;
-
-        for (const [stepIndex, step] of enumerate(steps ?? [])) {
+        for (const [stepIndex, step] of enumerate(projenResolve(job.steps) ?? [])) {
           if (step.run) {
             // Check for github.event.pull_request and github.event.issue, same as the internal Amazon tool that yells at us.
-            const findings = step.run.matchAll(/\$\{\{([^}]*github\.event\.(pull_request|issue)[^}]*)\}\}/g);
+            const findings = projenResolve(step.run).matchAll(/\$\{\{([^}]*github\.event\.(pull_request|issue)[^}]*)\}\}/g);
 
             for (const finding of findings) {
               violations.push({
@@ -69,4 +65,11 @@ interface Violation {
 
 function enumerate<A>(xs: A[]): [number, A][] {
   return xs.map((x, i) => [i, x]);
+}
+
+/**
+ * Any projen value can be a function, resolve it if necessary
+ */
+function projenResolve<A>(x: A): A {
+  return typeof x === 'function' ? (x as any)() : x;
 }

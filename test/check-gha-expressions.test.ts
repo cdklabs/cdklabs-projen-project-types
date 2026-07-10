@@ -25,6 +25,20 @@ test('detect direct use of dangerous expressions', () => {
   expect(() => project.synth()).toThrow(/Found dangerous expressions containing github.event in workflow shell steps/);
 });
 
+test('also works if steps is a function', () => {
+  github.addWorkflow('test').addJob('job', {
+    permissions: {},
+    uses: 'standard',
+    steps: (() => [
+      {
+        run: 'echo "${{ github.event.pull_request.title }}"',
+      },
+    ]) as any,
+  });
+
+  expect(() => project.synth()).toThrow(/Found dangerous expressions containing github.event in workflow shell steps/);
+});
+
 test('detect indirect use of dangerous expressions', () => {
   github.addWorkflow('test').addJob('job', {
     permissions: {},
