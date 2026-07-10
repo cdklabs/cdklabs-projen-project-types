@@ -133,6 +133,15 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
           default: '\'lts/*\'',
         },
       },
+      {
+        name: 'checkGhaExpressions',
+        optional: true,
+        type: { primitive: PrimitiveType.Boolean },
+        docs: {
+          summary: 'Enable GitHub Actions expressions validation.',
+          default: 'true',
+        },
+      },
     ],
   });
 

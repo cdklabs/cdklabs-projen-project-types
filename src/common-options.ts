@@ -76,6 +76,7 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
     // Deviation from upstream projen: upstream projen defaults to minNodeVersion, but we have too many workflows
     // that use tools that want a recent Node version, so default to a reasonable floating version.
     workflowNodeVersion: options.workflowNodeVersion ?? 'lts/*',
+    checkGhaExpressions: options.checkGhaExpressions ?? true,
   };
 
   return deepMerge([{}, options, common]) as T & ConfiguredCommonOptions;
@@ -83,7 +84,10 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
 
 export function configureCommonComponents(project: typescript.TypeScriptProject, opts: CdkCommonOptions & Pick<javascript.NodeProjectOptions, 'autoApproveUpgrades' | 'autoApproveOptions' | 'depsUpgradeOptions'>) {
   new RetryAutoMerge(project);
-  new CheckGhaExpressions(project);
+
+  if (opts.checkGhaExpressions ?? true) {
+    new CheckGhaExpressions(project);
+  }
 
   if (opts.private) {
     new Private(project);

@@ -53,7 +53,9 @@ export class Monorepo extends typescript.TypeScriptProject {
       disableTsconfigDev: true,
     });
 
-    new CheckGhaExpressions(this);
+    if (settings.checkGhaExpressions ?? true) {
+      new CheckGhaExpressions(this);
+    }
 
     Object.defineProperty(this, MONOREPO_SYM, { value: true });
 

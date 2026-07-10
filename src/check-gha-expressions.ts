@@ -15,7 +15,7 @@ export class CheckGhaExpressions extends Component {
     super(project, 'gha-variable-checker');
   }
 
-  public preSynthesize() {
+  public postSynthesize() {
     const violations: Violation[] = [];
     for (const workflow of github.GitHub.of(this.project)?.workflows ?? []) {
       this.validateWorkflow(workflow, violations);

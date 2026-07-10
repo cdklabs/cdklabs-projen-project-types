@@ -7,6 +7,11 @@ import { OrgTenancy } from './';
  */
 export interface CdkCommonOptions {
   /**
+   * Enable GitHub Actions expressions validation.
+   * @default true
+   */
+  readonly checkGhaExpressions?: boolean;
+  /**
    * Whether to enable the auto merge workflow for PRs.
    * This will enable the auto merge workflow as well as the merge queue
    * @default - true for private projects, false otherwise
