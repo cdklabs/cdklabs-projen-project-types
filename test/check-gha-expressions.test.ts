@@ -1,6 +1,6 @@
-import { Project } from "projen";
-import { GitHub } from "projen/lib/github";
-import { CheckGhaExpressions } from "../src";
+import { Project } from 'projen';
+import { GitHub } from 'projen/lib/github';
+import { CheckGhaExpressions } from '../src';
 
 let project: Project;
 let github: GitHub;
@@ -31,7 +31,7 @@ test('detect indirect use of dangerous expressions', () => {
     uses: 'standard',
     steps: [
       {
-        run: `echo "\${{ contains(github.event.pull_request.labels.*.name, 'something') }}"`,
+        run: 'echo "${{ contains(github.event.pull_request.labels.*.name, \'something\') }}"',
       },
     ],
   });

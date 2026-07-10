@@ -1,10 +1,10 @@
 import { DependencyType, github, javascript, typescript } from 'projen';
 import { deepMerge } from 'projen/lib/util';
 import { CdkCommonOptions } from './cdk-common-options';
+import { CheckGhaExpressions } from './check-gha-expressions';
 import { Private } from './private';
 import { RetryAutoMerge } from './retryautomerge';
 import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
-import { CheckGhaExpressions } from './check-gha-expressions';
 
 export enum OrgTenancy {
   CDKLABS = 'cdklabs',

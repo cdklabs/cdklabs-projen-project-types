@@ -9906,6 +9906,191 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 
 ---
 
+### CheckGhaExpressions <a name="CheckGhaExpressions" id="cdklabs-projen-project-types.CheckGhaExpressions"></a>
+
+Check GitHub Actions workflows for the use of dangerous expressions directly interpolated in shell steps.
+
+Some of these can be used to perform command injection attacks. We block all of them to be overly safe,
+even the ones that are not dangerous.
+
+Automatically added to all of our project types.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CheckGhaExpressions.Initializer"></a>
+
+```typescript
+import { CheckGhaExpressions } from 'cdklabs-projen-project-types'
+
+new CheckGhaExpressions(project: IConstruct)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.Initializer.parameter.project">project</a></code> | <code>constructs.IConstruct</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.CheckGhaExpressions.Initializer.parameter.project"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.CheckGhaExpressions.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.CheckGhaExpressions.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.CheckGhaExpressions.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.CheckGhaExpressions.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.CheckGhaExpressions.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.CheckGhaExpressions.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.CheckGhaExpressions.isConstruct"></a>
+
+```typescript
+import { CheckGhaExpressions } from 'cdklabs-projen-project-types'
+
+CheckGhaExpressions.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CheckGhaExpressions.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.CheckGhaExpressions.isComponent"></a>
+
+```typescript
+import { CheckGhaExpressions } from 'cdklabs-projen-project-types'
+
+CheckGhaExpressions.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.CheckGhaExpressions.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.CheckGhaExpressions.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.CheckGhaExpressions.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.CheckGhaExpressions.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ### Constraints <a name="Constraints" id="cdklabs-projen-project-types.yarn.Constraints"></a>
 
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.Constraints.Initializer"></a>
