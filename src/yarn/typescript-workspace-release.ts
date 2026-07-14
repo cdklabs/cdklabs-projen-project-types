@@ -1,5 +1,5 @@
 import * as path from 'node:path';
-import { Component, ReleasableCommits, Task, Version, VersionBranchOptions, release } from 'projen';
+import { Component, ReleasableCommits, Task, TaskShell, Version, VersionBranchOptions, release } from 'projen';
 import { GatherVersions, GatherVersionsOptions } from './gather-versions.task';
 import { TypeScriptWorkspace } from './typescript-workspace';
 
@@ -90,6 +90,20 @@ export class WorkspaceRelease extends Component {
     });
 
     const bumpTask = this.obtainBumpTask();
+    // Run the bump task (and therefore its `CHANGES_SINCE_LAST_RELEASE` condition)
+    // through the system shell instead of projen's built-in dax shell. projen
+    // evaluates a task's condition with the task's resolved shell (see projen
+    // cli/task-runtime.js:261). Under dax the condition `git log --oneline -1 |
+    // grep -qv "chore(release):"` is racy: `grep -q` closes the pipe after the
+    // first line and dax fails writing the rest of `git log`'s output
+    // ("WritableStream is closed"), which dax surfaces as a non-zero exit that is
+    // indistinguishable from a legitimate "skip". The task is then skipped, its
+    // version is never materialized, and dependents publish a broken `^0.0.0`
+    // range. The system shell follows POSIX pipeline semantics (the status is
+    // grep's, SIGPIPE on the upstream is benign), so the condition is evaluated
+    // reliably. This is a workaround for the upstream projen defect; remove it
+    // once projen makes the condition robust.
+    bumpTask.shell = TaskShell.system();
     bumpTask.prependSpawn(gatherVersions);
     // The bumpTask needs to be executed with environment variables that control
     // version information. These are not part of the upstream task itself yet,
