@@ -63,9 +63,12 @@ git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
     "working-directory": "packages/@cdklabs/one",
   },
   {
+    "env": {
+      "GITHUB_REF": "\${{ github.ref }}",
+    },
     "id": "git_remote",
     "name": "Check for new commits",
-    "run": "echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT",
+    "run": "echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT",
   },
   {
     "continue-on-error": true,
@@ -2768,7 +2771,9 @@ jobs:
         working-directory: packages/@cdklabs/integ-runner
       - name: Check for new commits
         id: git_remote
-        run: echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_REF: \${{ github.ref }}
+        run: echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT
       - name: "@cdklabs/schema: Backup artifact permissions"
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
@@ -3645,7 +3650,9 @@ jobs:
         working-directory: packages/@cdklabs/two
       - name: Check for new commits
         id: git_remote
-        run: echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_REF: \${{ github.ref }}
+        run: echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT
       - name: "@cdklabs/one: Backup artifact permissions"
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
@@ -6363,9 +6370,12 @@ git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
     "working-directory": "packages/@cdklabs/one",
   },
   {
+    "env": {
+      "GITHUB_REF": "\${{ github.ref }}",
+    },
     "id": "git_remote",
     "name": "Check for new commits",
-    "run": "echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT",
+    "run": "echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT",
   },
   {
     "continue-on-error": true,
@@ -8148,7 +8158,9 @@ jobs:
         working-directory: packages/@cdklabs/top
       - name: Check for new commits
         id: git_remote
-        run: echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_REF: \${{ github.ref }}
+        run: echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT
       - name: "@cdklabs/base: Backup artifact permissions"
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
