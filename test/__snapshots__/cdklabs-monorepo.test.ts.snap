@@ -109,6 +109,7 @@ exports[`CdkLabsMonorepo nx integration can build with nx 2`] = `
     "RELEASE": "true",
   },
   "name": "release",
+  "shell": "system",
   "steps": [
     {
       "exec": "yarn workspaces run shx rm -rf dist",
@@ -4175,6 +4176,7 @@ tsconfig.tsbuildinfo
           "RELEASE": "true",
         },
         "name": "release",
+        "shell": "system",
         "steps": [
           {
             "exec": "yarn workspaces run shx rm -rf dist",
@@ -4849,6 +4851,7 @@ tsconfig.tsbuildinfo
           "VERSIONRCOPTIONS": "{"path":"."}",
         },
         "name": "bump",
+        "shell": "system",
         "steps": [
           {
             "spawn": "gather-versions",
@@ -5733,6 +5736,7 @@ tsconfig.tsbuildinfo
           "VERSIONRCOPTIONS": "{"path":"."}",
         },
         "name": "bump",
+        "shell": "system",
         "steps": [
           {
             "spawn": "gather-versions",

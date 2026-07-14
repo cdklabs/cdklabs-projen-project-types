@@ -2180,7 +2180,7 @@ __metadata:
     yaml: "npm:^2.9.0"
   peerDependencies:
     constructs: ^10.0.0
-    projen: ">=0.100.0 <1.0.0"
+    projen: ">=0.101.0 <1.0.0"
   languageName: unknown
   linkType: soft
 

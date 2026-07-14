@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { DependencyType, github, release as projenRelease, Component, Project, Task } from 'projen';
+import { DependencyType, github, release as projenRelease, Component, Project, Task, TaskShell } from 'projen';
 import { BUILD_ARTIFACT_NAME, PERMISSION_BACKUP_FILE } from 'projen/lib/github/constants';
 import { MonorepoReleaseOptions } from './monorepo-release-options';
 import { TypeScriptWorkspace } from './typescript-workspace';
@@ -227,6 +227,13 @@ export class MonorepoRelease extends Component {
       description: 'Prepare a release from all monorepo packages',
       env,
     });
+    // Match the per-package bump task: run the release task through the system
+    // shell rather than projen's built-in dax shell. projen conditions and step
+    // commands are evaluated with the task's resolved shell (projen
+    // cli/task-runtime.js:261). This task has no `CHANGES_SINCE_LAST_RELEASE`
+    // condition today, so this is defense in depth and keeps the release
+    // orchestration on the same shell as the bump tasks it drives.
+    this.releaseTask.shell = TaskShell.system();
     // Unroll out the 'release' task, and do all the phases for each individual package. We need to 'bump' at the same
     // time so that the dependency versions in all 'package.json's are correct.
     this.releaseTask.exec(`${this.wsRun} shx rm -rf dist`);
