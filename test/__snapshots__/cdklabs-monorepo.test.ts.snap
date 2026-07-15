@@ -1341,11 +1341,6 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
-        "steps": [
-          {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
-          },
-        ],
       },
       "compile": {
         "description": "Only compile",
@@ -2152,11 +2147,6 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
-        "steps": [
-          {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
-          },
-        ],
       },
       "compile": {
         "description": "Only compile",
@@ -4850,7 +4840,6 @@ tsconfig.tsbuildinfo
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "@cdklabs/one@",
           "VERSIONRCOPTIONS": "{"path":"."}",
@@ -4861,7 +4850,29 @@ tsconfig.tsbuildinfo
             "spawn": "gather-versions",
           },
           {
-            "builtin": "release/bump-version",
+            "builtin": "release/resolve-latest-tag",
+            "outputEnv": "LATEST_TAG",
+          },
+          {
+            "condition": "git rev-parse --verify --quiet "refs/tags/$LATEST_TAG"",
+            "outputEnv": "RELEASABLE_COMMITS",
+            "spawn": "bump:releasable-commits",
+          },
+          {
+            "builtin": "release/suggest-version-bump",
+            "outputEnv": "SUGGESTED_BUMP",
+          },
+          {
+            "builtin": "release/apply-version-bump",
+          },
+        ],
+      },
+      "bump:releasable-commits": {
+        "description": "Print the releasable commits since the latest release",
+        "name": "bump:releasable-commits",
+        "steps": [
+          {
+            "exec": "git log --oneline $LATEST_TAG..HEAD -- .",
           },
         ],
       },
@@ -4870,11 +4881,6 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
-        "steps": [
-          {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
-          },
-        ],
       },
       "compile": {
         "description": "Only compile",
@@ -4995,7 +5001,6 @@ tsconfig.tsbuildinfo
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "@cdklabs/one@",
           "VERSIONRCOPTIONS": "{"path":"."}",
@@ -5311,6 +5316,7 @@ tsconfig.tsbuildinfo
     "scripts": {
       "build": "projen build",
       "bump": "projen bump",
+      "bump:releasable-commits": "projen bump:releasable-commits",
       "check-for-updates": "projen check-for-updates",
       "compile": "projen compile",
       "default": "projen default",
@@ -5734,7 +5740,6 @@ tsconfig.tsbuildinfo
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "@cdklabs/two@",
           "VERSIONRCOPTIONS": "{"path":"."}",
@@ -5745,7 +5750,29 @@ tsconfig.tsbuildinfo
             "spawn": "gather-versions",
           },
           {
-            "builtin": "release/bump-version",
+            "builtin": "release/resolve-latest-tag",
+            "outputEnv": "LATEST_TAG",
+          },
+          {
+            "condition": "git rev-parse --verify --quiet "refs/tags/$LATEST_TAG"",
+            "outputEnv": "RELEASABLE_COMMITS",
+            "spawn": "bump:releasable-commits",
+          },
+          {
+            "builtin": "release/suggest-version-bump",
+            "outputEnv": "SUGGESTED_BUMP",
+          },
+          {
+            "builtin": "release/apply-version-bump",
+          },
+        ],
+      },
+      "bump:releasable-commits": {
+        "description": "Print the releasable commits since the latest release",
+        "name": "bump:releasable-commits",
+        "steps": [
+          {
+            "exec": "git log --oneline $LATEST_TAG..HEAD -- .",
           },
         ],
       },
@@ -5754,11 +5781,6 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
-        "steps": [
-          {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
-          },
-        ],
       },
       "compile": {
         "description": "Only compile",
@@ -5879,7 +5901,6 @@ tsconfig.tsbuildinfo
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "@cdklabs/two@",
           "VERSIONRCOPTIONS": "{"path":"."}",
@@ -6195,6 +6216,7 @@ tsconfig.tsbuildinfo
     "scripts": {
       "build": "projen build",
       "bump": "projen bump",
+      "bump:releasable-commits": "projen bump:releasable-commits",
       "check-for-updates": "projen check-for-updates",
       "compile": "projen compile",
       "default": "projen default",
@@ -7552,11 +7574,6 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
-        "steps": [
-          {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
-          },
-        ],
       },
       "compile": {
         "description": "Only compile",
