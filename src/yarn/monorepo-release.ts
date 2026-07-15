@@ -237,7 +237,18 @@ export class MonorepoRelease extends Component {
     // Unroll out the 'release' task, and do all the phases for each individual package. We need to 'bump' at the same
     // time so that the dependency versions in all 'package.json's are correct.
     this.releaseTask.exec(`${this.wsRun} shx rm -rf dist`);
-    this.releaseTask.exec(`${this.wsRun} bump`);
+    // Retry the bump phase exactly once. The per-package bump condition can
+    // intermittently skip under projen's shell (see the system-shell change on
+    // this task and the projen issue); a single retry turns that transient skip
+    // into a success. Bump is idempotent: each package's own version recomputes
+    // from its git tag, and versions materialized in the first pass persist into
+    // the second, so the retry cannot double-bump. A second failure still exits
+    // non-zero and aborts the release (surfacing the gather-versions guard error
+    // if a placeholder was the cause). POSIX form; runs under the system shell
+    // set above. Scope is deliberately limited to the bump step.
+    this.releaseTask.exec(
+      `${this.wsRun} bump || { echo 'release: bump phase failed, retrying once (bump is idempotent: versions recompute from git tags and first-pass versions persist)'; ${this.wsRun} bump; }`,
+    );
     if (this.buildWithNx) {
       this.releaseTask.exec('nx run-many -t build');
       this.releaseTask.env('NX_SKIP_NX_CACHE', 'true');
