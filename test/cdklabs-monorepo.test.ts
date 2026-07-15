@@ -432,7 +432,7 @@ describe('CdkLabsMonorepo', () => {
       const outdir = Testing.synth(parent);
       const tasks = outdir['packages/@cdklabs/one/.projen/tasks.json'];
 
-      expect(tasks.tasks.bump.env.NEXT_VERSION_COMMAND).toStrictEqual('asdf');
+      expect(tasks.tasks['bump:next-version'].steps[0].exec).toStrictEqual('asdf');
     });
 
     test('minMajorVersion is respected', () => {

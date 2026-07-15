@@ -462,8 +462,8 @@ describe('upgrade dependency cooldown', () => {
     const outdir = Testing.synth(project);
     const tasks = outdir['.projen/tasks.json'].tasks;
 
-    expect(tasks.upgrade.steps[0].exec).not.toContain('--cooldown');
-    expect(tasks['upgrade-dev-deps'].steps[0].exec).not.toContain('--cooldown');
+    expect(tasks.upgrade.steps[0].execArgs.join(' ')).not.toContain('--cooldown');
+    expect(tasks['upgrade-dev-deps'].steps[0].execArgs.join(' ')).not.toContain('--cooldown');
   });
 
   test('3 day cooldown for non-yarn_classic package managers', () => {
@@ -474,8 +474,8 @@ describe('upgrade dependency cooldown', () => {
     const outdir = Testing.synth(project);
     const tasks = outdir['.projen/tasks.json'].tasks;
 
-    expect(tasks.upgrade.steps[0].exec).toContain('--cooldown=3');
-    expect(tasks['upgrade-dev-deps'].steps[0].exec).toContain('--cooldown=3');
+    expect(tasks.upgrade.steps[0].execArgs.join(' ')).toContain('--cooldown=3');
+    expect(tasks['upgrade-dev-deps'].steps[0].execArgs.join(' ')).toContain('--cooldown=3');
   });
 
   test('upgrade-cdklabs-projen-project-types never has cooldown', () => {
@@ -485,7 +485,7 @@ describe('upgrade dependency cooldown', () => {
     const outdir = Testing.synth(project);
     const tasks = outdir['.projen/tasks.json'].tasks;
 
-    expect(tasks['upgrade-cdklabs-projen-project-types'].steps[0].exec).not.toContain('--cooldown');
+    expect(tasks['upgrade-cdklabs-projen-project-types'].steps[0].execArgs.join(' ')).not.toContain('--cooldown');
   });
 });
 
