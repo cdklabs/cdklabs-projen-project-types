@@ -115,7 +115,7 @@ exports[`CdkLabsMonorepo nx integration can build with nx 2`] = `
       "exec": "yarn workspaces run shx rm -rf dist",
     },
     {
-      "exec": "yarn workspaces run bump",
+      "exec": "yarn workspaces run bump || { echo 'release: bump phase failed, retrying once (bump is idempotent: versions recompute from git tags and first-pass versions persist)'; yarn workspaces run bump; }",
     },
     {
       "exec": "nx run-many -t build",
@@ -4182,7 +4182,7 @@ tsconfig.tsbuildinfo
             "exec": "yarn workspaces run shx rm -rf dist",
           },
           {
-            "exec": "yarn workspaces run bump",
+            "exec": "yarn workspaces run bump || { echo 'release: bump phase failed, retrying once (bump is idempotent: versions recompute from git tags and first-pass versions persist)'; yarn workspaces run bump; }",
           },
           {
             "exec": "yarn workspaces run build",

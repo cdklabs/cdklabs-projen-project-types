@@ -32,4 +32,18 @@ describe('bump/release tasks run under the system shell', () => {
 
     expect(release.shell).toEqual('system');
   });
+
+  test('the release task retries the bump phase exactly once on failure', () => {
+    const parent = new yarn.CdkLabsMonorepo({ name: 'monorepo', defaultReleaseBranch: 'main', release: true });
+    new yarn.TypeScriptWorkspace({ parent, name: '@cdklabs/one' });
+
+    const outdir = Testing.synth(parent);
+    const release = outdir['.projen/tasks.json'].tasks.release;
+    const bumpStep = release.steps.find((s: { exec?: string }) => s.exec?.includes('bump'));
+
+    // The bump step runs once, and on non-zero re-runs exactly once after logging.
+    expect(bumpStep.exec).toMatch(/ bump \|\| \{ echo '[^']+'; .* bump; \}$/);
+    // Exactly two invocations of the bump run (no more, no infinite loop).
+    expect(bumpStep.exec.match(/ bump(?= \|\||;)/g)).toHaveLength(2);
+  });
 });
