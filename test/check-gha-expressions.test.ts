@@ -12,20 +12,20 @@ beforeEach(() => {
 });
 
 test.each([
-  "github.event.pull_request.title",
+  'github.event.pull_request.title',
   // Not actually dangerous but our scanner finds it anyway (on purpose)
-  "github.event.issue.number",
-  "github.ref_name",
-  "github.repository",
-  "github.repository_owner",
-  "github.action_ref",
-  "github.action_repository",
+  'github.event.issue.number',
+  'github.ref_name',
+  'github.repository',
+  'github.repository_owner',
+  'github.action_ref',
+  'github.action_repository',
 ])(
-  "detect direct use of dangerous expressions: %p",
+  'detect direct use of dangerous expressions: %p',
   (expr) => {
-    github.addWorkflow("test").addJob("job", {
+    github.addWorkflow('test').addJob('job', {
       permissions: {},
-      uses: "standard",
+      uses: 'standard',
       steps: [
         {
           run: `echo "\${{ ${expr} }}"`,
