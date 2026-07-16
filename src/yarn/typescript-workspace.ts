@@ -213,7 +213,7 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
           toJSON: () => {
             const steps = (upgrades as any).renderTaskSteps() as TaskStep[];
             return steps.filter(
-              (step) => step.exec && typeof step.exec === 'string' && step.exec?.includes('npm-check-updates'),
+              (step) => step.execArgs && resolveFn(step.execArgs).join(' ').includes('npm-check-updates'),
             );
           },
         } as any,
@@ -498,4 +498,11 @@ function isWorkspaceReference(x: unknown): x is IWorkspaceReference {
 
 function isNotWorkspaceReference(x: unknown): x is string {
   return !isWorkspaceReference(x);
+}
+
+function resolveFn<A>(x: A | (() => A)): A {
+  if (typeof x === 'function') {
+    return (x as () => A)();
+  }
+  return x;
 }

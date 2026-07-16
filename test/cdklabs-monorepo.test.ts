@@ -776,8 +776,8 @@ describe('CdkLabsMonorepo', () => {
       expect(wsTasks['check-for-updates'].env.CI).toBe('0');
 
       // The cooldown flag is included in the check-for-updates steps
-      const ncuStep = wsTasks['check-for-updates'].steps.find((s: any) => s.exec?.includes('npm-check-updates'));
-      expect(ncuStep.exec).toContain('--cooldown=3');
+      const ncuStep = wsTasks['check-for-updates'].steps.find((s: any) => s.execArgs?.join(' ').includes('npm-check-updates'));
+      expect(ncuStep.execArgs?.join(' ')).toContain('--cooldown=3');
     });
 
     test('workspaces get a check-for-updates task, but not upgrades', () => {

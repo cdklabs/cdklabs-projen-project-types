@@ -1341,6 +1341,20 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
+        "steps": [
+          {
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
+          },
+        ],
       },
       "compile": {
         "description": "Only compile",
@@ -2147,6 +2161,20 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
+        "steps": [
+          {
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
+          },
+        ],
       },
       "compile": {
         "description": "Only compile",
@@ -4881,6 +4909,20 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
+        "steps": [
+          {
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
+          },
+        ],
       },
       "compile": {
         "description": "Only compile",
@@ -5781,6 +5823,20 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
+        "steps": [
+          {
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
+          },
+        ],
       },
       "compile": {
         "description": "Only compile",
@@ -7574,6 +7630,20 @@ tsconfig.tsbuildinfo
           "CI": "0",
         },
         "name": "check-for-updates",
+        "steps": [
+          {
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
+          },
+        ],
       },
       "compile": {
         "description": "Only compile",

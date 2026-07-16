@@ -118,7 +118,7 @@ describe('addWorkspaceDep', () => {
     const checkForUpdates = tasks.tasks['check-for-updates'];
     const ncu = checkForUpdates.steps.find((s: any) => s.execArgs?.join(' ').includes('npm-check-updates'));
     // @scope/dep should NOT be in the filter (i.e. it's excluded)
-    expect(ncu.exec).not.toContain('@scope/dep');
+    expect(ncu.execArgs?.join(' ')).not.toContain('@scope/dep');
   });
 
   test('lazily added runtime dep appears in gather-versions task', () => {
