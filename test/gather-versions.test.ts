@@ -87,6 +87,92 @@ test('if RESET_VERSIONS is true, gather-versions ignores command line and revert
   });
 });
 
+test('during a release, gather-versions refuses to write a 0.0.0-based range for a runtime dependency', async () => {
+  await withTempDir(async (dir) => {
+    await writeJsonFiles(dir, {
+      'node_modules/depA/package.json': {
+        name: 'depA',
+        version: '0.0.0', // un-bumped placeholder: depA was not versioned before this package
+      },
+      'package.json': {
+        name: 'root',
+        dependencies: {
+          depA: '^0.0.0',
+        },
+      },
+    });
+
+    // WHEN / THEN
+    process.env.RELEASE = 'true';
+    try {
+      expect(() => main(['depA=future-minor'], dir)).toThrow(/dependency 'depA' of 'root' resolved to the placeholder version 0\.0\.0/);
+    } finally {
+      delete process.env.RELEASE;
+    }
+
+    // AND the package.json is left untouched (we failed before writing)
+    expect(JSON.parse(await fs.readFile(path.join(dir, 'package.json'), 'utf-8')).dependencies.depA).toEqual('^0.0.0');
+  });
+});
+
+test('outside a release, a 0.0.0 dependency version is tolerated (no throw)', async () => {
+  await withTempDir(async (dir) => {
+    await writeJsonFiles(dir, {
+      'node_modules/depA/package.json': {
+        name: 'depA',
+        version: '0.0.0',
+      },
+      'package.json': {
+        name: 'root',
+        dependencies: {
+          depA: '^0.0.0',
+        },
+      },
+    });
+
+    // WHEN (RELEASE is not set)
+    expect(() => main(['depA=future-minor'], dir)).not.toThrow();
+
+    // THEN it passes the placeholder through as before
+    expect(JSON.parse(await fs.readFile(path.join(dir, 'package.json'), 'utf-8')).dependencies.depA).toEqual('^0.0.0');
+  });
+});
+
+test('during a release, gather-versions refuses when multiple runtime dependencies are 0.0.0 (fails on the first)', async () => {
+  await withTempDir(async (dir) => {
+    await writeJsonFiles(dir, {
+      'node_modules/depA/package.json': {
+        name: 'depA',
+        version: '0.0.0', // both dependencies un-bumped
+      },
+      'node_modules/depB/package.json': {
+        name: 'depB',
+        version: '0.0.0',
+      },
+      'package.json': {
+        name: 'root',
+        dependencies: {
+          depA: '^0.0.0',
+          depB: '^0.0.0',
+        },
+      },
+    });
+
+    // WHEN / THEN: it aborts deterministically on the first gathered dependency (depA)
+    process.env.RELEASE = 'true';
+    try {
+      expect(() => main(['depA=future-minor', 'depB=future-minor'], dir)).toThrow(/dependency 'depA' of 'root' resolved to the placeholder version 0\.0\.0/);
+    } finally {
+      delete process.env.RELEASE;
+    }
+
+    // AND neither range was written: the guard aborts before mutating package.json
+    const written = JSON.parse(await fs.readFile(path.join(dir, 'package.json'), 'utf-8'));
+    expect(written.dependencies.depA).toEqual('^0.0.0');
+    expect(written.dependencies.depB).toEqual('^0.0.0');
+  });
+});
+
 const NO_DEVDEPS: Partial<TypeScriptWorkspaceOptions> = {
   // We're actually installing these, so cut down on deps
   jest: false,
