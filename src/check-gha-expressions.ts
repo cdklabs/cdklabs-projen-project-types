@@ -23,7 +23,7 @@ export class CheckGhaExpressions extends Component {
 
     if (violations.length > 0) {
       throw new Error([
-        'Found dangerous expressions containing github.event in workflow shell steps. Put these in environment variables and reference them instead. DO NOT FORGET TO QUOTE THEM!',
+        'Found dangerous expressions in workflow shell steps. Put these in environment variables and reference them instead. DO NOT FORGET TO QUOTE THEM!',
         ...violations.map((v) => `- wf ${v.workflowName}: job ${v.jobName}.${v.stepIndex + 1}: ${ v.expression }`),
       ].join('\n'));
     }
@@ -34,8 +34,10 @@ export class CheckGhaExpressions extends Component {
       if (isJob(job)) {
         for (const [stepIndex, step] of enumerate(projenResolve(job.steps) ?? [])) {
           if (step.run) {
-            // Check for github.event.pull_request and github.event.issue, same as the internal Amazon tool that yells at us.
-            const findings = projenResolve(step.run).matchAll(/\$\{\{([^}]*github\.event\.(pull_request|issue)[^}]*)\}\}/g);
+            // Check for a number of known dangerous expressions that are attacker controlled, and some more that our internal scanning
+            // tools will yell at us for.
+            //
+            const findings = projenResolve(step.run).matchAll(/\$\{\{([^}]*github\.(repository|base_ref|head_ref|ref|ref_name|action_r|event\.pull_request|event\.issue)[^}]*)\}\}/g);
 
             for (const finding of findings) {
               violations.push({

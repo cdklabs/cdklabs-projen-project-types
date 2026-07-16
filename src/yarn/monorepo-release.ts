@@ -348,7 +348,10 @@ export class MonorepoRelease extends Component {
       postBuildSteps.push({
         name: 'Check for new commits',
         id: GIT_REMOTE_STEPID,
-        run: `echo "${LATEST_COMMIT_OUTPUT}=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT`,
+        env: {
+          GITHUB_REF: '${{ github.ref }}',
+        },
+        run: `echo "${LATEST_COMMIT_OUTPUT}=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT`,
       });
     } else {
       // For non-continuous builds we'll just put the value there that downstream steps are going to compare against

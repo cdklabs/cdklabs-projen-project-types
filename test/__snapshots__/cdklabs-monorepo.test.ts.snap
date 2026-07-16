@@ -63,9 +63,12 @@ git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
     "working-directory": "packages/@cdklabs/one",
   },
   {
+    "env": {
+      "GITHUB_REF": "\${{ github.ref }}",
+    },
     "id": "git_remote",
     "name": "Check for new commits",
-    "run": "echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT",
+    "run": "echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT",
   },
   {
     "continue-on-error": true,
@@ -1340,7 +1343,16 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
           },
         ],
       },
@@ -2151,7 +2163,16 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
           },
         ],
       },
@@ -2768,7 +2789,9 @@ jobs:
         working-directory: packages/@cdklabs/integ-runner
       - name: Check for new commits
         id: git_remote
-        run: echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_REF: \${{ github.ref }}
+        run: echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT
       - name: "@cdklabs/schema: Backup artifact permissions"
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
@@ -3645,7 +3668,9 @@ jobs:
         working-directory: packages/@cdklabs/two
       - name: Check for new commits
         id: git_remote
-        run: echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_REF: \${{ github.ref }}
+        run: echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT
       - name: "@cdklabs/one: Backup artifact permissions"
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
@@ -4843,7 +4868,6 @@ tsconfig.tsbuildinfo
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "@cdklabs/one@",
           "VERSIONRCOPTIONS": "{"path":"."}",
@@ -4854,7 +4878,29 @@ tsconfig.tsbuildinfo
             "spawn": "gather-versions",
           },
           {
-            "builtin": "release/bump-version",
+            "builtin": "release/resolve-latest-tag",
+            "outputEnv": "LATEST_TAG",
+          },
+          {
+            "condition": "git rev-parse --verify --quiet "refs/tags/$LATEST_TAG"",
+            "outputEnv": "RELEASABLE_COMMITS",
+            "spawn": "bump:releasable-commits",
+          },
+          {
+            "builtin": "release/suggest-version-bump",
+            "outputEnv": "SUGGESTED_BUMP",
+          },
+          {
+            "builtin": "release/apply-version-bump",
+          },
+        ],
+      },
+      "bump:releasable-commits": {
+        "description": "Print the releasable commits since the latest release",
+        "name": "bump:releasable-commits",
+        "steps": [
+          {
+            "exec": "git log --oneline $LATEST_TAG..HEAD -- .",
           },
         ],
       },
@@ -4865,7 +4911,16 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
           },
         ],
       },
@@ -4988,7 +5043,6 @@ tsconfig.tsbuildinfo
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "@cdklabs/one@",
           "VERSIONRCOPTIONS": "{"path":"."}",
@@ -5304,6 +5358,7 @@ tsconfig.tsbuildinfo
     "scripts": {
       "build": "projen build",
       "bump": "projen bump",
+      "bump:releasable-commits": "projen bump:releasable-commits",
       "check-for-updates": "projen check-for-updates",
       "compile": "projen compile",
       "default": "projen default",
@@ -5727,7 +5782,6 @@ tsconfig.tsbuildinfo
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "@cdklabs/two@",
           "VERSIONRCOPTIONS": "{"path":"."}",
@@ -5738,7 +5792,29 @@ tsconfig.tsbuildinfo
             "spawn": "gather-versions",
           },
           {
-            "builtin": "release/bump-version",
+            "builtin": "release/resolve-latest-tag",
+            "outputEnv": "LATEST_TAG",
+          },
+          {
+            "condition": "git rev-parse --verify --quiet "refs/tags/$LATEST_TAG"",
+            "outputEnv": "RELEASABLE_COMMITS",
+            "spawn": "bump:releasable-commits",
+          },
+          {
+            "builtin": "release/suggest-version-bump",
+            "outputEnv": "SUGGESTED_BUMP",
+          },
+          {
+            "builtin": "release/apply-version-bump",
+          },
+        ],
+      },
+      "bump:releasable-commits": {
+        "description": "Print the releasable commits since the latest release",
+        "name": "bump:releasable-commits",
+        "steps": [
+          {
+            "exec": "git log --oneline $LATEST_TAG..HEAD -- .",
           },
         ],
       },
@@ -5749,7 +5825,16 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
           },
         ],
       },
@@ -5872,7 +5957,6 @@ tsconfig.tsbuildinfo
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --oneline $LATEST_TAG..HEAD -- .",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "@cdklabs/two@",
           "VERSIONRCOPTIONS": "{"path":"."}",
@@ -6188,6 +6272,7 @@ tsconfig.tsbuildinfo
     "scripts": {
       "build": "projen build",
       "bump": "projen bump",
+      "bump:releasable-commits": "projen bump:releasable-commits",
       "check-for-updates": "projen check-for-updates",
       "compile": "projen compile",
       "default": "projen default",
@@ -6363,9 +6448,12 @@ git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
     "working-directory": "packages/@cdklabs/one",
   },
   {
+    "env": {
+      "GITHUB_REF": "\${{ github.ref }}",
+    },
     "id": "git_remote",
     "name": "Check for new commits",
-    "run": "echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT",
+    "run": "echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT",
   },
   {
     "continue-on-error": true,
@@ -7544,7 +7632,16 @@ tsconfig.tsbuildinfo
         "name": "check-for-updates",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,prettier,ts-jest,typescript",
+            ],
           },
         ],
       },
@@ -8148,7 +8245,9 @@ jobs:
         working-directory: packages/@cdklabs/top
       - name: Check for new commits
         id: git_remote
-        run: echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_REF: \${{ github.ref }}
+        run: echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT
       - name: "@cdklabs/base: Backup artifact permissions"
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl

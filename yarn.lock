@@ -2173,14 +2173,14 @@ __metadata:
     jsii-pacmak: "npm:^1.138.0"
     jsii-reflect: "npm:^1.138.0"
     jsii-rosetta: "npm:~5.9"
-    projen: "npm:^0.101.4"
+    projen: "npm:^0.101.15"
     ts-jest: "npm:^29"
     ts-node: "npm:^10.9.2"
     typescript: "npm:~5.9"
     yaml: "npm:^2.9.0"
   peerDependencies:
     constructs: ^10.0.0
-    projen: ">=0.100.0 <1.0.0"
+    projen: ">=0.101.15 <1.0.0"
   languageName: unknown
   linkType: soft
 
@@ -2688,12 +2688,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dax@npm:^0.48.3":
-  version: 0.48.3
-  resolution: "dax@npm:0.48.3"
+"dax@npm:^0.49.0":
+  version: 0.49.0
+  resolution: "dax@npm:0.49.0"
   dependencies:
     undici-types: "npm:^5.26"
-  checksum: 10c0/6db49de2d94c5951050175035141a5a53288d5b2526f4c6a143fa5c981feb0b85194d12d66636b977d8676d8764d2674e4029a454d4cf12f3d2b031332763eae
+  checksum: 10c0/23edf671dbedd21f5dec53f1d5f728b89db6ab6fce676fe86b7c9939f05404315671860797fecc522510f6121f6f579b22acf00a17842b055b76073ea7d7fcc7
   languageName: node
   linkType: hard
 
@@ -6128,9 +6128,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"projen@npm:^0.101.4":
-  version: 0.101.4
-  resolution: "projen@npm:0.101.4"
+"projen@npm:^0.101.15":
+  version: 0.101.15
+  resolution: "projen@npm:0.101.15"
   dependencies:
     "@iarna/toml": "npm:^2.2.5"
     case: "npm:^1.6.3"
@@ -6138,7 +6138,7 @@ __metadata:
     comment-json: "npm:4.2.2"
     constructs: "npm:^10.5.0"
     conventional-changelog-config-spec: "npm:^2.1.0"
-    dax: "npm:^0.48.3"
+    dax: "npm:^0.49.0"
     fast-glob: "npm:^3.3.3"
     fast-json-patch: "npm:^3.1.1"
     ini: "npm:^2.0.0"
@@ -6151,7 +6151,7 @@ __metadata:
     constructs: ^10.5.0
   bin:
     projen: bin/projen
-  checksum: 10c0/2156bba79e5573f80a75c4a7080fb6b9d0cef4783dd3bfdfc7ff18678184ab32ec49fe13e3e18f9f5d8bc2a8c795b1b81f521e18368ae85664f3d5b7388dd4d4
+  checksum: 10c0/c7e9b55da8c48e9aeb71473a0eebd371996f3b24ba3adf7cec76a29ca514e67f26246cd98f435a6ba377e4df24c3e867aace918286bd3735a2750e3744aa9e50
   languageName: node
   linkType: hard
 

@@ -16,7 +16,7 @@ const project = new CdklabsJsiiProject({
   repositoryUrl: 'https://github.com/cdklabs/cdklabs-projen-project-types.git',
   devDeps: ['@jsii/spec', 'jsii-reflect', 'projen'],
   bundledDeps: ['yaml'],
-  peerDeps: ['projen@>=0.100.0 <1.0.0'],
+  peerDeps: ['projen@>=0.101.15 <1.0.0'],
   enablePRAutoMerge: true,
   upgradeCdklabsProjenProjectTypes: false, // that is this project!
   setNodeEngineVersion: false,

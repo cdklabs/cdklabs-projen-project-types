@@ -27,6 +27,35 @@ your package. It makes sense to relax this check *only* if you are bundling your
    */
   readonly allowPrivateDeps?: boolean;
   /**
+   * List of dependency (package) names that are allowed to run lifecycle install scripts (`preinstall`, `install`, `postinstall`, `prepare`) during dependency installation.
+   * These scripts can execute arbitrary code, making them a common
+   * supply-chain attack vector. Package managers are moving toward
+   * blocking them by default and requiring an explicit allowlist.
+   * Configuring `allowScripts` sets up that allowlist so scripts only run
+   * for the packages you have explicitly reviewed and trust.
+   *
+   * Support for this setting depends on the configured `packageManager`:
+   *
+   * - `NPM`: written to the native `allowScripts` field in `package.json`
+   *   (requires npm >= 11.16; see https://docs.npmjs.com/cli/v11/commands/npm-approve-scripts).
+   * - `BUN`: written to the native `trustedDependencies` field in
+   *   `package.json` (see https://bun.com/docs/pm/lifecycle).
+   * - `PNPM`: written to the `onlyBuiltDependencies` setting in
+   *   `pnpm-workspace.yaml` (see https://pnpm.io/settings#onlybuiltdependencies).
+   * - `YARN2`, `YARN_BERRY`: written to the native
+   *   `dependenciesMeta.<pkg>.built` allowlist in `package.json`, combined
+   *   with `enableScripts: false` in `.yarnrc.yml` (see
+   *   https://yarnpkg.com/features/security#postinstalls). If you set
+   *   `yarnBerryOptions.yarnRcOptions.enableScripts` explicitly, that value
+   *   is respected instead of being overridden.
+   * - `YARN`, `YARN_CLASSIC`: not supported. Yarn Classic has no native
+   *   mechanism to allowlist install scripts for specific dependencies.
+   *   Setting this option with one of these package managers throws an
+   *   error at synthesis time.
+   * @default - all install scripts are allowed to run (package manager default)
+   */
+  readonly allowScripts?: Array<string>;
+  /**
    * A directory which will contain build artifacts.
    * @default "dist"
    */
@@ -539,6 +568,11 @@ your package. It makes sense to relax this check *only* if you are bundling your
    * @default []
    */
   readonly peerDeps?: Array<string | yarn.IWorkspaceReference>;
+  /**
+   * Options for pnpm.
+   * @default - all default options
+   */
+  readonly pnpmOptions?: javascript.PnpmOptions;
   /**
    * The version of PNPM to use if using PNPM as a package manager.
    * @default "10.33.0"

@@ -689,8 +689,10 @@ jobs:
           cat $GITHUB_OUTPUT
       - name: Check for new commits
         id: git_remote
+        env:
+          GITHUB_REF: \${{ github.ref }}
         run: |-
-          echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+          echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
         shell: bash
       - name: Backup artifact permissions
@@ -1506,14 +1508,35 @@ junit.xml
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "",
         },
         "name": "bump",
         "steps": [
           {
-            "builtin": "release/bump-version",
+            "builtin": "release/resolve-latest-tag",
+            "outputEnv": "LATEST_TAG",
+          },
+          {
+            "condition": "git rev-parse --verify --quiet "refs/tags/$LATEST_TAG"",
+            "outputEnv": "RELEASABLE_COMMITS",
+            "spawn": "bump:releasable-commits",
+          },
+          {
+            "builtin": "release/suggest-version-bump",
+            "outputEnv": "SUGGESTED_BUMP",
+          },
+          {
+            "builtin": "release/apply-version-bump",
+          },
+        ],
+      },
+      "bump:releasable-commits": {
+        "description": "Print the releasable commits since the latest release",
+        "name": "bump:releasable-commits",
+        "steps": [
+          {
+            "exec": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'",
           },
         ],
       },
@@ -1848,7 +1871,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "",
         },
@@ -1882,13 +1904,27 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-cdklabs-projen-project-types",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=latest --peer --no-deprecated --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=latest",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=cdklabs-projen-project-types,projen",
+            ],
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade cdklabs-projen-project-types projen",
+            "execArgs": [
+              "yarn",
+              "upgrade",
+              "cdklabs-projen-project-types",
+              "projen",
+            ],
           },
           {
             "exec": "npx projen",
@@ -1906,13 +1942,45 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,jsii-rosetta,ts-jest,typescript",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev",
+              "--filter=@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,jsii-rosetta,ts-jest,typescript",
+            ],
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii ts-jest typescript @aws-cdk/integ-runner @aws-cdk/integ-tests-alpha",
+            "execArgs": [
+              "yarn",
+              "upgrade",
+              "@stylistic/eslint-plugin",
+              "@types/jest",
+              "@types/node",
+              "@typescript-eslint/eslint-plugin",
+              "@typescript-eslint/parser",
+              "commit-and-tag-version",
+              "eslint-import-resolver-typescript",
+              "eslint-plugin-import",
+              "eslint",
+              "jest",
+              "jest-junit",
+              "jsii-diff",
+              "jsii-docgen",
+              "jsii-pacmak",
+              "jsii-rosetta",
+              "jsii",
+              "ts-jest",
+              "typescript",
+              "@aws-cdk/integ-runner",
+              "@aws-cdk/integ-tests-alpha",
+            ],
           },
           {
             "exec": "npx projen",
@@ -2259,6 +2327,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "scripts": {
       "build": "projen build",
       "bump": "projen bump",
+      "bump:releasable-commits": "projen bump:releasable-commits",
       "clobber": "projen clobber",
       "compat": "projen compat",
       "compile": "projen compile",
@@ -2313,6 +2382,7 @@ class Fixture extends Stack {
 }",
   "test/tsconfig.json": {
     "compilerOptions": {
+      "isolatedModules": true,
       "noEmit": true,
       "rootDir": "..",
       "stripInternal": true,
@@ -3148,8 +3218,10 @@ jobs:
           cat $GITHUB_OUTPUT
       - name: Check for new commits
         id: git_remote
+        env:
+          GITHUB_REF: \${{ github.ref }}
         run: |-
-          echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+          echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
         shell: bash
       - name: Backup artifact permissions
@@ -3949,14 +4021,35 @@ junit.xml
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "",
         },
         "name": "bump",
         "steps": [
           {
-            "builtin": "release/bump-version",
+            "builtin": "release/resolve-latest-tag",
+            "outputEnv": "LATEST_TAG",
+          },
+          {
+            "condition": "git rev-parse --verify --quiet "refs/tags/$LATEST_TAG"",
+            "outputEnv": "RELEASABLE_COMMITS",
+            "spawn": "bump:releasable-commits",
+          },
+          {
+            "builtin": "release/suggest-version-bump",
+            "outputEnv": "SUGGESTED_BUMP",
+          },
+          {
+            "builtin": "release/apply-version-bump",
+          },
+        ],
+      },
+      "bump:releasable-commits": {
+        "description": "Print the releasable commits since the latest release",
+        "name": "bump:releasable-commits",
+        "steps": [
+          {
+            "exec": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'",
           },
         ],
       },
@@ -4256,7 +4349,6 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "",
         },
@@ -4290,13 +4382,27 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-cdklabs-projen-project-types",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=latest --peer --no-deprecated --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=latest",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=cdklabs-projen-project-types,projen",
+            ],
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade cdklabs-projen-project-types projen",
+            "execArgs": [
+              "yarn",
+              "upgrade",
+              "cdklabs-projen-project-types",
+              "projen",
+            ],
           },
           {
             "exec": "npx projen",
@@ -4314,13 +4420,44 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,ts-jest,typescript",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev",
+              "--filter=@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,ts-jest,typescript",
+            ],
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii ts-jest typescript",
+            "execArgs": [
+              "yarn",
+              "upgrade",
+              "@stylistic/eslint-plugin",
+              "@types/jest",
+              "@types/node",
+              "@typescript-eslint/eslint-plugin",
+              "@typescript-eslint/parser",
+              "commit-and-tag-version",
+              "constructs",
+              "eslint-import-resolver-typescript",
+              "eslint-plugin-import",
+              "eslint",
+              "jest",
+              "jest-junit",
+              "jsii-diff",
+              "jsii-docgen",
+              "jsii-pacmak",
+              "jsii-rosetta",
+              "jsii",
+              "ts-jest",
+              "typescript",
+            ],
           },
           {
             "exec": "npx projen",
@@ -4657,6 +4794,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
     "scripts": {
       "build": "projen build",
       "bump": "projen bump",
+      "bump:releasable-commits": "projen bump:releasable-commits",
       "clobber": "projen clobber",
       "compat": "projen compat",
       "compile": "projen compile",
@@ -4695,6 +4833,7 @@ UNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .c
 }",
   "test/tsconfig.json": {
     "compilerOptions": {
+      "isolatedModules": true,
       "noEmit": true,
       "rootDir": "..",
       "stripInternal": true,
@@ -5238,8 +5377,10 @@ jobs:
           cat $GITHUB_OUTPUT
       - name: Check for new commits
         id: git_remote
+        env:
+          GITHUB_REF: \${{ github.ref }}
         run: |-
-          echo "latest_commit=$(git ls-remote origin -h \${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT
+          echo "latest_commit=$(git ls-remote origin -h "$GITHUB_REF" | cut -f1)" >> $GITHUB_OUTPUT
           cat $GITHUB_OUTPUT
         shell: bash
       - name: Backup artifact permissions
@@ -5780,14 +5921,35 @@ junit.xml
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "",
         },
         "name": "bump",
         "steps": [
           {
-            "builtin": "release/bump-version",
+            "builtin": "release/resolve-latest-tag",
+            "outputEnv": "LATEST_TAG",
+          },
+          {
+            "condition": "git rev-parse --verify --quiet "refs/tags/$LATEST_TAG"",
+            "outputEnv": "RELEASABLE_COMMITS",
+            "spawn": "bump:releasable-commits",
+          },
+          {
+            "builtin": "release/suggest-version-bump",
+            "outputEnv": "SUGGESTED_BUMP",
+          },
+          {
+            "builtin": "release/apply-version-bump",
+          },
+        ],
+      },
+      "bump:releasable-commits": {
+        "description": "Print the releasable commits since the latest release",
+        "name": "bump:releasable-commits",
+        "steps": [
+          {
+            "exec": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'",
           },
         ],
       },
@@ -5977,7 +6139,6 @@ junit.xml
           "BUMP_PACKAGE": "commit-and-tag-version@^12",
           "CHANGELOG": "dist/changelog.md",
           "OUTFILE": "package.json",
-          "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'",
           "RELEASETAG": "dist/releasetag.txt",
           "RELEASE_TAG_PREFIX": "",
         },
@@ -6011,13 +6172,27 @@ junit.xml
         "name": "upgrade-cdklabs-projen-project-types",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=latest --peer --no-deprecated --dep=dev,peer,prod,optional --filter=cdklabs-projen-project-types,projen",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=latest",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev,prod,peer,optional",
+              "--filter=cdklabs-projen-project-types,projen",
+            ],
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade cdklabs-projen-project-types projen",
+            "execArgs": [
+              "yarn",
+              "upgrade",
+              "cdklabs-projen-project-types",
+              "projen",
+            ],
           },
           {
             "exec": "npx projen",
@@ -6035,13 +6210,39 @@ junit.xml
         "name": "upgrade-dev-deps",
         "steps": [
           {
-            "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,ts-jest,typescript",
+            "execArgs": [
+              "npx",
+              "npm-check-updates@20",
+              "--upgrade",
+              "--target=minor",
+              "--peer",
+              "--no-deprecated",
+              "--dep=dev",
+              "--filter=@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,ts-jest,typescript",
+            ],
           },
           {
             "exec": "yarn install --check-files",
           },
           {
-            "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit ts-jest typescript",
+            "execArgs": [
+              "yarn",
+              "upgrade",
+              "@stylistic/eslint-plugin",
+              "@types/jest",
+              "@types/node",
+              "@typescript-eslint/eslint-plugin",
+              "@typescript-eslint/parser",
+              "commit-and-tag-version",
+              "constructs",
+              "eslint-import-resolver-typescript",
+              "eslint-plugin-import",
+              "eslint",
+              "jest",
+              "jest-junit",
+              "ts-jest",
+              "typescript",
+            ],
           },
           {
             "exec": "npx projen",
@@ -6352,6 +6553,7 @@ junit.xml
     "scripts": {
       "build": "projen build",
       "bump": "projen bump",
+      "bump:releasable-commits": "projen bump:releasable-commits",
       "clobber": "projen clobber",
       "compile": "projen compile",
       "default": "projen default",
