@@ -1,4 +1,4 @@
-import { javascript } from 'projen';
+import { DependencyType, javascript } from 'projen';
 import { generateCdkCommonOptions } from './projenrc/cdk-common-options';
 import { generateCdkConstructLibraryOptions } from './projenrc/cdk-construct-library-options';
 import { generateCdkJsiiOptions } from './projenrc/cdk-jsii-options';
@@ -18,7 +18,12 @@ const project = new CdklabsJsiiProject({
   bundledDeps: ['yaml'],
   peerDeps: ['projen@>=0.101.15 <1.0.0'],
   enablePRAutoMerge: true,
-  upgradeCdklabsProjenProjectTypes: false, // that is this project!
+
+  // we manage dep upgrades separately for this project
+  upgradeCdklabsProjenProjectTypes: false,
+  upgradeRuntimeDepsAsFix: false,
+  depsUpgrade: false,
+
   setNodeEngineVersion: false,
   peerDependencyOptions: {
     pinnedDevDependency: false,
@@ -45,5 +50,36 @@ generateCdkJsiiOptions(project);
 
 // that is this package!
 project.deps.removeDependency(project.name);
+
+// Dependency Upgrades
+new javascript.UpgradeDependencies(project, {
+  taskName: 'upgrade',
+  cooldown: 3,
+  types: [DependencyType.RUNTIME, DependencyType. BUNDLED, DependencyType.DEVENV],
+  include: [
+    'projen',
+    ...project.deps.all.filter(d => [DependencyType.RUNTIME, DependencyType. BUNDLED].includes(d.type)).map(d => d.name),
+  ],
+  semanticCommit: 'fix',
+  workflowOptions: {
+    labels: ['auto-approve'],
+    // Run at 18:00Z every Monday
+    schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 18 * * 1']),
+  },
+});
+
+new javascript.UpgradeDependencies(project, {
+  taskName: 'upgrade-dev-deps',
+  types: [DependencyType.BUILD, DependencyType.DEVENV, DependencyType.TEST],
+  exclude: ['projen'],
+  semanticCommit: 'chore',
+  cooldown: 3,
+  pullRequestTitle: 'upgrade dev dependencies',
+  workflowOptions: {
+    labels: ['auto-approve'],
+    // Run at 22:00Z every Monday, this is deliberately after prod updates to avoid conflicts
+    schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 22 * * 1']),
+  },
+});
 
 project.synth();
