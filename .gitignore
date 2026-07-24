@@ -60,8 +60,6 @@ junit.xml
 !/API.md
 !/.github/workflows/retry-automerge.yml
 !/.github/workflows/auto-queue.yml
-!/.github/workflows/upgrade-main.yml
-!/.github/workflows/upgrade-dev-deps-main.yml
 !/src/cdk-common-options.ts
 !/src/yarn/monorepo-options.ts
 !/src/yarn/monorepo-release-options.ts
@@ -69,4 +67,6 @@ junit.xml
 !/src/yarn/vscode-workspace-options.ts
 !/src/cdk-construct-library-options.ts
 !/src/cdk-jsii-options.ts
+!/.github/workflows/upgrade-main.yml
+!/.github/workflows/upgrade-dev-deps-main.yml
 !/.projenrc.ts

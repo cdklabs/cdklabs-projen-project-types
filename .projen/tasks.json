@@ -325,8 +325,8 @@
             "--cooldown=3",
             "--peer",
             "--no-deprecated",
-            "--dep=prod",
-            "--filter=yaml"
+            "--dep=prod,dev",
+            "--filter=projen,yaml"
           ]
         },
         {
@@ -337,6 +337,7 @@
             "yarn",
             "up",
             "-R",
+            "projen",
             "yaml"
           ]
         },
@@ -368,7 +369,7 @@
             "--peer",
             "--no-deprecated",
             "--dep=dev",
-            "--filter=@jsii/spec,@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,jsii-reflect,projen,ts-jest,ts-node"
+            "--filter=@jsii/spec,@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,jsii-reflect,ts-jest,ts-node"
           ]
         },
         {
@@ -398,7 +399,6 @@
             "jsii-reflect",
             "jsii-rosetta",
             "jsii",
-            "projen",
             "ts-jest",
             "ts-node",
             "typescript"

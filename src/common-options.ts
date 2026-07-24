@@ -67,7 +67,7 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
     tenancy,
     autoApproveOptions,
     autoApproveUpgrades: options.autoApproveUpgrades ?? true,
-    depsUpgrade: !upgradeRuntimeDepsAsFix,
+    depsUpgrade: options.depsUpgrade ?? !upgradeRuntimeDepsAsFix,
     upgradeRuntimeDepsAsFix,
     repository,
     upgradeCdklabsProjenProjectTypes:

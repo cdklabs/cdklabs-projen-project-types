@@ -189,11 +189,13 @@ test.each([0, 1, 2])('make sure gather-versions works for %p dependencies', asyn
   });
   let deps: yarn.TypeScriptWorkspace[] = [];
   for (let i = 0; i < N; i++) {
-    deps.push(new yarn.TypeScriptWorkspace({
+    const ws = new yarn.TypeScriptWorkspace({
       parent,
       name: `@cdklabs/dep${i}`,
       ...NO_DEVDEPS,
-    }));
+    });
+    ws.package.addField('version', `1.0.${i}`);
+    deps.push(ws);
   }
 
   // WHEN
@@ -203,6 +205,7 @@ test.each([0, 1, 2])('make sure gather-versions works for %p dependencies', asyn
     deps: deps.map(dep => dep.customizeReference({ versionType: 'exact' })),
     ...NO_DEVDEPS,
   });
+  pack.package.addField('version', '1.0.0');
 
   // THEN
   parent.synth();
@@ -213,19 +216,19 @@ test.each([0, 1, 2])('make sure gather-versions works for %p dependencies', asyn
   const packageJson = JSON.parse(await fs.readFile(path.join(pack.outdir, 'package.json'), 'utf-8'));
   for (let i = 0; i < N; i++) {
     expect(Object.entries(packageJson.dependencies)).toContainEqual([
-      `@cdklabs/dep${i}`, '0.0.0',
+      `@cdklabs/dep${i}`, `1.0.${i}`,
     ]);
   }
 }, 60_000); // Needs to install real packages
 
 test('gather-versions with different reference types', async () => {
   const expected: Record<VersionType, string> = {
-    'any-minor': '^0',
-    'future-minor': '^0.0.0',
-    'any-patch': '~0.0',
-    'future-patch': '~0.0.0',
-    'exact': '0.0.0',
-    'any-future': '>=0.0.0',
+    'any-minor': '^1',
+    'future-minor': '^1.0.0',
+    'any-patch': '~1.0',
+    'future-patch': '~1.0.0',
+    'exact': '1.0.0',
+    'any-future': '>=1.0.0',
     'any': '*',
   };
 
@@ -238,11 +241,13 @@ test('gather-versions with different reference types', async () => {
 
   let deps: yarn.IWorkspaceReference[] = [];
   for (const refType of Object.keys(expected) as VersionType[]) {
-    deps.push((new yarn.TypeScriptWorkspace({
+    const ws = new yarn.TypeScriptWorkspace({
       parent,
       name: `@cdklabs/dep-${refType}`,
       ...NO_DEVDEPS,
-    })).customizeReference({ versionType: refType }));
+    });
+    ws.package.addField('version', '1.0.0');
+    deps.push(ws.customizeReference({ versionType: refType }));
   }
 
   // WHEN
@@ -252,6 +257,7 @@ test('gather-versions with different reference types', async () => {
     deps,
     ...NO_DEVDEPS,
   });
+  pack.package.addField('version', '1.0.0');
 
   // THEN
   parent.synth();
