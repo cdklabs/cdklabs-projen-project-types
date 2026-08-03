@@ -32,7 +32,12 @@ exports[`CdklabsConstructLibrary synthesizes with default settings 1`] = `
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 2018,
-      "projectService": true,
+      "projectService": {
+        "allowDefaultProject": [
+          ".projenrc.js",
+        ],
+        "defaultProject": "./tsconfig.json",
+      },
       "sourceType": "module",
     },
     "plugins": [
@@ -176,6 +181,7 @@ exports[`CdklabsConstructLibrary synthesizes with default settings 1`] = `
           "devDependencies": [
             "**/test/**",
             "**/build-tools/**",
+            ".projenrc.js",
           ],
           "optionalDependencies": false,
           "peerDependencies": true,
@@ -271,7 +277,8 @@ jobs:
       pull-requests: write
     if: contains(github.event.pull_request.labels.*.name, 'auto-approve') && (github.event.pull_request.user.login == 'cdklabs-automation' || github.event.pull_request.user.login == 'dependabot[bot]')
     steps:
-      - env:
+      - id: auto_08f238e2
+        env:
           GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
           GH_REPO: \${{ github.repository }}
           PR_NUMBER: \${{ github.event.pull_request.number }}
@@ -294,7 +301,8 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - uses: peter-evans/enable-pull-request-automerge@v3
+      - id: auto_edce8315
+        uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           pull-request-number: \${{ github.event.number }}
@@ -370,23 +378,28 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Push changes
+        id: push_changes
         env:
           PULL_REQUEST_REF: \${{ github.event.pull_request.head.ref }}
         run: |-
@@ -405,28 +418,36 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create js artifact
+        id: create_js_artifact
         run: cd .repo && npx projen package:js
       - name: Collect js artifact
+        id: collect_js_artifact
         run: mv .repo/dist dist
   package-java:
     needs: build
@@ -444,28 +465,36 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create java artifact
+        id: create_java_artifact
         run: cd .repo && npx projen package:java
       - name: Collect java artifact
+        id: collect_java_artifact
         run: mv .repo/dist dist
   package-python:
     needs: build
@@ -482,28 +511,36 @@ jobs:
         with:
           python-version: 3.x
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create python artifact
+        id: create_python_artifact
         run: cd .repo && npx projen package:python
       - name: Collect python artifact
+        id: collect_python_artifact
         run: mv .repo/dist dist
   package-dotnet:
     needs: build
@@ -521,28 +558,36 @@ jobs:
           dotnet-version: 6.x
           cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create dotnet artifact
+        id: create_dotnet_artifact
         run: cd .repo && npx projen package:dotnet
       - name: Collect dotnet artifact
+        id: collect_dotnet_artifact
         run: mv .repo/dist dist
   package-go:
     needs: build
@@ -560,28 +605,36 @@ jobs:
           go-version: ^1.18.0
           cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create go artifact
+        id: create_go_artifact
         run: cd .repo && npx projen package:go
       - name: Collect go artifact
+        id: collect_go_artifact
         run: mv .repo/dist dist
 ",
   ".github/workflows/dependency-review.yml": "# ~~ Generated by projen. To modify, edit .projenrc.js and run "npx projen".
@@ -598,8 +651,10 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Dependency Review
+        id: dependency_review
         uses: actions/dependency-review-action@v4
         with:
           comment-summary-in-pr: always
@@ -625,7 +680,8 @@ jobs:
       pull-requests: write
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
-      - uses: amannn/action-semantic-pull-request@v6
+      - id: auto_5940c89f
+        uses: amannn/action-semantic-pull-request@v6
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
         with:
@@ -665,21 +721,26 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
+        id: release
         run: npx projen release
       - name: Check if version has already been tagged
         id: check_tag_exists
@@ -696,6 +757,7 @@ jobs:
           cat $GITHUB_OUTPUT
         shell: bash
       - name: Backup artifact permissions
+        id: backup_artifact_permissions
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
         continue-on-error: true
@@ -727,14 +789,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -754,28 +819,37 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create js artifact
+        id: create_js_artifact
         run: cd .repo && npx projen package:js
       - name: Collect js artifact
+        id: collect_js_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -800,28 +874,37 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create java artifact
+        id: create_java_artifact
         run: cd .repo && npx projen package:java
       - name: Collect java artifact
+        id: collect_java_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           MAVEN_SERVER_ID: central-ossrh
           MAVEN_GPG_PRIVATE_KEY: \${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
@@ -849,28 +932,37 @@ jobs:
         with:
           python-version: 3.x
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create python artifact
+        id: create_python_artifact
         run: cd .repo && npx projen package:python
       - name: Collect python artifact
+        id: collect_python_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           PYPI_TRUSTED_PUBLISHER: "true"
           PUBLIB_DRYRUN: \${{ inputs.dry_run }}
@@ -894,28 +986,37 @@ jobs:
           dotnet-version: 6.x
           cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create dotnet artifact
+        id: create_dotnet_artifact
         run: cd .repo && npx projen package:dotnet
       - name: Collect dotnet artifact
+        id: collect_dotnet_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           NUGET_TRUSTED_PUBLISHER: "true"
           NUGET_USERNAME: \${{ secrets.NUGET_USERNAME }}
@@ -939,28 +1040,37 @@ jobs:
           go-version: ^1.18.0
           cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create go artifact
+        id: create_go_artifact
         run: cd .repo && npx projen package:go
       - name: Collect go artifact
+        id: collect_go_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           GIT_USER_NAME: github-actions[bot]
           GIT_USER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
@@ -981,10 +1091,12 @@ jobs:
     permissions: {}
     steps:
       - name: Print github context
+        id: print_github_context
         env:
           GITHUB_CONTEXT: \${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Print github event file
+        id: print_github_event_file
         run: jq . "$GITHUB_EVENT_PATH"
 ",
   ".github/workflows/upgrade-cdklabs-projen-project-types-main.yml": "# ~~ Generated by projen. To modify, edit .projenrc.js and run "npx projen".
@@ -1002,14 +1114,18 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade-cdklabs-projen-project-types
       - name: Find mutations
         id: create_patch
@@ -1019,6 +1135,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -1034,17 +1151,21 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -1095,17 +1216,21 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade-dev-deps
       - name: Find mutations
         id: create_patch
@@ -1115,6 +1240,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -1130,17 +1256,21 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -1191,17 +1321,21 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade
       - name: Find mutations
         id: create_patch
@@ -1211,6 +1345,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -1226,17 +1361,21 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -2455,12 +2594,16 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade-cdklabs-projen-project-types
       - name: Find mutations
         id: create_patch
@@ -2470,6 +2613,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -2485,15 +2629,19 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -2561,7 +2709,12 @@ exports[`CdklabsJsiiProject synthesizes with default settings 1`] = `
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 2018,
-      "projectService": true,
+      "projectService": {
+        "allowDefaultProject": [
+          ".projenrc.js",
+        ],
+        "defaultProject": "./tsconfig.json",
+      },
       "sourceType": "module",
     },
     "plugins": [
@@ -2705,6 +2858,7 @@ exports[`CdklabsJsiiProject synthesizes with default settings 1`] = `
           "devDependencies": [
             "**/test/**",
             "**/build-tools/**",
+            ".projenrc.js",
           ],
           "optionalDependencies": false,
           "peerDependencies": true,
@@ -2800,7 +2954,8 @@ jobs:
       pull-requests: write
     if: contains(github.event.pull_request.labels.*.name, 'auto-approve') && (github.event.pull_request.user.login == 'cdklabs-automation' || github.event.pull_request.user.login == 'dependabot[bot]')
     steps:
-      - env:
+      - id: auto_08f238e2
+        env:
           GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
           GH_REPO: \${{ github.repository }}
           PR_NUMBER: \${{ github.event.pull_request.number }}
@@ -2823,7 +2978,8 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - uses: peter-evans/enable-pull-request-automerge@v3
+      - id: auto_edce8315
+        uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           pull-request-number: \${{ github.event.number }}
@@ -2899,23 +3055,28 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Push changes
+        id: push_changes
         env:
           PULL_REQUEST_REF: \${{ github.event.pull_request.head.ref }}
         run: |-
@@ -2934,28 +3095,36 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create js artifact
+        id: create_js_artifact
         run: cd .repo && npx projen package:js
       - name: Collect js artifact
+        id: collect_js_artifact
         run: mv .repo/dist dist
   package-java:
     needs: build
@@ -2973,28 +3142,36 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create java artifact
+        id: create_java_artifact
         run: cd .repo && npx projen package:java
       - name: Collect java artifact
+        id: collect_java_artifact
         run: mv .repo/dist dist
   package-python:
     needs: build
@@ -3011,28 +3188,36 @@ jobs:
         with:
           python-version: 3.x
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create python artifact
+        id: create_python_artifact
         run: cd .repo && npx projen package:python
       - name: Collect python artifact
+        id: collect_python_artifact
         run: mv .repo/dist dist
   package-dotnet:
     needs: build
@@ -3050,28 +3235,36 @@ jobs:
           dotnet-version: 6.x
           cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create dotnet artifact
+        id: create_dotnet_artifact
         run: cd .repo && npx projen package:dotnet
       - name: Collect dotnet artifact
+        id: collect_dotnet_artifact
         run: mv .repo/dist dist
   package-go:
     needs: build
@@ -3089,28 +3282,36 @@ jobs:
           go-version: ^1.18.0
           cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.build.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create go artifact
+        id: create_go_artifact
         run: cd .repo && npx projen package:go
       - name: Collect go artifact
+        id: collect_go_artifact
         run: mv .repo/dist dist
 ",
   ".github/workflows/dependency-review.yml": "# ~~ Generated by projen. To modify, edit .projenrc.js and run "npx projen".
@@ -3127,8 +3328,10 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Dependency Review
+        id: dependency_review
         uses: actions/dependency-review-action@v4
         with:
           comment-summary-in-pr: always
@@ -3154,7 +3357,8 @@ jobs:
       pull-requests: write
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
-      - uses: amannn/action-semantic-pull-request@v6
+      - id: auto_5940c89f
+        uses: amannn/action-semantic-pull-request@v6
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
         with:
@@ -3194,21 +3398,26 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
+        id: release
         run: npx projen release
       - name: Check if version has already been tagged
         id: check_tag_exists
@@ -3225,6 +3434,7 @@ jobs:
           cat $GITHUB_OUTPUT
         shell: bash
       - name: Backup artifact permissions
+        id: backup_artifact_permissions
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
         continue-on-error: true
@@ -3256,14 +3466,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -3283,28 +3496,37 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create js artifact
+        id: create_js_artifact
         run: cd .repo && npx projen package:js
       - name: Collect js artifact
+        id: collect_js_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -3329,28 +3551,37 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create java artifact
+        id: create_java_artifact
         run: cd .repo && npx projen package:java
       - name: Collect java artifact
+        id: collect_java_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           MAVEN_SERVER_ID: central-ossrh
           MAVEN_GPG_PRIVATE_KEY: \${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
@@ -3378,28 +3609,37 @@ jobs:
         with:
           python-version: 3.x
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create python artifact
+        id: create_python_artifact
         run: cd .repo && npx projen package:python
       - name: Collect python artifact
+        id: collect_python_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           PYPI_TRUSTED_PUBLISHER: "true"
           PUBLIB_DRYRUN: \${{ inputs.dry_run }}
@@ -3423,28 +3663,37 @@ jobs:
           dotnet-version: 6.x
           cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create dotnet artifact
+        id: create_dotnet_artifact
         run: cd .repo && npx projen package:dotnet
       - name: Collect dotnet artifact
+        id: collect_dotnet_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           NUGET_TRUSTED_PUBLISHER: "true"
           NUGET_USERNAME: \${{ secrets.NUGET_USERNAME }}
@@ -3468,28 +3717,37 @@ jobs:
           go-version: ^1.18.0
           cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           path: .repo
       - name: Install Dependencies
+        id: install_dependencies
         run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Extract build artifact
+        id: extract_build_artifact
         run: tar --strip-components=1 -xzvf dist/js/*.tgz -C .repo
       - name: Move build artifact out of the way
+        id: move_build_artifact_out_of_the_way
         run: mv dist dist.old
       - name: Create go artifact
+        id: create_go_artifact
         run: cd .repo && npx projen package:go
       - name: Collect go artifact
+        id: collect_go_artifact
         run: mv .repo/dist dist
       - name: Release
+        id: release
         env:
           GIT_USER_NAME: github-actions[bot]
           GIT_USER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
@@ -3510,10 +3768,12 @@ jobs:
     permissions: {}
     steps:
       - name: Print github context
+        id: print_github_context
         env:
           GITHUB_CONTEXT: \${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Print github event file
+        id: print_github_event_file
         run: jq . "$GITHUB_EVENT_PATH"
 ",
   ".github/workflows/upgrade-cdklabs-projen-project-types-main.yml": "# ~~ Generated by projen. To modify, edit .projenrc.js and run "npx projen".
@@ -3531,14 +3791,18 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade-cdklabs-projen-project-types
       - name: Find mutations
         id: create_patch
@@ -3548,6 +3812,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -3563,17 +3828,21 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -3624,17 +3893,21 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade-dev-deps
       - name: Find mutations
         id: create_patch
@@ -3644,6 +3917,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -3659,17 +3933,21 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -3720,17 +3998,21 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade
       - name: Find mutations
         id: create_patch
@@ -3740,6 +4022,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -3755,17 +4038,21 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -4922,7 +5209,12 @@ exports[`CdklabsTypeScriptProject synthesizes with default settings 1`] = `
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 2018,
-      "projectService": true,
+      "projectService": {
+        "allowDefaultProject": [
+          ".projenrc.js",
+        ],
+        "defaultProject": "./tsconfig.json",
+      },
       "sourceType": "module",
     },
     "plugins": [
@@ -5066,6 +5358,7 @@ exports[`CdklabsTypeScriptProject synthesizes with default settings 1`] = `
           "devDependencies": [
             "**/test/**",
             "**/build-tools/**",
+            ".projenrc.js",
           ],
           "optionalDependencies": false,
           "peerDependencies": true,
@@ -5160,7 +5453,8 @@ jobs:
       pull-requests: write
     if: contains(github.event.pull_request.labels.*.name, 'auto-approve') && (github.event.pull_request.user.login == 'cdklabs-automation' || github.event.pull_request.user.login == 'dependabot[bot]')
     steps:
-      - env:
+      - id: auto_08f238e2
+        env:
           GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
           GH_REPO: \${{ github.repository }}
           PR_NUMBER: \${{ github.event.pull_request.number }}
@@ -5183,7 +5477,8 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - uses: peter-evans/enable-pull-request-automerge@v3
+      - id: auto_edce8315
+        uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           pull-request-number: \${{ github.event.number }}
@@ -5248,23 +5543,28 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Push changes
+        id: push_changes
         env:
           PULL_REQUEST_REF: \${{ github.event.pull_request.head.ref }}
         run: |-
@@ -5286,8 +5586,10 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Dependency Review
+        id: dependency_review
         uses: actions/dependency-review-action@v4
         with:
           comment-summary-in-pr: always
@@ -5313,7 +5615,8 @@ jobs:
       pull-requests: write
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
-      - uses: amannn/action-semantic-pull-request@v6
+      - id: auto_5940c89f
+        uses: amannn/action-semantic-pull-request@v6
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
         with:
@@ -5353,21 +5656,26 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
+        id: release
         run: npx projen release
       - name: Check if version has already been tagged
         id: check_tag_exists
@@ -5384,6 +5692,7 @@ jobs:
           cat $GITHUB_OUTPUT
         shell: bash
       - name: Backup artifact permissions
+        id: backup_artifact_permissions
         if: \${{ steps.git_remote.outputs.latest_commit == github.sha }}
         run: cd dist && getfacl -R . > permissions-backup.acl
         continue-on-error: true
@@ -5409,14 +5718,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           artifact-ids: \${{ needs.release.outputs.artifact_id }}
           path: dist
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -5435,10 +5747,12 @@ jobs:
     permissions: {}
     steps:
       - name: Print github context
+        id: print_github_context
         env:
           GITHUB_CONTEXT: \${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Print github event file
+        id: print_github_event_file
         run: jq . "$GITHUB_EVENT_PATH"
 ",
   ".github/workflows/upgrade-cdklabs-projen-project-types-main.yml": "# ~~ Generated by projen. To modify, edit .projenrc.js and run "npx projen".
@@ -5456,14 +5770,18 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade-cdklabs-projen-project-types
       - name: Find mutations
         id: create_patch
@@ -5473,6 +5791,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -5488,17 +5807,21 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -5549,17 +5872,21 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade-dev-deps
       - name: Find mutations
         id: create_patch
@@ -5569,6 +5896,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -5584,17 +5912,21 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -5645,17 +5977,21 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade
       - name: Find mutations
         id: create_patch
@@ -5665,6 +6001,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -5680,17 +6017,21 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           ref: main
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
