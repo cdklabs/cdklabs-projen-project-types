@@ -26,6 +26,7 @@ module.exports = defineConfig({
 exports[`CdkLabsMonorepo Yarn Berry release workflow setup steps for yarn berry 1`] = `
 [
   {
+    "id": "checkout",
     "name": "Checkout",
     "uses": "actions/checkout@v6",
     "with": {
@@ -33,15 +34,18 @@ exports[`CdkLabsMonorepo Yarn Berry release workflow setup steps for yarn berry 
     },
   },
   {
+    "id": "set_git_identity",
     "name": "Set git identity",
     "run": "git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
   },
   {
+    "id": "enable_corepack",
     "name": "Enable corepack",
     "run": "corepack enable",
   },
   {
+    "id": "setup_node_js",
     "name": "Setup Node.js",
     "uses": "actions/setup-node@v6",
     "with": {
@@ -50,10 +54,12 @@ git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
     },
   },
   {
+    "id": "install_dependencies",
     "name": "Install dependencies",
     "run": "yarn install --immutable",
   },
   {
+    "id": "release",
     "name": "release",
     "run": "yarn projen release",
   },
@@ -232,7 +238,8 @@ jobs:
       pull-requests: write
     if: contains(github.event.pull_request.labels.*.name, 'auto-approve') && (github.event.pull_request.user.login == 'github-bot' || github.event.pull_request.user.login == 'cdklabs-automation' || github.event.pull_request.user.login == 'dependabot[bot]')
     steps:
-      - env:
+      - id: auto_08f238e2
+        env:
           GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
           GH_REPO: \${{ github.repository }}
           PR_NUMBER: \${{ github.event.pull_request.number }}
@@ -255,7 +262,8 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - uses: peter-evans/enable-pull-request-automerge@v3
+      - id: auto_edce8315
+        uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           pull-request-number: \${{ github.event.number }}
@@ -320,23 +328,28 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Push changes
+        id: push_changes
         env:
           PULL_REQUEST_REF: \${{ github.event.pull_request.head.ref }}
         run: |-
@@ -358,8 +371,10 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Dependency Review
+        id: dependency_review
         uses: actions/dependency-review-action@v4
         with:
           comment-summary-in-pr: always
@@ -385,7 +400,8 @@ jobs:
       pull-requests: write
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
-      - uses: amannn/action-semantic-pull-request@v6
+      - id: auto_5940c89f
+        uses: amannn/action-semantic-pull-request@v6
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
         with:
@@ -412,15 +428,19 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade
       - name: Find mutations
         id: create_patch
@@ -430,6 +450,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -445,15 +466,19 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -2753,21 +2778,26 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
+        id: release
         run: npx projen release
       - id: check-publish-cdklabs-schema
         run: (git ls-remote -q --exit-code --tags origin $(cat dist/releasetag.txt) && (echo "publish=false" >> $GITHUB_OUTPUT)) || echo "publish=true" >> $GITHUB_OUTPUT
@@ -2874,6 +2904,7 @@ jobs:
     if: \${{ needs.release.outputs.latest_commit == github.sha }}
     steps:
       - name: "@cdklabs/schema: Check publish"
+        id: cdklabs_schema_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-schema }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/schema","@cdklabs/api","@cdklabs/diff","@cdklabs/toolkit","@cdklabs/cli","@cdklabs/integ-runner"]'), github.event.inputs.package)) }}"
@@ -2886,6 +2917,7 @@ jobs:
             echo "@cdklabs/schema" >> publish.txt
           fi
       - name: "@cdklabs/api: Check publish"
+        id: cdklabs_api_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-api }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/api","@cdklabs/toolkit","@cdklabs/cli","@cdklabs/integ-runner"]'), github.event.inputs.package)) }}"
@@ -2898,6 +2930,7 @@ jobs:
             echo "@cdklabs/api" >> publish.txt
           fi
       - name: "@cdklabs/diff: Check publish"
+        id: cdklabs_diff_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-diff }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/diff","@cdklabs/toolkit","@cdklabs/cli","@cdklabs/integ-runner"]'), github.event.inputs.package)) }}"
@@ -2910,6 +2943,7 @@ jobs:
             echo "@cdklabs/diff" >> publish.txt
           fi
       - name: "@cdklabs/toolkit: Check publish"
+        id: cdklabs_toolkit_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-toolkit }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/toolkit","@cdklabs/cli","@cdklabs/integ-runner"]'), github.event.inputs.package)) }}"
@@ -2922,6 +2956,7 @@ jobs:
             echo "@cdklabs/toolkit" >> publish.txt
           fi
       - name: "@cdklabs/cli: Check publish"
+        id: cdklabs_cli_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-cli }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/cli","@cdklabs/integ-runner"]'), github.event.inputs.package)) }}"
@@ -2934,6 +2969,7 @@ jobs:
             echo "@cdklabs/cli" >> publish.txt
           fi
       - name: "@cdklabs/integ-runner: Check publish"
+        id: cdklabs_integ-runner_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-integ-runner }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/integ-runner"]'), github.event.inputs.package)) }}"
@@ -2962,7 +2998,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/schema') }}
     steps:
-      - run: echo "Releasing @cdklabs/schema..."
+      - id: auto_a356bde8
+        run: echo "Releasing @cdklabs/schema..."
   cdklabs-schema_release_github:
     name: "@cdklabs/schema: Publish to GitHub Releases"
     needs: cdklabs-schema_release_npm
@@ -2976,14 +3013,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-schema_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -3002,14 +3042,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-schema_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -3026,7 +3069,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
   cdklabs-api_release:
     name: "@cdklabs/api: Release"
     needs: release_gate
@@ -3034,7 +3078,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/api') }}
     steps:
-      - run: echo "Releasing @cdklabs/api..."
+      - id: auto_a3e3054c
+        run: echo "Releasing @cdklabs/api..."
   cdklabs-api_release_github:
     name: "@cdklabs/api: Publish to GitHub Releases"
     needs: cdklabs-api_release_npm
@@ -3048,14 +3093,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-api_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -3076,14 +3124,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-api_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -3100,7 +3151,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
   cdklabs-diff_release:
     name: "@cdklabs/diff: Release"
     needs: release_gate
@@ -3108,7 +3160,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/diff') }}
     steps:
-      - run: echo "Releasing @cdklabs/diff..."
+      - id: auto_23527c0b
+        run: echo "Releasing @cdklabs/diff..."
   cdklabs-diff_release_github:
     name: "@cdklabs/diff: Publish to GitHub Releases"
     needs: cdklabs-diff_release_npm
@@ -3122,14 +3175,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-diff_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -3150,14 +3206,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-diff_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -3174,7 +3233,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
   cdklabs-toolkit_release:
     name: "@cdklabs/toolkit: Release"
     needs: release_gate
@@ -3182,7 +3242,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/toolkit') }}
     steps:
-      - run: echo "Releasing @cdklabs/toolkit..."
+      - id: auto_d166900e
+        run: echo "Releasing @cdklabs/toolkit..."
   cdklabs-toolkit_release_github:
     name: "@cdklabs/toolkit: Publish to GitHub Releases"
     needs: cdklabs-toolkit_release_npm
@@ -3196,14 +3257,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-toolkit_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -3225,14 +3289,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-toolkit_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -3249,7 +3316,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
   cdklabs-cli_release:
     name: "@cdklabs/cli: Release"
     needs: release_gate
@@ -3257,7 +3325,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/cli') }}
     steps:
-      - run: echo "Releasing @cdklabs/cli..."
+      - id: auto_ae74b297
+        run: echo "Releasing @cdklabs/cli..."
   cdklabs-cli_release_github:
     name: "@cdklabs/cli: Publish to GitHub Releases"
     needs: cdklabs-cli_release_npm
@@ -3271,14 +3340,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-cli_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -3299,14 +3371,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-cli_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -3323,7 +3398,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
   cdklabs-integ-runner_release:
     name: "@cdklabs/integ-runner: Release"
     needs: release_gate
@@ -3331,7 +3407,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/integ-runner') }}
     steps:
-      - run: echo "Releasing @cdklabs/integ-runner..."
+      - id: auto_9f27f8a2
+        run: echo "Releasing @cdklabs/integ-runner..."
   cdklabs-integ-runner_release_github:
     name: "@cdklabs/integ-runner: Publish to GitHub Releases"
     needs: cdklabs-integ-runner_release_npm
@@ -3345,14 +3422,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-integ-runner_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -3373,14 +3453,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-integ-runner_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -3397,7 +3480,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
 "
 `;
 
@@ -3446,7 +3530,8 @@ jobs:
       pull-requests: write
     if: contains(github.event.pull_request.labels.*.name, 'auto-approve') && (github.event.pull_request.user.login == 'github-bot' || github.event.pull_request.user.login == 'cdklabs-automation' || github.event.pull_request.user.login == 'dependabot[bot]')
     steps:
-      - env:
+      - id: auto_08f238e2
+        env:
           GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
           GH_REPO: \${{ github.repository }}
           PR_NUMBER: \${{ github.event.pull_request.number }}
@@ -3469,7 +3554,8 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - uses: peter-evans/enable-pull-request-automerge@v3
+      - id: auto_edce8315
+        uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           pull-request-number: \${{ github.event.number }}
@@ -3534,23 +3620,28 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Push changes
+        id: push_changes
         env:
           PULL_REQUEST_REF: \${{ github.event.pull_request.head.ref }}
         run: |-
@@ -3572,8 +3663,10 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Dependency Review
+        id: dependency_review
         uses: actions/dependency-review-action@v4
         with:
           comment-summary-in-pr: always
@@ -3599,7 +3692,8 @@ jobs:
       pull-requests: write
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
-      - uses: amannn/action-semantic-pull-request@v6
+      - id: auto_5940c89f
+        uses: amannn/action-semantic-pull-request@v6
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
         with:
@@ -3644,21 +3738,26 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
+        id: release
         run: npx projen release
       - id: check-publish-cdklabs-one
         run: (git ls-remote -q --exit-code --tags origin $(cat dist/releasetag.txt) && (echo "publish=false" >> $GITHUB_OUTPUT)) || echo "publish=true" >> $GITHUB_OUTPUT
@@ -3705,6 +3804,7 @@ jobs:
     if: \${{ needs.release.outputs.latest_commit == github.sha }}
     steps:
       - name: "@cdklabs/one: Check publish"
+        id: cdklabs_one_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-one }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/one"]'), github.event.inputs.package)) }}"
@@ -3717,6 +3817,7 @@ jobs:
             echo "@cdklabs/one" >> publish.txt
           fi
       - name: "@cdklabs/two: Check publish"
+        id: cdklabs_two_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-two }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/two"]'), github.event.inputs.package)) }}"
@@ -3745,7 +3846,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/one') }}
     steps:
-      - run: echo "Releasing @cdklabs/one..."
+      - id: auto_fe976233
+        run: echo "Releasing @cdklabs/one..."
   cdklabs-one_release_github:
     name: "@cdklabs/one: Publish to GitHub Releases"
     needs: cdklabs-one_release_npm
@@ -3759,14 +3861,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-one_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -3785,14 +3890,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-one_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -3809,7 +3917,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
   cdklabs-two_release:
     name: "@cdklabs/two: Release"
     needs: release_gate
@@ -3817,7 +3926,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/two') }}
     steps:
-      - run: echo "Releasing @cdklabs/two..."
+      - id: auto_1bd632c3
+        run: echo "Releasing @cdklabs/two..."
   cdklabs-two_release_github:
     name: "@cdklabs/two: Publish to GitHub Releases"
     needs: cdklabs-two_release_npm
@@ -3831,14 +3941,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-two_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -3857,14 +3970,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-two_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -3881,7 +3997,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
 ",
   ".github/workflows/upgrade.yml": "# ~~ Generated by projen. To modify, edit .projenrc.ts and run "npx projen".
 
@@ -3900,15 +4017,19 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade
       - name: Find mutations
         id: create_patch
@@ -3918,6 +4039,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -3933,15 +4055,19 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -6415,6 +6541,7 @@ tsconfig.tsbuildinfo
 exports[`CdkLabsMonorepo with monorepo that releases release workflow setup steps for yarn classic 1`] = `
 [
   {
+    "id": "checkout",
     "name": "Checkout",
     "uses": "actions/checkout@v6",
     "with": {
@@ -6422,11 +6549,13 @@ exports[`CdkLabsMonorepo with monorepo that releases release workflow setup step
     },
   },
   {
+    "id": "set_git_identity",
     "name": "Set git identity",
     "run": "git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
   },
   {
+    "id": "setup_node_js",
     "name": "Setup Node.js",
     "uses": "actions/setup-node@v6",
     "with": {
@@ -6435,10 +6564,12 @@ git config user.email "41898282+github-actions[bot]@users.noreply.github.com"",
     },
   },
   {
+    "id": "install_dependencies",
     "name": "Install dependencies",
     "run": "yarn install --check-files --frozen-lockfile",
   },
   {
+    "id": "release",
     "name": "release",
     "run": "npx projen release",
   },
@@ -6519,7 +6650,8 @@ jobs:
       pull-requests: write
     if: contains(github.event.pull_request.labels.*.name, 'auto-approve') && (github.event.pull_request.user.login == 'github-bot' || github.event.pull_request.user.login == 'cdklabs-automation' || github.event.pull_request.user.login == 'dependabot[bot]')
     steps:
-      - env:
+      - id: auto_08f238e2
+        env:
           GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
           GH_REPO: \${{ github.repository }}
           PR_NUMBER: \${{ github.event.pull_request.number }}
@@ -6542,7 +6674,8 @@ jobs:
       pull-requests: write
       contents: write
     steps:
-      - uses: peter-evans/enable-pull-request-automerge@v3
+      - id: auto_edce8315
+        uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           pull-request-number: \${{ github.event.number }}
@@ -6607,23 +6740,28 @@ jobs:
     if: always() && needs.build.outputs.self_mutation_happened && !(github.event.pull_request.head.repo.full_name != github.repository)
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           token: \${{ secrets.PROJEN_GITHUB_TOKEN }}
           ref: \${{ github.event.pull_request.head.ref }}
           repository: \${{ github.event.pull_request.head.repo.full_name }}
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Push changes
+        id: push_changes
         env:
           PULL_REQUEST_REF: \${{ github.event.pull_request.head.ref }}
         run: |-
@@ -6645,8 +6783,10 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Dependency Review
+        id: dependency_review
         uses: actions/dependency-review-action@v4
         with:
           comment-summary-in-pr: always
@@ -6672,7 +6812,8 @@ jobs:
       pull-requests: write
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
-      - uses: amannn/action-semantic-pull-request@v6
+      - id: auto_5940c89f
+        uses: amannn/action-semantic-pull-request@v6
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
         with:
@@ -6699,15 +6840,19 @@ jobs:
       patch_created: \${{ steps.create_patch.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: Upgrade dependencies
+        id: upgrade_dependencies
         run: npx projen upgrade
       - name: Find mutations
         id: create_patch
@@ -6717,6 +6862,7 @@ jobs:
         shell: bash
         working-directory: ./
       - name: Upload patch
+        id: upload_patch
         if: steps.create_patch.outputs.patch_created
         uses: actions/upload-artifact@v7
         with:
@@ -6732,15 +6878,19 @@ jobs:
     if: \${{ needs.upgrade.outputs.patch_created }}
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
       - name: Download patch
+        id: download_patch
         uses: actions/download-artifact@v8
         with:
           name: repo.patch
           path: \${{ runner.temp }}
       - name: Apply patch
+        id: apply_patch
         run: '[ -s \${{ runner.temp }}/repo.patch ] && git apply \${{ runner.temp }}/repo.patch || echo "Empty patch. Skipping."'
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -8218,21 +8368,26 @@ jobs:
       CI: "true"
     steps:
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Set git identity
+        id: set_git_identity
         run: |-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Setup Node.js
+        id: setup_node_js
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           package-manager-cache: false
       - name: Install dependencies
+        id: install_dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: release
+        id: release
         run: npx projen release
       - id: check-publish-cdklabs-base
         run: (git ls-remote -q --exit-code --tags origin $(cat dist/releasetag.txt) && (echo "publish=false" >> $GITHUB_OUTPUT)) || echo "publish=true" >> $GITHUB_OUTPUT
@@ -8294,6 +8449,7 @@ jobs:
     if: \${{ needs.release.outputs.latest_commit == github.sha }}
     steps:
       - name: "@cdklabs/base: Check publish"
+        id: cdklabs_base_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-base }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/base","@cdklabs/mid","@cdklabs/top"]'), github.event.inputs.package)) }}"
@@ -8306,6 +8462,7 @@ jobs:
             echo "@cdklabs/base" >> publish.txt
           fi
       - name: "@cdklabs/mid: Check publish"
+        id: cdklabs_mid_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-mid }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/mid","@cdklabs/top"]'), github.event.inputs.package)) }}"
@@ -8318,6 +8475,7 @@ jobs:
             echo "@cdklabs/mid" >> publish.txt
           fi
       - name: "@cdklabs/top: Check publish"
+        id: cdklabs_top_check_publish
         run: |-
           should_publish="\${{ needs.release.outputs.publish-cdklabs-top }}"
           package_filter="\${{ (!github.event.inputs.package || github.event.inputs.package == '*all packages*' || contains(fromJSON('["@cdklabs/top"]'), github.event.inputs.package)) }}"
@@ -8346,7 +8504,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/base') }}
     steps:
-      - run: echo "Releasing @cdklabs/base..."
+      - id: auto_fd33015f
+        run: echo "Releasing @cdklabs/base..."
   cdklabs-base_release_github:
     name: "@cdklabs/base: Publish to GitHub Releases"
     needs: cdklabs-base_release_npm
@@ -8360,14 +8519,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-base_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -8386,14 +8548,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-base_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -8410,7 +8575,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
   cdklabs-mid_release:
     name: "@cdklabs/mid: Release"
     needs: release_gate
@@ -8418,7 +8584,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/mid') }}
     steps:
-      - run: echo "Releasing @cdklabs/mid..."
+      - id: auto_2c208c25
+        run: echo "Releasing @cdklabs/mid..."
   cdklabs-mid_release_github:
     name: "@cdklabs/mid: Publish to GitHub Releases"
     needs: cdklabs-mid_release_npm
@@ -8432,14 +8599,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-mid_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -8460,14 +8630,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-mid_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -8484,7 +8657,8 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
   cdklabs-top_release:
     name: "@cdklabs/top: Release"
     needs: release_gate
@@ -8492,7 +8666,8 @@ jobs:
     permissions: {}
     if: \${{ contains(fromJSON(needs.release_gate.outputs.packages_to_publish), '@cdklabs/top') }}
     steps:
-      - run: echo "Releasing @cdklabs/top..."
+      - id: auto_34df1a2e
+        run: echo "Releasing @cdklabs/top..."
   cdklabs-top_release_github:
     name: "@cdklabs/top: Publish to GitHub Releases"
     needs: cdklabs-top_release_npm
@@ -8506,14 +8681,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-top_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         if: \${{ !inputs.dry_run }}
         env:
           GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
@@ -8534,14 +8712,17 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
       - name: Download build artifacts
+        id: download_build_artifacts
         uses: actions/download-artifact@v8
         with:
           path: dist
           name: cdklabs-top_build-artifact
       - name: Restore build artifact permissions
+        id: restore_build_artifact_permissions
         run: cd dist && setfacl --restore=permissions-backup.acl
         continue-on-error: true
       - name: Release
+        id: release
         env:
           NPM_DIST_TAG: latest
           NPM_REGISTRY: registry.npmjs.org
@@ -8558,6 +8739,7 @@ jobs:
     permissions: {}
     if: \${{ !cancelled() && !failure() }}
     steps:
-      - run: echo "All publish jobs complete"
+      - id: auto_9c3c4914
+        run: echo "All publish jobs complete"
 "
 `;
