@@ -1,6 +1,8 @@
 import { Stability } from 'projen/lib/cdk';
+import { GithubCredentials } from 'projen/lib/github';
 import { NpmAccess } from 'projen/lib/javascript';
 import { Testing } from 'projen/lib/testing';
+import * as YAML from 'yaml';
 import { expectPrivate, expectNotPrivate } from './private-helpers';
 import { CdkConstructLibrary, CdkConstructLibraryOptions, CdkJsiiProjectOptions, CdkTypeScriptProject, CdkTypeScriptProjectOptions, CdkJsiiProject } from '../src';
 
@@ -132,6 +134,37 @@ describe('CdkTypeScriptProject', () => {
     expect(snapshot['package.json'].publishConfig.access).toEqual('public');
   });
 
+  test('auto merge uses the configured projen credentials', () => {
+    const project = new TestCdkTypeScriptProject({
+      githubOptions: {
+        projenCredentials: GithubCredentials.fromPersonalAccessToken({ secret: 'CUSTOM_GITHUB_TOKEN' }),
+      },
+    });
+
+    const snapshot = Testing.synth(project);
+    const autoQueue = YAML.parse(snapshot['.github/workflows/auto-queue.yml']);
+    expect(autoQueue.jobs.enableAutoQueue.steps).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        with: expect.objectContaining({
+          token: '${{ secrets.CUSTOM_GITHUB_TOKEN }}',
+        }),
+      }),
+    ]));
+  });
+
+  test('auto merge defaults to the projen github token', () => {
+    const project = new TestCdkTypeScriptProject();
+
+    const snapshot = Testing.synth(project);
+    const autoQueue = YAML.parse(snapshot['.github/workflows/auto-queue.yml']);
+    expect(autoQueue.jobs.enableAutoQueue.steps).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        with: expect.objectContaining({
+          token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
+        }),
+      }),
+    ]));
+  });
 });
 
 describe('CdkJsiiProject', () => {
