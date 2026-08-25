@@ -27,7 +27,7 @@ export class UpgradeCdklabsProjenProjectTypes extends Component {
       include: UpgradeCdklabsProjenProjectTypes.deps,
       workflowOptions: {
         labels: ['auto-approve'],
-        schedule: javascript.UpgradeDependenciesSchedule.NEVER,
+        schedule: javascript.UpgradeDependenciesSchedule.WEEKLY,
         // Inherit branch configuration from depsUpgradeOptions if available
         ...(depsUpgradeOptions?.workflowOptions ?? {}),
       },
