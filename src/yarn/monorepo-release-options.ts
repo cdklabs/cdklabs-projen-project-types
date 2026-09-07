@@ -23,6 +23,13 @@ export interface MonorepoReleaseOptions {
    */
   readonly bumpPackage?: string;
   /**
+   * Whether GitHub should explicitly mark the release from the default branch as the latest release.
+   * Set to `true` to mark the release as latest, or `false` to explicitly not
+   * mark it as latest.
+   * @default - GitHub determines the latest release based on date and semantic version.
+   */
+  readonly githubReleaseLatest?: boolean;
+  /**
    * Version requirement of `publib` which is used to publish modules to npm.
    * @default "latest"
    */
@@ -140,10 +147,12 @@ export interface MonorepoReleaseOptions {
   /**
    * Github Runner selection labels.
    * @default ["ubuntu-latest"]
+   * @deprecated use `githubOptions.workflowRunsOn` on the project, or `runsOn` on `ReleaseOptions`
    */
   readonly workflowRunsOn?: Array<string>;
   /**
    * Github Runner Group selection options.
+   * @deprecated use `githubOptions.workflowRunsOnGroup` on the project, or `runsOnGroup` on `ReleaseOptions`
    */
   readonly workflowRunsOnGroup?: GroupRunnerOptions;
   /**

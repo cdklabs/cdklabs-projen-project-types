@@ -240,7 +240,9 @@ export interface CdkConstructLibraryOptions {
    */
   readonly codeArtifactOptions?: javascript.CodeArtifactOptions;
   /**
-   * Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/ Uses codecov/codecov-action@v5 By default, OIDC auth is used. Alternatively a token can be provided via `codeCovTokenSecret`.
+   * Define a GitHub workflow step for sending code coverage metrics to https://codecov.io/.
+   * Uses codecov/codecov-action. By default, OIDC auth is used.
+   * Alternatively a token can be provided via `codeCovTokenSecret`.
    * @default false
    */
   readonly codeCov?: boolean;
@@ -271,6 +273,12 @@ export interface CdkConstructLibraryOptions {
    * @default false
    */
   readonly compressAssembly?: boolean;
+  /**
+   * Configuration values available to package scripts at runtime.
+   * Values should be JSON-serializable.
+   * @default - no package configuration
+   */
+  readonly config?: Record<string, any>;
   /**
    * Minimum version of the `constructs` library to depend on.
    * @default - for CDK 1.x the default is "3.2.27", for CDK 2.x the default is
@@ -480,6 +488,13 @@ export interface CdkConstructLibraryOptions {
    * @default - see GitHubOptions
    */
   readonly githubOptions?: github.GitHubOptions;
+  /**
+   * Whether GitHub should explicitly mark the release from the default branch as the latest release.
+   * Set to `true` to mark the release as latest, or `false` to explicitly not
+   * mark it as latest.
+   * @default - GitHub determines the latest release based on date and semantic version.
+   */
+  readonly githubReleaseLatest?: boolean;
   /**
    * Additional entries to .gitignore.
    */
@@ -779,6 +794,10 @@ export interface CdkConstructLibraryOptions {
   readonly projectTree?: boolean;
   /**
    * The shell command to use in order to run the projen CLI.
+   * Inserted verbatim into task steps, workflows and IDE configuration, and run
+   * by each of their shells - locally, in CI and in dev containers. Keep it a
+   * plain unquoted command, since shell syntax in it executes in all of them.
+   *
    * Can be used to customize in special environments.
    * @default "npx projen"
    */
@@ -1067,6 +1086,12 @@ export interface CdkConstructLibraryOptions {
    */
   readonly tsJestOptions?: typescript.TsJestOptions;
   /**
+   * Type-check the test suite as part of the `test` task.
+   * Adds a `tsc --noEmit` step against the development tsconfig.
+   * @default false
+   */
+  readonly typecheckTests?: boolean;
+  /**
    * TypeScript version to use.
    * NOTE: Typescript is not semantically versioned and should remain on the
    * same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
@@ -1130,10 +1155,12 @@ export interface CdkConstructLibraryOptions {
   /**
    * Github Runner selection labels.
    * @default ["ubuntu-latest"]
+   * @deprecated use `githubOptions.workflowRunsOn` on the project, or `runsOn` on `ReleaseOptions`
    */
   readonly workflowRunsOn?: Array<string>;
   /**
    * Github Runner Group selection options.
+   * @deprecated use `githubOptions.workflowRunsOnGroup` on the project, or `runsOnGroup` on `ReleaseOptions`
    */
   readonly workflowRunsOnGroup?: GroupRunnerOptions;
   /**
