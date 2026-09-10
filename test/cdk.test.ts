@@ -143,10 +143,13 @@ describe('CdkTypeScriptProject', () => {
 
     const snapshot = Testing.synth(project);
     const autoQueue = YAML.parse(snapshot['.github/workflows/auto-queue.yml']);
+    // projen 0.103 switched auto-queue from the peter-evans automerge action
+    // (token passed via `with.token`) to a `gh pr merge` run step that reads
+    // the token from the `GH_TOKEN` environment variable.
     expect(autoQueue.jobs.enableAutoQueue.steps).toEqual(expect.arrayContaining([
       expect.objectContaining({
-        with: expect.objectContaining({
-          token: '${{ secrets.CUSTOM_GITHUB_TOKEN }}',
+        env: expect.objectContaining({
+          GH_TOKEN: '${{ secrets.CUSTOM_GITHUB_TOKEN }}',
         }),
       }),
     ]));
@@ -159,8 +162,8 @@ describe('CdkTypeScriptProject', () => {
     const autoQueue = YAML.parse(snapshot['.github/workflows/auto-queue.yml']);
     expect(autoQueue.jobs.enableAutoQueue.steps).toEqual(expect.arrayContaining([
       expect.objectContaining({
-        with: expect.objectContaining({
-          token: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
+        env: expect.objectContaining({
+          GH_TOKEN: '${{ secrets.PROJEN_GITHUB_TOKEN }}',
         }),
       }),
     ]));

@@ -181,7 +181,11 @@ describe('WorkspaceJsiiBuild', () => {
     const tasks = outdir['packages/@cdklabs/my-lib/.projen/tasks.json'];
 
     expect(tasks.tasks.compat).toBeDefined();
-    expect(tasks.tasks.compat.steps[0].exec).toContain('jsii-diff');
+    // projen may render a step as a single `exec` string or as an `execArgs`
+    // array (introduced in projen 0.103); accept either form.
+    const compatStep = tasks.tasks.compat.steps[0];
+    const compatCommand = compatStep.exec ?? (compatStep.execArgs ?? []).join(' ');
+    expect(compatCommand).toContain('jsii-diff');
   });
 
   test('adds rosetta in strict mode by default', () => {
