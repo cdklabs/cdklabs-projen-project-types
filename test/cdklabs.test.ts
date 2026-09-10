@@ -96,9 +96,11 @@ describe('CdklabsConstructLibrary', () => {
     });
 
     // jest options
-    expect(
-      outdir['.projen/tasks.json'].tasks.test.steps[0].exec.includes('--updateSnapshot'),
-    ).toBeTruthy();
+    // projen 0.103 may render the step command as an `exec` string or an
+    // `execArgs` array; accept either form.
+    const testStep = outdir['.projen/tasks.json'].tasks.test.steps[0];
+    const testCommand = testStep.exec ?? (testStep.execArgs ?? []).join(' ');
+    expect(testCommand.includes('--updateSnapshot')).toBeTruthy();
 
     expect(outdir).toMatchSnapshot();
   });
@@ -347,9 +349,11 @@ describe('CdklabsTypeScriptProject', () => {
     });
 
     // jest options
-    expect(
-      outdir['.projen/tasks.json'].tasks.test.steps[0].exec.includes('--updateSnapshot'),
-    ).toBeTruthy();
+    // projen 0.103 may render the step command as an `exec` string or an
+    // `execArgs` array; accept either form.
+    const testStep = outdir['.projen/tasks.json'].tasks.test.steps[0];
+    const testCommand = testStep.exec ?? (testStep.execArgs ?? []).join(' ');
+    expect(testCommand.includes('--updateSnapshot')).toBeTruthy();
 
     expect(outdir).toMatchSnapshot();
   });
@@ -423,9 +427,11 @@ describe('CdklabsJsiiProject', () => {
     });
 
     // jest options
-    expect(
-      outdir['.projen/tasks.json'].tasks.test.steps[0].exec.includes('--updateSnapshot'),
-    ).toBeTruthy();
+    // projen 0.103 may render the step command as an `exec` string or an
+    // `execArgs` array; accept either form.
+    const testStep = outdir['.projen/tasks.json'].tasks.test.steps[0];
+    const testCommand = testStep.exec ?? (testStep.execArgs ?? []).join(' ');
+    expect(testCommand.includes('--updateSnapshot')).toBeTruthy();
 
     expect(outdir).toMatchSnapshot();
 
