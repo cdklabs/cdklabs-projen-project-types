@@ -363,12 +363,14 @@ name: dependency-review
 on:
   pull_request: {}
   workflow_dispatch: {}
+  merge_group: {}
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
+    if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
       - name: Checkout
         id: checkout
@@ -3732,12 +3734,14 @@ name: dependency-review
 on:
   pull_request: {}
   workflow_dispatch: {}
+  merge_group: {}
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
+    if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
       - name: Checkout
         id: checkout
@@ -6909,12 +6913,14 @@ name: dependency-review
 on:
   pull_request: {}
   workflow_dispatch: {}
+  merge_group: {}
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
+    if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
       - name: Checkout
         id: checkout
