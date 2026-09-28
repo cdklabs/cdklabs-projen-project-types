@@ -2188,7 +2188,7 @@ __metadata:
     jsii-pacmak: "npm:^1.140.0"
     jsii-reflect: "npm:^1.140.0"
     jsii-rosetta: "npm:~5.9"
-    projen: "npm:^0.103.25"
+    projen: "npm:^0.103.27"
     ts-jest: "npm:^29"
     ts-node: "npm:^10.9.2"
     typescript: "npm:~5.9"
@@ -5650,9 +5650,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"projen@npm:^0.103.25":
-  version: 0.103.25
-  resolution: "projen@npm:0.103.25"
+"projen@npm:^0.103.27":
+  version: 0.103.27
+  resolution: "projen@npm:0.103.27"
   dependencies:
     "@iarna/toml": "npm:^2.2.5"
     case: "npm:^1.6.3"
@@ -5674,7 +5674,7 @@ __metadata:
     constructs: ^10.5.0
   bin:
     projen: bin/projen
-  checksum: 10c0/813c2d46419201c2fe4748bfa744d534609ce26f8693754e76bb349c4e815bcb809f41b6bdf2aaf3a6e112c562101d1e4560bb547759eab3c5e55b7f531e2ed7
+  checksum: 10c0/26b50b8494b4386cd400334e815644cf7d5d2bf8da8853be65427ef0ef765e5cad190a4507ef234f60182c03be83c48052eb322c3cf133a5ae1330c7548dd5dc
   languageName: node
   linkType: hard
 
