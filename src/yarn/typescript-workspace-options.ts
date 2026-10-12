@@ -435,6 +435,10 @@ your package. It makes sense to relax this check *only* if you are bundling your
   readonly keywords?: Array<string>;
   /**
    * Typescript  artifacts output directory.
+   * When `libdir` is changed, set `entrypoint` to match it (for example
+   * `libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+   * entrypoint rather than `libdir`, and `main` still defaults to
+   * `lib/index.js`.
    * @default "lib"
    */
   readonly libdir?: string;
