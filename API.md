@@ -15793,6 +15793,11 @@ public readonly libdir: string;
 
 Typescript  artifacts output directory.
 
+When `libdir` is changed, set `entrypoint` to match it (for example
+`libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+entrypoint rather than `libdir`, and `main` still defaults to
+`lib/index.js`.
+
 ---
 
 ##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.license"></a>
@@ -18556,6 +18561,11 @@ public readonly libdir: string;
 - *Default:* "lib"
 
 Typescript  artifacts output directory.
+
+When `libdir` is changed, set `entrypoint` to match it (for example
+`libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+entrypoint rather than `libdir`, and `main` still defaults to
+`lib/index.js`.
 
 ---
 
@@ -21478,6 +21488,11 @@ public readonly libdir: string;
 
 Typescript  artifacts output directory.
 
+When `libdir` is changed, set `entrypoint` to match it (for example
+`libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+entrypoint rather than `libdir`, and `main` still defaults to
+`lib/index.js`.
+
 ---
 
 ##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.license"></a>
@@ -24281,6 +24296,11 @@ public readonly libdir: string;
 
 Typescript  artifacts output directory.
 
+When `libdir` is changed, set `entrypoint` to match it (for example
+`libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+entrypoint rather than `libdir`, and `main` still defaults to
+`lib/index.js`.
+
 ---
 
 ##### `license`<sup>Optional</sup> <a name="license" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.license"></a>
@@ -26909,6 +26929,11 @@ public readonly libdir: string;
 - *Default:* "lib"
 
 Typescript  artifacts output directory.
+
+When `libdir` is changed, set `entrypoint` to match it (for example
+`libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+entrypoint rather than `libdir`, and `main` still defaults to
+`lib/index.js`.
 
 ---
 
@@ -30515,6 +30540,11 @@ public readonly libdir: string;
 
 Typescript  artifacts output directory.
 
+When `libdir` is changed, set `entrypoint` to match it (for example
+`libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+entrypoint rather than `libdir`, and `main` still defaults to
+`lib/index.js`.
+
 ---
 
 ##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.projenrcTs"></a>
@@ -33075,6 +33105,11 @@ public readonly libdir: string;
 
 Typescript  artifacts output directory.
 
+When `libdir` is changed, set `entrypoint` to match it (for example
+`libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+entrypoint rather than `libdir`, and `main` still defaults to
+`lib/index.js`.
+
 ---
 
 ##### `projenrcTs`<sup>Optional</sup> <a name="projenrcTs" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.projenrcTs"></a>
@@ -34913,6 +34948,11 @@ public readonly libdir: string;
 - *Default:* "lib"
 
 Typescript  artifacts output directory.
+
+When `libdir` is changed, set `entrypoint` to match it (for example
+`libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+entrypoint rather than `libdir`, and `main` still defaults to
+`lib/index.js`.
 
 ---
 
@@ -37853,6 +37893,11 @@ public readonly libdir: string;
 - *Default:* "lib"
 
 Typescript  artifacts output directory.
+
+When `libdir` is changed, set `entrypoint` to match it (for example
+`libdir: "dist"` with `entrypoint: "dist/index.js"`). `types` follows the
+entrypoint rather than `libdir`, and `main` still defaults to
+`lib/index.js`.
 
 ---
 

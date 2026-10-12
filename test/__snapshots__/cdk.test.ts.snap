@@ -492,7 +492,7 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      pull-requests: read
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
       - id: validate-pr-title
@@ -1014,7 +1014,7 @@ jobs:
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -1499,6 +1499,7 @@ junit.xml
         "name": "pre-compile",
       },
       "release": {
+        "condition": "git log --oneline -1 | grep -v "chore(release):" > /dev/null",
         "description": "Prepare a release from "main" branch",
         "env": {
           "RELEASE": "true",
@@ -2608,7 +2609,7 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      pull-requests: read
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
       - id: validate-pr-title
@@ -3130,7 +3131,7 @@ jobs:
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -3576,6 +3577,7 @@ junit.xml
         "name": "pre-compile",
       },
       "release": {
+        "condition": "git log --oneline -1 | grep -v "chore(release):" > /dev/null",
         "description": "Prepare a release from "main" branch",
         "env": {
           "RELEASE": "true",
@@ -4591,7 +4593,7 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      pull-requests: read
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
       - id: validate-pr-title
@@ -5061,7 +5063,7 @@ jobs:
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -5436,6 +5438,7 @@ junit.xml
         "name": "pre-compile",
       },
       "release": {
+        "condition": "git log --oneline -1 | grep -v "chore(release):" > /dev/null",
         "description": "Prepare a release from "main" branch",
         "env": {
           "RELEASE": "true",

@@ -399,7 +399,7 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      pull-requests: read
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
       - id: validate-pr-title
@@ -525,7 +525,7 @@ jobs:
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -1194,7 +1194,7 @@ module.exports = json;",
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -2031,7 +2031,7 @@ module.exports = json;",
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -3770,7 +3770,7 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      pull-requests: read
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
       - id: validate-pr-title
@@ -4203,7 +4203,7 @@ jobs:
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -4899,7 +4899,7 @@ module.exports = json;",
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -5830,7 +5830,7 @@ module.exports = json;",
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -6949,7 +6949,7 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write
+      pull-requests: read
     if: (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
     steps:
       - id: validate-pr-title
@@ -7075,7 +7075,7 @@ jobs:
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7746,7 +7746,7 @@ module.exports = json;",
 !/package.json
 !/LICENSE
 !/.npmignore
-logs
+/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
