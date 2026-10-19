@@ -2563,11 +2563,27 @@ class Fixture extends Stack {
     /// here
   }
 }",
-  "src/index.ts": "export class Hello {
-  public sayHello() {
-    return 'hello, world!';
+  "src/index.ts": "import { Construct } from 'constructs';
+
+export class MyConstruct extends Construct {
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
+
+    // define resources here...
   }
 }",
+  "test/my-construct.test.ts": "import { App, Stack } from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
+import { MyConstruct } from '../src';
+
+test('Snapshot', () => {
+  const app = new App();
+  const stack = new Stack(app, 'test');
+  new MyConstruct(stack, 'MyConstruct');
+
+  const template = Template.fromStack(stack);
+  expect(template.toJSON()).toMatchSnapshot();
+});",
   "test/tsconfig.json": {
     "compilerOptions": {
       "isolatedModules": true,
