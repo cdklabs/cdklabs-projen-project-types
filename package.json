@@ -55,14 +55,14 @@
     "jsii-pacmak": "^1.141.0",
     "jsii-reflect": "^1.141.0",
     "jsii-rosetta": "~5.9",
-    "projen": "^0.104.8",
+    "projen": "^0.104.12",
     "ts-jest": "^29",
     "ts-node": "^10.9.2",
     "typescript": "~5.9"
   },
   "peerDependencies": {
     "constructs": "^10.0.0",
-    "projen": ">=0.101.15 <1.0.0"
+    "projen": ">=0.104.12 <1.0.0"
   },
   "dependencies": {
     "yaml": "^2.9.1"

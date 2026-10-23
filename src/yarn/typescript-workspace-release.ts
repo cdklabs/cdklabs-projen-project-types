@@ -13,6 +13,8 @@ export interface WorkspaceReleaseOptions {
   readonly releasableCommits?: ReleasableCommits;
   readonly nextVersionCommand?: string;
   readonly npmTrustedPublishing?: boolean;
+  readonly npmVerifyPublished?: boolean;
+  readonly npmVerifyPublishedTimeoutSeconds?: number;
   readonly environment?: string;
   readonly versionBranchOptions: VersionBranchOptions;
 
@@ -75,6 +77,8 @@ export class WorkspaceRelease extends Component {
           npmTokenSecret: options.npmTrustedPublishing ? undefined : project.package.npmTokenSecret,
           npmProvenance: project.package.npmProvenance,
           trustedPublishing: options.npmTrustedPublishing,
+          verifyPublished: options.npmVerifyPublished,
+          verifyPublishedTimeoutSeconds: options.npmVerifyPublishedTimeoutSeconds,
         });
       }
     }

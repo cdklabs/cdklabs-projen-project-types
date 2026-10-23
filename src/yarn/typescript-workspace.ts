@@ -163,6 +163,8 @@ export class TypeScriptWorkspace extends typescript.TypeScriptProject implements
       npmDistTag: options.npmDistTag,
       // Inherit setting from Monorepo if configured
       npmTrustedPublishing: options.npmTrustedPublishing ?? this.monorepo.settings.npmTrustedPublishing,
+      npmVerifyPublished: options.npmVerifyPublished ?? this.monorepo.settings.npmVerifyPublished,
+      npmVerifyPublishedTimeoutSeconds: options.npmVerifyPublishedTimeoutSeconds ?? this.monorepo.settings.npmVerifyPublishedTimeoutSeconds,
       environment: releaseEnvironment,
       releasableCommits: options.releasableCommits,
       nextVersionCommand: options.nextVersionCommand,

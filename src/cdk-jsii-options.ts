@@ -626,7 +626,8 @@ export interface CdkJsiiProjectOptions {
   readonly npmProvenance?: boolean;
   /**
    * The base URL of the npm package registry.
-   * Must be a URL (e.g. start with "https://" or "http://")
+   * Must be a URL (e.g. start with "https://" or "http://").
+   * A trailing slash is added if missing.
    * @default "https://registry.npmjs.org"
    */
   readonly npmRegistryUrl?: string;
@@ -640,6 +641,18 @@ export interface CdkJsiiProjectOptions {
    * @default - false
    */
   readonly npmTrustedPublishing?: boolean;
+  /**
+   * Wait until the published package version is available from the npm registry before the publish job completes.
+   * Enable this when packages that depend on the published package are released right after.
+   * @default false
+   */
+  readonly npmVerifyPublished?: boolean;
+  /**
+   * How long to wait, in seconds, for the published package version to be available.
+   * Requires `npmVerifyPublished` to be enabled.
+   * @default 3600
+   */
+  readonly npmVerifyPublishedTimeoutSeconds?: number;
   /**
    * The root directory of the project.
    * Relative to this directory, all files are synthesized.
