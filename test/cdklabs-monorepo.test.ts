@@ -224,6 +224,33 @@ describe('CdkLabsMonorepo', () => {
       expect(step.env).toMatchObject({ NPM_TRUSTED_PUBLISHER: 'true' });
     });
 
+    test('NPM verify published setting', () => {
+      const parent = new yarn.CdkLabsMonorepo({
+        name: 'monorepo',
+        defaultReleaseBranch: 'main',
+        release: true,
+        releaseOptions: {
+          publishToNpm: true,
+        },
+        npmVerifyPublished: true,
+        npmVerifyPublishedTimeoutSeconds: 600,
+      });
+
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        workspaceScope: 'packages',
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+      const step = releaseWorkflow.jobs['cdklabs-one_release_npm'].steps.find((s: any) => s.name === 'Release');
+      expect(step.env).toMatchObject({
+        VERIFY_PUBLISHED: 'true',
+        VERIFY_PUBLISHED_TIMEOUT_SECONDS: '600',
+      });
+    });
+
     test('releaseEnvironment', () => {
       const parent = new yarn.CdkLabsMonorepo({
         name: 'monorepo',
@@ -470,6 +497,38 @@ describe('CdkLabsMonorepo', () => {
         NPM_TRUSTED_PUBLISHER: 'true',
       });
 
+    });
+
+    test('npmVerifyPublished and npmVerifyPublishedTimeoutSeconds are respected', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+        npmVerifyPublished: true,
+        npmVerifyPublishedTimeoutSeconds: 600,
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+      const releaseStep = releaseWorkflow.jobs['cdklabs-one_release_npm'].steps.find((s: any) => s.name === 'Release');
+
+      expect(releaseStep.env).toMatchObject({
+        VERIFY_PUBLISHED: 'true',
+        VERIFY_PUBLISHED_TIMEOUT_SECONDS: '600',
+      });
+    });
+
+    test('npmVerifyPublished is not enabled by default', () => {
+      new yarn.TypeScriptWorkspace({
+        parent,
+        name: '@cdklabs/one',
+      });
+
+      const outdir = Testing.synth(parent);
+      const releaseWorkflow = YAML.parse(outdir['.github/workflows/release.yml']);
+      const releaseStep = releaseWorkflow.jobs['cdklabs-one_release_npm'].steps.find((s: any) => s.name === 'Release');
+
+      expect(releaseStep.env.VERIFY_PUBLISHED).toBeUndefined();
+      expect(releaseStep.env.VERIFY_PUBLISHED_TIMEOUT_SECONDS).toBeUndefined();
     });
 
     test('npmDistTag works', () => {

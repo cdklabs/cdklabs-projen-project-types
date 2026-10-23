@@ -14389,6 +14389,8 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
@@ -16028,7 +16030,8 @@ public readonly npmRegistryUrl: string;
 
 The base URL of the npm package registry.
 
-Must be a URL (e.g. start with "https://" or "http://")
+Must be a URL (e.g. start with "https://" or "http://").
+A trailing slash is added if missing.
 
 ---
 
@@ -16055,6 +16058,36 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+Enable this when packages that depend on the published package are released right after.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -17319,6 +17352,8 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
@@ -18805,7 +18840,8 @@ public readonly npmRegistryUrl: string;
 
 The base URL of the npm package registry.
 
-Must be a URL (e.g. start with "https://" or "http://")
+Must be a URL (e.g. start with "https://" or "http://").
+A trailing slash is added if missing.
 
 ---
 
@@ -18832,6 +18868,36 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+Enable this when packages that depend on the published package are released right after.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -20082,6 +20148,8 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
@@ -21723,7 +21791,8 @@ public readonly npmRegistryUrl: string;
 
 The base URL of the npm package registry.
 
-Must be a URL (e.g. start with "https://" or "http://")
+Must be a URL (e.g. start with "https://" or "http://").
+A trailing slash is added if missing.
 
 ---
 
@@ -21750,6 +21819,36 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+Enable this when packages that depend on the published package are released right after.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -23051,6 +23150,8 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
@@ -24539,7 +24640,8 @@ public readonly npmRegistryUrl: string;
 
 The base URL of the npm package registry.
 
-Must be a URL (e.g. start with "https://" or "http://")
+Must be a URL (e.g. start with "https://" or "http://").
+A trailing slash is added if missing.
 
 ---
 
@@ -24566,6 +24668,36 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+Enable this when packages that depend on the published package are released right after.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -25836,6 +25968,8 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.nx">nx</a></code> | <code>boolean</code> | Enable the integration with Nx in the monorepo. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
@@ -27165,7 +27299,8 @@ public readonly npmRegistryUrl: string;
 
 The base URL of the npm package registry.
 
-Must be a URL (e.g. start with "https://" or "http://")
+Must be a URL (e.g. start with "https://" or "http://").
+A trailing slash is added if missing.
 
 ---
 
@@ -27192,6 +27327,36 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+Enable this when packages that depend on the published package are released right after.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -28336,6 +28501,8 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
@@ -29338,7 +29505,8 @@ public readonly npmRegistryUrl: string;
 
 The base URL of the npm package registry.
 
-Must be a URL (e.g. start with "https://" or "http://")
+Must be a URL (e.g. start with "https://" or "http://").
+A trailing slash is added if missing.
 
 ---
 
@@ -29365,6 +29533,36 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+Enable this when packages that depend on the published package are released right after.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -30901,6 +31099,8 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.peerDependencyOptions">peerDependencyOptions</a></code> | <code>projen.javascript.PeerDependencyOptions</code> | Options for `peerDeps`. |
@@ -31903,7 +32103,8 @@ public readonly npmRegistryUrl: string;
 
 The base URL of the npm package registry.
 
-Must be a URL (e.g. start with "https://" or "http://")
+Must be a URL (e.g. start with "https://" or "http://").
+A trailing slash is added if missing.
 
 ---
 
@@ -31930,6 +32131,36 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+Enable this when packages that depend on the published package are released right after.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -33451,6 +33682,8 @@ const jsiiBuildOptions: yarn.JsiiBuildOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. |
 | <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.jsiiVersion">jsiiVersion</a></code> | <code>string</code> | Version of the jsii compiler to use. |
 | <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Whether to use trusted publishing for npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToGo">publishToGo</a></code> | <code>projen.cdk.JsiiGoTarget</code> | Publish Go bindings to a git repository. |
 | <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToMaven">publishToMaven</a></code> | <code>projen.cdk.JsiiJavaTarget</code> | Publish to maven. |
 | <code><a href="#cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToNuget">publishToNuget</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | Publish to NuGet. |
@@ -33594,6 +33827,34 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Whether to use trusted publishing for npm.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -33855,6 +34116,8 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.nx">nx</a></code> | <code>boolean</code> | Enable the integration with Nx in the monorepo. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. Relative to this directory, all files are synthesized. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
@@ -35184,7 +35447,8 @@ public readonly npmRegistryUrl: string;
 
 The base URL of the npm package registry.
 
-Must be a URL (e.g. start with "https://" or "http://")
+Must be a URL (e.g. start with "https://" or "http://").
+A trailing slash is added if missing.
 
 ---
 
@@ -35211,6 +35475,36 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+Enable this when packages that depend on the published package are released right after.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -36811,6 +37105,8 @@ const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmRegistryUrl">npmRegistryUrl</a></code> | <code>string</code> | The base URL of the npm package registry. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmTokenSecret">npmTokenSecret</a></code> | <code>string</code> | GitHub secret which contains the NPM token to use when publishing packages. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.package">package</a></code> | <code>boolean</code> | Defines a `package` task that will produce an npm tarball under the artifacts directory (e.g. `dist`). |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The Node Package Manager used to execute scripts. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.packageName">packageName</a></code> | <code>string</code> | The "name" in package.json. |
@@ -38129,7 +38425,8 @@ public readonly npmRegistryUrl: string;
 
 The base URL of the npm package registry.
 
-Must be a URL (e.g. start with "https://" or "http://")
+Must be a URL (e.g. start with "https://" or "http://").
+A trailing slash is added if missing.
 
 ---
 
@@ -38156,6 +38453,36 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Use trusted publishing for publishing to npmjs.com Needs to be pre-configured on npm.js to work.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+Enable this when packages that depend on the published package are released right after.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -39171,6 +39498,8 @@ const workspaceJsiiBuildOptions: yarn.WorkspaceJsiiBuildOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.excludeTypescript">excludeTypescript</a></code> | <code>string[]</code> | Accepts a list of glob patterns. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.jsiiVersion">jsiiVersion</a></code> | <code>string</code> | Version of the jsii compiler to use. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | Whether to use trusted publishing for npm. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | Wait until the published package version is available from the npm registry before the publish job completes. |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | How long to wait, in seconds, for the published package version to be available. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToGo">publishToGo</a></code> | <code>projen.cdk.JsiiGoTarget</code> | Publish Go bindings to a git repository. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToMaven">publishToMaven</a></code> | <code>projen.cdk.JsiiJavaTarget</code> | Publish to maven. |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.publishToNuget">publishToNuget</a></code> | <code>projen.cdk.JsiiDotNetTarget</code> | Publish to NuGet. |
@@ -39318,6 +39647,34 @@ public readonly npmTrustedPublishing: boolean;
 - *Default:* false
 
 Whether to use trusted publishing for npm.
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Wait until the published package version is available from the npm registry before the publish job completes.
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.yarn.WorkspaceJsiiBuildOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
+- *Default:* 3600
+
+How long to wait, in seconds, for the published package version to be available.
+
+Requires `npmVerifyPublished` to be enabled.
 
 ---
 
@@ -39551,6 +39908,8 @@ const workspaceReleaseOptions: yarn.WorkspaceReleaseOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.nextVersionCommand">nextVersionCommand</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmDistTag">npmDistTag</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmTrustedPublishing">npmTrustedPublishing</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmVerifyPublished">npmVerifyPublished</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmVerifyPublishedTimeoutSeconds">npmVerifyPublishedTimeoutSeconds</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.publishToNpm">publishToNpm</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.releasableCommits">releasableCommits</a></code> | <code>projen.ReleasableCommits</code> | *No description.* |
 | <code><a href="#cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.repoRuntimeDependencies">repoRuntimeDependencies</a></code> | <code>{[ key: string ]: string}</code> | For runtime and peer dependencies, the type of dependency we take on each package. |
@@ -39615,6 +39974,26 @@ public readonly npmTrustedPublishing: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `npmVerifyPublished`<sup>Optional</sup> <a name="npmVerifyPublished" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmVerifyPublished"></a>
+
+```typescript
+public readonly npmVerifyPublished: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `npmVerifyPublishedTimeoutSeconds`<sup>Optional</sup> <a name="npmVerifyPublishedTimeoutSeconds" id="cdklabs-projen-project-types.yarn.WorkspaceReleaseOptions.property.npmVerifyPublishedTimeoutSeconds"></a>
+
+```typescript
+public readonly npmVerifyPublishedTimeoutSeconds: number;
+```
+
+- *Type:* number
 
 ---
 
