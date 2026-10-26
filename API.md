@@ -14471,6 +14471,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowPermissions">workflowPermissions</a></code> | <code>projen.github.workflows.JobPermissions</code> | Permissions for the main build, release and dependency upgrade jobs. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
@@ -17198,6 +17199,28 @@ Enable Node.js package cache in GitHub workflows.
 
 ---
 
+##### `workflowPermissions`<sup>Optional</sup> <a name="workflowPermissions" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowPermissions"></a>
+
+```typescript
+public readonly workflowPermissions: JobPermissions;
+```
+
+- *Type:* projen.github.workflows.JobPermissions
+- *Default:* Use the job defaults and automatically inferred permissions.
+
+Permissions for the main build, release and dependency upgrade jobs.
+
+Defined scopes override the job defaults and automatically inferred permissions,
+including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+Use `JobPermission.NONE` to explicitly remove a permission.
+
+`buildWorkflowOptions.permissions` replaces this entire set, including automatic
+permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+scopes. Applies to all release branches, but not to separate package, publishing,
+self-mutation or pull request creation jobs, or unrelated workflows.
+
+---
+
 ##### ~~`workflowRunsOn`~~<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.workflowRunsOn"></a>
 
 - *Deprecated:* use `githubOptions.workflowRunsOn` on the project, or `runsOn` on `ReleaseOptions`
@@ -17432,6 +17455,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version used in GitHub Actions workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowPermissions">workflowPermissions</a></code> | <code>projen.github.workflows.JobPermissions</code> | Permissions for the main build, release and dependency upgrade jobs. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
@@ -19985,6 +20009,28 @@ Enable Node.js package cache in GitHub workflows.
 
 ---
 
+##### `workflowPermissions`<sup>Optional</sup> <a name="workflowPermissions" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowPermissions"></a>
+
+```typescript
+public readonly workflowPermissions: JobPermissions;
+```
+
+- *Type:* projen.github.workflows.JobPermissions
+- *Default:* Use the job defaults and automatically inferred permissions.
+
+Permissions for the main build, release and dependency upgrade jobs.
+
+Defined scopes override the job defaults and automatically inferred permissions,
+including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+Use `JobPermission.NONE` to explicitly remove a permission.
+
+`buildWorkflowOptions.permissions` replaces this entire set, including automatic
+permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+scopes. Applies to all release branches, but not to separate package, publishing,
+self-mutation or pull request creation jobs, or unrelated workflows.
+
+---
+
 ##### ~~`workflowRunsOn`~~<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.workflowRunsOn"></a>
 
 - *Deprecated:* use `githubOptions.workflowRunsOn` on the project, or `runsOn` on `ReleaseOptions`
@@ -20230,6 +20276,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowPermissions">workflowPermissions</a></code> | <code>projen.github.workflows.JobPermissions</code> | Permissions for the main build, release and dependency upgrade jobs. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
@@ -22959,6 +23006,28 @@ Enable Node.js package cache in GitHub workflows.
 
 ---
 
+##### `workflowPermissions`<sup>Optional</sup> <a name="workflowPermissions" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowPermissions"></a>
+
+```typescript
+public readonly workflowPermissions: JobPermissions;
+```
+
+- *Type:* projen.github.workflows.JobPermissions
+- *Default:* Use the job defaults and automatically inferred permissions.
+
+Permissions for the main build, release and dependency upgrade jobs.
+
+Defined scopes override the job defaults and automatically inferred permissions,
+including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+Use `JobPermission.NONE` to explicitly remove a permission.
+
+`buildWorkflowOptions.permissions` replaces this entire set, including automatic
+permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+scopes. Applies to all release branches, but not to separate package, publishing,
+self-mutation or pull request creation jobs, or unrelated workflows.
+
+---
+
 ##### ~~`workflowRunsOn`~~<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.workflowRunsOn"></a>
 
 - *Deprecated:* use `githubOptions.workflowRunsOn` on the project, or `runsOn` on `ReleaseOptions`
@@ -23230,6 +23299,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version used in GitHub Actions workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowPermissions">workflowPermissions</a></code> | <code>projen.github.workflows.JobPermissions</code> | Permissions for the main build, release and dependency upgrade jobs. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.yarnBerryOptions">yarnBerryOptions</a></code> | <code>projen.javascript.YarnBerryOptions</code> | Options for Yarn Berry. |
@@ -25785,6 +25855,28 @@ Enable Node.js package cache in GitHub workflows.
 
 ---
 
+##### `workflowPermissions`<sup>Optional</sup> <a name="workflowPermissions" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowPermissions"></a>
+
+```typescript
+public readonly workflowPermissions: JobPermissions;
+```
+
+- *Type:* projen.github.workflows.JobPermissions
+- *Default:* Use the job defaults and automatically inferred permissions.
+
+Permissions for the main build, release and dependency upgrade jobs.
+
+Defined scopes override the job defaults and automatically inferred permissions,
+including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+Use `JobPermission.NONE` to explicitly remove a permission.
+
+`buildWorkflowOptions.permissions` replaces this entire set, including automatic
+permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+scopes. Applies to all release branches, but not to separate package, publishing,
+self-mutation or pull request creation jobs, or unrelated workflows.
+
+---
+
 ##### ~~`workflowRunsOn`~~<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.workflowRunsOn"></a>
 
 - *Deprecated:* use `githubOptions.workflowRunsOn` on the project, or `runsOn` on `ReleaseOptions`
@@ -26038,6 +26130,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowPermissions">workflowPermissions</a></code> | <code>projen.github.workflows.JobPermissions</code> | Permissions for the main build, release and dependency upgrade jobs. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.yarnBerry">yarnBerry</a></code> | <code>boolean</code> | Use Yarn Berry as the package manager. |
@@ -28311,6 +28404,28 @@ Enable Node.js package cache in GitHub workflows.
 
 ---
 
+##### `workflowPermissions`<sup>Optional</sup> <a name="workflowPermissions" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowPermissions"></a>
+
+```typescript
+public readonly workflowPermissions: JobPermissions;
+```
+
+- *Type:* projen.github.workflows.JobPermissions
+- *Default:* Use the job defaults and automatically inferred permissions.
+
+Permissions for the main build, release and dependency upgrade jobs.
+
+Defined scopes override the job defaults and automatically inferred permissions,
+including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+Use `JobPermission.NONE` to explicitly remove a permission.
+
+`buildWorkflowOptions.permissions` replaces this entire set, including automatic
+permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+scopes. Applies to all release branches, but not to separate package, publishing,
+self-mutation or pull request creation jobs, or unrelated workflows.
+
+---
+
 ##### ~~`workflowRunsOn`~~<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.workflowRunsOn"></a>
 
 - *Deprecated:* use `githubOptions.workflowRunsOn` on the project, or `runsOn` on `ReleaseOptions`
@@ -28578,6 +28693,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version used in GitHub Actions workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.workflowPermissions">workflowPermissions</a></code> | <code>projen.github.workflows.JobPermissions</code> | Permissions for the main build, release and dependency upgrade jobs. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a development tsconfig file. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
@@ -30636,6 +30752,28 @@ Enable Node.js package cache in GitHub workflows.
 
 ---
 
+##### `workflowPermissions`<sup>Optional</sup> <a name="workflowPermissions" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.workflowPermissions"></a>
+
+```typescript
+public readonly workflowPermissions: JobPermissions;
+```
+
+- *Type:* projen.github.workflows.JobPermissions
+- *Default:* Use the job defaults and automatically inferred permissions.
+
+Permissions for the main build, release and dependency upgrade jobs.
+
+Defined scopes override the job defaults and automatically inferred permissions,
+including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+Use `JobPermission.NONE` to explicitly remove a permission.
+
+`buildWorkflowOptions.permissions` replaces this entire set, including automatic
+permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+scopes. Applies to all release branches, but not to separate package, publishing,
+self-mutation or pull request creation jobs, or unrelated workflows.
+
+---
+
 ##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.disableTsconfig"></a>
 
 ```typescript
@@ -31176,6 +31314,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version used in GitHub Actions workflows. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.workflowPermissions">workflowPermissions</a></code> | <code>projen.github.workflows.JobPermissions</code> | Permissions for the main build, release and dependency upgrade jobs. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.disableTsconfig">disableTsconfig</a></code> | <code>boolean</code> | Do not generate a `tsconfig.json` file (used by jsii projects since tsconfig.json is generated by the jsii compiler). |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.disableTsconfigDev">disableTsconfigDev</a></code> | <code>boolean</code> | Do not generate a development tsconfig file. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.docgen">docgen</a></code> | <code>boolean</code> | Docgen by Typedoc. |
@@ -33234,6 +33373,28 @@ Enable Node.js package cache in GitHub workflows.
 
 ---
 
+##### `workflowPermissions`<sup>Optional</sup> <a name="workflowPermissions" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.workflowPermissions"></a>
+
+```typescript
+public readonly workflowPermissions: JobPermissions;
+```
+
+- *Type:* projen.github.workflows.JobPermissions
+- *Default:* Use the job defaults and automatically inferred permissions.
+
+Permissions for the main build, release and dependency upgrade jobs.
+
+Defined scopes override the job defaults and automatically inferred permissions,
+including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+Use `JobPermission.NONE` to explicitly remove a permission.
+
+`buildWorkflowOptions.permissions` replaces this entire set, including automatic
+permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+scopes. Applies to all release branches, but not to separate package, publishing,
+self-mutation or pull request creation jobs, or unrelated workflows.
+
+---
+
 ##### `disableTsconfig`<sup>Optional</sup> <a name="disableTsconfig" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.disableTsconfig"></a>
 
 ```typescript
@@ -34186,6 +34347,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowPermissions">workflowPermissions</a></code> | <code>projen.github.workflows.JobPermissions</code> | Permissions for the main build, release and dependency upgrade jobs. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.yarnBerry">yarnBerry</a></code> | <code>boolean</code> | Use Yarn Berry as the package manager. |
@@ -36459,6 +36621,28 @@ Enable Node.js package cache in GitHub workflows.
 
 ---
 
+##### `workflowPermissions`<sup>Optional</sup> <a name="workflowPermissions" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowPermissions"></a>
+
+```typescript
+public readonly workflowPermissions: JobPermissions;
+```
+
+- *Type:* projen.github.workflows.JobPermissions
+- *Default:* Use the job defaults and automatically inferred permissions.
+
+Permissions for the main build, release and dependency upgrade jobs.
+
+Defined scopes override the job defaults and automatically inferred permissions,
+including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+Use `JobPermission.NONE` to explicitly remove a permission.
+
+`buildWorkflowOptions.permissions` replaces this entire set, including automatic
+permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+scopes. Applies to all release branches, but not to separate package, publishing,
+self-mutation or pull request creation jobs, or unrelated workflows.
+
+---
+
 ##### ~~`workflowRunsOn`~~<sup>Optional</sup> <a name="workflowRunsOn" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.workflowRunsOn"></a>
 
 - *Deprecated:* use `githubOptions.workflowRunsOn` on the project, or `runsOn` on `ReleaseOptions`
@@ -37170,6 +37354,7 @@ const typeScriptWorkspaceOptions: yarn.TypeScriptWorkspaceOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowGitIdentity">workflowGitIdentity</a></code> | <code>projen.github.GitIdentity</code> | The git identity to use in workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowNodeVersion">workflowNodeVersion</a></code> | <code>string</code> | The node version to use in GitHub workflows. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowPackageCache">workflowPackageCache</a></code> | <code>boolean</code> | Enable Node.js package cache in GitHub workflows. |
+| <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowPermissions">workflowPermissions</a></code> | <code>projen.github.workflows.JobPermissions</code> | Permissions for the main build, release and dependency upgrade jobs. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowRunsOn">workflowRunsOn</a></code> | <code>string[]</code> | Github Runner selection labels. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowRunsOnGroup">workflowRunsOnGroup</a></code> | <code>projen.GroupRunnerOptions</code> | Github Runner Group selection options. |
 | <code><a href="#cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workspaceScope">workspaceScope</a></code> | <code>string</code> | The workspace scope the package is located in. |
@@ -39368,6 +39553,28 @@ public readonly workflowPackageCache: boolean;
 - *Default:* false
 
 Enable Node.js package cache in GitHub workflows.
+
+---
+
+##### `workflowPermissions`<sup>Optional</sup> <a name="workflowPermissions" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspaceOptions.property.workflowPermissions"></a>
+
+```typescript
+public readonly workflowPermissions: JobPermissions;
+```
+
+- *Type:* projen.github.workflows.JobPermissions
+- *Default:* Use the job defaults and automatically inferred permissions.
+
+Permissions for the main build, release and dependency upgrade jobs.
+
+Defined scopes override the job defaults and automatically inferred permissions,
+including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+Use `JobPermission.NONE` to explicitly remove a permission.
+
+`buildWorkflowOptions.permissions` replaces this entire set, including automatic
+permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+scopes. Applies to all release branches, but not to separate package, publishing,
+self-mutation or pull request creation jobs, or unrelated workflows.
 
 ---
 
