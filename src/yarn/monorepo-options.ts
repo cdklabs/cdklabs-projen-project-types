@@ -981,6 +981,19 @@ export interface MonorepoOptions {
    */
   readonly workflowPackageCache?: boolean;
   /**
+   * Permissions for the main build, release and dependency upgrade jobs.
+   * Defined scopes override the job defaults and automatically inferred permissions,
+   * including CodeArtifact and Codecov OIDC. Undefined scopes keep their defaults.
+   * Use `JobPermission.NONE` to explicitly remove a permission.
+   *
+   * `buildWorkflowOptions.permissions` replaces this entire set, including automatic
+   * permissions. `depsUpgradeOptions.workflowOptions.permissions` overrides individual
+   * scopes. Applies to all release branches, but not to separate package, publishing,
+   * self-mutation or pull request creation jobs, or unrelated workflows.
+   * @default - Use the job defaults and automatically inferred permissions.
+   */
+  readonly workflowPermissions?: github.workflows.JobPermissions;
+  /**
    * Github Runner selection labels.
    * @default ["ubuntu-latest"]
    * @deprecated use `githubOptions.workflowRunsOn` on the project, or `runsOn` on `ReleaseOptions`
