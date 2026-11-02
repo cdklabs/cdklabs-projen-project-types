@@ -16480,6 +16480,9 @@ public readonly publishToGo: JsiiGoTarget;
 
 Publish Go bindings to a git repository.
 
+A separate repository is recommended. If `moduleName` refers to the source
+repository, set `publishToSourceRepository` to `true`.
+
 ---
 
 ##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.publishToMaven"></a>
@@ -19312,6 +19315,9 @@ public readonly publishToGo: JsiiGoTarget;
 - *Default:* no publishing
 
 Publish Go bindings to a git repository.
+
+A separate repository is recommended. If `moduleName` refers to the source
+repository, set `publishToSourceRepository` to `true`.
 
 ---
 
@@ -22287,6 +22293,9 @@ public readonly publishToGo: JsiiGoTarget;
 
 Publish Go bindings to a git repository.
 
+A separate repository is recommended. If `moduleName` refers to the source
+repository, set `publishToSourceRepository` to `true`.
+
 ---
 
 ##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.publishToMaven"></a>
@@ -25158,6 +25167,9 @@ public readonly publishToGo: JsiiGoTarget;
 - *Default:* no publishing
 
 Publish Go bindings to a git repository.
+
+A separate repository is recommended. If `moduleName` refers to the source
+repository, set `publishToSourceRepository` to `true`.
 
 ---
 
@@ -34030,6 +34042,9 @@ public readonly publishToGo: JsiiGoTarget;
 
 Publish Go bindings to a git repository.
 
+A separate repository is recommended. If `moduleName` refers to the source
+repository, set `publishToSourceRepository` to `true`.
+
 ---
 
 ##### `publishToMaven`<sup>Optional</sup> <a name="publishToMaven" id="cdklabs-projen-project-types.yarn.JsiiBuildOptions.property.publishToMaven"></a>
@@ -39895,6 +39910,9 @@ public readonly publishToGo: JsiiGoTarget;
 - *Default:* no publishing
 
 Publish Go bindings to a git repository.
+
+A separate repository is recommended. If `moduleName` refers to the source
+repository, set `publishToSourceRepository` to `true`.
 
 ---
 
