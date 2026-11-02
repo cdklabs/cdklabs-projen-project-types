@@ -813,6 +813,8 @@ export interface CdkJsiiProjectOptions {
   readonly publishTasks?: boolean;
   /**
    * Publish Go bindings to a git repository.
+   * A separate repository is recommended. If `moduleName` refers to the source
+   * repository, set `publishToSourceRepository` to `true`.
    * @default - no publishing
    */
   readonly publishToGo?: cdk.JsiiGoTarget;
