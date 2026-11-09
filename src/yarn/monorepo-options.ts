@@ -620,6 +620,12 @@ export interface MonorepoOptions {
    */
   readonly parent?: Project;
   /**
+   * Additional information about how peer dependencies are used, rendered as `peerDependenciesMeta` in `package.json`. For example, this can mark peer dependencies as optional.
+   * Each key must also be declared as a peer dependency.
+   * @default - no `peerDependenciesMeta`
+   */
+  readonly peerDependenciesMeta?: Record<string, javascript.PeerDependencyMeta>;
+  /**
    * Options for `peerDeps`.
    */
   readonly peerDependencyOptions?: javascript.PeerDependencyOptions;
