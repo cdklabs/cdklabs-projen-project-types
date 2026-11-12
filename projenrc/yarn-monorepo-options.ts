@@ -1,5 +1,6 @@
 import { CollectionKind, PrimitiveType } from '@jsii/spec';
 import { typescript } from 'projen';
+import { SELF_MUTATION_ON_FORKS_OPTION } from './cdk-common-options';
 import { JsiiInterface } from './jsii-extend-interface';
 
 export function generateYarnMonorepoOptions(project: typescript.TypeScriptProject) {
@@ -142,6 +143,7 @@ export function generateYarnMonorepoOptions(project: typescript.TypeScriptProjec
           default: 'true',
         },
       },
+      SELF_MUTATION_ON_FORKS_OPTION,
     ],
   });
 

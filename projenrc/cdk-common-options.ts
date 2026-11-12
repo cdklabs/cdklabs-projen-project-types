@@ -2,6 +2,17 @@ import { PrimitiveType, Property } from '@jsii/spec';
 import { typescript } from 'projen';
 import { JsiiInterface } from './jsii-extend-interface';
 
+export const SELF_MUTATION_ON_FORKS_OPTION: Property = {
+  name: 'selfMutationOnForks',
+  optional: true,
+  type: { primitive: PrimitiveType.Boolean },
+  docs: {
+    summary: 'Apply self-mutations to pull requests from forks.',
+    remarks: 'Replaces the self-mutation job of the build workflow with a separate workflow\nthat pushes the build patch back to the pull request, including pull requests from forks.',
+    default: 'false',
+  },
+};
+
 export const COMMON_OPTIONS: Property[] = [
   {
     name: 'private',
@@ -79,6 +90,7 @@ export const COMMON_OPTIONS: Property[] = [
       default: 'true',
     },
   },
+  SELF_MUTATION_ON_FORKS_OPTION,
 ];
 
 export function generateCdkCommonOptions(project: typescript.TypeScriptProject) {

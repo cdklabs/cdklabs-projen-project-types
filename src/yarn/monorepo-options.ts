@@ -875,6 +875,13 @@ export interface MonorepoOptions {
    */
   readonly scopedPackagesOptions?: Array<javascript.ScopedPackagesOptions>;
   /**
+   * Apply self-mutations to pull requests from forks.
+   * Replaces the self-mutation job of the build workflow with a separate workflow
+   * that pushes the build patch back to the pull request, including pull requests from forks.
+   * @default false
+   */
+  readonly selfMutationOnForks?: boolean;
+  /**
    * Typescript sources directory.
    * @default "src"
    */

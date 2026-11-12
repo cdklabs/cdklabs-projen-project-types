@@ -7,5 +7,6 @@ export * from './jsii';
 export * from './cdklabs';
 export * from './rosetta';
 export * from './check-gha-expressions';
+export * from './self-mutation-on-forks';
 
 export * as yarn from './yarn';

@@ -6,6 +6,7 @@ import { MonorepoRelease } from './monorepo-release';
 import { Nx } from './nx';
 import { TypeScriptWorkspace } from './typescript-workspace';
 import { CheckGhaExpressions } from '../check-gha-expressions';
+import { SelfMutationOnForks } from '../self-mutation-on-forks';
 
 const MONOREPO_SYM = Symbol.for('cdklabs-projen-project-types.yarn.Monorepo');
 
@@ -55,6 +56,10 @@ export class Monorepo extends typescript.TypeScriptProject {
 
     if (settings.checkGhaExpressions ?? true) {
       new CheckGhaExpressions(this);
+    }
+
+    if (settings.selfMutationOnForks) {
+      new SelfMutationOnForks(this);
     }
 
     Object.defineProperty(this, MONOREPO_SYM, { value: true });

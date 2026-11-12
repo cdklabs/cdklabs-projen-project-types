@@ -4,6 +4,7 @@ import { CdkCommonOptions } from './cdk-common-options';
 import { CheckGhaExpressions } from './check-gha-expressions';
 import { Private } from './private';
 import { RetryAutoMerge } from './retryautomerge';
+import { SelfMutationOnForks } from './self-mutation-on-forks';
 import { UpgradeCdklabsProjenProjectTypes } from './upgrade-cdklabs-projen-project-types';
 
 export enum OrgTenancy {
@@ -77,6 +78,7 @@ export function withCommonOptionsDefaults<T extends ProjectOptions>(options: T):
     // that use tools that want a recent Node version, so default to a reasonable floating version.
     workflowNodeVersion: options.workflowNodeVersion ?? 'lts/*',
     checkGhaExpressions: options.checkGhaExpressions ?? true,
+    selfMutationOnForks: options.selfMutationOnForks ?? false,
   };
 
   return deepMerge([{}, options, common]) as T & ConfiguredCommonOptions;
@@ -87,6 +89,10 @@ export function configureCommonComponents(project: typescript.TypeScriptProject,
 
   if (opts.checkGhaExpressions ?? true) {
     new CheckGhaExpressions(project);
+  }
+
+  if (opts.selfMutationOnForks) {
+    new SelfMutationOnForks(project);
   }
 
   if (opts.private) {
