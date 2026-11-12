@@ -12357,6 +12357,244 @@ public readonly project: Project;
 ---
 
 
+### SelfMutationOnForks <a name="SelfMutationOnForks" id="cdklabs-projen-project-types.SelfMutationOnForks"></a>
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate
+workflow that runs when the build workflow fails on a pull request.
+If the failed build uploaded a patch, the workflow checks out the
+pull request branch, applies the patch and pushes the changes back
+to the pull request using the projen credentials.
+
+This also works for pull requests from forks, as long as the fork
+allows edits from maintainers.
+
+#### Initializers <a name="Initializers" id="cdklabs-projen-project-types.SelfMutationOnForks.Initializer"></a>
+
+```typescript
+import { SelfMutationOnForks } from 'cdklabs-projen-project-types'
+
+new SelfMutationOnForks(project: Project, options?: SelfMutationOnForksOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.Initializer.parameter.options">options</a></code> | <code><a href="#cdklabs-projen-project-types.SelfMutationOnForksOptions">SelfMutationOnForksOptions</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.SelfMutationOnForks.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="cdklabs-projen-project-types.SelfMutationOnForks.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdklabs-projen-project-types.SelfMutationOnForksOptions">SelfMutationOnForksOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.postProjectCreation">postProjectCreation</a></code> | Called once, right after `postSynthesize()`, only when the project is created for the first time. |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.projectCreation">projectCreation</a></code> | Called once, right after `synthesize()`, only when the project is created for the first time. |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="cdklabs-projen-project-types.SelfMutationOnForks.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdklabs-projen-project-types.SelfMutationOnForks.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdklabs-projen-project-types.SelfMutationOnForks.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
+
+##### `postProjectCreation` <a name="postProjectCreation" id="cdklabs-projen-project-types.SelfMutationOnForks.postProjectCreation"></a>
+
+```typescript
+public postProjectCreation(initProject: InitProject): void
+```
+
+Called once, right after `postSynthesize()`, only when the project is created for the first time.
+
+It does not run on later `projen` invocations. It only fires for `projen new` (or `Projects.createProject`).
+It is also skipped when post-synthesis steps are disabled, e.g. `--no-post` or `PROJEN_DISABLE_POST`.
+Use it for one-off setup that can be turned off by the user, like running a task to give the user immediate
+feedback on their new project. Order across components is not guaranteed.
+
+###### `initProject`<sup>Required</sup> <a name="initProject" id="cdklabs-projen-project-types.SelfMutationOnForks.postProjectCreation.parameter.initProject"></a>
+
+- *Type:* projen.InitProject
+
+Details about how the project was created, e.g. its type and the original CLI args.
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="cdklabs-projen-project-types.SelfMutationOnForks.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="cdklabs-projen-project-types.SelfMutationOnForks.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `projectCreation` <a name="projectCreation" id="cdklabs-projen-project-types.SelfMutationOnForks.projectCreation"></a>
+
+```typescript
+public projectCreation(initProject: InitProject): void
+```
+
+Called once, right after `synthesize()`, only when the project is created for the first time.
+
+It does not run on later `projen` invocations. It only fires for `projen new` (or `Projects.createProject`).
+Use it for deterministic, one-off file generation. Order across components is not guaranteed.
+
+###### `initProject`<sup>Required</sup> <a name="initProject" id="cdklabs-projen-project-types.SelfMutationOnForks.projectCreation.parameter.initProject"></a>
+
+- *Type:* projen.InitProject
+
+Details about how the project was created, e.g. its type and the original CLI args.
+
+---
+
+##### `synthesize` <a name="synthesize" id="cdklabs-projen-project-types.SelfMutationOnForks.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdklabs-projen-project-types.SelfMutationOnForks.isConstruct"></a>
+
+```typescript
+import { SelfMutationOnForks } from 'cdklabs-projen-project-types'
+
+SelfMutationOnForks.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.SelfMutationOnForks.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="cdklabs-projen-project-types.SelfMutationOnForks.isComponent"></a>
+
+```typescript
+import { SelfMutationOnForks } from 'cdklabs-projen-project-types'
+
+SelfMutationOnForks.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdklabs-projen-project-types.SelfMutationOnForks.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForks.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdklabs-projen-project-types.SelfMutationOnForks.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="cdklabs-projen-project-types.SelfMutationOnForks.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ### TypeScriptWorkspace <a name="TypeScriptWorkspace" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace"></a>
 
 - *Implements:* cdklabs-projen-project-types.yarn.IWorkspaceReference
@@ -14149,6 +14387,7 @@ const cdkCommonOptions: CdkCommonOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.selfMutationOnForks">selfMutationOnForks</a></code> | <code>boolean</code> | Apply self-mutations to pull requests from forks. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The organization this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkCommonOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dependencies. |
@@ -14211,6 +14450,22 @@ public readonly private: boolean;
 Whether or not this package is private.
 
 Setting this variable to true means that your project is created with sane defaults for private repositories.
+
+---
+
+##### `selfMutationOnForks`<sup>Optional</sup> <a name="selfMutationOnForks" id="cdklabs-projen-project-types.CdkCommonOptions.property.selfMutationOnForks"></a>
+
+```typescript
+public readonly selfMutationOnForks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate workflow
+that pushes the build patch back to the pull request, including pull requests from forks.
 
 ---
 
@@ -14448,6 +14703,7 @@ const cdkConstructLibraryOptions: CdkConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.selfMutationOnForks">selfMutationOnForks</a></code> | <code>boolean</code> | Apply self-mutations to pull requests from forks. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.singletonLambdaAutoDiscover">singletonLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.SingletonFunction` for each `.singleton-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#cdklabs-projen-project-types.CdkConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
@@ -16882,6 +17138,22 @@ Options for privately hosted scoped packages.
 
 ---
 
+##### `selfMutationOnForks`<sup>Optional</sup> <a name="selfMutationOnForks" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.selfMutationOnForks"></a>
+
+```typescript
+public readonly selfMutationOnForks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate workflow
+that pushes the build patch back to the pull request, including pull requests from forks.
+
+---
+
 ##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdkConstructLibraryOptions.property.setNodeEngineVersion"></a>
 
 ```typescript
@@ -17452,6 +17724,7 @@ const cdkJsiiProjectOptions: CdkJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.selfMutationOnForks">selfMutationOnForks</a></code> | <code>boolean</code> | Apply self-mutations to pull requests from forks. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdkJsiiProjectOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
@@ -19722,6 +19995,22 @@ Options for privately hosted scoped packages.
 
 ---
 
+##### `selfMutationOnForks`<sup>Optional</sup> <a name="selfMutationOnForks" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.selfMutationOnForks"></a>
+
+```typescript
+public readonly selfMutationOnForks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate workflow
+that pushes the build patch back to the pull request, including pull requests from forks.
+
+---
+
 ##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdkJsiiProjectOptions.property.setNodeEngineVersion"></a>
 
 ```typescript
@@ -20291,6 +20580,7 @@ const cdklabsConstructLibraryOptions: CdklabsConstructLibraryOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.selfMutationOnForks">selfMutationOnForks</a></code> | <code>boolean</code> | Apply self-mutations to pull requests from forks. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.singletonLambdaAutoDiscover">singletonLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.SingletonFunction` for each `.singleton-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
@@ -22727,6 +23017,22 @@ Options for privately hosted scoped packages.
 
 ---
 
+##### `selfMutationOnForks`<sup>Optional</sup> <a name="selfMutationOnForks" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.selfMutationOnForks"></a>
+
+```typescript
+public readonly selfMutationOnForks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate workflow
+that pushes the build patch back to the pull request, including pull requests from forks.
+
+---
+
 ##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdklabsConstructLibraryOptions.property.setNodeEngineVersion"></a>
 
 ```typescript
@@ -23334,6 +23640,7 @@ const cdklabsJsiiProjectOptions: CdklabsJsiiProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.sampleCode">sampleCode</a></code> | <code>boolean</code> | Generate one-time sample in `src/` and `test/` if there are no files there. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.selfMutationOnForks">selfMutationOnForks</a></code> | <code>boolean</code> | Apply self-mutations to pull requests from forks. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
@@ -25606,6 +25913,22 @@ Options for privately hosted scoped packages.
 
 ---
 
+##### `selfMutationOnForks`<sup>Optional</sup> <a name="selfMutationOnForks" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.selfMutationOnForks"></a>
+
+```typescript
+public readonly selfMutationOnForks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate workflow
+that pushes the build patch back to the pull request, including pull requests from forks.
+
+---
+
 ##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdklabsJsiiProjectOptions.property.setNodeEngineVersion"></a>
 
 ```typescript
@@ -26187,6 +26510,7 @@ const cdkLabsMonorepoOptions: yarn.CdkLabsMonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.selfMutationOnForks">selfMutationOnForks</a></code> | <code>boolean</code> | Apply self-mutations to pull requests from forks. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
 | <code><a href="#cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
@@ -28213,6 +28537,22 @@ Options for privately hosted scoped packages.
 
 ---
 
+##### `selfMutationOnForks`<sup>Optional</sup> <a name="selfMutationOnForks" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.selfMutationOnForks"></a>
+
+```typescript
+public readonly selfMutationOnForks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate workflow
+that pushes the build patch back to the pull request, including pull requests from forks.
+
+---
+
 ##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepoOptions.property.srcdir"></a>
 
 ```typescript
@@ -28809,6 +29149,7 @@ const cdklabsTypeScriptProjectOptions: CdklabsTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.selfMutationOnForks">selfMutationOnForks</a></code> | <code>boolean</code> | Apply self-mutations to pull requests from forks. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The organization this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dependencies. |
@@ -31227,6 +31568,22 @@ Setting this variable to true means that your project is created with sane defau
 
 ---
 
+##### `selfMutationOnForks`<sup>Optional</sup> <a name="selfMutationOnForks" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.selfMutationOnForks"></a>
+
+```typescript
+public readonly selfMutationOnForks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate workflow
+that pushes the build patch back to the pull request, including pull requests from forks.
+
+---
+
 ##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdklabsTypeScriptProjectOptions.property.setNodeEngineVersion"></a>
 
 ```typescript
@@ -31455,6 +31812,7 @@ const cdkTypeScriptProjectOptions: CdkTypeScriptProjectOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.enablePRAutoMerge">enablePRAutoMerge</a></code> | <code>boolean</code> | Whether to enable the auto merge workflow for PRs. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.ghAutoMergeOptions">ghAutoMergeOptions</a></code> | <code>projen.github.AutoQueueOptions</code> | Options for the GitHub auto merge workflow. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.private">private</a></code> | <code>boolean</code> | Whether or not this package is private. |
+| <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.selfMutationOnForks">selfMutationOnForks</a></code> | <code>boolean</code> | Apply self-mutations to pull requests from forks. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.setNodeEngineVersion">setNodeEngineVersion</a></code> | <code>boolean</code> | Set a minimal node version via the engines field Set this to `false` if a package did not enforce this previously and we don't want to change this for now. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.tenancy">tenancy</a></code> | <code><a href="#cdklabs-projen-project-types.OrgTenancy">OrgTenancy</a></code> | The organization this project is part of. |
 | <code><a href="#cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.upgradeCdklabsProjenProjectTypes">upgradeCdklabsProjenProjectTypes</a></code> | <code>boolean</code> | Whether to enable the separate workflow to upgrade the cdklabs-projen-project-types dependencies. |
@@ -33873,6 +34231,22 @@ Setting this variable to true means that your project is created with sane defau
 
 ---
 
+##### `selfMutationOnForks`<sup>Optional</sup> <a name="selfMutationOnForks" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.selfMutationOnForks"></a>
+
+```typescript
+public readonly selfMutationOnForks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate workflow
+that pushes the build patch back to the pull request, including pull requests from forks.
+
+---
+
 ##### `setNodeEngineVersion`<sup>Optional</sup> <a name="setNodeEngineVersion" id="cdklabs-projen-project-types.CdkTypeScriptProjectOptions.property.setNodeEngineVersion"></a>
 
 ```typescript
@@ -34473,6 +34847,7 @@ const monorepoOptions: yarn.MonorepoOptions = { ... }
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.repositoryDirectory">repositoryDirectory</a></code> | <code>string</code> | If the package.json for your package is not in the root directory (for example if it is part of a monorepo), you can specify the directory in which it lives. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.runner">runner</a></code> | <code>projen.typescript.TypeScriptRunner</code> | The TypeScript runner to use for executing TypeScript files. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.scopedPackagesOptions">scopedPackagesOptions</a></code> | <code>projen.javascript.ScopedPackagesOptions[]</code> | Options for privately hosted scoped packages. |
+| <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.selfMutationOnForks">selfMutationOnForks</a></code> | <code>boolean</code> | Apply self-mutations to pull requests from forks. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.srcdir">srcdir</a></code> | <code>string</code> | Typescript sources directory. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.stability">stability</a></code> | <code>string</code> | Package's Stability. |
 | <code><a href="#cdklabs-projen-project-types.yarn.MonorepoOptions.property.stale">stale</a></code> | <code>boolean</code> | Auto-close of stale issues and pull request. |
@@ -36499,6 +36874,22 @@ Options for privately hosted scoped packages.
 
 ---
 
+##### `selfMutationOnForks`<sup>Optional</sup> <a name="selfMutationOnForks" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.selfMutationOnForks"></a>
+
+```typescript
+public readonly selfMutationOnForks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Apply self-mutations to pull requests from forks.
+
+Replaces the self-mutation job of the build workflow with a separate workflow
+that pushes the build patch back to the pull request, including pull requests from forks.
+
+---
+
 ##### `srcdir`<sup>Optional</sup> <a name="srcdir" id="cdklabs-projen-project-types.yarn.MonorepoOptions.property.srcdir"></a>
 
 ```typescript
@@ -37343,6 +37734,39 @@ public readonly version: string;
 - *Default:* no version is set, use automatic detection
 
 Set an explicit version of rosetta.
+
+---
+
+### SelfMutationOnForksOptions <a name="SelfMutationOnForksOptions" id="cdklabs-projen-project-types.SelfMutationOnForksOptions"></a>
+
+Options for `SelfMutationOnForks`.
+
+#### Initializer <a name="Initializer" id="cdklabs-projen-project-types.SelfMutationOnForksOptions.Initializer"></a>
+
+```typescript
+import { SelfMutationOnForksOptions } from 'cdklabs-projen-project-types'
+
+const selfMutationOnForksOptions: SelfMutationOnForksOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdklabs-projen-project-types.SelfMutationOnForksOptions.property.environment">environment</a></code> | <code>string</code> | The GitHub Actions environment to use for the self-mutation job. |
+
+---
+
+##### `environment`<sup>Optional</sup> <a name="environment" id="cdklabs-projen-project-types.SelfMutationOnForksOptions.property.environment"></a>
+
+```typescript
+public readonly environment: string;
+```
+
+- *Type:* string
+- *Default:* the environment of the projen credentials
+
+The GitHub Actions environment to use for the self-mutation job.
 
 ---
 
