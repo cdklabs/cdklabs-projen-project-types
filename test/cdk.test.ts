@@ -41,7 +41,7 @@ describe('CdkConstructLibrary', () => {
         new TestCdkConstructLibrary({
           stability: Stability.STABLE,
         });
-      }).toThrowError([
+      }).toThrow([
         'The project does not pass stability requirements due to the following errors:',
         '  Publishing Error: project not configured to publish to Python',
         '  Publishing Error: project not configured to publish to Maven',
@@ -68,7 +68,7 @@ describe('CdkConstructLibrary', () => {
             packageId: 'packageId',
           },
         });
-      }).toThrowError([
+      }).toThrow([
         'The project does not pass stability requirements due to the following errors:',
         '  Publishing Error: project not configured to publish to Go',
       ].join('\n'));

@@ -40,6 +40,11 @@ const project = new CdklabsJsiiProject({
   cdklabsPublishingDefaults: false,
   npmTrustedPublishing: true,
   releaseEnvironment: 'release',
+  jestOptions: {
+    // projen depends on dax, which is ESM-only
+    experimentalVmModules: true,
+    jestVersion: '^30',
+  },
 });
 project.addPeerDeps('constructs@^10.0.0');
 
