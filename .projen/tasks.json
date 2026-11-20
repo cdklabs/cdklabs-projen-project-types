@@ -309,7 +309,10 @@
             "--passWithNoTests",
             "--updateSnapshot"
           ],
-          "receiveArgs": true
+          "receiveArgs": true,
+          "env": {
+            "NODE_OPTIONS": "--experimental-vm-modules"
+          }
         },
         {
           "spawn": "eslint"
@@ -324,7 +327,10 @@
           "execArgs": [
             "jest",
             "--watch"
-          ]
+          ],
+          "env": {
+            "NODE_OPTIONS": "--experimental-vm-modules"
+          }
         }
       ]
     },
@@ -408,7 +414,7 @@
             "--peer",
             "--no-deprecated",
             "--dep=dev",
-            "--filter=@jsii/spec,@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,jsii-reflect,ts-jest,ts-node"
+            "--filter=@jsii/spec,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-pacmak,jsii-reflect,ts-node"
           ]
         },
         {
@@ -430,8 +436,8 @@
             "eslint-import-resolver-typescript",
             "eslint-plugin-import",
             "eslint",
-            "jest",
             "jest-junit",
+            "jest",
             "jsii-diff",
             "jsii-docgen",
             "jsii-pacmak",

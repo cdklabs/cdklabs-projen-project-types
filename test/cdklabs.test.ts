@@ -149,7 +149,7 @@ describe('CdklabsConstructLibrary', () => {
             stability: Stability.STABLE,
             jsiiTargetLanguages: [JsiiLanguage.JAVA, JsiiLanguage.PYTHON],
           });
-        }).toThrowError([
+        }).toThrow([
           'The project does not pass stability requirements due to the following errors:',
           '  Publishing Error: project not configured to publish to Nuget',
           '  Publishing Error: project not configured to publish to Go',
