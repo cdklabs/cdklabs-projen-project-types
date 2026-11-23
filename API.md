@@ -4,6 +4,8 @@
 
 ### CdkConstructLibrary <a name="CdkConstructLibrary" id="cdklabs-projen-project-types.CdkConstructLibrary"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 Create a Cdk Construct Library Project.
 
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdkConstructLibrary.Initializer"></a>
@@ -1432,6 +1434,8 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 
 ### CdkJsiiProject <a name="CdkJsiiProject" id="cdklabs-projen-project-types.CdkJsiiProject"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 Create a Cdk Jsii Jsii project.
 
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdkJsiiProject.Initializer"></a>
@@ -2835,6 +2839,8 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 ---
 
 ### CdklabsConstructLibrary <a name="CdklabsConstructLibrary" id="cdklabs-projen-project-types.CdklabsConstructLibrary"></a>
+
+- *Implements:* constructs.IConstruct, constructs.IDependable
 
 Create a Cdklabs Construct Library Project.
 
@@ -4264,6 +4270,8 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 
 ### CdklabsJsiiProject <a name="CdklabsJsiiProject" id="cdklabs-projen-project-types.CdklabsJsiiProject"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 Create a Cdklabs Jsii Project.
 
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdklabsJsiiProject.Initializer"></a>
@@ -5667,6 +5675,8 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 ---
 
 ### CdkLabsMonorepo <a name="CdkLabsMonorepo" id="cdklabs-projen-project-types.yarn.CdkLabsMonorepo"></a>
+
+- *Implements:* constructs.IConstruct, constructs.IDependable
 
 Opinionated implementation of yarn.Monorepo.
 
@@ -7128,6 +7138,8 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 
 ### CdklabsTypeScriptProject <a name="CdklabsTypeScriptProject" id="cdklabs-projen-project-types.CdklabsTypeScriptProject"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 Create a Cdklabs TypeScript Project.
 
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.CdklabsTypeScriptProject.Initializer"></a>
@@ -8531,6 +8543,8 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 ---
 
 ### CdkTypeScriptProject <a name="CdkTypeScriptProject" id="cdklabs-projen-project-types.CdkTypeScriptProject"></a>
+
+- *Implements:* constructs.IConstruct, constructs.IDependable
 
 Create a Cdk TypeScript Project.
 
@@ -9936,6 +9950,8 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 
 ### CheckGhaExpressions <a name="CheckGhaExpressions" id="cdklabs-projen-project-types.CheckGhaExpressions"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 Check GitHub Actions workflows for the use of dangerous expressions directly interpolated in shell steps.
 
 Some of these can be used to perform command injection attacks. We block all of them to be overly safe,
@@ -10163,6 +10179,8 @@ public readonly project: Project;
 
 ### Constraints <a name="Constraints" id="cdklabs-projen-project-types.yarn.Constraints"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.Constraints.Initializer"></a>
 
 ```typescript
@@ -10389,6 +10407,8 @@ public readonly project: Monorepo;
 
 
 ### Monorepo <a name="Monorepo" id="cdklabs-projen-project-types.yarn.Monorepo"></a>
+
+- *Implements:* constructs.IConstruct, constructs.IDependable
 
 A monorepo using yarn workspaces.
 
@@ -11850,6 +11870,8 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 
 ### MonorepoRelease <a name="MonorepoRelease" id="cdklabs-projen-project-types.yarn.MonorepoRelease"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.MonorepoRelease.Initializer"></a>
 
 ```typescript
@@ -12126,6 +12148,8 @@ public readonly project: Project;
 
 ### Rosetta <a name="Rosetta" id="cdklabs-projen-project-types.Rosetta"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 The Rosetta component adds builtin rosetta support for a construct library.
 
 Since ConstructHub will run
@@ -12359,7 +12383,7 @@ public readonly project: Project;
 
 ### TypeScriptWorkspace <a name="TypeScriptWorkspace" id="cdklabs-projen-project-types.yarn.TypeScriptWorkspace"></a>
 
-- *Implements:* cdklabs-projen-project-types.yarn.IWorkspaceReference
+- *Implements:* constructs.IConstruct, constructs.IDependable, cdklabs-projen-project-types.yarn.IWorkspaceReference
 
 A TypeScript workspace in a `yarn.Monorepo`.
 
@@ -13857,6 +13881,8 @@ public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
 ---
 
 ### WorkspaceRelease <a name="WorkspaceRelease" id="cdklabs-projen-project-types.yarn.WorkspaceRelease"></a>
+
+- *Implements:* constructs.IConstruct, constructs.IDependable
 
 #### Initializers <a name="Initializers" id="cdklabs-projen-project-types.yarn.WorkspaceRelease.Initializer"></a>
 
